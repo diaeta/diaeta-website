@@ -8756,3 +8756,30 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   .stories-wrapper, .story-cards-container { min-height: 750px; } /* Further height adjustment */
    .story-navigation { top: 25%; }
 }
+
+/* style.css */
+
+/* Classes for highlighting text within descriptions */
+.text-highlight-accent {
+  color: var(--accent-600); /* Slightly darker green for better contrast */
+  font-weight: 600; /* Medium bold */
+}
+
+.text-highlight-secondary {
+  color: var(--secondary-600); /* Slightly darker coral */
+  font-weight: 500; /* Slightly bolder */
+}
+
+.text-highlight-primary {
+ color: var(--primary-600); /* Darker teal */
+ font-weight: 600; /* Medium bold */
+}
+
+/* Optional: Add a subtle underline to colored highlights */
+
+.text-highlight-accent,
+.text-highlight-secondary,
+.text-highlight-primary {
+  border-bottom: 1px dotted currentColor;
+}
+

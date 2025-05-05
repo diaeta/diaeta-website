@@ -6,10 +6,10 @@
     <meta name="description" content="Diaeta - Votre partenaire en nutrition scientifiquement validée à Bruxelles. Consultations personnalisées pour perte de poids, syndrome du côlon irritable, hypertension et diabète.">
     <title>Diaeta - Diététique Scientifique à Bruxelles</title>
 
-    <link rel="preload" href="fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-v20-latin-500.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="images/logo.svg" as="image">
+    <link rel="preload" href="../fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/poppins-v20-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../images/logo.svg" as="image">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -19,11 +19,11 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
 
     <style>
       :root {
@@ -46,7 +46,7 @@
       <div class="container header-container">
         <div class="logo">
           <a href="index.html" aria-label="Diaeta - Accueil">
-            <img src="images/logo.svg" alt="Diaeta Logo" width="142" height="50">
+            <img src="../images/logo.svg" alt="Diaeta Logo" width="142" height="50">
           </a>
         </div>
         <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
@@ -90,7 +90,7 @@
     <main id="main-content">
         <section class="hero-section">
           <div class="hero-background">
-            <video autoplay muted loop playsinline poster="images/hero-poster-medium.jpg" id="hero-video"><source src="videos/Background video.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline poster="../images/hero-poster-medium.jpg" id="hero-video"><source src="../videos/Background video.mp4" type="video/mp4"></video>
             <div class="hero-overlay"></div>
           </div>
           <div class="container hero-content">
@@ -123,28 +123,68 @@
                 </div>
                 <div class="science-pillar-groups">
                   <div class="pillar-group animate-on-scroll fade-in">
-                    <div class="pillar-group-title"><div class="pillar-group-icon"><i class="fa-solid fa-flask-vial"></i></div><h3>Fondation Scientifique</h3></div>
+                    <div class="pillar-group-title">
+                      <div class="pillar-group-icon"><i class="fa-solid fa-flask-vial"></i></div>
+                      <h3>Fondation Scientifique</h3>
+                    </div>
                     <div class="pillars-container">
-                      <div class="science-pillar"><div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div><div class="pillar-content"><h4 class="pillar-title">Evidence-Based</h4><p class="pillar-description">Des recommandations fondées sur les dernières recherches scientifiques validées. Nous nous appuyons sur les études cliniques, la science métabolique et la physiologie humaine.</p></div></div>
-                      <div class="science-pillar"><div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div><div class="pillar-content"><h4 class="pillar-title">Personnalisation</h4><p class="pillar-description">Un plan nutritionnel unique, adapté à votre métabolisme et mode de vie particuliers.</p></div></div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Evidence-Based</h4>
+                          <p class="pillar-description">Des recommandations fondées sur les dernières recherches scientifiques validées. Nous nous appuyons sur les études cliniques, la science métabolique et la physiologie humaine.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Personnalisation</h4>
+                          <p class="pillar-description">Un plan nutritionnel unique, adapté à votre métabolisme et mode de vie particuliers.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                   <div class="pillar-group animate-on-scroll fade-in">
-                    <div class="pillar-group-title"><div class="pillar-group-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Stratégie d'Implémentation</h3></div>
+                    <div class="pillar-group-title">
+                      <div class="pillar-group-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                      <h3>Stratégie d'Implémentation</h3>
+                    </div>
                     <div class="pillars-container">
-                      <div class="science-pillar"><div class="pillar-icon"><i class="fa-solid fa-clock-rotate-left"></i></div><div class="pillar-content"><h4 class="pillar-title">Résultats durables</h4><p class="pillar-description">Des stratégies efficaces qui s'intègrent naturellement dans votre quotidien.</p></div></div>
-                      <div class="science-pillar"><div class="pillar-icon"><i class="fa-solid fa-clipboard-check"></i></div><div class="pillar-content"><h4 class="pillar-title">Suivi précis</h4><p class="pillar-description">Mesures et ajustements réguliers pour optimiser vos progrès.</p></div></div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-route"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Parcours Unique</h4>
+                          <p class="pillar-description">Une stratégie nutritionnelle unique, basée sur la science et adaptée à votre corps et votre style de vie, pour des résultats concrets.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Bien-être Durable</h4>
+                          <p class="pillar-description">Atteignez vos objectifs avec des habitudes saines, pratiques et savoureuses, sans frustration ni régime restrictif.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Technologie & Suivi</h4>
+                          <p class="pillar-description">Profitez d'outils technologiques (app, analyses) pour visualiser vos progrès et bénéficier d'un soutien continu et personnalisé.</p>
+                        </div>
+                      </div>
+                     
                     </div>
                   </div>
-                </div>
+                  </div>
                 <div class="science-cta">
                   <a href="#contact" class="btn btn-primary"><span>Consultation initiale</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
-                  <a href="ecosysteme.html" class="btn btn-outline"><span>Découvrir notre écosystème</span></a> </div>
+                  <a href="ecosysteme.html" class="btn btn-outline"><span>Découvrir notre écosystème</span></a>
+                </div>
               </div>
               <div class="science-image-container animate-on-scroll fade-up">
-                <img src="images/scientific-nutrition-analysis.png" alt="Analyse nutritionnelle scientifique" class="science-main-image" width="540" height="405">
-                <img src="images/personalized-nutrition-plan.png" alt="Plan nutritionnel personnalisé" class="science-accent-image science-accent-1" width="324" height="243">
-                <img src="images/nutrition-research-lab.png" alt="Recherche en nutrition" class="science-accent-image science-accent-2" width="220" height="165">
+                <img src="../images/scientific-nutrition-analysis.png" alt="Analyse nutritionnelle scientifique" class="science-main-image" width="540" height="405">
+                <img src="../images/personalized-nutrition-plan.png" alt="Plan nutritionnel personnalisé" class="science-accent-image science-accent-1" width="324" height="243">
+                <img src="../images/nutrition-research-lab.png" alt="Recherche en nutrition" class="science-accent-image science-accent-2" width="220" height="165">
               </div>
             </div>
           </div>
@@ -157,26 +197,51 @@
               <p class="section-subtitle">Des approches scientifiques et personnalisées pour vos besoins spécifiques</p>
             </div>
             <div class="specialties-grid">
+    
               <div class="specialty-card animate-on-scroll fade-up delay-100">
-                <div class="specialty-media"><img src="images/WeightLoss.jpg" alt="Perte de poids" class="specialty-image"><div class="specialty-overlay"></div><div class="specialty-category">Populaire</div></div>
+                <div class="specialty-media">
+                  <img src="../images/WeightLoss.jpg" alt="Perte de poids durable chez Diaeta" class="specialty-image" loading="lazy">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Populaire</div>
+                </div>
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-weight-scale"></i></div>
                   <h3 class="specialty-title">Perte de Poids Durable</h3>
-                  <p class="specialty-description">Notre approche scientifique de la perte de poids est adaptée à votre métabolisme unique pour des résultats durables sans restrictions frustrantes. Nous utilisons une analyse métabolique avancée pour créer un plan personnalisé qui fonctionne avec votre corps.</p>
+                  <p class="specialty-description">
+                     <em>Maigrir durablement vous semble compliqué ?</em><br>
+                     La perte de poids durable demande une <strong>véritable expertise</strong> en diététique. Notre diététicien conçoit votre <span class="text-highlight-primary">stratégie personnalisée</span>, basée sur la <strong class="text-highlight-accent">science</strong> et votre <strong>métabolisme unique</strong>. Oubliez les <em class="text-highlight-secondary">régimes frustrants</em>; nous privilégions une <strong>approche efficace</strong> qui s'intègre à votre vie, <strong>sans contraintes</strong>. Atteignez enfin vos objectifs de perte de poids avec un accompagnement <strong>professionnel et bienveillant</strong>.
+                   </p>
                   <div class="specialty-stats">
-                    <div class="stat-item"><span class="stat-value">92%</span><span class="stat-label">Taux de succès</span></div>
-                    <div class="stat-item"><span class="stat-value">2+</span><span class="stat-label">Maintien (années)</span></div>
-                    <div class="stat-item"><span class="stat-value">4-12</span><span class="stat-label">Semaines</span></div>
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="92">92%</span>
+                      <span class="stat-label">Taux de succès</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="-8">-8%</span>
+                      <span class="stat-label">Masse Grasse*</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="-10">-10cm</span>
+                      <span class="stat-label">Tour de Taille*</span>
+                    </div>
                   </div>
+                  <p class="text-xs text-muted mt-2 fst-italic">*Moyenne observée chez nos clients ayant complété le programme.</p>
                   <div class="specialty-footer">
-                    <a href="#" class="learn-more-btn open-specialty-panel" data-specialty="weight-loss">En savoir plus<i class="fa-solid fa-arrow-right"></i></a>
-                    <button class="info-btn" aria-label="Plus d'informations sur la perte de poids" data-bs-toggle="tooltip" data-bs-placement="top" title="Approche scientifique de la perte de poids sans restriction"><i class="fa-solid fa-info"></i><span>FAQ</span></button>
-                    <div class="seo-content"><h4>Questions fréquentes sur la perte de poids</h4><p>Notre programme...</p><ul><li>...</li></ul></div>
+                    <a href="perte-de-poids.html" class="learn-more-btn">
+                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button class="info-btn" aria-label="Plus d'informations sur la perte de poids" data-bs-toggle="tooltip" data-bs-placement="top" title="Approche scientifique sans restriction">
+                      <i class="fa-solid fa-info"></i><span>Info</span>
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-200">
-                <div class="specialty-media"><img src="images/ibs.jpg" alt="Syndrome du côlon irritable" class="specialty-image"><div class="specialty-overlay"></div><div class="specialty-category">Spécialité</div></div>
+                <div class="specialty-media">
+                  <img src="../images/ibs.jpg" alt="Traitement Syndrome du côlon irritable (SCI/IBS)" class="specialty-image" loading="lazy">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Spécialité</div>
+                </div>
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
                   <h3 class="specialty-title">Syndrome du Côlon Irritable</h3>
@@ -187,49 +252,66 @@
                     <div class="stat-item"><span class="stat-value">40+</span><span class="stat-label">Aliments réintroduits</span></div>
                   </div>
                   <div class="specialty-footer">
-                    <a href="#" class="learn-more-btn open-specialty-panel" data-specialty="ibs">En savoir plus<i class="fa-solid fa-arrow-right"></i></a>
-                    <button class="info-btn"><i class="fa-solid fa-info"></i></button>
+                     <a href="syndrome-colon-irritable.html" class="learn-more-btn">
+                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Protocole FODMAP personnalisé"><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-300">
-                <div class="specialty-media"><img src="images/blood-pressure.jpg" alt="Hypertension et cholestérol" class="specialty-image"><div class="specialty-overlay"></div><div class="specialty-category">Préventif</div></div>
+                <div class="specialty-media">
+                  <img src="../images/blood-pressure.jpg" alt="Gestion de l'hypertension et cholestérol" class="specialty-image" loading="lazy">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Préventif</div>
+                </div>
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                   <h3 class="specialty-title">Hypertension & Cholestérol</h3>
                   <p class="specialty-description">Protégez votre santé cardiovasculaire avec nos stratégies nutritionnelles ciblées. Notre approche combine les recommandations scientifiques avec des adaptations personnalisées pour réduire efficacement votre tension artérielle et votre cholestérol.</p>
                   <div class="specialty-stats">
-                    <div class="stat-item"><span class="stat-value">15%</span><span class="stat-label">Réduction TA</span></div>
-                    <div class="stat-item"><span class="stat-value">20%</span><span class="stat-label">Baisse LDL</span></div>
+                    <div class="stat-item"><span class="stat-value">15%</span><span class="stat-label">Réduction TA*</span></div>
+                    <div class="stat-item"><span class="stat-value">20%</span><span class="stat-label">Baisse LDL*</span></div>
                     <div class="stat-item"><span class="stat-value">12</span><span class="stat-label">Semaines</span></div>
                   </div>
+                   <p class="text-xs text-muted mt-2 fst-italic">*Moyenne, varie selon individu.</p>
                    <div class="specialty-footer">
-                    <a href="#" class="learn-more-btn open-specialty-panel" data-specialty="cardio">En savoir plus<i class="fa-solid fa-arrow-right"></i></a>
-                    <button class="info-btn"><i class="fa-solid fa-info"></i></button>
+                     <a href="hypertension-cholesterol.html" class="learn-more-btn">
+                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Approches DASH, Portfolio, etc."><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-400">
-                <div class="specialty-media"><img src="images/diabetes.jpg" alt="Diabète type 2" class="specialty-image"><div class="specialty-overlay"></div><div class="specialty-category">Clinical</div></div>
+                <div class="specialty-media">
+                  <img src="../images/diabetes.jpg" alt="Gestion du diabète type 2" class="specialty-image" loading="lazy">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Clinique</div>
+                </div>
                 <div class="specialty-content">
-                  <div class="specialty-icon"><i class="fa-solid fa-syringe"></i></div>
+                  <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div> {/* Changed Icon */}
                   <h3 class="specialty-title">Diabète de Type 2</h3>
-                  <p class="specialty-description">Reprenez le contrôle de votre glycémie avec un plan alimentaire adapté et scientifiquement prouvé. Notre approche personnalisée vise à stabiliser votre glycémie, réduire la résistance à l'insuline et potentiellement diminuer la dépendance aux médicaments.</p>
+                  <p class="specialty-description">Reprenez le contrôle de votre glycémie avec un plan alimentaire adapté et scientifiquement prouvé. Notre approche personnalisée vise à améliorer votre sensibilité à l'insuline et potentiellement réduire la dépendance aux médicaments.</p>
                   <div class="specialty-stats">
-                    <div class="stat-item"><span class="stat-value">1.5%</span><span class="stat-label">Baisse HbA1c</span></div>
-                    <div class="stat-item"><span class="stat-value">30%</span><span class="stat-label">Amélioration</span></div>
+                     {/* Example: Using HbA1c reduction */}
+                    <div class="stat-item"><span class="stat-value">-1.5%</span><span class="stat-label">Baisse HbA1c*</span></div>
+                    <div class="stat-item"><span class="stat-value">✓</span><span class="stat-label">Moins Médocs*</span></div>
                     <div class="stat-item"><span class="stat-value">16</span><span class="stat-label">Semaines</span></div>
                   </div>
+                  <p class="text-xs text-muted mt-2 fst-italic">*Résultats variables selon individu et suivi médical.</p>
                    <div class="specialty-footer">
-                    <a href="#" class="learn-more-btn open-specialty-panel" data-specialty="diabetes">En savoir plus<i class="fa-solid fa-arrow-right"></i></a>
-                    <button class="info-btn"><i class="fa-solid fa-info"></i></button>
+                     <a href="diabete-type-2.html" class="learn-more-btn">
+                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Gestion glycémique personnalisée"><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
+              </div> </div> </section>
+        ```
+    
+    
         <section class="success-stories-section" id="temoignages">
           <div class="container">
               <div class="success-header">
@@ -247,8 +329,8 @@
                       <div class="success-card animate-on-scroll fade-up" data-story-index="0">
                           <div class="success-card-inner">
                               <div class="success-images">
-                                  <div class="before-image"><img src="images/IBS.jpg" alt="Sophie avant" width="300" height="250"><span class="image-label before-label">Avant</span></div>
-                                  <div class="after-image"><img src="images/WeightLoss.jpg" alt="Sophie après" width="300" height="250"><span class="image-label after-label">Après</span></div>
+                                  <div class="before-image"><img src="../images/IBS.jpg" alt="Sophie avant" width="300" height="250"><span class="image-label before-label">Avant</span></div>
+                                  <div class="after-image"><img src="../images/WeightLoss.jpg" alt="Sophie après" width="300" height="250"><span class="image-label after-label">Après</span></div>
                               </div>
                               <div class="success-content">
                                   <h3 class="client-name">Sophie, 42 ans</h3>
@@ -376,94 +458,11 @@
              </div>
         </section>
     </main>
-
-    <div style="display: none;">
-        <div id="content-weight-loss">
-            <div class="blueprint-intro">
-              <p>Votre parcours vers une santé durable avec Diaeta commence ici.</p>
-            </div>
-            <div class="blueprint-stages">
-              <div class="blueprint-stage challenge-stage">
-                  <div class="stage-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                  <div class="stage-content">
-                      <h4>Le Défi</h4>
-                      <p>Les régimes traditionnels échouent souvent en raison de restrictions génériques ignorant votre métabolisme unique, entraînant une reprise de poids et de la frustration.</p>
-                      <div class="stage-highlight-badge stats-badge">
-                          <span class="stats-number">80%</span>
-                          <span class="stats-text">des régimes conventionnels échouent à long terme</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="blueprint-connector"><i class="fa-solid fa-arrow-down"></i></div>
-              <div class="blueprint-stage approach-stage">
-                  <div class="stage-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                   <div class="stage-content">
-                      <h4>Notre Approche : Votre Plan Personnalisé</h4>
-                      <ul class="approach-list">
-                          <li><i class="fa-solid fa-check-circle"></i> Analyse métabolique personnalisée</li>
-                          <li><i class="fa-solid fa-check-circle"></i> Plan nutritionnel adapté à votre physiologie</li>
-                          <li><i class="fa-solid fa-check-circle"></i> Ajustements réguliers basés sur les progrès</li>
-                          <li><i class="fa-solid fa-check-circle"></i> Stratégies comportementales pour des habitudes durables</li>
-                      </ul>
-                      <div class="stage-highlight-badge credential-badge">
-                          <i class="fa-solid fa-award"></i>
-                          <span>Approche scientifiquement validée</span>
-                      </div>
-                  </div>
-              </div>
-               <div class="blueprint-connector"><i class="fa-solid fa-arrow-down"></i></div>
-              <div class="blueprint-stage results-stage">
-                  <div class="stage-icon"><i class="fa-solid fa-chart-line"></i></div>
-                  <div class="stage-content">
-                       <h4>Résultats Attendus</h4>
-                      <div class="outcome-timeline">
-                          <div class="timeline-point">
-                              <span class="time">4-6 semaines</span>
-                              <span class="result">Premières améliorations métaboliques et perte de poids initiale</span>
-                          </div>
-                          <div class="timeline-point">
-                              <span class="time">2-3 mois</span>
-                              <span class="result">Changements visibles de la composition corporelle</span>
-                          </div>
-                          <div class="timeline-point">
-                              <span class="time">6+ mois</span>
-                              <span class="result">Nouvelles habitudes établies et stabilisation du poids</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="modal-testimonial integrated-testimonial">
-              <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-              <blockquote>"Après avoir essayé d'innombrables régimes, j'ai perdu 15kg avec Diaeta et, pour la première fois, je maintiens ce poids depuis plus de 2 ans sans privation."</blockquote>
-              <cite>— Marie, 42 ans, cliente depuis 2021</cite>
-            </div>
-            <div class="modal-cta-container">
-              <a href="#contact" class="modal-cta primary-cta"><span>Prendre rendez-vous</span><i class="fa-solid fa-calendar-check"></i></a>
-              <a href="/perte-de-poids" class="modal-cta secondary-cta"><span>Explorer le programme complet</span><i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div id="content-ibs">
-             <h4>Syndrome du Côlon Irritable</h4>
-             <p>Contenu détaillé pour le Syndrome du Côlon Irritable (protocole FODMAP, etc.) à insérer ici.</p>
-             </div>
-
-         <div id="content-cardio">
-             <h4>Hypertension & Cholestérol</h4>
-             <p>Contenu détaillé pour l'hypertension et le cholestérol à insérer ici.</p>
-             </div>
-
-         <div id="content-diabetes">
-             <h4>Diabète de Type 2</h4>
-             <p>Contenu détaillé pour le diabète de type 2 à insérer ici.</p>
-              </div>
-    </div>
     <footer class="footer">
       <div class="container footer-content">
         <div class="footer-grid">
           <div class="footer-col">
-            <a href="/" class="footer-logo"><img src="images/logo-white.svg" alt="Diaeta" width="142" height="50"></a>
+            <a href="/" class="footer-logo"><img src="../images/logo-white.svg" alt="Diaeta" width="142" height="50"></a>
             <p class="footer-about">Diaeta combine la science nutritionnelle à une approche personnalisée pour transformer durablement votre santé, sans restriction ni frustration.</p>
             <div class="footer-social">
               <a href="https://facebook.com/diaeta" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -517,30 +516,13 @@
 
     <button id="back-to-top" class="back-to-top" aria-label="Retour en haut"><i class="fa-solid fa-chevron-up"></i></button>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="specialtyOffcanvas" aria-labelledby="specialtyOffcanvasLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="specialtyOffcanvasLabel">Détails du Service</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Chargement des informations...</p>
-      </div>
-      <div class="offcanvas-footer">
-          <button type="button" class="btn btn-secondary offcanvas-close-btn-mobile">
-              <i class="fa-solid fa-times"></i> Fermer
-          </button>
-      </div>
-      </div>
       
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/clinic-locator.js"></script>
-    <script src="js/contact-form.js"></script>
+    <script src="../js/main.js"></script>
 
     <script type="application/ld+json">
     {
