@@ -1,0 +1,1111 @@
+/* Genetic Testing Section Styles */
+.genetic-section {
+    background: linear-gradient(145deg, rgba(var(--primary-rgb), 0.03) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+  }
+  
+  .genetic-section::before,
+  .genetic-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15), transparent 70%);
+    z-index: 0;
+  }
+  
+  .genetic-section::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+  }
+  
+  .genetic-section::after {
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+    left: -50px;
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.08), transparent 70%);
+  }
+  
+  /* Section Header */
+  .section-tagline {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background-color: rgba(var(--accent-rgb), 0.15);
+    color: var(--accent);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  
+  
+  /* Testing Introduction */
+  .testing-intro {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .intro-title {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .intro-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  /* Benefits List */
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .benefit-item:hover {
+    transform: translateX(5px);
+  }
+  
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--accent-rgb), 0.15));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  
+  .benefit-text h5 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .benefit-text p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  
+  /* Intro Visual */
+  .intro-visual {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dna-animation {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    perspective: 1000px;
+  }
+  
+  .dna-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.9;
+    animation: dnaRotate 15s infinite linear;
+  }
+  
+  @keyframes dnaRotate {
+    0% {
+      transform: rotateY(0);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  .dna-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .dna-particles::before,
+  .dna-particles::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  
+  .dna-particles::before {
+    background-color: var(--accent);
+    top: 30%;
+    left: 25%;
+    animation: particleFloat 4s infinite ease-in-out;
+  }
+  
+  .dna-particles::after {
+    background-color: var(--secondary);
+    bottom: 35%;
+    right: 30%;
+    animation: particleFloat 4s infinite ease-in-out 1s;
+  }
+  
+  @keyframes particleFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .intro-card {
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    background: white;
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 250px;
+  }
+  
+  .stat-highlight {
+    text-align: center;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.1;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Test Cards */
+  .test-categories {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .test-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+  }
+  
+  .test-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    background: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.3);
+    z-index: 1;
+  }
+  
+  .card-header {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .test-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .health-card .card-icon {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.2));
+    color: var(--primary);
+  }
+  
+  .sport-card .card-icon {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2));
+    color: #3b82f6;
+  }
+  
+  .fertility-card .card-icon {
+    background: linear-gradient(135deg, rgba(var(--secondary-rgb), 0.1), rgba(var(--secondary-rgb), 0.2));
+    color: var(--secondary);
+  }
+  
+  .card-header h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .price-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(var(--primary-rgb), 0.05);
+    border-radius: 30px;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  
+  .price-tag span {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--secondary);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .gene-analysis {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+  
+  .gene-analysis li {
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .gene-analysis li:last-child {
+    border-bottom: none;
+  }
+  
+  .gene-marker {
+    display: inline-block;
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+  }
+  
+  .health-card .gene-marker {
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    border-color: rgba(var(--primary-rgb), 0.2);
+  }
+  
+  .sport-card .gene-marker {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+  
+  .fertility-card .gene-marker {
+    background: rgba(var(--secondary-rgb), 0.1);
+    color: var(--secondary);
+    border-color: rgba(var(--secondary-rgb), 0.2);
+  }
+  
+  .card-actions {
+    text-align: center;
+  }
+  
+  .test-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .test-cta-button:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.25);
+  }
+  
+  .test-cta-button i {
+    transition: transform 0.3s ease;
+  }
+  
+  .test-cta-button:hover i {
+    transform: translateX(5px);
+  }
+  
+  .health-card .test-cta-button {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .health-card .test-cta-button:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .sport-card .test-cta-button {
+    border-color: #3b82f6;
+    color: #3b82f6;
+  }
+  
+  .sport-card .test-cta-button:hover {
+    background-color: #3b82f6;
+    color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+  }
+  
+  .fertility-card .test-cta-button {
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+  
+  .fertility-card .test-cta-button:hover {
+    background-color: var(--secondary);
+    color: white;
+    box-shadow: 0 8px 20px rgba(var(--secondary-rgb), 0.25);
+  }
+  
+  /* How It Works */
+  .how-it-works {
+    position: relative;
+    margin: 5rem 0;
+    padding: 3rem;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    z-index: 2;
+  }
+  
+  .process-timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding: 0 2rem;
+  }
+  
+  .timeline-track {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(var(--primary-rgb), 0.1);
+    z-index: 1;
+  }
+  
+  .timeline-track::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 33.33%;
+    height: 100%;
+    transform: translateY(-50%);
+    left: 0;
+    background: var(--accent);
+  }
+  
+  .process-step {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 3px solid rgba(var(--primary-rgb), 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.1);
+  }
+  
+  .process-step.active .step-number {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.25);
+  }
+  
+  .process-step:nth-child(2).active ~ .process-step:nth-child(1) .step-number,
+  .process-step:nth-child(3).active ~ .process-step:nth-child(2) .step-number,
+  .process-step:nth-child(3).active ~ .process-step:nth-child(1) .step-number {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  
+  .step-content {
+    position: relative;
+  }
+  
+  .step-content h4 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .step-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .step-icon {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(var(--accent-rgb), 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    animation: pulse 2s infinite;
+  }
+  
+  /* Testimonials */
+  .test-testimonials {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .testimonial-slider {
+    background: linear-gradient(145deg, rgba(var(--primary-rgb), 0.05), rgba(var(--primary-rgb), 0.1));
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    position: relative;
+  }
+  
+  .testimonial-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+  }
+  
+  .testimonial-content {
+    padding: 2.5rem;
+    position: relative;
+  }
+  
+  .quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: rgba(var(--primary-rgb), 0.1);
+    font-size: 3rem;
+    z-index: 0;
+  }
+  
+  .testimonial-content p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2.5rem;
+    background: linear-gradient(to right, rgba(var(--accent-rgb), 0.05), rgba(var(--accent-rgb), 0.1));
+  }
+  
+  .author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .author-info h5 {
+    margin-bottom: 0.25rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .author-info span {
+    color: var(--secondary);
+    font-size: 0.9rem;
+  }
+  
+  .testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .control-prev,
+  .control-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .control-prev:hover,
+  .control-next:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.2);
+  }
+  
+  .control-indicators {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(var(--primary-rgb), 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .indicator.active {
+    background: var(--accent);
+    transform: scale(1.2);
+  }
+  
+  /* FAQ Section */
+  .test-faq {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .faq-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .accordion-item {
+    border: none;
+    background: transparent;
+    margin-bottom: 1rem;
+  }
+  
+  .accordion-header {
+    margin: 0;
+  }
+  
+  .accordion-button {
+    background: white;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    color: var(--accent);
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .accordion-button:focus {
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.1);
+  }
+  
+  .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23006D77' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238CC63F' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  }
+  
+  .accordion-collapse {
+    border: none;
+  }
+  
+  .accordion-body {
+    padding: 2rem;
+    background: white;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .accordion-body p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  .accordion-body p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .accordion-body ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .accordion-body ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  /* CTA Section */
+  .test-cta {
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+  }
+  
+  .cta-card {
+    background: linear-gradient(135deg, var(--primary), #005A63);
+    padding: 3rem;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.3);
+  }
+  
+  .cta-card h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .cta-card p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0.5rem 1rem;
+  }
+  
+  .cta-primary {
+    background: var(--accent);
+    border: 2px solid var(--accent);
+    color: white;
+  }
+  
+  .cta-primary:hover {
+    background: white;
+    color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+  }
+  
+  .cta-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  
+  .cta-secondary:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* DNA Animation Styles */
+  .dna-animation {
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .interactive-dna {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    animation: rotateY 20s infinite linear;
+  }
+  
+  @keyframes rotateY {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+  
+  .dna-pair {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulsate 2s infinite alternate;
+  }
+  
+  @keyframes pulsate {
+    0% { transform: scaleX(0.95); }
+    100% { transform: scaleX(1.05); }
+  }
+  
+  .dna-strand {
+    width: 120px;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(0, 109, 119, 0.7), rgba(0, 109, 119, 0.3));
+  }
+  
+  .left-strand {
+    transform: translateX(-20px) rotateY(30deg);
+  }
+  
+  .right-strand {
+    transform: translateX(20px) rotateY(-30deg);
+  }
+  
+  .base-pair {
+    width: 60px;
+    height: 6px;
+    position: relative;
+  }
+  
+  .pair-at {
+    background: linear-gradient(90deg, #E29578, #8CC63F);
+  }
+  
+  .pair-gc {
+    background: linear-gradient(90deg, #8CC63F, #E29578);
+  }
+  
+  .gene-marker {
+    position: absolute;
+    left: -80px;
+    background-color: #006D77;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 5;
+  }
+  
+  .gene-marker:hover {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
+  }
+  
+  .gene-tooltip {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .gene-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .analysis-beam {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      rgba(140, 198, 63, 0), 
+      rgba(140, 198, 63, 0.8), 
+      rgba(140, 198, 63, 0));
+    box-shadow: 0 0 10px rgba(140, 198, 63, 0.5);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .analysis-beam.scanning {
+    opacity: 1;
+    animation: scanBeam 3s infinite;
+  }
+  
+  @keyframes scanBeam {
+    0% { top: 0; }
+    100% { top: 100%; }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1199.98px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+    
+    .intro-title {
+      font-size: 2rem;
+    }
+    
+    .testing-intro {
+      padding: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 991.98px) {
+    .testing-intro {
+      padding: 2rem;
+    }
+    
+    .intro-card {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    
+    .dna-animation {
+      height: 300px;
+    }
+    
+    .process-timeline {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .timeline-track {
+      width: 3px;
+      height: 100%;
+      top: 0;
+      left: 24px;
+    }
+    
+    .process-step {
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding-left: 0;
+    }
+    
+    .step-number {
+      margin: 0;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step-icon {
+      position: static;
+      margin-left: auto;
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .section-title {
+      font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .intro-title {
+      font-size: 1.75rem;
+    }
+    
+    .intro-text {
+      font-size: 1rem;
+    }
+    
+    .benefit-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+    
+    .how-it-works {
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .cta-card {
+      padding: 2rem;
+    }
+    
+    .cta-card h3 {
+      font-size: 1.75rem;
+    }
+    
+    .testimonial-slider {
+      padding: 2rem;
+    }
+    
+    .testimonial-content {
+      padding: 2rem;
+    }
+    
+    .testimonial-content p {
+      font-size: 1rem;
+    }
+    
+    .testimonial-author {
+      padding: 1.25rem 2rem;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .testing-intro {
+      padding: 1.5rem;
+    }
+    
+    .dna-animation {
+      height: 250px;
+    }
+    
+    .test-card .card-header {
+      padding: 2rem 1.5rem;
+    }
+    
+    .test-card .card-body {
+      padding: 1.5rem;
+    }
+    
+    .accordion-button {
+      padding: 1.25rem;
+      font-size: 1rem;
+    }
+    
+    .accordion-body {
+      padding: 1.5rem;
+    }
+    
+    .cta-card {
+      padding: 1.5rem;
+    }
+    
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }

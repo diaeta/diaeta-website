@@ -1,0 +1,984 @@
+/* Clinic Finder Section Styles */
+.clinic-finder-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, rgba(0, 109, 119, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative elements */
+.clinic-finder-section::before,
+.clinic-finder-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.clinic-finder-section::before {
+  width: 500px;
+  height: 500px;
+  top: -250px;
+  right: -250px;
+  background: radial-gradient(circle, rgba(140, 198, 63, 0.05), transparent 70%);
+}
+
+.clinic-finder-section::after {
+  width: 400px;
+  height: 400px;
+  bottom: -200px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(0, 109, 119, 0.04), transparent 70%);
+}
+
+/* Section header styling */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: rgba(140, 198, 63, 0.1);
+  color: #628F28;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #006D77;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #006D77;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: #616161;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+}
+
+/* Clinic Filters */
+.clinic-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.filter-btn {
+  border: none;
+  background-color: rgba(0, 109, 119, 0.05);
+  color: #006D77;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: rgba(0, 109, 119, 0.1);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: #006D77;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 109, 119, 0.2);
+}
+
+.locate-me-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(140, 198, 63, 0.1);
+  color: #628F28;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.locate-me-btn:hover {
+  background-color: rgba(140, 198, 63, 0.2);
+  transform: translateY(-2px);
+}
+
+.locate-me-btn i {
+  font-size: 1rem;
+}
+
+/* View Toggle */
+.view-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  background-color: white;
+  border: 1px solid rgba(0, 109, 119, 0.1);
+  color: #006D77;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-toggle:first-child {
+  border-radius: 50px 0 0 50px;
+  border-right: none;
+}
+
+.view-toggle:last-child {
+  border-radius: 0 50px 50px 0;
+  border-left: none;
+}
+
+.view-toggle.active {
+  background-color: #006D77;
+  color: white;
+  border-color: #006D77;
+}
+
+.view-toggle:hover:not(.active) {
+  background-color: rgba(0, 109, 119, 0.05);
+}
+
+/* Clinic Grid View */
+.clinic-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
+}
+
+.clinic-grid-view,
+.clinic-map-view {
+  display: none;
+}
+
+.clinic-grid-view.active,
+.clinic-map-view.active {
+  display: block;
+}
+
+.clinic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Clinic Cards */
+.clinic-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  border-left: 3px solid #006D77;
+  position: relative;
+  overflow: hidden;
+}
+
+.clinic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.clinic-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #006D77, #8CC63F);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clinic-card:hover:before {
+  opacity: 1;
+}
+
+.clinic-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #006D77;
+  line-height: 1.3;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.clinic-card:hover .clinic-name {
+  color: #005A63;
+}
+
+.clinic-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.clinic-neighborhood {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(226, 149, 120, 0.1);
+  color: #E29578;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.clinic-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #616161;
+  font-size: 0.95rem;
+}
+
+.clinic-address i {
+  color: #E29578;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+/* Availability Week Indicators */
+.availability-week {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.day-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #757575;
+}
+
+.day-indicator.available {
+  background-color: rgba(140, 198, 63, 0.2);
+  color: #628F28;
+}
+
+.clinic-schedule {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.schedule-badge {
+  padding: 0.4rem 0.75rem;
+  background-color: rgba(140, 198, 63, 0.1);
+  color: #628F28;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.schedule-badge:hover {
+  background-color: rgba(140, 198, 63, 0.2);
+  transform: translateY(-2px);
+}
+
+.clinic-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #006D77;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 10px rgba(0, 109, 119, 0.2);
+}
+
+.clinic-book-btn:hover {
+  background-color: #005A63;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 109, 119, 0.3);
+  color: white;
+}
+
+.clinic-book-btn i {
+  font-size: 0.9rem;
+}
+
+/* Map View */
+.clinic-map-view {
+  width: 100%;
+  position: relative;
+}
+
+.map-container {
+  position: relative;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#clinicsMap {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Map Sidebar */
+.map-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  background-color: #006D77;
+  color: white;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: white;
+  font-weight: 700;
+}
+
+.sidebar-results {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.sidebar-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.sidebar-clinics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Sidebar clinic card */
+.sidebar-clinic-card {
+  padding: 1.25rem;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.02);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid rgba(0, 109, 119, 0.3);
+}
+
+.sidebar-clinic-card:hover {
+  background-color: rgba(0, 109, 119, 0.05);
+  transform: translateY(-3px);
+}
+
+.sidebar-clinic-card.active {
+  background-color: rgba(0, 109, 119, 0.08);
+  border-left-color: #006D77;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-clinic-card h4 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: #006D77;
+  font-weight: 600;
+}
+
+/* Clinic Detail Panel */
+.clinic-detail-panel {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: calc(100% - 400px);
+  max-width: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  display: none;
+}
+
+.clinic-detail-panel.active {
+  display: block;
+}
+
+.detail-panel-header {
+  padding: 1.25rem;
+  background-color: #006D77;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-panel-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.close-panel-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-panel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.detail-panel-body {
+  padding: 1.5rem;
+}
+
+/* Detail sections */
+.detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #006D77;
+  font-size: 1.1rem;
+}
+
+.detail-text {
+  margin-bottom: 0.5rem;
+  color: #616161;
+}
+
+.detail-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8CC63F;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.detail-action-link:hover {
+  color: #628F28;
+  transform: translateX(3px);
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.schedule-list li:last-child {
+  border-bottom: none;
+}
+
+.schedule-list .day {
+  font-weight: 500;
+  color: #006D77;
+}
+
+.schedule-list .hours {
+  color: #616161;
+}
+
+.schedule-list .hours.available {
+  color: #8CC63F;
+  font-weight: 500;
+}
+
+.detail-action {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #006D77;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.book-btn:hover {
+  background-color: #005A63;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 109, 119, 0.3);
+}
+
+/* Clinic Map Markers */
+.marker-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #006D77;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
+.marker-icon i {
+  transform: rotate(45deg);
+  color: white;
+  font-size: 16px;
+}
+
+.map-popup {
+  text-align: center;
+  padding: 5px;
+}
+
+.map-popup h4 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #006D77;
+}
+
+.map-popup p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #616161;
+}
+
+.popup-details-btn {
+  background-color: #006D77;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popup-details-btn:hover {
+  background-color: #005863;
+}
+
+/* Bottom CTA */
+.clinic-cta {
+  text-align: center;
+  margin-top: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.clinic-cta p {
+  color: #616161;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.clinic-cta .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background-color: #006D77;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 15px rgba(0, 109, 119, 0.3);
+}
+
+.clinic-cta .btn-primary:hover {
+  background-color: #005A63;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 109, 119, 0.4);
+}
+
+.btn-icon-right {
+  transition: transform 0.3s ease;
+}
+
+.clinic-cta .btn-primary:hover .btn-icon-right {
+  transform: translateX(4px);
+}
+
+/* Fix for oversized appointment button */
+.clinic-detail-panel .detail-action .book-btn {
+  width: auto; /* Let content determine width instead of 100% */
+  min-width: 200px; /* Set a reasonable minimum width */
+  max-width: 80%; /* Prevent stretching too wide */
+  margin: 0 auto; /* Center the button */
+}
+
+/* Responsive Styles */
+@media (max-width: 1199px) {
+  .clinic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .map-sidebar {
+    width: 300px;
+  }
+  
+  .clinic-detail-panel {
+    width: calc(100% - 350px);
+  }
+}
+
+@media (max-width: 991px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .clinic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .clinic-card {
+    padding: 1.25rem;
+  }
+  
+  .clinic-name {
+    font-size: 1.15rem;
+  }
+  
+  .map-container {
+    height: 450px;
+  }
+  
+  .map-sidebar {
+    width: 250px;
+  }
+  
+  .clinic-detail-panel {
+    width: calc(100% - 300px);
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 767px) {
+  .clinic-finder-section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .clinic-filters {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    margin-bottom: 0.5rem;
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+  
+  .filter-btn {
+    flex: 0 0 auto;
+  }
+  
+  .locate-me-btn {
+    position: static;
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  
+  .clinic-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .clinic-card {
+    width: 100%;
+    max-width: calc(100% - 20px); /* Account for padding */
+    margin: 0.5rem auto;
+    position: relative;
+    z-index: 1; /* Base z-index */
+  }
+  
+/* Prevent overlapping */
+.clinic-card + .clinic-card {
+  margin-top: 1rem;
+  z-index: 0; /* Lower z-index for cards that come after */
+}
+
+/* Fix for left border visibility */
+.clinic-card::before {
+  z-index: 0; /* Ensure the border doesn't show through other cards */
+}
+
+/* Adjust rendez-vous button */
+.clinic-book-btn {
+  width: auto;
+  min-width: 200px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+  .map-container {
+    height: 350px;
+  }
+  
+  .map-sidebar {
+    width: 100%;
+    height: 200px;
+    top: auto;
+    bottom: 0;
+  }
+  
+  .clinic-detail-panel {
+    width: calc(100% - 2rem);
+    left: 1rem;
+    bottom: 220px;
+    max-width: none;
+  }
+  
+  .clinic-cta p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .clinic-cta .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+   /* Fix map view sidebar */
+   #mapView .sidebar-clinics {
+    max-height: 180px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .clinic-card {
+    padding: 1.25rem;
+  }
+  
+  .clinic-name {
+    font-size: 1.1rem;
+  }
+  
+  .schedule-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .clinic-book-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .map-container {
+    height: 350px;
+  }
+  
+  .availability-week {
+    justify-content: center;
+  }
+  
+  .day-indicator {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+  }
+  
+  .clinic-address {
+    font-size: 0.9rem;
+  }
+  
+  .clinic-cta {
+    margin-top: 2rem;
+  }
+
+  .clinic-detail-panel .detail-action .book-btn {
+    width: 100%; /* Full width on very small screens */
+    min-width: unset;
+  }
+}
+
+/* Extra styling for map markers on hover */
+.leaflet-marker-icon {
+  transition: transform 0.3s ease;
+}
+
+.leaflet-marker-icon:hover {
+  transform: scale(1.1) translateZ(0);
+  z-index: 1000 !important;
+}
+
+/* Improve map control styling */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: white !important;
+  color: #006D77 !important;
+  transition: all 0.3s ease !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #006D77 !important;
+  color: white !important;
+}
+
+/* Animation for newly filtered cards */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.clinic-card.filtered-in {
+  animation: fadeInScale 0.4s forwards;
+}
+
+/* Loading indicator for map */
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 109, 119, 0.2);
+  border-top-color: #006D77;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+

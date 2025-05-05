@@ -1,0 +1,101 @@
+/* variables.css - Enhanced Color System */
+:root {
+  /* Primary Colors - Teal */
+  --primary-50: #E0F2F3;
+  --primary-100: #C2E5E7;
+  --primary-200: #9DD2D6;
+  --primary-300: #77C0C5;
+  --primary-400: #51ADB3;
+  --primary-500: #006D77; /* Your brand primary */
+  --primary-600: #005A63;
+  --primary-700: #00484F;
+  --primary-800: #00353B;
+  --primary-900: #002327;
+  --primary-rgb: 0, 109, 119;
+  
+  /* Secondary Colors - Coral */
+  --secondary-50: #FDF5F1;
+  --secondary-100: #FCEAE2;
+  --secondary-200: #F9D5C4;
+  --secondary-300: #F6C0A6;
+  --secondary-400: #ECAB8C;
+  --secondary-500: #E29578; /* Your brand secondary */
+  --secondary-600: #D67953;
+  --secondary-700: #C65F39;
+  --secondary-800: #A44A28;
+  --secondary-900: #83391D;
+  --secondary-rgb: 226, 149, 120;
+  
+  /* Accent Colors - Green */
+  --accent-50: #F5FAED;
+  --accent-100: #EBF5DB;
+  --accent-200: #D6EBBA;
+  --accent-300: #BFE095;
+  --accent-400: #A8D571;
+  --accent-500: #8CC63F; /* Your brand accent */
+  --accent-600: #77AB32;
+  --accent-700: #628F28;
+  --accent-800: #4E721F;
+  --accent-900: #3A5515;
+  --accent-rgb: 140, 198, 63;
+  
+  /* Neutral Colors */
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #EEEEEE;
+  --neutral-300: #E0E0E0;
+  --neutral-400: #BDBDBD;
+  --neutral-500: #9E9E9E;
+  --neutral-600: #757575;
+  --neutral-700: #616161;
+  --neutral-800: #424242;
+  --neutral-900: #212121;
+  
+  /* Semantic Colors */
+  --success: var(--accent-500);
+  --warning: #FFB74D;
+  --error: #EF5350;
+  --info: #64B5F6;
+  
+  /* Component Variables */
+  --body-bg: var(--neutral-50);
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-600);
+  --border-color: var(--neutral-300);
+  --focus-ring: rgba(var(--primary-rgb), 0.5);
+  
+  /* Common properties */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-pill: 50px;
+  
+  --box-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --box-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --box-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  
+  --transition-fast: all 0.2s ease;
+  --transition-standard: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  
+  /* Spacing System */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem;  /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-5: 1.5rem;  /* 24px */
+  --space-6: 2rem;    /* 32px */
+  --space-7: 3rem;    /* 48px */
+  --space-8: 4rem;    /* 64px */
+  --space-9: 6rem;    /* 96px */
+  --space-10: 8rem;   /* 128px */
+
+  
+  --neutral-50-rgb: 250, 250, 250;
+  --neutral-100-rgb: 245, 245, 245;
+  --neutral-200-rgb: 238, 238, 238;
+  --neutral-300-rgb: 224, 224, 224;
+  --neutral-400-rgb: 189, 189, 189;
+}

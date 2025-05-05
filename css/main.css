@@ -1,0 +1,285 @@
+/* Main CSS File - Includes all components */
+
+/* Import variables and root styles */
+@import 'variables.css';
+@import 'typography.css';
+@import 'layout.css';
+@import 'components.css';
+
+/* Import component-specific styles */
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/specialties.css';
+@import 'components/ecosystem.css';
+@import 'components/clinics.css';
+@import 'components/genetic.css';
+@import 'components/pricing.css';
+@import 'components/footer.css';
+@import 'components/utilities.css';
+@import 'components/science-approach.css';
+@import 'components/success-stories.css';
+@import 'components/contact.css';
+
+
+
+/* Ensure proper viewport handling */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--text-base);
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary-600);
+  line-height: var(--leading-tight);
+}
+
+a {
+  color: var(--primary-500);
+  text-decoration: none;
+  transition: var(--transition-standard);
+}
+
+a:hover {
+  color: var(--primary-600);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Section styles */
+.section {
+  padding: var(--space-8) 0;
+  position: relative;
+}
+
+.section-gradient {
+  background: linear-gradient(to bottom, var(--neutral-50), white);
+}
+
+.section-colored {
+  background-color: var(--primary-50);
+}
+
+/* Accessibility enhancements */
+.keyboard-focus {
+  outline: 3px solid var(--accent-500) !important;
+  outline-offset: 2px !important;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-500);
+  color: white;
+  padding: var(--space-3) var(--space-4);
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up {
+  transform: translateY(30px);
+}
+
+.fade-up.animated {
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animated {
+  opacity: 1;
+}
+
+.scale-in {
+  transform: scale(0.9);
+}
+
+.scale-in.animated {
+  transform: scale(1);
+}
+
+/* Delay modifiers */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Utility classes */
+.text-primary { color: var(--primary-500) !important; }
+.text-secondary { color: var(--secondary-500) !important; }
+.text-accent { color: var(--accent-500) !important; }
+.text-light { color: white !important; }
+.text-dark { color: var(--text-primary) !important; }
+.text-muted { color: var(--text-secondary) !important; }
+
+.bg-primary { background-color: var(--primary-500) !important; }
+.bg-secondary { background-color: var(--secondary-500) !important; }
+.bg-accent { background-color: var(--accent-500) !important; }
+.bg-light { background-color: white !important; }
+.bg-dark { background-color: var(--primary-900) !important; }
+
+.shadow-sm { box-shadow: var(--box-shadow-sm) !important; }
+.shadow-md { box-shadow: var(--box-shadow-md) !important; }
+.shadow-lg { box-shadow: var(--box-shadow-lg) !important; }
+
+.rounded-sm { border-radius: var(--border-radius-sm) !important; }
+.rounded-md { border-radius: var(--border-radius-md) !important; }
+.rounded-lg { border-radius: var(--border-radius-lg) !important; }
+.rounded-xl { border-radius: var(--border-radius-xl) !important; }
+.rounded-pill { border-radius: var(--border-radius-pill) !important; }
+
+.overflow-hidden { overflow: hidden !important; }
+.position-relative { position: relative !important; }
+
+.site-header,
+.header-container,
+body,
+html {
+  border: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  outline: none !important;
+}
+
+
+
+/* Fix for mobile menu icon */
+.menu-toggle {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.menu-toggle i {
+  position: relative !important;
+  left: 0 !important;
+}
+
+/* Override any potential body borders */
+body::before,
+body::after,
+html::before,
+html::after {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 639px) {
+  .logo {
+    margin-left: 0; /* Remove the 8px margin */
+    padding-left: 0; /* Ensure no padding */
+  }
+  
+  .header-container {
+    padding-left: 0; /* Add padding to container instead */
+    padding-right: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure menu toggle is properly positioned */
+  .menu-toggle {
+    position: relative;
+    margin-right: 0;
+    right: 0;
+  }
+  
+  /* Ensure content doesn't overflow */
+  .main-nav {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Fix for hero section not respecting container width */
+.hero-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all sections respect boundaries */
+section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Improved mobile container spacing */
+@media (max-width: 767px) {
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  section {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+  }
+}
+
+/* GPU acceleration for animations */
+.animate-on-scroll {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ensure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve section spacing on mobile */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-6) 0;
+  }
+}
