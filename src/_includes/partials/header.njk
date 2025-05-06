@@ -1,0 +1,47 @@
+<header class="site-header" id="site-header">
+  <div class="container header-container">
+    <div class="logo">
+      <a href="/fr/index.html" aria-label="Diaeta - Accueil">
+        <img src="/images/logo.svg" alt="Diaeta Logo" width="142" height="50">
+      </a>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/fr/index.html#approche" class="nav-link">Notre Approche</a></li>
+        <li class="nav-item"><a href="/fr/index.html#services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="/fr/index.html#temoignages" class="nav-link">Témoignages</a></li>
+        <li class="nav-item"><a href="/fr/index.html#clinic-locations" class="nav-link">Nos Cliniques</a></li>
+        <li class="nav-item"><a href="/fr/index.html#tarifs" class="nav-link">Tarifs</a></li>
+        <li class="nav-item"><a href="/fr/index.html#contact" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="/fr/ecosysteme.html" class="nav-link">Écosystème</a></li>
+      </ul>
+      <div class="mobile-actions">
+        {# Language switcher links need logic/data later #}
+        <div class="lang-selector">
+            <button class="lang-toggle" aria-expanded="false" aria-controls="lang-dropdown-mobile"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>FR</span></button>
+            <div class="lang-dropdown" id="lang-dropdown-mobile">
+                <a href="/fr/index.html" class="lang-option active" aria-current="true">Français</a>
+                {# <a href="/en/index.html" class="lang-option">English</a> #}
+                {# <a href="/nl/index.html" class="lang-option">Nederlands</a> #}
+            </div>
+        </div>
+        <a href="tel:+32479355551" class="phone-link"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+32 479 35 55 51</span></a>
+         <a href="/fr/index.html#rdv" class="btn btn-secondary mobile-cta"><span>Prendre Rendez-vous</span></a>
+      </div>
+    </nav>
+    <div class="desktop-actions">
+        <a href="tel:+32479355551" class="phone-link" aria-label="Appeler Diaeta"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+32 479 35 55 51</span></a>
+        {# Language switcher links need logic/data later #}
+        <div class="lang-selector">
+            <button class="lang-toggle" aria-expanded="false" aria-controls="lang-dropdown"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>FR</span></button>
+            <div class="lang-dropdown" id="lang-dropdown">
+                <a href="/fr/index.html" class="lang-option active" aria-current="true">Français</a>
+                {# <a href="/en/index.html" class="lang-option">English</a> #}
+                {# <a href="/nl/index.html" class="lang-option">Nederlands</a> #}
+            </div>
+        </div>
+         <a href="/fr/index.html#rdv" class="btn btn-secondary header-cta">Prendre Rendez-vous</a>
+    </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+  </div>
+</header>

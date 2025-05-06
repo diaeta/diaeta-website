@@ -4506,15 +4506,18 @@ animation: scanBeam 3s infinite;
   align-items: center;
   position: relative;
   z-index: 60;
+  flex-shrink: 0;
 }
 
 .logo img {
   height: 50px;
+  width: auto;
   transition: var(--transition-standard);
 }
 
 .site-header.scrolled .logo img {
   height: 45px;
+  width: auto;
 }
 
 /* Main Navigation */
@@ -4937,6 +4940,7 @@ animation: scanBeam 3s infinite;
 
   .logo img {
     height: 40px;
+    width: auto;
   }
 
   .logo {
@@ -4945,6 +4949,7 @@ animation: scanBeam 3s infinite;
 
   .site-header.scrolled .logo img {
     height: 35px;
+    width: auto; 
   }
 
   .main-nav {
@@ -5030,6 +5035,7 @@ body, html {
 
   .logo img {
     height: 40px;
+    width: auto; 
   }
 
   /* Remove any unwanted borders */
@@ -8783,3 +8789,305 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   border-bottom: 1px dotted currentColor;
 }
 
+/* ================================== */
+/* Styles for Ecosysteme & Service Pages */
+/* ================================== */
+
+.service-hero {
+  padding: 5rem 0 4rem;
+  background-color: var(--primary-50); /* Light primary */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid var(--primary-200);
+}
+/* Optional Background Image for Hero */
+
+.service-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../images/ecosystem-hero.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.08;
+  z-index: 0;
+}
+.service-hero .container { position: relative; z-index: 1;}
+
+.service-hero h1 {
+  color: var(--primary-700);
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700; /* Ensure Playfair Display is used if set globally for h1 */
+}
+.service-hero .lead {
+  color: var(--primary-600);
+  max-width: 750px;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+.service-hero .section-badge { /* Reuse if you have this style */
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-600);
+  border-radius: var(--border-radius-pill);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-section {
+  padding: 4rem 0;
+}
+.content-section h2 {
+  color: var(--primary-700); /* Darker primary */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+.content-section h2::after { /* Underline effect */
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 70px; height: 3px; background-color: var(--primary-500);
+  border-radius: 2px;
+}
+.content-section h3 {
+  color: var(--primary-600);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.content-section h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Styling for the Component Cards (Ecosystem Page) */
+.diaeta-difference-card {
+  background-color: white; /* White background */
+  border: 1px solid var(--neutral-200);
+  padding: 2rem 1.5rem; /* Adjust padding */
+  border-radius: var(--border-radius-lg); /* Consistent radius */
+  margin-bottom: 1.5rem;
+  box-shadow: var(--box-shadow-sm);
+  transition: all 0.3s ease;
+  height: 100%; /* For equal height cards in row */
+}
+.diaeta-difference-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+.diaeta-difference-card .icon {
+  font-size: 2rem; /* Icon size */
+  margin-bottom: 1rem;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px; /* Center vertically */
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(var(--primary-rgb),0.1); /* Default background */
+  color: var(--primary-500); /* Default color */
+}
+.diaeta-difference-card h4 {
+  color: var(--primary-700);
+  font-size: 1.25rem; /* Title size */
+  margin-bottom: 0.75rem;
+}
+.diaeta-difference-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+/* Specific colors for ecosystem icons if needed */
+.diaeta-difference-card.assessment .icon { color: var(--primary-500); background-color: rgba(var(--primary-rgb), 0.1); }
+.diaeta-difference-card.plan .icon { color: var(--accent-500); background-color: rgba(var(--accent-rgb), 0.1); }
+.diaeta-difference-card.tech .icon { color: var(--secondary-500); background-color: rgba(var(--secondary-rgb), 0.1); }
+.diaeta-difference-card.support .icon { color: #64B5F6; background-color: rgba(100, 181, 246, 0.1); }
+.diaeta-difference-card.genetics .icon { color: #7E57C2; background-color: rgba(126, 87, 194, 0.1); }
+
+
+/* Styling for Benefit Section Cards */
+.benefits-section {
+  background-color: var(--neutral-50); /* Light gray background */
+}
+.benefit-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  text-align: center;
+  height: 100%;
+  border-top: 4px solid var(--accent-500); /* Accent color top border */
+  transition: all 0.3s ease;
+}
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+.benefit-card .icon {
+  font-size: 2rem;
+  color: var(--accent-500);
+  margin-bottom: 1rem;
+}
+.benefit-card h4 {
+  font-size: 1.1rem;
+  color: var(--primary-600);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.benefit-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Styling for Final CTA Section */
+.final-cta-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  text-align: center;
+  color: white;
+}
+.final-cta-section h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.final-cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto 2.5rem; /* Increased bottom margin */
+  line-height: 1.7;
+}
+/* Style the button within this specific CTA section */
+.final-cta-section .btn-secondary { /* Target the button specifically */
+  background-color: var(--accent-500) !important; /* Use important if needed to override */
+  border-color: var(--accent-500) !important;
+  color: white !important;
+  padding: 0.8rem 2rem; /* Adjust padding if needed */
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.final-cta-section .btn-secondary:hover {
+  background-color: var(--accent-600) !important;
+  border-color: var(--accent-600) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .service-hero h1 { font-size: 2.5rem; }
+  .service-hero .lead { font-size: 1.1rem; }
+  .content-section h2 { font-size: 2rem; }
+  .content-section h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 767px) {
+  .service-hero { padding: 4rem 0 3rem; }
+  .service-hero h1 { font-size: 2rem; }
+  .service-hero .lead { font-size: 1rem; }
+  .content-section { padding: 3rem 0; }
+  .content-section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+  .content-section h3 { font-size: 1.4rem; }
+  .diaeta-difference-card, .benefit-card { padding: 1.5rem; } /* Adjust padding */
+  .final-cta-section { padding: 4rem 0;}
+  .final-cta-section h2 { font-size: 1.8rem; }
+}
+
+/* Add styles for the detailed benefits list if needed */
+.benefits-list-detailed {
+   list-style: none;
+   padding-left: 0;
+   margin-top: 1.5rem; /* Space above list */
+}
+.benefits-list-detailed li {
+   display: flex;
+   align-items: flex-start;
+   gap: 0.75rem;
+   margin-bottom: 1rem; /* Space between items */
+   font-size: 1rem;
+   line-height: 1.6;
+}
+.benefits-list-detailed i {
+   color: var(--accent-500);
+   font-size: 1.2rem; /* Icon size */
+   margin-top: 0.15rem; /* Align icon */
+   flex-shrink: 0;
+}
+
+/* ================================== */
+/* Styles for Service Page Hero (e.g., Perte de Poids) */
+/* ================================== */
+
+.service-hero-wp {
+  padding: 5rem 0; /* Adjust padding as needed */
+  background-color: var(--primary-50); /* Base light teal background */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid var(--primary-200); /* Example border */
+}
+
+/* Optional: Add a subtle background image overlay */
+.service-hero-wp::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Cover the entire section */
+  /* === UPDATE THIS IMAGE PATH === */
+  background: url('../images/weightloss-hero.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.08; /* Make it very subtle */
+  z-index: 0;
+}
+.service-hero-wp .container {
+  position: relative; /* Ensure content is above pseudo-element */
+  z-index: 1;
+}
+
+.service-hero-wp h1 {
+  color: var(--primary-700); /* Darkest teal for main title */
+  font-size: 2.8rem;      /* Adjust size */
+  margin-bottom: 1rem;
+}
+
+.service-hero-wp .lead {
+  color: var(--primary-600); /* Dark teal for lead paragraph */
+  max-width: 750px;
+  margin: 0 auto 2.5rem; /* Increase bottom margin */
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Ensure the main button uses the btn-primary styles */
+.service-hero-wp .btn-primary {
+  /* It should inherit global .btn-primary styles */
+  /* Add overrides ONLY if needed */
+  padding: 0.8rem 2rem; /* Example padding */
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments for the service hero */
+@media (max-width: 991px) {
+  .service-hero-wp h1 { font-size: 2.5rem; }
+  .service-hero-wp .lead { font-size: 1.1rem; }
+}
+
+@media (max-width: 767px) {
+  .service-hero-wp { padding: 4rem 0 3rem; }
+  .service-hero-wp h1 { font-size: 2.2rem; }
+  .service-hero-wp .lead { font-size: 1rem; margin-bottom: 2rem;}
+  .service-hero-wp .btn-primary { padding: 0.7rem 1.5rem; font-size: 1rem; }
+}
