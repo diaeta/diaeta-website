@@ -9091,3 +9091,209 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   .service-hero-wp .lead { font-size: 1rem; margin-bottom: 2rem;}
   .service-hero-wp .btn-primary { padding: 0.7rem 1.5rem; font-size: 1rem; }
 }
+
+/* --- Success Stories Section - Card Redesign: Images Above Text --- */
+
+/* Keep existing styles for .success-stories-section, .success-header,
+   .stories-wrapper, .story-cards-container, .success-card, .success-card.active,
+   .story-navigation, .nav-button, .dots-container, .dot,
+   .success-cta, .success-cta-text, unless they conflict.
+   The main changes are within .success-card-inner and its children. */
+
+   .success-card-inner {
+    display: flex;
+    flex-direction: column; /* CHANGED: Main direction is now vertical */
+    align-items: center;    /* Center image block and text block horizontally */
+    gap: 1.5rem;            /* Space between image block and text block */
+    padding: 2rem;
+  }
+  
+  .success-images {
+    display: flex;
+    flex-direction: row;    /* "Before" and "After" images remain side-by-side */
+    gap: 1rem;              /* Space between before and after images */
+    width: 100%;            /* Image block takes full available width within padding */
+    max-width: 700px;       /* Optional: constrain max width of the image pair for very wide cards */
+    /* margin-bottom: 1rem; /* Removed, using gap on parent now */
+  }
+  
+  .before-image,
+  .after-image {
+    flex: 1;                /* Each image container takes equal space */
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .before-image img,
+  .after-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* IMPORTANT: Set this to match your image aspect ratio (e.g., 16/9 or 4/3) */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  
+  .image-label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+    z-index: 1;
+  }
+  
+  .success-content {
+    width: 100%;
+    max-width: 650px;       /* Constrain text width for readability below images */
+    display: flex;
+    flex-direction: column;
+    text-align: center;     /* Center text elements if desired */
+  }
+  
+  .client-name {
+    font-size: 1.75rem;
+    color: var(--primary-600);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  
+  .client-details {
+    display: flex;
+    justify-content: center; /* Center the details items */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .detail-item i {
+    color: var(--secondary-500);
+  }
+  
+  .success-quote {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 2rem;    /* Space after the quote */
+    font-style: italic;
+    position: relative;
+    padding-left: 1.5rem;   /* For quote mark */
+    padding-right: 1.5rem;  /* Balance padding if text is centered */
+    /* Consider text-align: left; or text-align: justify; for longer quotes if centering feels off */
+  }
+  
+  .success-quote::before {
+    content: '“';
+    position: absolute;
+    left: 0; /* Adjust if text is centered and you want it truly to the left of the block */
+    top: -0.5rem;
+    font-size: 3rem;
+    color: rgba(var(--primary-rgb), 0.1);
+    font-family: serif;
+    line-height: 1;
+  }
+  
+  .results-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Takes full width of the .success-content area */
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0; /* Removed margin-top: auto as layout flow is now natural */
+  }
+  
+  .result-item {
+    text-align: center;
+  }
+  
+  .result-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-600);
+    margin-bottom: 0.25rem;
+  }
+  
+  .result-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  
+  
+  /* Responsive Adjustments for Success Stories (Images Above Text Layout) */
+  
+  @media (max-width: 767px) { /* Mobile view adjustments */
+    .success-card-inner {
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+  
+    .success-images {
+      flex-direction: column; /* Stack "Before" and "After" images on mobile */
+      align-items: center;
+      gap: 1rem;
+      max-width: 100%; /* Allow images to be wider if needed */
+    }
+  
+    .before-image,
+    .after-image {
+      width: 100%; /* Each image takes full width of the .success-images container */
+      max-width: 400px; /* Optional: Max width for single stacked image */
+    }
+  
+    .success-content {
+      max-width: 100%; /* Text can use more width */
+      text-align: left; /* Or keep center, depending on preference for mobile */
+    }
+  
+    .client-details {
+      justify-content: flex-start; /* Align to left if text-align: left */
+    }
+  
+    .success-quote {
+      font-size: 1rem;
+      padding-left: 0rem; /* Remove padding if quote mark is removed/repositioned */
+      padding-right: 0rem;
+      text-align: left;
+    }
+  
+    .success-quote::before {
+       display: none; /* Optionally hide quote mark on mobile if too busy, or adjust position */
+    }
+  
+    .client-name { font-size: 1.5rem; }
+  
+    .story-navigation { /* Adjust navigation buttons for this layout */
+      /* Position nav buttons relative to the .success-images block */
+      width: calc(100% + 30px); /* Extend slightly outside the main card padding */
+      top: 120px; /* Adjust based on image height, may need JS or more complex CSS if image height is very dynamic */
+      left: -15px;
+      right: -15px;
+      /* If images are stacked, maybe better to put arrows on sides of the whole card */
+    }
+  }
+  
+  /* Tablet: Usually can use the desktop layout or a slight variation */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .success-images {
+      max-width: 600px;
+    }
+    .success-content {
+      max-width: 600px;
+    }
+     .story-navigation {
+      top: 150px; /* Example: adjust based on typical side-by-side image height */
+    }
+  }

@@ -8,7 +8,10 @@ lang: fr
         <main id="main-content">
         <section class="hero-section">
           <div class="hero-background">
-            <video autoplay muted loop playsinline poster="../images/hero-poster-medium.jpg" id="hero-video"><source src="../videos/Background video.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
+              <source src="../videos/Background video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             <div class="hero-overlay"></div>
           </div>
           <div class="container hero-content">
@@ -90,19 +93,35 @@ lang: fr
                           <p class="pillar-description">Profitez d'outils technologiques (app, analyses) pour visualiser vos progrès et bénéficier d'un soutien continu et personnalisé.</p>
                         </div>
                       </div>
-                     
                     </div>
                   </div>
                   </div>
                 <div class="science-cta">
                   <a href="#contact" class="btn btn-primary"><span>Consultation initiale</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
-                  <a href="/fr/ecosysteme/" class="btn btn-outline"><span>Découvrir notre écosystème</span></a>
+                  <a href="/fr/methode-diaeta/" class="btn btn-outline"><span>Découvrir notre écosystème</span></a>
                 </div>
               </div>
               <div class="science-image-container animate-on-scroll fade-up">
-                <img src="../images/scientific-nutrition-analysis.png" alt="Analyse nutritionnelle scientifique" class="science-main-image" width="540" height="405">
-                <img src="../images/personalized-nutrition-plan.png" alt="Plan nutritionnel personnalisé" class="science-accent-image science-accent-1" width="324" height="243">
-                <img src="../images/nutrition-research-lab.png" alt="Recherche en nutrition" class="science-accent-image science-accent-2" width="220" height="165">
+                <img src="../images/scientific-nutrition-analysis-large.jpg"
+                     srcset="../images/scientific-nutrition-analysis-small.webp 400w, ../images/scientific-nutrition-analysis-small.jpg 400w,
+                             ../images/scientific-nutrition-analysis-large.webp 550w, ../images/scientific-nutrition-analysis-large.jpg 550w"
+                     sizes="(max-width: 767px) 90vw, (max-width: 1023px) 80vw, 435px"
+                     alt="Graphiques et analyses de données nutritionnelles scientifiques"
+                     class="science-main-image" loading="lazy" width="550" height="412">
+
+                <img src="../images/personalized-nutrition-plan-large.jpg"
+                     srcset="../images/personalized-nutrition-plan-small.webp 200w, ../images/personalized-nutrition-plan-small.jpg 200w,
+                             ../images/personalized-nutrition-plan-large.webp 350w, ../images/personalized-nutrition-plan-large.jpg 350w"
+                     sizes="(max-width: 767px) 45vw, (max-width: 1023px) 48vw, 256px"
+                     alt="Personne utilisant une tablette affichant un plan nutritionnel personnalisé Diaeta"
+                     class="science-accent-image science-accent-1" loading="lazy" width="350" height="263">
+
+                <img src="../images/nutrition-research-lab-large.jpg"
+                     srcset="../images/nutrition-research-lab-small.webp 180w, ../images/nutrition-research-lab-small.jpg 180w,
+                             ../images/nutrition-research-lab-large.webp 250w, ../images/nutrition-research-lab-large.jpg 250w"
+                     sizes="(max-width: 767px) 30vw, (max-width: 1023px) 33vw, 179px"
+                     alt="Scientifiques travaillant dans un laboratoire de recherche en nutrition"
+                     class="science-accent-image science-accent-2" loading="lazy" width="250" height="188">
               </div>
             </div>
           </div>
@@ -115,10 +134,16 @@ lang: fr
               <p class="section-subtitle">Des approches scientifiques et personnalisées pour vos besoins spécifiques</p>
             </div>
             <div class="specialties-grid">
-    
+
               <div class="specialty-card animate-on-scroll fade-up delay-100">
                 <div class="specialty-media">
-                  <img src="../images/WeightLoss.jpg" alt="Perte de poids durable chez Diaeta" class="specialty-image" loading="lazy">
+                  <img src="../images/perte-de-poids-diaeta-medium.jpg"
+                       srcset="../images/perte-de-poids-diaeta-small.webp 480w, ../images/perte-de-poids-diaeta-small.jpg 480w,
+                               ../images/perte-de-poids-diaeta-medium.webp 640w, ../images/perte-de-poids-diaeta-medium.jpg 640w,
+                               ../images/perte-de-poids-diaeta-large.webp 800w, ../images/perte-de-poids-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Concept de perte de poids durable avec Diaeta"
+                       class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Populaire</div>
                 </div>
@@ -145,7 +170,7 @@ lang: fr
                   </div>
                   <p class="text-xs text-muted mt-2 fst-italic">*Moyenne observée chez nos clients ayant complété le programme.</p>
                   <div class="specialty-footer">
-                    <a href="perte-de-poids.html" class="learn-more-btn">
+                    <a href="perte-de-poids" class="learn-more-btn">
                       En savoir plus<i class="fa-solid fa-arrow-right"></i>
                     </a>
                     <button class="info-btn" aria-label="Plus d'informations sur la perte de poids" data-bs-toggle="tooltip" data-bs-placement="top" title="Approche scientifique sans restriction">
@@ -156,7 +181,13 @@ lang: fr
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-200">
                 <div class="specialty-media">
-                  <img src="../images/ibs.jpg" alt="Traitement Syndrome du côlon irritable (SCI/IBS)" class="specialty-image" loading="lazy">
+                  <img src="../images/syndrome-colon-irritable-diaeta-medium.jpg"
+                       srcset="../images/syndrome-colon-irritable-diaeta-small.webp 480w, ../images/syndrome-colon-irritable-diaeta-small.jpg 480w,
+                               ../images/syndrome-colon-irritable-diaeta-medium.webp 640w, ../images/syndrome-colon-irritable-diaeta-medium.jpg 640w,
+                               ../images/syndrome-colon-irritable-diaeta-large.webp 800w, ../images/syndrome-colon-irritable-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Illustration du confort digestif pour le syndrome du côlon irritable"
+                       class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Spécialité</div>
                 </div>
@@ -179,7 +210,13 @@ lang: fr
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-300">
                 <div class="specialty-media">
-                  <img src="../images/blood-pressure.jpg" alt="Gestion de l'hypertension et cholestérol" class="specialty-image" loading="lazy">
+                  <img src="../images/gestion-hypertension-diaeta-medium.jpg"
+                       srcset="../images/gestion-hypertension-diaeta-small.webp 480w, ../images/gestion-hypertension-diaeta-small.jpg 480w,
+                               ../images/gestion-hypertension-diaeta-medium.webp 640w, ../images/gestion-hypertension-diaeta-medium.jpg 640w,
+                               ../images/gestion-hypertension-diaeta-large.webp 800w, ../images/gestion-hypertension-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Sphygmomanomètre et carnet pour la gestion de l'hypertension"
+                       class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Préventif</div>
                 </div>
@@ -203,16 +240,21 @@ lang: fr
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-400">
                 <div class="specialty-media">
-                  <img src="../images/diabetes.jpg" alt="Gestion du diabète type 2" class="specialty-image" loading="lazy">
+                  <img src="../images/gestion-diabete-diaeta-medium.jpg"
+                       srcset="../images/gestion-diabete-diaeta-small.webp 480w, ../images/gestion-diabete-diaeta-small.jpg 480w,
+                               ../images/gestion-diabete-diaeta-medium.webp 640w, ../images/gestion-diabete-diaeta-medium.jpg 640w,
+                               ../images/gestion-diabete-diaeta-large.webp 800w, ../images/gestion-diabete-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Lecteur de glycémie pour la gestion du diabète de type 2"
+                       class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Clinique</div>
                 </div>
                 <div class="specialty-content">
-                  <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div> {/* Changed Icon */}
+                  <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
                   <h3 class="specialty-title">Diabète de Type 2</h3>
                   <p class="specialty-description">Reprenez le contrôle de votre glycémie avec un plan alimentaire adapté et scientifiquement prouvé. Notre approche personnalisée vise à améliorer votre sensibilité à l'insuline et potentiellement réduire la dépendance aux médicaments.</p>
                   <div class="specialty-stats">
-                     {/* Example: Using HbA1c reduction */}
                     <div class="stat-item"><span class="stat-value">-1.5%</span><span class="stat-label">Baisse HbA1c*</span></div>
                     <div class="stat-item"><span class="stat-value">✓</span><span class="stat-label">Moins Médocs*</span></div>
                     <div class="stat-item"><span class="stat-value">16</span><span class="stat-label">Semaines</span></div>
@@ -226,10 +268,10 @@ lang: fr
                   </div>
                 </div>
               </div>
-              </div> </div> </section>
-        ```
-    
-    
+              </div>
+            </div>
+        </section>
+
         <section class="success-stories-section" id="temoignages">
           <div class="container">
               <div class="success-header">
@@ -242,18 +284,34 @@ lang: fr
                       <button class="nav-button prev-story" aria-label="Histoire précédente"><i class="fa-solid fa-chevron-left"></i></button>
                       <button class="nav-button next-story" aria-label="Histoire suivante"><i class="fa-solid fa-chevron-right"></i></button>
                   </div>
-      
+
                   <div class="story-cards-container">
                       <div class="success-card animate-on-scroll fade-up" data-story-index="0">
                           <div class="success-card-inner">
                               <div class="success-images">
-                                  <div class="before-image"><img src="../images/IBS.jpg" alt="Sophie avant" width="300" height="250"><span class="image-label before-label">Avant</span></div>
-                                  <div class="after-image"><img src="../images/WeightLoss.jpg" alt="Sophie après" width="300" height="250"><span class="image-label after-label">Après</span></div>
+                                  <div class="before-image">
+                                    <img src="../images/sophie-avant-diaeta-medium.jpg"
+                                         srcset="../images/sophie-avant-diaeta-small.webp 300w, ../images/sophie-avant-diaeta-small.jpg 300w,
+                                                 ../images/sophie-avant-diaeta-medium.webp 500w, ../images/sophie-avant-diaeta-medium.jpg 500w"
+                                         sizes="(max-width: 480px) 80vw, (max-width: 991px) 40vw, 20vw"
+                                         alt="Sophie avant de commencer son programme nutritionnel personnalisé avec Diaeta"
+                                         loading="lazy" width="500" height="375">
+                                    <span class="image-label before-label">Avant</span>
+                                  </div>
+                                  <div class="after-image">
+                                    <img src="../images/sophie-apres-diaeta-medium.jpg"
+                                         srcset="../images/sophie-apres-diaeta-small.webp 300w, ../images/sophie-apres-diaeta-small.jpg 300w,
+                                                 ../images/sophie-apres-diaeta-medium.webp 500w, ../images/sophie-apres-diaeta-medium.jpg 500w"
+                                         sizes="(max-width: 480px) 80vw, (max-width: 991px) 40vw, 20vw"
+                                         alt="Sophie rayonnante et en pleine forme après sa transformation avec Diaeta"
+                                         loading="lazy" width="500" height="375">
+                                    <span class="image-label after-label">Après</span>
+                                  </div>
                               </div>
                               <div class="success-content">
                                   <h3 class="client-name">Sophie, 42 ans</h3>
                                   <div class="client-details">
-                                      <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Cliente depuis 2021</span></div>
+                                      <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patiente depuis 2021</span></div>
                                       <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Perte de poids</span></div>
                                   </div>
                                   <p class="success-quote">"Après avoir essayé de nombreux régimes, j'ai enfin trouvé une approche qui fonctionne sans me frustrer. Le plus impressionnant est que je maintiens mon poids depuis plus de 2 ans maintenant."</p>
@@ -270,7 +328,7 @@ lang: fr
                                <div class="success-content">
                                    <h3 class="client-name">Marc, 55 ans</h3>
                                    <div class="client-details">
-                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Client depuis 2022</span></div>
+                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patient depuis 2022</span></div>
                                        <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Diabète Type 2</span></div>
                                    </div>
                                    <p class="success-quote">"Mon contrôle glycémique s'est nettement amélioré sans régime drastique. L'approche personnalisée a fait toute la différence."</p>
@@ -287,7 +345,7 @@ lang: fr
                                <div class="success-content">
                                    <h3 class="client-name">Aisha, 38 ans</h3>
                                    <div class="client-details">
-                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Cliente depuis 2021</span></div>
+                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patiente depuis 2021</span></div>
                                        <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Syndrome Côlon Irritable</span></div>
                                    </div>
                                    <p class="success-quote">"J'ai enfin compris mes déclencheurs et je peux manger avec plaisir sans craindre les symptômes. Ça a changé ma vie."</p>
@@ -300,7 +358,7 @@ lang: fr
                            </div>
                        </div>
                   </div>
-      
+
                   <div class="dots-container"></div>
               </div>
               <div class="success-cta">
@@ -328,7 +386,7 @@ lang: fr
                 <div class="section-header text-center mb-5 animate-on-scroll fade-up"><span class="section-tagline">Personnalisation ultime</span><h2 class="section-title">Tests Génétiques Nutrigenomix</h2><p class="section-subtitle">Découvrez comment votre ADN influence votre relation avec la nutrition</p></div>
                 <div class="testing-intro row align-items-center mb-5">
                   <div class="col-lg-6 animate-on-scroll fade-up"><div class="intro-content"><h3 class="intro-title">La science de la nutrition personnalisée</h3><p class="intro-text">Chaque individu possède un profil génétique unique qui influence sa réponse nutritionnelle. Nos tests ADN Nutrigenomix® analysent plus de 70 variantes génétiques liées à votre métabolisme et vous permettent d'obtenir un plan nutritionnel parfaitement adapté à votre biologie.</p><div class="benefits-list"><div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-fingerprint"></i></div><div class="benefit-text"><h5>100% personnalisé</h5><p>Recommandations basées sur votre profil génétique unique</p></div></div><div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-chart-line"></i></div><div class="benefit-text"><h5>Résultats optimisés</h5><p>Atteignez vos objectifs plus efficacement avec une approche sur mesure</p></div></div><div class="benefit-item"><div class="benefit-icon"><i class="fa-solid fa-shield-check"></i></div><div class="benefit-text"><h5>Sécurité absolue</h5><p>Confidentialité garantie et normes de laboratoire les plus strictes</p></div></div></div></div></div>
-                  <div class="col-lg-6 animate-on-scroll fade-up delay-200"><div class="intro-visual"><div class="dna-animation"><img src="images/dna-helix.svg" alt="ADN" class="dna-image" width="300" height="300"><div class="dna-particles"></div></div><div class="intro-card"><div class="stat-highlight"><span class="stat-number">70+</span><span class="stat-label">variants génétiques analysés</span></div><div class="stat-highlight"><span class="stat-number">15+</span><span class="stat-label">années de recherche scientifique</span></div></div></div></div>
+                  <div class="col-lg-6 animate-on-scroll fade-up delay-200"><div class="intro-visual"><div class="dna-animation"><img src="../images/dna-helix.svg" alt="Illustration d'une hélice d'ADN pour les tests génétiques Nutrigenomix" class="dna-image" width="300" height="300"><div class="dna-particles"></div></div><div class="intro-card"><div class="stat-highlight"><span class="stat-number">70+</span><span class="stat-label">variants génétiques analysés</span></div><div class="stat-highlight"><span class="stat-number">15+</span><span class="stat-label">années de recherche scientifique</span></div></div></div></div>
                 </div>
                 <div class="test-categories mb-5">
                   <div class="row">
@@ -376,10 +434,7 @@ lang: fr
              </div>
         </section>
     </main>
-    
 
     <button id="back-to-top" class="back-to-top" aria-label="Retour en haut"><i class="fa-solid fa-chevron-up"></i></button>
 
-      
     </div>
-   
