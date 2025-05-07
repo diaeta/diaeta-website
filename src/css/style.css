@@ -9297,3 +9297,486 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       top: 150px; /* Example: adjust based on typical side-by-side image height */
     }
   }
+
+  /* ============================================= */
+/* == Styles for Rendez-vous Page (rendez-vous.html) == */
+/* ============================================= */
+
+/* Hero section for Rendez-vous page (if different from global .service-hero) */
+/* You can customize this or rely on existing .service-hero styles */
+.rendez-vous-hero { /* Example if you want a unique hero */
+  background-color: var(--primary-50);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.rendez-vous-hero h1 {
+  color: var(--primary-700);
+}
+
+.rendez-vous-hero .lead {
+  color: var(--primary-600);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Key Information Section */
+.key-info-section {
+  /* background-color: var(--neutral-50); /* Or keep it white/default */
+}
+
+.key-info-section .section-title,
+.appointment-booking-section .section-title,
+.appointment-support-section .section-title {
+  margin-bottom: 1rem; /* Adjust title bottom margin */
+}
+
+.key-info-section .section-subtitle,
+.appointment-booking-section .section-subtitle,
+.appointment-support-section .section-subtitle {
+  font-size: var(--text-lg); /* Make subtitle a bit larger */
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-md); /* Slightly more prominent shadow */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.info-card-icon {
+  font-size: 2.25rem; /* Slightly larger icon */
+  color: var(--primary-500);
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: rgba(var(--primary-rgb), 0.08);
+  border-radius: 50%;
+}
+
+.info-card-title {
+  font-family: var(--font-display); /* Using display font for consistency */
+  font-size: 1.5rem;
+  color: var(--primary-600);
+  margin-bottom: 1rem;
+  font-weight: var(--font-semibold);
+}
+
+.info-card-subtitle { /* New class for subheadings within info-card */
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: var(--primary-600);
+  margin-bottom: 0.75rem;
+  font-weight: var(--font-semibold);
+}
+
+.info-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+.info-card ul {
+  padding-left: 0; /* Remove default padding if using list-unstyled */
+  margin-bottom: 1rem;
+}
+.info-card ul:last-child {
+  margin-bottom: 0;
+}
+
+.info-card ul li {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.info-card ul li strong {
+  color: var(--text-primary);
+}
+
+/* Styled list for what to bring, etc. */
+.list-styled {
+    list-style: none;
+    padding-left: 0;
+}
+.list-styled li {
+    position: relative;
+    padding-left: 1.75rem; /* Space for the icon */
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+.list-styled li::before {
+    content: '\f058'; /* Font Awesome check-circle icon (solid) */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900; /* Solid icons are typically 900 weight */
+    color: var(--accent-500); /* Use accent color */
+    position: absolute;
+    left: 0;
+    top: 1px; /* Adjust vertical alignment */
+    font-size: 1.1em;
+}
+
+
+/* iFrame Container */
+.iframe-container {
+  max-width: 850px; /* Max width for the iframe module */
+  margin: 2rem auto;
+  padding: 0; /* Remove padding if shadow is on iframe directly */
+  background-color: #fff; /* Can be transparent if iframe has its own bg */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-lg); /* More pronounced shadow */
+  overflow: hidden; /* Ensures iframe corners are rounded if it has a background */
+}
+
+.iframe-container iframe {
+  display: block; /* Removes any potential bottom space */
+}
+
+/* Responsive adjustments for Rendez-vous page specific elements */
+@media (max-width: 991px) {
+  .info-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem; /* Add space between cards when they stack */
+  }
+  .info-card-title {
+    font-size: 1.35rem;
+  }
+  .key-info-section .row > div:last-child .info-card {
+      margin-bottom: 0; /* Remove bottom margin from last card in row if it stacks */
+  }
+}
+
+@media (max-width: 767px) {
+  .info-card-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 1rem;
+  }
+  .info-card-title {
+    font-size: 1.25rem;
+  }
+  .key-info-section .section-subtitle,
+  .appointment-booking-section .section-subtitle,
+  .appointment-support-section .section-subtitle {
+    font-size: var(--text-base);
+  }
+}
+
+/* ============================================= */
+/* == Styles for Rendez-vous Page (Guided Journey) == */
+/* ============================================= */
+
+.rd-hero { /* Specific hero for Rendez-vous page */
+  background-color: var(--primary-50); /* Light teal */
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.rd-hero-badge {
+  background-color: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-600);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  font-size: 0.9rem;
+}
+
+.rd-hero h1 {
+  color: var(--primary-700);
+  margin-bottom: 0.75rem;
+}
+
+.rd-hero .lead {
+  color: var(--primary-600);
+  font-size: var(--text-lg);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rd-step-section .section-title {
+  font-size: 2rem; /* Slightly smaller for step titles */
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.rd-step-section .section-title .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-500);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  line-height: 36px;
+  font-family: var(--font-primary); /* Use primary font for number */
+}
+
+.rd-step-section .section-subtitle {
+  font-size: var(--text-md); /* Adjust if you have text-md, or use 1rem */
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+
+/* Location Choice Section */
+.rd-location-choice-section {
+  background-color: var(--neutral-100); /* Slightly off-white for steps */
+}
+
+.location-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.location-card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-sm);
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+  border-color: var(--primary-300);
+}
+
+.location-card.active {
+  border-color: var(--primary-500);
+  background-color: var(--primary-50);
+  box-shadow: var(--box-shadow-md);
+  transform: translateY(-2px);
+}
+
+.location-card.active .location-card-name {
+  color: var(--primary-600);
+}
+.location-card.active .location-card-arrow i {
+  color: var(--primary-500);
+  transform: translateX(3px);
+}
+
+
+.location-card-icon {
+  font-size: 1.75rem;
+  color: var(--primary-500);
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.location-card-content {
+  flex-grow: 1;
+}
+
+.location-card-name {
+  font-family: var(--font-primary); /* Or keep --font-display */
+  font-weight: var(--font-semibold);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.location-card-address,
+.location-card-notes {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.location-card-notes {
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.location-card-arrow {
+  font-size: 1rem;
+  color: var(--neutral-400);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Booking Module Section */
+#booking-module-dynamic-title {
+  /* This is inside .section-title, so inherits its base styles */
+  /* No specific style needed unless you want to change its color/font more */
+}
+
+#iframe-loading-indicator .spinner-border {
+    width: 2rem;
+    height: 2rem;
+}
+
+.iframe-container {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-lg);
+  overflow: hidden; /* If iframe has square corners */
+}
+.iframe-container iframe {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Preparation Section */
+.rd-preparation-section {
+    background-color: var(--neutral-100);
+}
+.preparation-card .info-card-title {
+    font-size: 1.3rem; /* Consistent with other info cards */
+}
+.preparation-card .list-styled li::before {
+    font-size: 1em; /* Adjust icon size if needed */
+    top: 3px;
+}
+.preparation-card .prep-icon {
+    background-color: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent-500);
+}
+
+/* Responsive for location cards */
+@media (max-width: 767px) {
+  .rd-step-section .section-title {
+    font-size: 1.6rem;
+    gap: 0.5rem;
+  }
+  .rd-step-section .section-title .step-number {
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .location-cards-container {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+  }
+  .location-card {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  .location-card-name {
+    font-size: 1rem;
+  }
+  .location-card-address, .location-card-notes {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================= */
+/* == Styles for Rendez-vous Page (Step Titles Fix) == */
+/* ============================================= */
+
+/* Target the H2 containing the step number and title text */
+.rd-step-section .section-header h2.section-title {
+  position: relative; /* Allow absolute positioning for the step number */
+  text-align: center; /* Center the main title text */
+  /* Add padding to prevent text overlapping the number */
+  /* Adjust padding based on step number size + desired gap */
+  padding-left: 50px;
+  padding-right: 50px; /* Keep text centered relative to available space */
+  /* Remove flex properties previously used for centering the group */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* gap: 0.75rem; */
+  font-size: 2rem; /* Maintain font size */
+  margin-bottom: 0.75rem; /* Maintain margin */
+}
+
+/* Style and Position the Step Number */
+.rd-step-section .section-title .step-number {
+  position: absolute; /* Position relative to the h2 */
+  left: 0;            /* Align to the far left of the h2's padded box */
+  top: 50%;           /* Align vertically center */
+  transform: translateY(-50%); /* Precise vertical centering */
+  /* --- Keep original styling for the circle --- */
+  display: inline-flex; /* Use flex for centering number inside */
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-500);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  line-height: 1;
+  font-family: var(--font-primary);
+  /* --- End original styling --- */
+}
+
+/* Ensure subtitle remains centered correctly */
+.rd-step-section .section-subtitle {
+  text-align: center; /* Explicitly center */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0; /* Adjust top margin if needed */
+  font-size: var(--text-base); /* Maintain size */
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 767px) {
+  .rd-step-section .section-header h2.section-title {
+    text-align: left; /* Align title text left on mobile */
+    padding-left: 45px; /* Adjust left padding for number */
+    padding-right: 10px; /* Reduce right padding */
+    font-size: 1.6rem; /* Adjust title size */
+  }
+
+  .rd-step-section .section-title .step-number {
+    /* Keep absolute positioning, adjust size if needed */
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .rd-step-section .section-subtitle {
+    text-align: left; /* Align subtitle left */
+    max-width: 100%;
+  }
+}
+

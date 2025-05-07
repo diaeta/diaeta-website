@@ -1,0 +1,143 @@
+[
+  {
+    "id": "pluridis",
+    "name": "Espace Pluridys",
+    "address": "Dieweg 99, Uccle",
+    "zip": "1180",
+    "city": "Uccle",
+    "Maps_link": "https://maps.app.goo.gl/Aw2AkKfD2Dy4mpy28",
+    "doctorpracticeId": "84434",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Mercredi": "14h00 - 20h00",
+      "details": "Disponible uniquement le Mercredi."
+    }
+  },
+  {
+    "id": "basilik",
+    "name": "Basili-K Santé",
+    "address": "Avenue Seghers 99, Koekelberg",
+    "zip": "1081",
+    "city": "Koekelberg",
+    "Maps_link": "https://maps.app.goo.gl/muudAEuUbjUu2cPk8",
+    "doctorpracticeId": "84474",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Samedi": "9h00 - 13h00",
+      "details": "Disponible uniquement le Samedi matin."
+    }
+  },
+  {
+    "id": "medic_alix",
+    "name": "Centre Médic-Alix",
+    "address": "Parvis Sainte-Alix 3, Woluwe-Saint-Pierre",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.app.goo.gl/hezj6iFJohnrZyHC6",
+    "doctorpracticeId": "117961",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Mardi": "14h00 - 20h00",
+      "details": "Disponible uniquement le Mardi après-midi/soir."
+    }
+  },
+  {
+    "id": "tenbosch",
+    "name": "Centre Médical Tenbosch-Châtelain",
+    "address": "Rue Tenbosch 85, Ixelles",
+    "zip": "1050",
+    "city": "Ixelles",
+    "Maps_link": "https://maps.app.goo.gl/Af28urYr7dXpWrf47",
+    "doctorpracticeId": "86140",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Jeudi": "13h00 - 18h00",
+      "Samedi": "14h00 - 18h00",
+      "details": "Disponible Jeudi après-midi et Samedi après-midi."
+    }
+  },
+  {
+    "id": "revago",
+    "name": "Centre REVAGO",
+    "address": "Avenue du Roi Albert 187, Berchem-Sainte-Agathe",
+    "zip": "1082",
+    "city": "Berchem-Sainte-Agathe",
+    "Maps_link": "https://maps.app.goo.gl/gkEeT2zkaVXjX4HV9",
+    "doctorpracticeId": "113544",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Mardi": "14h00 - 20h00",
+      "details": "Disponible uniquement le Mardi après-midi/soir."
+    }
+  },
+  {
+    "id": "etrimaux",
+    "name": "Les Etrimaux",
+    "address": "Drève de Nivelles 168, Woluwe-Saint-Pierre",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.app.goo.gl/BNXPscbDbwBCcsJo6",
+    "doctorpracticeId": "96326",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Lundi": "12h30 - 16h30",
+      "details": "Disponible uniquement le Lundi après-midi."
+    }
+  },
+  {
+    "id": "mediwoluwe",
+    "name": "Mediwoluwe",
+    "address": "Avenue de Broqueville 9, Woluwe-Saint-Pierre",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.app.goo.gl/GuCT5T3FSVroYFD8A",
+    "doctorpracticeId": "86003",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Lundi": "11h00 - 21h00",
+      "details": "Disponible uniquement le Lundi."
+    }
+  },
+  {
+    "id": "wolu20",
+    "name": "Wolu20 Medical Center",
+    "address": "Avenue Marcel Thiry 20, Woluwe-Saint-Lambert",
+    "zip": "1200",
+    "city": "Woluwe-Saint-Lambert",
+    "Maps_link": "https://maps.app.goo.gl/5PtLRnMbJaUhBtSc7",
+    "doctorpracticeId": "117960",
+    "notes": "",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Jeudi": "13h30 - 20h30",
+      "details": "Disponible uniquement le Jeudi après-midi/soir."
+    }
+  },
+  {
+    "id": "video",
+    "name": "Vidéo Consultation",
+    "address": "À distance (en ligne depuis chez vous)",
+    "zip": null,
+    "city": null,
+    "Maps_link": null,
+    "doctorpracticeId": "117704",
+    "notes": "Pour une consultation diététique où que vous soyez.",
+    "hours_type": "specific",
+    "specific_hours": {
+      "Lundi": "12h30 - 16h30 & 17h00 - 21h00",
+      "Mardi": "10h00 - 13h00 & 14h00 - 20h00",
+      "Mercredi": "10h00 - 13h00 & 14h00 - 20h00",
+      "Jeudi": "10h00 - 13h00 & 14h00 - 20h00",
+      "Vendredi": "10h00 - 13h00 & 14h00 - 20h00",
+      "Samedi": "10h00 - 13h00 & 14h00 - 18h00",
+      "details": "Horaires flexibles pour les téléconsultations."
+    }
+  }
+]
