@@ -34,9 +34,23 @@ lang: fr
                 </ul>
                 <p>C'est cette approche méthodique qui nous permet d'offrir des résultats durables là où d'autres échouent.</p>
             </div>
+            {# Optimized image for method structure #}
             <div class="col-lg-6 text-center animate-on-scroll fade-up delay-200">
-                 {# Add an image representing structure/science/personalization #}
-                <img src="../../images/method-structure.png" alt="Illustration d'une approche structurée et scientifique" class="img-fluid rounded shadow-sm" loading="lazy">
+                 <img
+                    src="../../images/diaeta-methode-structure-medium.png" {# Fallback PNG #}
+                    srcset="../../images/diaeta-methode-structure-small.webp 500w,
+                            ../../images/diaeta-methode-structure-small.png 500w,
+                            ../../images/diaeta-methode-structure-medium.webp 800w,
+                            ../../images/diaeta-methode-structure-medium.png 800w,
+                            ../../images/diaeta-methode-structure-large.webp 1000w,
+                            ../../images/diaeta-methode-structure-large.png 1000w"
+                    sizes="(max-width: 991px) 90vw, 50vw" {# Approx: Full width below lg, half container width on lg+ #}
+                    alt="Illustration d'une approche structurée et scientifique de la méthode Diaeta"
+                    class="img-fluid rounded shadow-sm"
+                    loading="lazy"
+                    width="800" {# Width of medium variant #}
+                    height="[CALCULATE_HEIGHT_FOR_800W]" {# Set this based on your image's aspect ratio #}
+                 >
             </div>
         </div>
     </div>
@@ -86,10 +100,23 @@ lang: fr
      <div class="container">
          <h2 class="animate-on-scroll fade-up">La Méthode Diaeta en Action : Un Exemple Concret</h2>
          <div class="row align-items-center">
-             <div class="col-lg-4 text-center animate-on-scroll fade-up delay-100">
-                 {# Add an image representing communication/app usage #}
-                <img src="../../images/app-communication.jpeg" alt="Communication via l'application Nutrium" class="img-fluid rounded mb-3" loading="lazy" style="max-width: 250px;">
-             </div>
+            {# Optimized image for app communication #}
+            <div class="col-lg-4 text-center animate-on-scroll fade-up delay-100">
+               <img
+                   src="../../images/app-communication-diaeta-small.jpg" {# Fallback (small is fine given max-width) #}
+                   srcset="../../images/app-communication-diaeta-small.webp 250w,
+                           ../../images/app-communication-diaeta-small.jpg 250w,
+                           ../../images/app-communication-diaeta-medium.webp 500w,
+                           ../../images/app-communication-diaeta-medium.jpg 500w"
+                   sizes="(max-width: 767px) 80vw, 250px" {# Max 250px on large screens due to inline style #}
+                   alt="Communication et suivi via l'application mobile Diaeta (Nutrium)"
+                   class="img-fluid rounded mb-3"
+                   loading="lazy"
+                   style="max-width: 250px; height: auto;" {# Keep max-width style, ensure height: auto #}
+                   width="500" {# Intrinsic width of largest source needed (for retina) #}
+                   height="[CALCULATE_HEIGHT_FOR_500W]" {# Set this based on your image's aspect ratio #}
+               >
+            </div>
              <div class="col-lg-8 animate-on-scroll fade-up delay-200">
                  <p class="lead">Imaginez ce scénario courant :</p>
                  <ol>
@@ -125,7 +152,7 @@ lang: fr
         <p class="animate-on-scroll fade-up delay-200">
             Investissez dans une approche qui a prouvé son efficacité. Prenez rendez-vous pour votre consultation initiale et découvrez comment notre méthode structurée et personnalisée peut vous aider à atteindre enfin vos objectifs santé.
         </p>
-        <a href="/fr/index.html#rdv" class="btn btn-secondary btn-lg animate-on-scroll fade-up delay-400"> {# Ensure btn-secondary is styled as accent here #}
+        <a href="/fr/rendez-vous" class="btn btn-secondary btn-lg animate-on-scroll fade-up delay-400"> {# Ensure btn-secondary is styled as accent here #}
             <span>Découvrir la Méthode en Consultation</span>
             <i class="fas fa-calendar-check btn-icon-right"></i>
         </a>

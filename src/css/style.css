@@ -8803,15 +8803,51 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 /* Optional Background Image for Hero */
 
+/* --- Optimized & Responsive Service Hero Background --- */
+
+/* Base styles for the pseudo-element */
 .service-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/ecosystem-hero.jpg') no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  opacity: 0.08;
+  opacity: 0.08; /* Or adjust slightly if needed after compression */
   z-index: 0;
+  /* Add a fallback background color in case images fail */
+  background-color: var(--primary-50);
+
+  /* --- Define Fallback (Mobile-first) background --- */
+  /* Use a smaller, heavily optimized JPG */
+  background-image: url('../images/hero-background-medium-optimized.jpg');
 }
+
+/* --- Serve WebP if supported --- */
+/* Check for WebP support generally */
+@supports (background-image: url('../images/hero-background-medium-optimized.webp')) {
+  .service-hero::before {
+    background-image: url('../images/hero-background-medium-optimized.webp');
+  }
+}
+
+/* --- Serve Larger Images for Larger Screens --- */
+@media (min-width: 1200px) { /* Example breakpoint for larger image */
+  .service-hero::before {
+    /* Use larger optimized JPG for large screens */
+    background-image: url('../images/hero-background-large-optimized.jpg');
+  }
+
+  /* Serve larger WebP if supported on large screens */
+  @supports (background-image: url('../images/hero-background-large-optimized.webp')) {
+    .service-hero::before {
+      background-image: url('../images/hero-background-large-optimized.webp');
+    }
+  }
+}
+
+/* You could add another smaller size for very small mobile if needed */
+/* @media (max-width: 576px) { ... } */
 .service-hero .container { position: relative; z-index: 1;}
 
 .service-hero h1 {
@@ -9041,17 +9077,52 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   border-bottom: 3px solid var(--primary-200); /* Example border */
 }
 
-/* Optional: Add a subtle background image overlay */
+/* ====================================================== */
+/* == Styles for Perte-de-Poids Hero Background Image == */
+/* ====================================================== */
+
+/* Styles for the ::before pseudo-element holding the background */
 .service-hero-wp::before {
   content: '';
   position: absolute;
   inset: 0; /* Cover the entire section */
-  /* === UPDATE THIS IMAGE PATH === */
-  background: url('../images/weightloss-hero.jpg') no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  opacity: 0.08; /* Make it very subtle */
-  z-index: 0;
+  opacity: 0.08; /* Keep or adjust slightly after compression */
+  z-index: 0; /* Ensure it's behind content */
+  /* Add a fallback background color */
+  background-color: var(--primary-50); /* Or another suitable light color */
+
+  /* --- Define Default/Mobile/Fallback background --- */
+  /* Use the medium-sized, optimized JPG as fallback */
+  background-image: url('../images/weightloss-hero-medium-optimized.jpg');
 }
+
+/* --- Serve WebP if supported --- */
+/* Check for WebP support generally and apply medium WebP */
+@supports (background-image: url('../images/weightloss-hero-medium-optimized.webp')) {
+  .service-hero-wp::before {
+    background-image: url('../images/weightloss-hero-medium-optimized.webp');
+  }
+}
+
+/* --- Serve Larger Images for Larger Screens --- */
+/* Example breakpoint: screens wider than 1200px */
+@media (min-width: 1200px) {
+  .service-hero-wp::before {
+    /* Use larger optimized JPG for large screens */
+    background-image: url('../images/weightloss-hero-large-optimized.jpg');
+  }
+
+  /* Serve larger WebP if supported on large screens */
+  @supports (background-image: url('../images/weightloss-hero-large-optimized.webp')) {
+    .service-hero-wp::before {
+      background-image: url('../images/weightloss-hero-large-optimized.webp');
+    }
+  }
+}
+
 .service-hero-wp .container {
   position: relative; /* Ensure content is above pseudo-element */
   z-index: 1;
@@ -9489,7 +9560,7 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 .rd-hero { /* Specific hero for Rendez-vous page */
   background-color: var(--primary-50); /* Light teal */
   text-align: center;
-  padding-top: 4rem;
+  padding-top: 5.5rem;
   padding-bottom: 4rem;
 }
 

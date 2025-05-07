@@ -14,25 +14,49 @@ lang: fr
         <p class="lead animate-on-scroll fade-up delay-200">
             Maigrir durablement et sans frustration est possible. Diaeta vous accompagne avec une méthode basée sur la science, votre métabolisme unique et le plaisir de manger.
         </p>
-        <a href="/fr/index.html#rdv" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400"><span>Je Démarre Mon Évaluation</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+        <a href="/fr/rendez-vous" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400"><span>Ma Transformation Commence Ici</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
     </div>
 </section>
 
-<section class="content-section bg-white">
+<section class="content-section bg-white py-5"> {# Added padding #}
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7 animate-on-scroll fade-up">
-                <h2>Comprendre le Poids : Bien Plus qu'un Chiffre</h2>
-                <p>Le poids affiché sur la balance est une mesure globale incluant la masse musculaire, la masse graisseuse, l'eau, les os et les organes. Pour une perte de poids saine et durable, l'objectif n'est pas simplement de "perdre des kilos", mais de <strong>réduire la masse graisseuse</strong> tout en <strong>préservant la précieuse masse musculaire</strong>, essentielle pour un métabolisme actif.</p>
-                <p>Chez Diaeta, nous utilisons l'analyse de composition corporelle (InBody) pour suivre précisément l'évolution de votre graisse et de vos muscles, vous donnant une image fidèle de vos progrès réels.</p>
-                <p><small><strong>Bon à savoir :</strong> Perdre de la graisse réduit la taille des cellules adipeuses (adipocytes), mais pas leur nombre. Éviter les reprises de poids importantes prévient leur multiplication.</small></p>
+        {# Use Bootstrap row for side-by-side layout on large screens #}
+        <div class="row align-items-center g-4 g-lg-5">
+
+            {# Column 1: Text Content #}
+            <div class="col-lg-7 animate-on-scroll fade-up"> {# Text takes ~7/12 width on large screens #}
+                <h2 class="h3 mb-3">Comprendre le Poids : Bien Plus qu'un Chiffre</h2> {# Used h3 for potentially better hierarchy #}
+                <p>Le poids affiché sur la balance n'est qu'une mesure globale et souvent trompeuse. Votre composition corporelle – le ratio entre la masse musculaire, la masse grasse, l'eau et la masse osseuse – est un indicateur bien plus pertinent de votre santé métabolique et de vos progrès réels.</p>
+                <p>Chez Diaeta, nous utilisons l'analyse d'impédance bioélectrique pour obtenir une image précise de votre composition corporelle. Ces données nous permettent de suivre l'évolution de votre masse grasse et musculaire indépendamment, et d'adapter votre stratégie nutritionnelle pour des résultats ciblés et une image plus complète de votre santé.</p>
+                {# Add any other relevant text here #}
             </div>
-            <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
-                 {# Add a relevant image illustrating body composition or healthy balance #}
-                <img src="../../images/weightloss-composition.jpg" alt="Illustration Composition Corporelle" class="img-fluid rounded shadow-sm" loading="lazy">
+
+            {# Column 2: Image Content #}
+            <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200"> {# Image takes ~5/12 width on large screens #}
+                 <img
+                    src="../../images/body-composition-analysis-diaeta-medium.png" {# Fallback PNG #}
+                    srcset="../../images/body-composition-analysis-diaeta-small.webp 500w,
+                            ../../images/body-composition-analysis-diaeta-small.png 500w,
+                            ../../images/body-composition-analysis-diaeta-medium.webp 800w,
+                            ../../images/body-composition-analysis-diaeta-medium.png 800w,
+                            ../../images/body-composition-analysis-diaeta-large.webp 1000w,
+                            ../../images/body-composition-analysis-diaeta-large.png 1000w"
+                    {# UPDATED SIZES ATTRIBUTE for column layout #}
+                    sizes="(max-width: 991px) 85vw, 40vw"
+                         {# Explanation:
+                            max-width: 991px -> Below large breakpoint, image stacks and takes ~85% viewport width (adjust vw if needed)
+                            40vw -> On large screens (>=992px), image is in col-lg-5, roughly 5/12 (~41%) of container width. Adjust vw based on container padding & gutters.
+                         #}
+                    alt="Diagramme illustrant l'analyse de la composition corporelle : masse musculaire, masse osseuse, masse grasse, et eau corporelle."
+                    class="img-fluid rounded shadow-sm" {# img-fluid is important here #}
+                    loading="lazy"
+                    width="800" {# Width of medium fallback variant #}
+                    height="[CALCULATE_HEIGHT_FOR_800W]" {# SET THIS based on your image's aspect ratio #}
+                 >
             </div>
-        </div>
-    </div>
+
+        </div> {# End .row #}
+    </div> {# End .container #}
 </section>
 
 <section class="content-section" style="background-color: var(--neutral-50);"> {# Light grey background #}
@@ -74,15 +98,28 @@ lang: fr
         <h2 class="animate-on-scroll fade-up">La Différence Diaeta : Une Stratégie Complète et Humaine</h2>
         <div class="row g-lg-5 gy-4 align-items-center">
             <div class="col-lg-6 animate-on-scroll fade-up delay-200">
-                {# Add a relevant image illustrating the Diaeta approach #}
-                <img src="../images/placeholder-diaeta-approach.png" alt="Diététicien expliquant un plan personnalisé" class="img-fluid rounded shadow">
-            </div>
+                <img
+                   src="../../images/diaeta-consultation-approche-medium.jpg" {# Fallback JPG #}
+                   srcset="../../images/diaeta-consultation-approche-small.webp 500w,
+                           ../../images/diaeta-consultation-approche-small.jpg 500w,
+                           ../../images/diaeta-consultation-approche-medium.webp 700w,
+                           ../../images/diaeta-consultation-approche-medium.jpg 700w,
+                           ../../images/diaeta-consultation-approche-large.webp 1000w,
+                           ../../images/diaeta-consultation-approche-large.jpg 1000w"
+                   sizes="(max-width: 991px) 90vw, 45vw"
+                        
+                   alt="Consultation Diaeta : diététicienne souriante discutant d'un plan nutritionnel sur tablette avec un client."
+                   class="img-fluid rounded shadow" 
+                   loading="lazy"
+                   width="450" 
+                >
+           </div>
             <div class="col-lg-6">
                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-100">
                     <div class="icon"><i class="fas fa-microscope"></i></div>
                     <div>
                         <h4>Analyse Approfondie & Personnalisée</h4>
-                        <p>Nous allons au-delà des calories. Votre plan est basé sur votre composition corporelle (InBody), votre métabolisme, votre bilan de santé, votre mode de vie et VOS préférences.</p>
+                        <p>Nous allons au-delà des calories. Votre plan est basé sur votre composition corporelle, votre métabolisme, votre bilan de santé, votre mode de vie et VOS préférences.</p>
                     </div>
                 </div>
                  <div class="diaeta-difference-item animate-on-scroll fade-up delay-200">
@@ -96,7 +133,7 @@ lang: fr
                     <div class="icon"><i class="fas fa-sync-alt"></i></div>
                     <div>
                         <h4>Accompagnement Actif (avec Technologie)</h4>
-                        <p>Suivi régulier, utilisation intelligente de l'application Nutrium pour la communication et l'ajustement, soutien constant pour vous aider à rester motivé et à surmonter les obstacles.</p>
+                        <p>Suivi régulier, utilisation intelligente de notre application mobile pour la communication et l'ajustement, soutien constant pour vous aider à rester motivé et à surmonter les obstacles.</p>
                     </div>
                  </div>
                  <div class="diaeta-difference-item animate-on-scroll fade-up delay-400">
@@ -118,24 +155,24 @@ lang: fr
             <div class="col-md-3 process-step-detailed animate-on-scroll fade-up delay-100">
                 <div class="icon"><i class="fas fa-comments"></i></div>
                 <h4>1. Évaluation Initiale</h4>
-                <p>Bilan complet (santé, habitudes, InBody) et définition de vos objectifs personnalisés.</p>
+                <p>Bilan complet (santé, habitudes, Composition corporelle) et définition de vos objectifs personnalisés.</p>
             </div>
              <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center process-connector animate-on-scroll fade-up delay-150"><i class="fas fa-arrow-right"></i></div>
             <div class="col-md-4 process-step-detailed animate-on-scroll fade-up delay-200">
                 <div class="icon"><i class="fas fa-clipboard-list"></i></div>
                 <h4>2. Plan & Éducation</h4>
-                <p>Réception de votre stratégie sur mesure via l'app Nutrium, conseils pratiques et compréhension de votre plan.</p>
+                <p>Réception de votre stratégie sur mesure via notre application mobile, conseils pratiques et compréhension de votre plan.</p>
             </div>
               <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center process-connector animate-on-scroll fade-up delay-250"><i class="fas fa-arrow-right"></i></div>
             <div class="col-md-3 process-step-detailed animate-on-scroll fade-up delay-300">
                  <div class="icon"><i class="fas fa-chart-line"></i></div>
                 <h4>3. Suivi & Ajustement</h4>
-                <p>Consultations régulières pour analyser vos progrès (InBody), ajuster le plan et vous soutenir.</p>
+                <p>Consultations régulières pour analyser vos progrès (Composition corporelle), ajuster le plan et vous soutenir.</p>
             </div>
              {# Removed 4th step for 3-column layout balance, merged into 3 #}
         </div>
         <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
-            <a href="/fr/index.html#tarifs" class="btn btn-outline-primary">Consulter les tarifs et le détail des consultations <i class="fas fa-euro-sign ms-1"></i></a>
+            <a href="/fr/index.html#tarifs" class="btn btn-accent btn-lg animate-on-scroll fade-up delay-400">Consulter les tarifs et le détail des consultations <i class="fas fa-euro-sign ms-1"></i></a>
         </div>
     </div>
 </section>
