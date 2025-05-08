@@ -9705,11 +9705,6 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Booking Module Section */
-#booking-module-dynamic-title {
-  /* This is inside .section-title, so inherits its base styles */
-  /* No specific style needed unless you want to change its color/font more */
-}
 
 #iframe-loading-indicator .spinner-border {
     width: 2rem;
@@ -9851,3 +9846,35 @@ transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
 }
 
+/* ===================================================== */
+/* == Styles for Rendez-vous Page - Hours Details Note == */
+/* ===================================================== */
+
+.specific-hours-list li.hours-details-note,
+.specific-hours-list li.hours-details-note small, /* Ensure specificity */
+.specific-hours-list li.hours-details-note em {   /* Ensure specificity */
+  color: var(--secondary-600); /* Use Darker Coral/Orange */
+  font-weight: 500;         /* Medium weight to make it stand out slightly */
+  font-style: normal;       /* Remove italics from 'em' if you prefer */
+  /* Keep font-size inherited (text-xs) or adjust if needed */
+}
+
+/* Optional: Add a small info icon before the details text */
+
+.specific-hours-list li.hours-details-note::before {
+    content: '\f05a'; /* Font Awesome info-circle icon (solid) */
+ font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--secondary-500); /* Slightly lighter coral */
+font-size: 0.9em;
+    margin-right: 0.4em;
+    position: relative; /* Adjust positioning if needed */
+ top: -1px; /* Fine-tune vertical alignment */
+}
+
+
+/* Ensure enough space for the details note if it wraps */
+.specific-hours-list li.hours-details-note {
+    margin-top: 0.4rem; /* Add a little space above the details note */
+    line-height: 1.5; /* Ensure good line spacing if it wraps */
+}

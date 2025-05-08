@@ -6,10 +6,14 @@ lang: fr
 ---
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
         <main id="main-content">
+
         <section class="hero-section">
           <div class="hero-background">
+            {# Optimized video poster name used below #}
             <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
               <source src="../videos/Background video.mp4" type="video/mp4">
+              {# Consider adding WebM version for broader compatibility #}
+              {# <source src="../videos/Background-video.webm" type="video/webm"> #}
               Your browser does not support the video tag.
             </video>
             <div class="hero-overlay"></div>
@@ -25,12 +29,11 @@ lang: fr
               <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% personnalisé</span></div>
             </div>
             <div class="hero-cta animate-on-scroll fade-up delay-500">
-              <a href="rendez-vous" class="btn btn-primary pulse-animation"><span>Prendre Rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+              <a href="#rdv" class="btn btn-primary pulse-animation"><span>Prendre Rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
               <a href="#approche" class="btn btn-outline"><span>Découvrir notre approche</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
             </div>
           </div>
-          </section>
-
+        </section>
         <section class="science-approach-section" id="approche">
           <div class="container">
             <div class="science-grid">
@@ -97,11 +100,12 @@ lang: fr
                   </div>
                   </div>
                 <div class="science-cta">
-                  <a href="rendez-vous" class="btn btn-primary"><span>Consultation initiale</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
-                  <a href="/fr/methode-diaeta/" class="btn btn-outline"><span>Découvrir notre écosystème</span></a>
+                  <a href="#contact" class="btn btn-primary"><span>Consultation initiale</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
+                  <a href="{{ '/fr/methode-diaeta/' | url }}" class="btn btn-outline"><span>Découvrir La Méthode Diaeta</span></a> {# Adjusted path assuming methode-diaeta.html is in fr folder #}
                 </div>
               </div>
               <div class="science-image-container animate-on-scroll fade-up">
+                {# Optimized image tags for science section #}
                 <img src="../images/scientific-nutrition-analysis-large.jpg"
                      srcset="../images/scientific-nutrition-analysis-small.webp 400w, ../images/scientific-nutrition-analysis-small.jpg 400w,
                              ../images/scientific-nutrition-analysis-large.webp 550w, ../images/scientific-nutrition-analysis-large.jpg 550w"
@@ -126,7 +130,6 @@ lang: fr
             </div>
           </div>
         </section>
-
         <section class="specialties-section" id="services">
           <div class="container">
             <div class="section-header animate-on-scroll fade-up">
@@ -142,7 +145,7 @@ lang: fr
                                ../images/perte-de-poids-diaeta-medium.webp 640w, ../images/perte-de-poids-diaeta-medium.jpg 640w,
                                ../images/perte-de-poids-diaeta-large.webp 800w, ../images/perte-de-poids-diaeta-large.jpg 800w"
                        sizes="(max-width: 767px) 90vw, 48vw"
-                       alt="Concept de perte de poids durable avec Diaeta"
+                       alt="Concept de perte de poids durable et saine avec Diaeta"
                        class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Populaire</div>
@@ -170,13 +173,10 @@ lang: fr
                   </div>
                   <p class="text-xs text-muted mt-2 fst-italic">*Moyenne observée chez nos clients ayant complété le programme.</p>
                   <div class="specialty-footer">
-                    <a href="perte-de-poids" class="learn-more-btn">
+                    <a href="{{ '/fr/perte-de-poids/' | url }}" class="learn-more-btn"> {# Adjusted path assuming subfolder #}
                       En savoir plus<i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <button class="info-btn" aria-label="Plus d'informations sur la perte de poids" data-bs-toggle="tooltip" data-bs-placement="top" title="Approche scientifique sans restriction">
-                      <i class="fa-solid fa-info"></i><span>Info</span>
-                    </button>
-                  </div>
+                    </div>
                 </div>
               </div>
               <div class="specialty-card animate-on-scroll fade-up delay-200">
@@ -186,25 +186,43 @@ lang: fr
                                ../images/syndrome-colon-irritable-diaeta-medium.webp 640w, ../images/syndrome-colon-irritable-diaeta-medium.jpg 640w,
                                ../images/syndrome-colon-irritable-diaeta-large.webp 800w, ../images/syndrome-colon-irritable-diaeta-large.jpg 800w"
                        sizes="(max-width: 767px) 90vw, 48vw"
-                       alt="Illustration du confort digestif pour le syndrome du côlon irritable"
+                       alt="Alimentation saine et équilibrée pour le confort digestif et la gestion du SCI"
                        class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Spécialité</div>
                 </div>
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
-                  <h3 class="specialty-title">Syndrome du Côlon Irritable</h3>
-                  <p class="specialty-description">Notre protocole FODMAP personnalisé vous aide à retrouver confort digestif et qualité de vie. Nous identifions précisément vos déclencheurs alimentaires et élaborons un plan de réintroduction méthodique pour un régime aussi varié que possible.</p>
+                  <h3 class="specialty-title">Gestion Experte du Syndrome de l'Intestin Irritable (SII/SCI) à Bruxelles</h3>
+                  <p class="specialty-description">
+                    Vous souffrez de douleurs abdominales, ballonnements, diarrhée ou constipation liés au Syndrome de l'Intestin Irritable ? Retrouvez enfin votre confort digestif grâce à une approche scientifiquement validée et reconnue mondialement : le régime Low FODMAP de l'Université Monash. Chez Diaeta Bruxelles, votre diététicien-nutritionniste expert vous accompagne personnellement à travers les 3 phases essentielles de ce protocole :
+                  </p>
+                  <ol class="text-sm mt-1 mb-3" style="padding-left: 1.2em; text-align: left; list-style-position: inside; line-height: 1.6;">
+                      <li><strong>Phase 1 - Apaisement (2-6 sem.):</strong> Réduction temporaire des aliments riches en FODMAP pour calmer rapidement vos symptômes.</li>
+                      <li><strong>Phase 2 - Tests de Réintroduction (6-8 sem.):</strong> Identification structurée de VOS déclencheurs personnels (fructanes, lactose, polyols, etc.) et de vos seuils de tolérance.</li>
+                      <li><strong>Phase 3 - Personnalisation Durable:</strong> Réintégration d'un maximum d'aliments tolérés pour une alimentation variée, équilibrée et sereine sur le long terme, sans restrictions inutiles.</li>
+                  </ol>
+                   <p class="specialty-description" style="margin-bottom: 1.5rem;">
+                     Notre objectif : vous redonner le contrôle, améliorer durablement votre qualité de vie et vous permettre de manger avec plaisir.
+                   </p>
                   <div class="specialty-stats">
-                    <div class="stat-item"><span class="stat-value">75%</span><span class="stat-label">Amélioration</span></div>
-                    <div class="stat-item"><span class="stat-value">6-8</span><span class="stat-label">Semaines</span></div>
-                    <div class="stat-item"><span class="stat-value">40+</span><span class="stat-label">Aliments réintroduits</span></div>
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Taux d'amélioration des symptômes digestifs observé chez les patients suivant le régime Low FODMAP guidé.">
+                        <span class="stat-value">~75%</span>
+                        <span class="stat-label">Amélioration Symptômes*</span>
+                    </div>
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Durée indicative de la phase structurée de tests de réintroduction des FODMAPs.">
+                        <span class="stat-value">6-8</span>
+                        <span class="stat-label">Semaines Phase 2*</span>
+                    </div>
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Vise à réintroduire le plus grand nombre d'aliments tolérés pour une diète diversifiée et agréable.">
+                        <span class="stat-value" style="font-size: 1.5rem;"><i class="fas fa-utensils"></i></span>
+                        <span class="stat-label">Objectif: Variété Max.</span>
+                    </div>
                   </div>
                   <div class="specialty-footer">
-                     <a href="syndrome-colon-irritable.html" class="learn-more-btn">
-                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                     <a href="{{ '/fr/syndrome-colon-irritable/' | url }}" class="learn-more-btn"> {# Adjusted path assuming subfolder #}
+                      En savoir plus sur le SCI & FODMAP<i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Protocole FODMAP personnalisé"><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
@@ -215,7 +233,7 @@ lang: fr
                                ../images/gestion-hypertension-diaeta-medium.webp 640w, ../images/gestion-hypertension-diaeta-medium.jpg 640w,
                                ../images/gestion-hypertension-diaeta-large.webp 800w, ../images/gestion-hypertension-diaeta-large.jpg 800w"
                        sizes="(max-width: 767px) 90vw, 48vw"
-                       alt="Sphygmomanomètre et carnet pour la gestion de l'hypertension"
+                       alt="Aliments sains pour le coeur et tensiomètre pour la gestion de l'hypertension"
                        class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Préventif</div>
@@ -223,7 +241,7 @@ lang: fr
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                   <h3 class="specialty-title">Hypertension & Cholestérol</h3>
-                  <p class="specialty-description">Protégez votre santé cardiovasculaire avec nos stratégies nutritionnelles ciblées. Notre approche combine les recommandations scientifiques avec des adaptations personnalisées pour réduire efficacement votre tension artérielle et votre cholestérol.</p>
+                  <p class="specialty-description">Protégez votre santé cardiovasculaire avec nos stratégies nutritionnelles ciblées. Notre approche combine les recommandations scientifiques (DASH, Portfolio) avec des adaptations personnalisées pour réduire efficacement votre tension artérielle et votre cholestérol.</p>
                   <div class="specialty-stats">
                     <div class="stat-item"><span class="stat-value">15%</span><span class="stat-label">Réduction TA*</span></div>
                     <div class="stat-item"><span class="stat-value">20%</span><span class="stat-label">Baisse LDL*</span></div>
@@ -231,10 +249,9 @@ lang: fr
                   </div>
                    <p class="text-xs text-muted mt-2 fst-italic">*Moyenne, varie selon individu.</p>
                    <div class="specialty-footer">
-                     <a href="hypertension-cholesterol.html" class="learn-more-btn">
+                     <a href="{{ '/fr/hypertension-cholesterol/' | url }}" class="learn-more-btn"> {# Adjusted path assuming subfolder #}
                       En savoir plus<i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Approches DASH, Portfolio, etc."><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
@@ -245,7 +262,7 @@ lang: fr
                                ../images/gestion-diabete-diaeta-medium.webp 640w, ../images/gestion-diabete-diaeta-medium.jpg 640w,
                                ../images/gestion-diabete-diaeta-large.webp 800w, ../images/gestion-diabete-diaeta-large.jpg 800w"
                        sizes="(max-width: 767px) 90vw, 48vw"
-                       alt="Lecteur de glycémie pour la gestion du diabète de type 2"
+                       alt="Personne utilisant un lecteur de glycémie pour la gestion du diabète type 2"
                        class="specialty-image" loading="lazy" width="640" height="360">
                   <div class="specialty-overlay"></div>
                   <div class="specialty-category">Clinique</div>
@@ -253,7 +270,7 @@ lang: fr
                 <div class="specialty-content">
                   <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
                   <h3 class="specialty-title">Diabète de Type 2</h3>
-                  <p class="specialty-description">Reprenez le contrôle de votre glycémie avec un plan alimentaire adapté et scientifiquement prouvé. Notre approche personnalisée vise à améliorer votre sensibilité à l'insuline et potentiellement réduire la dépendance aux médicaments.</p>
+                  <p class="specialty-description">Reprenez le contrôle de votre glycémie avec un plan alimentaire adapté et scientifiquement prouvé. Notre approche personnalisée vise à améliorer votre sensibilité à l'insuline et potentiellement réduire la dépendance aux médicaments, en complément de votre suivi médical.</p>
                   <div class="specialty-stats">
                     <div class="stat-item"><span class="stat-value">-1.5%</span><span class="stat-label">Baisse HbA1c*</span></div>
                     <div class="stat-item"><span class="stat-value">✓</span><span class="stat-label">Moins Médocs*</span></div>
@@ -261,17 +278,13 @@ lang: fr
                   </div>
                   <p class="text-xs text-muted mt-2 fst-italic">*Résultats variables selon individu et suivi médical.</p>
                    <div class="specialty-footer">
-                     <a href="diabete-type-2.html" class="learn-more-btn">
+                     <a href="{{ '/fr/diabete-type-2/' | url }}" class="learn-more-btn"> {# Adjusted path assuming subfolder #}
                       En savoir plus<i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <button class="info-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Gestion glycémique personnalisée"><i class="fa-solid fa-info"></i><span>Info</span></button>
                   </div>
                 </div>
               </div>
-              </div>
-            </div>
-        </section>
-
+              </div> </div> </section>
         <section class="success-stories-section" id="temoignages">
           <div class="container">
               <div class="success-header">
@@ -288,30 +301,31 @@ lang: fr
                   <div class="story-cards-container">
                       <div class="success-card animate-on-scroll fade-up" data-story-index="0">
                           <div class="success-card-inner">
+                              {# Using Images Above Text Layout #}
                               <div class="success-images">
                                   <div class="before-image">
                                     <img src="../images/sophie-avant-diaeta-medium.jpg"
                                          srcset="../images/sophie-avant-diaeta-small.webp 300w, ../images/sophie-avant-diaeta-small.jpg 300w,
                                                  ../images/sophie-avant-diaeta-medium.webp 500w, ../images/sophie-avant-diaeta-medium.jpg 500w"
-                                         sizes="(max-width: 480px) 80vw, (max-width: 991px) 40vw, 20vw"
+                                         sizes="(max-width: 767px) 80vw, (max-width: 991px) 45vw, 22vw" {# Adjusted sizes based on layout #}
                                          alt="Sophie avant de commencer son programme nutritionnel personnalisé avec Diaeta"
-                                         loading="lazy" width="500" height="375">
+                                         loading="lazy" width="500" height="375"> {# Use 4:3 aspect ratio based on source image? Adjust if 16:9 #}
                                     <span class="image-label before-label">Avant</span>
                                   </div>
                                   <div class="after-image">
                                     <img src="../images/sophie-apres-diaeta-medium.jpg"
                                          srcset="../images/sophie-apres-diaeta-small.webp 300w, ../images/sophie-apres-diaeta-small.jpg 300w,
                                                  ../images/sophie-apres-diaeta-medium.webp 500w, ../images/sophie-apres-diaeta-medium.jpg 500w"
-                                         sizes="(max-width: 480px) 80vw, (max-width: 991px) 40vw, 20vw"
+                                         sizes="(max-width: 767px) 80vw, (max-width: 991px) 45vw, 22vw" {# Adjusted sizes based on layout #}
                                          alt="Sophie rayonnante et en pleine forme après sa transformation avec Diaeta"
-                                         loading="lazy" width="500" height="375">
+                                         loading="lazy" width="500" height="375"> {# Use 4:3 aspect ratio based on source image? Adjust if 16:9 #}
                                     <span class="image-label after-label">Après</span>
                                   </div>
                               </div>
                               <div class="success-content">
                                   <h3 class="client-name">Sophie, 42 ans</h3>
                                   <div class="client-details">
-                                      <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patiente depuis 2021</span></div>
+                                      <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Cliente depuis 2021</span></div>
                                       <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Perte de poids</span></div>
                                   </div>
                                   <p class="success-quote">"Après avoir essayé de nombreux régimes, j'ai enfin trouvé une approche qui fonctionne sans me frustrer. Le plus impressionnant est que je maintiens mon poids depuis plus de 2 ans maintenant."</p>
@@ -325,10 +339,11 @@ lang: fr
                       </div>
                       <div class="success-card animate-on-scroll fade-up" data-story-index="1">
                           <div class="success-card-inner">
+                               {# Placeholder for Marc's images - use similar structure as Sophie #}
                                <div class="success-content">
                                    <h3 class="client-name">Marc, 55 ans</h3>
                                    <div class="client-details">
-                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patient depuis 2022</span></div>
+                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Client depuis 2022</span></div>
                                        <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Diabète Type 2</span></div>
                                    </div>
                                    <p class="success-quote">"Mon contrôle glycémique s'est nettement amélioré sans régime drastique. L'approche personnalisée a fait toute la différence."</p>
@@ -342,10 +357,11 @@ lang: fr
                        </div>
                        <div class="success-card animate-on-scroll fade-up" data-story-index="2">
                            <div class="success-card-inner">
+                               {# Placeholder for Aisha's images - use similar structure as Sophie #}
                                <div class="success-content">
                                    <h3 class="client-name">Aisha, 38 ans</h3>
                                    <div class="client-details">
-                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Patiente depuis 2021</span></div>
+                                       <div class="detail-item"><i class="fa-solid fa-calendar"></i><span>Cliente depuis 2021</span></div>
                                        <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Syndrome Côlon Irritable</span></div>
                                    </div>
                                    <p class="success-quote">"J'ai enfin compris mes déclencheurs et je peux manger avec plaisir sans craindre les symptômes. Ça a changé ma vie."</p>
@@ -363,12 +379,11 @@ lang: fr
               </div>
               <div class="success-cta">
                   <p class="success-cta-text">Prêt à écrire votre propre histoire de réussite avec Diaeta ?</p>
-                  <a href="#contact" class="btn btn-primary btn-lg"><span>Commencer votre transformation</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
+                  <a href="{{ '/fr/rendez-vous/' | url }}" class="btn btn-primary btn-lg"><span>Commencer votre transformation</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a> {# Link to RDV page #}
               </div>
           </div>
       </section>
-
-        <section id="clinic-locations" class="clinic-finder-section">
+      <section id="clinic-locations" class="clinic-finder-section">
              <div class="container">
                 <div class="section-header"><span class="section-badge">Nos emplacements</span><h2 class="section-title">Consultations à Bruxelles</h2><p class="section-subtitle">Trouvez une clinique proche de chez vous avec des horaires qui vous conviennent</p></div>
                 <div class="clinic-filters"><button class="filter-btn active" data-day="all">Tous les jours</button><button class="filter-btn" data-day="lundi">Lundi</button><button class="filter-btn" data-day="mardi">Mardi</button><button class="filter-btn" data-day="mercredi">Mercredi</button><button class="filter-btn" data-day="jeudi">Jeudi</button><button class="filter-btn" data-day="vendredi">Vendredi</button><button class="filter-btn" data-day="samedi">Samedi</button><button class="locate-me-btn"><i class="fa-solid fa-location-crosshairs"></i> À proximité</button></div>
@@ -377,10 +392,9 @@ lang: fr
                   <div class="clinic-grid-view active" id="listView"><div class="clinic-grid"></div></div>
                   <div class="clinic-map-view" id="mapView"><div class="map-container"><div id="clinicsMap"></div><div class="map-sidebar"><div class="sidebar-header"><h3>Nos Cliniques</h3><p class="sidebar-results">8 cliniques trouvées</p></div><div class="sidebar-body"><div class="sidebar-clinics"></div></div></div><div id="clinicDetailPanel" class="clinic-detail-panel"></div></div></div>
                 </div>
-                <div class="clinic-cta"><p>Choisissez la clinique la plus pratique pour vous - tous nos sites offrent les mêmes services</p><a href="#booking" class="btn btn-primary"><span>Prendre rendez-vous maintenant</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div>
+                <div class="clinic-cta"><p>Choisissez la clinique la plus pratique pour vous - tous nos sites offrent les mêmes services</p><a href="{{ '/fr/rendez-vous/' | url }}#booking-module" class="btn btn-primary"><span>Prendre rendez-vous maintenant</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div> {# Link to RDV page #}
              </div>
         </section>
-
         <section id="genetic-testing" class="genetic-section pattern-lines py-5">
             <div class="container">
                 <div class="section-header text-center mb-5 animate-on-scroll fade-up"><span class="section-tagline">Personnalisation ultime</span><h2 class="section-title">Tests Génétiques Nutrigenomix</h2><p class="section-subtitle">Découvrez comment votre ADN influence votre relation avec la nutrition</p></div>
@@ -390,29 +404,27 @@ lang: fr
                 </div>
                 <div class="test-categories mb-5">
                   <div class="row">
-                    <div class="col-lg-4 mb-4 mb-lg-0 animate-on-scroll fade-up delay-100"><div class="test-card health-card"><div class="card-badge">Le plus demandé</div><div class="card-header"><div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div><h3>Santé & Poids</h3><div class="price-tag">À partir de <span>299€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">ADIPOQ</span> Métabolisme des graisses</li><li><span class="gene-marker">FTO</span> Sensibilité aux glucides</li><li><span class="gene-marker">MC4R</span> Gestion de la satiété</li><li><span class="gene-marker">MTHFR</span> Métabolisme des vitamines B</li><li><span class="gene-marker">CYP1A2</span> Détoxification & métabolisme</li></ul><div class="card-actions"><a href="/test-sante-poids" class="test-cta-button"><span>Découvrir ce test</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div>
-                    <div class="col-lg-4 mb-4 mb-lg-0 animate-on-scroll fade-up delay-300"><div class="test-card sport-card"><div class="card-header"><div class="card-icon"><i class="fa-solid fa-bolt"></i></div><h3>Performance Sportive</h3><div class="price-tag">À partir de <span>349€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">ACTN3</span> Récupération musculaire</li><li><span class="gene-marker">PPARA</span> Métabolisme énergétique</li><li><span class="gene-marker">AQP1</span> Hydratation optimale</li><li><span class="gene-marker">SOD2</span> Gestion du stress oxydatif</li><li><span class="gene-marker">IGF1</span> Synthèse protéique & récupération</li></ul><div class="card-actions"><a href="/test-sport" class="test-cta-button"><span>Optimiser mes performances</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div>
-                    <div class="col-lg-4 animate-on-scroll fade-up delay-500"><div class="test-card fertility-card"><div class="card-header"><div class="card-icon"><i class="fa-solid fa-baby"></i></div><h3>Fertilité & Grossesse</h3><div class="price-tag">À partir de <span>379€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">MTHFR</span> Métabolisme de l'acide folique</li><li><span class="gene-marker">FADS1</span> Besoins en oméga-3</li><li><span class="gene-marker">GSTP1</span> Capacité de détoxification</li><li><span class="gene-marker">COMT</span> Métabolisme des œstrogènes</li><li><span class="gene-marker">PEMT</span> Synthèse de la choline</li></ul><div class="card-actions"><a href="/test-fertilite" class="test-cta-button"><span>Explorer ce test</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div>
+                    <div class="col-lg-4 mb-4 mb-lg-0 animate-on-scroll fade-up delay-100"><div class="test-card health-card"><div class="card-badge">Le plus demandé</div><div class="card-header"><div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div><h3>Santé & Poids</h3><div class="price-tag">À partir de <span>299€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">ADIPOQ</span> Métabolisme des graisses</li><li><span class="gene-marker">FTO</span> Sensibilité aux glucides</li><li><span class="gene-marker">MC4R</span> Gestion de la satiété</li><li><span class="gene-marker">MTHFR</span> Métabolisme des vitamines B</li><li><span class="gene-marker">CYP1A2</span> Détoxification & métabolisme</li></ul><div class="card-actions"><a href="{{ '/fr/test-sante-poids/' | url }}" class="test-cta-button"><span>Découvrir ce test</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div> {# Adjusted path assuming subfolder #}
+                    <div class="col-lg-4 mb-4 mb-lg-0 animate-on-scroll fade-up delay-300"><div class="test-card sport-card"><div class="card-header"><div class="card-icon"><i class="fa-solid fa-bolt"></i></div><h3>Performance Sportive</h3><div class="price-tag">À partir de <span>349€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">ACTN3</span> Récupération musculaire</li><li><span class="gene-marker">PPARA</span> Métabolisme énergétique</li><li><span class="gene-marker">AQP1</span> Hydratation optimale</li><li><span class="gene-marker">SOD2</span> Gestion du stress oxydatif</li><li><span class="gene-marker">IGF1</span> Synthèse protéique & récupération</li></ul><div class="card-actions"><a href="{{ '/fr/test-sport/' | url }}" class="test-cta-button"><span>Optimiser mes performances</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div> {# Adjusted path assuming subfolder #}
+                    <div class="col-lg-4 animate-on-scroll fade-up delay-500"><div class="test-card fertility-card"><div class="card-header"><div class="card-icon"><i class="fa-solid fa-baby"></i></div><h3>Fertilité & Grossesse</h3><div class="price-tag">À partir de <span>379€</span></div></div><div class="card-body"><ul class="gene-analysis"><li><span class="gene-marker">MTHFR</span> Métabolisme de l'acide folique</li><li><span class="gene-marker">FADS1</span> Besoins en oméga-3</li><li><span class="gene-marker">GSTP1</span> Capacité de détoxification</li><li><span class="gene-marker">COMT</span> Métabolisme des œstrogènes</li><li><span class="gene-marker">PEMT</span> Synthèse de la choline</li></ul><div class="card-actions"><a href="{{ '/fr/test-fertilite/' | url }}" class="test-cta-button"><span>Explorer ce test</span><i class="fa-solid fa-arrow-right"></i></a></div></div></div></div> {# Adjusted path assuming subfolder #}
                   </div>
                 </div>
                 <div class="how-it-works animate-on-scroll fade-up"><h3 class="section-subtitle text-center mb-4">Un processus simple en 3 étapes</h3><div class="process-timeline"><div class="timeline-track"></div><div class="process-step active"><div class="step-number">1</div><div class="step-content"><h4>Prélèvement ADN</h4><p>Simple échantillon de salive prélevé avec un écouvillon buccal, sans douleur et en moins de 2 minutes.</p><div class="step-icon"><i class="fa-solid fa-vial"></i></div></div></div><div class="process-step"><div class="step-number">2</div><div class="step-content"><h4>Analyse en laboratoire</h4><p>Votre échantillon est analysé dans un laboratoire certifié selon les normes les plus strictes (résultats en 4-6 semaines).</p><div class="step-icon"><i class="fa-solid fa-flask"></i></div></div></div><div class="process-step"><div class="step-number">3</div><div class="step-content"><h4>Consultation personnalisée</h4><p>Recevez un rapport détaillé et bénéficiez d'une consultation pour un plan nutritionnel sur mesure basé sur vos résultats.</p><div class="step-icon"><i class="fa-solid fa-user-check"></i></div></div></div></div></div>
-                <div class="test-cta mt-5 text-center animate-on-scroll fade-up"><div class="cta-card"><h3>Prêt à découvrir votre profil nutritionnel génétique?</h3><p>Prenez rendez-vous pour une consultation initiale et découvrez comment un test génétique peut transformer votre approche nutritionnelle.</p><a href="#contact" class="btn cta-button cta-primary"><i class="fa-solid fa-calendar-check me-2"></i>Prendre rendez-vous</a><a href="/tests-genetiques" class="btn cta-button cta-secondary"><i class="fa-solid fa-file-pdf me-2"></i>Télécharger la brochure détaillée</a></div></div>
+                <div class="test-cta mt-5 text-center animate-on-scroll fade-up"><div class="cta-card"><h3>Prêt à découvrir votre profil nutritionnel génétique?</h3><p>Prenez rendez-vous pour une consultation initiale et découvrez comment un test génétique peut transformer votre approche nutritionnelle.</p><a href="#contact" class="btn cta-button cta-primary"><i class="fa-solid fa-calendar-check me-2"></i>Prendre rendez-vous</a><a href="/tests-genetiques-brochure.pdf" class="btn cta-button cta-secondary"><i class="fa-solid fa-file-pdf me-2"></i>Télécharger la brochure détaillée</a></div></div> {# Example path #}
               </div>
         </section>
-
         <section id="tarifs" class="tarifs-section gradient-section py-5">
              <div class="container">
                  <div class="section-header text-center mb-5 animate-on-scroll fade-up"><h2 class="section-title">Nos Tarifs</h2><p class="section-subtitle">Des consultations et suivis diététiques adaptés à vos besoins.</p></div>
-                 <div class="row g-4">
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-100"><div class="tarif-card p-4 text-center"><h3 class="tarif-title">Première consultation</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 60 min</p><ul class="feature-list mt-3"><li><i class="fa-solid fa-check"></i> Bilan nutritionnel complet</li><li><i class="fa-solid fa-check"></i> Analyse des habitudes alimentaires</li><li><i class="fa-solid fa-check"></i> Plan nutritionnel personnalisé</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-200"><div class="tarif-card p-4 text-center"><h3 class="tarif-title">Premier suivi diététique</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 40 min</p><ul class="feature-list mt-3"><li><i class="fa-solid fa-check"></i> Ajustement du plan nutritionnel</li><li><i class="fa-solid fa-check"></i> Analyse des progrès</li><li><i class="fa-solid fa-check"></i> Solutions aux difficultés rencontrées</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-300"><div class="tarif-card p-4 text-center"><h3 class="tarif-title">Suivi diététique périodique</h3><p class="tarif-price">€50.00</p><p class="tarif-duration">+/- 30 min</p><ul class="feature-list mt-3"><li><i class="fa-solid fa-check"></i> Suivi des objectifs</li><li><i class="fa-solid fa-check"></i> Adaptation du plan</li><li><i class="fa-solid fa-check"></i> Conseils personnalisés</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-400"><div class="tarif-card p-4 text-center"><h3 class="tarif-title">Test génétique <span class="option">(en option)</span></h3><p class="tarif-price">€275.00</p><p class="tarif-duration">Résultats sous +/- 6 semaines</p><ul class="feature-list mt-3"><li><i class="fa-solid fa-check"></i> Analyse de 70+ marqueurs génétiques</li><li><i class="fa-solid fa-check"></i> Rapport nutritionnel personnalisé</li><li><i class="fa-solid fa-check"></i> Consultation d'interprétation</li></ul></div></div>
+                 <div class="row g-4 justify-content-center"> {# Added justify-content-center #}
+                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-100"><div class="tarif-card p-4 text-center h-100"> {# Added h-100 #} <h3 class="tarif-title">Première consultation</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 60 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Bilan nutritionnel complet</li><li><i class="fa-solid fa-check"></i> Analyse des habitudes alimentaires</li><li><i class="fa-solid fa-check"></i> Plan nutritionnel personnalisé</li></ul></div></div>
+                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-200"><div class="tarif-card p-4 text-center h-100"> {# Added h-100 #} <h3 class="tarif-title">Premier suivi diététique</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 40 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Ajustement du plan nutritionnel</li><li><i class="fa-solid fa-check"></i> Analyse des progrès</li><li><i class="fa-solid fa-check"></i> Solutions aux difficultés rencontrées</li></ul></div></div>
+                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-300"><div class="tarif-card p-4 text-center h-100"> {# Added h-100 #} <h3 class="tarif-title">Suivi diététique périodique</h3><p class="tarif-price">€50.00</p><p class="tarif-duration">+/- 30 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Suivi des objectifs</li><li><i class="fa-solid fa-check"></i> Adaptation du plan</li><li><i class="fa-solid fa-check"></i> Conseils personnalisés</li></ul></div></div>
+                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-400"><div class="tarif-card p-4 text-center h-100"> {# Added h-100 #} <h3 class="tarif-title">Test génétique <span class="option">(en option)</span></h3><p class="tarif-price">€275.00</p><p class="tarif-duration">Résultats sous +/- 6 semaines</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Analyse de 70+ marqueurs génétiques</li><li><i class="fa-solid fa-check"></i> Rapport nutritionnel personnalisé</li><li><i class="fa-solid fa-check"></i> Consultation d'interprétation</li></ul></div></div>
                  </div>
-                 <div class="text-center mt-5 animate-on-scroll fade-up"><p class="mb-4">Tous nos services peuvent être partiellement remboursés par certaines mutuelles</p><a href="#contact" class="btn btn-primary btn-lg"><span>Prendre rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div>
+                 <div class="text-center mt-5 animate-on-scroll fade-up"><p class="mb-4">Tous nos services peuvent être partiellement remboursés par certaines mutuelles.</p><a href="{{ '/fr/rendez-vous/' | url }}" class="btn btn-primary btn-lg"><span>Prendre rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div> {# Link to RDV page #}
              </div>
         </section>
-
         <section class="contact-section" id="contact">
              <div class="container">
                  <div class="contact-grid">
@@ -426,15 +438,18 @@ lang: fr
                      </ul>
                      <div class="social-links"><a href="https://facebook.com/diaeta" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="https://instagram.com/diaeta" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://linkedin.com/company/diaeta" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div>
                    </div>
-                   <div class="contact-form-container animate-on-scroll fade-up delay-200" id="rdv">
+                   <div class="contact-form-container animate-on-scroll fade-up delay-200" id="rdv"> {# ID for linking from Hero #}
                      <h3 class="form-title">Prendre Rendez-vous</h3>
-                     <form id="appointmentForm" action="/submit-appointment" method="POST"><div class="form-grid"><div class="form-group"><label for="fullName" class="form-label">Nom complet</label><input type="text" class="form-control" id="fullName" name="fullName" placeholder="Votre nom complet" required></div><div class="form-group"><label for="phone" class="form-label">Téléphone</label><input type="tel" class="form-control" id="phone" name="phone" placeholder="+32 XX XXX XX XX" required></div><div class="form-group"><label for="email" class="form-label">Email</label><input type="email" class="form-control" id="email" name="email" placeholder="votre.email@exemple.com" required></div><div class="form-group"><label for="serviceType" class="form-label">Service souhaité</label><select class="form-control form-select" id="serviceType" name="serviceType" required><option value="" selected disabled>Choisir un service</option><option value="weight-loss">Perte de poids</option><option value="ibs">Syndrome du côlon irritable</option><option value="cardio">Hypertension & Cholestérol</option><option value="diabetes">Diabète de Type 2</option><option value="genetic">Test génétique</option><option value="other">Autre (préciser)</option></select></div><div class="form-group"><label for="preferredDate" class="form-label">Date souhaitée</label><input type="date" class="form-control" id="preferredDate" name="preferredDate" required></div><div class="form-group"><label for="preferredTime" class="form-label">Heure souhaitée</label><select class="form-control form-select" id="preferredTime" name="preferredTime" required><option value="" selected disabled>Choisir une heure</option><option value="morning">Matinée (9h - 12h)</option><option value="afternoon">Après-midi (13h - 16h)</option><option value="evening">Fin de journée (16h - 19h)</option></select></div><div class="form-group form-full"><label for="additionalInfo" class="form-label">Informations complémentaires</label><textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="4" placeholder="Partagez toute information utile pour votre consultation..."></textarea></div><div class="form-group form-full"><div class="form-check"><input class="form-check-input" type="checkbox" id="privacyPolicy" name="privacyPolicy" required><label class="form-check-label" for="privacyPolicy">J'accepte la <a href="/privacy-policy">politique de confidentialité</a> et le traitement de mes données pour la prise de rendez-vous.</label></div></div></div><div class="form-submit"><button type="submit" class="btn btn-primary btn-lg"><span>Confirmer le rendez-vous</span><i class="fa-solid fa-calendar-check btn-icon btn-icon-right"></i></button></div></form>
+                     <form id="appointmentForm" action="/submit-appointment" method="POST"><div class="form-grid"><div class="form-group"><label for="fullName" class="form-label">Nom complet</label><input type="text" class="form-control" id="fullName" name="fullName" placeholder="Votre nom complet" required></div><div class="form-group"><label for="phone" class="form-label">Téléphone</label><input type="tel" class="form-control" id="phone" name="phone" placeholder="+32 XX XXX XX XX" required></div><div class="form-group"><label for="email" class="form-label">Email</label><input type="email" class="form-control" id="email" name="email" placeholder="votre.email@exemple.com" required></div><div class="form-group"><label for="serviceType" class="form-label">Service souhaité</label><select class="form-control form-select" id="serviceType" name="serviceType" required><option value="" selected disabled>Choisir un service</option><option value="weight-loss">Perte de poids</option><option value="ibs">Syndrome du côlon irritable</option><option value="cardio">Hypertension & Cholestérol</option><option value="diabetes">Diabète de Type 2</option><option value="genetic">Test génétique</option><option value="other">Autre (préciser)</option></select></div><div class="form-group"><label for="preferredDate" class="form-label">Date souhaitée</label><input type="date" class="form-control" id="preferredDate" name="preferredDate" required></div><div class="form-group"><label for="preferredTime" class="form-label">Heure souhaitée</label><select class="form-control form-select" id="preferredTime" name="preferredTime" required><option value="" selected disabled>Choisir une heure</option><option value="morning">Matinée (9h - 12h)</option><option value="afternoon">Après-midi (13h - 16h)</option><option value="evening">Fin de journée (16h - 19h)</option></select></div><div class="form-group form-full"><label for="additionalInfo" class="form-label">Informations complémentaires</label><textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="4" placeholder="Partagez toute information utile pour votre consultation..."></textarea></div><div class="form-group form-full"><div class="form-check"><input class="form-check-input" type="checkbox" id="privacyPolicy" name="privacyPolicy" required><label class="form-check-label" for="privacyPolicy">J'accepte la <a href="/privacy-policy.html">politique de confidentialité</a> et le traitement de mes données pour la prise de rendez-vous.</label></div></div></div><div class="form-submit"><button type="submit" class="btn btn-primary btn-lg"><span>Confirmer le rendez-vous</span><i class="fa-solid fa-calendar-check btn-icon btn-icon-right"></i></button></div></form>
                    </div>
                  </div>
              </div>
         </section>
-    </main>
+        </main>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Retour en haut"><i class="fa-solid fa-chevron-up"></i></button>
+    {# Back to top button included via base layout? If not, uncomment below #}
+    {# <button id="back-to-top" class="back-to-top" aria-label="Retour en haut"><i class="fa-solid fa-chevron-up"></i></button> #}
 
-    </div>
+    {# Scripts likely loaded in base layout? If clinics.js is needed specifically for this page, add it here or ensure it loads #}
+    {# Example: <script src="../js/clinicsData.js"></script> #}
+    {# <script src="../js/clinics.js"></script> #}

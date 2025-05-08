@@ -60,12 +60,12 @@ eleventyNavigation:
                         {% if cabinet.Maps_link %}
                         <p class="location-card-maplink"><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary text-sm">Voir sur la carte <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
                         {% endif %}
-                        {# Display Specific Hours #}
+                        {# Display Specific Hours if available #}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
                             {% if cabinet.hours_type == 'specific' and cabinet.specific_hours %}
                                 <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
                                 <ul class="list-unstyled text-xs mb-0 specific-hours-list">
-                                    {# Loop through days - assumes specific_hours is an object #}
+                                    {# ... loop for days (Lundi, Mardi, etc.) ... #}
                                     {% if cabinet.specific_hours.Lundi and cabinet.specific_hours.Lundi | lower != 'fermé' and cabinet.specific_hours.Lundi | lower != 'non disponible' %}<li><strong>Lundi :</strong> {{ cabinet.specific_hours.Lundi }}</li>{% endif %}
                                     {% if cabinet.specific_hours.Mardi and cabinet.specific_hours.Mardi | lower != 'fermé' and cabinet.specific_hours.Mardi | lower != 'non disponible' %}<li><strong>Mardi :</strong> {{ cabinet.specific_hours.Mardi }}</li>{% endif %}
                                     {% if cabinet.specific_hours.Mercredi and cabinet.specific_hours.Mercredi | lower != 'fermé' and cabinet.specific_hours.Mercredi | lower != 'non disponible' %}<li><strong>Mercredi :</strong> {{ cabinet.specific_hours.Mercredi }}</li>{% endif %}
@@ -73,10 +73,13 @@ eleventyNavigation:
                                     {% if cabinet.specific_hours.Vendredi and cabinet.specific_hours.Vendredi | lower != 'fermé' and cabinet.specific_hours.Vendredi | lower != 'non disponible' %}<li><strong>Vendredi :</strong> {{ cabinet.specific_hours.Vendredi }}</li>{% endif %}
                                     {% if cabinet.specific_hours.Samedi and cabinet.specific_hours.Samedi | lower != 'fermé' and cabinet.specific_hours.Samedi | lower != 'non disponible' %}<li><strong>Samedi :</strong> {{ cabinet.specific_hours.Samedi }}</li>{% endif %}
                                     {% if cabinet.specific_hours.Dimanche and cabinet.specific_hours.Dimanche | lower != 'fermé' and cabinet.specific_hours.Dimanche | lower != 'non disponible' %}<li><strong>Dimanche :</strong> {{ cabinet.specific_hours.Dimanche }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.details %}<li><small><em>{{ cabinet.specific_hours.details }}</em></small></li>{% endif %}
+
+                                    {# Add class="hours-details-note" to this li #}
+                                    {% if cabinet.specific_hours.details %}
+                                    <li class="hours-details-note"><small><em>{{ cabinet.specific_hours.details }}</em></small></li>
+                                    {% endif %}
                                 </ul>
                             {% endif %}
-                            {# Note: No "general hours" fallback text needed here per our decision #}
                          </div>
                         {# Display Notes if available #}
                         {% if cabinet.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet.notes }}</p>{% endif %}
@@ -155,7 +158,7 @@ eleventyNavigation:
                         <h3 class="info-card-title">Bon à Savoir</h3>
                         <p><strong>Politique d'Annulation :</strong> En cas d'empêchement, merci de nous prévenir au minimum 24 heures à l'avance. Une annulation non justifiée fera l'objet d'une amende forfaitaire de 20€.</p>
                         <p>Consultez nos <a href="{{ '/fr/tarifs/' | url }}" class="link-primary">tarifs et conditions de remboursement</a>.</p>
-                        <p class="mt-3">Pour toute question, n'hésitez pas à <a href="{{ '/fr/contact/' | url }}" class="link-primary">nous contacter</a>.</p>
+                        <p class="mt-3">Pour toute question, n'hésitez pas à <a href="{{ '/fr/contact' | url }}" class="link-primary">nous contacter</a>.</p>
                     </div>
                 </div>
             </div>

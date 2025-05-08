@@ -2,122 +2,122 @@
   {
     "id": "pluridis",
     "name": "Espace Pluridys",
-    "address": "Dieweg 99, Uccle",
+    "address": "Dieweg 99, 1180 Uccle, Bruxelles",
     "zip": "1180",
     "city": "Uccle",
     "Maps_link": "https://maps.app.goo.gl/Aw2AkKfD2Dy4mpy28",
     "doctorpracticeId": "84434",
-    "notes": "",
+    "notes": "Parking gratuit disponible devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Mercredi": "14h00 - 20h00",
-      "details": "Disponible uniquement le Mercredi."
+      "details": "Consultations tous les mercredis." 
     }
   },
   {
     "id": "basilik",
     "name": "Basili-K Santé",
-    "address": "Avenue Seghers 99, Koekelberg",
+    "address": "Avenue Seghers 99, 1081 Koekelberg, Bruxelles",
     "zip": "1081",
     "city": "Koekelberg",
     "Maps_link": "https://maps.app.goo.gl/muudAEuUbjUu2cPk8",
     "doctorpracticeId": "84474",
-    "notes": "",
+    "notes": "Parking aisé avec disque bleu devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Samedi": "9h00 - 13h00",
-      "details": "Disponible uniquement le Samedi matin."
+      "details": "Consultations tous les samedis matin."
     }
   },
   {
     "id": "medic_alix",
     "name": "Centre Médic-Alix",
-    "address": "Parvis Sainte-Alix 3, Woluwe-Saint-Pierre",
+    "address": "Parvis Sainte-Alix 3, 1150 Woluwe-Saint-Pierre, Bruxelles",
     "zip": "1150",
     "city": "Woluwe-Saint-Pierre",
     "Maps_link": "https://maps.app.goo.gl/hezj6iFJohnrZyHC6",
     "doctorpracticeId": "117961",
-    "notes": "",
+    "notes": "Parking aisé devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Mardi": "14h00 - 20h00",
-      "details": "Disponible uniquement le Mardi après-midi/soir."
+      "details": "Consultations le mardi, une semaine sur deux (vérifiez disponibilités)." 
     }
   },
   {
     "id": "tenbosch",
     "name": "Centre Médical Tenbosch-Châtelain",
-    "address": "Rue Tenbosch 85, Ixelles",
+    "address": "Rue Tenbosch 85, 1050 Ixelles, Bruxelles",
     "zip": "1050",
     "city": "Ixelles",
     "Maps_link": "https://maps.app.goo.gl/Af28urYr7dXpWrf47",
     "doctorpracticeId": "86140",
-    "notes": "",
+    "notes": "Parking payant disponible devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Jeudi": "13h00 - 18h00",
       "Samedi": "14h00 - 18h00",
-      "details": "Disponible Jeudi après-midi et Samedi après-midi."
+      "details": "Consultations le jeudi après-midi (une semaine sur deux) et tous les samedis après-midi (vérifiez disponibilités)." 
     }
   },
   {
     "id": "revago",
     "name": "Centre REVAGO",
-    "address": "Avenue du Roi Albert 187, Berchem-Sainte-Agathe",
+    "address": "Avenue du Roi Albert 187, 1082 Berchem-Sainte-Agathe, Bruxelles",
     "zip": "1082",
     "city": "Berchem-Sainte-Agathe",
     "Maps_link": "https://maps.app.goo.gl/gkEeT2zkaVXjX4HV9",
     "doctorpracticeId": "113544",
-    "notes": "",
+    "notes": "Parking aisé avec disque bleu devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Mardi": "14h00 - 20h00",
-      "details": "Disponible uniquement le Mardi après-midi/soir."
+      "details": "Consultations le mardi, une semaine sur deux (vérifiez disponibilités)." 
     }
   },
   {
     "id": "etrimaux",
     "name": "Les Etrimaux",
-    "address": "Drève de Nivelles 168, Woluwe-Saint-Pierre",
+    "address": "Drève de Nivelles 168, 1150 Woluwe-Saint-Pierre, Bruxelles",
     "zip": "1150",
     "city": "Woluwe-Saint-Pierre",
     "Maps_link": "https://maps.app.goo.gl/BNXPscbDbwBCcsJo6",
     "doctorpracticeId": "96326",
-    "notes": "",
+    "notes": "Parking aisé avec disque bleu devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Lundi": "12h30 - 16h30",
-      "details": "Disponible uniquement le Lundi après-midi."
+      "details": "Consultations le lundi après-midi, une semaine sur deux (vérifiez disponibilités)." 
     }
   },
   {
     "id": "mediwoluwe",
     "name": "Mediwoluwe",
-    "address": "Avenue de Broqueville 9, Woluwe-Saint-Pierre",
+    "address": "Avenue de Broqueville 9, 1150 Woluwe-Saint-Pierre, Bruxelles",
     "zip": "1150",
     "city": "Woluwe-Saint-Pierre",
     "Maps_link": "https://maps.app.goo.gl/GuCT5T3FSVroYFD8A",
     "doctorpracticeId": "86003",
-    "notes": "",
+    "notes": "Parking payant disponible devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Lundi": "11h00 - 21h00",
-      "details": "Disponible uniquement le Lundi."
+      "details": "Consultations tous les lundis." 
     }
   },
   {
     "id": "wolu20",
     "name": "Wolu20 Medical Center",
-    "address": "Avenue Marcel Thiry 20, Woluwe-Saint-Lambert",
+    "address": "Avenue Marcel Thiry 20, 1200 Woluwe-Saint-Lambert, Bruxelles",
     "zip": "1200",
     "city": "Woluwe-Saint-Lambert",
     "Maps_link": "https://maps.app.goo.gl/5PtLRnMbJaUhBtSc7",
     "doctorpracticeId": "117960",
-    "notes": "",
+    "notes": "Parking aisé devant le centre.",
     "hours_type": "specific",
     "specific_hours": {
       "Jeudi": "13h30 - 20h30",
-      "details": "Disponible uniquement le Jeudi après-midi/soir."
+      "details": "Consultations le jeudi, une semaine sur deux (vérifiez disponibilités)." 
     }
   },
   {
@@ -128,7 +128,7 @@
     "city": null,
     "Maps_link": null,
     "doctorpracticeId": "117704",
-    "notes": "Pour une consultation diététique où que vous soyez.",
+    "notes": "Consultation diététique où que vous soyez.",
     "hours_type": "specific",
     "specific_hours": {
       "Lundi": "12h30 - 16h30 & 17h00 - 21h00",
@@ -137,7 +137,7 @@
       "Jeudi": "10h00 - 13h00 & 14h00 - 20h00",
       "Vendredi": "10h00 - 13h00 & 14h00 - 20h00",
       "Samedi": "10h00 - 13h00 & 14h00 - 18h00",
-      "details": "Horaires flexibles pour les téléconsultations."
+      "details": "Nombreux créneaux disponibles pour la téléconsultation." 
     }
   }
 ]
