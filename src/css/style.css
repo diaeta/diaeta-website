@@ -479,8 +479,7 @@ p {
 .btn-lg {
   padding: var(--space-4) var(--space-6);
   font-size: var(--text-lg);
-  width: 3.5rem;
-  height: 3.5rem;
+  min-height: 3.5rem;
 }
 
 @media (max-width: 767px) {
@@ -1359,6 +1358,8 @@ p {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis; 
+    line-clamp: 2; 
     max-width: 100%;
     padding: 0 15px;
   }
@@ -2655,6 +2656,60 @@ p {
 }
 
 /* Testimonials */
+
+   .testimonial-quote-section {
+    padding-top: var(--space-6);    /* Example: 2rem or var(--space-6) - Adjust as needed */
+    padding-bottom: var(--space-8); /* Example: 4rem or var(--space-8) - This is the key change for footer spacing */
+    /* You might want to add a subtle background or other styling here if desired */
+    background-color: var(--neutral-50); /* Example: if you want a light bg */
+  }
+  
+  /* Responsive adjustments if needed */
+  @media (max-width: 767px) {
+    .testimonial-quote-section {
+      padding-top: var(--space-5);    /* Adjust for mobile */
+      padding-bottom: var(--space-7); /* Adjust for mobile */
+    }
+  }
+  
+  /* Ensure the testimonial quote itself is styled for readability */
+  .testimonial-quote {
+    max-width: 750px; 
+    margin: 0 auto; 
+  }
+  
+  .testimonial-quote blockquote {
+    font-size: var(--text-lg); /* e.g., 1.25rem */
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    border-left: 4px solid var(--primary-200);
+    background-color: rgba(var(--primary-rgb), 0.03);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+  }
+  
+  .testimonial-quote blockquote::before {
+    content: "“"; /* Opening quote */
+    font-family: var(--font-display); /* Or your preferred quote font */
+    font-size: 4rem; /* Large quote mark */
+    color: var(--primary-200);
+    position: absolute;
+    left: var(--space-3);
+    top: var(--space-1);
+    line-height: 1;
+    opacity: 0.8;
+  }
+  
+  .testimonial-quote cite {
+    display: block;
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    text-align: right; /* Or center if preferred */
+  }
 
 .indicator {
   width: 10px;
@@ -4463,28 +4518,29 @@ section {
 .science-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
   background-color: rgba(var(--accent-rgb), 0.1);
-  color: #8cc63f;
-  border-radius: 50px;
-  font-weight: 500;
-  font-size: 0.875rem;
+  color: var(--accent-600);
+  border-radius: var(--border-radius-pill);
+  font-weight: var(--font-medium);
+  font-size: 0.9rem;
   margin-bottom: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: all 0.25s ease-out;
+  cursor: pointer;;
+  border: 1px solid rgba(var(--accent-rgb), 0.3); 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
 }
 
-/* Add a small '+' icon or similar */
 .science-badge::after {
-  content: "+"; /* Or use '\f05a' for FontAwesome info icon if preferred */
-  /* font-family: 'Font Awesome 6 Free'; */ /* Uncomment if using FA icon */
-  /* font-weight: 900; */ /* Uncomment if using FA icon */
-  font-size: 1.5em;
+  content: "\f05a";
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900; 
+  font-size: 1em;
   line-height: 1;
-  margin-left: 0.3rem;
-  opacity: 0.7;
-  transition: transform 0.3s ease;
+  opacity: 0.8;
+  transition:  transform 0.25s ease-out, color 0.25s ease-out;
+  animation: pulse-icon 2.5s infinite ease-in-out;
 }
 
 .science-badge:hover {
@@ -4492,9 +4548,23 @@ section {
   transform: translateY(-2px);
 }
 
-.science-badge:hover::after {
-  transform: rotate(90deg); /* Simple rotation on hover */
+.science-badge:hover::after,
+.science-badge:focus-visible::after {
+  transform: scale(1.2); /* Enlarge icon slightly */
   opacity: 1;
+  color: var(--accent-600); /* Darken icon */
+}
+
+/* Active State (when clicked) */
+.science-badge:active {
+  transform: translateY(0px) scale(1); /* Press down effect */
+  box-shadow: 0 2px 4px rgba(var(--accent-rgb),0.1);
+  background-color: rgba(var(--accent-rgb), 0.25);
+}
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .science-title {
@@ -5394,6 +5464,19 @@ section {
   transform: translateX(4px);
 }
 
+.list-styled-check li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5em; /* Adjust as needed */
+}
+.list-styled-check li::before {
+  content: "\2713"; /* Unicode checkmark */
+  color: var(--accent-500); /* Or your preferred checkmark color */
+  position: absolute;
+  left: 0;
+  font-weight: bold; /* Optional */
+}
+
 /* Responsive styles for tablet */
 @media (max-width: 1023px) {
   .specialties-grid {
@@ -6132,10 +6215,10 @@ section {
   }
 }
 
-/* @media (max-width: 576px) { ... } */
 .service-hero .container {
   position: relative;
   z-index: 1;
+  padding-top: 1rem;
 }
 
 .service-hero h1 {
@@ -6443,6 +6526,7 @@ section {
 .service-hero-wp .container {
   position: relative; /* Ensure content is above pseudo-element */
   z-index: 1;
+  padding-top: 1rem;
 }
 
 .service-hero-wp h1 {
