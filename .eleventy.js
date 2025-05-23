@@ -11,6 +11,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/videos");
     // eleventyConfig.addPassthroughCopy("src/pdfs"); // Example if you have PDFs
 
+    // Add this line to copy cabinets.json from _data to the root of _site
+    eleventyConfig.addPassthroughCopy("src/_data/cabinets.json"); // This will copy it to _site/cabinets.json
+
     // --- Add Shortcode for Current Year --- ADD THIS LINE ---
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   // --- End Shortcode ---

@@ -7423,3 +7423,119 @@ section {
   margin-top: 0.4rem; /* Add a little space above the details note */
   line-height: 1.5; /* Ensure good line spacing if it wraps */
 }
+
+.expert-showcase-section {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically by default */
+  align-items: center; /* Center items */
+  text-align: center;
+  padding: 2.5rem 1rem; /* More vertical padding, less horizontal */
+  margin: 3rem auto; /* Centering the section if it's not full width */
+  max-width: 600px; /* Constrain width for better focus */
+  border-top: 1px solid var(--neutral-200); /* Subtle top separator */
+  border-bottom: 1px solid var(--neutral-200); /* Subtle bottom separator */
+  background-color: #fff; /* Ensure it's on a clean background or var(--neutral-50) if preferred */
+}
+
+.expert-showcase-image {
+  width: 100px; /* Slightly larger image */
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--accent-100); /* Subtle border matching an accent shade */
+  box-shadow: var(--box-shadow-sm);
+}
+
+.expert-showcase-greeting {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expert-showcase-name {
+  font-family: var(--font-display); /* Using Playfair Display */
+  font-size: 1.75rem; /* Larger name */
+  color: var(--primary-600); /* Darker primary color */
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.expert-showcase-titles {
+  font-size: 0.95rem;
+  color: var(--text-tertiary); /* Lighter secondary text color */
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.expert-showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius-pill);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: white;
+  background-color: var(--accent-500); /* Using your ACCENT GREEN for the button */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.2);
+}
+
+.expert-showcase-link:hover {
+  background-color: var(--accent-600); /* Darker accent green on hover */
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+}
+
+.expert-showcase-link i {
+  transition: transform 0.3s ease;
+}
+
+.expert-showcase-link:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive adjustment if you want image and text side-by-side on larger screens */
+@media (min-width: 576px) { /* Small devices (sm) and up */
+  .expert-showcase-section {
+      flex-direction: row; /* Image and text side-by-side */
+      text-align: left;
+      align-items: center; /* Vertically align items in the center */
+  }
+  .expert-showcase-image {
+      margin-bottom: 0; /* Remove bottom margin when side-by-side */
+      margin-right: 1.5rem; /* Add right margin for spacing */
+      width: 120px; /* Adjust image size for side-by-side layout */
+      height: 120px;
+  }
+  .expert-showcase-text {
+      flex-grow: 1; /* Allow text to take remaining space */
+  }
+}
+
+/* Styling for the clickable clinic name and info icon in clinic cards */
+.clinic-card .clinic-name-link {
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Inherit the color from the h3 (var(--primary-500) by default for .clinic-name) */
+  transition: color 0.3s ease;
+}
+
+.clinic-card .clinic-name-link:hover {
+  color: var(--accent-600); /* Change color on hover - using a darker accent green */
+}
+
+.clinic-card .clinic-name-link:hover .clinic-info-icon {
+  color: var(--accent-600); /* Ensure icon color matches link hover color */
+}
+
+.clinic-info-icon {
+  margin-left: 0.35rem; /* Space between name and icon */
+  font-size: 0.8em;   /* Relative to the h3 font size */
+  color: var(--neutral-500); /* A neutral color for the icon by default */
+  transition: color 0.3s ease;
+}

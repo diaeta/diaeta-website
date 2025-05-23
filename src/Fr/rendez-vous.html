@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Diaeta - Prenez Rendez-vous Facilement
-description: Choisissez votre lieu de consultation (Bruxelles ou téléconsultation) et réservez votre séance de diététique personnalisée avec Diaeta via Doctoranytime.
+title: Prendre Rendez-vous Diététicien Diaeta Bruxelles | Consultation en Ligne/Cabinet
+description: Réservez facilement votre consultation avec Pierre Abou-Zeid, Diététicien Nutritionniste agréé Diaeta à Bruxelles. Cabinets ou téléconsultation disponibles. Prenez RDV en ligne.
 lang: fr
 eleventyNavigation:
   key: Rendez-vous
@@ -47,41 +47,53 @@ eleventyNavigation:
                 </div>
                 {# Loop through actual cabinets from _data/cabinets.json #}
                 {% for cabinet in cabinets %}
-                <div class="location-card select-cabinet-card" data-practice-id="{{ cabinet.doctorpracticeId }}" data-cabinet-name="{{ cabinet.name | escape }}">
+                <div class="location-card select-cabinet-card" 
+                    data-practice-id="{{ cabinet.doctorpracticeId }}" 
+                    data-cabinet-name="{{ cabinet.name | escape }}"
+                    data-cabinet-id="{{ cabinet.id }}">
                     <div class="location-card-icon">
                         {% if cabinet.id == 'video' %}<i class="fa-solid fa-video"></i>
                         {% else %}<i class="fa-solid fa-map-marker-alt"></i>{% endif %}
                     </div>
                     <div class="location-card-content">
-                        {# Display Full Cabinet Name #}
-                        <h3 class="location-card-name">{{ cabinet.name }}</h3>
-                        <p class="location-card-address">{{ cabinet.address }}</p>
-                        {# Display Google Maps Link if available #}
-                        {% if cabinet.Maps_link %}
-                        <p class="location-card-maplink"><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary text-sm">Voir sur la carte <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
-                        {% endif %}
-                        {# Display Specific Hours if available #}
-                        <div class="cabinet-hours-display mt-2 pt-2 border-top">
-                            {% if cabinet.hours_type == 'specific' and cabinet.specific_hours %}
-                                <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
-                                <ul class="list-unstyled text-xs mb-0 specific-hours-list">
-                                    {# ... loop for days (Lundi, Mardi, etc.) ... #}
-                                    {% if cabinet.specific_hours.Lundi and cabinet.specific_hours.Lundi | lower != 'fermé' and cabinet.specific_hours.Lundi | lower != 'non disponible' %}<li><strong>Lundi :</strong> {{ cabinet.specific_hours.Lundi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Mardi and cabinet.specific_hours.Mardi | lower != 'fermé' and cabinet.specific_hours.Mardi | lower != 'non disponible' %}<li><strong>Mardi :</strong> {{ cabinet.specific_hours.Mardi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Mercredi and cabinet.specific_hours.Mercredi | lower != 'fermé' and cabinet.specific_hours.Mercredi | lower != 'non disponible' %}<li><strong>Mercredi :</strong> {{ cabinet.specific_hours.Mercredi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Jeudi and cabinet.specific_hours.Jeudi | lower != 'fermé' and cabinet.specific_hours.Jeudi | lower != 'non disponible' %}<li><strong>Jeudi :</strong> {{ cabinet.specific_hours.Jeudi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Vendredi and cabinet.specific_hours.Vendredi | lower != 'fermé' and cabinet.specific_hours.Vendredi | lower != 'non disponible' %}<li><strong>Vendredi :</strong> {{ cabinet.specific_hours.Vendredi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Samedi and cabinet.specific_hours.Samedi | lower != 'fermé' and cabinet.specific_hours.Samedi | lower != 'non disponible' %}<li><strong>Samedi :</strong> {{ cabinet.specific_hours.Samedi }}</li>{% endif %}
-                                    {% if cabinet.specific_hours.Dimanche and cabinet.specific_hours.Dimanche | lower != 'fermé' and cabinet.specific_hours.Dimanche | lower != 'non disponible' %}<li><strong>Dimanche :</strong> {{ cabinet.specific_hours.Dimanche }}</li>{% endif %}
-
-                                    {# Add class="hours-details-note" to this li #}
-                                    {% if cabinet.specific_hours.details %}
-                                    <li class="hours-details-note"><small><em>{{ cabinet.specific_hours.details }}</em></small></li>
-                                    {% endif %}
-                                </ul>
+                        <h3 class="location-card-name">
+                            {% if cabinet.id != 'video' %} {# Only add link for physical locations #}
+                                <a href="/fr/cabinets/{{ cabinet.id | slugify }}/" class="clinic-name-link"> {# Reusing class from index.html cards #}
+                                    {{ cabinet.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i> {# Reusing class #}
+                                </a>
+                            {% else %}
+                                {{ cabinet.name }} {# For "Vidéo Consultation", just display the name #}
                             {% endif %}
-                         </div>
-                        {# Display Notes if available #}
+                        </h3>
+                        <p class="location-card-address">{{ cabinet.fullAddress }}</p>
+                        
+                        {# Updated Hours Display from previous step #}
+                        {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                        <div class="cabinet-hours-display mt-2 pt-2 border-top">
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
+                            <ul class="list-unstyled text-xs mb-0 specific-hours-list">
+                                {% for day_schedule in cabinet.opening_hours %}
+                                    <li>
+                                        <strong>{{ day_schedule.dayOfWeekFRENCH | capitalize }} :</strong>
+                                        {% for slot in day_schedule.timeSlots %}
+                                            {{ slot.opens | replace(":", "h") }} - {{ slot.closes | replace(":", "h") }}{{ ", " if not loop.last else "" }}
+                                        {% endfor %}
+                                    </li>
+                                {% endfor %}
+                                {% if cabinet.hours_details_note %}
+                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        {% elif cabinet.hours_details_note %}
+                        <div class="cabinet-hours-display mt-2 pt-2 border-top">
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
+                            <ul class="list-unstyled text-xs mb-0 specific-hours-list">
+                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
                         {% if cabinet.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet.notes }}</p>{% endif %}
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>

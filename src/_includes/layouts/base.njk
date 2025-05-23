@@ -26,7 +26,34 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    {# --- End <head> content --- #}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Diaeta",
+      "url": "https://diaeta.be"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Diaeta",
+      "url": "https://diaeta.be",
+      "logo": "https://diaeta.be/images/logo.svg",
+      "telephone": "+32479355551",
+      "email": "pierre@diaeta.be",
+      "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
+      "sameAs": [
+        "https://www.facebook.com/Dieteticien.colon.irritable/",
+        "https://www.linkedin.com/in/pierre-abou-zeid/",
+        "https://www.instagram.com/expert.fodmap/",
+        "https://www.tiktok.com/@expert.fodmap"
+      ]
+    }
+    </script>
 
 </head>
 <body>
@@ -47,6 +74,14 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+     {# DATA INJECTION SCRIPT - PLACE BEFORE MAIN.JS #}
+    {# This script will only output if 'cabinets' data is available in the current page's context #}
+    {% if cabinets %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets | dump | safe }};
+    </script>
+    {% endif %}
 
     {# Your JS files - IMPORTANT: Paths are root-relative #}
     <script src="/js/main.js"></script>
