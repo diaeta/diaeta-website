@@ -133,6 +133,7 @@ lang: fr
         <section class="specialties-section" id="services">
           <div class="container">
             <div class="section-header animate-on-scroll fade-up">
+              <span class="section-badge">Solutions Ciblées</span>
               <h2 class="section-title">Nos Spécialités</h2>
               <p class="section-subtitle">Des approches scientifiques et personnalisées pour vos besoins spécifiques</p>
             </div>
@@ -447,18 +448,41 @@ lang: fr
               </div>
           </div>
       </section>
-      <section id="clinic-locations" class="clinic-finder-section">
-             <div class="container">
-                <div class="section-header"><span class="section-badge">Nos emplacements</span><h2 class="section-title">Consultations à Bruxelles</h2><p class="section-subtitle">Trouvez une clinique proche de chez vous avec des horaires qui vous conviennent</p></div>
-                <div class="clinic-filters"><button class="filter-btn active" data-day="all">Tous les jours</button><button class="filter-btn" data-day="lundi">Lundi</button><button class="filter-btn" data-day="mardi">Mardi</button><button class="filter-btn" data-day="mercredi">Mercredi</button><button class="filter-btn" data-day="jeudi">Jeudi</button><button class="filter-btn" data-day="vendredi">Vendredi</button><button class="filter-btn" data-day="samedi">Samedi</button><button class="locate-me-btn"><i class="fa-solid fa-location-crosshairs"></i> À proximité</button></div>
-                <div class="view-toggle-container"><button class="view-toggle active" data-view="list"><i class="fa-solid fa-list"></i> Liste</button><button class="view-toggle" data-view="map"><i class="fa-solid fa-map-location-dot"></i> Carte</button></div>
-                <div class="clinic-content">
-                  <div class="clinic-grid-view active" id="listView"><div class="clinic-grid"></div></div>
-                  <div class="clinic-map-view" id="mapView"><div class="map-container"><div id="clinicsMap"></div><div class="map-sidebar"><div class="sidebar-header"><h3>Nos Cliniques</h3><p class="sidebar-results">8 cliniques trouvées</p></div><div class="sidebar-body"><div class="sidebar-clinics"></div></div></div><div id="clinicDetailPanel" class="clinic-detail-panel"></div></div></div>
+      <section class="cabinet-teaser-section section" id="nos-cabinets-teaser">
+        {# This div would be for a full-width background image/gradient if used #}
+        {# <div class="cabinet-teaser-background"></div> #}
+        <div class="container text-center">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Votre Santé, Notre Proximité</span>
+                <h2 class="section-title" style="color: var(--primary-700);">La Nutrition d'Excellence, Facilement Accessible à Bruxelles</h2>
+                <p class="section-subtitle" style="color: var(--text-secondary); max-width: 750px;">
+                    Chez Diaeta, nous croyons que votre parcours vers une meilleure santé doit être aussi pratique que personnalisé. C'est pourquoi nous vous accueillons dans plusieurs cabinets, soigneusement sélectionnés à travers Bruxelles.
+                </p>
+            </div>
+    
+            <div class="teaser-highlights animate-on-scroll fade-up delay-200" style="margin: 2.5rem auto; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; max-width: 800px;">
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-map-marked-alt fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Multiples Cabinets Bruxellois</span>
                 </div>
-                <div class="clinic-cta"><p>Choisissez la clinique la plus pratique pour vous - tous nos sites offrent les mêmes services</p><a href="{{ '/fr/rendez-vous/' | url }}#booking-module" class="btn btn-primary"><span>Prendre rendez-vous maintenant</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div> {# Link to RDV page #}
-             </div>
-        </section>
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-users fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Accueil Professionnel & Confortable</span>
+                </div>
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-route fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Intégré à Votre Quotidien</span>
+                </div>
+            </div>
+    
+            <p class="lead animate-on-scroll fade-up delay-300" style="max-width: 700px; margin: 0 auto 2.5rem; color: var(--text-secondary);">
+                Trouvez l'espace Diaeta qui vous convient le mieux et faites le premier pas vers une prise en charge nutritionnelle qui fait la différence.
+            </p>
+            <a href="/fr/cabinets-bruxelles/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+                <span>Explorer Nos Lieux de Consultation</span> <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+         </div>
+        </section>     
         <section id="genetic-testing" class="genetic-section pattern-lines py-5">
             <div class="container">
                 <div class="section-header text-center mb-5 animate-on-scroll fade-up"><span class="section-tagline">Personnalisation ultime</span><h2 class="section-title">Tests Génétiques Nutrigenomix</h2><p class="section-subtitle">Découvrez comment votre ADN influence votre relation avec la nutrition</p></div>

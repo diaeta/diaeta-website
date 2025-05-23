@@ -225,3 +225,25 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
    }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil Diaeta",
+    "item": "https://diaeta.be/fr/index.html" {# Or your root homepage URL #}
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Nos Cabinets", {# Name of your cabinet listing page #}
+    "item": "https://diaeta.be/fr/cabinets/" {# URL of your cabinet listing page #}
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Diaeta {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }} ({{ cabinet.name }})", {# Dynamic name of current cabinet page #}
+    "item": "https://diaeta.be{{ page.url }}" {# Dynamic URL of current cabinet page #}
+  }]
+}
+</script>
