@@ -773,3 +773,34 @@ document.querySelectorAll('.contact-list:not(.animate-on-scroll), .approach-list
   l.classList.add('animate-on-scroll','fade-in');
   l.querySelectorAll('li').forEach((i,idx) => { i.style.transitionDelay = `${idx*0.05}s`; i.style.animationDelay = `${idx*0.05}s`; });
 });
+
+// In main.js, perhaps in a general utility section or initializeHero
+
+function initializeScrollToLinks() {
+  const scrollToButtons = document.querySelectorAll('.scroll-to');
+  scrollToButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1); // Get ID from href="#targetId"
+          const targetElement = document.getElementById(targetId);
+          const header = document.querySelector('.site-header');
+          const headerHeight = header ? header.offsetHeight : 0;
+
+          if (targetElement) {
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra offset
+
+              window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+}
+
+// Call it in DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  // ... your other initializations ...
+  initializeScrollToLinks();
+});

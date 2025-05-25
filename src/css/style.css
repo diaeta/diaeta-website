@@ -2122,8 +2122,8 @@ p {
 }
 
 .genetic-section::after {
-  width: 250px;
-  height: 250px;
+  width: 550px;
+  height: 550px;
   bottom: -50px;
   left: -50px;
   background: radial-gradient(
@@ -7746,4 +7746,542 @@ section {
 /* Ensure .active state correctly shows it, overriding any d-none temporarily */
 .clinic-detail-panel.active {
   display: block !important; /* Or flex, grid, depending on your panel's content flow */
+}
+
+/* src/css/style.css */
+
+/* ... your existing styles ... */
+
+/* Styles for the new Genetic Tests Page (/fr/tests-nutrigenetiques/) */
+.genetic-test-card { /* Extends .test-card from index.html if those base styles are good */
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Override text-center from base .test-card if needed */
+  border: 1px solid var(--neutral-200);
+}
+
+.genetic-test-card .card-header {
+  border-bottom: 1px solid var(--neutral-200);
+  padding-bottom: 1.5rem; /* Ensure spacing */
+}
+
+.genetic-test-card .card-icon {
+  width: 60px; /* Slightly smaller than index page if needed */
+  height: 60px;
+  font-size: 1.8rem; /* Adjust icon size */
+  margin-bottom: 1rem; /* Space below icon */
+}
+
+.genetic-test-card .card-body {
+  flex-grow: 1; /* Ensure body takes up space to align footers */
+  display: flex;
+  flex-direction: column;
+}
+
+.genetic-test-card .target-audience-intro {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.genetic-test-card .benefits-title {
+  font-size: 1.05rem;
+  color: var(--primary-600);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.genetic-test-card .gene-analysis { /* Reusing class from index, adjust if needed */
+  margin-bottom: 1rem; /* Space before Diaeta plus box */
+  padding-left: 0; /* Reset padding if list-style-none */
+  list-style: none;
+}
+.genetic-test-card .gene-analysis li {
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem; /* Smaller text for gene list */
+}
+.genetic-test-card .gene-analysis .gene-marker {
+  font-size: 0.8rem; /* Consistent gene marker size */
+  margin-right: 0.5rem;
+}
+
+.diaeta-plus-box {
+  background-color: rgba(var(--primary-rgb), 0.03);
+  border-left: 3px solid var(--primary-200);
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius-sm);
+  margin-top: auto; /* Pushes this box to the bottom of card-body */
+}
+.diaeta-plus-box strong {
+  color: var(--primary-600);
+}
+
+
+/* Styling for process steps on Nutrigenetics page */
+.process-timeline-vertical .process-step-detailed {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  text-align: center;
+  transition: var(--transition-standard);
+  height: 100%; /* For equal height in a row */
+}
+.process-timeline-vertical .process-step-detailed:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+.process-timeline-vertical .process-step-detailed .icon {
+  font-size: 2rem;
+  color: var(--accent-500);
+  margin-bottom: 1rem;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  background-color: rgba(var(--accent-rgb), 0.1);
+  display: inline-block;
+}
+.process-timeline-vertical .process-step-detailed h4 {
+  font-size: 1.15rem;
+  color: var(--primary-600);
+  margin-bottom: 0.5rem;
+}
+.process-timeline-vertical .process-step-detailed p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* FAQ Accordion styling (uses Bootstrap, but can be customized) */
+.accordion-button {
+  font-weight: 500;
+  color: var(--primary-700);
+}
+.accordion-button:not(.collapsed) {
+  background-color: rgba(var(--primary-rgb), 0.05);
+  color: var(--primary-600);
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem var(--focus-ring);
+}
+.accordion-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Updated DNA animation styling for homepage section if changed */
+#genetic-testing .dna-animation { /* Specific to homepage section */
+    perspective: none; /* Remove 3D perspective if using SVG */
+}
+#genetic-testing .dna-animation .dna-image {
+    animation: none; /* Remove rotate animation if it's a static SVG or different effect */
+    /* Add new animations here if desired, e.g. subtle pulse */
+}
+
+/* Ensure list-styled-check has its icon defined (already in your global style.css) */
+.list-styled-check li::before {
+  content: "\f058"; /* Font Awesome check-circle icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--accent-500);
+  position: absolute;
+  left: 0;
+  top: 1px; /* Adjust for alignment */
+  font-size: 1.1em;
+}
+
+/* Generic scroll-to utility for buttons */
+.scroll-to {
+    cursor: pointer;
+}
+
+/* In style.css */
+
+/* Your existing .btn styles (base for all buttons) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-5); /* Or your standard button padding */
+  border-radius: var(--border-radius-pill);
+  font-weight: var(--font-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-standard);
+  border: 2px solid transparent;
+  line-height: var(--leading-snug);
+  text-decoration: none;
+  gap: var(--space-2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary Button (Example - you likely have this) */
+.btn-primary {
+  background-color: var(--primary-500);
+  color: white;
+  /* ... other styles ... */
+}
+.btn-primary:hover {
+  background-color: var(--primary-600);
+  /* ... other styles ... */
+}
+
+
+/* Accent Outline Button - THIS IS LIKELY MISSING OR NEEDS ADJUSTMENT */
+.btn-outline-accent {
+  background-color: transparent;
+  border-color: var(--accent-500); /* Use your accent color for the border */
+  color: var(--accent-500);       /* Use your accent color for the text */
+}
+
+.btn-outline-accent:hover,
+.btn-outline-accent:focus {
+  background-color: rgba(var(--accent-rgb), 0.1); /* Light accent background on hover */
+  color: var(--accent-600);                       /* Darker accent text on hover */
+  border-color: var(--accent-600);                /* Darker accent border on hover */
+  transform: translateY(-2px); /* Optional: subtle lift effect */
+}
+
+.btn-outline-accent:active {
+  transform: translateY(0);
+  background-color: rgba(var(--accent-rgb), 0.15); /* Slightly more pronounced on active */
+}
+
+/* In style.css */
+
+.cta-equal-width-group {
+  /* This class is on the parent div with d-flex */
+}
+
+.cta-equal-width-group .cta-genetic-test {
+  flex-grow: 1; /* This makes flex items grow to fill available space */
+  flex-basis: 0;  /* Ensures they start from an equal base before growing */
+  text-align: center; /* Ensure text within the button is centered */
+  justify-content: center; /* Ensures icon and text are centered if button is also display:flex */
+}
+
+/* Optional: If you want them to stack nicely on smaller screens and still be full width */
+@media (max-width: 767px) { /* Or your preferred breakpoint for stacking */
+  .cta-equal-width-group {
+    flex-direction: column; /* Stack them vertically */
+  }
+  .cta-equal-width-group .cta-genetic-test {
+    width: 100%; /* Make them full width of the parent when stacked */
+    margin-bottom: var(--space-2); /* Add some space between stacked buttons */
+  }
+  .cta-equal-width-group .cta-genetic-test:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ============================================= */
+/* == Actualités Teaser Section Styles == */
+/* ============================================= */
+
+.actualites-teaser-section {
+  padding: var(--space-8) 0;
+  /* background-color: var(--neutral-100); // Using bg-light which is white, or use var(--neutral-100) for slight grey */
+}
+
+.actualites-teaser-section .section-header .section-title::after {
+  background: var(--secondary-500); /* Using secondary color for underline */
+}
+
+.article-teaser-card {
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure cards in a row have same height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-teaser-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.teaser-card-image-link {
+  display: block;
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio for images */
+  overflow: hidden;
+}
+
+.teaser-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.article-teaser-card:hover .teaser-card-image {
+  transform: scale(1.05);
+}
+
+.teaser-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows footer meta to stick to bottom */
+}
+
+.teaser-card-category {
+  display: inline-block;
+  background-color: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent-600);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.teaser-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem; /* Or var(--text-lg) */
+  color: var(--primary-600);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.teaser-card-title a {
+  text-decoration: none;
+  color: inherit;
+}
+.teaser-card-title a:hover {
+  color: var(--accent-500);
+}
+
+.teaser-card-excerpt {
+  font-size: 0.9rem; /* Or var(--text-sm) */
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes meta to bottom if excerpt is short */
+  /* Limit text to a few lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show 3 lines */
+  -webkit-box-orient: vertical;
+}
+
+
+.teaser-card-meta {
+  margin-top: auto; /* Pushes to the bottom of the card body */
+  padding-top: 1rem;
+  border-top: 1px solid var(--neutral-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.teaser-card-date {
+  color: var(--text-tertiary);
+}
+.teaser-card-date i {
+  margin-right: 0.3em;
+}
+
+.teaser-card-readmore {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+.teaser-card-readmore i {
+    transition: transform 0.2s ease-in-out;
+}
+.teaser-card-readmore:hover i {
+    transform: translateX(3px);
+}
+
+
+@media (max-width: 991px) {
+  .article-teaser-card {
+    margin-bottom: 1.5rem; /* Add space when stacked */
+  }
+}
+
+/* ============================================= */
+/* == Single Blog Post Styles == */
+/* ============================================= */
+.blog-post-article .blog-post-hero {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.blog-post-title {
+  color: var(--primary-700);
+  font-size: 2.5rem; /* Or var(--text-4xl) */
+}
+
+.blog-post-meta {
+  font-size: 0.95rem; /* Or var(--text-sm) */
+  color: var(--text-secondary);
+  margin-bottom: 0; /* Hero lead has its own margin */
+}
+.blog-post-meta a {
+    color: var(--primary-600);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-200);
+}
+.blog-post-meta a:hover {
+    color: var(--accent-500);
+    text-decoration-color: var(--accent-300);
+}
+
+
+.blog-post-content {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.blog-post-featured-image img {
+  margin-bottom: 2rem; /* Space below main image */
+}
+
+.entry-content h2, .entry-content h3, .entry-content h4 {
+  font-family: var(--font-display);
+  color: var(--primary-600);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.entry-content h2 { font-size: 1.8rem; } /* var(--text-2xl) */
+.entry-content h3 { font-size: 1.5rem; } /* var(--text-xl) */
+.entry-content h4 { font-size: 1.25rem; } /* var(--text-lg) */
+
+.entry-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8; /* Enhanced readability */
+  font-size: 1.05rem; /* Slightly larger body text */
+}
+
+.entry-content ul, .entry-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.8rem; /* Indent lists */
+}
+.entry-content ul li, .entry-content ol li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.entry-content blockquote {
+  border-left: 4px solid var(--primary-200);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background-color: rgba(var(--primary-rgb), 0.03);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+.entry-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.entry-content a {
+    color: var(--accent-600);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-200);
+    font-weight: 500;
+}
+.entry-content a:hover {
+    color: var(--accent-700);
+    text-decoration-color: var(--accent-500);
+}
+
+.entry-content img { /* Images within post content */
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    box-shadow: var(--box-shadow-sm);
+}
+
+.author-box {
+    background-color: var(--neutral-50);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+}
+
+@media (max-width: 767px) {
+  .blog-post-title {
+    font-size: 2rem; /* var(--text-3xl) */
+  }
+  .entry-content h2 { font-size: 1.6rem; }
+  .entry-content h3 { font-size: 1.4rem; }
+  .entry-content h4 { font-size: 1.15rem; }
+  .entry-content p { font-size: 1rem; }
+}
+
+/* Sidebar Styles for Blog Listing Page */
+.sidebar-widget {
+  background-color: var(--neutral-50); /* Light background for widget */
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 2rem;
+  border: 1px solid var(--neutral-200);
+}
+
+.sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--primary-600);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-200);
+  font-weight: 700;
+}
+
+.category-list li {
+  margin-bottom: 0.5rem;
+}
+
+.category-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-list li a:hover {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-600);
+}
+
+.category-list li a .badge { /* Bootstrap badge styling */
+  font-size: 0.75em;
+}
+
+/* Adjust card category link style */
+.teaser-card-category a {
+  text-decoration: none;
+  color: inherit;
+}
+.teaser-card-category a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for blog listing if sidebar is present */
+@media (max-width: 991px) {
+  .actualites-listing-section .row > .col-lg-9 {
+      order: 1; /* Main content first */
+  }
+  .actualites-listing-section .row > .col-lg-3 {
+      order: 2; /* Sidebar second */
+  }
+  .article-teaser-card .teaser-card-title.h5 { /* Ensure title is not too small */
+      font-size: 1.15rem; /* Adjust as needed */
+  }
 }

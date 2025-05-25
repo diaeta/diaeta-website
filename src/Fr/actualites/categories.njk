@@ -1,0 +1,106 @@
+---
+pagination:
+  data: collections.postsByCategory
+  size: 1 # One page per category
+  alias: categoryData
+  addAllPagesToCollections: true # So you can link to these if needed
+before:
+  # Add a slug for use in permalink if category name has spaces/special chars
+  - slug: categoryData.key | slugify
+permalink: "/fr/actualites/categories/{{ categoryData.key | slugify }}/index.html"
+layout: layouts/base.njk
+lang: fr
+---
+{% set categoryName = categoryData.key %}
+{% set postsInThisCategory = categoryData.value %}
+
+{% eleventyComputed %}
+title: "Actualités - Catégorie : {{ categoryName }} | Diaeta Bruxelles"
+description: "Articles et conseils nutritionnels de Diaeta Bruxelles pour la catégorie : {{ categoryName }}."
+canonicalUrl: "https://diaeta.be/fr/actualites/categories/{{ categoryName | slugify }}/"
+{% endeleventyComputed %}
+
+<section class="service-hero rd-hero">
+    <div class="container">
+        <div class="rd-hero-content">
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-folder-open hero-badge-icon"></i>Catégorie</span>
+            <h1 class="animate-on-scroll fade-up">Actualités : {{ categoryName }}</h1>
+            <p class="lead animate-on-scroll fade-up delay-200">
+                Tous nos articles et conseils concernant "{{ categoryName }}".
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section actualites-listing-section bg-white">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ '/' | url }}">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{{ '/fr/actualites/' | url }}">Actualités</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ categoryName }}</li>
+            </ol>
+        </nav>
+
+        {% if postsInThisCategory.length > 0 %}
+        <div class="row g-4">
+            {% for post in postsInThisCategory %}
+            <div class="col-lg-4 col-md-6 d-flex">
+                <article class="article-teaser-card animate-on-scroll fade-up w-100">
+                    {% if post.data.image %}
+                    <a href="{{ post.url | url }}" class="teaser-card-image-link" aria-hidden="true" tabindex="-1">
+                        <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-image" loading="lazy">
+                    </a>
+                    {% endif %}
+                    <div class="teaser-card-body">
+                        {% if post.data.category %}
+                             <span class="teaser-card-category">{{ post.data.category }}</span>
+                        {% endif %}
+                        <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+                        {% set excerpt = post.data.description %}
+                        {% if not excerpt and post.templateContent %}{% set excerpt = post.templateContent | striptags | truncate(100) %}{% elif excerpt %}{% set excerpt = excerpt | truncate(100) %}{% endif %}
+                        {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
+                        <div class="teaser-card-meta">
+                             {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
+                            <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Lire la suite <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center"><em>Aucun article dans la catégorie "{{ categoryName }}" pour le moment.</em></p>
+        {% endif %}
+
+        <div class="mt-5 text-center">
+            <a href="{{ '/fr/actualites/' | url }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Toutes les actualités</a>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Actualités - Catégorie : {{ categoryName }} | Diaeta Bruxelles",
+  "description": "Articles et conseils nutritionnels de Diaeta Bruxelles pour la catégorie : {{ categoryName }}.",
+  "url": "https://diaeta.be{{ page.url }}",
+  "publisher": {
+    "@id": "https://diaeta.be#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for post in postsInThisCategory %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "url": "https://diaeta.be{{ post.url | url }}",
+        "name": "{{ post.data.title | escape | safe }}"
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>

@@ -1,0 +1,220 @@
+---
+layout: layouts/base.njk # Path to the main base layout file
+---
+
+<article class="blog-post-article" itemscope itemtype="https://schema.org/{% if schemaType == 'MedicalWebPage' %}MedicalWebPage{% elif schemaType == 'HowTo' %}HowTo{% else %}Article{% endif %}">
+    <meta itemprop="accessibilityFeature" content="largePrint/CSSEnabled">
+    <meta itemprop="accessibilityFeature" content="highContrast/CSSEnabled">
+    <meta itemprop="accessibilityHazard" content="noFlashing">
+    <meta itemprop="accessibilityHazard" content="noSound">
+    
+    <header class="blog-post-hero service-hero" style="background-color: var(--neutral-50);"> {# Simple hero for posts #}
+        <div class="container text-center">
+            {% if category %} {# Use 'category' from front matter #}
+            <span class="section-badge animate-on-scroll fade-in" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">
+                <a href="{{ ('/fr/actualites/categories/' + category | slugify + '/') | url }}" style="color: inherit; text-decoration: none;">{{ category }}</a>
+            </span>
+            {% else %}
+                {% set displayTag = "" %}
+                {% if tags %}
+                    {% for tag in tags %}
+                        {% if tag != 'actualites' and tag != 'posts' and displayTag == "" %} {# Avoid generic tags #}
+                            {% set displayTag = tag %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {% if displayTag %}
+                <span class="section-badge animate-on-scroll fade-in" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">{{ displayTag }}</span>
+                {% endif %}
+            {% endif %}
+
+            <h1 itemprop="headline name" class="animate-on-scroll fade-up blog-post-title">{{ title }}</h1>
+            <p class="blog-post-meta lead animate-on-scroll fade-up delay-200">
+                Publié le <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
+                {% if author %}
+                    par <a href="{{ authorUrl | default('/fr/notre-expertise/') | url }}" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ author }}</span></a>
+                {% endif %}
+                {% if dateModified and dateModified != date %}
+                    <br>Mis à jour le <time itemprop="dateModified" datetime="{{ dateModified | dateISO }}">{{ dateModified | date }}</time>
+                {% else %}
+                    <meta itemprop="dateModified" content="{{ date | dateISO }}">
+                {% endif %}
+            </p>
+            
+            <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization" style="display:none;">
+                <meta itemprop="name" content="Diaeta">
+                <link itemprop="url" href="https://diaeta.be">
+                <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <link itemprop="url" href="https://diaeta.be/images/logo.svg">
+                    <meta itemprop="width" content="142">
+                    <meta itemprop="height" content="50">
+                </div>
+            </div>
+            {% if authorKey %}
+                {% set authorData = authors[authorKey] %}
+                {% if authorData %}
+                <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none;">
+                    <meta itemprop="name" content="{{ authorData.name }}">
+                    <link itemprop="url" href="https://diaeta.be{{ authorData.url | url }}">
+                    {% if authorData.image %}<link itemprop="image" href="https://diaeta.be{{ authorData.image | url }}">{% endif %}
+                </div>
+                {% elif author %} {# Fallback if authorKey not used but author name is present #}
+                 <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none;">
+                    <meta itemprop="name" content="{{ author }}">
+                    <link itemprop="url" href="https://diaeta.be{{ authorUrl | default('/fr/notre-expertise/') | url }}">
+                </div>
+                {% endif %}
+            {% elif author %}
+                 <div itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:none;">
+                    <meta itemprop="name" content="{{ author }}">
+                    <link itemprop="url" href="https://diaeta.be{{ authorUrl | default('/fr/notre-expertise/') | url }}">
+                </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <section class="blog-post-content content-section bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    {% if image %}
+                    <figure class="blog-post-featured-image animate-on-scroll fade-up delay-300">
+                        <img src="{{ image | url }}" alt="{{ imageAlt | default(title) }}" class="img-fluid rounded shadow-sm mb-4" itemprop="image">
+                        {% if imageCaption %}
+                        <figcaption class="text-muted text-sm text-center">{{ imageCaption }}</figcaption>
+                        {% endif %}
+                    </figure>
+                    {% endif %}
+
+                    <div itemprop="articleBody" class="entry-content">
+                        {{ content | safe }} {# This is where your Markdown content goes #}
+                    </div>
+
+                    {% if authorKey and authors[authorKey] %}
+                        {% set authorData = authors[authorKey] %}
+                        <div class="author-box mt-5 pt-4 border-top animate-on-scroll fade-up">
+                            <h4 class="h5 mb-3">À propos de l'auteur</h4>
+                            <div class="d-flex align-items-center">
+                                {% if authorData.image %}
+                                <img src="{{ authorData.image | url }}" alt="{{ authorData.name }}" class="rounded-circle me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                                {% endif %}
+                                <div>
+                                    <strong><a href="{{ authorData.url | url }}">{{ authorData.name }}</a></strong>
+                                    <p class="text-sm text-muted mb-1">{{ authorData.jobTitle }}</p>
+                                    {% if authorData.bio %}
+                                    <p class="text-xs text-muted mb-0">{{ authorData.bio }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% elif author %} {# Fallback display if only author name is provided #}
+                        <div class="author-box mt-5 pt-4 border-top animate-on-scroll fade-up">
+                             <h4 class="h5 mb-3">À propos de l'auteur</h4>
+                             <p><strong><a href="{{ authorUrl | default('/fr/notre-expertise/') | url }}">{{ author }}</a></strong></p>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="mt-5 text-center">
+                        <a href="{{ '/fr/actualites/' | url }}" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-left"></i> Retour aux actualités</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil Diaeta",
+        "item": "https://diaeta.be/fr/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Actualités",
+        "item": "https://diaeta.be/fr/actualites/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ title | escape | safe }}" 
+      }]
+    }
+    </script>
+
+    {# Main Schema for the article/page #}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{% if schemaType == 'MedicalWebPage' %}MedicalWebPage{% elif schemaType == 'HowTo' %}HowTo{% else %}Article{% endif %}",
+        "headline": "{{ title | escape | safe }}",
+        "name": "{{ title | escape | safe }}",
+        "description": "{{ description | escape | safe }}",
+        "keywords": "{{ tags | join(', ') | escape | safe }}",
+        "url": "https://diaeta.be{{ page.url }}",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://diaeta.be{{ page.url }}" },
+        {% if image -%}
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be{{ image | url }}",
+            "caption": "{{ imageAlt | default(title) | escape | safe }}"
+        },
+        {%- endif %}
+        "datePublished": "{{ date | dateISO }}",
+        "dateModified": "{{ dateModified | default(date) | dateISO }}",
+        "author": {
+            "@type": "Person",
+            "name": "{% if authorKey and authors[authorKey] %}{{ authors[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
+            "url": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/fr/notre-expertise/{% endif %}"
+        },
+        "publisher": {
+            "@id": "https://diaeta.be#organization"
+        }
+        {# --- MedicalWebPage specific --- #}
+        {% if schemaType == "MedicalWebPage" %}
+            {% if about and about.type and about.name %}
+            ,"about": {
+                "@type": "{{ about.type }}",
+                "name": "{{ about.name | escape | safe }}"
+            }
+            {% endif %}
+            {% if medicalAudience %} ,"audience": { "@type": "MedicalAudience", "audienceType": "{{ medicalAudience | escape | safe }}" } {% endif %}
+            {% if reviewedBy %} ,"reviewedBy": { "@type": "Person", "name": "{{ reviewedBy | escape | safe }}" } {% endif %}
+        {# --- HowTo specific (basic example) --- #}
+        {% elif schemaType == "HowTo" %}
+            ,"totalTime": "{{ estimatedTime | default('PT15M') }}",
+            "tool": [
+                {% if requiredTools %}
+                    {% for tool in requiredTools %}
+                        { "@type": "HowToTool", "name": "{{tool | escape | safe}}" } {%- if not loop.last %},{% endif -%}
+                    {% endfor %}
+                {% endif %}
+            ],
+            "supply": [
+                {% if requiredSupplies %}
+                    {% for supply in requiredSupplies %}
+                        { "@type": "HowToSupply", "name": "{{supply | escape | safe}}" } {%- if not loop.last %},{% endif -%}
+                    {% endfor %}
+                {% endif %}
+            ]
+            {# The 'step' property would be more complex and ideally generated from structured content from your Markdown #}
+            {# Example: You might loop through a 'steps' array in your front matter #}
+            {% if steps and steps.length > 0 %}
+            ,"step": [
+                {% for stepItem in steps %}
+                {
+                    "@type": "HowToStep",
+                    "name": "{{ stepItem.name | escape | safe }}",
+                    "text": "{{ stepItem.text | escape | safe }}"
+                    {% if stepItem.image %}, "image": "https://diaeta.be{{ stepItem.image | url }}" {% endif %}
+                    {% if stepItem.url %}, "url": "https://diaeta.be{{ page.url }}#{{ stepItem.name | slugify }}" {% endif %}
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ]
+            {% endif %}
+        {% endif %}
+    }
+    </script>
+</article>
