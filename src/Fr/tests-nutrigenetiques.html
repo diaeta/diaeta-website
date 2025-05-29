@@ -363,7 +363,23 @@ canonicalUrl: "https://diaeta.be/fr/tests-nutrigenetiques/"
       "@type": "MedicalDevice",
       "name": "Kit de prélèvement salivaire Nutrigenomix®"
     },
-    "provider": { "@id": "https://diaeta.be#organization" },
+    "provider": {
+        "@type": "DietNutrition", // Matches the type of your main org schema
+        "@id": "https://diaeta.be#organization", // Correctly links to your main org schema
+        "name": "Diaeta",
+        "url": "https://diaeta.be/fr/", // URL to the main site
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99", // Address of Espace Pluridys
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }          
+      },
     "offers": {
         "@type": "Offer",
         "itemOffered": {

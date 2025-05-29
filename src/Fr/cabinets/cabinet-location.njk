@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: cabinet
   filter: # This filter excludes the "video" consultation and any other non-physical locations
-    - id: video 
+    - id: video
   addAllPagesToCollections: true # Optional: useful for creating a list of all cabinet pages
 permalink: "/fr/cabinets/{{ cabinet.id | slugify }}/index.html" # Generates URLs like /fr/cabinets/espace-pluridis/
 layout: layouts/base.njk # Uses your main base layout
@@ -69,7 +69,7 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
                 </div>
                 {% endif %}
 
-                {% if cabinet.Maps_link %}
+                {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %} {# Basic check to avoid default/empty links #}
                 <div class="mb-4">
                     <h4 class="h5 text-primary"><i class="fas fa-map-marker-alt me-2"></i>Localisation</h4>
                     <p><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary">Voir sur Google Maps <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
@@ -94,7 +94,7 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
                     </ul>
                 </div>
                  <p>Toutes les consultations à {{ cabinet.name }} sont assurées par Pierre Abou-Zeid, Diététicien Nutritionniste agréé (INAMI) et certifié MONASH.</p>
-                 <a href="/fr/notre-expertise.html" class="btn btn-outline-primary mt-3"><span>Découvrir l'expertise de Pierre</span><i class="fa-solid fa-arrow-right btn-icon-right ms-2"></i></a>
+                 <a href="/fr/notre-expertise/" class="btn btn-outline-primary mt-3"><span>Découvrir l'expertise de Pierre</span><i class="fa-solid fa-arrow-right btn-icon-right ms-2"></i></a>
 
             </div>
             <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
@@ -112,26 +112,30 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
     </div>
 </section>
 
+{# === Updated and Consolidated Schema for this specific Cabinet Page === #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DietNutrition",
-  "name": "Diaeta - {{ cabinet.name }}, {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}",
-  "description": "Cabinet de consultation Diaeta à {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }} ({{ cabinet.name }}) avec Pierre Abou-Zeid, diététicien nutritionniste. Spécialisé en perte de poids, SII, diabète, cholestérol.",
+  "@type": "MedicalClinic",
+  "@id": "https://diaeta.be{{ page.url }}#clinic",
+  "name": "Diaeta - {{ cabinet.name | escape }}",
+  "description": "Cabinet de consultation Diaeta à {{ cabinet.address_obj.city | default(cabinet.city) | escape }} ({{ cabinet.name | escape }}) avec Pierre Abou-Zeid, diététicien nutritionniste. {{ cabinet.notes | default('') | escape }}",
+  "url": "https://diaeta.be{{ page.url }}",
   {% if cabinet.address_obj %}
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName }}",
-    "addressLocality": "{{ cabinet.address_obj.city }}",
-    "postalCode": "{{ cabinet.address_obj.postalCode }}",
-    "addressRegion": "{{ cabinet.address_obj.region }}",
-    "addressCountry": "{{ cabinet.address_obj.country }}"
+    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName | escape }}",
+    "addressLocality": "{{ cabinet.address_obj.city | escape }}",
+    "postalCode": "{{ cabinet.address_obj.postalCode | escape }}",
+    "addressRegion": "{{ cabinet.address_obj.region | escape }}",
+    "addressCountry": "{{ cabinet.address_obj.country | escape }}"
   },
   {% endif %}
-  "telephone": "+32479355551",
-  "url": "https://diaeta.be{{ page.url }}", {# Generates the canonical URL of this page #}
-  "image": "https://diaeta.be/images/cabinets/{{ cabinet.id | slugify }}.jpg", {# Or your main logo: https://diaeta.be/images/logo.svg #}
-  {% if cabinet.Maps_link %}"hasMap": "{{ cabinet.Maps_link }}",{% endif %}
+  "telephone": "+32479355551", 
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+  {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+  "hasMap": "{{ cabinet.Maps_link }}",
+  {% endif %}
   {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
   "geo": {
     "@type": "GeoCoordinates",
@@ -142,89 +146,31 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
   {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
   "openingHoursSpecification": [
     {% for day_schedule in cabinet.opening_hours %}
-        {% for slot in day_schedule.timeSlots %}
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "{{ day_schedule.dayOfWeekSCHEMA }}"
-                ],
-                "opens": "{{ slot.opens }}",
-                "closes": "{{ slot.closes }}"
-            }{{ "," if not (loop.parent.last and loop.last) else "" }} {# Add comma if not the absolute last item #}
-        {% endfor %}
+      {% for slot in day_schedule.timeSlots %}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "https://schema.org/{{ day_schedule.dayOfWeekSCHEMA }}",
+          "opens": "{{ slot.opens }}",
+          "closes": "{{ slot.closes }}"
+        }{% if not (loop.parent.last and loop.last) %},{% endif %}
+      {% endfor %}
     {% endfor %}
   ],
   {% endif %}
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "Diaeta",
-    "url": "https://diaeta.be"
+  "departmentOf": {
+    "@type": "DietNutrition", 
+    "@id": "https://diaeta.be#organization",
+    "name": "Diaeta"
   },
   "employee": { 
-     "@type": "Person",
-     "name": "Pierre Abou-Zeid",
-     "jobTitle": "Diététicien Nutritionniste agréé (INAMI), Certifié MONASH",
-     "url": "https://diaeta.be/fr/notre-expertise/"
-   }
+    "@type": "Person",
+    "@id": "https://diaeta.be/fr/notre-expertise/#person",
+    "name": "Pierre Abou-Zeid"
+  },
+  "medicalSpecialty": "DietNutrition"
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "DietNutrition",
-  "name": "Diaeta - {{ cabinet.name }}, {{ cabinet.address_obj.city }}", // e.g., "Diaeta - Espace Pluridys, Uccle"
-  "description": "Cabinet de consultation Diaeta à {{ cabinet.address_obj.city }} ({{ cabinet.name }}) avec Pierre Abou-Zeid, diététicien nutritionniste. Spécialisé en perte de poids, SII, diabète, cholestérol.",
-  {% if cabinet.address_obj %}
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName }}",
-    "addressLocality": "{{ cabinet.address_obj.city }}",
-    "postalCode": "{{ cabinet.address_obj.postalCode }}",
-    "addressRegion": "{{ cabinet.address_obj.region }}",
-    "addressCountry": "{{ cabinet.address_obj.country }}"
-  },
-  {% endif %}
-  "telephone": "+32479355551", // Your main Diaeta phone number
-  "url": "https://diaeta.be{{ page.url }}", // Canonical URL of the specific cabinet page
-  // "image": "https://diaeta.be/images/cabinets/{{ cabinet.id | slugify }}.jpg", // Optional: URL of an image for this specific cabinet
-  {% if cabinet.Maps_link %}"hasMap": "{{ cabinet.Maps_link }}",{% endif %}
-  {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "{{ cabinet.coordinates[0] }}",
-    "longitude": "{{ cabinet.coordinates[1] }}"
-  },
-  {% endif %}
-  {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
-  "openingHoursSpecification": [
-    {# Nunjucks loop to generate this array based on cabinet.opening_hours #}
-    {% for day_schedule in cabinet.opening_hours %}
-        {% for slot in day_schedule.timeSlots %}
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "{{ day_schedule.dayOfWeekSCHEMA }}" // e.g., "Wednesday"
-                ],
-                "opens": "{{ slot.opens }}", // e.g., "14:00"
-                "closes": "{{ slot.closes }}" // e.g., "20:00"
-            }{{ "," if not (loop.parent.last and loop.last) else "" }} {# Careful with comma for valid JSON array #}
-        {% endfor %}
-    {% endfor %}
-  ],
-  {% endif %}
-  "parentOrganization": { // Links this specific location to your main Diaeta organization
-    "@type": "Organization",
-    "name": "Diaeta",
-    "url": "https://diaeta.be"
-  },
-  "employee": { // Indicates you work at this location
-     "@type": "Person",
-     "name": "Pierre Abou-Zeid",
-     "jobTitle": "Diététicien Nutritionniste agréé (INAMI), Certifié MONASH",
-     "url": "https://diaeta.be/fr/notre-expertise/" // Link to your expertise page
-   }
-}
-</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -233,17 +179,17 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
     "@type": "ListItem",
     "position": 1,
     "name": "Accueil Diaeta",
-    "item": "https://diaeta.be/fr/index.html" {# Or your root homepage URL #}
+    "item": "https://diaeta.be/fr/"
   },{
     "@type": "ListItem",
     "position": 2,
-    "name": "Nos Cabinets", {# Name of your cabinet listing page #}
-    "item": "https://diaeta.be/fr/cabinets/" {# URL of your cabinet listing page #}
+    "name": "Nos Cabinets", 
+    "item": "https://diaeta.be/fr/cabinets-bruxelles/"
   },{
     "@type": "ListItem",
     "position": 3,
-    "name": "Diaeta {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }} ({{ cabinet.name }})", {# Dynamic name of current cabinet page #}
-    "item": "https://diaeta.be{{ page.url }}" {# Dynamic URL of current cabinet page #}
+    "name": "Diaeta {{ cabinet.name | escape }} ({{ cabinet.address_obj.city | default(cabinet.city) | escape }})",
+    "item": "https://diaeta.be{{ page.url }}"
   }]
 }
 </script>

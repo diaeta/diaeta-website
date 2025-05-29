@@ -115,6 +115,7 @@ lang: fr
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://diaeta.be/fr/notre-expertise/#person",
       "name": "Pierre Abou-Zeid",
       "jobTitle": "Diététicien Nutritionniste agréé (INAMI), Certifié MONASH",
       "image": "https://diaeta.be/images/Pierre Abou-Zeid.jpg",
@@ -122,7 +123,7 @@ lang: fr
       "worksFor": {
         "@type": "Organization",
         "name": "Diaeta",
-        "url": "https://diaeta.be"
+        "url": "https://diaeta.be#organization"
       },
       "alumniOf": [
         {
@@ -131,24 +132,43 @@ lang: fr
         },
         {
           "@type": "CollegeOrUniversity",
-          "name": "Programmateur et Analyste en Informatique"
+          "name": "EPFC"
         }
       ],
-      "knowsAbout": [
-        "Nutrition personnalisée pour adultes",
+     "knowsAbout": [
+        "Nutrition personnalisée", // Simplified from "Nutrition personnalisée pour adultes"
         "Perte de poids durable",
         "Gestion du poids",
         "Diabète de type 2",
         "Gestion du cholestérol",
+        "Hypertension", // Added, as it's a service
         "Syndrome de l'Intestin Irritable (SII)",
         "Régime Low FODMAP",
         "Nutrigénomique",
-        "Santé métabolique"
+        "Tests Nutrigénétiques", // Added, as it's a service
+        "Santé métabolique",
+        "Diététique scientifique"
       ],
       "description": "Pierre Abou-Zeid est un diététicien nutritionniste agréé (INAMI) et certifié MONASH, expert chez Diaeta à Bruxelles. Spécialisé en perte de poids, SII, diabète et cholestérol, il propose une approche scientifique, personnalisée et bienveillante.",
       "knowsLanguage": ["fr", "en", "nl", "de", "ar"]
-    }
-    </script>
+      sameAs": [ // From authors.json
+      "https://www.linkedin.com/in/pierre-abou-zeid/"
+      // Add other relevant professional profiles if available (e.g., ResearchGate, UPDLF profile if public)
+    ],
+    "memberOf": [ // Added based on page content "membre de l'UPDLF"
+      {
+        "@type": "Organization",
+        "name": "UPDLF (Union Professionnelle des Diététiciens de Langue Française)"
+        // "url": "URL_OF_UPDLF_IF_KNOWN" // Add if available
+      }
+    ],
+    "award": [ // You can use "award" or "honorificSuffix" for certifications
+      "Certifié MONASH University (SII/FODMAP)"
+      // If "agréé INAMI" has a formal title/award name, it could go here too,
+      // otherwise it's well covered in jobTitle and description.
+    ]
+  }
+  </script>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",

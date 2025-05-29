@@ -310,6 +310,81 @@ lang: fr
     </div>
 </section>
 
+<section id="faq-sci" class="content-section bg-light py-5"> <div class="container" style="max-width: 850px;">
+    <div class="section-header text-center animate-on-scroll fade-up">
+        <h2 class="section-title">Vos Questions sur le SCI et l'Approche Low FODMAP avec Diaeta</h2>
+    </div>
+    <div class="accordion accordion-flush" id="faqAccordionIBS">
+
+        <div class="accordion-item animate-on-scroll fade-up delay-100">
+            <h3 class="accordion-header" id="faqIBSHeading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse1" aria-expanded="false" aria-controls="faqIBSCollapse1">
+                    Le régime pauvre en FODMAP est-il très restrictif et difficile à suivre ?
+                </button>
+            </h3>
+            <div id="faqIBSCollapse1" class="accordion-collapse collapse" aria-labelledby="faqIBSHeading1" data-bs-parent="#faqAccordionIBS">
+                <div class="accordion-body">
+                    La phase d'élimination initiale du régime Low FODMAP peut sembler restrictive, mais elle est temporaire (généralement 4 semaines). Chez Diaeta, nous vous guidons pas à pas, en vous fournissant des listes d'aliments, des idées de repas et des alternatives pour la rendre aussi gérable et confortable que possible. L'objectif final est d'élargir au maximum votre alimentation.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item animate-on-scroll fade-up delay-200">
+            <h3 class="accordion-header" id="faqIBSHeading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse2" aria-expanded="false" aria-controls="faqIBSCollapse2">
+                    Si certains aliments riches en FODMAP déclenchent mes symptômes, devrai-je les éviter définitivement ?
+                </button>
+            </h3>
+            <div id="faqIBSCollapse2" class="accordion-collapse collapse" aria-labelledby="faqIBSHeading2" data-bs-parent="#faqAccordionIBS">
+                <div class="accordion-body">
+                    Pas nécessairement. La phase 2 du protocole consiste justement à réintroduire méthodiquement chaque groupe de FODMAPs pour identifier VOS déclencheurs spécifiques et VOS seuils de tolérance personnels. L'objectif est une alimentation personnalisée et la moins restrictive possible à long terme.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item animate-on-scroll fade-up delay-300">
+            <h3 class="accordion-header" id="faqIBSHeading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse3" aria-expanded="false" aria-controls="faqIBSCollapse3">
+                    Comment Diaeta m'aide concrètement à identifier les FODMAP spécifiques qui me posent problème ?
+                </button>
+            </h3>
+            <div id="faqIBSCollapse3" class="accordion-collapse collapse" aria-labelledby="faqIBSHeading3" data-bs-parent="#faqAccordionIBS">
+                <div class="accordion-body">
+                    Votre diététicien Diaeta, certifié par l'Université Monash, vous guide à travers un protocole structuré de réintroduction (Phase 2). Nous planifions ensemble les tests de réintroduction pour chaque famille de FODMAPs et analysons vos réactions pour déterminer avec précision vos sensibilités individuelles.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item animate-on-scroll fade-up delay-400">
+            <h3 class="accordion-header" id="faqIBSHeading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse4" aria-expanded="false" aria-controls="faqIBSCollapse4">
+                    Vais-je pouvoir continuer à manger au restaurant ou chez des amis pendant le suivi FODMAP ?
+                </button>
+            </h3>
+            <div id="faqIBSCollapse4" class="accordion-collapse collapse" aria-labelledby="faqIBSHeading4" data-bs-parent="#faqAccordionIBS">
+                <div class="accordion-body">
+                    Oui, bien que cela demande un peu plus de planification, surtout pendant la phase d'élimination. Votre diététicien Diaeta vous donnera des conseils pratiques et des stratégies pour gérer les repas à l'extérieur tout en respectant le protocole et en minimisant les symptômes.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item animate-on-scroll fade-up delay-500">
+            <h3 class="accordion-header" id="faqIBSHeading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse5" aria-expanded="false" aria-controls="faqIBSCollapse5">
+                    Combien de temps dure le protocole FODMAP complet avec Diaeta et quand puis-je espérer un soulagement ?
+                </button>
+            </h3>
+            <div id="faqIBSCollapse5" class="accordion-collapse collapse" aria-labelledby="faqIBSHeading5" data-bs-parent="#faqAccordionIBS">
+                <div class="accordion-body">
+                    Le protocole complet s'étend sur plusieurs mois. La phase d'élimination dure environ 4 semaines, et la phase de réintroduction structurée environ 11 semaines. Beaucoup de patients ressentent un soulagement significatif de leurs symptômes dès la phase d'élimination. L'objectif est un confort digestif durable.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -319,9 +394,21 @@ lang: fr
       "name": "Gestion Experte du SII & Régime Low FODMAP (Bruxelles & Europe)",
       "description": "Diaeta offre un accompagnement expert pour le Syndrome de l'Intestin Irritable (SII) aux adultes en Europe, avec une approche personnalisée du régime Low FODMAP par un diététicien certifié MONASH. Vise le soulagement des symptômes et l'amélioration du confort digestif.",
       "provider": {
-        "@type": "Organization",
+        "@type": "DietNutrition", // Matches the type of your main org schema
+        "@id": "https://diaeta.be#organization", // Correctly links to your main org schema
         "name": "Diaeta",
-        "url": "https://diaeta.be"
+        "url": "https://diaeta.be/fr/", // URL to the main site
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99", // Address of Espace Pluridys
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }          
       },
       "areaServed": {
         "@type": "Place", 

@@ -167,10 +167,17 @@ layout: layouts/base.njk # Path to the main base layout file
         "author": {
             "@type": "Person",
             "name": "{% if authorKey and authors[authorKey] %}{{ authors[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
-            "url": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/fr/notre-expertise/{% endif %}"
+            "url": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/fr/notre-expertise/{% endif %}",
+            "@id": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}#person{% elif authorUrl %}{{ authorUrl | url }}#person{% else %}/fr/notre-expertise/#person{% endif %}"
         },
         "publisher": {
-            "@id": "https://diaeta.be#organization"
+            "@type": "DietNutrition",
+            "name": "Diaeta",
+            "@id": "https://diaeta.be#organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://diaeta.be/images/logo.svg"
+            }
         }
         {# --- MedicalWebPage specific --- #}
         {% if schemaType == "MedicalWebPage" %}

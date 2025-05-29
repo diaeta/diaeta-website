@@ -4,15 +4,118 @@ title: "Diaeta Bruxelles: Diététicien Nutritionniste Agréé - Nutrition Perso
 description: Pierre Abou-Zeid, Diététicien Nutritionniste agréé (INAMI) à Bruxelles. Diaeta offre une nutrition personnalisée et scientifique pour perte de poids durable (sans faim), gestion du diabète, SCI, cholestérol. Approche bienveillante.
 lang: fr
 ---
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="canonical" href="https://diaeta.be/fr/">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/fr/",
+        "logo": "https://diaeta.be/images/logo.svg",
+        "telephone": "+32479355551",
+        "email": "info@diaeta.be",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dieweg 99",
+          "addressLocality": "Uccle",
+          "postalCode": "1180",
+          "addressRegion": "Région de Bruxelles-Capitale",
+          "addressCountry": "BE"
+        },
+        "description": "Diaeta, diététicien nutritionniste agréé à Bruxelles (cabinet principal à Uccle), offre une nutrition personnalisée et scientifique pour la perte de poids durable, la gestion du diabète, du SCI et du cholestérol. Approche bienveillante et sans frustration.",
+        "medicalSpecialty": "DietNutrition",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://diaeta.be/fr/notre-expertise/#person"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Dieteticien.colon.irritable/",
+          "https://www.instagram.com/expert.fodmap/",
+          "https://www.linkedin.com/in/pierre-abou-zeid/"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Perte de Poids Durable",
+              "url": "https://diaeta.be/fr/perte-de-poids/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestion du Syndrome de l'Intestin Irritable (SII/SCI)",
+              "url": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestion du Diabète de Type 2",
+              "url": "https://diaeta.be/fr/diabete-type-2/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Maîtrise de l'Hypertension & du Cholestérol",
+              "url": "https://diaeta.be/fr/hypertension-cholesterol/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tests Nutrigénétiques",
+              "url": "https://diaeta.be/fr/tests-nutrigenetiques/"
+            }
+          }
+        ]
+      }
+      </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://diaeta.be/fr/",
+      "name": "Diaeta",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://diaeta.be#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://diaeta.be/fr/recherche?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+</head>
+<body>
+    {{ layoutContent | safe }}
+
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-        <main id="main-content">
+    <main id="main-content">
 
         <section class="hero-section">
           <div class="hero-background">
-            {# Optimized video poster name used below #}
             <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
               <source src="../videos/Background video.mp4" type="video/mp4">
-              {# <source src="../videos/Background-video.webm" type="video/webm"> #}
               Your browser does not support the video tag.
             </video>
             <div class="hero-overlay"></div>
@@ -239,8 +342,8 @@ lang: fr
                       </a>
                     </div>
                 </div>
-            </div>
-            <div class="specialty-card animate-on-scroll fade-up delay-300">
+              </div>
+              <div class="specialty-card animate-on-scroll fade-up delay-300">
               <div class="specialty-media">
                   <img src="../images/gestion-hypertension-diaeta-medium.jpg"
                        srcset="../images/gestion-hypertension-diaeta-small.webp 480w, ../images/gestion-hypertension-diaeta-small.jpg 480w,
@@ -539,7 +642,6 @@ lang: fr
                     </p>
                 </div>
 
-                {# Corrected: Use slice for limiting items from a collection #}
                 {%- set latestPosts = collections.actualites.slice(0, 3) -%}
 
                 {% if latestPosts.length > 0 %}
@@ -606,41 +708,148 @@ lang: fr
         </section>
 
         <section id="tarifs" class="tarifs-section gradient-section py-5">
-             <div class="container">
-                 <div class="section-header text-center mb-5 animate-on-scroll fade-up"><h2 class="section-title">Nos Tarifs</h2><p class="section-subtitle">Des consultations et suivis diététiques adaptés à vos besoins.</p></div>
-                 <div class="row g-4 justify-content-center">
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-100"><div class="tarif-card p-4 text-center h-100"> <h3 class="tarif-title">Première consultation</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 60 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Bilan nutritionnel complet</li><li><i class="fa-solid fa-check"></i> Analyse des habitudes alimentaires</li><li><i class="fa-solid fa-check"></i> Plan nutritionnel personnalisé</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-200"><div class="tarif-card p-4 text-center h-100"> <h3 class="tarif-title">Premier suivi diététique</h3><p class="tarif-price">€80.00</p><p class="tarif-duration">+/- 40 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Ajustement du plan nutritionnel</li><li><i class="fa-solid fa-check"></i> Analyse des progrès</li><li><i class="fa-solid fa-check"></i> Solutions aux difficultés rencontrées</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-300"><div class="tarif-card p-4 text-center h-100"> <h3 class="tarif-title">Suivi diététique périodique</h3><p class="tarif-price">€50.00</p><p class="tarif-duration">+/- 30 min</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Suivi des objectifs</li><li><i class="fa-solid fa-check"></i> Adaptation du plan</li><li><i class="fa-solid fa-check"></i> Conseils personnalisés</li></ul></div></div>
-                   <div class="col-md-6 col-lg-3 animate-on-scroll fade-up delay-400"><div class="tarif-card p-4 text-center h-100"> <h3 class="tarif-title">Test génétique <span class="option">(en option)</span></h3><p class="tarif-price">€275.00</p><p class="tarif-duration">Résultats sous +/- 6 semaines</p><ul class="feature-list mt-3 text-start"><li><i class="fa-solid fa-check"></i> Analyse de 70+ marqueurs génétiques</li><li><i class="fa-solid fa-check"></i> Rapport nutritionnel personnalisé</li><li><i class="fa-solid fa-check"></i> Consultation d'interprétation</li></ul></div></div>
-                 </div>
-                 <div class="text-center mt-5 animate-on-scroll fade-up"><p class="mb-4">Tous nos services peuvent être partiellement remboursés par certaines mutuelles.</p><a href="{{ '/fr/rendez-vous/' | url }}" class="btn btn-primary btn-lg"><span>Prendre rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a></div>
-             </div>
-        </section>
+          <div class="container">
+              <div class="section-header text-center mb-5 animate-on-scroll fade-up">
+                  <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Votre Investissement Santé</span>
+                  <h2 class="section-title">Nos Consultations et Tarifs</h2>
+                  <p class="section-subtitle">
+                      Un accompagnement diététique personnalisé et scientifique, adapté à vos besoins spécifiques pour des résultats durables, sans faim ni frustration.
+                  </p>
+              </div>
+      
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-100">
+                  <h3 class="text-center mb-1" style="color: var(--primary-600); font-family: var(--font-display);">Prise en Charge : Perte de Poids Durable, Diabète T2, Cholestérol & Autres Besoins Nutritionnels</h3>
+                  <p class="text-center text-muted mb-4 small">
+                      (La structure tarifaire ci-dessous s'applique à ces accompagnements. Le contenu de chaque séance est entièrement personnalisé.)
+                  </p>
+                  <div class="row justify-content-center g-4">
+                      <div class="col-md-6 col-lg-4">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Première Consultation</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 60 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Bilan complet : santé, antécédents, habitudes.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse composition corporelle.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Définition objectifs & stratégie initiale personnalisée.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                           <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Premier Suivi</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 40 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse journal alimentaire (via application mobile).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Discussion progrès & défis.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Ajustement de votre stratégie nutritionnelle.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                           <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Suivis Réguliers</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Suivi évolution (poids, composition, symptômes).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Adaptation continue du plan.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Motivation & conseils pratiques. Soutien via application mobile.</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-200">
+                  <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Prise en Charge : Syndrome du Côlon Irritable (SCI/SII) - Approche Pauvre en FODMAP</h3>
+                   <div class="row justify-content-center g-4">
+                       <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">1. Première Consultation (SCI)</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 60 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Évaluation symptômes et habitudes.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Explication SCI & approche Low FODMAP.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Préparation pour le journal alimentaire.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">2. Suivi Bilan & Plan Élimination FODMAP</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 40 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse journal alimentaire.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Plan pour phase d'élimination (4 sem.).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Listes d'aliments & alternatives.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">3. Démarrage & Planification Réintroductions FODMAP</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Explication du protocole de réintroduction.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Planification des tests par famille de FODMAPs.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Conseils pour le suivi des symptômes.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">4. Consultation Plan Personnalisé Post-Réintroduction</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Bilan complet des tests de réintroduction.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Élaboration de votre alimentation personnalisée et diversifiée à long terme.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Stratégies pour gérer durablement le SCI.</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>                  
+              </div>
+      
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-300">
+                  <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Tests Nutrigénétiques (Optionnel)</h3>
+                  <div class="row justify-content-center">
+                      <div class="col-lg-8 col-xl-6">
+                          <div class="tarif-item p-4 text-center" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm);">
+                              <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Test Nutrigénétique (Nutrigenomix®)</h4>
+                              <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€275 <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(pour le kit et l'analyse ADN de +70 marqueurs)</span></p>
+                              <p class="small mt-2 mb-3">Découvrez comment vos gènes influencent vos besoins nutritionnels pour une personnalisation de pointe (gestion du poids, sport, fertilité, nutrition végétale).</p>
+                              <a href="/fr/tests-nutrigenetiques/" class="btn btn-outline-primary btn-sm mb-2">En savoir plus sur les tests</a>
+                              <p class="text-muted small mb-0">La consultation d'interprétation des résultats et d'intégration au plan est facturée au tarif d'un suivi (€50).</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
+                  <div class="offre-duo-box p-3 mb-4" style="background-color: var(--primary-50); border-radius: var(--border-radius-md); display: inline-block; border: 1px solid var(--primary-200); max-width: 500px;">
+                      <h4 class="h5" style="color: var(--primary-600); margin-bottom: 0.5rem;">✨ Offre Spéciale Duo ✨</h4>
+                      <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">
+                          Première consultation pour couple : <strong>€130</strong> (au lieu de €160).
+                      </p>
+                  </div>
+              </div>
+              
+              <div class="text-center mt-4 animate-on-scroll fade-up delay-450">
+                  <p class="mb-3">
+                      <i class="fa-solid fa-shield-heart"></i> Nos services peuvent être partiellement remboursés par certaines mutuelles belges. Renseignez-vous auprès de votre organisme assureur.
+                  </p>
+                  <p class="text-muted small mb-3">
+                      Modes de paiement acceptés en cabinet : Espèces, Bancontact via QR code sur smartphone.
+                  </p>
+                  <p class="text-muted small mb-4">
+                      En cas d'empêchement, merci de nous prévenir au minimum 24 heures à l'avance. Une annulation tardive ou non justifiée pourra faire l'objet de frais (plus d'infos sur la page <a href="/fr/rendez-vous/" class="text-decoration-underline">Rendez-vous</a>).
+                  </p>
+                  <a href="/fr/tarifs/" class="btn btn-primary btn-lg">
+                      <span>Plus d'info</span><i class="fa-solid fa-arrow-right btn-icon-right"></i>
+                  </a>
+              </div>
+          </div>
+      </section>
+      </main>
 
-        <section class="contact-section" id="contact">
-             <div class="container">
-                 <div class="contact-grid">
-                   <div class="contact-info animate-on-scroll fade-up">
-                     <span class="contact-subtitle">Contactez-nous</span><h2 class="contact-title">Prêt à transformer votre nutrition ?</h2><p class="contact-description">Prenez rendez-vous pour une consultation initiale où nous analyserons vos besoins spécifiques et établirons un plan personnalisé pour atteindre vos objectifs de santé.</p>
-                     <ul class="contact-list">
-                       <li class="contact-item animate-on-scroll fade-in delay-100"><div class="contact-icon"><i class="fa-solid fa-phone"></i></div><div class="contact-text"><div class="contact-label">Téléphone</div><div class="contact-value"><a href="tel:+32479355551">+32 479 35 55 51</a></div></div></li>
-                       <li class="contact-item animate-on-scroll fade-in delay-200"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div class="contact-text"><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:pierre@diaeta.be">pierre@diaeta.be</a></div></div></li>
-                       <li class="contact-item animate-on-scroll fade-in delay-300"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div class="contact-text"><div class="contact-label">Siège principal</div><div class="contact-value">85, Rue Tenbosch<br>1050 Ixelles, Bruxelles</div></div></li>
-                       <li class="contact-item animate-on-scroll fade-in delay-400"><div class="contact-icon"><i class="fa-solid fa-clock"></i></div><div class="contact-text"><div class="contact-label">Horaires</div><div class="contact-value">Lundi - Vendredi: 9h - 19h<br>Samedi: 9h - 14h</div></div></li>
-                     </ul>
-                     <div class="social-links">
-                        <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook Diaeta"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Diaeta"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Pierre Abou-Zeid"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok Diaeta"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                   </div>
-                   <div class="contact-form-container animate-on-scroll fade-up delay-200" id="rdv">
-                     <h3 class="form-title">Prendre Rendez-vous</h3>
-                     <form id="appointmentForm" action="/submit-appointment" method="POST"><div class="form-grid"><div class="form-group"><label for="fullName" class="form-label">Nom complet</label><input type="text" class="form-control" id="fullName" name="fullName" placeholder="Votre nom complet" required></div><div class="form-group"><label for="phone" class="form-label">Téléphone</label><input type="tel" class="form-control" id="phone" name="phone" placeholder="+32 XX XXX XX XX" required></div><div class="form-group"><label for="email" class="form-label">Email</label><input type="email" class="form-control" id="email" name="email" placeholder="votre.email@exemple.com" required></div><div class="form-group"><label for="serviceType" class="form-label">Service souhaité</label><select class="form-control form-select" id="serviceType" name="serviceType" required><option value="" selected disabled>Choisir un service</option><option value="weight-loss">Perte de poids</option><option value="ibs">Syndrome du côlon irritable</option><option value="cardio">Hypertension & Cholestérol</option><option value="diabetes">Diabète de Type 2</option><option value="genetic">Test génétique</option><option value="other">Autre (préciser)</option></select></div><div class="form-group"><label for="preferredDate" class="form-label">Date souhaitée</label><input type="date" class="form-control" id="preferredDate" name="preferredDate" required></div><div class="form-group"><label for="preferredTime" class="form-label">Heure souhaitée</label><select class="form-control form-select" id="preferredTime" name="preferredTime" required><option value="" selected disabled>Choisir une heure</option><option value="morning">Matinée (9h - 12h)</option><option value="afternoon">Après-midi (13h - 16h)</option><option value="evening">Fin de journée (16h - 19h)</option></select></div><div class="form-group form-full"><label for="additionalInfo" class="form-label">Informations complémentaires</label><textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="4" placeholder="Partagez toute information utile pour votre consultation..."></textarea></div><div class="form-group form-full"><div class="form-check"><input class="form-check-input" type="checkbox" id="privacyPolicy" name="privacyPolicy" required><label class="form-check-label" for="privacyPolicy">J'accepte la <a href="/fr/politique-de-confidentialite/" target="_blank">politique de confidentialité</a> et le traitement de mes données pour la prise de rendez-vous.</label></div></div></div><div class="form-submit"><button type="submit" class="btn btn-primary btn-lg"><span>Confirmer le rendez-vous</span><i class="fa-solid fa-calendar-check btn-icon btn-icon-right"></i></button></div></form>
-                   </div>
-                 </div>
-             </div>
-        </section>
-        </main>
+    </body>
+</html>
