@@ -33,23 +33,40 @@
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Diaeta",
-      "url": "https://diaeta.be",
-      "logo": "https://diaeta.be/images/logo.svg",
-      "telephone": "+32479355551",
-      "email": "pierre@diaeta.be",
-      "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
-      "sameAs": [
-        "https://www.facebook.com/Dieteticien.colon.irritable/",
-        "https://www.linkedin.com/in/pierre-abou-zeid/",
-        "https://www.instagram.com/expert.fodmap/",
-        "https://www.tiktok.com/@expert.fodmap"
-      ]
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "DietNutrition", // Consistent type
+  "@id": "https://diaeta.be#organization", // Consistent ID
+  "name": "Diaeta",
+  "url": "https://diaeta.be/fr/", // Main French site URL
+  "logo": "https://diaeta.be/images/logo.svg",
+  "telephone": "+32479355551",
+  "email": "info@diaeta.be", // Consistent email
+  "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
+  "address": { // Add the primary address here too for consistency
+    "@type": "PostalAddress",
+    "streetAddress": "Dieweg 99",
+    "addressLocality": "Uccle",
+    "postalCode": "1180",
+    "addressRegion": "Région de Bruxelles-Capitale",
+    "addressCountry": "BE"
+  },
+  "sameAs": [
+    "https://www.facebook.com/Dieteticien.colon.irritable/",
+    "https://www.linkedin.com/in/pierre-abou-zeid/",
+    "https://www.instagram.com/expert.fodmap/",
+    "https://www.tiktok.com/@expert.fodmap"
+  ],
+  "priceRange": "50€-80€", // CHAMP AJOUTÉ
+  "image": { // CHAMP AJOUTÉ (avec exemple d'ImageObject)
+    "@type": "ImageObject",
+    "url": "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg",
+    "caption": "Cabinet Diaeta", 
+    "height": "800", 
+    "width": "800" 
+  }
+}
+</script>
 
 </head>
 <body>

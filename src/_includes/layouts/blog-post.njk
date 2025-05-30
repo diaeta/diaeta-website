@@ -84,11 +84,7 @@ layout: layouts/base.njk # Path to the main base layout file
                         <figcaption class="text-muted text-sm text-center">{{ imageCaption }}</figcaption>
                         {% endif %}
                     </figure>
-                    {% endif %}
-
-                    <div itemprop="articleBody" class="entry-content">
-                        {{ content | safe }} {# This is where your Markdown content goes #}
-                    </div>
+                    {% endif %}                 
 
                     {% if authorKey and authors[authorKey] %}
                         {% set authorData = authors[authorKey] %}
@@ -144,84 +140,80 @@ layout: layouts/base.njk # Path to the main base layout file
     }
     </script>
 
-    {# Main Schema for the article/page #}
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "{% if schemaType == 'MedicalWebPage' %}MedicalWebPage{% elif schemaType == 'HowTo' %}HowTo{% else %}Article{% endif %}",
-        "headline": "{{ title | escape | safe }}",
-        "name": "{{ title | escape | safe }}",
-        "description": "{{ description | escape | safe }}",
-        "keywords": "{{ tags | join(', ') | escape | safe }}",
-        "url": "https://diaeta.be{{ page.url }}",
-        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://diaeta.be{{ page.url }}" },
-        {% if image -%}
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://diaeta.be{{ image | url }}",
-            "caption": "{{ imageAlt | default(title) | escape | safe }}"
-        },
-        {%- endif %}
-        "datePublished": "{{ date | dateISO }}",
-        "dateModified": "{{ dateModified | default(date) | dateISO }}",
-        "author": {
-            "@type": "Person",
-            "name": "{% if authorKey and authors[authorKey] %}{{ authors[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
-            "url": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/fr/notre-expertise/{% endif %}",
-            "@id": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}#person{% elif authorUrl %}{{ authorUrl | url }}#person{% else %}/fr/notre-expertise/#person{% endif %}"
-        },
-        "publisher": {
-            "@type": "DietNutrition",
-            "name": "Diaeta",
-            "@id": "https://diaeta.be#organization",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://diaeta.be/images/logo.svg"
-            }
-        }
-        {# --- MedicalWebPage specific --- #}
-        {% if schemaType == "MedicalWebPage" %}
-            {% if about and about.type and about.name %}
-            ,"about": {
-                "@type": "{{ about.type }}",
-                "name": "{{ about.name | escape | safe }}"
-            }
-            {% endif %}
-            {% if medicalAudience %} ,"audience": { "@type": "MedicalAudience", "audienceType": "{{ medicalAudience | escape | safe }}" } {% endif %}
-            {% if reviewedBy %} ,"reviewedBy": { "@type": "Person", "name": "{{ reviewedBy | escape | safe }}" } {% endif %}
-        {# --- HowTo specific (basic example) --- #}
-        {% elif schemaType == "HowTo" %}
-            ,"totalTime": "{{ estimatedTime | default('PT15M') }}",
-            "tool": [
-                {% if requiredTools %}
-                    {% for tool in requiredTools %}
-                        { "@type": "HowToTool", "name": "{{tool | escape | safe}}" } {%- if not loop.last %},{% endif -%}
-                    {% endfor %}
-                {% endif %}
-            ],
-            "supply": [
-                {% if requiredSupplies %}
-                    {% for supply in requiredSupplies %}
-                        { "@type": "HowToSupply", "name": "{{supply | escape | safe}}" } {%- if not loop.last %},{% endif -%}
-                    {% endfor %}
-                {% endif %}
-            ]
-            {# The 'step' property would be more complex and ideally generated from structured content from your Markdown #}
-            {# Example: You might loop through a 'steps' array in your front matter #}
-            {% if steps and steps.length > 0 %}
-            ,"step": [
-                {% for stepItem in steps %}
-                {
-                    "@type": "HowToStep",
-                    "name": "{{ stepItem.name | escape | safe }}",
-                    "text": "{{ stepItem.text | escape | safe }}"
-                    {% if stepItem.image %}, "image": "https://diaeta.be{{ stepItem.image | url }}" {% endif %}
-                    {% if stepItem.url %}, "url": "https://diaeta.be{{ page.url }}#{{ stepItem.name | slugify }}" {% endif %}
-                }{% if not loop.last %},{% endif %}
-                {% endfor %}
-            ]
-            {% endif %}
-        {% endif %}
+    {# Main Schema for the article/page - REVISED WITH COMMA-FIRST APPROACH #}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org"
+    , "@type": ["BlogPosting", "MedicalWebPage"]
+    , "headline": "{{ title | escape | safe }}"
+    , "name": "{{ title | escape | safe }}"
+    , "description": "{{ description | escape | safe }}"
+    , "keywords": "{{ tags | join(', ') | escape | safe }}"
+    , "url": "https://diaeta.be{{ page.url }}"
+    , "mainEntityOfPage": { "@type": "WebPage", "@id": "https://diaeta.be{{ page.url }}" }
+    {% if image -%}
+    , "image": {
+        "@type": "ImageObject",
+        "url": "https://diaeta.be{{ image | url }}",
+        "caption": "{{ imageAlt | default(title) | escape | safe }}"
     }
-    </script>
+    {%- endif %}
+    , "datePublished": "{{ date | dateISO }}"
+    , "dateModified": "{{ dateModified | default(date) | dateISO }}"
+    , "author": {
+        "@type": "Person",
+        "name": "{% if authorKey and authors[authorKey] %}{{ authors[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
+        "url": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/fr/notre-expertise/{% endif %}",
+        "@id": "https://diaeta.be{% if authorKey and authors[authorKey] %}{{ authors[authorKey].url | url }}#person{% elif authorUrl %}{{ authorUrl | url }}#person{% else %}/fr/notre-expertise/#person{% endif %}"
+    }
+    , "publisher": {
+        "@type": "DietNutrition",
+        "name": "Diaeta",
+        "@id": "https://diaeta.be#organization",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        {# Adding address, telephone, email to publisher as per validation feedback #}
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99", {# Using Espace Pluridys as primary #}
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressRegion": "Région de Bruxelles-Capitale",
+            "addressCountry": "BE"
+        },
+        "telephone": "+32479355551",
+        "email": "info@diaeta.be"
+    }
+    {# --- MedicalWebPage specific properties --- #}
+    {% if schemaType == "MedicalWebPage" %}
+        {% if about and about.type and about.name %}
+        ,"about": { {# Comma before 'about' if it's printed #}
+            "@type": "{{ about.type }}",
+            "name": "{{ about.name | escape | safe }}"
+        }
+        {% endif %}
+        {% if medicalAudience %}
+        ,"audience": { "@type": "MedicalAudience", "audienceType": "{{ medicalAudience | escape | safe }}" } {# Comma before 'audience' if it's printed #}
+        {% endif %}
+        {% if reviewedBy %}
+        ,"reviewedBy": { "@type": "Person", "name": "{{ reviewedBy | escape | safe }}" } {# Comma before 'reviewedBy' if it's printed #}
+        {% endif %}
+    {# --- HowTo specific properties --- #}
+    {% elif schemaType == "HowTo" %}
+        {# Ensure comma-first logic for HowTo properties if you use this schemaType #}
+        ,"totalTime": "{{ estimatedTime | default('PT15M') }}"
+        {# Add other HowTo properties with preceding commas, ensuring no comma after the last one #}
+        {% if requiredTools and requiredTools.length > 0 %}
+        ,"tool": [
+            {% for tool in requiredTools %}
+                { "@type": "HowToTool", "name": "{{tool | escape | safe}}" } {%- if not loop.last %},{% endif -%}
+            {% endfor %}
+        ]
+        {% endif %}
+        {# etc. for supply, step with proper comma handling within their arrays/objects #}
+    {% endif %}
+}
+</script>
 </article>

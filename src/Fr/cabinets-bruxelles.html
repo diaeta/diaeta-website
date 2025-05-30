@@ -112,6 +112,19 @@ canonicalUrl: https://diaeta.be/fr/cabinets-bruxelles/
    "about": {
     "@type": "MedicalBusiness",
     "name": "Diaeta",
+    "address": { // Add the primary address here too for consistency
+      "@type": "PostalAddress",
+      "streetAddress": "Dieweg 99",
+      "addressLocality": "Uccle",
+      "postalCode": "1180",
+      "addressRegion": "Région de Bruxelles-Capitale",
+      "addressCountry": "BE"
+    },
+    
+   "telephone": "+32479355551",
+   "priceRange": "50€-80€",
+   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
     "description": "Diaeta est une pratique diététique à Bruxelles offrant des consultations personnalisées pour la perte de poids, la gestion du diabète, du SCI, et du cholestérol.",
     "employee": {
       "@type": "Person",

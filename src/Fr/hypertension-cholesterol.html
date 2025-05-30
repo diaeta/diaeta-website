@@ -311,17 +311,17 @@ lang: fr
       "name": "Gestion Nutritionnelle de l'Hypertension & Cholestérol à Bruxelles",
       "description": "Diaeta à Bruxelles propose des plans nutritionnels personnalisés pour maîtriser l'hypertension artérielle et le cholestérol. Approches scientifiques (DASH, Portfolio) adaptées par diététicien agréé pour votre santé cardiaque.",
       "provider": {
-        "@type": "DietNutrition", // Matches the type of your main org schema
-        "@id": "https://diaeta.be#organization", // Correctly links to your main org schema
+        "@type": "DietNutrition", 
+        "@id": "https://diaeta.be#organization", 
         "name": "Diaeta",
-        "url": "https://diaeta.be/fr/", // URL to the main site
+        "url": "https://diaeta.be/fr/", 
         "logo": {
             "@type": "ImageObject",
             "url": "https://diaeta.be/images/logo.svg"
         },
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Dieweg 99", // Address of Espace Pluridys
+            "streetAddress": "Dieweg 99", 
             "addressLocality": "Uccle",
             "postalCode": "1180",
             "addressCountry": "BE"
@@ -336,7 +336,6 @@ lang: fr
         "audienceType": "Patient",
         "description": "Adultes à Bruxelles cherchant à gérer leur hypertension artérielle et/ou leur taux de cholestérol élevé grâce à une alimentation personnalisée et scientifiquement fondée."
       },
-      "keywords": "hypertension Bruxelles, cholestérol Bruxelles, santé cardiovasculaire, régime DASH, régime Portfolio, diététicien nutritionniste, tension artérielle",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://diaeta.be/fr/hypertension-cholesterol/"
@@ -371,7 +370,7 @@ lang: fr
             "@type": "Service",
             "@id": "https://diaeta.be/fr/hypertension-cholesterol/#service" 
           },
-          "about": [ // This page discusses two conditions
+          "about": [ 
             {
               "@type": "MedicalCondition",
               "name": "Hypertension artérielle"
@@ -390,13 +389,61 @@ lang: fr
               "itemListElement": [{
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Accueil Diaeta", // Or just "Accueil"
-                "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
+                "name": "Accueil Diaeta", 
+                "item": "https://diaeta.be/fr/index.html" 
               },{
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Hypertension & Cholestérol", // The name of the current page's topic
-                "item": "https://diaeta.be/fr/hypertension-cholesterol/" // The URL of the current page
+                "name": "Hypertension & Cholestérol", 
+                "item": "https://diaeta.be/fr/hypertension-cholesterol/" 
               }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Dois-je adopter un régime sans sel très strict si j'ai de l'hypertension ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Modérer l'apport en sodium est crucial, mais cela ne signifie pas toujours un régime \"sans sel\" fade et extrêmement strict. Diaeta vous aide à comprendre où se cache le sel (souvent dans les aliments transformés) et à adopter des stratégies pour réduire votre consommation de manière progressive et savoureuse, en privilégiant les herbes, épices et aliments naturellement pauvres en sodium."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quels sont les types d'aliments clés que Diaeta m'aidera à intégrer pour améliorer mon cholestérol ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nous nous basons sur des approches scientifiquement validées comme le régime Portfolio, qui met l'accent sur un ensemble d'aliments bénéfiques : fibres solubles (avoine, légumineuses), stérols végétaux, protéines de soja et noix. Votre plan sera personnalisé pour intégrer ces éléments de manière agréable et adaptée à vos goûts."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Une approche nutritionnelle peut-elle vraiment avoir un impact significatif sur ma tension artérielle et mon cholestérol, ou aurai-je toujours besoin de médicaments ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, des changements alimentaires ciblés peuvent avoir un impact très significatif. Des approches comme le régime DASH ont prouvé leur efficacité pour réduire la tension artérielle, et le régime Portfolio pour le cholestérol. L'objectif est d'optimiser votre santé cardiovasculaire par la nutrition. Toute modification de votre traitement médicamenteux se fera toujours en accord avec votre médecin traitant."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Comment Diaeta personnalise-t-elle les approches comme le régime DASH ou Portfolio à ma situation ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chez Diaeta, nous n'appliquons pas de protocoles standards de manière rigide. Nous partons de ces bases scientifiques solides (DASH, Portfolio) et les adaptons entièrement à votre bilan de santé, vos analyses, vos habitudes de vie, vos préférences alimentaires et vos contraintes quotidiennes pour créer un plan unique qui vous convient et que vous pourrez suivre durablement."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "En combien de temps puis-je espérer voir des améliorations de ma tension artérielle ou de mon profil lipidique avec un suivi chez Diaeta ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les délais varient par individu, mais des changements positifs peuvent souvent être observés en quelques semaines à quelques mois d'adhésion à un plan nutritionnel adapté. Un suivi régulier, incluant la surveillance de vos paramètres si pertinent, nous permet d'évaluer vos progrès et d'ajuster la stratégie."
+                  }
+                }
+              ]
             }
             </script>

@@ -18,7 +18,7 @@ lang: fr
 </section>
 
 {# === What is IBS? Section === #}
-<section id="comprendre-le-sii" class="content-section bg-white">
+<section id="comprendre-sii" class="content-section bg-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 animate-on-scroll fade-up">
@@ -394,17 +394,17 @@ lang: fr
       "name": "Gestion Experte du SII & Régime Low FODMAP (Bruxelles & Europe)",
       "description": "Diaeta offre un accompagnement expert pour le Syndrome de l'Intestin Irritable (SII) aux adultes en Europe, avec une approche personnalisée du régime Low FODMAP par un diététicien certifié MONASH. Vise le soulagement des symptômes et l'amélioration du confort digestif.",
       "provider": {
-        "@type": "DietNutrition", // Matches the type of your main org schema
-        "@id": "https://diaeta.be#organization", // Correctly links to your main org schema
+        "@type": "DietNutrition", 
+        "@id": "https://diaeta.be#organization", 
         "name": "Diaeta",
-        "url": "https://diaeta.be/fr/", // URL to the main site
+        "url": "https://diaeta.be/fr/", 
         "logo": {
             "@type": "ImageObject",
             "url": "https://diaeta.be/images/logo.svg"
         },
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Dieweg 99", // Address of Espace Pluridys
+            "streetAddress": "Dieweg 99", 
             "addressLocality": "Uccle",
             "postalCode": "1180",
             "addressCountry": "BE"
@@ -413,16 +413,12 @@ lang: fr
       "areaServed": {
         "@type": "Place", 
         "name": "Europe" 
-        // Using "Place" as a general type for "Europe". 
-        // Schema.org also has "Continent" but it's less commonly used for service areas.
-        // Alternatively, "AdministrativeArea" can be used for broad regions.
       },
       "audience": {
         "@type": "Audience",
         "audienceType": "Patient",
         "description": "Adultes (25-50 ans, principalement femmes) en Europe souffrant du Syndrome de l'Intestin Irritable et cherchant un accompagnement spécialisé."
       },
-      "keywords": "Syndrome de l'Intestin Irritable, SII, SCI, régime Low FODMAP, diététicien SII Europe, Monash certifié, confort digestif, ballonnements, douleurs abdominales",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/"
@@ -471,13 +467,61 @@ lang: fr
               "itemListElement": [{
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Accueil Diaeta", // Or just "Accueil"
-                "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
+                "name": "Accueil Diaeta", 
+                "item": "https://diaeta.be/fr/index.html" 
               },{
                 "@type": "ListItem",
                 "position": 2,
-                "name": "SII/SCI & Régime FODMAP", // The name of the current page's topic
-                "item": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/" // The URL of the current page
+                "name": "SII/SCI & Régime FODMAP", 
+                "item": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/" 
               }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Le régime pauvre en FODMAP est-il très restrictif et difficile à suivre ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La phase d'élimination initiale du régime Low FODMAP peut sembler restrictive, mais elle est temporaire (généralement 4 semaines). Chez Diaeta, nous vous guidons pas à pas, en vous fournissant des listes d'aliments, des idées de repas et des alternatives pour la rendre aussi gérable et confortable que possible. L'objectif final est d'élargir au maximum votre alimentation."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Si certains aliments riches en FODMAP déclenchent mes symptômes, devrai-je les éviter définitivement ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pas nécessairement. La phase 2 du protocole consiste justement à réintroduire méthodiquement chaque groupe de FODMAPs pour identifier VOS déclencheurs spécifiques et VOS seuils de tolérance personnels. L'objectif est une alimentation personnalisée et la moins restrictive possible à long terme."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Comment Diaeta m'aide concrètement à identifier les FODMAP spécifiques qui me posent problème ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Votre diététicien Diaeta, certifié par l'Université Monash, vous guide à travers un protocole structuré de réintroduction (Phase 2). Nous planifions ensemble les tests de réintroduction pour chaque famille de FODMAPs et analysons vos réactions pour déterminer avec précision vos sensibilités individuelles."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Vais-je pouvoir continuer à manger au restaurant ou chez des amis pendant le suivi FODMAP ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, bien que cela demande un peu plus de planification, surtout pendant la phase d'élimination. Votre diététicien Diaeta vous donnera des conseils pratiques et des stratégies pour gérer les repas à l'extérieur tout en respectant le protocole et en minimisant les symptômes."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Combien de temps dure le protocole FODMAP complet avec Diaeta et quand puis-je espérer un soulagement ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le protocole complet s'étend sur plusieurs mois. La phase d'élimination dure environ 4 semaines, et la phase de réintroduction structurée environ 11 semaines. Beaucoup de patients ressentent un soulagement significatif de leurs symptômes dès la phase d'élimination. L'objectif est un confort digestif durable."
+                  }
+                }
+              ]
             }
             </script>

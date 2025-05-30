@@ -43,7 +43,7 @@ canonicalUrl: "https://diaeta.be/fr/tarifs/"
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                 <div class="tarif-item p-4 h-100" style="background-color: var(--neutral-50); border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                <div class="tarif-item p-4 h-100" style="background-color: var(--neutral-50); border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
                     <h3 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Premier Suivi</h3>
                     <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 40 min, généralement après 2 semaines)</span></p>
                     <ul class="feature-list mt-3 text-start small flex-grow-1">
@@ -55,7 +55,7 @@ canonicalUrl: "https://diaeta.be/fr/tarifs/"
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                 <div class="tarif-item p-4 h-100" style="background-color: var(--neutral-50); border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                <div class="tarif-item p-4 h-100" style="background-color: var(--neutral-50); border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
                     <h3 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Suivis Réguliers</h3>
                     <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min, fréquence à définir ensemble)</span></p>
                     <ul class="feature-list mt-3 text-start small flex-grow-1">
@@ -190,58 +190,91 @@ canonicalUrl: "https://diaeta.be/fr/tarifs/"
 </section>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Tarifs des Consultations Diététiques et Modalités | Diaeta Bruxelles",
-  "description": "Découvrez les tarifs des consultations diététiques personnalisées chez Diaeta à Bruxelles avec Pierre Abou-Zeid. Détails pour perte de poids, SCI (FODMAP), diabète, tests nutrigénétiques et remboursements.",
-  "url": "https://diaeta.be/fr/tarifs/",
-  "inLanguage": "fr",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Diaeta",
-    "url": "https://diaeta.be",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://diaeta.be/images/logo.svg"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Tarifs des Consultations Diététiques et Modalités | Diaeta Bruxelles",
+      "description": "Découvrez les tarifs des consultations diététiques personnalisées chez Diaeta à Bruxelles avec Pierre Abou-Zeid. Détails pour perte de poids, SCI (FODMAP), diabète, tests nutrigénétiques et remboursements.",
+      "url": "https://diaeta.be/fr/tarifs/",
+      "inLanguage": "fr",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://diaeta.be/images/logo.svg"
+        }
+      },
+      "mainEntity": [{
+        "@type": "Service", // MODIFIÉ: MedicalService -> Service
+        "name": "Première Consultation Diététique (Générale)",
+        "description": "Bilan complet (santé, antécédents, habitudes), analyse composition corporelle, définition objectifs et stratégie initiale personnalisée.",
+        "image": [
+          "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg"
+        ],
+        "serviceType": "Consultation diététique générale et personnalisée", // Propriété valide pour Service
+        "provider": { // La propriété 'provider' est valide pour 'Service'
+          "@id": "https://diaeta.be#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "80.00",
+          "priceCurrency": "EUR",
+          "category": "Consultation Diététique",
+          "availability": "https://schema.org/InStock",
+          "url": "https://diaeta.be/fr/rendez-vous/",
+          "seller": {
+            "@id": "https://diaeta.be#organization"
+          }
+        }
+      }, {
+        "@type": "Service", // MODIFIÉ: MedicalService -> Service
+        "name": "Première Consultation (Syndrome Intestin Irritable)",
+        "description": "Évaluation symptômes SCI, explication approche Low FODMAP, préparation journal alimentaire.",
+        "image": [
+          "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg"
+        ],
+        "serviceType": "Consultation spécialisée pour Syndrome de l'Intestin Irritable (SCI) avec approche Low FODMAP",
+        "provider": {
+          "@id": "https://diaeta.be#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "80.00",
+          "priceCurrency": "EUR",
+          "category": "Consultation Diététique Spécialisée SCI",
+          "availability": "https://schema.org/InStock",
+          "url": "https://diaeta.be/fr/rendez-vous/",
+          "seller": {
+            "@id": "https://diaeta.be#organization"
+          }
+        }
+      }, {
+        "@type": "Service", // MODIFIÉ: MedicalService -> Service
+        "name": "Test Nutrigénétique (Kit & Analyse)",
+        "description": "Analyse ADN de +70 marqueurs génétiques pour une nutrition de pointe (Nutrigenomix®).",
+        "image": [
+          "https://diaeta.be/images/logo.svg"
+        ],
+        "serviceType": "Analyse nutrigénétique et interprétation des résultats",
+        "provider": {
+          "@id": "https://diaeta.be#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "275.00",
+          "priceCurrency": "EUR",
+          "category": "Test Génétique Nutritionnel",
+          "availability": "https://schema.org/InStock",
+          "url": "https://diaeta.be/fr/tests-nutrigenetiques/",
+          "seller": {
+            "@id": "https://diaeta.be#organization"
+          }
+        }
+      }]
     }
-  },
-  "mainEntity": [{
-    "@type": "Product",
-    "name": "Première Consultation Diététique (Générale)",
-    "description": "Bilan complet (santé, antécédents, habitudes), analyse composition corporelle, définition objectifs et stratégie initiale personnalisée.",
-    "offers": {
-      "@type": "Offer",
-      "price": "80.00",
-      "priceCurrency": "EUR",
-      "category": "Consultation Diététique"
-    },
-    "provider": {"@id": "https://diaeta.be#organization"}
-  }, {
-    "@type": "Product",
-    "name": "Première Consultation (Syndrome Intestin Irritable)",
-    "description": "Évaluation symptômes SCI, explication approche Low FODMAP, préparation journal alimentaire.",
-    "offers": {
-      "@type": "Offer",
-      "price": "80.00",
-      "priceCurrency": "EUR",
-      "category": "Consultation Diététique Spécialisée SCI"
-    },
-    "provider": {"@id": "https://diaeta.be#organization"}
-  }, {
-    "@type": "Product",
-    "name": "Test Nutrigénétique (Kit & Analyse)",
-    "description": "Analyse ADN de +70 marqueurs génétiques pour une nutrition de pointe (Nutrigenomix®).",
-    "offers": {
-      "@type": "Offer",
-      "price": "275.00",
-      "priceCurrency": "EUR",
-      "category": "Test Génétique Nutritionnel"
-    },
-    "provider": {"@id": "https://diaeta.be#organization"}
-  }]
-}
-</script>
+    </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

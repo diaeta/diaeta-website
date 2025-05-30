@@ -14,7 +14,7 @@ lang: fr
         <p class="lead animate-on-scroll fade-up delay-200">
             Oubliez les régimes éphémères et les conseils génériques. La Méthode Diaeta est une approche structurée et éprouvée, conçue pour s'adapter à vous et vous garantir des résultats concrets et définitifs, sans jamais sacrifier le plaisir de manger.
         </p>
-        <a href="#piliers" class="btn btn-accent btn-lg animate-on-scroll fade-up delay-400">Découvrir les Piliers de la Méthode <i class="fas fa-chevron-down ms-2"></i></a>
+        <a href="#piliers" class="btn btn-accent btn-lg animate-on-scroll fade-up delay-400 scroll-to">Découvrir les Piliers de la Méthode <i class="fas fa-chevron-down ms-2"></i></a>
     </div>
 </section>
 
@@ -49,7 +49,7 @@ lang: fr
                     class="img-fluid rounded shadow-sm"
                     loading="lazy"
                     width="800" {# Width of medium variant #}
-                    height="[CALCULATE_HEIGHT_FOR_800W]" {# Set this based on your image's aspect ratio #}
+                    height="600" {# CALCULATED_HEIGHT_FOR_800W (Assuming 4:3) #}
                  >
             </div>
         </div>
@@ -114,7 +114,7 @@ lang: fr
                    loading="lazy"
                    style="max-width: 250px; height: auto;" {# Keep max-width style, ensure height: auto #}
                    width="500" {# Intrinsic width of largest source needed (for retina) #}
-                   height="[CALCULATE_HEIGHT_FOR_500W]" {# Set this based on your image's aspect ratio #}
+                   height="1083" {# CALCULATED_HEIGHT_FOR_500W (Assuming original aspect ratio) #}
                >
             </div>
              <div class="col-lg-8 animate-on-scroll fade-up delay-200">
@@ -239,17 +239,83 @@ lang: fr
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Méthode Diaeta: Nutrition Scientifique Personnalisée à Bruxelles | Diététicien Nutritionniste",
+      "description": "Découvrez la Méthode Diaeta à Bruxelles: une approche diététique unique, scientifique et personnalisée pour des résultats santé durables sans frustration. Suivi par diététicien agréé.",
+      "url": "https://diaeta.be/fr/methode-diaeta/",
+      "publisher": {
+        "@id": "https://diaeta.be#organization" 
+      },
+      "mainEntity": {
+        "@id": "https://diaeta.be#organization" 
+      },
+      "author": { 
+         "@id": "https://diaeta.be/fr/notre-expertise/#person"
+      }
+    }
+</script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "En quoi la Méthode Diaeta est-elle différente d'un régime classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Méthode Diaeta n'est pas un \"régime\" restrictif mais une stratégie nutritionnelle scientifique et personnalisée. Contrairement aux régimes classiques qui sont souvent génériques et mènent à la frustration, notre méthode s'appuie sur une analyse approfondie de votre métabolisme unique, de vos habitudes et de vos préférences pour créer un plan que vous trouverez savoureux, motivant et durable, sans jamais ressentir la faim."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure généralement un suivi avec la Méthode Diaeta ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La durée du suivi est entièrement personnalisée et dépend de vos objectifs initiaux, de vos progrès et de vos besoins individuels. L'objectif de la Méthode Diaeta est de vous rendre autonome dans la gestion de votre santé à long terme. Nous définirons ensemble un calendrier de suivi adapté, avec des ajustements au fur et à mesure de votre évolution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'application mobile est-elle un élément central de la Méthode Diaeta ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, notre application mobile sécurisée est un outil clé de la Méthode Diaeta. Elle facilite un suivi précis de vos progrès, permet une communication directe et réactive avec votre diététicien entre les consultations, et nous aide à ajuster votre plan de manière proactive. C'est un élément important de notre accompagnement connecté et personnalisé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La Méthode Diaeta garantit-elle des résultats sans faim ni frustration ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument. Un des principes fondamentaux de la Méthode Diaeta est d'éviter la faim et la frustration, qui sont les causes principales d'échec des régimes classiques. Nous concevons des stratégies intelligentes axées sur la satiété, le plaisir de manger et l'intégration de vos aliments préférés. Notre but est que vous atteigniez vos objectifs en vous sentant bien, plein(e) d'énergie et satisfait(e)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La Méthode Diaeta s'adapte-t-elle à des besoins spécifiques comme le diabète ou le Syndrome de l'Intestin Irritable (SII) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, la personnalisation est au cœur de la Méthode Diaeta. Elle est conçue pour s'adapter à divers besoins et conditions de santé, y compris la gestion du diabète de type 2, du SII (avec l'approche Low FODMAP), de l'hypertension, du cholestérol, ou pour des objectifs de perte de poids durable. Votre plan sera toujours spécifiquement élaboré en fonction de votre profil et de vos objectifs de santé."
+          }
+        }
+      ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "Accueil Diaeta", // Or just "Accueil"
-        "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
+        "name": "Accueil Diaeta", 
+        "item": "https://diaeta.be/fr/index.html" 
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "Méthode Diaeta: Nutrition Scientifique Personnalisée", // The name of the current page's topic
-        "item": "https://diaeta.be/fr/methode-diaeta/" // The URL of the current page
+        "name": "Méthode Diaeta: Nutrition Scientifique Personnalisée", 
+        "item": "https://diaeta.be/fr/methode-diaeta/" 
       }]
     }
-    </script>
+</script>

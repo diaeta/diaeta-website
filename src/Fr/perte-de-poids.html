@@ -53,7 +53,7 @@ lang: fr
                     class="img-fluid rounded shadow-sm" {# img-fluid is important here #}
                     loading="lazy"
                     width="800" {# Width of medium fallback variant #}
-                    height="[CALCULATE_HEIGHT_FOR_800W]" {# SET THIS based on your image's aspect ratio #}
+                    height="600" {# CALCULATED_HEIGHT_FOR_800W (assuming 4:3) #}
                  >
             </div>
 
@@ -114,7 +114,7 @@ lang: fr
                    class="img-fluid rounded shadow" 
                    loading="lazy"
                    width="450" 
-                >
+                   height="300">
            </div>
             <div class="col-lg-6">
                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-100">
@@ -347,17 +347,17 @@ lang: fr
       "name": "Perte de Poids Durable et Scientifique à Bruxelles",
       "description": "Diaeta propose une méthode personnalisée et scientifique pour maigrir durablement à Bruxelles, sans faim ni frustration. Approche basée sur votre métabolisme unique, avec analyse de composition corporelle et suivi par diététicien agréé.",
       "provider": {
-        "@type": "DietNutrition", // Matches the type of your main org schema
-        "@id": "https://diaeta.be#organization", // Correctly links to your main org schema
+        "@type": "DietNutrition", 
+        "@id": "https://diaeta.be#organization", 
         "name": "Diaeta",
-        "url": "https://diaeta.be/fr/", // URL to the main site
+        "url": "https://diaeta.be/fr/", 
         "logo": {
             "@type": "ImageObject",
             "url": "https://diaeta.be/images/logo.svg"
         },
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Dieweg 99", // Address of Espace Pluridys
+            "streetAddress": "Dieweg 99", 
             "addressLocality": "Uccle",
             "postalCode": "1180",
             "addressCountry": "BE"
@@ -372,7 +372,6 @@ lang: fr
         "audienceType": "Patient",
         "description": "Adultes (18-88 ans) cherchant à perdre du poids de manière saine et durable à Bruxelles."
       },
-      "keywords": "perte de poids durable, maigrir Bruxelles, diététicien perte de poids, nutrition personnalisée, sans faim, métabolisme, composition corporelle",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://diaeta.be/fr/perte-de-poids/"
@@ -383,16 +382,16 @@ lang: fr
         {
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
-          "headline": "Perte de Poids Durable Sans Faim à Bruxelles | Diaeta - Diététicien Agréé", // From your page title
-          "description": "Maigrir durablement à Bruxelles avec Diaeta. Pierre Abou-Zeid, diététicien agréé, propose une méthode scientifique et personnalisée pour perdre du poids sans frustration ni faim. Analyse de composition corporelle.", // From your meta description
+          "headline": "Perte de Poids Durable Sans Faim à Bruxelles | Diaeta - Diététicien Agréé", 
+          "description": "Maigrir durablement à Bruxelles avec Diaeta. Pierre Abou-Zeid, diététicien agréé, propose une méthode scientifique et personnalisée pour perdre du poids sans frustration ni faim. Analyse de composition corporelle.", 
           "keywords": "perte de poids, maigrir bruxelles, diététicien, nutrition personnalisée, métabolisme, composition corporelle, diaeta",
-          "url": "https://diaeta.be/fr/perte-de-poids/", // Canonical URL of this page
-          "datePublished": "2025-05-23", // Date this page was first published - REPLACE WITH ACTUAL DATE
-          "dateModified": "2025-05-23",  // Date this page was last modified - REPLACE WITH ACTUAL DATE
+          "url": "https://diaeta.be/fr/perte-de-poids/", 
+          "datePublished": "2025-05-23", 
+          "dateModified": "2025-05-23",  
           "author": {
             "@type": "Person",
             "name": "Pierre Abou-Zeid",
-            "url": "https://diaeta.be/fr/notre-expertise/" // Link to your expertise page
+            "url": "https://diaeta.be/fr/notre-expertise/" 
           },
           "publisher": {
             "@type": "Organization",
@@ -403,16 +402,24 @@ lang: fr
               "url": "https://diaeta.be/images/logo.svg"
             }
           },
-          "mainEntity": { // This links to the Service schema for this page
+          "mainEntity": { 
             "@type": "Service",
             "@id": "https://diaeta.be/fr/perte-de-poids/#service"
-             }
-          // Optional: If the page primarily discusses "Weight control" as a medical aspect
-          // "about": {
-          //   "@type": "MedicalCondition",
-          //   "name": "Obésité et surpoids (Contrôle du poids)" 
-          //   // Or more specific medical terms if appropriate and if the page dives deep into the medical condition aspect
-          // }
+             },
+           "about": [
+              {
+                "@type": "MedicalCondition",
+                "name": "Surpoids"
+              },
+              {
+                "@type": "MedicalCondition",
+                "name": "Obésité"
+              },
+              {
+                 "@type": "MedicalCondition",
+                 "name": "Gestion du poids"
+              }
+            ]
         }
         </script>
         <script type="application/ld+json">
@@ -422,13 +429,61 @@ lang: fr
               "itemListElement": [{
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Accueil Diaeta", // Or just "Accueil"
-                "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
+                "name": "Accueil Diaeta", 
+                "item": "https://diaeta.be/fr/index.html" 
               },{
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Perte de Poids Durable", // The name of the current page's topic
-                "item": "https://diaeta.be/fr/perte-de-poids/" // The URL of the current page
+                "name": "Perte de Poids Durable", 
+                "item": "https://diaeta.be/fr/perte-de-poids/" 
               }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Vais-je ressentir la faim avec la méthode Diaeta pour la perte de poids ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolument pas. Un des piliers de la Méthode Diaeta est d'assurer une perte de poids efficace sans jamais ressentir la faim. Nous élaborons des plans alimentaires riches en nutriments et axés sur la satiété, pour que vous vous sentiez satisfait(e) et plein(e) d'énergie tout au long de votre parcours."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quels types d'aliments pourrai-je manger ? Vais-je devoir renoncer à mes plats préférés ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Notre approche est 100% personnalisée et sans aliments interdits. Nous travaillons avec vous pour intégrer les aliments que vous aimez de manière équilibrée et intelligente dans votre plan. L'objectif est de vous apprendre à faire des choix savoureux qui favorisent la satiété et le plaisir, pour des habitudes que vous conserverez naturellement."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Combien de poids puis-je espérer perdre et en combien de temps ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La perte de poids est très individuelle et dépend de nombreux facteurs, notamment votre métabolisme de base, votre composition corporelle initiale, votre niveau d'activité et votre adhésion au plan. Notre objectif est une perte de poids saine et durable, en privilégiant la perte de masse grasse tout en préservant votre masse musculaire. Lors de la première consultation, nous pourrons discuter d'objectifs réalistes et personnalisés. Nos patients observent en moyenne une réduction significative de la masse grasse et du tour de taille en complétant le programme."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "L'analyse de la composition corporelle est-elle incluse et à quoi sert-elle ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, l'analyse de votre composition corporelle par impédancemétrie fait partie intégrante de notre suivi. Elle nous donne une image précise de votre masse grasse, masse musculaire et hydratation. Ces données sont essentielles pour suivre vos progrès réels au-delà du simple chiffre sur la balance, et pour adapter votre stratégie nutritionnelle afin d'assurer une perte de masse grasse ciblée tout en préservant votre capital musculaire."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Le suivi par application mobile est-il obligatoire avec la Méthode Diaeta ?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'utilisation de notre application mobile sécurisée est un outil que nous proposons pour faciliter le suivi de votre alimentation, la communication avec votre diététicien et l'ajustement de votre plan entre les consultations. Bien qu'elle soit fortement recommandée pour optimiser votre accompagnement et vos résultats, nous pouvons discuter d'alternatives si son utilisation représente une difficulté pour vous."
+                  }
+                }
+              ]
             }
             </script>
