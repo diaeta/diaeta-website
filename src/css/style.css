@@ -140,6 +140,21 @@
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
+        /* DEV-NOTE: The following CSS variables are defined but not found to be directly used within this style.css.
+           They may be used by JavaScript, intended for future components, or could be candidates for removal after verification.
+           Primary shades: --primary-50, --primary-100, --primary-200, --primary-300, --primary-400, --primary-800, --primary-900
+           Secondary shades: --secondary-50, --secondary-100, --secondary-200, --secondary-300, --secondary-400, --secondary-800, --secondary-900
+           Accent shades: --accent-50, --accent-100, --accent-200, --accent-300, --accent-400, --accent-800, --accent-900
+           Neutral RGB: --neutral-400-rgb
+           Semantic colors: --warning, --info
+           Error RGB: --error-rgb
+           Border radius: --border-radius-xl, --border-radius-pill (used by .btn)
+           Box shadow: --box-shadow-lg (used by .specialty-card:hover, .cabinet-explorer-card.active)
+           Transitions: --transition-fast, --transition-slow
+           Spacing: --space-1, --space-7, --space-8, --space-9, --space-10
+           Letter spacing: --tracking-tighter, --tracking-tight, --tracking-wider, --tracking-widest
+           Line heights (check .btn for --leading-snug): --leading-none, --leading-tight, --leading-relaxed, --leading-loose, --leading-snug (used by .btn)
+        */
 }
 
 /* Base Typography Styles */
@@ -195,6 +210,7 @@ p {
   margin-bottom: var(--space-4);
 }
 
+/* DEV-NOTE: The following typography utilities include many scales. Verify full usage before removing any. */
 /* Text Utility Classes */
 .text-xs {
   font-size: var(--text-xs);
@@ -259,6 +275,7 @@ p {
   gap: var(--space-4);
 }
 
+/* DEV-NOTE: The following spacing utilities include many scales. Verify full usage before removing any. */
 /* Spacing Utilities */
 .mt-1 {
   margin-top: var(--space-1);
@@ -1212,10 +1229,6 @@ p {
 
 .btn-icon-right {
   transition: transform 0.3s ease;
-}
-
-.clinic-cta .btn-primary:hover .btn-icon-right {
-  transform: translateX(4px);
 }
 
 /* Fix for oversized appointment button */
@@ -2809,53 +2822,6 @@ p {
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
-@keyframes rotateY {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scaleX(0.95);
-  }
-  100% {
-    transform: scaleX(1.05);
-  }
-}
-
-.gene-marker {
-  position: absolute;
-  left: -80px;
-  background-color: var(--primary-500);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  z-index: 5;
-}
-
-.gene-marker:hover {
-  transform: scale(1);
-  box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
-}
-
-@keyframes scanBeam {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 100%;
-  }
-}
-
 /* Responsive Styles */
 @media (max-width: 1199.98px) {
   .section-title {
@@ -2984,53 +2950,6 @@ p {
   .cta-button {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@keyframes rotateY {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scaleX(0.95);
-  }
-  100% {
-    transform: scaleX(1.05);
-  }
-}
-
-.gene-marker {
-  position: absolute;
-  left: -80px;
-  background-color: var(--primary-500);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  z-index: 5;
-}
-
-.gene-marker:hover {
-  transform: scale(1);
-  box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
-}
-
-@keyframes scanBeam {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 100%;
   }
 }
 /* header.css - Fixed Header with Corrected Issues */
@@ -3206,6 +3125,7 @@ p {
 }
 
 /* Using secondary (coral) color for primary action with explicit text color */
+/*
 .btn-secondary {
   background-color: var(
     --primary-500
@@ -3218,11 +3138,12 @@ p {
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background-color: var(--secondary-600) !important;
+  background-color: var(--secondary-600) !important; /* This is Darker Coral */
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.4);
   color: white !important; /* Ensure text stays white on hover */
 }
+*/
 
 /* Language Switcher */
 .lang-selector {
@@ -3585,6 +3506,10 @@ p {
 }
 
 /* Fix for the potential green line at top */
+/* DEV-NOTE: body::before, html::before - These rules are likely attempts to counteract default browser styles or inherited styles.
+   A proper CSS reset (like normalize.css or a more modern alternative integrated with Helmet/Next.js) should handle this.
+   Commenting out to rely on the reset. If issues appear, these might need to be reinstated or made more specific. */
+/*
 body::before,
 html::before {
   display: none !important;
@@ -3596,6 +3521,7 @@ html {
   border-top: none !important;
   border-left: none !important;
 }
+*/
 
 /* Skip to content for accessibility */
 .skip-link {
@@ -3625,6 +3551,11 @@ html {
   }
 
   /* Remove any unwanted borders */
+  /* DEV-NOTE: The following rules are overly broad and use !important excessively.
+     This can make CSS harder to manage and debug.
+     These might be attempts to fix layout issues that should be addressed with more specific selectors or by resolving underlying problems.
+     Commenting out for now; if layout breaks, these are candidates for more targeted fixes. */
+  /*
   .site-header,
   .header-container,
   body,
@@ -3634,30 +3565,33 @@ html {
     border-left: none !important;
     outline: none !important;
   }
+  */
 
   /* Fix menu toggle positioning */
   /* Improve mobile menu toggle */
+  /* DEV-NOTE: This .menu-toggle styling seems important for mobile layout. Keep for now. */
   .menu-toggle {
     width: 44px;
     height: 44px;
-    display: flex !important;
+    display: flex !important; /* Flex is fine, !important might be avoidable */
     align-items: center;
     justify-content: center;
     position: relative;
     right: 0;
     border: none;
     background: transparent;
-    overflow: visible;
+    overflow: visible; /* This can sometimes be risky if content actually overflows */
     padding: 0;
     margin-right: 8px;
   }
 
   .menu-toggle i {
-    position: static;
+    position: static; /* Good, avoids complex positioning issues */
     margin: 0 auto;
   }
 
   /* Fix mobile menu container */
+  /* DEV-NOTE: .main-nav styling for mobile view. Seems critical. Keep. */
   .main-nav {
     top: 70px;
     height: calc(100vh - 70px);
@@ -3798,6 +3732,8 @@ img {
   box-shadow: var(--box-shadow-sm) !important;
 }
 
+/* DEV-NOTE: More broad !important rules. Likely redundant if base styles are correct or a reset is used. */
+/*
 .site-header,
 .header-container,
 body,
@@ -3807,19 +3743,23 @@ html {
   border-left: none !important;
   outline: none !important;
 }
+*/
 
 /* Fix for mobile menu icon */
+/* DEV-NOTE: This .menu-toggle styling seems important for mobile layout. Keep for now, but !important could be reviewed. */
 .menu-toggle {
-  overflow: visible !important;
+  overflow: visible !important; /* Risk of overflow if content is unexpected */
   position: relative !important;
 }
 
 .menu-toggle i {
-  position: relative !important;
+  position: relative !important; /* Might be okay, but static is often simpler if possible */
   left: 0 !important;
 }
 
 /* Override any potential body borders */
+/* DEV-NOTE: Redundant with earlier commented-out body::before/after. */
+/*
 body::before,
 body::after,
 html::before,
@@ -3827,6 +3767,7 @@ html::after {
   display: none !important;
   content: none !important;
 }
+*/
 
 @media (max-width: 639px) {
   .logo {
