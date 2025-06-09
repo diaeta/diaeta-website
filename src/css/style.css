@@ -3452,6 +3452,23 @@ p {
     display: none;
   }
 
+  /* Ensure green line is hidden for dropdown toggles specifically on mobile */
+  /* Aggressively neutralize ::after for dropdown toggles on mobile */
+  .nav-link.dropdown-toggle::after {
+      display: none !important;
+      background-color: transparent !important;
+      height: 0 !important;
+      width: 0 !important;
+      content: "" !important;
+      visibility: hidden !important;
+      border: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      /* Reset any other properties that might make it visible */
+      position: static !important; /* Prevent absolute positioning if it was ever set */
+      transform: none !important;
+  }
+
   .nav-link.active {
     background-color: rgba(var(--primary-rgb), 0.1);
   }
@@ -8489,6 +8506,12 @@ section {
 
     @keyframes fadeInUpItemMobile { to { opacity: 1; transform: translateY(0); } }
 
+    .nav-item.dropdown.show { /* Targeting the LI element */
+        height: auto !important;
+        transform: none !important; /* Diagnostic: neutralize animation transform for this item when open */
+        overflow: visible !important; /* Ensure it doesn't clip its children unnecessarily */
+    }
+
     .nav-link { /* Mobile nav links */
         display: block; padding: var(--space-3) var(--space-4);
         font-size: var(--text-lg); color: var(--text-primary);
@@ -8502,15 +8525,39 @@ section {
         border-radius: var(--border-radius-sm);
     }
     .nav-item.dropdown .dropdown-menu { /* Mobile dropdown panel */
-        box-shadow: none; margin-top: 0 !important; padding: 0;
-        background-color: rgba(var(--primary-rgb), 0.03); border-top: none;
-        display: none; width: 100%; position: static; float: none;
+        /* Layout properties from original mobile design, ensure they are not conflicting with transform:none on .show */
+        width: 100%;
+        position: static; /* Crucial for layout */
+        float: none;
+        margin-top: 0 !important;
+        padding: 0; /* Padding is on items inside */
+        background-color: rgba(var(--primary-rgb), 0.03); /* Subtle background */
+        border-top: none;
+        box-shadow: none;
         border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+
+        /* Animation properties for closed state */
+        max-height: 0;
+        overflow: hidden; /* Necessary for max-height animation */
+        visibility: hidden;
+        transition: max-height 0.35s ease-in-out, visibility 0s 0.35s; /* visibility delayed on close */
+
+        /* Ensure display is block to allow max-height transition */
+        display: block;
     }
-    .nav-item.dropdown.show .dropdown-menu { display: block; } /* When open */
+    .nav-item.dropdown .dropdown-menu.show {
+        max-height: 500px; /* Or e.g., 40vh */
+        visibility: visible;
+        transition: max-height 0.35s ease-in-out, visibility 0s 0s;
+
+        /* Retain critical layout overrides if they helped prevent overlap */
+        position: static !important;
+        transform: none !important;
+        /* Other visual properties are inherited from the base .nav-item.dropdown .dropdown-menu rule */
+    }
     
     .nav-item.dropdown .dropdown-menu .dropdown-item { /* Mobile sub-item */
-        padding: var(--space-2) var(--space-4) var(--space-2) var(--space-5);
+        padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
         font-size: var(--text-base); color: var(--text-secondary);
         border-bottom: 1px solid rgba(var(--primary-rgb), 0.03);
     }

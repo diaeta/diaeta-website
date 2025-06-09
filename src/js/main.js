@@ -186,6 +186,33 @@ function initializeHeader() {
     });
   }
 
+    // Mobile Menu Accordion Logic
+    const mainNavForAccordion = document.getElementById('main-nav');
+    if (mainNavForAccordion) {
+        const dropdownToggles = mainNavForAccordion.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('show.bs.dropdown', function (event) {
+                // Only run this logic if in mobile view.
+                if (window.innerWidth >= 1024) return; // Desktop breakpoint
+
+                // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
+
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) { // Don't mess with the current toggle
+                        const otherDropdownMenu = otherToggle.nextElementSibling;
+                        if (otherDropdownMenu && otherDropdownMenu.classList.contains('show')) {
+                            const instance = bootstrap.Dropdown.getInstance(otherToggle);
+                            if (instance) {
+                                instance.hide();
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    }
+
   function setActiveNavLinkOnClick(clickedLink) {
     if (!mainNav) return;
     mainNav.querySelectorAll('.nav-link, .dropdown-item').forEach(l => l.classList.remove('active'));
