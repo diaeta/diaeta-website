@@ -8325,6 +8325,12 @@ section {
     transform: translateX(-50%) scaleX(1); /* Animate to full width */
 }
 
+/* Ensure dropdown toggles don't have extra lines on hover */
+.nav-item.dropdown:hover > .nav-link.dropdown-toggle {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
 .nav-link.active {
     color: var(--primary-500);
     font-weight: var(--font-semibold);
