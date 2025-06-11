@@ -186,6 +186,33 @@ function initializeHeader() {
     });
   }
 
+    // Mobile Menu Accordion Logic
+    const mainNavForAccordion = document.getElementById('main-nav');
+    if (mainNavForAccordion) {
+        const dropdownToggles = mainNavForAccordion.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('show.bs.dropdown', function (event) {
+                // Only run this logic if in mobile view.
+                if (window.innerWidth >= 1024) return; // Desktop breakpoint
+
+                // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
+
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) { // Don't mess with the current toggle
+                        const otherDropdownMenu = otherToggle.nextElementSibling;
+                        if (otherDropdownMenu && otherDropdownMenu.classList.contains('show')) {
+                            const instance = bootstrap.Dropdown.getInstance(otherToggle);
+                            if (instance) {
+                                instance.hide();
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    }
+
   function setActiveNavLinkOnClick(clickedLink) {
     if (!mainNav) return;
     mainNav.querySelectorAll('.nav-link, .dropdown-item').forEach(l => l.classList.remove('active'));
@@ -924,68 +951,106 @@ function calculateDistance(lat1,lon1,lat2,lon2) { /* ... as before ... */
 }
 function toRadians(deg) { return deg*(Math.PI/180); }
 
-function initializeRendezVousPage() { /* ... as before ... */ 
-    const iframe = document.getElementById('defaultiFrame');
-    const bookingModuleDynamicTitleSpan = document.getElementById('booking-module-dynamic-title');
-    const bookingModuleSubtitle = document.getElementById('booking-module-subtitle');
-    const iframeLoadingIndicator = document.getElementById('iframe-loading-indicator');
-    const locationCards = document.querySelectorAll('.select-cabinet-card'); 
-    if (!iframe) { console.error('Doctoranytime iframe not found on RDV page'); return; }
-    const doctorId = '80669';
-    const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
-    const showIframeLoading = () => { if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block'; if (iframe) iframe.style.opacity = '0.5'; };
-    const hideIframeLoading = () => { setTimeout(() => { if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'none'; if (iframe) iframe.style.opacity = '1'; }, 200); };
-    const updateIframeAndTitle = (practiceId, cabinetName) => {
-        showIframeLoading();
-        let newSrc = baseIframeSrc;
-        let titleText = "Sélectionnez Votre Horaire";
-        let subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
-        if (practiceId) {
-            newSrc += `&doctorpracticeId=${practiceId}`;
-            titleText = `Disponibilités pour : ${cabinetName}`;
-            subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
-        } else { 
-            titleText = "Disponibilités : Tous les cabinets";
-            subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
-        }
-        const handleLoad = () => { hideIframeLoading(); iframe.removeEventListener('load', handleLoad); iframe.removeEventListener('error', handleError);};
-        const handleError = () => { console.error("Iframe failed to load:", newSrc); hideIframeLoading(); iframe.removeEventListener('load', handleLoad); iframe.removeEventListener('error', handleError);};
-        iframe.removeEventListener('load', handleLoad); iframe.removeEventListener('error', handleError); 
-        iframe.addEventListener('load', handleLoad); iframe.addEventListener('error', handleError);
-        iframe.src = newSrc;
-        if (bookingModuleDynamicTitleSpan) bookingModuleDynamicTitleSpan.textContent = titleText;
-        if (bookingModuleSubtitle) bookingModuleSubtitle.textContent = subTitleText;
-        locationCards.forEach(card => card.classList.toggle('active', card.dataset.practiceId === practiceId));
-    };
-    locationCards.forEach(card => {
-        card.addEventListener('click', function () {
-            updateIframeAndTitle(this.dataset.practiceId, this.dataset.cabinetName);
-            const bookingModuleWrapper = document.getElementById('booking-module-wrapper');
-            if (bookingModuleWrapper) bookingModuleWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const locationIdFromUrl = urlParams.get('locationId');
-    const cabinetNameFromUrl = urlParams.get('cabinetName');
-    if (locationIdFromUrl) {
-        const targetCard = document.querySelector(`.select-cabinet-card[data-practice-id="${locationIdFromUrl}"]`);
-        if (targetCard) {
-            targetCard.click(); 
-        } else if (cabinetNameFromUrl) { 
-            updateIframeAndTitle(locationIdFromUrl, decodeURIComponent(cabinetNameFromUrl));
-        } else { 
-            updateIframeAndTitle(locationIdFromUrl, "le cabinet sélectionné");
-        }
-    } else { 
-        const defaultSelectionCard = document.querySelector('.location-card.default-selection');
-        if (defaultSelectionCard) {
-           defaultSelectionCard.click(); 
-        } else if (locationCards.length > 0) {
-            locationCards[0].click(); 
-        }
-    }
-    if (iframe.contentWindow && iframe.contentWindow.document.readyState === 'complete') { hideIframeLoading(); }
-    else { iframe.addEventListener('load', hideIframeLoading, { once: true }); iframe.addEventListener('error', hideIframeLoading, { once: true });}
+function initializeRendezVousPage() {
+  const iframe = document.getElementById('defaultiFrame');
+  const bookingModuleDynamicTitleSpan = document.getElementById('booking-module-dynamic-title');
+  const bookingModuleSubtitle = document.getElementById('booking-module-subtitle');
+  const iframeLoadingIndicator = document.getElementById('iframe-loading-indicator');
+  const locationCards = document.querySelectorAll('.select-cabinet-card');
+
+  if (!iframe) {
+      console.error('Doctoranytime iframe not found on RDV page');
+      return;
+  }
+
+  const doctorId = '80669';
+  const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
+
+  const showIframeLoading = () => {
+      if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
+      if (iframe) iframe.style.opacity = '0.5';
+  };
+
+  const hideIframeLoading = () => {
+      setTimeout(() => {
+          if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'none';
+          if (iframe) iframe.style.opacity = '1';
+      }, 200);
+  };
+
+  const updateIframeAndTitle = (practiceId, cabinetName) => {
+      showIframeLoading();
+      let newSrc = baseIframeSrc;
+      let titleText = "Sélectionnez Votre Horaire";
+      let subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
+
+      if (practiceId) {
+          newSrc += `&doctorpracticeId=${practiceId}`;
+          titleText = `Disponibilités pour : ${cabinetName}`;
+          subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
+      } else {
+          titleText = "Disponibilités : Tous les cabinets";
+          subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+      }
+
+      const handleLoad = () => {
+          hideIframeLoading();
+          iframe.removeEventListener('load', handleLoad);
+          iframe.removeEventListener('error', handleError);
+      };
+      const handleError = () => {
+          console.error("Iframe failed to load:", newSrc);
+          hideIframeLoading();
+          iframe.removeEventListener('load', handleLoad);
+          iframe.removeEventListener('error', handleError);
+      };
+
+      iframe.removeEventListener('load', handleLoad);
+      iframe.removeEventListener('error', handleError);
+      iframe.addEventListener('load', handleLoad);
+      iframe.addEventListener('error', handleError);
+
+      iframe.src = newSrc;
+      if (bookingModuleDynamicTitleSpan) bookingModuleDynamicTitleSpan.textContent = titleText;
+      if (bookingModuleSubtitle) bookingModuleSubtitle.textContent = subTitleText;
+
+      locationCards.forEach(card => card.classList.toggle('active', card.dataset.practiceId === practiceId));
+  };
+
+  // This handler is for genuine user clicks and will scroll
+  locationCards.forEach(card => {
+      card.addEventListener('click', function () {
+          updateIframeAndTitle(this.dataset.practiceId, this.dataset.cabinetName);
+          const bookingModuleWrapper = document.getElementById('booking-module-wrapper');
+          if (bookingModuleWrapper) bookingModuleWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+  });
+
+  // This is the corrected page load logic.
+  // It calls updateIframeAndTitle directly without using .click(), so it won't scroll.
+  const urlParams = new URLSearchParams(window.location.search);
+  const locationIdFromUrl = urlParams.get('locationId');
+  const cabinetNameFromUrl = urlParams.get('cabinetName');
+
+  if (locationIdFromUrl) {
+      const cabinetName = cabinetNameFromUrl ? decodeURIComponent(cabinetNameFromUrl) : "le cabinet sélectionné";
+      updateIframeAndTitle(locationIdFromUrl, cabinetName);
+  } else {
+      const defaultSelectionCard = document.querySelector('.select-cabinet-card.default-selection');
+      if (defaultSelectionCard) {
+          updateIframeAndTitle(defaultSelectionCard.dataset.practiceId, defaultSelectionCard.dataset.cabinetName);
+      } else if (locationCards.length > 0) {
+          updateIframeAndTitle(locationCards[0].dataset.practiceId, locationCards[0].dataset.cabinetName);
+      }
+  }
+
+
+  if (iframe.contentWindow && iframe.contentWindow.document.readyState === 'complete') {
+      hideIframeLoading();
+  } else {
+      iframe.addEventListener('load', hideIframeLoading, { once: true });
+      iframe.addEventListener('error', hideIframeLoading, { once: true });
+  }
 }
 
 function initializeScrollToLinks() { /* ... as before ... */ 
