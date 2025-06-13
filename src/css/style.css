@@ -5160,8 +5160,10 @@ section {
 
   /* Improve outline button visibility on mobile */
   .btn-outline {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
     border: 2px solid var(--primary-500);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 
   /* Ensure animations work well on mobile */
@@ -6786,7 +6788,6 @@ section {
     font-size: 1rem;
   }
 }
-
 /* --- Success Stories Section - Card Redesign: Images Above Text --- */
 
 /* Keep existing styles for .success-stories-section, .success-header,
@@ -8590,3 +8591,4 @@ section {
 .btn.mobile-cta {
     transition: var(--transition-standard);
 }
+
