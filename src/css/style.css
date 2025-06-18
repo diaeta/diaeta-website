@@ -3376,7 +3376,7 @@ footer.footer .footer-legal-link:hover::after {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1134px) {
   .menu-toggle {
     display: flex !important;
   }
