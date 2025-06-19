@@ -51,7 +51,35 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeRendezVousPage();
   }
   initializeScrollToLinks(); 
+  initializeScrollToTopButton();
 });
+
+function initializeScrollToTopButton() {
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  const scrollThreshold = 300; // Show button after scrolling 300px
+
+  if (!scrollToTopBtn) {
+    return; // Button not found
+  }
+
+  // Remove inline display style if present, to allow CSS to control visibility
+  scrollToTopBtn.style.display = ''; 
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > scrollThreshold) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
 function initializeHeader() {
   const header = document.querySelector('.site-header');

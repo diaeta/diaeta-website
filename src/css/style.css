@@ -8579,3 +8579,33 @@ section {
     transition: var(--transition-standard);
 }
 
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100; /* Ensure it's above other content */
+  border: none;
+  outline: none;
+  background-color: var(--primary-500); /* Use existing primary color */
+  color: white;
+  cursor: pointer;
+  padding: 12px 15px; /* Adjust padding to make it more square-like with the icon */
+  border-radius: var(--border-radius-md); /* Use existing border-radius */
+  font-size: 1.2rem; /* Adjust icon size if needed */
+  box-shadow: var(--box-shadow-md); /* Use existing box shadow */
+  transition: background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0; /* Hidden by default, controlled by JS */
+  visibility: hidden; /* Hidden by default, controlled by JS */
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--primary-600); /* Darken on hover */
+}
+
+/* Styles to make the button visible (controlled by JavaScript) */
+#scrollToTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
