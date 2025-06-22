@@ -2679,36 +2679,52 @@ footer.footer .footer-legal-link:hover::after {
   }
   
   .testimonial-quote blockquote {
-    font-size: var(--text-lg); /* e.g., 1.25rem */
-    font-style: italic;
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-4);
-    padding: var(--space-4) var(--space-6);
-    border-left: 4px solid var(--primary-200);
-    background-color: rgba(var(--primary-rgb), 0.03);
-    border-radius: var(--border-radius-sm);
+    font-family: var(--font-display); /* Using display font for elegance */
+    font-size: var(--text-xl); /* Slightly larger font */
+    color: var(--primary-700); /* Darker, richer text color */
+    line-height: var(--leading-snug); /* Adjusted line height */
+    margin-top: var(--space-5); /* More space above */
+    margin-bottom: var(--space-5); /* More space below */
+    padding: var(--space-8) var(--space-5) var(--space-6); /* Increased top padding */
+    background-color: var(--neutral-100); /* Light, clean background */
+    border-radius: var(--border-radius-md); /* Softer radius */
     position: relative;
+    text-align: center; /* Center the quote text */
+    box-shadow: var(--box-shadow-sm); /* Subtle lift */
+    border-left: 5px solid var(--secondary-400); /* Accent border - Coral */
   }
-  
+
   .testimonial-quote blockquote::before {
-    content: "“"; /* Opening quote */
-    font-family: var(--font-display); /* Or your preferred quote font */
-    font-size: 4rem; /* Large quote mark */
-    color: var(--primary-200);
+    content: "\f10d"; /* Font Awesome quote-left icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* Solid icon */
+    font-size: 2.5rem; /* Prominent quote icon */
+    color: var(--secondary-300); /* Lighter Coral, less intrusive */
     position: absolute;
-    left: var(--space-3);
-    top: var(--space-1);
+    top: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 1;
     opacity: 0.8;
   }
   
+  .testimonial-quote blockquote p { /* Assuming the quote text is wrapped in a <p> */
+    /* margin-top: var(--space-5); */ /* Removed: Space is now handled by blockquote's padding-top */
+    margin-bottom: 0;
+  }
+
   .testimonial-quote cite {
     display: block;
-    font-size: var(--text-base);
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
-    text-align: right; /* Or center if preferred */
+    font-family: var(--font-primary);
+    font-size: var(--text-sm); /* Smaller for citation */
+    color: var(--text-secondary);
+    font-weight: var(--font-normal);
+    text-align: center;
+    margin-top: var(--space-4); /* More space above cite */
+    font-style: normal; /* Not italic by default */
+  }
+  .testimonial-quote cite::before {
+    content: "— "; /* Em dash before cite */
   }
 
 .indicator {
