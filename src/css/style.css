@@ -2438,8 +2438,8 @@ footer.footer .footer-legal-link:hover::after {
   border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
   position: relative;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start; /* Align items to the start for better text wrapping */
+  /* flex-wrap: wrap; Removed to let text content handle its own wrapping */
 }
 
 .gene-analysis li:last-child {
@@ -2456,6 +2456,7 @@ footer.footer .footer-legal-link:hover::after {
   font-weight: 600;
   font-size: 0.85rem;
   border: 1px solid rgba(var(--accent-rgb), 0.2);
+  flex-shrink: 0; /* Prevent the marker from shrinking */
 }
 
 .health-card .gene-marker {
@@ -7851,7 +7852,8 @@ section {
   box-shadow: var(--box-shadow-sm);
   text-align: center;
   transition: var(--transition-standard);
-  height: 100%; /* For equal height in a row */
+  display: flex; /* Added for flex layout */
+  flex-direction: column; /* Stack items vertically */
 }
 .process-timeline-vertical .process-step-detailed:hover {
   transform: translateY(-5px);
@@ -7877,7 +7879,27 @@ section {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  flex-grow: 1; /* Allow paragraph to grow and fill space */
 }
+
+/* Price Highlight Box Style */
+.price-highlight-box {
+  background-color: var(--primary-50); /* Light teal background */
+  border: 1px solid var(--primary-200); /* Soft teal border */
+  padding: var(--space-4) var(--space-5); /* Generous padding */
+  border-radius: var(--border-radius-md); /* Consistent border radius */
+  margin-left: auto; /* Center the box if it's not full width */
+  margin-right: auto; /* Center the box */
+  max-width: 700px; /* Max width for better readability */
+  box-shadow: var(--box-shadow-sm); /* Subtle shadow for depth */
+  color: var(--primary-700); /* Darker teal text for good contrast */
+}
+
+.price-highlight-box strong {
+  color: var(--primary-600); /* Even darker for the strong part if needed, or keep as is */
+  font-weight: 700; /* Ensure it's bold */
+}
+
 
 /* FAQ Accordion styling (uses Bootstrap, but can be customized) */
 .accordion-button {
