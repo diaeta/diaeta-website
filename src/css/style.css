@@ -2832,6 +2832,14 @@ footer.footer .footer-legal-link:hover::after {
   }
 }
 
+/*
+The following .gene-marker rule was causing overlap issues in lists
+by taking the element out of flow. It's removed to allow the earlier
+.gene-marker rule (around line 1410) with display: inline-block
+and margin-right to correctly space the elements.
+If this absolute positioning is needed elsewhere, it should be re-scoped
+with a more specific selector.
+
 .gene-marker {
   position: absolute;
   left: -80px;
@@ -2851,6 +2859,7 @@ footer.footer .footer-legal-link:hover::after {
   transform: scale(1);
   box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
 }
+*/
 
 @keyframes scanBeam {
   0% {
@@ -3010,6 +3019,14 @@ footer.footer .footer-legal-link:hover::after {
   }
 }
 
+/*
+The following .gene-marker rule was causing overlap issues in lists
+by taking the element out of flow. It's removed to allow the earlier
+.gene-marker rule (around line 1410) with display: inline-block
+and margin-right to correctly space the elements.
+If this absolute positioning is needed elsewhere, it should be re-scoped
+with a more specific selector.
+
 .gene-marker {
   position: absolute;
   left: -80px;
@@ -3029,6 +3046,7 @@ footer.footer .footer-legal-link:hover::after {
   transform: scale(1);
   box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
 }
+*/
 
 @keyframes scanBeam {
   0% {
