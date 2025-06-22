@@ -7851,7 +7851,8 @@ section {
   box-shadow: var(--box-shadow-sm);
   text-align: center;
   transition: var(--transition-standard);
-  height: 100%; /* For equal height in a row */
+  display: flex; /* Added for flex layout */
+  flex-direction: column; /* Stack items vertically */
 }
 .process-timeline-vertical .process-step-detailed:hover {
   transform: translateY(-5px);
@@ -7877,6 +7878,7 @@ section {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  flex-grow: 1; /* Allow paragraph to grow and fill space */
 }
 
 /* FAQ Accordion styling (uses Bootstrap, but can be customized) */
