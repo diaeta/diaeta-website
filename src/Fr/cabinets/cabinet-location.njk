@@ -9,9 +9,7 @@ pagination:
 permalink: "/fr/cabinets/{{ cabinet.id | slugify }}/index.html" # Generates URLs like /fr/cabinets/espace-pluridis/
 layout: layouts/base.njk # Uses your main base layout
 lang: fr
-# Dynamic title and description using data for each cabinet
-title: "Diaeta {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }} ({{ cabinet.name }}) | Diététicien Pierre Abou-Zeid"
-description: "Consultation diététique Diaeta à {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }} ({{ cabinet.name }}) avec Pierre Abou-Zeid. {{ cabinet.notes | default('') }}"
+# eleventyComputed logic moved to cabinet-location.11tydata.js
 canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Generates the canonical URL for each page
 ---
 
@@ -19,9 +17,9 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
 <section class="service-hero-wp">
     <div class="container">
         <span class="section-badge animate-on-scroll fade-in">{{ cabinet.name }}</span>
-        <h1 class="animate-on-scroll fade-up">Votre Consultation Diaeta à {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}</h1>
+        <h1 class="animate-on-scroll fade-up">Votre Consultation Diaeta à {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' }}</h1>
         <p class="lead animate-on-scroll fade-up delay-200">
-            Retrouvez Pierre Abou-Zeid, Diététicien Nutritionniste agréé, pour votre suivi personnalisé à {{ cabinet.name }} ({{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}).
+            Retrouvez Pierre Abou-Zeid, Diététicien Nutritionniste agréé, pour votre suivi personnalisé à {{ cabinet.name }} ({{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' }}).
         </p>
         {# Link to rendez-vous.html, with locationId parameter #}
         <a href="/fr/rendez-vous/?locationId={{ cabinet.doctorpracticeId }}" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
@@ -34,7 +32,7 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
     <div class="container">
         <div class="row g-4 g-lg-5">
             <div class="col-lg-7 animate-on-scroll fade-up">
-                <h2 class="h3 mb-4" style="color: var(--primary-700);">Cabinet Diaeta à {{ cabinet.name }}, {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}</h2>
+                <h2 class="h3 mb-4" style="color: var(--primary-700);">Cabinet Diaeta à {{ cabinet.name }}, {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' }}</h2>
                 
                 <div class="mb-4">
                     <h4 class="h5 text-primary"><i class="fas fa-map-signs me-2"></i>Adresse</h4>
@@ -102,11 +100,11 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
                 {# Example using a dynamic path if images are named after cabinet IDs #}
                 <img src="/images/cabinets/{{ cabinet.id | slugify }}.jpg" 
                      onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';" {# Fallback image #}
-                     alt="Cabinet de consultation Diaeta à {{ cabinet.name }}, {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}" 
+                     alt="Cabinet de consultation Diaeta à {{ cabinet.name }}, {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' }}" 
                      class="img-fluid rounded shadow-sm" 
                      style="margin-top: 1.5rem; max-height: 400px; object-fit: cover;"
                      loading="lazy">
-                <p class="mt-4 p-3 bg-light rounded"><em>Diaeta vous accueille à {{ cabinet.name }} ({{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city }}) pour vous accompagner vers vos objectifs de santé et de bien-être.</em></p>
+                <p class="mt-4 p-3 bg-light rounded"><em>Diaeta vous accueille à {{ cabinet.name }} ({{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'en Vidéo Consultation' }}) pour vous accompagner vers vos objectifs de santé et de bien-être.</em></p>
             </div>
         </div>
     </div>
@@ -120,7 +118,7 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
   "@id": "https://diaeta.be{{ page.url }}#clinic" {# No comma before the first property #}
 
   , "name": "Diaeta - {{ cabinet.name | escape }}"
-  , "description": "Cabinet de consultation Diaeta à {{ cabinet.address_obj.city | default(cabinet.city) | escape }} ({{ cabinet.name | escape }}) avec Pierre Abou-Zeid, diététicien nutritionniste. {{ cabinet.notes | default('') | escape }}"
+  , "description": "Cabinet de consultation Diaeta à {{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' | escape }} ({{ cabinet.name | escape }}) avec Pierre Abou-Zeid, diététicien nutritionniste. {{ cabinet.notes | default('') | escape }}"
   , "url": "https://diaeta.be{{ page.url }}"
 
   {% if cabinet.address_obj %}
@@ -210,7 +208,7 @@ canonicalUrl: "https://diaeta.be/fr/cabinets/{{ cabinet.id | slugify }}/" # Gene
   },{
     "@type": "ListItem",
     "position": 3,
-    "name": "Diaeta {{ cabinet.name | escape }} ({{ cabinet.address_obj.city | default(cabinet.city) | escape }})",
+    "name": "Diaeta {{ cabinet.name | escape }} ({{ cabinet.address_obj.city if cabinet.address_obj else cabinet.city if cabinet.city else 'Vidéo Consultation' | escape }})",
     "item": "https://diaeta.be{{ page.url }}"
   }]
 }  
