@@ -1,8 +1,14 @@
 // .eleventy.js
 const { DateTime } = require("luxon"); // For date formatting
 const slugify = require("slugify");   // For creating URL-friendly slugs
+const { EleventyI18nPlugin } = require("@11ty/eleventy");
 
 module.exports = function(eleventyConfig) {
+
+    // --- I18n Plugin ---
+    eleventyConfig.addPlugin(EleventyI18nPlugin, {
+        defaultLanguage: "en" // Set a default language
+    });
 
     // --- Passthrough Copy for Static Assets ---
     eleventyConfig.addPassthroughCopy("src/css");
@@ -19,15 +25,24 @@ module.exports = function(eleventyConfig) {
   
     // --- Collections ---
     // Blog Posts ("Actualités")
+    // Updated to support multiple languages. It will now fetch posts from the 'actualites' subdirectory
+    // of the current processing language's content directory.
     eleventyConfig.addCollection("actualites", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("./src/fr/actualites/**/*.md").sort((a, b) => {
+        // This will get all markdown files from any 'actualites' folder,
+        // for example, src/en/actualites/*.md, src/fr/actualites/*.md, etc.
+        // The i18n plugin will handle filtering by locale automatically for page generation.
+        // For collections that need to be language-aware for display (e.g. related posts in the same language),
+        // you might need to filter by `page.lang` within the collection or template.
+        return collectionApi.getFilteredByGlob("./src/*/actualites/**/*.md").sort((a, b) => {
             return b.date - a.date; // Sort by date, newest first
         });
     });
 
     // Posts grouped by Category
+    // This collection also needs to be language-aware.
+    // We'll group by category within each language.
     eleventyConfig.addCollection("postsByCategory", (collectionApi) => {
-        const posts = collectionApi.getFilteredByTag("actualites");
+        const posts = collectionApi.getFilteredByGlob("./src/*/actualites/**/*.md");
         const categories = {};
         posts.forEach(post => {
             const category = post.data.category;
@@ -47,12 +62,16 @@ module.exports = function(eleventyConfig) {
     });
 
     // Unique Category List
+    // This also needs to be language-aware if categories are language-specific.
+    // For now, it collects all unique categories across all languages.
+    // If categories need to be per-language, this logic would need further refinement,
+    // possibly by creating separate collections per language or filtering by page.lang in templates.
     eleventyConfig.addCollection("uniqueCategories", (collectionApi) => {
-        const posts = collectionApi.getFilteredByTag("actualites");
+        const posts = collectionApi.getFilteredByGlob("./src/*/actualites/**/*.md");
         let uniqueCategories = new Set();
         posts.forEach(post => {
             if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
-                uniqueCategories.add(post.data.category.trim());
+                uniqueCategories.add(post.data.category.trim()); // Categories might need translation too
             }
         });
         return Array.from(uniqueCategories).sort();
@@ -60,8 +79,10 @@ module.exports = function(eleventyConfig) {
   
     // --- Nunjucks Filters ---
     // Date Filter (e.g., 25 mai 2025)
-    eleventyConfig.addNunjucksFilter("date", function(dateObj, format = "dd LLLL yyyy", locale = "fr") {
-        return DateTime.fromJSDate(dateObj, {zone: 'utc'}).setLocale(locale).toFormat(format);
+    // The locale parameter will now be dynamically set by page.lang if available
+    eleventyConfig.addNunjucksFilter("date", function(dateObj, format = "dd LLLL yyyy", locale) {
+        const pageLocale = this.ctx.page?.lang || this.ctx.lang || "fr"; // Fallback to 'fr' or a default
+        return DateTime.fromJSDate(dateObj, {zone: 'utc'}).setLocale(locale || pageLocale).toFormat(format);
     });
     
     // Date ISO Filter (e.g., 2025-05-25T00:00:00.000Z)

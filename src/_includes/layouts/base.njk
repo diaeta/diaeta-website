@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ lang | default('fr') }}"> {# Sets language from page data, defaults to 'fr' #}
+{% set current_lang = page.lang | default('en') %}
+<html lang="{{ current_lang }}" dir="{{ page.dir | default('ltr') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {# Page title and description will come from individual page front matter #}
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description }}">
+    {# Page title and description will come from individual page front matter, or use site default #}
+    <title>{{ title | default(i18n.site_title[current_lang]) }}</title>
+    <meta name="description" content="{{ description | default(i18n.site_description[current_lang] | default('')) }}">
 
     <link rel="preload" href="/images/logo.svg" as="image">
 
@@ -70,7 +71,7 @@
 
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">{{ i18n.skip_link[current_lang] | default('Skip to main content') }}</a>
 
     {# Include the header partial #}
     {% include "partials/header.njk" %}

@@ -1,0 +1,223 @@
+---
+pagination:
+  data: cabinets # Assumes your optimized JSON is in _data/cabinets.json
+  size: 1
+  alias: cabinet
+  filter: # This filter excludes the "video" consultation and any other non-physical locationsdepartmentOf
+    - id: video
+  addAllPagesToCollections: true # Optional: useful for creating a list of all cabinet pages
+permalink: "/cabinets/{{ cabinet.id | slugify }}/index.html" # Generates URLs like /en/cabinets/espace-pluridis/
+layout: layouts/base.njk # Uses your main base layout
+lang: en
+# eleventyComputed logic moved to cabinet-location.11tydata.js
+canonicalUrl: "https://diaeta.be{{ '/' | locale_url }}cabinets/{{ cabinet.id | slugify }}/" # Generates the canonical URL for each page
+---
+{% set current_lang = page.lang | default('en') %}
+{% if cabinet.address_obj and cabinet.address_obj.city %}
+  {% set cabinet_city_name = cabinet.address_obj.city %}
+{% elif cabinet.city %}
+  {% set cabinet_city_name = cabinet.city %}
+{% else %}
+  {% set cabinet_city_name = i18n.video_consultation[current_lang] | default('Video Consultation') %}
+{% endif %}
+
+{# HERO SECTION FOR LOCATION PAGE #}
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">{{ cabinet.name }}</span>
+        <h1 class="animate-on-scroll fade-up">{{ i18n.cabinet_hero_title[current_lang] | default('Your Diaeta Consultation in') | replace('%s', cabinet_city_name) }}</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            {{ i18n.cabinet_hero_subtitle[current_lang] | default('Meet Pierre Abou-Zeid, registered Dietitian Nutritionist, for your personalized follow-up at %s (%s).') | replace('%s', cabinet.name) | replace('%s', cabinet_city_name) }}
+        </p>
+        {# Link to rendez-vous.html, with locationId parameter #}
+        <a href="{{ '/rendez-vous/' | locale_url }}?locationId={{ cabinet.doctorpracticeId }}" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+            <span>{{ i18n.book_appointment_at[current_lang] | default('Book at %s') | replace('%s', cabinet.name) }}</span><i class="fa-solid fa-calendar-check btn-icon-right"></i>
+        </a>
+    </div>
+</section>
+
+<section class="content-section bg-white">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2 class="h3 mb-4" style="color: var(--primary-700);">{{ i18n.cabinet_section_title[current_lang] | default('Diaeta Clinic at %s, %s') | replace('%s', cabinet.name) | replace('%s', cabinet_city_name) }}</h2>
+                
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-signs me-2"></i>{{ i18n.address[current_lang] | default('Address') }}</h4>
+                    <p>{{ cabinet.fullAddress }}</p>
+                </div>
+
+                {# Dynamically display hours from the structured opening_hours array #}
+                {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-clock me-2"></i>{{ i18n.consultation_hours[current_lang] | default('Consultation Hours (Pierre Abou-Zeid)') }}</h4>
+                    <ul class="list-unstyled">
+                        {% for day_schedule in cabinet.opening_hours %}
+                            <li>
+                                <strong>{{ i18n.days[current_lang][day_schedule.dayOfWeekSCHEMA] | default(day_schedule.dayOfWeekFRENCH | capitalize) }} :</strong>
+                                {% for slot in day_schedule.timeSlots %}
+                                    {{ slot.opens | replace(":", "h") }} - {{ slot.closes | replace(":", "h") }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if cabinet.hours_details_note %}
+                    <p class="text-muted"><em>{{ cabinet.hours_details_note }}</em></p> {# This note might also need translation if it's not unique per cabinet #}
+                    {% endif %}
+                    <p class="text-muted text-sm"><em>{{ i18n.check_booking_module_for_availability[current_lang] | default('For precise availability, please check the booking module.') }}</em></p>
+                </div>
+                {% endif %}
+
+                {% if cabinet.notes %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-info-circle me-2"></i>{{ i18n.access_information[current_lang] | default('Access & Information') }}</h4>
+                    <p>{{ cabinet.notes }}</p> {# These notes are likely cabinet-specific and may not need i18n here unless they are generic #}
+                </div>
+                {% endif %}
+
+                {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %} {# Basic check to avoid default/empty links #}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-marker-alt me-2"></i>{{ i18n.location[current_lang] | default('Location') }}</h4>
+                    <p><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary">{{ i18n.see_on_google_maps[current_lang] | default('See on Google Maps') }} <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
+                    {# Optional: Embed Google Map here. You'd need the embeddable URL for each. #}
+                    {# 
+                    <div class="map-embed-container ratio ratio-16x9 mt-3">
+                         <iframe src="YOUR_Maps_EMBED_URL_FOR_THIS_LOCATION" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    #}
+                </div>
+                {% endif %}
+
+                 <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-concierge-bell me-2"></i>{{ i18n.services_offered_at_clinic[current_lang] | default('Services Offered at this Clinic') }}</h4>
+                    {# These list items are generic descriptions of services. They should be translated. #}
+                    <ul class="list-styled-check">
+                        <li>{{ i18n.service_sustainable_weight_loss[current_lang] | default('Personalized programs for sustainable weight loss') }}</li>
+                        <li>{{ i18n.service_diabetes_management[current_lang] | default('Nutritional support for type 2 diabetes') }}</li>
+                        <li>{{ i18n.service_cholesterol_hypertension[current_lang] | default('Management of cholesterol and hypertension') }}</li>
+                        <li>{{ i18n.service_ibs_low_fodmap[current_lang] | default('Support for Irritable Bowel Syndrome (Low FODMAP approach)') }}</li>
+                        <li>{{ i18n.service_nutrigenomics[current_lang] | default('Nutrigenomic consultations (on request)') }}</li>
+                        <li>{{ i18n.service_other_personalized[current_lang] | default('And other personalized dietary follow-ups...') }}</li>
+                    </ul>
+                </div>
+                 <p>{{ i18n.all_consultations_by_pierre[current_lang] | default('All consultations at %s are provided by Pierre Abou-Zeid, registered Dietitian Nutritionist (INAMI) and MONASH certified.') | replace('%s', cabinet.name) }}</p>
+                 <a href="{{ '/notre-expertise/' | locale_url }}" class="btn btn-outline-primary mt-3"><span>{{ i18n.discover_pierre_expertise[current_lang] | default("Discover Pierre's expertise") }}</span><i class="fa-solid fa-arrow-right btn-icon-right ms-2"></i></a>
+
+            </div>
+            <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
+                {# Optional: Add an image of the clinic building/room if available #}
+                {# Example using a dynamic path if images are named after cabinet IDs #}
+                <img src="/images/cabinets/{{ cabinet.id | slugify }}.jpg" 
+                     onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';" {# Fallback image #}
+                     alt="{{ i18n.alt_consultation_room[current_lang] | default('Diaeta consultation room at %s, %s') | replace('%s', cabinet.name) | replace('%s', cabinet_city_name) }}"
+                     class="img-fluid rounded shadow-sm" 
+                     style="margin-top: 1.5rem; max-height: 400px; object-fit: cover;"
+                     loading="lazy">
+                <p class="mt-4 p-3 bg-light rounded"><em>{{ i18n.diaeta_welcomes_you[current_lang] | default('Diaeta welcomes you at %s (%s) to help you achieve your health and wellness goals.') | replace('%s', cabinet.name) | replace('%s', cabinet_city_name) }}</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# === Updated and Consolidated Schema for this specific Cabinet Page === #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://diaeta.be{{ page.url }}#clinic",
+  "name": "Diaeta - {{ cabinet.name | escape }}",
+  "description": "{{ i18n.schema_clinic_description[current_lang] | default('Diaeta consultation clinic in %s (%s) with Pierre Abou-Zeid, dietitian nutritionist. %s') | replace('%s', cabinet_city_name) | replace('%s', cabinet.name) | replace('%s', cabinet.notes | default('') | escape) }}",
+  "url": "https://diaeta.be{{ page.url }}",
+
+  {% if cabinet.address_obj %}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName | escape }}",
+    "addressLocality": "{{ cabinet.address_obj.city | escape }}",
+    "postalCode": "{{ cabinet.address_obj.postalCode | escape }}",
+    "addressRegion": "{{ cabinet.address_obj.region | escape }}",
+    "addressCountry": "{{ cabinet.address_obj.country | escape }}"
+  },
+  {% endif %}
+
+  "telephone": "+32479355551",
+  "priceRange": "50€-80€",
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+  {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+  "hasMap": "{{ cabinet.Maps_link }}",
+  {% endif %}
+
+  {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ cabinet.coordinates[0] }}",
+    "longitude": "{{ cabinet.coordinates[1] }}"
+  },
+  {% endif %}
+
+  {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+  {# Check if there are any actual slots to print before printing the key #}
+  {% set hasActualHours = false %}
+  {% for day_schedule_check in cabinet.opening_hours %}
+    {% if day_schedule_check.timeSlots and day_schedule_check.timeSlots.length > 0 %}
+      {% set hasActualHours = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hasActualHours %}
+  "openingHoursSpecification": [
+    {%- set printedOHSItemCount = 0 -%} {# Initialize counter #}
+    {%- for day_schedule in cabinet.opening_hours -%}
+      {%- for slot in day_schedule.timeSlots -%}
+        {%- if printedOHSItemCount > 0 %},{% endif -%} {# Print comma if not the first item #}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "https://schema.org/{{ day_schedule.dayOfWeekSCHEMA }}",
+          "opens": "{{ slot.opens }}",
+          "closes": "{{ slot.closes }}"
+        }
+        {%- set printedOHSItemCount = printedOHSItemCount + 1 -%}
+      {%- endfor -%}
+    {%- endfor %}
+  ],
+  {% endif %}
+  {% endif %}
+
+  "parentOrganization": {
+    "@type": "DietNutrition",
+    "@id": "https://diaeta.be#organization",
+    "name": "Diaeta"
+  },
+  "employee": {
+    "@type": "Person",
+    "@id": "https://diaeta.be{{ '/notre-expertise/' | locale_url }}#person",
+    "name": "Pierre Abou-Zeid"
+  },
+  "medicalSpecialty": "DietNutrition"
+}
+</script>
+
+{# Your BreadcrumbList schema can remain as it was, but links should be localized #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "{{ i18n.home[current_lang] | default('Home') }} Diaeta",
+    "item": "https://diaeta.be{{ '/' | locale_url }}"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "{{ i18n.our_clinics[current_lang] | default('Our Clinics') }}",
+    "item": "https://diaeta.be{{ '/cabinets-bruxelles/' | locale_url }}"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Diaeta {{ cabinet.name | escape }} ({{ cabinet_city_name | escape }})",
+    "item": "https://diaeta.be{{ page.url }}"
+  }]
+}  
+</script>

@@ -1,45 +1,46 @@
+{% set current_lang = page.lang | default('en') %}
 <footer class="footer">
     <div class="container footer-content">
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="{{ '/fr/' | url }}" class="footer-logo mb-3">
-                    <img src="{{ '/images/logo.svg' | url }}" alt="Logo Diaeta - Nutrition Personnalisée et Scientifique" style="height: 50px; width: auto;">
+                <a href="{{ '/' | locale_url }}" class="footer-logo mb-3">
+                    <img src="{{ '/images/logo.svg' | url }}" alt="{{ i18n.logo_alt[current_lang] | default('Logo Diaeta - Personalized and Scientific Nutrition') }}" style="height: 50px; width: auto;">
                 </a>
                 <p class="footer-about text-sm">
-                    Diaeta transforme votre santé grâce à des solutions nutritionnelles personnalisées, fondées sur la science, pour un bien-être durable. Nous comblons le fossé entre les connaissances médicales et vos habitudes quotidiennes.
+                    {{ i18n.footer_about[current_lang] | default('Diaeta transforms your health with personalized, science-based nutritional solutions for lasting well-being. We bridge the gap between medical knowledge and your daily habits.') }}
                 </p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook Diaeta"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram Diaeta"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn Pierre Abou-Zeid"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok Diaeta"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="{{ i18n.facebook_aria[current_lang] | default('Diaeta Facebook') }}"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="{{ i18n.instagram_aria[current_lang] | default('Diaeta Instagram') }}"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="{{ i18n.linkedin_aria[current_lang] | default('Pierre Abou-Zeid LinkedIn') }}"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="{{ i18n.tiktok_aria[current_lang] | default('Diaeta TikTok') }}"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-heading">Explorer Diaeta</h3>
+                <h3 class="footer-heading">{{ i18n.explore_diaeta[current_lang] | default('Explore Diaeta') }}</h3>
                 <ul class="footer-links">
-                    <li><a href="{{ '/fr/' | url }}" class="footer-link">Accueil</a></li>
-                    <li><a href="{{ '/fr/methode-diaeta/' | url }}" class="footer-link">La Méthode Diaeta</a></li>
-                    <li><a href="{{ '/fr/notre-expertise/' | url }}" class="footer-link">Notre Expertise</a></li>
-                    <li><a href="{{ '/fr/tarifs/' | url }}" class="footer-link">Tarifs et Modalités</a></li>
-                    <li><a href="{{ '/fr/actualites/' | url }}" class="footer-link">Actualités & Conseils</a></li>
+                    <li><a href="{{ '/' | locale_url }}" class="footer-link">{{ i18n.home[current_lang] | default('Home') }}</a></li>
+                    <li><a href="{{ '/methode-diaeta/' | locale_url }}" class="footer-link">{{ i18n.diaeta_method[current_lang] | default('The Diaeta Method') }}</a></li>
+                    <li><a href="{{ '/notre-expertise/' | locale_url }}" class="footer-link">{{ i18n.our_expertise[current_lang] | default('Our Expertise') }}</a></li>
+                    <li><a href="{{ '/tarifs/' | locale_url }}" class="footer-link">{{ i18n.tariffs_modalities[current_lang] | default('Fees and Modalities') }}</a></li>
+                    <li><a href="{{ '/actualites/' | locale_url }}" class="footer-link">{{ i18n.news_tips[current_lang] | default('News & Tips') }}</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-heading">Nos Services</h3>
+                <h3 class="footer-heading">{{ i18n.our_services[current_lang] | default('Our Services') }}</h3>
                 <ul class="footer-links">
-                    <li><a href="{{ '/fr/perte-de-poids/' | url }}" class="footer-link">Perte de Poids Durable</a></li>
-                    <li><a href="{{ '/fr/syndrome-colon-irritable-fodmap/' | url }}" class="footer-link">Syndrome Intestin Irritable (SCI)</a></li>
-                    <li><a href="{{ '/fr/diabete-type-2/' | url }}" class="footer-link">Diabète de Type 2</a></li>
-                    <li><a href="{{ '/fr/hypertension-cholesterol/' | url }}" class="footer-link">Hypertension & Cholestérol</a></li>
-                    <li><a href="{{ '/fr/tests-nutrigenetiques/' | url }}" class="footer-link">Tests Nutrigénétiques</a></li>
+                    <li><a href="{{ '/perte-de-poids/' | locale_url }}" class="footer-link">{{ i18n.weight_loss_sustainable[current_lang] | default('Sustainable Weight Loss') }}</a></li>
+                    <li><a href="{{ '/syndrome-colon-irritable-fodmap/' | locale_url }}" class="footer-link">{{ i18n.ibs_footer[current_lang] | default('Irritable Bowel Syndrome (IBS)') }}</a></li>
+                    <li><a href="{{ '/diabete-type-2/' | locale_url }}" class="footer-link">{{ i18n.diabetes_type_2[current_lang] | default('Type 2 Diabetes') }}</a></li>
+                    <li><a href="{{ '/hypertension-cholesterol/' | locale_url }}" class="footer-link">{{ i18n.hypertension_cholesterol[current_lang] | default('Hypertension & Cholesterol') }}</a></li>
+                    <li><a href="{{ '/tests-nutrigenetiques/' | locale_url }}" class="footer-link">{{ i18n.nutrigenetic_tests[current_lang] | default('Nutrigenetic Tests') }}</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-heading">Contact & RDV</h3>
+                <h3 class="footer-heading">{{ i18n.contact_appointment[current_lang] | default('Contact & Appointments') }}</h3>
                 <ul class="footer-links">
                     <li class="footer-contact-item">
                         <div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
@@ -47,24 +48,24 @@
                     </li>
                     <li class="footer-contact-item">
                         <div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div class="footer-contact-text text-sm"><a href="mailto:pierre@diaeta.be" class="footer-link" style="padding: 0;">info@diaeta.be</a></div>
+                        <div class="footer-contact-text text-sm"><a href="mailto:info@diaeta.be" class="footer-link" style="padding: 0;">info@diaeta.be</a></div>
                     </li>
-                    <li><a href="{{ '/fr/cabinets-bruxelles/' | url }}" class="footer-link"><i class="fa-solid fa-map-location-dot me-2"></i>Nos Lieux de Consultation</a></li>
-                    <li><a href="{{ '/fr/contact/' | url }}" class="footer-link"><i class="fa-solid fa-pen-to-square me-2"></i>Poser une Question</a></li>
+                    <li><a href="{{ '/cabinets-bruxelles/' | locale_url }}" class="footer-link"><i class="fa-solid fa-map-location-dot me-2"></i>{{ i18n.our_consultation_locations[current_lang] | default('Our Consultation Locations') }}</a></li>
+                    <li><a href="{{ '/contact/' | locale_url }}" class="footer-link"><i class="fa-solid fa-pen-to-square me-2"></i>{{ i18n.ask_question[current_lang] | default('Ask a Question') }}</a></li>
                 </ul>
-                <a href="{{ '/fr/rendez-vous/' | url }}" class="btn btn-accent btn-sm d-block mt-3" style="max-width: 200px;">
-                    <i class="fa-solid fa-calendar-check me-1"></i> RDV en Ligne
+                <a href="{{ '/rendez-vous/' | locale_url }}" class="btn btn-accent btn-sm d-block mt-3" style="max-width: 200px;">
+                    <i class="fa-solid fa-calendar-check me-1"></i> {{ i18n.online_booking[current_lang] | default('Online Booking') }}
                 </a>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p class="footer-copyright text-xs">
-                &copy; <span id="currentYear"></span> Diaeta. Tous droits réservés.
+                &copy; <span id="currentYear"></span> Diaeta. {{ i18n.all_rights_reserved[current_lang] | default('All rights reserved') }}.
             </p>
             <div class="footer-legal text-xs">
-                <a href="{{ '/fr/politique-de-confidentialite/' | url }}" class="footer-legal-link">Politique de Confidentialité</a>
-                <a href="{{ '/fr/mentions-legales/' | url }}" class="footer-legal-link">Mentions Légales</a>
+                <a href="{{ '/politique-de-confidentialite/' | locale_url }}" class="footer-legal-link">{{ i18n.privacy_policy[current_lang] | default('Privacy Policy') }}</a>
+                <a href="{{ '/mentions-legales/' | locale_url }}" class="footer-legal-link">{{ i18n.legal_notice[current_lang] | default('Legal Notice') }}</a>
             </div>
         </div>
     </div>
