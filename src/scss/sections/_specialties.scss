@@ -1,0 +1,74 @@
+// SCSS Partials: Sections - Specialties Section
+
+@use 'sass:list';
+@use 'sass:color';
+
+.specialties-section {
+  padding: $space-9 0; // Use SCSS var, was var(--space-9)
+  background-color: $neutral-50; // Use SCSS var
+  position: relative;
+  overflow: hidden; // For pseudo-elements
+
+  // Decorative pseudo-elements
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0; // Behind content
+  }
+
+  &::before {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    right: -200px;
+    background: radial-gradient(
+      circle,
+      rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.05),
+      transparent 70%
+    );
+  }
+
+  &::after {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    left: -150px;
+    background: radial-gradient(
+      circle,
+      rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.05),
+      transparent 70%
+    );
+  }
+}
+
+// .section-header, .section-badge, .section-title, .section-subtitle
+// are general styles and should be in _base.scss, _typography.scss or a _section-header.scss component.
+// For now, assuming they are globally available or will be refactored into a common component.
+
+.specialties-grid { // BEM: .specialties-section__grid
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-6; // Was 2rem
+
+  @media (max-width: 1023px) { // Tablet
+    grid-template-columns: 1fr;
+    max-width: 600px; // Center single column content
+    margin: 0 auto;
+  }
+  // Mobile (single column by default if above is not met, or explicit 1fr)
+}
+
+// .specialty-card styles are in components/_specialty-card.scss
+// .list-styled-check styles could be a utility in _utilities.scss or kept with typography if specific enough.
+// For now, assuming .list-styled-check is available or will be added to utilities.
+
+// Responsive adjustments for the section itself (padding handled by .section in _base.scss)
+@media (max-width: 767px) {
+  // .specialties-section padding already handled by general .section media query in _base.scss
+
+  // .section-header margin-bottom already responsive if using general .section-header
+  // .section-title font-size already responsive from _typography.scss
+  // .section-subtitle font-size already responsive from _typography.scss
+}

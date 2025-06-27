@@ -1,0 +1,316 @@
+// SCSS Partials: Components - Clinic Card
+// Specific styles for .clinic-card found within .clinic-finder-section
+
+@use 'sass:list';
+@use 'sass:color';
+
+.clinic-card { // This might be a BEM block like .clinic-finder__card or a more generic .info-card variant
+  background-color: white;
+  border-radius: $border-radius-md; // Using SCSS var, was 12px
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); // Direct value, can be $box-shadow-sm or similar
+  padding: $space-5; // Was 1.5rem
+  height: 100%; // For equal height in grids/flex containers
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  border-left: 3px solid $primary-500; // Use SCSS var
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); // Could be $box-shadow-md or lg
+  }
+
+  // Decorative top border effect on hover
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, $primary-500, $accent-500); // Use SCSS vars
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .clinic-name { // BEM: .clinic-card__name
+    font-size: var(--text-xl); // Was 1.25rem
+    margin-bottom: $space-2; // Was 0.5rem
+    color: $primary-500;
+    line-height: $leading-tight; // Was 1.3
+    font-weight: $font-semibold; // Was 600
+    transition: color 0.3s ease;
+  }
+
+  &:hover .clinic-name {
+    color: $primary-600; // Darker on hover
+  }
+
+  .clinic-meta { // BEM: .clinic-card__meta
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-3; // Was 0.75rem
+  }
+
+  .clinic-neighborhood { // BEM: .clinic-card__neighborhood or .tag
+    display: inline-block;
+    padding: $space-1 $space-3; // Was 0.35rem 0.75rem
+    background-color: rgba(list.nth($secondary-rgb,1), list.nth($secondary-rgb,2), list.nth($secondary-rgb,3), 0.1); // Use SCSS var $secondary-rgb
+    color: $secondary-500; // Use SCSS var
+    border-radius: $border-radius-pill;
+    font-size: var(--text-xs); // Was 0.85rem
+    font-weight: $font-medium;
+  }
+
+  .clinic-address { // BEM: .clinic-card__address
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3; // Was 0.75rem
+    margin-bottom: $space-4; // Was 1rem
+    color: $text-secondary; // Use SCSS var
+    font-size: var(--text-sm); // Was 0.95rem
+
+    i { // Icon styling
+      color: $secondary-500; // Use SCSS var for icon color
+      font-size: 1rem; // Keep explicit or use var(--text-base)
+      margin-top: 0.2em; // Fine-tune alignment
+    }
+  }
+
+  .availability-week { // BEM: .clinic-card__availability-week or .availability-indicators
+    display: flex;
+    gap: $space-1; // Was 0.25rem
+    margin-bottom: $space-4; // Was 1rem
+    // Consider flex-wrap: wrap; if many days shown
+  }
+
+  .day-indicator { // BEM: .availability-indicators__day
+    width: 24px; // Could be a variable
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem; // Very small, ensure readability
+    font-weight: $font-semibold; // Was 600
+    background-color: rgba(0, 0, 0, 0.05);
+    color: $text-tertiary; // Was #757575
+
+    &.available { // BEM: .availability-indicators__day--available
+      background-color: rgba(list.nth($accent-rgb,1), list.nth($accent-rgb,2), list.nth($accent-rgb,3), 0.2);
+      color: $accent-700;
+    }
+  }
+
+  .clinic-schedule { // BEM: .clinic-card__schedule or .schedule-tags
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2; // Was 0.5rem
+    margin-bottom: $space-5; // Was 1.5rem
+    margin-top: auto; // Pushes to bottom if card body is flex-grow
+  }
+
+  .schedule-badge { // BEM: .schedule-tags__tag or .tag .tag--schedule
+    padding: $space-1 + pxToRem(2px) $space-3; // Was 0.4rem 0.75rem. pxToRem is hypothetical.
+    background-color: rgba(list.nth($accent-rgb,1), list.nth($accent-rgb,2), list.nth($accent-rgb,3), 0.1);
+    color: $accent-700;
+    border-radius: $border-radius-pill;
+    font-size: var(--text-xs); // Was 0.85rem
+    font-weight: $font-medium;
+    transition: all $transition-standard;
+
+    &:hover {
+      background-color: rgba(list.nth($accent-rgb,1), list.nth($accent-rgb,2), list.nth($accent-rgb,3), 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  .clinic-book-btn { // This is a .btn, should use button component styles primarily
+    // @extend .button--primary; // Or .button--accent depending on desired color
+    // The original used $primary-500, so it's like a primary button
+    // The following are overrides or specific styles if not fully covered by button component
+    display: flex; // from .btn
+    align-items: center; // from .btn
+    justify-content: center; // from .btn
+    gap: $space-2; // Was 0.5rem, from .btn
+    padding: $space-3 $space-4; // Was 0.75rem 1rem
+    background-color: $primary-500;
+    color: white;
+    border-radius: $border-radius-sm; // Was 8px
+    text-decoration: none;
+    text-align: center;
+    font-weight: $font-medium;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 10px rgba(list.nth($primary-rgb,1), list.nth($primary-rgb,2), list.nth($primary-rgb,3), 0.2);
+
+    &:hover {
+      background-color: $primary-600;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(list.nth($primary-rgb,1), list.nth($primary-rgb,2), list.nth($primary-rgb,3), 0.3);
+      color: white;
+    }
+
+    i {
+      font-size: 0.9rem;
+    }
+  }
+
+  // Responsive adjustments for clinic-card itself
+  @media (max-width: 991px) {
+    padding: $space-4; // Was 1.25rem
+    .clinic-name {
+      font-size: var(--text-lg); // Was 1.15rem
+    }
+  }
+  @media (max-width: 767px) {
+    // max-width: calc(100% - 20px); // Already handled by container generally
+    // margin: $space-2 auto; // If it needs to be centered as a block
+  }
+   @media (max-width: 575px) {
+    padding: $space-3; // was 1.25rem, but $space-4 might be too much for very small
+    .clinic-name { font-size: var(--text-base); } // was 1.1rem
+    .schedule-badge { padding: $space-1 + pxToRem(1px) $space-2; font-size: 0.8rem; } // was 0.35rem 0.75rem
+    .clinic-book-btn { padding: $space-2 $space-3; font-size: 0.9rem; } // was 0.6rem 1rem
+    .availability-week { justify-content: center; }
+    .day-indicator { width: 22px; height: 22px; font-size: 0.65rem; }
+    .clinic-address { font-size: var(--text-xs); } // was 0.9rem
+  }
+
+  &.filtered-in { // Animation for when card is filtered in
+    animation: artistic-card-reveal 0.4s forwards; // Using existing animation
+  }
+}
+
+// Styles for the clickable clinic name and info icon in clinic cards
+// (assuming this structure is within .clinic-card or similar)
+.clinic-name-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $accent-600;
+  }
+
+  &:hover .clinic-info-icon { // Target icon on link hover
+    color: $accent-600;
+  }
+}
+
+.clinic-info-icon {
+  margin-left: 0.35rem;
+  font-size: 0.8em;
+  color: $neutral-500;
+  transition: color 0.3s ease;
+}
+
+
+// Styles for .cabinet-explorer-card from cabinets-bruxelles page
+// This is a distinct card type, should be its own component or a variant
+.cabinet-explorer-card {
+  background-color: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+  margin-bottom: $space-5; // 1.5rem
+  transition: all $transition-standard;
+  border: 1px solid $neutral-200;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-md;
+  }
+
+  &.active { // When this card is selected/active (e.g., map interaction)
+    box-shadow: $box-shadow-lg;
+    border-color: $primary-500;
+  }
+
+  .card-content-wrapper { // Inner wrapper for padding
+    padding: $space-4; // 1.25rem
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-header { // Header part of the card
+    margin-bottom: $space-3; // 0.75rem
+  }
+
+  .card-name { // Name of the cabinet
+    font-family: $font-display, serif;
+    font-size: var(--text-xl); // 1.3rem
+    color: $primary-600;
+    margin-bottom: $space-1; // 0.25rem
+    font-weight: $font-bold;
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        color: $accent-600;
+      }
+    }
+  }
+
+  .card-city { // City/neighborhood
+    font-size: var(--text-xs); // 0.85rem
+    font-weight: $font-medium;
+    color: $text-secondary; // Use theme variable
+    margin-bottom: 0;
+  }
+
+  .card-body-content { // Main content area of the card
+    flex-grow: 1;
+    font-size: var(--text-sm); // 0.9rem
+    color: $text-secondary;
+    line-height: $leading-relaxed; // 1.6
+
+    p {
+      margin-bottom: $space-2; // 0.5rem
+      display: flex;
+      align-items: flex-start;
+      i.fas, i.fa-solid { // Icons within paragraphs
+        margin-right: 0.6em;
+        margin-top: 0.2em;
+        color: $primary-300;
+        width: 1em;
+      }
+    }
+  }
+
+  .card-notes { // Specific notes section
+    background-color: $neutral-50;
+    padding: $space-2 $space-3; // 0.5rem 0.75rem
+    border-radius: $border-radius-sm;
+    margin-top: $space-2; // 0.5rem
+    font-style: italic; // As per original
+  }
+
+  .card-footer-actions { // Footer containing buttons
+    margin-top: $space-4; // 1rem
+    padding-top: $space-4; // 1rem
+    border-top: 1px solid $neutral-200;
+    display: flex;
+    gap: $space-3; // 0.75rem
+    justify-content: space-between;
+
+    .btn { // Styling for buttons within this footer
+      font-size: 0.8rem;
+      padding: $space-1 + pxToRem(2px) $space-3; // ~0.4rem 0.8rem
+      flex-grow: 1;
+      text-align: center;
+      i {
+        font-size: 0.8em; // Relative to button font size
+      }
+    }
+  }
+}

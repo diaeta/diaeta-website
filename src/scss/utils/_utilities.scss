@@ -1,0 +1,48 @@
+// SCSS Partials: Utilities
+
+// Spacing Utilities (using SCSS variables for values)
+.mt-1 { margin-top: $space-1 !important; }
+.mt-2 { margin-top: $space-2 !important; }
+.mt-3 { margin-top: $space-3 !important; }
+.mt-4 { margin-top: $space-4 !important; }
+.mt-5 { margin-top: $space-5 !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: $space-1 !important; }
+.mb-2 { margin-bottom: $space-2 !important; }
+.mb-3 { margin-bottom: $space-3 !important; }
+.mb-4 { margin-bottom: $space-4 !important; }
+.mb-5 { margin-bottom: $space-5 !important; }
+
+.p-4 { padding: $space-4 !important; }
+.py-5 { padding-top: $space-5 !important; padding-bottom: $space-5 !important; }
+
+// Text Color & Background Utilities
+.text-primary {
+  color: $primary-500 !important; // Use SCSS variable
+}
+.text-accent {
+  color: $accent-500 !important; // Use SCSS variable
+}
+.text-muted {
+  color: $text-secondary !important; // Use SCSS variable for semantic meaning
+}
+.bg-light {
+  background-color: white !important; // Original was white, $neutral-50 or $body-bg could be alternatives
+}
+
+// Shadow Utilities
+.shadow-sm {
+  box-shadow: $box-shadow-sm !important; // Use SCSS variable
+}
+
+// Responsive Spacing Utilities (from original file)
+@media (max-width: 767px) {
+  .p-4 {
+    padding: $space-3 !important;
+  }
+  .py-5 {
+    padding-top: $space-4 !important;
+    padding-bottom: $space-4 !important;
+  }
+}

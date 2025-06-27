@@ -1,0 +1,111 @@
+// Base SCSS Styles (html, body, global resets, box-sizing)
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  // Ensure no unexpected global borders or outlines
+  border: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  outline: none !important;
+}
+
+body {
+  font-family: $font-primary; // Use SCSS variable
+  font-size: var(--text-base); // Use CSS variable (defined in _variables.scss)
+  background-color: $body-bg; // Use SCSS variable
+  color: $text-primary;       // Use SCSS variable
+  line-height: var(--leading-normal); // Use CSS variable
+}
+
+// Remove pseudo-elements that might cause issues (like header lines)
+body::before,
+body::after,
+html::before,
+html::after {
+  display: none !important;
+  content: none !important;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; // Common reset for images
+}
+
+a {
+  color: $primary-500; // Use SCSS variable
+  text-decoration: none;
+  transition: $transition-standard; // Use SCSS variable
+}
+
+a:hover {
+  color: $primary-600; // Use SCSS variable
+}
+
+// Global box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Basic accessibility skip link (already in style.css, ensure it's styled appropriately later)
+.skip-link {
+  position: absolute;
+  top: -100px; // Initially hidden way off-screen
+  left: 0;
+  background: $primary-500;
+  color: white;
+  padding: $space-3 $space-4; // Use SCSS spacing variables
+  z-index: 10000; // High z-index
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+// General section padding (can be overridden by specific sections)
+.section {
+  padding: $space-8 0; // Use SCSS spacing variables
+  position: relative; // For pseudo-elements or positioned children
+  // overflow: hidden; // Might be too aggressive globally, apply per section if needed
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: $space-6 0;
+  }
+}
+
+// Basic container (similar to existing, now using SCSS vars)
+.container {
+  width: 100%;
+  max-width: 1280px; // This could be a variable too, e.g., $container-max-width
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $space-4; // Use SCSS spacing variables
+  padding-left: $space-4;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-right: $space-5;
+    padding-left: $space-5;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding-left: $space-4; // Ensure consistent padding on mobile
+    padding-right: $space-4;
+    // width: 100%; // Already 100% by default
+    box-sizing: border-box;
+  }
+}

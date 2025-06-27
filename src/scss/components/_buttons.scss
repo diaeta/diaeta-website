@@ -1,0 +1,263 @@
+@use 'sass:list'; // Import the sass:list module
+@use 'sass:color'; // Import the sass:color module for color.adjust
+
+// SCSS Partials: Components - Buttons
+
+// Base .btn styles (from original style.css, to be refactored with BEM-like conventions)
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-5); // Using CSS var, could be SCSS var too
+  border-radius: var(--border-radius-pill);
+  font-weight: $font-medium; // Using SCSS var
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-standard; // Using SCSS var
+  border: 2px solid transparent;
+  line-height: var(--leading-snug); // Using CSS var
+  text-decoration: none;
+  gap: $space-2; // Using SCSS var
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px); // Original was -4px, but -2px is common too. Let's stick to original.
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-ring); // CSS var for focus ring
+  }
+
+  // Ripple/click effect
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 0;
+    padding-bottom: 120%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: 0s;
+  }
+}
+
+.btn-icon {
+  width: 1.25em;
+  height: 1.25em;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon-right { // This selector might cause `no-descending-specificity` if .btn-icon-right is defined later.
+  transform: translateX(4px);
+}
+
+
+// Primary Button
+// BEM: .button--primary
+.btn-primary,
+.button--primary { // Adding BEM alternative
+  background-color: $primary-500;
+  color: white;
+  box-shadow: 0 2px 8px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.3);
+
+  &:hover,
+  &:focus {
+    background-color: $primary-600;
+    color: white;
+    transform: translateY(-2px); // Original was -2px for primary hover
+    box-shadow: 0 4px 12px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.3);
+  }
+}
+
+// Secondary Button (Original was using Primary color, this should be fixed to use secondary colors)
+// BEM: .button--secondary
+.btn-secondary,
+.button--secondary {
+  background-color: $secondary-500; // Corrected to use secondary color
+  color: white;
+  box-shadow: 0 2px 8px rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.3);
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-600; // Corrected
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.4);
+    // border-color: $secondary-500; // If it had a border
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.3);
+  }
+}
+
+// Accent Button
+// BEM: .button--accent
+.btn-accent,
+.button--accent {
+  background-color: $accent-500;
+  color: white;
+  box-shadow: 0 2px 8px rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.3);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-600;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.4);
+  }
+}
+
+// Outline Button (Original targeted .btn-outline with white text)
+// BEM: .button--outline-primary (assuming it's primary outline)
+// Let's make a generic .btn-outline and then specific versions
+.btn-outline,
+.button--outline {
+  background-color: transparent;
+  // Default outline, can be overridden by specific color modifiers
+  border-color: $primary-500;
+  color: $primary-500;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(color.adjust($primary-500, $lightness: 40%, $saturation: -20%), 0.1); // Lighter version of primary
+    color: $primary-600;
+    border-color: $primary-600;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background-color: rgba(color.adjust($primary-500, $lightness: 30%, $saturation: -15%), 0.15);
+  }
+}
+
+// Specific outline for hero section that was white on dark background
+// This might need to be .btn-outline-light or similar.
+// For now, I'll assume the original .btn-outline was for the hero.
+// If this was the only .btn-outline, it needs context or a modifier.
+// Let's assume it was for primary accent color:
+.btn-outline.hero-specific-outline, // Example of making it more specific if needed
+.button--outline-accent { // BEM version
+  border-color: $accent-500;
+  color: $accent-500; // Text color on transparent bg
+
+  // If used on dark background, text color might need to be light initially
+  // This requires context. The original CSS had:
+  // color: white; border-color: rgba(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0.1);
+  // So it was a light outline button.
+
+  &:hover,
+  &:focus {
+    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.05);
+    color: $accent-600;
+    border-color: $accent-600;
+  }
+   &:active {
+    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.1);
+  }
+}
+
+
+// Button Sizes
+// BEM: .button--large, .button--small
+.btn-lg,
+.button--large {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-lg);
+  min-height: 3.5rem; // Ensure this is defined if not using Bootstrap's Reboot/Base
+}
+
+.btn-sm, // Assuming there might be a small button, not in original root definition but good practice
+.button--small {
+  padding: $space-2 $space-3;
+  font-size: var(--text-sm);
+  // min-height needs to be considered for small buttons too
+}
+
+
+// Responsive styles for buttons
+@media (max-width: 767px) {
+  .btn,
+  .button { // Generic button class for BEM
+    // padding: $space-3 $space-4; // Original had this, but might make buttons too small if text is long
+    // width: 100%; // This makes all buttons full-width on mobile. Consider if this is desired for all.
+    // justify-content: center;
+    // max-width: 250px; // This contradicts width: 100% if container is larger.
+    // margin-left: auto; // Only if centered and not full-width
+    // margin-right: auto; // Only if centered and not full-width
+  }
+
+  .btn-primary, .button--primary,
+  .btn-secondary, .button--secondary {
+    // box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); // Original had this
+  }
+
+  .btn-lg,
+  .button--large {
+    // padding: $space-3 $space-5; // Original
+  }
+}
+
+// Specific button instances from header/hero if they need special care beyond variants
+.header-cta { // This is very specific, might stay in _header.scss
+  // Inherits .btn and .btn-secondary (which was actually teal)
+  // The original .btn-secondary used for header-cta was teal.
+  // My corrected .btn-secondary is coral.
+  // So, header-cta needs to be .btn-primary or a new variant .btn-teal
+  // For now, let's assume it should be primary:
+  @extend .button--primary; // Or create a specific mixin/variant
+  font-weight: $font-medium; // Already on .btn
+  padding: $space-2 $space-4; // Override default .btn padding
+  // box-shadow: 0 4px 12px rgba($secondary-rgb, 0.2); // This was coral shadow
+  box-shadow: 0 4px 12px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.2); // Changed to primary shadow
+
+  &:hover {
+    // background-color: $secondary-600; // Original coral hover
+    background-color: $primary-600; // Changed to primary hover
+    // transform: translateY(-2px); // from .btn:hover
+    // box-shadow: 0 6px 16px rgba($secondary-rgb, 0.3); // Original coral shadow
+    box-shadow: 0 6px 16px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.3); // Changed to primary shadow
+  }
+}
+
+.mobile-cta { // Also specific, might stay in _header.scss
+  @extend .button--secondary; // Uses the corrected (coral) .btn-secondary
+  margin-top: $space-2;
+  // color: white !important; // This was in original, ensure it's not needed if text color is correct
+}
+
+.pulse-animation { // Utility, could go to _utilities.scss
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { // Belongs with pulse-animation
+  0% {
+    box-shadow: 0 0 0 0 rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.6); // Use SCSS var for color
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0);
+  }
+}

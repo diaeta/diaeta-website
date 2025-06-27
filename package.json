@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "compile:sass": "sass src/scss/style.scss src/css/style.css",
+    "watch:sass": "sass --watch src/scss/style.scss src/css/style.css",
+    "start": "npm run compile:sass && npx @11ty/eleventy --serve",
+    "build": "npm run compile:sass && npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "luxon": "^3.6.1",
+    "sass": "^1.89.2",
     "slugify": "^1.6.6",
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0"

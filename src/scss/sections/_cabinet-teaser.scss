@@ -1,0 +1,63 @@
+// SCSS Partials: Sections - Cabinet Teaser
+
+@use 'sass:list';
+@use 'sass:color';
+
+.cabinet-teaser-section { // BEM: .cabinet-teaser
+  // Assuming .section class from _base.scss handles main padding
+  // background-color: $neutral-100; // Or a specific color if needed
+
+  .section-header { // General .section-header styles apply
+    // Specific overrides for this section's header if any
+    .section-badge {
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      color: $primary-600;
+    }
+    .section-title {
+      color: $primary-700;
+    }
+    .section-subtitle {
+      color: $text-secondary;
+      max-width: 750px; // From original
+    }
+  }
+
+  .teaser-highlights { // BEM: .cabinet-teaser__highlights
+    margin: $space-6 auto; // Was 2.5rem
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-6; // Was 2rem
+    flex-wrap: wrap;
+    max-width: 800px; // From original
+
+    .highlight-item { // BEM: .cabinet-teaser__highlight-item
+      display: flex;
+      align-items: center;
+      gap: $space-3; // Was 0.75rem
+      color: $primary-600;
+
+      i { // Icon styling
+        font-size: 2em; // Relative to text size
+        color: $accent-500;
+      }
+      span {
+        font-size: var(--text-lg); // Was 1.1rem
+        font-weight: $font-medium;
+      }
+    }
+  }
+
+  .lead { // Lead paragraph specific to this teaser
+    max-width: 700px;
+    margin: 0 auto $space-6; // Was 2.5rem bottom margin
+    color: $text-secondary;
+    // font-size and line-height from global .lead if defined, or set here
+  }
+
+  // CTA button at the bottom
+  // Assuming it uses .btn, .btn-primary, .btn-lg from _buttons.scss
+  // .btn-primary.btn-lg {
+  //    i.ms-2 { margin-left: $space-2; } // If using Bootstrap margin class
+  // }
+}

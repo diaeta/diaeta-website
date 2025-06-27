@@ -1,0 +1,252 @@
+// SCSS Partials: Components - Specialty Card
+
+@use 'sass:list';
+@use 'sass:color';
+
+// .specialty-card is a more specific type of card, can extend a base .c-card if defined
+.specialty-card {
+  // Assuming a base .c-card might provide some of these, like border-radius, box-shadow, basic flex setup
+  // For now, defining fully here based on original CSS.
+  position: relative;
+  height: 100%;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $box-shadow-sm;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer; // If the whole card is a link or triggers something
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $box-shadow-lg;
+  }
+
+  &:active { // Added from original, though not explicitly in the provided CSS block
+    transform: translateY(-5px);
+  }
+}
+
+.specialty-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9; // Good for consistent image sizing
+
+  .specialty-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .specialty-card:hover & .specialty-image { // Corrected nesting for hover effect
+    transform: scale(1.05);
+  }
+}
+
+.specialty-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+  transition: background 0.3s ease;
+
+  .specialty-card:hover & {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+  }
+}
+
+.specialty-category { // This is a tag/badge
+  position: absolute;
+  top: $space-4; // 1rem
+  left: $space-4; // 1rem
+  background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.9);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: $font-medium;
+  padding: $space-1 + pxToRem(1.5px) $space-3; // Approx 0.35rem 0.75rem
+  border-radius: $border-radius-pill;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.specialty-content {
+  padding: $space-5; // 1.5rem
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.specialty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px; // Not fully round, more like squircle
+  background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+  color: $primary-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: $space-4; // 1rem
+  margin-top: -$space-6; // -2.5rem (56px/2 + some overlap from padding = -28px - 1.5rem(24px)/2 = -40px which is 2.5rem)
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all $transition-standard;
+
+  .specialty-card:hover & {
+    transform: scale(1.1) rotate(5deg);
+    background-color: $primary-500;
+    color: white;
+  }
+}
+
+.specialty-title {
+  font-size: var(--text-2xl); // Was 1.5rem, using responsive var
+  margin-bottom: $space-3; // 0.75rem
+  font-weight: $font-bold; // 700
+  color: $primary-600;
+  line-height: $leading-tight; // 1.3
+  transition: color $transition-standard;
+
+  .specialty-card:hover & {
+    color: $primary-500;
+  }
+}
+
+.specialty-description {
+  color: $text-secondary;
+  margin-bottom: $space-5; // 1.5rem
+  line-height: $leading-relaxed; // 1.6
+  font-size: var(--text-sm); // 0.95rem
+  flex-grow: 1; // Push footer down
+
+  // Styling for lists within description if any
+  ul, ol {
+    padding-left: $space-5; // Indent lists further
+    text-align: left; // Ensure lists are left-aligned even if card text is centered
+    margin-bottom: $space-3;
+    li {
+      margin-bottom: $space-2;
+    }
+  }
+   // For specific text highlights within description
+  .text-highlight-primary { color: $primary-600; font-weight: $font-semibold;}
+  .text-highlight-accent { color: $accent-600; font-weight: $font-semibold;}
+  .text-highlight-secondary { color: $secondary-600; font-weight: $font-medium;}
+
+  em { font-style: italic; }
+  strong { font-weight: $font-bold; }
+}
+
+.specialty-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3; // 1rem
+  margin-bottom: $space-5; // 1.5rem
+  padding-top: $space-2; // 0.5rem
+  border-top: 1px solid rgba(list.nth($neutral-200-rgb,1),list.nth($neutral-200-rgb,2),list.nth($neutral-200-rgb,3), 0.5);
+
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(list.nth($primary-rgb,1), list.nth($primary-rgb,2), list.nth($primary-rgb,3), 0.05);
+    padding: $space-3; // 0.75rem
+    border-radius: $border-radius-md;
+    flex: 1; // Distribute space
+    min-width: 80px; // Prevent extreme squishing
+    transition: all $transition-standard;
+
+    .specialty-card:hover & {
+      background-color: rgba(list.nth($primary-rgb,1), list.nth($primary-rgb,2), list.nth($primary-rgb,3), 0.1);
+    }
+  }
+
+  .stat-value {
+    font-weight: $font-bold; // 700
+    color: $primary-500;
+    font-size: var(--text-xl); // 1.25rem
+    // data-target attribute is for JS animation, not SCSS
+  }
+
+  .stat-label {
+    font-size: var(--text-xs); // 0.75rem
+    color: $text-secondary;
+    text-align: center;
+  }
+}
+
+.specialty-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // Pushes button to one side if there was other content
+  margin-top: auto; // Stick to bottom
+}
+
+.learn-more-btn { // This is a .btn
+  @extend .button--primary; // Or a specific variant mixin
+  // Ensure it inherits .btn base styles as well if not using @extend on .btn directly
+  // For now, assuming .button--primary (which extends .btn implicitly or via HTML) covers it
+  padding: $space-3 $space-4; // 0.75rem 1.25rem
+  font-size: var(--text-sm); // 0.95rem
+
+  i {
+    transition: transform 0.3s ease;
+  }
+  &:hover i {
+    transform: translateX(4px);
+  }
+}
+
+// Responsive for specialty card
+@media (max-width: 1023px) { // Tablet
+  // .specialties-grid is 1fr, so card is full width of its container
+  .specialty-content {
+    padding: $space-4; // 1.25rem
+  }
+  .specialty-title {
+    font-size: var(--text-xl); // 1.35rem
+  }
+}
+
+@media (max-width: 767px) { // Mobile
+  // .specialty-card max-width: 450px; margin: 0 auto; (This would be on .specialties-grid > *)
+  .specialty-media {
+    aspect-ratio: 3 / 2; // More square-ish on mobile
+  }
+  .specialty-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-top: -($space-6 - $space-1); // Approx -1.75rem
+  }
+  .specialty-title {
+    font-size: var(--text-lg); // 1.25rem
+  }
+  .specialty-description {
+    font-size: var(--text-xs); // 0.9rem
+  }
+  .specialty-stats {
+    gap: $space-2; // 0.5rem
+  }
+  .stat-item {
+    padding: $space-2; // 0.5rem
+  }
+  .stat-value {
+    font-size: var(--text-lg); // 1.1rem
+  }
+  .learn-more-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .specialty-footer {
+    flex-direction: column;
+    gap: $space-3;
+  }
+}

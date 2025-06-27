@@ -1,0 +1,356 @@
+// SCSS Partials: Sections - Genetic Testing (Homepage Teaser & Page)
+
+@use 'sass:list';
+@use 'sass:color';
+
+// Styles for the genetic testing teaser section on the homepage (id="genetic-testing")
+.genetic-section { // BEM: .genetic-testing (used as ID on homepage, class on page)
+  // background-color: $primary-50; // From original inline style, use SCSS var
+  // padding: $space-8 0; // Assuming .section class handles this, or set here if unique
+  position: relative; // For pseudo-elements
+  overflow: hidden;
+
+  &.section { // If it also has the generic .section class
+    background-color: $primary-50; // Explicitly set for this section variant
+  }
+
+  // Pseudo-elements from original CSS for this section (if different from others)
+  // Or rely on global section pseudo-elements if they are consistent.
+  // For now, assuming they might be unique or need slight variation.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  &::before { // Example, adjust values from original if they differ
+    width: 300px; height: 300px; top: -100px; right: -100px;
+    background: radial-gradient(circle, rgba(list.nth($accent-rgb,1),list.nth($accent-rgb,2),list.nth($accent-rgb,3), 0.15), transparent 70%);
+  }
+  &::after {
+    width: 550px; height: 550px; bottom: -50px; left: -50px;
+    background: radial-gradient(circle, rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.08), transparent 70%);
+  }
+
+  // Section header specific to this teaser
+  .section-header.text-start { // Modifier for left-aligned header
+    margin-bottom: $space-6; // Was mb-4
+    .section-tagline { // BEM: .badge or .genetic-testing__tagline
+      background-color: rgba(list.nth($accent-rgb,1),list.nth($accent-rgb,2),list.nth($accent-rgb,3), 0.15);
+      color: $accent-700; // Was --accent-700
+      // Other badge styles (padding, border-radius) from general .section-badge or here
+      display: inline-block;
+      padding: $space-1 + pxToRem(1.6px) $space-4; // 0.35rem 1rem
+      border-radius: $border-radius-pill; // 30px
+      font-weight: $font-semibold; // 600
+      font-size: 0.95rem; // Explicit
+      margin-bottom: $space-4; // 1rem
+    }
+    .section-title { // BEM: .genetic-testing__title
+      // font-size: var(--text-3xl); // Was 2.2rem, using responsive var
+      text-align: left; // Override default center
+      padding-bottom: $space-2; // 0.5rem
+      margin-bottom: $space-3; // From original .mb-3
+      &::after { display: none; } // Remove centered underline if present from global .section-title
+    }
+    .section-subtitle.text-start { // BEM: .genetic-testing__subtitle
+      max-width: none; // Override general .section-subtitle max-width
+      text-align: left;
+    }
+  }
+
+  // Text content within the teaser
+  p.mb-3, p.mb-4 { // General paragraphs in this section
+    // font-size, line-height from base <p>
+  }
+
+  ul.list-styled-check.small.mb-4 { // BEM: .feature-list .feature-list--small or specific
+    // font-size: var(--text-sm); // From .small
+    margin-bottom: $space-6 !important; // mb-4
+    li {
+      // Styles for list items, icon handled by .list-styled-check utility
+      strong.text-primary { color: $primary-500 !important; }
+      strong.text-accent { color: $accent-500 !important; }
+      strong.text-secondary { color: $secondary-500 !important; }
+    }
+  }
+
+  .cta-equal-width-group { // Utility class
+    // display: flex; gap: $space-3; flex-wrap: wrap; // From original, if this class is defined in _utilities.scss
+    .btn.cta-genetic-test { // BEM: .button .button--genetic-test-cta
+      // flex-grow: 1; flex-basis: 0; text-align: center; justify-content: center; // From original
+      // Specific styling for these buttons if not covered by .btn-primary and .btn-outline-accent
+      &.btn-primary { @extend .button--primary; } // Ensure it gets base + primary styles
+      &.btn-outline-accent { @extend .button--outline-accent; } // Ensure it gets base + outline accent styles
+      i { margin-right: $space-2; }
+    }
+  }
+
+  .intro-visual { // BEM: .genetic-testing__visual
+    display: inline-block; // From original
+    margin-top: $space-4; // 1rem
+    max-width: 320px; // From original
+    text-align: center; // Center the image and caption if they are inline-block
+
+    .dna-animation { // BEM: .dna-animation (could be its own component)
+      position: relative;
+      // width: 100%; // from original, but max-width on parent constrains
+      // max-width: 300px; // from original
+      // height: 400px; // from original, but image will define this better
+      // margin: 0 auto; // from original
+      // perspective: none; // From original override
+
+      .dna-image { // BEM: .dna-animation__image
+        // width: 100%; height: 100%; object-fit: contain; opacity: 0.9; // from original
+        // animation: none; // From original override
+        border: 3px solid $primary-100;
+        display: block; // from original inline style
+        margin-left: auto; // from original inline style
+        margin-right: auto; // from original inline style
+        // border-radius: $border-radius-sm; // from .rounded
+        // box-shadow: $box-shadow-sm; // from .shadow-sm
+      }
+    }
+    .text-muted.fst-italic.text-sm.mt-3 { // Caption text
+      // font-style: italic; // from fst-italic
+      // font-size: var(--text-sm); // from text-sm
+      // margin-top: $space-3; // from mt-3
+      // color: $text-muted; // from text-muted
+    }
+  }
+}
+
+// Styles specific to the /tests-nutrigenetiques/ page (if different from teaser)
+// This assumes .genetic-test-card is the primary component on that page.
+.genetic-test-card {
+  // This was partially defined in _cards.scss or needs to be fully defined here or in its own component file.
+  // For now, assuming common card base from _cards.scss and adding specifics.
+  // @extend .c-card; // If a generic card base exists
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid $neutral-200; // SCSS var
+
+  .card-header { // BEM: .genetic-test-card__header
+    border-bottom: 1px solid $neutral-200;
+    padding-bottom: $space-5; // 1.5rem
+    // text-align: center; // from original .test-card in style.css
+  }
+
+  .card-icon { // BEM: .genetic-test-card__icon
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-bottom: $space-4; // 1rem
+    border-radius: 50%; // from original .test-card .card-icon
+    display: flex; // from original
+    align-items: center; // from original
+    justify-content: center; // from original
+    margin-left: auto; // from original
+    margin-right: auto; // from original
+     // Specific background/color for different test types:
+    &.health-card { background: linear-gradient(135deg, rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3),0.1), rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3),0.2)); color: $primary-500; }
+    &.sport-card { background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.2)); color: #3b82f6; } // Direct color value
+    &.fertility-card { background: linear-gradient(135deg, rgba(list.nth($secondary-rgb,1),list.nth($secondary-rgb,2),list.nth($secondary-rgb,3),0.1), rgba(list.nth($secondary-rgb,1),list.nth($secondary-rgb,2),list.nth($secondary-rgb,3),0.2)); color: $secondary-500; }
+  }
+
+  // h3 for card title - general h3 styles apply
+  // .price-tag styles (if this is a distinct component)
+
+  .card-body { // BEM: .genetic-test-card__body
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .target-audience-intro { // BEM: .genetic-test-card__audience-intro
+    font-size: 0.9rem; // Explicit
+    color: $text-secondary;
+    margin-bottom: $space-4; // 1rem
+  }
+
+  .benefits-title { // BEM: .genetic-test-card__benefits-title
+    font-size: 1.05rem; // Explicit
+    color: $primary-600;
+    font-weight: $font-semibold; // 600
+    margin-bottom: $space-3; // 0.75rem
+  }
+
+  .gene-analysis { // BEM: .gene-analysis-list (could be a component)
+    margin-bottom: $space-4; // 1rem
+    padding-left: 0;
+    list-style: none;
+    li { // BEM: .gene-analysis-list__item
+      margin-bottom: $space-1 + pxToRem(2.4px); // ~0.4rem
+      font-size: 0.85rem;
+      // display: flex; align-items: flex-start; // from original .gene-analysis li
+    }
+    .gene-marker { // BEM: .gene-marker (tag-like component)
+      font-size: 0.8rem;
+      margin-right: $space-2; // 0.5rem
+      // display: inline-block; background: ... padding: ... border-radius: ... (from original)
+      // Specific colors for health, sport, fertility cards for gene-marker
+    }
+  }
+
+  .diaeta-plus-box { // BEM: .genetic-test-card__diaeta-plus or .info-box
+    background-color: rgba(list.nth($primary-rgb, 1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.03);
+    border-left: 3px solid $primary-200;
+    padding: $space-3 $space-4; // 0.75rem 1rem
+    font-size: 0.85rem; // Explicit
+    color: $text-secondary;
+    border-radius: $border-radius-sm;
+    margin-top: auto;
+    strong { color: $primary-600; }
+  }
+}
+
+// Process timeline for Nutrigenetics page
+.process-timeline-vertical {
+  .process-step-detailed { // BEM: .process-step--detailed or specific component
+    background-color: #fff;
+    padding: $space-5; // 1.5rem
+    border-radius: $border-radius-md;
+    box-shadow: $box-shadow-sm;
+    text-align: center;
+    transition: $transition-standard;
+    display: flex;
+    flex-direction: column;
+    height: 100%; // For equal height in a row
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $box-shadow-md;
+    }
+    .icon { // BEM: .process-step__icon
+      font-size: 2rem; // Explicit
+      color: $accent-500;
+      margin-bottom: $space-4; // 1rem
+      width: 60px;
+      height: 60px;
+      line-height: 60px; // To center icon if it's font icon
+      border-radius: 50%;
+      background-color: rgba(list.nth($accent-rgb,1),list.nth($accent-rgb,2),list.nth($accent-rgb,3), 0.1);
+      display: inline-block; // To allow margin auto if needed, or text-align on parent
+    }
+    h4 { // BEM: .process-step__title (Typography from _typography.scss)
+      // font-size: var(--text-lg); // 1.15rem
+      color: $primary-600;
+      margin-bottom: $space-2; // 0.5rem
+    }
+    p { // BEM: .process-step__description
+      font-size: var(--text-sm); // 0.9rem
+      color: $text-secondary;
+      line-height: $leading-relaxed; // 1.6
+      flex-grow: 1;
+    }
+  }
+}
+
+// Price Highlight Box on Nutrigenetics page
+.price-highlight-box { // BEM: .price-box or .highlight-box--price
+  background-color: $primary-50;
+  border: 1px solid $primary-200;
+  padding: $space-6 $space-7; // Was $space-4 $space-5
+  border-radius: $border-radius-md;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+  box-shadow: $box-shadow-sm;
+  color: $primary-700;
+  text-align: center; // Added for centering content
+
+  strong {
+    color: $primary-600;
+    font-weight: $font-bold; // 700
+  }
+  // p, h elements within will inherit or be styled by base typography
+}
+
+// FAQ Accordion (Bootstrap based, customisations if any)
+// .accordion-button, .accordion-body from original - if these are custom, move them
+// Otherwise, Bootstrap handles them.
+// Assuming these are custom tweaks:
+.accordion-button {
+  font-weight: $font-medium;
+  color: $primary-700;
+  &:not(.collapsed) {
+    background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.05);
+    color: $primary-600;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.25rem var(--focus-ring); // Use CSS var
+  }
+}
+.accordion-body {
+    font-size: var(--text-sm); // 0.95rem
+    line-height: $leading-relaxed; // 1.7
+}
+
+// CTA section at the bottom of Nutrigenetics page
+.test-cta { // BEM: .genetic-testing__cta or .cta-section
+  position: relative;
+  z-index: 2; // As per original
+  margin-top: $space-8; // 5rem
+
+  .cta-card { // BEM: .cta-card (could be a generic component)
+    background: linear-gradient(135deg, $primary-500, $primary-700); // Darker teal gradient
+    padding: $space-7; // 3rem
+    border-radius: $border-radius-lg;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.3);
+
+    h3 { // BEM: .cta-card__title
+      color: white;
+      font-size: var(--text-3xl); // 2rem
+      margin-bottom: $space-4; // 1rem
+      font-weight: $font-semibold; // 600
+    }
+    p { // BEM: .cta-card__text
+      font-size: var(--text-lg); // 1.1rem
+      margin-bottom: $space-6; // 2rem
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+    .cta-button { // BEM: .button .cta-card__button
+      // General .btn styles from _buttons.scss apply
+      // padding: $space-4 $space-6; // 1rem 2rem
+      // border-radius: $border-radius-pill;
+      // font-weight: $font-semibold; // 600
+      // font-size: var(--text-lg); // 1.1rem
+      // transition: all $transition-standard;
+      // display: inline-flex;
+      // align-items: center;
+      // gap: $space-2; // 0.5rem
+      margin: 0 $space-2 $space-4; // 0 0.5rem 1rem
+
+      &.cta-primary { // BEM: .button--cta-primary or modifier to .button--accent
+        @extend .button--accent; // Green accent button
+        // background: $accent-500;
+        // border: 2px solid $accent-500;
+        // color: white;
+        &:hover {
+          background: white;
+          color: $accent-500; // Text color becomes accent
+          // transform: translateY(-5px);
+          // box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+        }
+      }
+      &.cta-secondary { // BEM: .button--outline-light
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+         &:hover {
+          background: white;
+          color: $primary-500; // Text color becomes primary
+          // transform: translateY(-5px);
+          // box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+        }
+      }
+    }
+  }
+}

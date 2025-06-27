@@ -1,0 +1,616 @@
+// SCSS Partials: Layout - Header
+
+@use 'sass:map';
+@use 'sass:color'; // For color functions if needed
+@use 'sass:list'; // For list.nth
+
+// Variables specific to header or that might be overridden locally
+$header-height: 80px;
+$header-height-scrolled: 70px;
+$header-bg-color: white;
+$header-bg-color-scrolled: rgba(255, 255, 255, 0.98); // Standard rgba, not using a list var
+$header-shadow: $box-shadow-sm; // from _variables.scss
+$header-shadow-scrolled: 0 4px 20px rgba(0, 0, 0, 0.08); // Standard rgba
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $header-bg-color;
+  box-shadow: $header-shadow;
+  z-index: 50;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  border: none !important;
+  outline: none !important;
+
+  &::before,
+  &::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  &.scrolled {
+    height: $header-height-scrolled;
+    background-color: $header-bg-color-scrolled;
+    box-shadow: $header-shadow-scrolled;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  border: none !important;
+  outline: none !important;
+
+  &::before,
+  &::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 60;
+  flex-shrink: 0;
+
+  img {
+    height: 50px;
+    width: auto;
+    transition: $transition-standard;
+  }
+
+  .site-header.scrolled & img {
+    height: 45px;
+  }
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $space-4;
+  }
+
+  .nav-item {
+    position: relative;
+    white-space: nowrap;
+
+    .nav-link {
+      position: relative;
+      padding: $space-2 $space-1 10px $space-1;
+      transition: color 0.3s ease;
+      border: none !important;
+      box-shadow: none !important;
+      display: inline-block;
+      text-decoration: none;
+      color: $text-primary;
+      font-weight: $font-medium;
+      line-height: normal;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: calc(100% - #{$space-1 * 2});
+        height: 2px;
+        background-color: $accent-500;
+        border-radius: 1px;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: block !important;
+        border: none !important;
+      }
+
+      &.active {
+        color: $primary-500;
+        font-weight: $font-semibold;
+        &::after {
+          transform: translateX(-50%) scaleX(1);
+        }
+      }
+    }
+    &:hover > .nav-link {
+        color: $primary-500;
+        &::after {
+             transform: translateX(-50%) scaleX(1);
+        }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+    .main-nav .nav-item.dropdown {
+        > .nav-link.dropdown-toggle {
+            &::after {
+                display: none !important;
+            }
+            &::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                font-size: 0.6em;
+                margin-left: 0.5em;
+                color: $neutral-400;
+                transition: color 0.3s ease, transform 0.3s ease;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        &:hover > .nav-link.dropdown-toggle::before {
+            color: $primary-500;
+        }
+        &.show > .nav-link.dropdown-toggle::before {
+            transform: rotate(180deg);
+        }
+    }
+
+    .dropdown-menu {
+        background-color: $neutral-50;
+        border: none;
+        box-shadow: $box-shadow-md;
+        border-radius: $border-radius-sm;
+        margin-top: 8px !important;
+        padding: $space-2 0;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0s 0.25s;
+        display: block;
+
+        .main-nav .nav-item.dropdown:hover & {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition-delay: 0s, 0s, 0s;
+        }
+        &.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition-delay: 0s, 0s, 0s;
+        }
+    }
+
+    .main-nav .dropdown-menu .dropdown-item {
+        font-family: $font-primary;
+        font-weight: $font-normal;
+        color: $text-primary;
+        padding: $space-2 $space-4;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+        background-color: transparent;
+
+        &:hover,
+        &:focus {
+            background-color: $primary-50 !important;
+            color: $primary-600 !important;
+        }
+    }
+}
+
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    color: $text-primary;
+    font-weight: $font-medium;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: $space-2;
+    border-radius: $border-radius-md;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      color: $primary-500;
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+      transform: translateY(-1px);
+    }
+
+    i {
+      color: $primary-500;
+      font-size: 1.1rem;
+    }
+  }
+
+  .header-cta {
+    @extend .button--primary;
+    padding: $space-2 $space-4;
+  }
+}
+
+.lang-selector {
+  position: relative;
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2;
+    background: none;
+    border: none;
+    color: $text-primary;
+    cursor: pointer;
+    font-weight: $font-medium;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: $border-radius-md;
+
+    &:hover,
+    &:focus {
+      color: $primary-500;
+      background-color: rgba(0, 109, 119, 0.05); // Hardcoded for testing
+    }
+
+    i {
+      color: $primary-500;
+      font-size: 1.1em;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &.open .lang-toggle i {
+    transform: rotate(180deg);
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    background-color: white;
+    border-radius: $border-radius-md;
+    box-shadow: $box-shadow-md;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 70;
+  }
+
+  &.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-3 $space-4;
+    color: $text-primary;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: $neutral-200;
+      border: 2px solid white;
+      box-shadow: inset 0 0 0 2px $neutral-300;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+      color: $primary-500;
+    }
+
+    &.active {
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      color: $primary-500;
+      font-weight: $font-semibold;
+      &::before {
+        background-color: $primary-500;
+        box-shadow: inset 0 0 0 2px $primary-500;
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: $primary-500;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: $space-2;
+  margin-left: $space-2;
+  z-index: 100;
+  border-radius: $border-radius-md;
+  transition: background-color 0.2s ease;
+  position: relative;
+  overflow: visible;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-actions {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex !important;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: $header-height-scrolled;
+    .site-header:not(.scrolled) & {
+        top: $header-height;
+    }
+    left: 0;
+    right: 0;
+    background-color: rgba($neutral-50, 0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: $box-shadow-lg;
+    padding: $space-4;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease, visibility 0.3s ease;
+    height: calc(100vh - #{$header-height-scrolled});
+    .site-header:not(.scrolled) & {
+        height: calc(100vh - #{$header-height});
+    }
+    overflow-y: auto;
+    z-index: 55;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+
+    .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+    }
+
+    .nav-item {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fade-in-up-item-mobile 0.5s forwards;
+      border-bottom: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .nav-link {
+        display: block;
+        padding: $space-3 $space-2;
+        font-size: var(--text-lg);
+        color: $text-primary;
+        border-radius: $border-radius-sm;
+
+        &.active {
+          background-color: $primary-100;
+          color: $primary-600;
+        }
+        &::after { display: none !important; }
+      }
+      &:hover > .nav-link {
+        background-color: $primary-50;
+        color: $primary-500;
+      }
+    }
+
+    @for $i from 1 through 10 {
+        .site-header.menu-open .nav-item:nth-child(#{$i}) {
+            animation-delay: #{0.1s + ($i * 0.07s)};
+        }
+    }
+  }
+
+  .site-header.menu-open .main-nav {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-nav .nav-item.dropdown {
+    .nav-link.dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &::after {
+            display: inline-block !important;
+            content: "" !important;
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-bottom: 0;
+            border-left: .3em solid transparent;
+            vertical-align: .255em;
+            transition: transform 0.3s ease;
+        }
+    }
+    &.show > .nav-link.dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        position: static !important;
+        float: none;
+        margin-top: 0 !important;
+        padding: 0;
+        background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.03);
+        border-top: none;
+        box-shadow: none;
+        border-radius: 0 0 $border-radius-sm $border-radius-sm;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height 0.35s ease-in-out, visibility 0s 0.35s;
+        display: block !important;
+
+        &.show {
+            max-height: 500px;
+            visibility: visible;
+            transition: max-height 0.35s ease-in-out, visibility 0s 0s;
+        }
+
+        .dropdown-item {
+            padding: $space-3 $space-4 $space-3 ($space-4 * 1.5);
+            font-size: var(--text-base);
+            color: $text-secondary;
+            border-bottom: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.03);
+            &:last-child {
+                border-bottom: none;
+            }
+            &:hover, &:focus {
+                background-color: $primary-100 !important;
+                color: $primary-600 !important;
+            }
+        }
+    }
+  }
+
+  .mobile-actions {
+    display: flex;
+    width: 100%;
+    margin-top: $space-5;
+    padding-top: $space-4;
+    border-top: 1px solid $neutral-300;
+
+    .lang-selector {
+      margin-bottom: $space-3;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .lang-toggle {
+        width: auto;
+        min-width: 150px;
+        justify-content: center;
+        padding: $space-3;
+        border: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.2);
+        border-radius: $border-radius-pill;
+        background-color: white;
+        color: $primary-500;
+        &:hover, &:focus {
+          background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+        }
+      }
+      .lang-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        min-width: 150px;
+        margin-top: $space-2;
+        z-index: 80;
+      }
+    }
+
+    .phone-link {
+      font-size: var(--text-base);
+      padding: $space-3;
+      justify-content: center;
+      border: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.2);
+      border-radius: $border-radius-pill;
+      margin-bottom: $space-3;
+    }
+    .mobile-cta {
+      // @extend .button--secondary; // Removed to prevent cross-media query extend error.
+      // HTML for this element should include "btn" and "btn-secondary" (or "button--secondary") classes.
+      // These styles are then overrides for the mobile context:
+      width: 100%;
+      padding: $space-3;
+      font-size: var(--text-lg);
+      // Ensure it still looks like a button if base classes aren't on the HTML yet.
+      // This is temporary if HTML will be updated. Otherwise, create a mixin.
+      background-color: $secondary-500; // from .button--secondary
+      color: white; // from .button--secondary
+      // Add other essential properties from .btn and .button--secondary if needed for standalone appearance
+      // For example:
+      // display: inline-flex;
+      // align-items: center;
+      // justify-content: center;
+      // border-radius: $border-radius-pill;
+      // font-weight: $font-medium;
+      // text-align: center;
+      // cursor: pointer;
+      // transition: $transition-standard;
+      // border: 2px solid transparent; // from .btn
+      // box-shadow: 0 2px 8px rgba(list.nth($secondary-rgb, 1), list.nth($secondary-rgb, 2), list.nth($secondary-rgb, 3), 0.3); // from .button--secondary
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .site-header {
+    height: $header-height-scrolled;
+    .logo img {
+      height: 40px;
+    }
+    &.scrolled .logo img {
+      height: 40px;
+    }
+  }
+  .main-nav {
+    top: $header-height-scrolled;
+    height: calc(100vh - #{$header-height-scrolled});
+    padding: $space-4;
+  }
+  .main-nav .nav-item .nav-link {
+    font-size: 1.1rem;
+    padding: $space-2 $space-3;
+  }
+  .menu-toggle {
+    margin-right: $space-2;
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    padding:0;
+  }
+}
+
+body.mobile-menu-is-open {
+  #main-content,
+  .footer {
+    transform: scale(0.97);
+    filter: blur(3px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    border-radius: $border-radius-lg;
+  }
+}

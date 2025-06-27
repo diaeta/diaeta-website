@@ -1,0 +1,51 @@
+// Main SCSS Importer File for Diaeta Website
+
+// 1. Variables
+@import 'variables';
+
+// 2. Base & Resets
+@import 'base';
+
+// 3. Typography
+@import 'typography';
+
+// 4. Utilities
+@import 'utils/utilities';
+@import 'utils/animations';
+
+// 5. Components (will be added iteratively)
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+
+// 6. Layout (will be added iteratively)
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid'; // Assuming a grid system might be defined or needed
+@import 'layout/sidebar';
+
+// 5. Components (re-ordered for clarity, base components first)
+// @import 'components/buttons'; // Already imported
+// @import 'components/forms'; // Already imported
+@import 'components/cards'; // Already imported (generic and article-teaser)
+@import 'components/clinic-card';
+@import 'components/specialty-card';
+@import 'components/testimonial-card';
+// Add other specific components like _modals.scss, _tooltips.scss, _pagination.scss if they become complex enough
+
+// 7. Sections/Pages (will be added iteratively)
+@import 'sections/hero'; // Already imported
+@import 'sections/science-approach';
+@import 'sections/specialties';
+@import 'sections/testimonials'; // Covers new-testimonial-showcase and old success-stories if merged
+@import 'sections/clinic-finder'; // Includes map styles now
+@import 'sections/cabinet-teaser';
+@import 'sections/genetic-testing'; // Teaser and page styles
+@import 'sections/news-teaser'; // Specifically for the homepage news teaser, distinct from general blog listing
+@import 'sections/tariffs';
+@import 'sections/contact'; // Non-form contact page styles
+@import 'sections/blog'; // For blog listing and single post specific layouts/content styling
+
+// 8. RTL (if applicable, usually last or separate)
+// @import 'rtl';
+// Ensure this is the very last import if it contains overrides for everything above.

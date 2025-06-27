@@ -1,0 +1,158 @@
+// SCSS Partials: Sections - Tariffs
+
+@use 'sass:list';
+@use 'sass:color';
+
+.tarifs-section { // BEM: .tariffs
+  // Assuming .gradient-section utility class is handled elsewhere or properties merged here
+  // padding: $space-8 0; // var(--space-8) was py-5 (which is $space-8 top/bottom)
+  position: relative; // For gradient pseudo-elements if .gradient-section is not used
+  overflow: hidden; // For gradient pseudo-elements
+
+  &.gradient-section::before { // If combined with utility class
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px; // Or a variable
+    background: linear-gradient(
+      to bottom,
+      rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05),
+      rgba(0, 0, 0, 0)
+    );
+    z-index: 0;
+  }
+
+  .section-header { // General .section-header styles apply
+    // margin-bottom: $space-8; // Was mb-5
+    .section-badge {
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      color: $primary-600;
+    }
+  }
+}
+
+.service-tarif-category { // BEM: .tariffs__category
+  margin-bottom: $space-8; // Was mb-5
+
+  // Title for the category (h3)
+  > h3 { // BEM: .tariffs__category-title
+    // font-family: $font-display, serif; // from h3 base
+    color: $primary-600;
+    margin-bottom: $space-2; // Was mb-1 for title, mb-4 for subtitle
+    // font-size: (handled by h3 base)
+  }
+  // Subtitle for the category (p.small)
+  > p.text-muted.small { // BEM: .tariffs__category-subtitle
+    margin-bottom: $space-7; // Was mb-4
+  }
+}
+
+.tarif-item { // BEM: .tariff-card or extend .c-card
+  // Using @extend .c-card might be good if structure is similar
+  // For now, replicating styles:
+  background-color: white;
+  border-radius: $border-radius-md;
+  box-shadow: $box-shadow-sm;
+  padding: $space-6; // Was p-4
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left; // Original was text-center for some parts, but items are text-start
+
+  .tarif-title-item { // BEM: .tariff-card__title
+    font-size: var(--text-lg); // Was 1.15rem
+    color: $primary-700;
+    font-weight: $font-semibold; // 600
+    margin-bottom: $space-2; // 0.5rem
+  }
+
+  .tarif-price-item { // BEM: .tariff-card__price
+    font-size: var(--text-2xl); // Was 1.5rem
+    font-weight: $font-bold; // 700
+    color: $accent-500;
+    margin-bottom: $space-1; // 0.25rem
+
+    .tarif-duration-item { // BEM: .tariff-card__duration
+      font-size: 0.8em; // Relative to price
+      color: $text-secondary;
+      font-weight: $font-normal;
+    }
+  }
+
+  .feature-list { // BEM: .tariff-card__features or .feature-list (utility)
+    // list-style: none; // Assuming reset from _base.scss or Bootstrap
+    padding-left: 0; // Reset if needed
+    margin-top: $space-5; // Was mt-3
+    // text-align: left; // Already default for ul
+    font-size: var(--text-sm); // For li items
+    flex-grow: 1; // Push to bottom if card is flex
+
+    li {
+      display: flex; // To align icon and text
+      align-items: flex-start;
+      margin-bottom: $space-2; // Spacing between items
+      line-height: $leading-normal;
+
+      i.fa-solid.fa-check { // Icon styling
+        color: $accent-500;
+        margin-right: $space-2;
+        margin-top: 0.2em; // Align with text
+      }
+    }
+  }
+
+  // Specific styling for the nutrigenetics test box
+  &.text-center { // If this modifier is used for the nutrigenetics box
+    text-align: center;
+    .tarif-title-item { /* Center if needed */ }
+    .tarif-price-item { /* Center if needed */ }
+    .small.mt-2.mb-3 { /* Description text */ }
+    .btn-outline-primary.btn-sm.mb-2 { /* Learn more button */ }
+    .text-muted.small.mb-0 { /* Consult note */ }
+  }
+}
+
+
+.offre-duo-box { // BEM: .tariffs__duo-offer or .offer-box .offer-box--duo
+  background-color: $primary-50;
+  border-radius: $border-radius-md;
+  display: inline-block; // To center with text-align on parent
+  border: 1px solid $primary-200;
+  padding: $space-5; // Was p-3
+  max-width: 500px; // As per original
+  margin-bottom: $space-7; // Was mb-4
+
+  h4.h5 { // Title inside the box
+    color: $primary-600;
+    margin-bottom: $space-2; // 0.5rem
+    // font-size from h5 base
+  }
+  p {
+    margin-bottom: $space-2; // 0.5rem
+    font-size: var(--text-sm); // 0.95rem
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// Final notes at the bottom of tariffs section
+.tarifs-section .text-center.mt-4 { // More specific selector for these notes
+  p.mb-3 { // Reimbursement note
+    i.fa-solid.fa-shield-heart {
+      color: $primary-500; // Example color for this icon
+      margin-right: $space-2;
+    }
+  }
+  p.text-muted.small.mb-3 { /* Payment note */ }
+  p.text-muted.small.mb-4 { /* Cancellation note */
+    a { // Link within cancellation note
+      text-decoration: underline;
+      // color inherits from .text-muted or can be set explicitly
+      &:hover {
+        text-decoration: none; // Example hover
+      }
+    }
+  }
+  // .btn-primary.btn-lg styles from _buttons.scss
+}

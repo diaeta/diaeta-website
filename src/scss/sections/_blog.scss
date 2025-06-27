@@ -1,0 +1,148 @@
+// SCSS Partials: Sections - Blog (Listing & Single Post)
+
+@use 'sass:list';
+@use 'sass:color';
+
+// Styles for .actualites-listing-section (Blog listing page main container)
+.actualites-listing-section {
+  // Assuming .content-section and .bg-white utilities provide base padding and background
+  // .container, .row, .col-lg-9, .col-lg-3 are Bootstrap or custom grid structures
+
+  // .article-teaser-card styles are in components/_cards.scss
+  // Pagination styles (if any custom beyond Bootstrap)
+  .pagination {
+    // Bootstrap .pagination styles apply by default
+    // Customizations can go here if needed
+    .page-item {
+      &.disabled .page-link {
+        // color: $neutral-400;
+        // background-color: $neutral-100;
+        // border-color: $neutral-300;
+      }
+      &.active .page-link {
+        // background-color: $primary-500;
+        // border-color: $primary-500;
+        // color: white;
+      }
+      .page-link {
+        // color: $primary-500;
+        // &:hover {
+        //   color: $primary-600;
+        //   background-color: $neutral-200;
+        // }
+      }
+    }
+  }
+  // Sidebar styles (.sidebar-widget) are in layout/_sidebar.scss
+}
+
+
+// Styles for Single Blog Post (.blog-post-article)
+.blog-post-article { // BEM: .blog-post
+  .blog-post-hero { // BEM: .blog-post__hero
+    padding-top: $space-7; // 4rem
+    padding-bottom: $space-6; // 3rem
+    border-bottom: 1px solid $neutral-200; // Use SCSS var
+    // Text alignment (center, left) would be handled by utility classes or specific page overrides
+  }
+
+  .blog-post-title { // BEM: .blog-post__title (Typography from _typography.scss)
+    // font-size: var(--text-4xl); // 2.5rem
+    color: $primary-700;
+    // Responsive handled in _typography.scss or here if specific
+    @media (max-width: 767px) {
+      // font-size: var(--text-3xl); // 2rem
+    }
+  }
+
+  .blog-post-meta { // BEM: .blog-post__meta
+    font-size: var(--text-sm); // 0.95rem
+    color: $text-secondary;
+    margin-bottom: 0;
+    a {
+      color: $primary-600;
+      text-decoration: underline;
+      text-decoration-color: $primary-200;
+      &:hover {
+        color: $accent-500;
+        text-decoration-color: $accent-300;
+      }
+    }
+  }
+
+  .blog-post-featured-image { // BEM: .blog-post__featured-image
+    img {
+      margin-bottom: $space-6; // 2rem
+      border-radius: $border-radius-md; // Added for consistency
+      box-shadow: $box-shadow-sm; // Added for consistency
+    }
+  }
+
+  .entry-content { // BEM: .blog-post__content Prose styles
+    padding-top: $space-7; // 3rem
+    padding-bottom: $space-8; // 4rem
+
+    h2, h3, h4 { // Typography from _typography.scss, but can add spacing here
+      font-family: $font-display, serif; // Ensure fallback
+      color: $primary-600;
+      margin-top: $space-6; // 2.5rem
+      margin-bottom: $space-4; // 1rem
+      font-weight: $font-bold;
+    }
+    h2 { font-size: var(--text-2xl); @media (max-width: 767px) { font-size: var(--text-xl); } } // 1.8rem / 1.6rem
+    h3 { font-size: var(--text-xl);  @media (max-width: 767px) { font-size: var(--text-lg); } } // 1.5rem / 1.4rem
+    h4 { font-size: var(--text-lg);  @media (max-width: 767px) { font-size: 1.15rem; } } // 1.25rem / 1.15rem (explicit)
+
+    p {
+      margin-bottom: $space-5; // 1.5rem
+      line-height: $leading-loose; // 1.8 for readability, was leading-loose (2)
+      font-size: 1.05rem; // Slightly larger body text
+      @media (max-width: 767px) { font-size: 1rem; }
+    }
+
+    ul, ol {
+      margin-bottom: $space-5; // 1.5rem
+      padding-left: $space-5 + $space-1; // 1.8rem, more indentation
+      li {
+        margin-bottom: $space-3; // 0.75rem
+        line-height: $leading-relaxed; // 1.7
+      }
+    }
+
+    blockquote {
+      border-left: 4px solid $primary-200;
+      padding: $space-4 $space-5; // 1rem 1.5rem
+      margin: $space-6 0; // 2rem 0
+      background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.03);
+      font-style: italic;
+      color: $text-secondary;
+      p:last-child { margin-bottom: 0; }
+    }
+
+    a { // Links within content
+      color: $accent-600;
+      text-decoration: underline;
+      text-decoration-color: $accent-200;
+      font-weight: $font-medium;
+      &:hover {
+        color: $accent-700;
+        text-decoration-color: $accent-500;
+      }
+    }
+
+    img { // Images within post content (not featured image)
+      max-width: 100%;
+      height: auto;
+      border-radius: $border-radius-md;
+      margin: $space-5 0; // 1.5rem 0
+      box-shadow: $box-shadow-sm;
+    }
+  }
+
+  .author-box { // BEM: .author-box (could be a component)
+    background-color: $neutral-50;
+    padding: $space-5; // 1.5rem
+    border-radius: $border-radius-md;
+    // Further styling for author image, name, bio would go here
+  }
+}

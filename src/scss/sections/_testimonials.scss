@@ -1,0 +1,304 @@
+// SCSS Partials: Sections - Testimonials
+
+@use 'sass:list';
+@use 'sass:color';
+
+// Styles for .success-stories-section (older version, might be merged or deprecated by .new-testimonial-showcase)
+.success-stories-section {
+  padding: $space-8 0; // Use SCSS var
+  background-color: $neutral-50; // Use SCSS var
+
+  .success-header { // BEM: .success-stories__header
+    text-align: center;
+    margin-bottom: $space-7; // Was 3rem
+
+    .success-subtitle { // BEM: .badge or .success-stories__badge
+      display: inline-block;
+      padding: $space-1 + pxToRem(2.4px) $space-4; // Approx 0.4rem 1rem
+      background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.1);
+      color: $primary-600;
+      border-radius: $border-radius-pill;
+      font-weight: $font-medium;
+      font-size: 0.9rem; // Explicit
+      margin-bottom: $space-3; // 0.75rem
+    }
+    .success-title { // BEM: .success-stories__title (Typography in _typography.scss)
+      // font-size: var(--text-4xl); // Was 2.5rem
+      margin-bottom: $space-4; // 1rem
+    }
+    .success-description { // BEM: .success-stories__description
+      font-size: var(--text-lg); // Was 1.1rem
+      color: $text-secondary;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: $leading-relaxed; // 1.6
+    }
+  }
+
+  .stories-wrapper { // BEM: .success-stories__wrapper
+    position: relative;
+    min-height: 550px;
+    margin-bottom: $space-7; // 3rem
+    @media (max-width: 991px) { min-height: 700px; }
+    @media (max-width: 767px) { min-height: 650px; }
+    @media (max-width: 480px) { min-height: 750px; }
+  }
+
+  .story-cards-container { // BEM: .success-stories__cards-container
+    position: relative;
+    width: 100%;
+    height: 100%; // Should match parent if parent has fixed height
+    min-height: inherit; // Inherit min-height from wrapper
+  }
+
+  // .success-card styles (older version, distinct from .testimonial-story-card)
+  // This is a complex component, potentially its own _success-card.scss
+  .success-card {
+    background-color: white;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-md;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    visibility: hidden;
+
+    &.active {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      z-index: 2;
+    }
+
+    .success-card-inner {
+      display: flex;
+      gap: $space-6; // 2rem
+      padding: $space-6; // 2rem
+      @media (max-width: 991px) { flex-direction: column; align-items: center; text-align: center; gap: $space-5; }
+      @media (max-width: 767px) { padding: $space-5; gap: $space-5; }
+    }
+
+    .success-images {
+      flex: 0 0 40%;
+      display: flex;
+      flex-direction: column;
+      gap: $space-4; // 1rem
+      @media (max-width: 991px) { flex-direction: row; justify-content: center; width: 100%; max-width: 500px; flex: 0 0 auto;}
+      @media (max-width: 480px) { flex-direction: column; align-items: center;}
+    }
+
+    .before-image, .after-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: $border-radius-md;
+      box-shadow: $box-shadow-sm;
+      img {
+        display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+      }
+      @media (max-width: 991px) { width: 48%; }
+      @media (max-width: 480px) { width: 80%; max-width: 250px; }
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: $space-2; // 0.5rem
+      left: $space-2;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      padding: $space-1 $space-2 + pxToRem(1.6px); // Approx 0.25rem 0.6rem
+      font-size: 0.75rem; // Explicit
+      font-weight: $font-medium;
+      border-radius: $border-radius-sm;
+      z-index: 1;
+    }
+
+    .success-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      @media (max-width: 991px) { width: 100%; max-width: 550px; }
+    }
+
+    .client-name { // Typography from _typography.scss
+      // font-size: var(--text-3xl); // 1.75rem
+      color: $primary-600;
+      margin-bottom: $space-3; // 0.75rem
+      // font-weight: $font-bold; // from h styles
+      @media (max-width: 767px) { font-size: var(--text-2xl); } // 1.5rem
+    }
+
+    .client-details {
+      display: flex;
+      gap: $space-5; // 1.5rem
+      margin-bottom: $space-5; // 1.5rem
+      color: $text-secondary;
+      font-size: var(--text-sm); // 0.9rem
+      @media (max-width: 991px) { justify-content: center; }
+      @media (max-width: 767px) { font-size: var(--text-xs); gap: $space-4; flex-wrap: wrap; }
+
+
+      .detail-item {
+        display: flex;
+        align-items: center;
+        gap: $space-2; // 0.5rem
+        i { color: $secondary-500; }
+      }
+    }
+
+    .success-quote {
+      font-size: var(--text-base); // 1.05rem or 1.1rem
+      line-height: $leading-relaxed; // 1.6 or 1.7
+      color: $text-primary;
+      margin-bottom: auto;
+      padding-bottom: $space-5; // 1.5rem
+      font-style: italic;
+      position: relative;
+      padding-left: $space-5; // 1.5rem
+      @media (max-width: 991px) { padding-left: 0; margin-bottom: $space-5; }
+      @media (max-width: 767px) { font-size: 1rem; }
+
+
+      &::before {
+        content: "“";
+        position: absolute;
+        left: -$space-1; // -0.2rem
+        top: -$space-2; // -0.5rem
+        font-size: 3rem; // Explicit
+        color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.1);
+        font-family: serif; // Explicit
+        line-height: 1;
+        @media (max-width: 991px) { left: 50%; transform: translateX(-50%); top: -$space-4; }
+      }
+    }
+  }
+
+  .results-container { // BEM: .success-card__results
+    display: flex;
+    justify-content: space-around;
+    margin-top: $space-5; // 1.5rem
+    padding-top: $space-5; // 1.5rem
+    border-top: 1px solid $border-color;
+    @media (max-width: 991px) { justify-content: space-evenly; }
+  }
+
+  .result-item { // BEM: .results-container__item
+    text-align: center;
+    .result-value { // BEM: .result-item__value
+      font-size: var(--text-3xl); // 1.8rem
+      font-weight: $font-bold;
+      color: $accent-600;
+      margin-bottom: $space-1; // 0.25rem
+      min-width: 60px; // Ensure some space
+      display: inline-block;
+      transition: color $transition-standard;
+      &.animating { color: $secondary-500; } // Optional: visual cue during animation
+      @media (max-width: 767px) { font-size: var(--text-2xl); } // 1.6rem
+    }
+    .result-label { // BEM: .result-item__label
+      font-size: var(--text-xs); // 0.8rem
+      color: $text-secondary;
+      @media (max-width: 767px) { font-size: 0.75rem; } // Explicit for very small
+    }
+  }
+
+  // Navigation for old slider
+  .story-navigation { // BEM: .success-stories__navigation
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    right: -15px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+    @media (max-width: 991px) { top: 35%; } // Adjusted for stacked layout
+    @media (max-width: 767px) { left: 5px; right: 5px; }
+    @media (max-width: 480px) { top: 25%; }
+
+
+    .nav-button { // BEM: .nav-button or .success-stories__nav-button
+      background-color: rgba(255,255,255,0.9);
+      color: $primary-500;
+      border: 1px solid rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.15);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem; // Explicit
+      transition: all $transition-standard;
+      box-shadow: $box-shadow-sm;
+      cursor: pointer;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: $primary-500;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: $box-shadow-md;
+      }
+      @media (max-width: 767px) { width: 40px; height: 40px; font-size: 1rem; }
+    }
+  }
+
+  .dots-container { // BEM: .success-stories__dots or .dots-nav
+    text-align: center;
+    margin-top: $space-5; // 1.5rem
+    .dot { // BEM: .dot or .dots-nav__dot
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.3);
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all $transition-standard;
+      &.active {
+        background-color: $primary-500;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  .success-cta { // BEM: .success-stories__cta
+    text-align: center;
+    margin-top: $space-7; // 3rem
+    .success-cta-text {
+      color: $text-secondary;
+      margin-bottom: $space-5; // 1.5rem
+      font-size: var(--text-lg); // 1.1rem
+    }
+    // .btn-primary styles from _buttons.scss
+  }
+}
+
+
+// Styles for .new-testimonial-showcase (already uses .testimonial-story-card from _testimonial-card.scss)
+.new-testimonial-showcase {
+  padding: $space-8 0;
+  background-color: $neutral-100;
+
+  .section-header { // General .section-header styles apply
+    .section-badge { // Modifier for this section's badge
+      background-color: rgba(list.nth($secondary-rgb,1),list.nth($secondary-rgb,2),list.nth($secondary-rgb,3), 0.1);
+      color: $secondary-600;
+    }
+    .section-title::after { // Modifier for underline
+      background: $secondary-500;
+    }
+  }
+  // .testimonial-story-card styles are in components/_testimonial-card.scss
+
+  // CTA button at the bottom of this section
+  .text-center.mt-5 .btn-primary.btn-lg {
+    // Ensure styles from _buttons.scss are applied (.button--large, .button--primary)
+    // No specific overrides here unless different from standard large primary button
+  }
+}

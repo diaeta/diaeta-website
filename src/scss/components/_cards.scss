@@ -1,0 +1,176 @@
+@use 'sass:list'; // Import the sass:list module
+
+// SCSS Partials: Components - Cards
+
+// Generic card base - can be extended by specific card types
+.card, // If Bootstrap's card is used as a base
+.c-card { // BEM-style generic card
+  background-color: white;
+  border-radius: $border-radius-lg; // Default large radius for main cards
+  box-shadow: $box-shadow-md; // Default medium shadow
+  overflow: hidden; // Important for child elements like images
+  display: flex;
+  flex-direction: column;
+  height: 100%; // For equal height cards in a flex/grid row
+  transition: transform $transition-standard, box-shadow $transition-standard;
+
+  &:hover {
+    transform: translateY(-5px); // Subtle lift
+    box-shadow: $box-shadow-lg; // Slightly larger shadow on hover
+  }
+}
+
+// Card Header (general structure)
+.c-card__header {
+  padding: $space-4;
+  border-bottom: 1px solid $border-color;
+}
+
+// Card Body (general structure)
+.c-card__body {
+  padding: $space-4;
+  flex-grow: 1; // Allows body to expand and push footer down
+  display: flex;
+  flex-direction: column; // For internal flex items if needed
+}
+
+// Card Footer (general structure)
+.c-card__footer {
+  padding: $space-3 $space-4;
+  border-top: 1px solid $border-color;
+  background-color: rgba(list.nth($neutral-50-rgb, 1), list.nth($neutral-50-rgb, 2), list.nth($neutral-50-rgb, 3), 0.5); // Slightly off-white footer
+}
+
+// Specific Card Types will extend or modify this base
+// Example: .specialty-card, .article-teaser-card, .testimonial-story-card
+
+// .clinic-card from clinic-finder (example of a specific card type)
+// This will be moved to its own _clinic-card.scss or within _clinic-finder.scss later.
+// For now, just noting its existence as a card-like element.
+/*
+.clinic-card {
+  // ... styles ...
+}
+*/
+
+// .article-teaser-card (from news teaser)
+// Will be moved to sections/_news-teaser.scss or components/_article-teaser.scss
+.article-teaser-card {
+  @extend .c-card; // Inherit base card styles
+
+  .teaser-card-image-link {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .teaser-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover .teaser-card-image {
+    transform: scale(1.05);
+  }
+
+  .teaser-card-body {
+    padding: $space-4; // Use SCSS var
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .teaser-card-category {
+    display: inline-block;
+    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.1);
+    color: $accent-600;
+    padding: $space-1 $space-2; // Smaller padding
+    border-radius: $border-radius-pill;
+    font-size: 0.75rem; // var(--text-xs) could be used via CSS var
+    font-weight: $font-medium;
+    margin-bottom: $space-3;
+    text-transform: capitalize;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .teaser-card-title {
+    font-family: $font-display;
+    font-size: var(--text-lg); // Using CSS var for responsive text sizing
+    color: $primary-600;
+    font-weight: $font-bold;
+    margin-bottom: $space-2;
+    line-height: $leading-tight; // SCSS var
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      &:hover {
+        color: $accent-500;
+      }
+    }
+  }
+
+  .teaser-card-excerpt {
+    font-size: var(--text-sm);
+    color: $text-secondary;
+    line-height: $leading-relaxed; // SCSS var
+    margin-bottom: $space-4;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .teaser-card-meta {
+    margin-top: auto;
+    padding-top: $space-3;
+    border-top: 1px solid $neutral-200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem; // Smaller text
+  }
+
+  .teaser-card-date {
+    color: $text-tertiary;
+    i {
+      margin-right: 0.3em;
+    }
+  }
+
+  .teaser-card-readmore { // This is a .btn.btn-sm.btn-outline-primary
+    @extend .button--small; // Assuming BEM for buttons
+    // Further specific styling if needed, or ensure .btn-outline-primary is well-defined
+    // For now, relying on .btn-sm and .btn-outline-primary from _buttons.scss
+    // If .btn-outline-primary does not exist, it needs to be created or this needs to be styled directly
+    // Let's assume .button--outline-primary exists or will be added
+    @extend .button--outline; // General outline
+    border-color: $primary-500; // Primary outline color
+    color: $primary-500;
+
+    &:hover {
+      background-color: $primary-500;
+      color: white;
+      border-color: $primary-500;
+    }
+
+    i {
+      transition: transform 0.2s ease-in-out;
+    }
+    &:hover i {
+      transform: translateX(3px);
+    }
+  }
+}
+// Add other card types like .specialty-card, .testimonial-story-card here later.
