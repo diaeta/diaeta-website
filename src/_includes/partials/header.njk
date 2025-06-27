@@ -3,7 +3,7 @@
   <div class="container header-container">
     <div class="logo">
       <a href="{{ '/' | locale_url }}" aria-label="Diaeta - {{ i18n.home[current_lang] | default('Accueil') }}">
-        <img src="/images/logo.svg" alt="Diaeta Logo" width="142" height="50">
+        <img src="/images/logo.svg" alt="{{ i18n.logo_alt_text_generic[current_lang] | default('Diaeta Logo') }}" width="142" height="50">
       </a>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="{{ i18n.main_navigation[current_lang] | default('Navigation principale') }}" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -53,12 +53,12 @@
                 {%- endfor %}
             </div>
         </div>
-        <a href="tel:+32479355551" class="phone-link"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+32 479 35 55 51</span></a>
+        <a href="tel:{{ i18n.contact_phone_number[current_lang] | default('+32479355551') }}" class="phone-link"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>{{ i18n.contact_phone_number_display[current_lang] | default('+32 479 35 55 51') }}</span></a>
         <a href="{{ '/rendez-vous/' | locale_url }}" class="btn btn-secondary mobile-cta"><span>{{ i18n.book_appointment[current_lang] | default('Prendre Rendez-vous') }}</span></a>
       </div>
     </nav>
     <div class="desktop-actions">
-        <a href="tel:+32479355551" class="phone-link" aria-label="{{ i18n.call_diaeta[current_lang] | default('Appeler Diaeta') }}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+32 479 35 55 51</span></a>
+        <a href="tel:{{ i18n.contact_phone_number[current_lang] | default('+32479355551') }}" class="phone-link" aria-label="{{ i18n.call_diaeta[current_lang] | default('Appeler Diaeta') }}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>{{ i18n.contact_phone_number_display[current_lang] | default('+32 479 35 55 51') }}</span></a>
         {# Language Switcher - Desktop #}
         <div class="lang-selector">
             <button class="lang-toggle" aria-expanded="false" aria-controls="lang-dropdown-desktop"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>{{ current_lang | upper }}</span></button>

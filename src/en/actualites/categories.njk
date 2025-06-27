@@ -1,30 +1,28 @@
 ---
 pagination:
-  data: collections.postsByCategory
-  size: 1 # One page per category
+  data: collections.postsByCategory # This collection might need language-specific filtering if categories differ by lang
+  size: 1
   alias: categoryData
-  addAllPagesToCollections: true # So you can link to these if needed
-permalink: "/fr/actualites/categories/{{ categoryData.key | slugify }}/index.html"
+  addAllPagesToCollections: true
+permalink: "/en/actualites/categories/{{ categoryData.key | slugify }}/index.html"
 layout: layouts/base.njk
-lang: fr
+lang: en
 eleventyComputed:
   categoryName: (data) => data.categoryData.key
-  title: "(data) => 'Actualités - Catégorie : ' + data.categoryData.key + ' | Diaeta Bruxelles'"
-  description: "(data) => 'Articles et conseils nutritionnels de Diaeta Bruxelles pour la catégorie : ' + data.categoryData.key + '.'"
-  canonicalUrl: "(data) => 'https://diaeta.be' + data.page.url"
+  title: '(data) => `${data.i18n.news_category_title_prefix[data.lang] || "News"} - ${data.i18n.news_category_hero_badge[data.lang] || "Category"}: ${data.categoryData.key} | Diaeta Brussels`'
+  description: '(data) => `Articles and nutritional advice from Diaeta Brussels for the category: ${data.categoryData.key}.`'
+  canonicalUrl: '(data) => "https://diaeta.be" + data.page.url'
 ---
-{# Set postsInThisCategory for easier looping in the template #}
-{% set postsInThisCategory = categoryData.value %}
-
-{# ... (The rest of your template remains the same) ... #}
+{# {% set postsInThisCategory = categoryData.value | filter_by_lang(lang) %} #} {# Assuming a hypothetical filter_by_lang - This filter does not exist, filtering is done in the loop below #}
+{# If no such filter, you'd loop and check post.data.lang == lang inside the loop #}
 
 <section class="service-hero rd-hero">
     <div class="container">
         <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-folder-open hero-badge-icon"></i>Catégorie</span>
-            <h1 class="animate-on-scroll fade-up">Actualités : {{ categoryName }}</h1>
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-folder-open hero-badge-icon"></i>{{ i18n.news_category_hero_badge[lang] | default('Category') }}</span>
+            <h1 class="animate-on-scroll fade-up">{{ i18n.news_category_title_prefix[lang] | default('News') }} : {{ categoryName }}</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                Tous nos articles et conseils concernant "{{ categoryName }}".
+                {{ i18n.news_category_lead_prefix[lang] | default("All our articles and advice concerning") }} "{{ categoryName }}".
             </p>
         </div>
     </div>
@@ -34,15 +32,22 @@ eleventyComputed:
     <div class="container">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ '/' | url }}">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{ '/fr/actualites/' | url }}">Actualités</a></li>
+                <li class="breadcrumb-item"><a href="{{ '/' | locale_url }}">{{ i18n.home[lang] | default('Home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ '/actualites/' | locale_url }}">{{ i18n.news[lang] | default('News') }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ categoryName }}</li>
             </ol>
         </nav>
 
-        {% if postsInThisCategory.length > 0 %}
+        {% set englishCategoryPosts = [] %}
+        {% for post in categoryData.value %}
+            {% if post.data.lang == 'en' or not post.data.lang %}
+                {% set englishCategoryPosts = englishCategoryPosts.push(post) %}
+            {% endif %}
+        {% endfor %}
+
+        {% if englishCategoryPosts.length > 0 %}
         <div class="row g-4">
-            {% for post in postsInThisCategory %}
+            {% for post in englishCategoryPosts %}
             <div class="col-lg-4 col-md-6 d-flex">
                 <article class="article-teaser-card animate-on-scroll fade-up w-100">
                     {% if post.data.image %}
@@ -52,15 +57,16 @@ eleventyComputed:
                     {% endif %}
                     <div class="teaser-card-body">
                         {% if post.data.category %}
-                            <span class="teaser-card-category">{{ post.data.category }}</span>
+                             {# Category links should also be localized if categories are language-specific #}
+                            <span class="teaser-card-category"><a href="{{ ('/actualites/categories/' + post.data.category | slugify + '/') | locale_url }}">{{ post.data.category }}</a></span>
                         {% endif %}
                         <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
                         {% set excerpt = post.data.description %}
                         {% if not excerpt and post.templateContent %}{% set excerpt = post.templateContent | striptags | truncate(100) %}{% elif excerpt %}{% set excerpt = excerpt | truncate(100) %}{% endif %}
                         {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
                         <div class="teaser-card-meta">
-                            {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
-                            <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Lire la suite <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                            {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date(locale=lang) }}</span>{% endif %}
+                            <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">{{ i18n.news_read_more[lang] | default('Read more') }} <i class="fa-solid fa-arrow-right fa-xs"></i></a>
                         </div>
                     </div>
                 </article>
@@ -68,11 +74,11 @@ eleventyComputed:
             {% endfor %}
         </div>
         {% else %}
-        <p class="text-center"><em>Aucun article dans la catégorie "{{ categoryName }}" pour le moment.</em></p>
+        <p class="text-center"><em>{{ i18n.news_category_no_posts_in_category[lang] | default("No articles in the category \"%s\" at the moment.") | replace("%s", categoryName) }}</em></p>
         {% endif %}
 
         <div class="mt-5 text-center">
-            <a href="{{ '/fr/actualites/' | url }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Toutes les actualités</a>
+            <a href="{{ '/actualites/' | locale_url }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> {{ i18n.news_category_cta_all_news[lang] | default("All news") }}</a>
         </div>
     </div>
 </section>
@@ -90,7 +96,7 @@ eleventyComputed:
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": [
-      {% for post in postsInThisCategory %}
+      {% for post in englishCategoryPosts %}
       {
         "@type": "ListItem",
         "position": {{ loop.index }},

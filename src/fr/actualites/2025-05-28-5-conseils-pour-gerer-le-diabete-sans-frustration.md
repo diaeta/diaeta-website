@@ -9,7 +9,7 @@ category: "Diabète Type 2" # <<< ADD PRIMARY CATEGORY HERE
 tags: ["actualites", "diabète type 2", "nutrition", "conseils santé"] # Category can also be a tag
 image: "/images/actualites/gestion-diabete-conseils.jpg"
 imageAlt: "Assiette équilibrée pour diabète."
-canonicalUrl: "https://diaeta.be/fr/actualites/5-conseils-gerer-diabete-type-2-sans-frustration/"
+canonicalUrl: "https://diaeta.be{{ page.url }}" # Made canonical URL dynamic
 schemaType: "MedicalWebPage"
 about:
   type: "MedicalCondition"

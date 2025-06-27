@@ -1,26 +1,23 @@
 ---
 layout: layouts/base.njk
-title: "{{ i18n.news_hero_title[lang] | default('Our Articles & Advice') }} | Diaeta Brussels"
-description: "Stay informed with the latest news, scientific advice, and practical nutrition tips from Pierre Abou-Zeid, dietitian in Brussels."
+title: "Actualités & Conseils Nutritionnels | Diaeta Bruxelles"
+description: "Restez informé des dernières actualités, conseils scientifiques et astuces pratiques en nutrition par Pierre Abou-Zeid, diététicien à Bruxelles."
 pagination:
   data: collections.actualites
   size: 6
   alias: items
-  filter: # Ensure we only show English posts if posts have a lang attribute
-    - all
-    - locale: en
-permalink: "/en/actualites/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
-lang: en
-canonicalUrl: "https://diaeta.be{{ page.url }}"
+permalink: "/fr/actualites/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html" # This is correct for a French-only page
+lang: fr
+canonicalUrl: "https://diaeta.be{{ page.url }}" # Make canonical URL dynamic based on generated page URL
 ---
 
 <section class="service-hero rd-hero">
     <div class="container">
         <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>{{ i18n.news_hero_badge[lang] | default('Diaeta News') }}</span>
-            <h1 class="animate-on-scroll fade-up">{{ i18n.news_hero_title[lang] | default('Our Articles & Advice') }}</h1>
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>{{ i18n.news_hero_badge[current_lang] | default('Diaeta Actualités') }}</span>
+            <h1 class="animate-on-scroll fade-up">{{ i18n.news_hero_title[current_lang] | default('Nos Articles & Conseils') }}</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                {{ i18n.news_hero_lead[lang] | default("Dive into the heart of nutritional science with insights from Pierre Abou-Zeid. Practical advice, in-depth analyses, and the latest trends to optimize your health.") }}
+                {{ i18n.news_hero_lead[current_lang] | default("Plongez au cœur de la science nutritionnelle avec les éclairages de Pierre Abou-Zeid. Des conseils pratiques, des analyses approfondies et les dernières tendances pour optimiser votre santé.") }}
             </p>
         </div>
     </div>
@@ -30,16 +27,9 @@ canonicalUrl: "https://diaeta.be{{ page.url }}"
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                {% set englishPosts = [] %}
-                {% for post in items %}
-                    {% if post.data.lang == 'en' or not post.data.lang %} {# Prioritize posts marked as 'en', or include if lang is not set #}
-                        {% set englishPosts = englishPosts.push(post) %}
-                    {% endif %}
-                {% endfor %}
-
-                {% if englishPosts.length > 0 %}
+                {% if items.length > 0 %}
                 <div class="row g-4">
-                    {% for post in englishPosts %}
+                    {% for post in items %}
                     <div class="col-md-6 d-flex">
                         <article class="article-teaser-card animate-on-scroll fade-up w-100">
                             {% if post.data.image %}
@@ -49,16 +39,15 @@ canonicalUrl: "https://diaeta.be{{ page.url }}"
                             {% endif %}
                             <div class="teaser-card-body">
                                 {% if post.data.category %}
-                                    {# Category links should also be localized if categories are language-specific #}
-                                    <span class="teaser-card-category"><a href="{{ ('/actualites/categories/' + post.data.category | slugify + '/') | locale_url }}">{{ post.data.category }}</a></span>
+                                    <span class="teaser-card-category"><a href="{{ ('/fr/actualites/categories/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
                                 {% endif %}
                                 <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
                                 {% set excerpt = post.data.description %}
                                 {% if not excerpt and post.templateContent %}{% set excerpt = post.templateContent | striptags | truncate(100) %}{% elif excerpt %}{% set excerpt = excerpt | truncate(100) %}{% endif %}
                                 {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
                                 <div class="teaser-card-meta">
-                                     {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date(locale=lang) }}</span>{% endif %}
-                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">{{ i18n.news_read_more[lang] | default('Read more') }} <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                                     {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
+                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Lire la suite <i class="fa-solid fa-arrow-right fa-xs"></i></a>
                                 </div>
                             </div>
                         </article>
@@ -66,33 +55,32 @@ canonicalUrl: "https://diaeta.be{{ page.url }}"
                     {% endfor %}
                 </div>
 
-                {# Pagination Navigation - Ensure links are correct for English #}
+                {# Pagination Navigation #}
                 {% if pagination.pages.length > 1 %}
-                <nav aria-label="News pagination" class="mt-5 pt-4 border-top">
+                <nav aria-label="Pagination des actualités" class="mt-5 pt-4 border-top">
                     <ul class="pagination justify-content-center">
-                        {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">{{ i18n.pagination_previous[lang] | default('Previous') }}</a></li>
-                        {% else %}<li class="page-item disabled"><span class="page-link">{{ i18n.pagination_previous[lang] | default('Previous') }}</span></li>{% endif %}
+                        {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">{{ i18n.pagination_previous[current_lang] | default('Précédent') }}</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">{{ i18n.pagination_previous[current_lang] | default('Précédent') }}</span></li>{% endif %}
                         {% for pageLink in pagination.hrefs %}<li class="page-item {% if page.url == pageLink %}active{% endif %}" aria-current="{% if page.url == pageLink %}page{% endif %}"><a class="page-link" href="{{ pageLink | url }}">{{ loop.index }}</a></li>{% endfor %}
-                        {% if pagination.href.next %}<li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">{{ i18n.pagination_next[lang] | default('Next') }}</a></li>
-                        {% else %}<li class="page-item disabled"><span class="page-link">{{ i18n.pagination_next[lang] | default('Next') }}</span></li>{% endif %}
+                        {% if pagination.href.next %}<li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">{{ i18n.pagination_next[current_lang] | default('Suivant') }}</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">{{ i18n.pagination_next[current_lang] | default('Suivant') }}</span></li>{% endif %}
                     </ul>
                 </nav>
                 {% endif %}
 
                 {% else %}
-                <p class="text-center"><em>{{ i18n.news_no_articles[lang] | default("No articles published yet. Check back soon!") }}</em></p>
+                <p class="text-center"><em>{{ i18n.news_no_articles[current_lang] | default("Aucun article publié pour le moment. Revenez bientôt !") }}</em></p>
                 {% endif %}
             </div>
 
             <aside class="col-lg-3 mt-5 mt-lg-0">
                 <div class="sidebar-widget">
-                    <h4 class="sidebar-title">{{ i18n.sidebar_categories_title[lang] | default("Categories") }}</h4>
-                    {# This might need adjustment if categories are language-specific #}
+                    <h4 class="sidebar-title">{{ i18n.sidebar_categories_title[current_lang] | default("Catégories") }}</h4>
                     {% if collections.uniqueCategories.length > 0 %}
                         <ul class="list-unstyled category-list">
                             {% for category in collections.uniqueCategories %}
                             <li>
-                                <a href="{{ ('/actualites/categories/' + category | slugify + '/') | locale_url }}">{{ category }}
+                                <a href="{{ ('/fr/actualites/categories/' + category | slugify + '/') | url }}">{{ category }}
                                     <span class="badge bg-primary rounded-pill">
                                         {{ collections.postsByCategory[category].length }}
                                     </span>
@@ -101,9 +89,10 @@ canonicalUrl: "https://diaeta.be{{ page.url }}"
                             {% endfor %}
                         </ul>
                     {% else %}
-                        <p><em>{{ i18n.news_no_categories[lang] | default("No categories at the moment.") }}</em></p>
+                        <p><em>{{ i18n.news_no_categories[current_lang] | default("Aucune catégorie pour le moment.") }}</em></p>
                     {% endif %}
                 </div>
+                {# You can add other sidebar widgets here: Recent Posts, Archives, Search Bar #}
             </aside>
         </div>
     </div>
@@ -113,16 +102,16 @@ canonicalUrl: "https://diaeta.be{{ page.url }}"
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "{{ title }}",
-  "description": "{{ description }}",
-  "url": "{{ canonicalUrl }}",
+  "name": "Actualités & Conseils Nutritionnels | Diaeta Bruxelles",
+  "description": "Restez informé des dernières actualités, conseils scientifiques et astuces pratiques en nutrition par Pierre Abou-Zeid, diététicien à Bruxelles. Articles sur la perte de poids, le SII, le diabète, et plus.",
+  "url": "https://diaeta.be{{ canonicalUrl }}",
   "publisher": {
     "@id": "https://diaeta.be#organization"
   },
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": [
-      {% for post in englishPosts %}
+      {% for post in items %}
       {
         "@type": "ListItem",
         "position": {{ loop.index + (pagination.pageNumber * pagination.size) }},
