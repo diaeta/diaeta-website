@@ -1,21 +1,20 @@
-// SCSS Partials: Sections - Contact Section
-
 @use 'sass:list';
 @use 'sass:color';
 
-.contact-section {
-  padding: $space-9 0; // Use SCSS var
-  background-color: white; // As per original
-  position: relative;
-  overflow: hidden; // For pseudo-elements
+/* SCSS Partials: Sections - Contact Section */
 
-  // Decorative pseudo-elements
+.contact-section {
+  padding: $space-9 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+
   &::before,
   &::after {
     content: "";
     position: absolute;
     border-radius: 50%;
-    z-index: 0; // Behind content
+    z-index: 0;
   }
 
   &::before {
@@ -25,7 +24,7 @@
     left: -200px;
     background: radial-gradient(
       circle,
-      rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.05),
+      rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 5%),
       transparent 70%
     );
   }
@@ -37,35 +36,36 @@
     right: -100px;
     background: radial-gradient(
       circle,
-      rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05),
+      rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 5%),
       transparent 70%
     );
   }
 }
 
-.contact-grid { // BEM: .contact-section__grid
+.contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $space-8; // Use SCSS var
+  gap: $space-8;
   position: relative;
-  z-index: 2; // Above pseudo-elements
+  z-index: 2;
 
-  @media (max-width: 991px) { // Tablet
+  @media (max-width: 991px) {
     grid-template-columns: 1fr;
     gap: $space-6;
   }
 }
 
-.contact-info { // BEM: .contact-section__info
+.contact-info {
   max-width: 480px;
+
   @media (max-width: 991px) {
-    max-width: 100%; // Allow full width when stacked
+    max-width: 100%;
   }
 
-  .contact-subtitle { // BEM: .badge or .contact-info__subtitle
+  .contact-subtitle {
     display: inline-block;
     padding: $space-2 $space-4;
-    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
     color: $primary-600;
     border-radius: $border-radius-pill;
     font-weight: $font-medium;
@@ -73,32 +73,21 @@
     margin-bottom: $space-4;
   }
 
-  .contact-title { // Typography from _typography.scss (h1-h5 styles)
-    // font-size: var(--text-4xl); // Already handled by h tag
-    // margin-bottom: $space-5;
-    // color: $primary-600;
-    @media (max-width: 767px) {
-        // font-size: var(--text-3xl); // Responsive typography handled in _typography.scss
-    }
+  .contact-title {
+    /* color: $primary-600; */ /* From h-tag base */
   }
 
-  .contact-description { // Typography from _typography.scss (p styles)
-    // color: $text-secondary;
-    // font-size: var(--text-lg);
-    // line-height: 1.7; // Or $leading-relaxed
-    // margin-bottom: $space-6;
-     @media (max-width: 767px) {
-        // font-size: var(--text-base); // Responsive typography handled in _typography.scss
-    }
+  .contact-description {
+    /* color: $text-secondary; */ /* From p-tag base */
   }
 }
 
-.contact-list { // BEM: .contact-info__list or .icon-list
+.contact-list {
   list-style: none;
   padding: 0;
   margin: 0 0 $space-6;
 
-  .contact-item { // BEM: .icon-list__item
+  .contact-item {
     display: flex;
     align-items: flex-start;
     gap: $space-3;
@@ -108,46 +97,51 @@
     border-radius: $border-radius-md;
 
     &:hover {
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 5%);
       transform: translateX(5px);
     }
+
     @media (max-width: 767px) {
         padding: $space-2;
     }
 
-    .contact-icon { // BEM: .icon-list__icon
+    .contact-icon {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
       color: $primary-500;
       flex-shrink: 0;
       transition: all $transition-standard;
-      font-size: 1.2rem; // Explicit size
+      font-size: 1.2rem;
 
-      .contact-item:hover & { // Style icon on parent hover
+      .contact-item:hover & {
         background-color: $primary-500;
         color: white;
         transform: scale(1.1);
       }
+
       @media (max-width: 767px) {
         width: 40px; height: 40px; font-size: 1rem;
       }
     }
 
-    .contact-text { // BEM: .icon-list__text-content
+    .contact-text {
       flex-grow: 1;
-      .contact-label { // BEM: .icon-list__label
+
+      .contact-label {
         font-weight: $font-medium;
         margin-bottom: $space-1;
         color: $text-primary;
       }
-      .contact-value { // BEM: .icon-list__value
+
+      .contact-value {
         color: $text-secondary;
-        a { // Link styling from _base.scss
+
+        a {
           color: inherit;
           &:hover { color: $primary-500; }
         }
@@ -156,33 +150,28 @@
   }
 }
 
-.social-links { // BEM: .social-links (could be a standalone component)
+.social-links {
   display: flex;
   gap: $space-3;
 
-  .social-link { // BEM: .social-links__link or .button--social
-    // These are icon buttons, could extend a base button style or be specific
+  .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
     color: $primary-500;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    font-size: 1.2rem; // Icon size
-    text-decoration: none; // Ensure no underline
+    font-size: 1.2rem;
+    text-decoration: none;
 
     &:hover {
       background-color: $primary-500;
       color: white;
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.3);
+      box-shadow: 0 8px 20px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 30%);
     }
   }
 }
-
-// .contact-form-container and its children (.form-title, .form-group, etc.)
-// are styled in components/_forms.scss.
-// No need to repeat them here unless there are specific overrides for the contact section's form.

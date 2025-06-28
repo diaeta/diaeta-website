@@ -1,6 +1,7 @@
-// SCSS Partials: Utilities
+/* SCSS Partials: Utilities */
+/* Variables are globally available via @import 'variables' in style.scss */
 
-// Spacing Utilities (using SCSS variables for values)
+/* Spacing Utilities (using SCSS variables for values) */
 .mt-1 { margin-top: $space-1 !important; }
 .mt-2 { margin-top: $space-2 !important; }
 .mt-3 { margin-top: $space-3 !important; }
@@ -17,30 +18,34 @@
 .p-4 { padding: $space-4 !important; }
 .py-5 { padding-top: $space-5 !important; padding-bottom: $space-5 !important; }
 
-// Text Color & Background Utilities
+/* Text Color & Background Utilities */
 .text-primary {
-  color: $primary-500 !important; // Use SCSS variable
+  color: $primary-500 !important;
 }
+
 .text-accent {
-  color: $accent-500 !important; // Use SCSS variable
+  color: $accent-500 !important;
 }
+
 .text-muted {
-  color: $text-secondary !important; // Use SCSS variable for semantic meaning
+  color: $text-secondary !important;
 }
+
 .bg-light {
-  background-color: white !important; // Original was white, $neutral-50 or $body-bg could be alternatives
+  background-color: white !important;
 }
 
-// Shadow Utilities
+/* Shadow Utilities */
 .shadow-sm {
-  box-shadow: $box-shadow-sm !important; // Use SCSS variable
+  box-shadow: $box-shadow-sm !important;
 }
 
-// Responsive Spacing Utilities (from original file)
+/* Responsive Spacing Utilities (from original file) */
 @media (max-width: 767px) {
   .p-4 {
     padding: $space-3 !important;
   }
+
   .py-5 {
     padding-top: $space-4 !important;
     padding-bottom: $space-4 !important;

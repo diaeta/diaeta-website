@@ -1,53 +1,52 @@
-// SCSS Partials: Layout - Sidebar
+/* SCSS Partials: layout - sidebar */
+/* variables are globally available via @import 'variables' in style.scss */
 
-@use 'sass:list'; // For list.nth if needed
-@use 'sass:color'; // For color.adjust if needed
+@use 'sass:list'; /* SCSSPartials */
 
-.sidebar-widget { // BEM: .sidebar-widget or more specific like .blog-sidebar__widget
+@use 'sass:color';
+
+.sidebar-widget {
   background-color: $neutral-50;
-  padding: $space-5; // Use SCSS variable, was 1.5rem
+  padding: $space-5;
   border-radius: $border-radius-md;
-  margin-bottom: $space-6; // Was 2rem
+  margin-bottom: $space-6;
   border: 1px solid $neutral-200;
 }
 
-.sidebar-title { // BEM: .sidebar-widget__title
-  font-family: $font-display, serif; // Ensure fallback
-  font-size: var(--text-lg); // Was 1.25rem, using CSS var for responsiveness
+.sidebar-title {
+  font-family: $font-display, serif;
+  font-size: var(--text-lg);
   color: $primary-600;
-  margin-bottom: $space-4; // Was 1rem
-  padding-bottom: $space-2; // Was 0.5rem
+  margin-bottom: $space-4;
+  padding-bottom: $space-2;
   border-bottom: 2px solid $primary-200;
-  font-weight: $font-bold; // Was 700
+  font-weight: $font-bold;
 }
 
-.category-list { // BEM: .category-list (could be a component itself)
-  // list-style: none; // Handled by Bootstrap's .list-unstyled if present, or add here
-  padding-left: 0; // Remove default ul padding
+.category-list {
+  padding-left: 0;
 
-  li { // BEM: .category-list__item
-    margin-bottom: $space-2; // Was 0.5rem
+  li {
+    margin-bottom: $space-2;
   }
 
-  a { // BEM: .category-list__link
+  a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $space-2 $space-3; // Was 0.5rem 0.75rem
+    padding: $space-2 $space-3;
     color: $text-secondary;
     text-decoration: none;
     border-radius: $border-radius-sm;
-    transition: background-color $transition-fast, color $transition-fast; // Use SCSS vars
+    transition: background-color $transition-fast, color $transition-fast;
 
     &:hover {
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
       color: $primary-600;
     }
 
-    .badge { // Styling for Bootstrap badge if used within this link
-      font-size: 0.75em; // Relative to link font size
-      // background-color: $primary-500; // Default Bootstrap primary, or customize
-      // color: white;
+    .badge {
+      font-size: 0.75em;
     }
   }
 }

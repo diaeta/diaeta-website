@@ -1,19 +1,19 @@
-// SCSS Partials: Components - Testimonial Card
-
 @use 'sass:list';
 @use 'sass:color';
 
-// Styles for .testimonial-story-card (from .new-testimonial-showcase)
+/* SCSS Partials: Components - Testimonial Card */
+
+/* Styles for .testimonial-story-card (from .new-testimonial-showcase) */
 .testimonial-story-card {
   background-color: white;
   border-radius: $border-radius-lg;
   box-shadow: $box-shadow-md;
-  padding: $space-6; // Was 2rem
+  padding: $space-6; /* Was 2rem */
   display: flex;
   flex-direction: column;
-  width: 100%; // To fill column in grid
-  height: 100%; // For equal height cards
-  transition: transform $transition-standard, box-shadow $transition-standard;
+  width: 100%; /* To fill column in grid */
+  height: 100%; /* For equal height cards */
+  transition: transform $transition-standard, box-shadow $transition-standard; /* For equal height cards */
 
   &:hover {
     transform: translateY(-8px);
@@ -24,18 +24,18 @@
 .story-card-header {
   display: flex;
   align-items: center;
-  gap: $space-5; // Was 1.5rem
-  margin-bottom: $space-5; // Was 1.5rem
-  padding-bottom: $space-5; // Was 1.5rem
-  border-bottom: 1px solid $border-color;
+  gap: $space-5; /* Was 1.5rem */
+  margin-bottom: $space-5; /* Was 1.5rem */
+  padding-bottom: $space-5; /* Was 1.5rem */
+  border-bottom: 1px solid $border-color; /* Was 1.5rem */
 
-  @media (max-width: 767px) { // Mobile adjustments from original CSS
+  @media (max-width: 767px) { /* Mobile adjustments from original CSS */
      flex-direction: column;
      align-items: flex-start;
      text-align: left;
-     gap: $space-3; // Was 1rem
-     padding-bottom: $space-4; // Was 1rem
-     margin-bottom: $space-4; // Was 1rem
+     gap: $space-3; /* Was 1rem */
+     padding-bottom: $space-4; /* Was 1rem */
+     margin-bottom: $space-4; /* Was 1rem */
   }
 }
 
@@ -44,8 +44,8 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid $primary-100; // Use SCSS variable
-  flex-shrink: 0; // Prevent image from shrinking
+  border: 3px solid $primary-100; /* Use SCSS variable */
+  flex-shrink: 0; /* Prevent image from shrinking */
 
    @media (max-width: 991px) {
       width: 70px;
@@ -62,23 +62,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem; // Explicit size
-  flex-shrink: 0;
+  font-size: 2rem; /* Explicit size */
+  flex-shrink: 0; /* Explicit size */
+
    @media (max-width: 991px) {
       width: 70px;
       height: 70px;
   }
 }
 
-.story-card-header { // Nested for specificity, consider flat BEM .testimonial-story-card__client-name
+.story-card-header {
   .client-name {
     font-family: $font-display, serif;
     font-size: var(--text-xl);
     color: $primary-600;
-    margin-bottom: $space-1; // 0.25rem
-    font-weight: $font-bold;
+    margin-bottom: $space-1; /* 0.25rem */
+    font-weight: $font-bold; /* 0.25rem */
+
     @media (max-width: 991px) { font-size: var(--text-lg); }
   }
+
   .client-location {
     font-size: var(--text-sm);
     color: $text-secondary;
@@ -87,109 +90,85 @@
 
   .client-goal {
     font-size: var(--text-sm);
-    color: $secondary-600; // Use SCSS theme variable
-    font-weight: $font-medium;
+    color: $secondary-600; /* Use SCSS theme variable */
+    font-weight: $font-medium; /* Use SCSS theme variable */
     margin-bottom: 0;
   }
 }
 
 .story-card-body {
   .story-segment {
-    margin-bottom: $space-5; // 1.5rem
+    margin-bottom: $space-5; /* 1.5rem */
     &:last-child {
       margin-bottom: 0;
     }
 
-    h4 { // BEM: .story-segment__title
+    h4 {
       font-family: $font-primary, sans-serif;
       font-size: var(--text-base);
       color: $primary-700;
       font-weight: $font-semibold;
-      margin-bottom: $space-2; // 0.5rem
-      display: flex;
+      margin-bottom: $space-2; /* 0.5rem */
+      display: flex; /* 0.5rem */
       align-items: center;
-      i { // Icon within h4
+
+      i {
         font-size: 1em;
-        margin-right: $space-2; // Bootstrap's me-2 is 0.5rem
+        margin-right: $space-2;
       }
     }
 
     p, ul {
       font-size: var(--text-sm);
       color: $text-secondary;
-      line-height: $leading-relaxed; // 1.6
-      margin-bottom: 0;
+      line-height: $leading-relaxed; /* 1.6 */
+      margin-bottom: 0; /* 1.6 */
     }
 
-    ul { // BEM: .story-segment__list or .bullet-list
+    ul {
       list-style: none;
       padding-left: 0;
-      li { // BEM: .bullet-list__item
+
+      li {
         position: relative;
-        padding-left: 1.2em; // Space for bullet
-        margin-bottom: $space-1; // 0.25rem
+        padding-left: 1.2em;
+        margin-bottom: $space-1;
+
         &::before {
           content: "•";
-          color: $accent-500; // Use SCSS var
+          color: $accent-500;
           position: absolute;
           left: 0;
           font-weight: bold;
         }
       }
     }
-    &.results-highlight ul li::before { // Modifier for results list
+
+    &.results-highlight ul li::before {
       color: $accent-500;
     }
 
-    &.client-quote blockquote { // BEM: .story-segment__quote or .quote-block
+    &.client-quote blockquote {
       font-style: italic;
       color: $text-primary;
-      padding: $space-4 $space-4 $space-4 ($space-4 * 1.5); // 1rem 1rem 1rem 1.5rem
+      padding: $space-4 $space-4 $space-4 ($space-4 * 1.5);
       margin: 0;
-      border-left: 3px solid $primary-200; // Use SCSS var
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.03);
+      border-left: 3px solid $primary-200;
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 3%);
       border-radius: $border-radius-sm;
-      position: relative; // For pseudo-elements if any
+      position: relative;
     }
   }
 }
 
-// Styles for old .success-card (if different and needs to be included)
-// This was the structure for the older testimonial slider.
-// It might be fully replaced by .testimonial-story-card or need separate styling.
-// Assuming for now that .testimonial-story-card is the primary one.
-// If .success-card is still used, its styles would go here.
-// Example:
-/*
-.success-card {
-  // ... styles for .success-card ...
-  .success-card-inner { ... }
-  .success-images { ... }
-  .before-image, .after-image { ... }
-  .image-label { ... }
-  .success-content { ... }
-  .client-name { ... } // Note: .client-name is also in .story-card-header, ensure no conflict or use more specific selectors
-  .client-details { ... }
-  .success-quote { ... }
-  .results-container { ... }
-  .result-item { ... }
-  .result-value { ... }
-  .result-label { ... }
-}
-*/
-
-// Responsive for testimonial story card (already partially handled in nested styles)
 @media (max-width: 991px) {
   .testimonial-story-card {
-      padding: $space-5; // Was 1.5rem
+      padding: $space-5;
   }
 }
 
 @media (max-width: 767px) {
-  .new-testimonial-showcase .section-header .section-title { // This is section title, not card title
-      // font-size: var(--text-2xl);
-  }
   .testimonial-story-card {
-      margin-bottom: $space-5; // Was 1.5rem, ensure spacing when stacked
+      margin-bottom: $space-5;
   }
 }

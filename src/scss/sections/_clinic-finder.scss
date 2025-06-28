@@ -1,19 +1,19 @@
-// SCSS Partials: Sections - Clinic Finder
+/* SCSS Partials: sections - clinic finder */
 
-@use 'sass:list';
+@use 'sass:list'; /* SCSSPartials */
 @use 'sass:color';
 
 .clinic-finder-section {
-  padding: $space-8 0; // Was 5rem
+  padding: $space-8 0; /* Was 5rem */
   background: linear-gradient(
     180deg,
-    rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.03) 0%,
-    rgba(255, 255, 255, 1) 100% // Assuming white is intended here, not a variable
-  );
+    rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 3%) 0%,
+    rgb(255 255 255 / 100%) 100% /* assuming white is intended here, not a variable */
+  ); /* Was 5rem */
   position: relative;
   overflow: hidden;
 
-  // Decorative pseudo-elements
+  /* Decorative pseudo-elements */
   &::before,
   &::after {
     content: "";
@@ -29,7 +29,7 @@
     right: -250px;
     background: radial-gradient(
       circle,
-      rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.05),
+      rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 5%),
       transparent 70%
     );
   }
@@ -39,334 +39,355 @@
     height: 400px;
     bottom: -200px;
     left: -200px;
-    background: radial-gradient(circle, rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.04), transparent 70%);
+    background: radial-gradient(circle, rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 4%), transparent 70%);
   }
+
   @media (max-width: 767px) {
-    padding: $space-7 0; // Was 4rem
+    padding: $space-7 0; /* Was 4rem */
   }
 }
 
-// .section-header and its children (.section-badge, .section-title, .section-subtitle)
-// are assumed to be globally styled or in their own component partial.
+/* .section-header and its children (.section-badge, .section-title, .section-subtitle) */
+/* are assumed to be globally styled or in their own component partial. */
 
-.clinic-filters { // BEM: .clinic-finder__filters or .filter-group
+.clinic-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-2; // Was 0.5rem
-  margin-bottom: $space-5; // Was 1.5rem
-  justify-content: center;
+  gap: $space-2; /* Was 0.5rem */
+  margin-bottom: $space-4; /* Was 1.5rem */
+  justify-content: center; /* Was 1.5rem */
   position: relative;
-  z-index: 2; // Above pseudo-elements
+  z-index: 2; /* Above pseudo-elements */
 
   @media (max-width: 767px) {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px; // For scrollbar visibility
-    margin-bottom: $space-2; // Was 0.5rem
-    // mask-image: linear-gradient(to right, black 80%, transparent 100%); // This can be tricky with browser support
+    padding-bottom: 10px; /* For scrollbar visibility */
+    margin-bottom: $space-2; /* Was 0.5rem */ /* For scrollbar visibility */
+    /* mask-image: linear-gradient(to right, black 80%, transparent 100%); */ /* This can be tricky with browser support */ /* Was 0.5rem */
   }
 
-  .filter-btn { // BEM: .button .button--filter or .filter-group__button
-    // Extends .btn or has base button styles
-    @extend .button--small; // Assuming a small button base
-    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
-    color: $primary-500; // #006d77
-    border-radius: $border-radius-pill; // 50px
-    // padding: $space-2 $space-4; // was 0.5rem 1rem - from .button--small
-    // font-size: var(--text-xs); // was 0.875rem - from .button--small
-    // font-weight: $font-medium; // from .button
-    // cursor: pointer; // from .button
-    // transition: all $transition-standard; // from .button
-    border: none; // Specific override
+  .filter-btn { /* BEM */ /* Assuming a small button base */
+    padding: $space-2 $space-3; /* from .button--small */
+    font-size: var(--text-sm); /* from .button--small */
+    background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 5%); /* Assuming a small button base */
+    color: $primary-500; /* from .button */
+    transition: all $transition-standard; /* from .button */
+    border: none; /* Specific override */
+    border-radius: $border-radius-pill;
+
 
     &:hover {
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
       transform: translateY(-2px);
     }
+
     &.active {
       background-color: $primary-500;
       color: white;
-      box-shadow: 0 4px 10px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.2);
+      box-shadow: 0 4px 10px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 20%);
     }
+
     @media (max-width: 767px) {
-        flex: 0 0 auto; // For horizontal scrolling
+        flex: 0 0 auto; /* For horizontal scrolling */
     }
   }
 }
 
-.locate-me-btn { // BEM: .button .button--locate or .clinic-finder__locate-button
-  // Extends .btn or has base button styles
-  @extend .button--small;
-  display: flex; // from original
-  align-items: center; // from original
-  gap: $space-2; // from original
-  // padding: $space-2 $space-4; // from .button--small
-  background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.1);
+.locate-me-btn { /* BEM */
+  display: flex; /* from .button--small */
+  padding: $space-2 $space-3; /* from .button--small */
+  font-size: var(--text-sm); /* from .button--small */
+  background-color: transparent; /* from .button--small */
   color: $accent-700;
-  border: none; // Specific override
+  border: none; /* from .button */
+  transition: all $transition-standard; /* from .button */
+  margin-left: auto; /* Aligns to the right if in a flex container */
   border-radius: $border-radius-pill;
-  // cursor: pointer; // from .button
-  // font-size: var(--text-xs); // from .button--small
-  // font-weight: $font-medium; // from .button
-  // transition: all $transition-standard; // from .button
-  margin-left: auto; // Aligns to the right if in a flex container
+
 
   &:hover {
-    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.2);
+    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 20%);
     transform: translateY(-2px);
   }
-  i { font-size: 1rem; } // Explicit icon size
+  i { font-size: 1rem; } /* Explicit icon size */
   @media (max-width: 767px) {
-    position: static; // No longer absolute/fixed
-    margin-left: $space-2; // Was 0.5rem
-    padding: $space-1 + pxToRem(2.4px) $space-3; // approx 0.4rem 0.8rem
-    font-size: 0.8rem; // Explicit
-    flex-shrink: 0;
+    position: static; /* No longer absolute/fixed */
+    margin-left: $space-2; /* Was 0.5rem */ /* No longer absolute/fixed */
+    padding: $space-1 + pxToRem(2.4px) $space-3; /* Was 0.5rem */ /* approx 0.4rem 0.8rem */
+    font-size: 0.8rem; /* Explicit */ /* approx 0.4rem 0.8rem */
+    flex-shrink: 0; /* Explicit */
   }
 }
 
-.view-toggle-container { // BEM: .view-toggle or .clinic-finder__view-toggle
+.view-toggle-container {
   display: flex;
   justify-content: center;
-  margin-bottom: $space-6; // Was 2rem
-  position: relative;
+  margin-bottom: $space-6; /* Was 2rem */
+  position: relative; /* Was 2rem */
   z-index: 2;
 
-  .view-toggle { // BEM: .view-toggle__button or .button-group__button
+  .view-toggle {
     display: flex;
     align-items: center;
-    gap: $space-2; // 0.5rem
-    padding: $space-2 + pxToRem(3.2px) $space-4 + pxToRem(2px); // Approx 0.7rem 1.25rem
-    background-color: white;
-    border: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+    gap: $space-2; /* 0.5rem */
+    padding: $space-2 + pxToRem(3.2px) $space-5; /* Approx 0.7rem 1.25rem */
+    background-color: white; /* Approx 0.7rem 1.25rem */
+    border: 1px solid rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
     color: $primary-500;
     cursor: pointer;
     font-weight: $font-medium;
     transition: all $transition-standard;
 
     &:first-child {
-      border-radius: $border-radius-pill 0 0 $border-radius-pill; // 50px
-      border-right: none;
+      border-radius: $border-radius-pill 0 0 $border-radius-pill; /* 50px */
+      border-right: none; /* 50px */
     }
+
     &:last-child {
       border-radius: 0 $border-radius-pill $border-radius-pill 0;
-      border-left: none; // This might need to be 1px solid if they are not perfectly abutted
+      border-left: none; /* This might need to be 1px solid if they are not perfectly abutted */
     }
+
     &.active {
       background-color: $primary-500;
       color: white;
       border-color: $primary-500;
     }
+
     &:hover:not(.active) {
-      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.05);
+      background-color: rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 5%);
     }
   }
 }
 
-.clinic-content { // BEM: .clinic-finder__content
+.clinic-content { /* BEM: .clinic-finder__content; */
   position: relative;
   z-index: 2;
-  margin-bottom: $space-7; // Was 3rem
+  margin-bottom: $space-7; /* Was 3rem */
 }
 
-.clinic-grid-view, // BEM: .clinic-finder__grid-view
-.clinic-map-view {   // BEM: .clinic-finder__map-view
+.clinic-grid-view, /* BEM: .clinic-finder__grid-view */
+.clinic-map-view {   /* BEM: .clinic-finder__map-view; */
   display: none;
   &.active { display: block; }
 }
 
-.clinic-grid { // BEM: .clinic-finder__grid or .grid (if generic grid)
+.clinic-grid { /* BEM: .clinic-finder__grid or .grid (if generic grid); */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $space-5; // Was 1.5rem
+  gap: $space-5; /* Was 1.5rem */
   @media (max-width: 1199px) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 991px) { gap: $space-4 + pxToRem(2px); } // 1.25rem
-  @media (max-width: 767px) { grid-template-columns: 1fr; gap: $space-4; } // 1rem
+  @media (max-width: 991px) { gap: $space-4 + pxToRem(2px); } /* 1.25rem */
+  @media (max-width: 767px) { grid-template-columns: 1fr; gap: $space-4; } /* 1rem */
 }
 
-// .clinic-card styles are in components/_clinic-card.scss
+/* .clinic-card styles are in components/_clinic-card.scss */
 
-// Map View specific styles
-.map-container { // BEM: .clinic-finder__map-container
+/* Map View specific styles */
+.map-container {
   position: relative;
   height: 75vh;
   min-height: 500px;
   max-height: 800px;
-  border-radius: $border-radius-lg; // 12px
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08); // Could be $box-shadow-md
+  border-radius: $border-radius-lg; /* 12px */
+  overflow: hidden; /* 12px */
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%); /* Could be $box-shadow-md */
   @media (max-width: 1199px) { max-height: 750px; }
   @media (max-width: 991px) { height: 65vh; }
   @media (max-width: 767px) { height: 450px; }
   @media (max-width: 575px) { height: 350px; }
 }
 
-#clinics-map { // Corrected ID to kebab-case
-  width: 100%;
+#clinics-map { /* Corrected ID to kebab-case */
+  width: 100%; /* width for Corrected ID to kebab-case */
   height: 100%;
-  z-index: 1; // Leaflet controls will be above this
+  z-index: 1; /* Leaflet controls will be above this */
 }
 
-.map-sidebar { // BEM: .clinic-finder__map-sidebar
+.map-sidebar {
   position: absolute;
   top: 0;
   right: 0;
   width: 350px;
   height: 100%;
   background-color: white;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-  z-index: 2; // Above map tiles
-  display: flex;
+  box-shadow: -5px 0 15px rgb(0 0 0 / 10%);
+  z-index: 2; /* Above map tiles */
+  display: flex; /* display for Above map tiles */
   flex-direction: column;
+
   @media (max-width: 1199px) { width: 300px; }
   @media (max-width: 991px) { width: 280px; }
-  @media (max-width: 767px) { width: 100%; height: 250px; top: auto; bottom: 0; } // Stack at bottom on mobile
+  @media (max-width: 767px) { width: 100%; height: 250px; top: auto; bottom: 0; } /* Stack at bottom on mobile */
 
-  .sidebar-header { // BEM: .map-sidebar__header
-    padding: $space-5; // 1.5rem
-    background-color: $primary-500;
+  .sidebar-header {
+    padding: $space-5; /* 1.5rem */
+    background-color: $primary-500; /* background-color for 1.5rem */
     color: white;
-    h3 { margin: 0; font-size: var(--text-xl); color: white; font-weight: $font-bold; } // Was 1.25rem
+    h3 { margin: 0; font-size: var(--text-xl); color: white; font-weight: $font-bold; } /* Was 1.25rem */
     .sidebar-results { font-size: 0.9rem; margin: $space-2 0 0; opacity: 0.9; }
   }
-  .sidebar-body { // BEM: .map-sidebar__body
+
+  .sidebar-body { /* BEM: .map-sidebar__body; */
     flex: 1;
     overflow-y: auto;
-    padding: $space-4; // 1rem
+    padding: $space-4; /* 1rem */
   }
-  .sidebar-clinics { // BEM: .map-sidebar__clinic-list
+
+  .sidebar-clinics { /* BEM: .map-sidebar__clinic-list; */
     display: flex;
     flex-direction: column;
-    gap: $space-4; // 1rem
-    @media (max-width: 767px) { max-height: 180px; overflow-y: auto; } // Specific for #mapView
+    gap: $space-4; /* 1rem */
+    @media (max-width: 767px) { max-height: 180px; overflow-y: auto; } /* Specific for #mapView */
   }
 }
 
-.sidebar-clinic-card { // BEM: .clinic-card--sidebar or .map-sidebar__clinic-item
-  padding: $space-4; // 1.25rem
-  border-radius: $border-radius-lg; // 12px
-  background-color: rgba(0,0,0,0.02);
+.sidebar-clinic-card {
+  padding: $space-4; /* 1.25rem */
+  border-radius: $border-radius-md; /* 12px */
+  background-color: rgb(0 0 0 / 2%); /* background-color for 12px */
   position: relative;
   cursor: pointer;
   transition: all $transition-standard;
-  border-left: 3px solid rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.3);
+  border-left: 3px solid rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 30%);
+
   &:hover {
-    background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.05);
+    background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 5%);
     transform: translateY(-3px);
   }
+
   &.active {
-    background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.08);
+    background-color: rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 8%);
     border-left-color: $primary-500;
-    box-shadow: $box-shadow-sm; // Was 0 4px 15px rgba(0,0,0,0.08)
+    box-shadow: $box-shadow-sm; /* Was 0 4px 15px rgba(0,0,0,0.08) */
   }
-  h4 { font-size: var(--text-base); margin: 0 0 $space-2; color: $primary-500; font-weight: $font-semibold; } // Was 1.1rem, 600
-  .sidebar-clinic-address, .sidebar-clinic-hours { font-size: var(--text-xs); } // Was 0.xs
+  h4 { font-size: var(--text-base); margin: 0 0 $space-2; color: $primary-500; font-weight: $font-semibold; } /* Was 1.1rem, 600 */
+  .sidebar-clinic-address, .sidebar-clinic-hours { font-size: var(--text-xs); } /* Was 0.xs */
   .sidebar-clinic-hours { margin-top: $space-1; }
-  .btn-xs { @extend .button--small; padding: $space-1 $space-2; font-size: 0.75rem; } // Assuming .button--small exists
-  .btn.d-block { display: block !important; width: 100%; } // Utility for full-width button
+  .btn-xs { @extend .button--small; padding: $space-1 $space-2; font-size: 0.75rem; } /* Assuming .button--small exists */
+  .btn.d-block { display: block !important; width: 100%; } /* Utility for full-width button */
 }
 
-// Clinic Detail Panel on Map
-#clinic-detail-panel { // Corrected ID
-  position: absolute;
-  bottom: $space-5; // 1.5rem
-  left: $space-5; // 1.5rem
-  width: calc(100% - 400px); // Initial width
-  max-width: 400px;
+/* Clinic Detail Panel on Map */
+#clinic-detail-panel { /* Corrected ID */
+  position: absolute; /* position for Corrected ID */
+  left: $space-5; /* left for Corrected ID */
+  bottom: $space-5; /* Initial width */
+  width: 380px; /* width for Initial width */
+  max-width: calc(100% - 400px); /* max-width for Initial width */ /* max-width for larger screens */
   background-color: white;
-  border-radius: $border-radius-lg; // 12px
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); // Could be $box-shadow-lg
-  z-index: 3; // Above map sidebar
-  display: none; // Toggled by JS
+  border-radius: $border-radius-lg; /* Could be $box-shadow-lg */
+  box-shadow: 0 8px 30px rgb(0 0 0 / 15%); /* box-shadow for Could be $box-shadow-lg */
+  z-index: 3; /* Above map sidebar */
+  display: none; /* display for Above map sidebar */ /* Toggled by JS */
   &.active { display: block; }
+
   @media (max-width: 1199px) { width: calc(100% - 350px); }
   @media (max-width: 991px) { width: calc(100% - 300px); max-width: 350px; }
-  @media (max-width: 767px) { width: calc(100% - 2rem); left: $space-4; bottom: 260px; max-width: none; } // Above mobile sidebar
+  @media (max-width: 767px) { width: calc(100% - 2rem); left: $space-4; bottom: 260px; max-width: none; } /* Above mobile sidebar */
 
   .detail-panel-header {
-    padding: $space-4; // 1.25rem
-    background-color: $primary-500;
+    padding: $space-4; /* 1.25rem */
+    background-color: $primary-500; /* background-color for 1.25rem */
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h3 { margin: 0; font-size: var(--text-lg); color: white; } // Was 1.2rem
+    h3 { margin: 0; font-size: var(--text-lg); color: white; } /* Was 1.2rem */
   }
-  #panel-close-button-map { // Corrected ID
-    width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    background-color: rgba(255,255,255,0.2); color: white; border: none; cursor: pointer; transition: all 0.2s ease;
-    &:hover { background-color: rgba(255,255,255,0.3); transform: scale(1.1); }
+
+  #panel-close-button-map { /* Corrected ID */
+    width: 28px; /* width for Corrected ID */
+    height: 28px; /* Corrected ID */
+    border-radius: 50%; /* Corrected ID */
+    display: flex; /* Corrected ID */
+    align-items: center; /* Corrected ID */
+    justify-content: center; /* Corrected ID */
+    background-color: rgb(255 255 255 / 20%); color: white; border: none; cursor: pointer; transition: all 0.2s ease;
+    &:hover { background-color: rgb(255 255 255 / 30%); transform: scale(1.1); }
   }
-  .detail-panel-body { padding: $space-5; } // 1.5rem
-  .detail-section { margin-bottom: $space-5; } // 1.5rem
-  .detail-title { display: flex; align-items: center; gap: $space-2; margin-bottom: $space-3; color: $primary-500; font-size: var(--text-base); } // Was 1.1rem
+  .detail-panel-body { padding: $space-5; } /* 1.5rem */
+  .detail-section { margin-bottom: $space-5; } /* 1.5rem */
+  .detail-title { display: flex; align-items: center; gap: $space-2; margin-bottom: $space-3; color: $primary-500; font-size: var(--text-base); } /* Was 1.1rem */
   .detail-text { margin-bottom: $space-2; color: $text-secondary; }
+
   .detail-action-link {
     display: inline-flex; align-items: center; gap: $space-2; color: $accent-500; text-decoration: none;
     font-size: var(--text-sm); font-weight: $font-medium; transition: all $transition-standard;
     &:hover { color: $accent-700; transform: translateX(3px); }
   }
+
   .schedule-list {
     list-style: none; padding: 0; margin: 0;
-    li { display: flex; justify-content: space-between; padding: $space-3 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    li { display: flex; justify-content: space-between; padding: $space-3 0; border-bottom: 1px solid rgb(0 0 0 / 5%);
       &:last-child { border-bottom: none; }
       .day { font-weight: $font-medium; color: $primary-500; }
       .hours { color: $text-secondary; &.available { color: $accent-500; font-weight: $font-medium; } }
     }
   }
-  .detail-action { margin-top: $space-5; text-align: center; } // 1.5rem
-  .book-btn { // This is .btn.btn-primary.w-100
-    // Styles from _buttons.scss apply
-    // Overrides specific to this context:
-    width: auto; // From original fix, not always w-100
-    min-width: 200px;
+  .detail-action { margin-top: $space-5; text-align: center; } /* 1.5rem */
+  .book-btn { /* This is .btn.btn-primary.w-100 */
+    /* Styles from _buttons.scss apply */
+    /* Overrides specific to this context: */
+    width: auto; /* From original fix, not always w-100 */ /* width for This is .btn.btn-primary.w-100 */ /* Styles from _buttons.scss apply */ /* Overrides specific to this context: */
+    min-width: 200px; /* From original fix, not always w-100 */
     max-width: 80%;
     margin: 0 auto;
-    @media (max-width: 575px) { width: 100%; min-width: unset; } // Full width on very small
+
+    @media (max-width: 575px) { width: 100%; min-width: unset; } /* Full width on very small */
   }
 }
 
-// Map Markers
-.marker-icon { // Class for L.divIcon
-  width: 40px; height: 40px; background-color: $primary-500; border-radius: 50% 50% 50% 0;
+/* Map Markers */
+.marker-icon { /* Class for L.divIcon */
+  width: 40px; /* width for Class for L.divIcon */
+  height: 40px; /* Class for L.divIcon */
+  background-color: $primary-500; /* Class for L.divIcon */
+  border-radius: 50% 50% 50% 0; /* Class for L.divIcon */
   transform: rotate(-45deg); display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2); border: 2px solid white;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 20%); border: 2px solid white;
   i { transform: rotate(45deg); color: white; font-size: 16px; }
 }
-.map-popup { // Leaflet popup styling
-  text-align: center; padding: $space-2; // 5px
+
+.map-popup { /* Leaflet popup styling */
+  text-align: center; /* text-align for Leaflet popup styling */
+  padding: $space-2; /* padding for Leaflet popup styling */ /* 5px */
   h4 { margin: 0 0 $space-2; font-size: 14px; color: $primary-500; }
   p { margin: 0 0 $space-3; font-size: 12px; color: $text-secondary; }
-  .popup-details-btn { // This is .btn.btn-xs.btn-primary
-    // @extend .button--small; // Or .btn-xs if defined
-    // padding: $space-1 $space-2; font-size: 12px; border-radius: $border-radius-pill;
-    // background-color: $primary-500; color: white; border: none;
-    // These are specific, might not need full .btn extend
-    background-color: $primary-500; color: white; border: none; border-radius: 20px;
+
+  .popup-details-btn {
+    /* These are specific, might not need full .btn extend */
+    background-color: $primary-500; /* background-color for These are specific, might not need full .btn extend */
+    color: white; /* These are specific, might not need full .btn extend */
+    border: none; /* These are specific, might not need full .btn extend */
+    border-radius: 20px; /* These are specific, might not need full .btn extend */
     padding: 5px 10px; font-size: 12px; cursor: pointer; transition: all $transition-fast;
     &:hover { background-color: $primary-600; }
   }
 }
 
-// Clinic Finder Bottom CTA
-.clinic-cta { // BEM: .clinic-finder__cta
+/* Clinic Finder Bottom CTA */
+.clinic-cta {
   text-align: center;
-  margin-top: $space-7; // 3rem
-  max-width: 600px;
+  margin-top: $space-7; /* 3rem */
+  max-width: 600px; /* max-width for 3rem */
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 2;
-  p { color: $text-secondary; font-size: var(--text-lg); margin-bottom: $space-5; } // 1.1rem, 1.5rem
-  .btn-primary { // Extends .button--primary
-    // padding: $space-3 + pxToRem(2px) $space-5 + pxToRem(2px); // Approx 0.875rem 1.75rem
-    // border-radius: $border-radius-pill; // from .btn
-    // box-shadow: 0 4px 15px rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.3);
-    // &:hover {
-    //   box-shadow: 0 8px 20px rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 0.4);
-    // }
+  p { color: $text-secondary; font-size: var(--text-lg); margin-bottom: $space-5; } /* 1.1rem, 1.5rem */
+  .btn-primary { /* Extends .button--primary */
+    /* padding: $space-3 + pxToRem(2px) $space-5 + pxToRem(2px); */ /* Approx 0.875rem 1.75rem */ /* padding for Extends .button--primary */
+    /* border-radius: $border-radius-pill; */ /* Approx 0.875rem 1.75rem */ /* from .btn */
+    /* box-shadow: 0 4px 15px rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 30%); */ /* from .btn */
+    /* &:hover { */
+    /*   box-shadow: 0 8px 20px rgba(list.nth($primary-rgb,1),list.nth($primary-rgb,2),list.nth($primary-rgb,3), 40%); */ /* box-shadow */
+    /* } */
+
     @media (max-width: 767px) { width: 100%; justify-content: center; }
   }
-  // .btn-icon-right styles from _buttons.scss
+  /* .btn-icon-right styles from _buttons.scss */
 }

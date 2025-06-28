@@ -1,22 +1,24 @@
-// SCSS Partials: Layout - Footer
+/* SCSS Partials: layout - footer */
+/* variables are globally available via @import 'variables' in style.scss */
 
-@use 'sass:list'; // For list.nth if needed for rgba calculations
-@use 'sass:color'; // For color.adjust if needed
+@use 'sass:list'; /* SCSSPartials */
 
-.footer { // BEM block: .site-footer
-  background-color: $primary-900; // Using SCSS variable
-  color: rgba(255, 255, 255, 0.7); // Text color with alpha
-  padding-top: $space-8; // SCSS variable
+@use 'sass:color';
+
+.footer { /* BEM block: .site-footer; */
+  background-color: $primary-900;
+  color: rgb(255 255 255 / 70%);
+  padding-top: $space-8;
   position: relative;
-  overflow: hidden; // For pseudo-elements if they extend outside
+  overflow: hidden;
 
-  // Decorative pseudo-elements
+  /* Decorative pseudo-elements */
   &::before,
   &::after {
     content: "";
     position: absolute;
     border-radius: 50%;
-    z-index: 0; // Behind content
+    z-index: 0;
   }
 
   &::before {
@@ -24,7 +26,7 @@
     height: 300px;
     top: -150px;
     right: -150px;
-    background: radial-gradient(circle, rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.2), transparent 70%);
+    background: radial-gradient(circle, rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 20%), transparent 70%);
   }
 
   &::after {
@@ -32,42 +34,43 @@
     height: 250px;
     bottom: -100px;
     left: -100px;
-    background: radial-gradient(circle, rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.1), transparent 70%);
+    background: radial-gradient(circle, rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 10%), transparent 70%);
   }
 }
 
-.footer-content { // BEM: .site-footer__content
+.footer-content { /* BEM: .site-footer__content; */
   position: relative;
-  z-index: 1; // Above pseudo-elements
+  z-index: 1;
 }
 
-.footer-grid { // BEM: .site-footer__grid
+.footer-grid { /* BEM: .site-footer__grid; */
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr; // Consider making this responsive / configurable
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: $space-5;
   padding-bottom: $space-6;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Border color with alpha
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
 
-  @media (max-width: 991px) { // Tablet
+  @media (max-width: 991px) {
     grid-template-columns: 1fr 1fr;
     gap: $space-5 $space-4;
   }
-  @media (max-width: 767px) { // Mobile
+
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
     gap: $space-5;
   }
 }
 
-.footer-col { // BEM: .site-footer__column
+.footer-col { /* BEM: .site-footer__column; */
   display: flex;
   flex-direction: column;
 
-  .btn-accent { // Specific to RDV button in footer col, could be .button--accent
-    align-self: flex-start; // BEM: .site-footer__cta-button
+  .btn-accent {
+    align-self: flex-start;
   }
 }
 
-.footer-logo { // BEM: .site-footer__logo
+.footer-logo { /* BEM: .site-footer__logo; */
   display: inline-block;
   margin-bottom: $space-4;
   transition: transform $transition-standard;
@@ -77,23 +80,22 @@
   }
 
   img {
-    height: 50px; // Could be $logo-height-footer
-    width: auto; // Maintain aspect ratio
+    height: 50px;
+    width: auto;
   }
 }
 
-.footer-about { // BEM: .site-footer__about
+.footer-about { /* BEM: .site-footer__about; */
   margin-bottom: $space-4;
-  line-height: $leading-relaxed; // SCSS var
-  color: rgba(255, 255, 255, 0.75);
+  line-height: $leading-relaxed;
+  color: rgb(255 255 255 / 75%);
 }
 
-.footer-social { // BEM: .site-footer__social or .social-links as a component
+.footer-social { /* BEM: .site-footer__social or .social-links as a component; */
   display: flex;
   gap: $space-3;
   margin-bottom: $space-4;
 
-  // BEM: .social-links__item or .site-footer__social-link
   .footer-social-link {
     display: flex;
     align-items: center;
@@ -101,23 +103,23 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(255 255 255 / 10%);
     color: white;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    font-size: 1rem; // Icon size
+    font-size: 1rem;
 
     &:hover {
-      background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.8);
+      background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 80%);
       color: white;
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 15px rgb(0 0 0 / 20%);
     }
   }
 }
 
-.footer-heading { // BEM: .site-footer__heading
+.footer-heading { /* BEM: .site-footer__heading; */
   color: white;
-  font-size: var(--text-lg); // CSS var for responsive text
+  font-size: var(--text-lg);
   margin-bottom: $space-4;
   font-weight: $font-semibold;
   position: relative;
@@ -135,7 +137,7 @@
   }
 }
 
-.footer-links { // BEM: .site-footer__links or .link-list as a component
+.footer-links { /* BEM: .site-footer__links or .link-list as a component; */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -143,11 +145,11 @@
   flex-direction: column;
   gap: $space-2;
 
-  > li { // BEM: .link-list__item
+  > li { /* BEM: .link-list__item; */
     display: flex;
     align-items: baseline;
 
-    &::before { // Bullet point
+    &::before {
       content: "›";
       color: $accent-500;
       font-weight: bold;
@@ -161,9 +163,8 @@
       opacity: 1;
     }
 
-    // BEM: .link-list__link
     .footer-link {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgb(255 255 255 / 70%);
       text-decoration: none;
       transition: color $transition-standard;
       display: inline-block;
@@ -176,7 +177,7 @@
   }
 }
 
-.footer-contact-item { // BEM: .site-footer__contact-item or .contact-item (if generic)
+.footer-contact-item {
   display: flex;
   align-items: center;
   gap: $space-2;
@@ -188,18 +189,18 @@
   }
 }
 
-.footer-contact-icon { // BEM: .contact-item__icon
+.footer-contact-icon {
   color: $accent-400;
   font-size: 1.1rem;
   flex-shrink: 0;
 }
 
-.footer-contact-text { // BEM: .contact-item__text
-  a { // Modifies .footer-link style slightly if nested
-    color: rgba(255, 255, 255, 0.7);
+.footer-contact-text {
+  a {
+    color: rgb(255 255 255 / 70%);
     text-decoration: none;
     transition: $transition-standard;
-    padding: 0; // Override .footer-link padding if needed for this context
+    padding: 0;
 
     &:hover {
       color: white;
@@ -207,37 +208,37 @@
   }
 }
 
-.footer-bottom { // BEM: .site-footer__bottom
+.footer-bottom {
   padding: $space-4 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--text-sm); // CSS var for responsive text
+  font-size: var(--text-sm);
 
-  @media (max-width: 767px) { // Mobile
+  @media (max-width: 767px) {
     flex-direction: column;
     gap: $space-3;
     text-align: center;
   }
 }
 
-.footer-copyright { // BEM: .site-footer__copyright
-  color: rgba(255, 255, 255, 0.6);
+.footer-copyright {
+  color: rgb(255 255 255 / 60%);
 }
 
-.footer-legal { // BEM: .site-footer__legal-links or .legal-links
+.footer-legal {
   display: flex;
   gap: $space-4;
 
-  @media (max-width: 767px) { // Mobile
+  @media (max-width: 767px) {
     flex-direction: column;
     gap: $space-3;
     align-items: center;
   }
 }
 
-.footer-legal-link { // BEM: .legal-links__link
-  color: rgba(255, 255, 255, 0.6);
+.footer-legal-link {
+  color: rgb(255 255 255 / 60%);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
@@ -261,6 +262,3 @@
     width: 100%;
   }
 }
-
-// Script for current year is in footer.njk, not CSS/SCSS.
-// The #currentYear element will be styled by .footer-copyright if needed.

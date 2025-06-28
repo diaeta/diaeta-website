@@ -1,0 +1,302 @@
+@use 'sass:list'; /* Import the sass:list module */
+
+/* SCSS Partials: Layout - RTL Overrides */
+
+/* This file contains overrides for Right-To-Left (RTL) languages, */
+/* primarily for Arabic ('ar') in this project. */
+/* It will be imported last in the main style.scss to ensure */
+/* its rules take precedence. */
+
+/* Helper mixin for RTL properties (optional, but can keep things DRY) */
+/*
+@mixin rtl-property($ltr-property, $rtl-property, $value) {
+  #{$ltr-property}: $value;
+  [dir="rtl"] & {
+    #{$ltr-property}: unset; // TODO: Check if this 'unset' is correct or should be removed/changed
+    #{$rtl-property}: $value;
+  }
+}
+*/
+
+/* Example of how to use logical properties (modern approach, less need for overrides): */
+/*
+.example-class {
+  margin-inline-start: $space-4; // Replaces margin-left, works for LTR and RTL
+  text-align: start; // Replaces text-align: left
+}
+*/
+/* However, since the existing CSS largely uses physical properties (left/right), */
+/* we will mostly use overrides for now. A future refactor could adopt logical properties more broadly. */
+
+[dir="rtl"] {
+  /* Global body direction (already handled by <html dir="rtl"> but good for explicitness) */
+  /*
+  body {
+    direction: rtl;
+    text-align: right; // Default text alignment for RTL
+  }
+  */
+
+  /* Text alignment utilities - ensure they work as expected in RTL */
+  /* .text-left { text-align: right !important; } */ /* If Bootstrap or similar utilities are used */
+  /* .text-right { text-align: left !important; } */
+
+  /* Header adjustments */
+  .logo {
+    /* margin-right: auto; */ /* If it was margin-left: auto for ltr */
+    /* margin-left: $space-4; */ /* Example if logo needs to shift */
+  }
+
+  .main-nav .nav-list {
+    /* Potentially reverse order of items if visually needed, though flexbox usually handles this. */
+    /* For text alignment within nav items if they were forced left: */
+    /* .nav-link { text-align: right; } */
+  }
+
+  .desktop-actions {
+    /* If order of items (phone, lang, CTA) needs to be visually reversed */
+    /* Might need flex-direction: row-reverse; */ /* or order property on children */
+  }
+
+  .lang-selector .lang-dropdown {
+    right: auto;
+    left: 0; /* Position dropdown to the left for RTL */
+  }
+
+  .menu-toggle {
+    margin-left: 0;
+    margin-right: $space-2; /* If it was margin-left in LTR */
+  }
+
+  /* Mobile menu slide-in direction */
+  .main-nav { /* When it's the mobile panel */
+    @media (max-width: 1023px) {
+      /* transform: translateX(-100%); */ /* If it slides from the right in LTR */
+      /* &.menu-open { transform: translateX(0); } */
+      /* Current implementation slides from right (translateX(100%)), so for RTL it should slide from left. */
+      /* This might require adjusting the initial transform to translateX(-100%) */
+      /* and the open state to translateX(0). */
+      /* However, if the menu is full-width, the slide direction might not matter as much. */
+      /* The current transform: translateX(100%) means it comes from the right. */
+      /* For RTL, it should still come from the right of the viewport (which is visually the left). */
+      /* So, the existing animation might be okay. Needs testing. */
+    }
+  }
+
+  /* Hero Section */
+  .hero-content {
+    /* text-align: right; */ /* If not already handled by body default */
+  }
+  .hero-badge-icon {
+    margin-left: $space-2; /* Was margin-right */
+    margin-right: 0;
+  }
+  .hero-cta {
+    /* flex-direction: row-reverse; */ /* If button order needs to be swapped */
+    .btn-icon-right {
+      /* transform: rotate(180deg); */ /* Or use a left arrow icon */
+      /* margin-left: $space-2; margin-right: 0; */
+    }
+  }
+
+  /* Science Approach Section */
+  .science-approach-section .science-grid {
+    /* If columns are visually ordered, might need to reverse them. */
+    /* grid-template-columns: 40% 60%; */ /* If it was 60% 40% */
+    /* .science-content { order: 2; } */
+    /* .science-image-container { order: 1; } */
+  }
+  .science-description {
+    border-left: none;
+    border-right: 2px solid rgba(list.nth($primary-rgb,1), list.nth($primary-rgb,2), list.nth($primary-rgb,3), 0.2);
+    padding-left: 0;
+    padding-right: $space-4;
+    @media (max-width: 767px) {
+        border-right: none; padding-right: 0; /* Keep mobile centered behavior */
+    }
+  }
+  .science-fact {
+    border-left: none;
+    border-right: 3px solid $primary-500;
+    padding-left: $space-5; /* Was 1.5rem */
+    padding-right: $space-6; /* Was 2rem */
+    &::before { /* Dot accent */
+      left: auto;
+      right: $space-4; /* 1rem */
+    }
+    .fact-icon {
+      left: auto;
+      right: $space-4; /* 1rem */
+    }
+    .fact-text {
+      padding-left: 0;
+      padding-right: $space-2; /* 0.5rem */
+    }
+  }
+  .pillar-group-icon {
+    margin-left: $space-3; /* Was margin-right */
+    margin-right: 0;
+  }
+  .science-pillar {
+    /* gap might need to be visual start/end */
+  }
+  .pillar-icon {
+    /* margin-right: $space-3; */
+  }
+
+  /* Specialties Section */
+  .specialty-category { /* Badge on card */
+    left: auto;
+    right: $space-4; /* 1rem */
+    border-radius: 0 $border-radius-pill $border-radius-pill 0; /* Adjust radius if it's on the edge */
+  }
+
+  .specialty-content ul, .specialty-content ol { /* Lists within specialty cards */
+    padding-left: 0;
+    padding-right: 1.2em; /* Indent from right */
+    /* text-align: right; */ /* If not covered by body */
+  }
+
+  .specialty-footer .learn-more-btn i {
+    /* transform: rotate(180deg); */ /* If using a right arrow icon */
+  }
+
+
+  /* Testimonials */
+  .story-card-header {
+    /* gap might need adjustment or flex-direction: row-reverse */
+    /* .client-portrait might need margin-left instead of margin-right if gap doesn't auto-adjust */
+  }
+  .story-segment h4 i {
+    margin-left: $space-2; /* was margin-right */
+    margin-right: 0;
+  }
+  .story-segment ul li {
+    padding-left: 0;
+    padding-right: 1.2em; /* For bullet */
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+  .story-segment.client-quote blockquote {
+    border-left: none;
+    border-right: 3px solid $primary-200;
+    padding-left: $space-4; /* 1rem */
+    padding-right: $space-5; /* 1.5rem */
+  }
+  .success-quote::before { /* Old testimonial quote mark */
+    left: auto;
+    right: -$space-1;
+  }
+
+  /* Cabinet Teaser */
+  .teaser-highlights .highlight-item {
+    /* gap might need adjustment */
+    i { /* icon */ }
+    span { /* text */ }
+  }
+
+  /* Genetic Testing Section */
+  .genetic-section {
+    .section-header.text-start {
+      /* text-align: right !important; */ /* If text-start utility doesn't handle RTL */ /* gap might need adjustment or flex-direction */
+    }
+
+    .section-subtitle.text-start {
+      /* text-align: right !important; */
+    }
+
+    ul.list-styled-check.small.mb-4 {
+      /* padding-left: 0; */ /* padding-right: ... for custom bullet */
+    }
+
+    .cta-equal-width-group {
+      /* flex-direction: row-reverse; */ /* If button order matters */
+    }
+
+    .intro-visual .dna-image {
+      /* margin-left: auto; */ /* margin-right: auto; */ /* Already centered */
+    }
+  }
+
+  .diaeta-plus-box {
+    border-left: none;
+    border-right: 3px solid $primary-200;
+  }
+
+  /* News Teaser & Blog */
+  .article-teaser-card .teaser-card-category {
+    /* If it's absolutely positioned, adjust left/right */
+  }
+
+  .teaser-card-meta .teaser-card-date i {
+    margin-left: 0.3em; /* was margin-right */
+    margin-right: 0; /* was margin-right */
+  }
+
+  .teaser-card-meta .teaser-card-readmore i {
+    /* transform: rotate(180deg); */
+  }
+
+  .blog-post-meta a {
+    /* Ensure text decoration is appropriate */
+  }
+
+  .entry-content {
+    /* h2,h3,h4 text-align if not covered by body */
+    /* ul, ol padding-left to padding-right */
+    /* blockquote border-left to border-right, padding adjustment */
+  }
+
+  .sidebar-widget .category-list a .badge {
+    /* float: left; */ /* If it was float: right */
+  }
+
+  /* Tariffs Section */
+  .service-tarif-category > p.text-muted.small {
+    /* text-align if not covered */
+  }
+
+  .tarif-item .feature-list li {
+    /* Icon alignment */
+    i.fa-solid.fa-check {
+      margin-left: $space-2; /* Was margin-right */
+      margin-right: 0; /* Was margin-right */
+    }
+  }
+
+  .offre-duo-box p {
+    /* text-align if not covered */
+  }
+
+  .tarifs-section .text-center.mt-4 p.mb-3 i.fa-solid.fa-shield-heart {
+    /* margin-right if it was margin-left */
+  }
+
+  /* Contact Section */
+  .contact-item .contact-icon {
+    /* margin-right to margin-left if using margins instead of gap for flex children */
+  }
+
+  .social-links {
+    /* justify-content if needed */
+  }
+
+  /* General Components */
+  .form-select { /* Dropdown arrow for select */
+    background-position: left $space-4 center; /* Was right */
+    padding-right: $space-4; /* Original padding */
+    padding-left: $space-4 * 2.5; /* Space for icon on the left */
+  }
+
+  .form-check-input { /* Checkbox/radio */
+    margin-left: $space-3; /* Was margin-right */
+    margin-right: 0; /* Was margin-right */
+  }
+
+  /* Ensure any specific `text-align: left` is changed to `text-align: right` */
+  /* This is a general rule, but specific instances might need checking. */
+  /* Example: */
+  /* .some-left-aligned-text { text-align: right !important; } */
+}

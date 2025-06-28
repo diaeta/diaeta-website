@@ -1,22 +1,18 @@
-// SCSS Partials: Sections - Hero
+@use 'sass:list';
+@use 'sass:color';
 
-@use 'sass:list'; // For list.nth if needed
-@use 'sass:color'; // For color.adjust if needed
+/* SCSS Partials: Sections - Hero */
 
 .hero-section {
   position: relative;
-  min-height: 100vh; // Full viewport height
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #001518; // Darker teal base, can be $primary-900 or a specific hero bg var
+  background-color: #001518;
   color: white;
   overflow: hidden;
-  padding-top: $header-height; // Use header height variable, assumes _variables.scss is available globally or imported
-
-  // Fallback for when video doesn't load or on mobile
-  // This was in the original CSS for mobile, applying it more broadly as a fallback.
-  // Specific mobile video handling (like pausing/hiding) is in JS.
-  background-image: url("../images/hero-poster-medium.jpg"); // Relative to final CSS output path
+  padding-top: $header-height;
+  background-image: url("../images/hero-poster-medium.jpg");
   background-size: cover;
   background-position: center;
 
@@ -38,8 +34,7 @@
       opacity: 0.3;
       filter: brightness(0.6) contrast(1.1) saturate(0.8);
 
-      @media (max-width: 767px) { // As per JS, video might be hidden/paused
-        // display: none; // Or JS handles this
+      @media (max-width: 767px) {
       }
     }
   }
@@ -52,46 +47,46 @@
     height: 100%;
     background: radial-gradient(
       circle at 30% 50%,
-      rgba(0, 21, 24, 0.1), // Can use SCSS rgba with list.nth if $primary-900-rgb is defined
-      rgba(0, 21, 24, 0.3)
+      rgb(0 21 24 / 10%),
+      rgb(0 21 24 / 30%)
     );
     z-index: 2;
 
     @media (max-width: 767px) {
       background: radial-gradient(
         circle at center,
-        rgba(0, 21, 24, 0.65),
-        rgba(0, 21, 24, 0.85)
+        rgb(0 21 24 / 65%),
+        rgb(0 21 24 / 85%)
       );
     }
   }
 
-  .hero-content { // BEM: .hero__content
+  .hero-content {
     position: relative;
     z-index: 3;
-    max-width: 800px; // Could be a layout variable $max-width-narrow
-    padding: $space-7 0; // Use SCSS var for padding
+    max-width: 800px;
+    padding: $space-7 0;
 
     @media (max-width: 767px) {
       text-align: center;
       margin-left: auto;
       margin-right: auto;
-      padding-top: $space-8; // From original CSS
+      padding-top: $space-8;
       padding-bottom: $space-5;
     }
   }
 
-  .hero-badge { // BEM: .hero__badge or .badge .badge--hero
+  .hero-badge {
     display: inline-flex;
     align-items: center;
-    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.15);
-    border: 1px solid rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 0.3);
+    background-color: rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 15%);
+    border: 1px solid rgba(list.nth($accent-rgb, 1), list.nth($accent-rgb, 2), list.nth($accent-rgb, 3), 30%);
     border-radius: $border-radius-pill;
-    padding: $space-2 $space-3; // Use SCSS vars
+    padding: $space-2 $space-3;
     margin-bottom: $space-4;
     font-size: 0.9rem;
     font-weight: $font-medium;
-    color: $accent-500; // Use SCSS var
+    color: $accent-500;
 
     @media (max-width: 767px) {
       margin-left: auto;
@@ -99,38 +94,40 @@
     }
   }
 
-  .hero-badge-icon { // BEM: .hero__badge-icon or .badge__icon
+  .hero-badge-icon {
     margin-right: $space-2;
   }
 
-  .hero-headline { // BEM: .hero__headline
-    font-size: var(--text-5xl); // Use CSS var for responsive text
-    line-height: $leading-tight; // Use SCSS var
-    margin-bottom: $space-4; // Use SCSS var
+  .hero-headline {
+    font-size: var(--text-5xl);
+    line-height: $leading-tight;
+    margin-bottom: $space-4;
     font-weight: $font-bold;
-    color: white; // Explicitly white for hero
+    color: white;
     letter-spacing: var(--tracking-tight);
 
-    .text-accent { // Modifier for part of headline, already defined in _typography or _utilities
-      // color: $accent-500; // This is handled by .text-accent utility
-      position: relative; // For any pseudo-elements if needed
+    .text-accent {
+      position: relative;
     }
-    @media (max-width: 992px) { font-size: var(--text-4xl); } // Original had 2.5rem
-    @media (max-width: 767px) { font-size: var(--text-3xl); } // Original had 2rem
+
+    @media (max-width: 992px) { font-size: var(--text-4xl); }
+    @media (max-width: 767px) { font-size: var(--text-3xl); }
   }
 
-  .hero-tagline { // BEM: .hero__tagline
-    font-size: var(--text-2xl); // Was 1.5rem, using CSS var for responsiveness
+  .hero-tagline {
+    font-size: var(--text-2xl);
     margin-bottom: $space-4;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(255 255 255 / 85%);
     font-weight: $font-normal;
-    @media (max-width: 992px) { font-size: var(--text-xl); } // Was 1.3rem
-    @media (max-width: 767px) { font-size: var(--text-lg); } // Was 1.2rem
+
+    @media (max-width: 992px) { font-size: var(--text-xl); }
+    @media (max-width: 767px) { font-size: var(--text-lg); }
   }
 
-  .hero-description { // BEM: .hero__description
-    margin-bottom: $space-5; // Was 2rem
-    max-width: 90%; // As per original
+  .hero-description {
+    margin-bottom: $space-5;
+    max-width: 90%;
+
     @media (max-width: 767px) {
         margin-left: auto;
         margin-right: auto;
@@ -138,136 +135,128 @@
     }
 
     p {
-      font-size: var(--text-lg); // Was 1.1rem
-      line-height: $leading-relaxed; // Was 1.6
-      color: rgba(255, 255, 255, 0.8);
+      font-size: var(--text-lg);
+      line-height: $leading-relaxed;
+      color: rgb(255 255 255 / 80%);
     }
 
-    .text-highlight { // Utility, defined in _typography or _utilities
-      // color: $secondary-500; // Coral color
-      // font-weight: $font-medium;
-      // position: relative;
-      // transition: color 0.3s ease;
-      // &::after { ... } // Already defined
+    .text-highlight {
     }
   }
 
-  .feature-badges { // BEM: .hero__feature-badges or .feature-list
+  .feature-badges {
     display: flex;
     gap: $space-3;
     margin-bottom: $space-6;
     flex-wrap: wrap;
+
     @media (max-width: 767px) {
         justify-content: center;
         flex-direction: column;
         align-items: center;
     }
 
-    .feature-badge { // BEM: .feature-list__item or .badge--feature
+    .feature-badge {
       display: flex;
       align-items: center;
       gap: $space-2;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgb(255 255 255 / 10%);
+      border: 1px solid rgb(255 255 255 / 20%);
       padding: $space-2 $space-3;
       border-radius: $border-radius-pill;
       transition: all $transition-standard;
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgb(255 255 255 / 15%);
         transform: translateY(-3px);
       }
 
       i {
-        color: $accent-500; // Green icon
+        color: $accent-500;
         font-size: 1.1rem;
       }
 
       span {
         font-size: 0.95rem;
         font-weight: $font-medium;
-        color: white; // Ensure text is white
+        color: white;
       }
+
       @media (max-width: 767px) {
         margin-bottom: $space-2;
         width: 100%;
         max-width: 240px;
-        justify-content: center; // Center content of badge
+        justify-content: center;
       }
-      @media (max-width: 480px) { // Further refinement for very small screens
-         // No specific changes from original here, covered by 767px
+
+      @media (max-width: 480px) {
       }
     }
   }
 
-  .hero-cta { // BEM: .hero__actions
+  .hero-cta {
     display: flex;
-    gap: $space-3; // Was 1rem
+    gap: $space-3;
     flex-wrap: wrap;
 
     @media (max-width: 767px) {
         flex-direction: column;
         align-items: center;
         gap: $space-3;
-        margin-bottom: $space-6; // Added from original mobile
+        margin-bottom: $space-6;
     }
 
-    .btn { // General button styling from _buttons.scss applies
-      // Specific overrides for hero buttons if any
-      // Example: ensure .btn-primary and .btn-outline use correct colors for hero context
-      // The .btn-primary from _buttons.scss is $secondary-500 (coral)
-      // The .btn-outline from _buttons.scss needs to be light for dark hero bg
-      // This will be .button--outline-light or similar
+    .btn {
     }
-    .btn.pulse-animation { // Uses .btn from _buttons.scss
-        // Original HTML has .btn-primary.pulse-animation
-        // Ensure this uses the correct primary color (coral)
-        @extend .button--primary; // Coral button
+
+    .btn.pulse-animation {
+        @extend .button--primary;
     }
-    .btn.scroll-to { // Uses .btn from _buttons.scss
-        // Original HTML has .btn-outline.scroll-to
-        // This needs to be a light outline button
-        @extend .button--outline; // Base outline
+
+    .btn.scroll-to {
+        @extend .button--outline;
+
         color: white;
-        border-color: rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgb(255 255 255 / 50%);
+        background-color: rgb(255 255 255 / 10%);
 
         &:hover, &:focus {
             background-color: white;
-            color: $primary-700; // Dark teal text on hover
+            color: $primary-700;
             border-color: white;
         }
     }
+
      @media (max-width: 767px) {
         .btn {
             width: 100%;
-            max-width: 250px; // As per original
+            max-width: 250px;
         }
      }
+
      @media (max-width: 375px) {
         .btn {
-            max-width: 220px !important; // As per original
+            max-width: 220px !important;
         }
      }
   }
 }
 
-// Tooltip styles (if not already in _utilities or a _tooltips partial)
 .hero-highlight-tooltip {
-  position: fixed; // Keep fixed for viewport positioning
-  background-color: $neutral-800; // Dark background
+  position: fixed;
+  background-color: $neutral-800;
   color: white;
   padding: $space-2 $space-3;
   border-radius: $border-radius-sm;
   font-size: var(--text-sm);
   line-height: $leading-normal;
-  max-width: 280px; // Limit width
+  max-width: 280px;
   box-shadow: $box-shadow-lg;
-  z-index: 1000; // High z-index
-  pointer-events: none; // Does not interfere with mouse
+  z-index: 1000;
+  pointer-events: none;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.2s ease, transform 0.2s ease; // Faster transition
+  transition: opacity 0.2s ease, transform 0.2s ease;
 
   &.visible {
     opacity: 1;

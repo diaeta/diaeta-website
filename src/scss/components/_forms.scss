@@ -1,12 +1,15 @@
-@use 'sass:list'; // Import the sass:list module
+/* SCSS Partials: components - forms */
+/* variables are globally available via @import 'variables' in style.scss */
 
-// SCSS Partials: Components - Forms
+@use 'sass:list'; /* SCSSPartials */
 
-// General form styling (to be refactored with BEM)
-// Original styles from .contact-form-container etc. will go here.
+@use 'sass:color';
+
+/* General form styling (to be refactored with BEM) */
+/* Original styles from .contact-form-container etc. will go here. */
 
 .form-group {
-  margin-bottom: $space-4; // Use SCSS variable
+  margin-bottom: $space-4;
 }
 
 .form-label {
@@ -20,12 +23,12 @@
   display: block;
   width: 100%;
   padding: $space-3 $space-4;
-  font-size: var(--text-base); // CSS var for dynamic sizing
-  line-height: var(--leading-normal); // CSS var
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
   color: $text-primary;
   background-color: $neutral-50;
   background-clip: padding-box;
-  border: 1px solid transparent; // Will be styled on focus or if validation states are added
+  border: 1px solid transparent;
   border-radius: $border-radius-md;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 
@@ -33,38 +36,37 @@
     background-color: white;
     border-color: $primary-300;
     outline: 0;
-    box-shadow: 0 0 0 3px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+    box-shadow: 0 0 0 3px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
   }
 }
 
 textarea.form-control {
-  min-height: 120px; // Example, adjust as needed
+  min-height: 120px;
   resize: vertical;
 }
 
 .form-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{$primary-500}' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); // Interpolate SCSS var for fill color
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{$primary-500}' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right $space-4 center; // Use SCSS var
-  background-size: 16px 12px; // Standard sizes
-  padding-right: $space-4 * 2.5; // Ensure enough space for icon
+  background-position: right $space-4 center;
+  background-size: 16px 12px;
+  padding-right: $space-4 * 2.5;
 }
 
-// Checkbox and Radio custom styling (if any beyond browser defaults)
 .form-check {
   display: flex;
-  align-items: flex-start; // Align icon with first line of label
-  padding-left: 0; // Reset if Bootstrap default is used
+  align-items: flex-start;
+  padding-left: 0;
   margin-bottom: $space-3;
 }
 
 .form-check-input {
-  margin-right: $space-3; // Space between input and label
+  margin-right: $space-3;
   flex-shrink: 0;
   width: 18px;
   height: 18px;
-  margin-top: 0.25em; // Align with text line
+  margin-top: 0.25em;
   appearance: none;
   border: 1px solid $neutral-400;
   border-radius: 4px;
@@ -81,18 +83,19 @@ textarea.form-control {
 
   &:focus {
     border-color: $primary-300;
-    box-shadow: 0 0 0 3px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 0.1);
+    box-shadow: 0 0 0 3px rgba(list.nth($primary-rgb, 1), list.nth($primary-rgb, 2), list.nth($primary-rgb, 3), 10%);
     outline: none;
   }
 }
 
 .form-check-label {
-  font-size: var(--text-sm); // CSS var
+  font-size: var(--text-sm);
   color: $text-secondary;
 
-  a { // Assuming links within labels
+  a {
     color: $primary-500;
-    text-decoration: none; // Base 'a' style might cover this
+    text-decoration: none;
+
     &:hover {
       color: $primary-600;
       text-decoration: underline;
@@ -100,29 +103,27 @@ textarea.form-control {
   }
 }
 
-// Form Grid styles (from contact section)
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $space-4;
 }
 
-.form-full { // Utility for grid items spanning full width
+.form-full {
   grid-column: span 2;
 }
 
-// Form specific to contact page - will move to a section specific file later
-.contact-form-container { // This is a wrapper, not a form element itself
+.contact-form-container {
   background-color: white;
   border-radius: $border-radius-lg;
   padding: $space-6;
   box-shadow: $box-shadow-md;
   position: relative;
-  z-index: 2; // As per original
-  border: 1px solid rgba(list.nth($neutral-200-rgb, 1), list.nth($neutral-200-rgb, 2), list.nth($neutral-200-rgb, 3), 0.5);
+  z-index: 2;
+  border: 1px solid rgba(list.nth($neutral-200-rgb, 1), list.nth($neutral-200-rgb, 2), list.nth($neutral-200-rgb, 3), 50%);
 }
 
-.form-title { // General title for a form, could be a mixin or utility
+.form-title {
   font-size: var(--text-2xl);
   margin-bottom: $space-5;
   color: $primary-600;
@@ -142,20 +143,19 @@ textarea.form-control {
   }
 }
 
-.form-submit { // Wrapper for submit button
+.form-submit {
   text-align: center;
   margin-top: $space-5;
 
-  .btn { // Specific styling for submit button if needed, beyond .btn defaults
+  .btn {
     min-width: 200px;
   }
 }
 
-.form-message { // For success/error messages
+.form-message {
   margin-top: $space-4;
   padding: $space-3 $space-4;
   border-radius: $border-radius-md;
   font-size: var(--text-sm);
   text-align: center;
-  // Specific alert styles (.alert-success, .alert-danger) would be separate or part of this
 }
