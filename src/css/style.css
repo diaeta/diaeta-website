@@ -7702,6 +7702,386 @@ section {
 .cabinet-explorer-card .card-footer-actions .btn i {
   font-size: 0.8em;
 }
+
+/* Cookie Consent Banner Styles */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(var(--primary-900-rgb, 0, 35, 39), 0.95); /* Dark, slightly transparent */
+  color: var(--neutral-100, #f5f5f5);
+  padding: var(--space-4) 0; /* 1rem padding top/bottom */
+  z-index: 1000; /* High z-index to ensure visibility */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(var(--primary-700-rgb, 0, 72, 79), 0.5);
+}
+
+.cookie-consent-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4); /* 1rem gap */
+}
+
+.cookie-consent-text {
+  margin: 0;
+  font-size: var(--text-sm, 0.9rem); /* Smaller text */
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.cookie-consent-text .cookie-consent-link {
+  color: var(--accent-300, #bfe095); /* Accent color for link */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.cookie-consent-text .cookie-consent-link:hover {
+  color: var(--accent-200, #d6ebba);
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: var(--space-3); /* 0.75rem gap */
+  flex-shrink: 0;
+}
+
+.cookie-consent-actions .btn {
+  padding: var(--space-2) var(--space-3); /* Smaller padding for sm buttons */
+  font-size: var(--text-xs, 0.8rem); /* Smaller font for buttons */
+  min-width: 90px;
+  white-space: nowrap;
+}
+.cookie-consent-actions .btn-primary {
+    background-color: var(--accent-500); /* Accent Green for Accept */
+    border-color: var(--accent-500);
+    color: white;
+}
+.cookie-consent-actions .btn-primary:hover {
+    background-color: var(--accent-600);
+    border-color: var(--accent-600);
+}
+.cookie-consent-actions .btn-outline { /* For Decline/Refuser */
+    border-color: var(--neutral-400);
+    color: var(--neutral-100);
+    background-color: transparent;
+}
+.cookie-consent-actions .btn-outline:hover {
+    background-color: rgba(var(--neutral-100-rgb, 245, 245, 245), 0.1);
+    border-color: var(--neutral-100);
+    color: var(--neutral-100);
+}
+
+
+/* Responsive adjustments for cookie banner */
+@media (max-width: 767px) {
+  .cookie-consent-content {
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to full width */
+    text-align: center;
+    gap: var(--space-3);
+  }
+
+  .cookie-consent-text {
+    margin-bottom: var(--space-3); /* Space between text and buttons */
+  }
+
+  .cookie-consent-actions {
+    justify-content: center; /* Center buttons on mobile */
+    gap: var(--space-4);
+  }
+   .cookie-consent-actions .btn {
+    flex-grow: 1; /* Make buttons take equal width */
+    max-width: 150px; /* Max width for buttons */
+  }
+}
+
+/* Adding RGB versions for colors used in banner for RGBA backgrounds */
+:root {
+  /* ... existing variables ... */
+  --primary-900-rgb: 0, 35, 39; /* For .cookie-consent-banner background */
+  --primary-700-rgb: 0, 72, 79; /* For .cookie-consent-banner border-top */
+  /* --neutral-100-rgb is already defined in your root styles */
+}
+
+/* === Advanced Cookie Consent Banner & Modal Styles === */
+
+#cookieConsentContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050; /* Ensure it's above most other elements */
+}
+
+/* Main Banner (replaces .cookie-consent-banner for the new structure) */
+.cookie-consent-banner {
+  background-color: rgba(var(--primary-900-rgb, 0, 35, 39), 0.97);
+  color: var(--neutral-100, #f5f5f5);
+  padding: var(--space-4) 0;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(var(--primary-700-rgb, 0, 72, 79), 0.6);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  display: none; /* Controlled by JS for initial show/hide */
+}
+
+.cookie-consent-banner.active { /* JS will add this to show */
+  display: block; /* Or flex if needed for content alignment */
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cookie-consent-content { /* Shared by banner and modal */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.cookie-consent-text {
+  margin: 0;
+  font-size: var(--text-sm, 0.9rem);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.cookie-consent-text p {
+  margin-bottom: 0; /* Remove default p margin if text is directly in a p */
+}
+
+.cookie-consent-text .cookie-consent-link {
+  color: var(--accent-300, #bfe095);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.cookie-consent-text .cookie-consent-link:hover {
+  color: var(--accent-200, #d6ebba);
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.cookie-consent-actions .btn {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs, 0.8rem);
+  min-width: 110px; /* Ensure buttons have some width */
+  white-space: nowrap;
+}
+.cookie-consent-actions .btn-primary { /* Accept All */
+    background-color: var(--accent-500);
+    border-color: var(--accent-500);
+    color: white;
+}
+.cookie-consent-actions .btn-primary:hover {
+    background-color: var(--accent-600);
+    border-color: var(--accent-600);
+}
+.cookie-consent-actions .btn-outline { /* Customize, Decline All */
+    border-color: var(--neutral-400);
+    color: var(--neutral-100);
+    background-color: transparent;
+}
+.cookie-consent-actions .btn-outline:hover {
+    background-color: rgba(var(--neutral-100-rgb, 245, 245, 245), 0.1);
+    border-color: var(--neutral-100);
+    color: var(--neutral-100);
+}
+
+/* Cookie Preferences Modal */
+.cookie-preferences-modal {
+  position: fixed;
+  bottom: 0; /* Start hidden at the bottom */
+  left: 0;
+  width: 100%;
+  max-height: 85vh; /* Max height of the modal */
+  background-color: var(--neutral-50, #fafafa); /* Light background for modal */
+  color: var(--text-primary, #212121);
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+  border-top: 2px solid var(--primary-500);
+  overflow-y: auto;
+  display: none; /* Hidden by default, JS toggles */
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  z-index: 1051; /* Above the main banner */
+}
+
+.cookie-preferences-modal.active { /* JS will add this to show */
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cookie-preferences-modal .modal-content {
+  padding: var(--space-5); /* ~1.5rem */
+  max-width: 700px; /* Max width for readability */
+  margin: 0 auto; /* Center the content */
+}
+
+.cookie-preferences-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--neutral-300, #e0e0e0);
+  margin-bottom: var(--space-4);
+}
+.cookie-preferences-modal .modal-header h3 {
+  color: var(--primary-600);
+  margin: 0;
+  font-size: var(--text-xl);
+}
+.cookie-preferences-modal .btn-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--neutral-500);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+.cookie-preferences-modal .btn-close:hover {
+  color: var(--text-primary);
+}
+
+.cookie-preferences-modal .modal-body > p:first-child { /* Text before categories */
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+}
+
+.cookie-category {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--neutral-200, #eeeeee);
+}
+.cookie-category:last-of-type {
+  border-bottom: none;
+}
+
+.cookie-category .category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+.cookie-category .category-label {
+  font-weight: 600;
+  color: var(--primary-700);
+  font-size: var(--text-base);
+  margin-bottom: 0;
+}
+.cookie-category .category-description {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Simple Toggle Switch Appearance (CSS only) */
+.cookie-category input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background-color: var(--neutral-300);
+  border-radius: 11px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+.cookie-category input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+.cookie-category input[type="checkbox"]:checked {
+  background-color: var(--accent-500); /* Green when checked */
+}
+.cookie-category input[type="checkbox"]:checked::before {
+  transform: translateX(18px);
+}
+.cookie-category input[type="checkbox"]:disabled {
+  background-color: var(--neutral-200);
+  cursor: not-allowed;
+}
+.cookie-category input[type="checkbox"]:disabled::before {
+  background-color: var(--neutral-400);
+}
+/* Hide the actual checkbox, the label will trigger it */
+.cookie-category input[type="checkbox"] + .toggle-switch-display {
+    display: none; /* This is if you use a more complex span for styling */
+}
+
+
+.cookie-preferences-modal .modal-footer {
+  padding-top: var(--space-4);
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--neutral-300, #e0e0e0);
+  text-align: right; /* Align button to the right */
+}
+.cookie-preferences-modal .modal-footer .btn-primary {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .cookie-consent-content { /* Main banner content */
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: var(--space-3);
+  }
+  .cookie-consent-text {
+    margin-bottom: var(--space-3);
+  }
+  .cookie-consent-actions {
+    justify-content: center;
+    gap: var(--space-3); /* Slightly reduced gap */
+  }
+   .cookie-consent-actions .btn {
+    flex-grow: 1;
+    max-width: 180px; /* Allow buttons to be a bit wider */
+  }
+
+  .cookie-preferences-modal .modal-content {
+    padding: var(--space-4); /* Reduce padding on mobile for modal */
+  }
+  .cookie-preferences-modal .modal-header h3 {
+    font-size: var(--text-lg);
+  }
+  .cookie-category .category-header {
+    flex-direction: row; /* Keep label and toggle side-by-side */
+    align-items: center;
+  }
+  .cookie-category .category-label {
+    margin-bottom: 0; /* Remove bottom margin if side-by-side */
+    margin-right: var(--space-2); /* Space between label and toggle */
+    flex-grow: 1;
+  }
+  .cookie-preferences-modal .modal-footer {
+    text-align: center; /* Center footer button on mobile */
+  }
+  .cookie-preferences-modal .modal-footer .btn-primary {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
 /* style.css additions */
 
 .initial-choice-section {

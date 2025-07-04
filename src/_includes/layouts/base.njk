@@ -103,5 +103,63 @@
     <button id="scrollToTopBtn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <div id="cookieConsentContainer" style="display: none;">
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>Nous utilisons des cookies pour optimiser votre expérience sur notre site. Certains cookies sont nécessaires au fonctionnement du site, tandis que d'autres nous aident à améliorer ce site et votre expérience. Vous pouvez choisir d'accepter tous les cookies ou de personnaliser vos préférences. Pour en savoir plus, consultez notre <a href="{{ '/fr/politique-de-cookies/' | url }}" class="cookie-consent-link">Politique de Cookies</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Tout Accepter</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Personnaliser</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Tout Refuser</button> 
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Préférences de Cookies</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Fermer">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Nous utilisons différents types de cookies. Sélectionnez ceux que vous acceptez :</p>
+                    
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Cookies Nécessaires</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                             <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Cookies Analytiques</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies nous aident à comprendre comment les visiteurs interagissent avec le site en collectant des informations de manière anonyme.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Cookies Marketing</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies sont utilisés pour suivre les visiteurs sur les sites web afin d'afficher des publicités pertinentes et engageantes.</p>
+                    </div>
+                     <p class="text-xs mt-3">Pour plus de détails sur les cookies spécifiques utilisés, veuillez consulter notre <a href="{{ '/fr/politique-de-cookies/' | url }}" class="cookie-consent-link">Politique de Cookies</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Enregistrer mes préférences</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
