@@ -1,0 +1,195 @@
+---
+layout: layouts/base.njk
+lang: en
+permalink: "/en/locations/{{ cabinet.id | slugify }}/index.html"
+---
+
+{# HERO SECTION FOR LOCATION PAGE #}
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">{{ cabinet.name }}</span>
+        <h1 class="animate-on-scroll fade-up">Your Diaeta Consultation in {{ displayCity }}</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Meet Pierre Abou-Zeid, certified Dietitian-Nutritionist, for your personalized follow-up at {{ cabinet.name }} ({{ displayCity }}).
+        </p>
+        {# Link to appointment.html, with locationId parameter #}
+        <a href="/en/appointment/?locationId={{ cabinet.doctorpracticeId }}" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+            <span>Book an appointment at {{ cabinet.name }}</span><i class="fa-solid fa-calendar-check btn-icon-right"></i>
+        </a>
+    </div>
+</section>
+
+<section class="content-section bg-white">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2 class="h3 mb-4" style="color: var(--primary-700);">Diaeta Clinic at {{ cabinet.name }}, {{ displayCity }}</h2>
+
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-signs me-2"></i>Address</h4>
+                    <p>{{ cabinet.fullAddress }}</p>
+                </div>
+
+                {# Dynamically display hours from the structured opening_hours array #}
+                {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-clock me-2"></i>Consultation Hours (Pierre Abou-Zeid)</h4>
+                    <ul class="list-unstyled">
+                        {% for day_schedule in cabinet.opening_hours %}
+                            <li>
+                                <strong>{{ day_schedule.dayOfWeekENGLISH | capitalize }} :</strong>
+                                {% for slot in day_schedule.timeSlots %}
+                                    {{ slot.opens }} - {{ slot.closes }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if cabinet.hours_details_note %}
+                    <p class="text-muted"><em>{{ cabinet.hours_details_note }}</em></p>
+                    {% endif %}
+                    <p class="text-muted text-sm"><em>For precise availability, please consult the appointment booking module.</em></p>
+                </div>
+                {% endif %}
+
+                {% if cabinet.notes %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-info-circle me-2"></i>Access & Information</h4>
+                    <p>{{ cabinet.notes }}</p>
+                </div>
+                {% endif %}
+
+                {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-marker-alt me-2"></i>Location</h4>
+                    <p><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary">See on Google Maps <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
+                </div>
+                {% endif %}
+
+                 <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-concierge-bell me-2"></i>Services Offered at this Location</h4>
+                    <ul class="list-styled-check">
+                        <li>Personalized programs for sustainable weight loss</li>
+                        <li>Nutritional management of type 2 diabetes</li>
+                        <li>Cholesterol and hypertension management</li>
+                        <li>Support for Irritable Bowel Syndrome (Low FODMAP approach)</li>
+                        <li>Nutrigenomics consultations (on request)</li>
+                        <li>And other personalized dietary follow-ups...</li>
+                    </ul>
+                </div>
+                 <p>All consultations at {{ cabinet.name }} are provided by Pierre Abou-Zeid, a certified Dietitian-Nutritionist (INAMI) and MONASH certified.</p>
+                 <a href="/en/our-expertise/" class="btn btn-outline-primary mt-3"><span>Discover Pierre's expertise</span><i class="fa-solid fa-arrow-right btn-icon-right ms-2"></i></a>
+
+            </div>
+            <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
+                <img src="/images/cabinets/{{ cabinet.id | slugify }}.jpg"
+                     onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';"
+                     alt="Diaeta consultation clinic at {{ cabinet.name }}, {{ displayCity }}"
+                     class="img-fluid rounded shadow-sm"
+                     style="margin-top: 1.5rem; max-height: 400px; object-fit: cover;"
+                     loading="lazy">
+                <p class="mt-4 p-3 bg-light rounded"><em>Diaeta welcomes you to {{ cabinet.name }} ({{ displayCity }}) to support you in achieving your health and wellness goals.</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# === Updated and Consolidated Schema for this specific Cabinet Page === #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://diaeta.be{{ page.url }}#clinic",
+  "name": "Diaeta - {{ cabinet.name | escape }}",
+  "description": "Diaeta consultation clinic in {{ displayCity | escape }} ({{ cabinet.name | escape }}) with Pierre Abou-Zeid, dietitian-nutritionist. {{ cabinet.notes | default('') | escape }}",
+  "url": "https://diaeta.be{{ page.url }}",
+
+  {% if cabinet.address_obj %}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName | escape }}",
+    "addressLocality": "{{ cabinet.address_obj.city | escape }}",
+    "postalCode": "{{ cabinet.address_obj.postalCode | escape }}",
+    "addressRegion": "{{ cabinet.address_obj.region | escape }}",
+    "addressCountry": "{{ cabinet.address_obj.country | escape }}"
+  },
+  {% endif %}
+
+  "telephone": "+32479355551",
+  "priceRange": "€50-€80",
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+  {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+  "hasMap": "{{ cabinet.Maps_link }}",
+  {% endif %}
+
+  {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ cabinet.coordinates[0] }}",
+    "longitude": "{{ cabinet.coordinates[1] }}"
+  },
+  {% endif %}
+
+  {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+  {% set hasActualHours = false %}
+  {% for day_schedule_check in cabinet.opening_hours %}
+    {% if day_schedule_check.timeSlots and day_schedule_check.timeSlots.length > 0 %}
+      {% set hasActualHours = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hasActualHours %}
+  "openingHoursSpecification": [
+    {%- set printedOHSItemCount = 0 -%}
+    {%- for day_schedule in cabinet.opening_hours -%}
+      {%- for slot in day_schedule.timeSlots -%}
+        {%- if printedOHSItemCount > 0 %},{% endif -%}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "https://schema.org/{{ day_schedule.dayOfWeekSCHEMA }}",
+          "opens": "{{ slot.opens }}",
+          "closes": "{{ slot.closes }}"
+        }
+        {%- set printedOHSItemCount = printedOHSItemCount + 1 -%}
+      {%- endfor -%}
+    {%- endfor %}
+  ],
+  {% endif %}
+  {% endif %}
+
+  "parentOrganization": {
+    "@type": "DietNutrition",
+    "@id": "https://diaeta.be#organization",
+    "name": "Diaeta"
+  },
+  "employee": {
+    "@type": "Person",
+    "@id": "https://diaeta.be/en/our-expertise/#person",
+    "name": "Pierre Abou-Zeid"
+  },
+  "medicalSpecialty": "DietNutrition"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Diaeta Home",
+    "item": "https://diaeta.be/en/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Our Locations",
+    "item": "https://diaeta.be/en/locations/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Diaeta {{ cabinet.name | escape }} ({{ displayCity | escape }})",
+    "item": "https://diaeta.be{{ page.url }}"
+  }]
+}
+</script>

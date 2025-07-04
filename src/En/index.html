@@ -1,0 +1,855 @@
+---
+layout: layouts/base.njk
+title: "Diaeta Bruxelles: Diététicien Nutritionniste Agréé - Nutrition Personnalisée & Scientifique"
+description: Pierre Abou-Zeid, Diététicien Nutritionniste agréé (INAMI) à Bruxelles. Diaeta offre une nutrition personnalisée et scientifique pour perte de poids durable (sans faim), gestion du diabète, SCI, cholestérol. Approche bienveillante.
+lang: fr
+---
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="canonical" href="https://diaeta.be/fr/">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/fr/",
+        "logo": "https://diaeta.be/images/logo.svg",
+        "telephone": "+32479355551",
+        "email": "info@diaeta.be",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dieweg 99",
+          "addressLocality": "Uccle",
+          "postalCode": "1180",
+          "addressRegion": "Région de Bruxelles-Capitale",
+          "addressCountry": "BE"
+        },
+        "description": "Diaeta, diététicien nutritionniste agréé à Bruxelles (cabinet principal à Uccle), offre une nutrition personnalisée et scientifique pour la perte de poids durable, la gestion du diabète, du SCI et du cholestérol. Approche bienveillante et sans frustration.",
+        "medicalSpecialty": "DietNutrition",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://diaeta.be/fr/notre-expertise/#person"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Dieteticien.colon.irritable/",
+          "https://www.instagram.com/expert.fodmap/",
+          "https://www.linkedin.com/in/pierre-abou-zeid/"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Perte de Poids Durable",
+              "url": "https://diaeta.be/fr/perte-de-poids/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestion du Syndrome de l'Intestin Irritable (SII/SCI)",
+              "url": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestion du Diabète de Type 2",
+              "url": "https://diaeta.be/fr/diabete-type-2/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Maîtrise de l'Hypertension & du Cholestérol",
+              "url": "https://diaeta.be/fr/hypertension-cholesterol/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tests Nutrigénétiques",
+              "url": "https://diaeta.be/fr/tests-nutrigenetiques/"
+            }
+          }
+        ]
+      }
+      </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://diaeta.be/fr/",
+      "name": "Diaeta",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://diaeta.be#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://diaeta.be/fr/recherche?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+</head>
+<body>
+    {{ layoutContent | safe }}
+
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <main id="main-content">
+
+        <section class="hero-section">
+          <div class="hero-background">
+            <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
+              <source src="../videos/Background video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+          </div>
+          <div class="container hero-content">
+            <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>Diététique scientifique</span></div>
+            <h1 class="hero-headline animate-on-scroll fade-up">Transformez votre santé par une nutrition <span class="text-accent">personnalisée</span></h1>
+            <p class="hero-tagline animate-on-scroll fade-up delay-200">Sans restriction. Sans frustration. Des résultats durables.</p>
+            <div class="hero-description animate-on-scroll fade-up delay-300"><p>Chez Diaeta, nous combinons l'<span class="text-highlight">expertise scientifique</span> à une <span class="text-highlight">approche personnalisée</span> pour transformer durablement votre santé et votre bien-être.</p></div>
+            <div class="feature-badges animate-on-scroll fade-up delay-400">
+              <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>Approche scientifique</span></div>
+              <div class="feature-badge"><i class="fa-solid fa-chart-line"></i><span>Résultats durables</span></div>
+              <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% personnalisé</span></div>
+            </div>
+            <div class="hero-cta animate-on-scroll fade-up delay-500">
+              <a href="/fr/rendez-vous/" class="btn btn-primary pulse-animation"><span>Prendre Rendez-vous</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+              <a href="#approche" class="btn btn-outline scroll-to"><span>Découvrir notre approche</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="science-approach-section" id="approche">
+          <div class="container">
+            <div class="science-grid">
+              <div class="science-content animate-on-scroll fade-up">
+                <span class="science-badge">Notre philosophie</span>
+                <h2 class="science-title">La science au service de votre nutrition</h2>
+                <p class="science-description">Chez Diaeta, nous fusionnons expertise scientifique et approche personnalisée. Nos recommandations nutritionnelles sont basées sur des recherches avancées et adaptées à votre métabolisme unique, pour des résultats durables sans frustration.</p>
+                <div class="science-fact animate-on-scroll fade-in">
+                  <div class="fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                  <p class="fact-text">La recherche en nutrigenomique révèle que notre génétique influence considérablement notre réponse aux aliments. C'est pourquoi une approche personnalisée est souvent plus efficace qu'un plan standardisé.</p>
+                </div>
+                <div class="science-pillar-groups">
+                  <div class="pillar-group animate-on-scroll fade-in">
+                    <div class="pillar-group-title">
+                      <div class="pillar-group-icon"><i class="fa-solid fa-flask-vial"></i></div>
+                      <h3>Fondation Scientifique</h3>
+                    </div>
+                    <div class="pillars-container">
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Evidence-Based</h4>
+                          <p class="pillar-description">Des recommandations fondées sur les dernières recherches scientifiques validées. Nous nous appuyons sur les études cliniques, la science métabolique et la physiologie humaine.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Personnalisation</h4>
+                          <p class="pillar-description">Un plan nutritionnel unique, adapté à votre métabolisme et mode de vie particuliers.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pillar-group animate-on-scroll fade-in">
+                    <div class="pillar-group-title">
+                      <div class="pillar-group-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                      <h3>Stratégie d'Implémentation</h3>
+                    </div>
+                    <div class="pillars-container">
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-route"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Parcours Unique</h4>
+                          <p class="pillar-description">Une stratégie nutritionnelle unique, basée sur la science et adaptée à votre corps et votre style de vie, pour des résultats concrets.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Bien-être Durable</h4>
+                          <p class="pillar-description">Atteignez vos objectifs avec des habitudes saines, pratiques et savoureuses, sans frustration ni régime restrictif.</p>
+                        </div>
+                      </div>
+                      <div class="science-pillar">
+                        <div class="pillar-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+                        <div class="pillar-content">
+                          <h4 class="pillar-title">Technologie & Suivi</h4>
+                          <p class="pillar-description">Profitez d'outils technologiques (app, analyses) pour visualiser vos progrès et bénéficier d'un soutien continu et personnalisé.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <div class="science-cta">
+                  <a href="/fr/rendez-vous/" class="btn btn-primary"><span>Consultation initiale</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
+                  <a href="{{ '/fr/methode-diaeta/' | url }}" class="btn btn-outline"><span>Découvrir La Méthode Diaeta</span></a>
+                </div>
+              </div>
+              <div class="science-image-container animate-on-scroll fade-up">
+                <img src="../images/scientific-nutrition-analysis-large.jpg"
+                     srcset="../images/scientific-nutrition-analysis-small.webp 400w, ../images/scientific-nutrition-analysis-small.jpg 400w,
+                             ../images/scientific-nutrition-analysis-large.webp 550w, ../images/scientific-nutrition-analysis-large.jpg 550w"
+                     sizes="(max-width: 767px) 90vw, (max-width: 1023px) 80vw, 435px"
+                     alt="Graphiques et analyses de données nutritionnelles scientifiques"
+                     class="science-main-image" loading="lazy" width="550" height="412">
+
+                <img src="../images/personalized-nutrition-plan-large.jpg"
+                     srcset="../images/personalized-nutrition-plan-small.webp 200w, ../images/personalized-nutrition-plan-small.jpg 200w,
+                             ../images/personalized-nutrition-plan-large.webp 350w, ../images/personalized-nutrition-plan-large.jpg 350w"
+                     sizes="(max-width: 767px) 45vw, (max-width: 1023px) 48vw, 256px"
+                     alt="Personne utilisant une tablette affichant un plan nutritionnel personnalisé Diaeta"
+                     class="science-accent-image science-accent-1" loading="lazy" width="350" height="263">
+
+                <img src="../images/nutrition-research-lab-large.jpg"
+                     srcset="../images/nutrition-research-lab-small.webp 180w, ../images/nutrition-research-lab-small.jpg 180w,
+                             ../images/nutrition-research-lab-large.webp 250w, ../images/nutrition-research-lab-large.jpg 250w"
+                     sizes="(max-width: 767px) 30vw, (max-width: 1023px) 33vw, 179px"
+                     alt="Scientifiques travaillant dans un laboratoire de recherche en nutrition"
+                     class="science-accent-image science-accent-2" loading="lazy" width="250" height="188">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="specialties-section" id="services">
+          <div class="container">
+            <div class="section-header animate-on-scroll fade-up">
+              <span class="section-badge">Solutions Ciblées</span>
+              <h2 class="section-title">Nos Spécialités</h2>
+              <p class="section-subtitle">Des approches scientifiques et personnalisées pour vos besoins spécifiques</p>
+            </div>
+            <div class="specialties-grid">
+
+              <div class="specialty-card animate-on-scroll fade-up delay-100">
+                <div class="specialty-media">
+                  <img src="../images/perte-de-poids-diaeta-medium.jpg"
+                       srcset="../images/perte-de-poids-diaeta-small.webp 480w, ../images/perte-de-poids-diaeta-small.jpg 480w,
+                               ../images/perte-de-poids-diaeta-medium.webp 640w, ../images/perte-de-poids-diaeta-medium.jpg 640w,
+                               ../images/perte-de-poids-diaeta-large.webp 800w, ../images/perte-de-poids-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Concept de perte de poids durable et saine avec Diaeta"
+                       class="specialty-image" loading="lazy" width="640" height="360">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Populaire</div>
+                </div>
+                <div class="specialty-content">
+                  <div class="specialty-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                  <h3 class="specialty-title">Perte de Poids Durable</h3>
+                  <p class="specialty-description">
+                     <em>Maigrir durablement vous semble compliqué ?</em><br>
+                     La perte de poids durable demande une <strong>véritable expertise</strong> en diététique. Notre diététicien conçoit votre <span class="text-highlight-primary">stratégie personnalisée</span>, basée sur la <strong class="text-highlight-accent">science</strong> et votre <strong>métabolisme unique</strong>. Oubliez les <em class="text-highlight-secondary">régimes frustrants</em>; nous privilégions une <strong>approche efficace</strong> qui s'intègre à votre vie, <strong>sans contraintes</strong>. Atteignez enfin vos objectifs de perte de poids avec un accompagnement <strong>professionnel et bienveillant</strong>.
+                   </p>
+                   <p class="specialty-description" style="margin-bottom: 1rem;">
+                    Notre méthode va au-delà de la simple restriction calorique. Elle vise à rééquilibrer votre corps et votre esprit pour des résultats que vous maintiendrez sur le long terme. Voici comment :
+                </p>
+                <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
+                    <li><strong>Analyse Approfondie :</strong> Évaluation de votre composition corporelle (masse grasse, musculaire), de vos habitudes et de votre bilan de santé pour comprendre vos besoins spécifiques.</li>
+                    <li><strong>Nutrition Intelligente :</strong> Plans alimentaires axés sur la satiété, la densité nutritionnelle et le plaisir de manger, tout en préservant votre masse musculaire.</li>
+                    <li><strong>Gestion Métabolique :</strong> Stratégies pour éviter les plateaux et contrer l'adaptation métabolique souvent responsable de l'effet yo-yo.</li>
+                    <li><strong>Coaching Comportemental :</strong> Outils et soutien pour développer une relation saine avec la nourriture, gérer les envies et intégrer de nouvelles habitudes durables.</li>
+                </ul>
+                <p class="specialty-description">
+                    Atteignez enfin vos objectifs de perte de poids avec un accompagnement <strong>professionnel et bienveillant</strong>, pour retrouver énergie et confiance.
+                </p>
+                  <div class="specialty-stats">
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="92">92%</span>
+                      <span class="stat-label">Taux de succès</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="-8">-8%</span>
+                      <span class="stat-label">Masse Grasse*</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value" data-target="-10">-10cm</span>
+                      <span class="stat-label">Tour de Taille*</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-muted mt-2 fst-italic">*Moyenne observée chez nos patients ayant complété le programme.</p>
+                  <div class="specialty-footer">
+                    <a href="{{ '/fr/perte-de-poids/' | url }}" class="learn-more-btn">
+                      En savoir plus<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    </div>
+                </div>
+              </div>
+              <div class="specialty-card animate-on-scroll fade-up delay-200">
+                <div class="specialty-media">
+                    <img src="../images/syndrome-colon-irritable-diaeta-medium.jpg"
+                         srcset="../images/syndrome-colon-irritable-diaeta-small.webp 480w, ../images/syndrome-colon-irritable-diaeta-small.jpg 480w,
+                                 ../images/syndrome-colon-irritable-diaeta-medium.webp 640w, ../images/syndrome-colon-irritable-diaeta-medium.jpg 640w,
+                                 ../images/syndrome-colon-irritable-diaeta-large.webp 800w, ../images/syndrome-colon-irritable-diaeta-large.jpg 800w"
+                         sizes="(max-width: 767px) 90vw, 48vw"
+                         alt="Alimentation saine et équilibrée pour le confort digestif et la gestion du SCI"
+                         class="specialty-image" loading="lazy" width="640" height="360">
+                    <div class="specialty-overlay"></div>
+                    <div class="specialty-category">Spécialité</div>
+                </div>
+                <div class="specialty-content">
+                    <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
+                    <h3 class="specialty-title">Gestion Experte du Syndrome de l'Intestin Irritable (SII/SCI) à Bruxelles</h3>
+                    <p class="specialty-description">
+                      Vous souffrez de douleurs abdominales, ballonnements, diarrhée ou constipation liés au Syndrome du Côlon Irritable (SCI) ? Ce trouble fonctionnel digestif, bien que bénin, peut sévèrement impacter votre quotidien. Retrouvez enfin votre confort digestif grâce à une approche scientifiquement validée et reconnue mondialement : le régime pauvre en FODMAP de l'Université Monash. Chez Diaeta, votre diététicien-nutritionniste expert vous accompagne personnellement à travers les 3 phases essentielles de ce protocole :
+                    </p>
+                    <ol class="text-sm mt-1 mb-3" style="padding-left: 1.2em; text-align: left; list-style-position: inside; line-height: 1.6;">
+                        <li><strong>Phase 1 - Elimination (4 sem.):</strong> Réduction temporaire et ciblée des aliments riches en FODMAP (Fermentable Oligo-, Di-, Mono-saccharides And Polyols) pour calmer rapidement vos symptômes et identifier une ligne de base.</li>
+                        <li><strong>Phase 2 - Réintroduction (11 sem.):</strong> Identification structurée et méthodique de VOS déclencheurs personnels (fructanes, lactose, fructose, polyols, etc.) et de vos seuils de tolérance individuels pour chaque famille de FODMAP.</li>
+                        <li><strong>Phase 3 - Personnalisation Durable:</strong> Réintégration d'un maximum d'aliments tolérés pour une alimentation variée, équilibrée, et savoureuse sur le long terme. L'objectif est d'élargir au maximum votre régime alimentaire sans provoquer de symptômes, en évitant les restrictions inutiles et en assurant un apport nutritionnel complet.</li>
+                    </ol>
+                     <p class="specialty-description" style="margin-bottom: 1.5rem;">
+                       Notre objectif chez Diaeta est de vous redonner le contrôle, d'améliorer durablement votre qualité de vie et de vous permettre de manger avec plaisir et sérénité, même avec un SII.
+                     </p>
+                    <div class="specialty-stats">
+                      <div class="stat-item" data-bs-toggle="tooltip" title="Taux d'amélioration des symptômes digestifs observé chez les patients suivant le régime Low FODMAP guidé.">
+                          <span class="stat-value">~75%</span>
+                          <span class="stat-label">Amélioration Symptômes*</span>
+                      </div>
+                      <div class="stat-item" data-bs-toggle="tooltip" title="Durée indicative de la phase structurée de tests de réintroduction des FODMAPs.">
+                          <span class="stat-value">4-6</span>
+                          <span class="stat-label">Semaines Phase 2*</span>
+                      </div>
+                      <div class="stat-item" data-bs-toggle="tooltip" title="Vise à réintroduire le plus grand nombre d'aliments tolérés pour une diète diversifiée et agréable.">
+                          <span class="stat-value" style="font-size: 1.5rem;"><i class="fas fa-utensils"></i></span>
+                          <span class="stat-label">Objectif: Variété Max.</span>
+                      </div>
+                    </div>
+                    <p class="text-xs text-muted mt-2 fst-italic">*Moyenne observée chez nos patients ayant complété le programme.</p>
+                    <div class="specialty-footer">
+                       <a href="{{ '/fr/syndrome-colon-irritable-fodmap/' | url }}" class="learn-more-btn">
+                        En savoir plus sur le SCI & FODMAP<i class="fa-solid fa-arrow-right"></i>
+                      </a>
+                    </div>
+                </div>
+              </div>
+              <div class="specialty-card animate-on-scroll fade-up delay-300">
+              <div class="specialty-media">
+                  <img src="../images/gestion-hypertension-diaeta-medium.jpg"
+                       srcset="../images/gestion-hypertension-diaeta-small.webp 480w, ../images/gestion-hypertension-diaeta-small.jpg 480w,
+                               ../images/gestion-hypertension-diaeta-medium.webp 640w, ../images/gestion-hypertension-diaeta-medium.jpg 640w,
+                               ../images/gestion-hypertension-diaeta-large.webp 800w, ../images/gestion-hypertension-diaeta-large.jpg 800w"
+                       sizes="(max-width: 767px) 90vw, 48vw"
+                       alt="Aliments sains pour le coeur et tensiomètre pour la gestion de l'hypertension et du cholestérol avec Diaeta"
+                       class="specialty-image" loading="lazy" width="640" height="360">
+                  <div class="specialty-overlay"></div>
+                  <div class="specialty-category">Santé Cardiovasculaire</div>
+              </div>
+              <div class="specialty-content">
+                  <div class="specialty-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                  <h3 class="specialty-title">Maîtrise de l'Hypertension & du Cholestérol</h3>
+                  <p class="specialty-description">
+                      L'hypertension artérielle et un taux de cholestérol élevé sont des facteurs de risque majeurs pour les maladies cardiovasculaires, premières causes de mortalité dans le monde. Une <span class="text-highlight-primary">approche nutritionnelle ciblée</span> est l'une des interventions les plus efficaces pour les prévenir et les gérer.
+                  </p>
+                  <p class="specialty-description" style="margin-bottom: 1rem;">
+                      Chez Diaeta, nous ne nous contentons pas de conseils génériques. Nous intégrons des stratégies scientifiquement validées telles que :
+                  </p>
+                  <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
+                      <li><strong>L'approche DASH (Dietary Approaches to Stop Hypertension) :</strong> Riche en fruits, légumes, grains entiers, et produits laitiers faibles en gras, tout en limitant le sodium, les graisses saturées et le sucre.</li>
+                      <li><strong>Le régime Portfolio :</strong> Met l'accent sur un portefeuille d'aliments reconnus pour leurs effets hypocholestérolémiants, tels que les fibres solubles (avoine, psyllium), les stérols végétaux, les protéines de soja et les amandes.</li>
+                  </ul>
+                  <p class="specialty-description">
+                      Notre force réside dans la <strong class="text-highlight-accent">personnalisation</strong> de ces protocoles. En fonction de votre profil de santé, de vos analyses sanguines, de votre mode de vie et de vos préférences, nous élaborons un plan alimentaire <span class="text-highlight-secondary">réaliste et agréable</span>, visant à :
+                  </p>
+                  <ul class="text-sm mb-3 list-styled-check">
+                      <li>Réduire significativement votre tension artérielle.</li>
+                      <li>Diminuer votre taux de cholestérol LDL ("mauvais cholestérol").</li>
+                      <li>Améliorer votre profil lipidique global.</li>
+                      <li>Vous éduquer pour des choix alimentaires éclairés et durables.</li>
+                  </ul>
+                  <div class="specialty-stats">
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Réduction moyenne de la pression artérielle systolique observée avec une alimentation type DASH.">
+                      <span class="stat-value">-11 mmHg</span>
+                      <span class="stat-label">Baisse TA Syst.*</span>
+                    </div>
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Réduction moyenne du cholestérol LDL avec le régime Portfolio.">
+                      <span class="stat-value">-20%</span>
+                      <span class="stat-label">Baisse LDL*</span>
+                    </div>
+                    <div class="stat-item" data-bs-toggle="tooltip" title="Durée indicative pour observer des améliorations significatives.">
+                      <span class="stat-value">8-12</span>
+                      <span class="stat-label">Semaines</span>
+                    </div>
+                  </div>
+                   <p class="text-xs text-muted mt-2 fst-italic">*Résultats moyens observés dans les études cliniques et varient selon l'individu et l'adhésion au plan.</p>
+                   <div class="specialty-footer">
+                     <a href="{{ '/fr/hypertension-cholesterol/' | url }}" class="learn-more-btn">
+                      Protéger mon cœur<i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+              </div>
+          </div>
+          <div class="specialty-card animate-on-scroll fade-up delay-400">
+            <div class="specialty-media">
+                <img src="../images/gestion-diabete-diaeta-medium.jpg"
+                     srcset="../images/gestion-diabete-diaeta-small.webp 480w, ../images/gestion-diabete-diaeta-small.jpg 480w,
+                             ../images/gestion-diabete-diaeta-medium.webp 640w, ../images/gestion-diabete-diaeta-medium.jpg 640w,
+                             ../images/gestion-diabete-diaeta-large.webp 800w, ../images/gestion-diabete-diaeta-large.jpg 800w"
+                     sizes="(max-width: 767px) 90vw, 48vw"
+                     alt="Gestion nutritionnelle du diabète de type 2 avec Diaeta, incluant des aliments sains et un lecteur de glycémie"
+                     class="specialty-image" loading="lazy" width="640" height="360">
+                <div class="specialty-overlay"></div>
+                <div class="specialty-category">Gestion Métabolique</div>
+            </div>
+            <div class="specialty-content">
+                <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+                <h3 class="specialty-title">Diabète de Type 2 : Nutrition Optimisée</h3>
+                <p class="specialty-description">
+                    Le diabète de type 2 est une maladie chronique caractérisée par une hyperglycémie (taux de sucre élevé dans le sang), souvent due à une résistance à l'insuline et/ou une production insuffisante d'insuline. Une <span class="text-highlight-primary">alimentation adaptée</span> est un pilier fondamental de sa gestion, permettant de mieux contrôler la glycémie, de prévenir les complications et d'améliorer la qualité de vie.
+                </p>
+                <p class="specialty-description" style="margin-bottom: 1rem;">
+                    Notre approche chez Diaeta est <strong class="text-highlight-accent">scientifique et hautement personnalisée</strong>. Nous allons au-delà des recommandations générales pour vous offrir un plan qui tient compte de :
+                </p>
+                <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
+                    <li><strong>Votre profil métabolique :</strong> Sensibilité à l'insuline, glycémie à jeun et postprandiale, HbA1c.</li>
+                    <li><strong>Vos objectifs :</strong> Contrôle glycémique, perte de poids si nécessaire, réduction des facteurs de risque cardiovasculaire.</li>
+                    <li><strong>Votre mode de vie :</strong> Préférences alimentaires, habitudes, niveau d'activité physique.</li>
+                    <li><strong>Votre traitement médical :</strong> Pour une synergie optimale avec votre prise en charge globale.</li>
+                </ul>
+                <p class="specialty-description">
+                    Nous mettons l'accent sur des stratégies nutritionnelles éprouvées, telles que la gestion de l'apport en glucides (qualité et quantité), l'augmentation des fibres, le choix de graisses saines, et la promotion d'une alimentation à faible indice glycémique. L'objectif est d'améliorer votre sensibilité à l'insuline, de stabiliser votre glycémie, et potentiellement de <span class="text-highlight-secondary">réduire votre besoin en médicaments</span>, toujours en étroite collaboration avec votre médecin traitant.
+                </p>
+                <div class="specialty-stats">
+                  <div class="stat-item" data-bs-toggle="tooltip" title="Réduction moyenne de l'hémoglobine glyquée (HbA1c) observée avec une intervention nutritionnelle personnalisée.">
+                    <span class="stat-value" data-target="-1.5">-1 à -2%</span>
+                    <span class="stat-label">Baisse HbA1c*</span>
+                  </div>
+                  <div class="stat-item" data-bs-toggle="tooltip" title="Amélioration de la sensibilité à l'insuline et potentiel ajustement médicamenteux sous supervision médicale.">
+                    <span class="stat-value">✓</span>
+                    <span class="stat-label">Sensibilité Insuline Améliorée*</span>
+                  </div>
+                  <div class="stat-item" data-bs-toggle="tooltip" title="Programme structuré pour des résultats visibles et durables.">
+                    <span class="stat-value">12-16</span>
+                    <span class="stat-label">Semaines Prog.</span>
+                  </div>
+                </div>
+                 <p class="text-xs text-muted mt-2 fst-italic">*Résultats variables selon l'individu, l'adhésion au plan et le suivi médical global.</p>
+                 <div class="specialty-footer">
+                   <a href="{{ '/fr/diabete-type-2/' | url }}" class="learn-more-btn">
+                    Mieux gérer mon diabète<i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </section>
+
+        <section class="success-stories-section new-testimonial-showcase" id="temoignages">
+          <div class="container">
+              <div class="section-header animate-on-scroll fade-up">
+                  <span class="section-badge">Nos Patients Témoignent</span>
+                  <h2 class="section-title">Leurs Parcours de Transformation avec Diaeta</h2>
+                  <p class="section-subtitle">Découvrez comment une approche nutritionnelle scientifique et personnalisée a changé leur vie.</p>
+              </div>
+
+              <div class="row g-4 justify-content-center">
+                  <div class="col-lg-4 col-md-6 d-flex animate-on-scroll fade-up delay-100">
+                      <div class="testimonial-story-card">
+                          <div class="story-card-header">
+                              <img src="../images/clients/sophie-v-portrait.jpg" alt="Portrait de Sophie V., cliente Diaeta" class="client-portrait">
+                              <div>
+                                  <h3 class="client-name">Sophie V. <span class="client-location">Bruxelles</span></h3>
+                                  <p class="client-goal">Objectif : Perte de Poids Durable & Plus d'Énergie</p>
+                              </div>
+                          </div>
+                          <div class="story-card-body">
+                              <div class="story-segment">
+                                  <h4><i class="fas fa-lightbulb text-secondary me-2"></i>Avant Diaeta</h4>
+                                  <p>"J'avais tout essayé, les régimes yo-yo me laissaient fatiguée et frustrée, sans résultats durables."</p>
+                              </div>
+                              <div class="story-segment">
+                                  <h4><i class="fas fa-cogs text-primary me-2"></i>Le Déclic Diaeta</h4>
+                                  <p>"L'approche scientifique et personnalisée de Diaeta m'a immédiatement convaincue. Enfin, on s'intéressait à MOI !"</p>
+                              </div>
+                              <div class="story-segment results-highlight">
+                                  <h4><i class="fas fa-chart-line text-accent me-2"></i>Résultats Concrets</h4>
+                                  <ul>
+                                      <li><strong>-10 kg</strong> en 6 mois, sans faim</li>
+                                      <li>Maintien du poids stable depuis <strong>+2 ans</strong></li>
+                                      <li>Énergie retrouvée au quotidien</li>
+                                      <li>Confiance en soi nettement améliorée</li>
+                                  </ul>
+                              </div>
+                              <div class="story-segment client-quote">
+                                  <h4><i class="fas fa-quote-left text-primary me-2"></i>Le Mot de Sophie</h4>
+                                  <blockquote>
+                                      "Diaeta a transformé ma vision de l'alimentation. J'ai appris à manger pour mon corps, avec plaisir et sans culpabilité. Le suivi avec l'application et les conseils de mon diététicien ont été cruciaux. Je me sens enfin bien dans ma peau !"
+                                  </blockquote>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 d-flex animate-on-scroll fade-up delay-200">
+                      <div class="testimonial-story-card">
+                          <div class="story-card-header">
+                              <img src="../images/clients/marc-d-portrait.jpg" alt="Portrait de Marc D., client Diaeta" class="client-portrait">
+                              <div>
+                                  <h3 class="client-name">Marc D. <span class="client-location">Woluwe</span></h3>
+                                  <p class="client-goal">Objectif : Gestion du Syndrome du côlon Irritable</p>
+                              </div>
+                          </div>
+                          <div class="story-card-body">
+                              <div class="story-segment">
+                                  <h4><i class="fas fa-lightbulb text-secondary me-2"></i>Avant Diaeta</h4>
+                                  <p>"Les douleurs abdominales et les ballonnements dictaient ma vie. J'avais peur de manger beaucoup d'aliments."</p>
+                              </div>
+                              <div class="story-segment">
+                                  <h4><i class="fas fa-cogs text-primary me-2"></i>Le Déclic Diaeta</h4>
+                                  <p>"L'approche méthodique Low FODMAP, expliquée clairement par mon diététicien Diaeta, m'a redonné espoir."</p>
+                              </div>
+                               <div class="story-segment results-highlight">
+                                  <h4><i class="fas fa-chart-line text-accent me-2"></i>Résultats Concrets</h4>
+                                  <ul>
+                                      <li>Réduction de <strong>80%</strong> des symptômes douloureux</li>
+                                      <li>Identification précise de mes déclencheurs</li>
+                                      <li>Réintroduction de nombreux aliments avec plaisir</li>
+                                      <li>Meilleure qualité de vie globale</li>
+                                  </ul>
+                              </div>
+                              <div class="story-segment client-quote">
+                                   <h4><i class="fas fa-quote-left text-primary me-2"></i>Le Mot de Marc</h4>
+                                  <blockquote>
+                                      "Je ne pensais pas pouvoir retrouver un tel confort digestif. Le suivi personnalisé et les explications de Diaeta sur le régime pauvre en FODMAP ont été une révélation. Je mange à nouveau avec sérénité."
+                                  </blockquote>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+
+              <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
+                  <a href="/fr/rendez-vous/" class="btn btn-primary btn-lg">
+                      <span>Commencez Votre Propre Transformation</span>
+                      <i class="fas fa-arrow-right btn-icon-right"></i>
+                  </a>
+              </div>
+          </div>
+      </section>
+
+      <section class="cabinet-teaser-section section" id="nos-cabinets-teaser">
+        <div class="container text-center">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Votre Santé, Notre Proximité</span>
+                <h2 class="section-title" style="color: var(--primary-700);">La Nutrition d'Excellence, Facilement Accessible à Bruxelles</h2>
+                <p class="section-subtitle" style="color: var(--text-secondary); max-width: 750px;">
+                    Chez Diaeta, nous croyons que votre parcours vers une meilleure santé doit être aussi pratique que personnalisé. C'est pourquoi nous vous accueillons dans plusieurs cabinets, soigneusement sélectionnés à travers Bruxelles.
+                </p>
+            </div>
+
+            <div class="teaser-highlights animate-on-scroll fade-up delay-200" style="margin: 2.5rem auto; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; max-width: 800px;">
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-map-marked-alt fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Multiples Cabinets Bruxellois</span>
+                </div>
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-users fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Accueil Professionnel & Confortable</span>
+                </div>
+                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
+                    <i class="fas fa-route fa-2x" style="color: var(--accent-500);"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Intégré à Votre Quotidien</span>
+                </div>
+            </div>
+
+            <p class="lead animate-on-scroll fade-up delay-300" style="max-width: 700px; margin: 0 auto 2.5rem; color: var(--text-secondary);">
+                Trouvez l'espace Diaeta qui vous convient le mieux et faites le premier pas vers une prise en charge nutritionnelle qui fait la différence.
+            </p>
+            <a href="/fr/cabinets-bruxelles/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+                <span>Explorer Nos Lieux de Consultation</span> <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+         </div>
+        </section>
+
+        <section id="genetic-testing" class="genetic-section section" style="background-color: var(--primary-50);">
+          <div class="container">
+              <div class="row align-items-center g-lg-5">
+                  <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
+                      <div class="section-header text-start mb-4">
+                          <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">Nutrition de Haute Précision</span>
+                          <h2 class="section-title mb-3" style="font-size: 2.2rem; text-align: left; padding-bottom: 0.5rem;">Tests Nutrigénétiques : Votre ADN, Votre Plan Alimentaire Sur Mesure</h2>
+                          <p class="section-subtitle text-start" style="max-width: none;">
+                              Découvrez comment votre profil génétique unique influence votre métabolisme et vos besoins nutritionnels. Les tests Nutrigenomix® analysent plus de 70 de vos marqueurs génétiques pour révéler des informations scientifiques clés, permettant une personnalisation inégalée de votre alimentation.
+                          </p>
+                      </div>
+                      <p class="mb-3">Chez Diaeta, Pierre Abou-Zeid, votre diététicien, utilise ces données précieuses pour co-créer avec vous un plan alimentaire qui est non seulement efficace mais aussi savoureux et facile à intégrer à votre vie, sans faim ni frustration. Ces tests peuvent vous aider à :</p>
+                      <ul class="list-styled-check small mb-4">
+                          <li>Comprendre votre réponse individuelle aux protéines, lipides et glucides pour une <strong class="text-primary">gestion du poids optimisée</strong>.</li>
+                          <li>Adapter vos apports en vitamines et minéraux (ex: Vit. D, B12, Folate) selon <strong class="text-accent">vos besoins génétiques</strong>.</li>
+                          <li>Personnaliser votre nutrition pour une meilleure <strong class="text-secondary">santé cardiovasculaire</strong>.</li>
+                          <li>Identifier des sensibilités alimentaires potentielles (ex: caféine, lactose).</li>
+                          <li>Affiner vos stratégies pour la <strong class="text-accent">performance sportive</strong>, la <strong class="text-secondary">fertilité</strong> ou un <strong class="text-primary">régime végétal équilibré</strong>.</li>
+                      </ul>
+                      <p class="mb-4">Ce service complémentaire (275€ par panel) est un investissement dans une compréhension approfondie de votre corps, pour des résultats véritablement durables.</p>
+                      <div class="d-flex flex-wrap gap-2 cta-equal-width-group">
+                          <a href="/fr/tests-nutrigenetiques/" class="btn btn-primary cta-genetic-test">
+                              <i class="fas fa-flask-vial me-2"></i>Explorer les Tests en Détail
+                          </a>
+                          <a href="/fr/rendez-vous/" class="btn btn-outline-accent cta-genetic-test">
+                              <i class="fas fa-comments me-2"></i>Discuter en Consultation
+                          </a>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6 animate-on-scroll fade-up order-lg-2 text-center">
+                    <div class="intro-visual d-inline-block" style="margin-top: 1rem; max-width: 320px;">
+                      <div class="dna-animation position-relative">
+                          <picture>
+                              <source srcset="/images/dna-helix-abstract-640.webp 2x, /images/dna-helix-abstract-320.webp 1x" type="image/webp">
+                              <source srcset="/images/dna-helix-abstract-640.jpg 2x, /images/dna-helix-abstract-320.jpg 1x" type="image/jpeg">
+                              <img src="/images/dna-helix-abstract-320.jpg"
+                                   alt="Hélice ADN stylisée symbolisant la nutrigénétique et la nutrition personnalisée chez Diaeta"
+                                   class="img-fluid dna-image shadow-sm rounded"
+                                   width="320" height="320" loading="lazy"
+                                   style="border: 3px solid var(--primary-100); display: block; margin-left: auto; margin-right:auto;">
+                          </picture>
+                      </div>
+                      <p class="text-muted fst-italic text-sm mt-3">Décryptez les secrets de votre ADN pour une nutrition optimisée.</p>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+        <section id="actualites-teaser" class="section actualites-teaser-section bg-light">
+            <div class="container">
+                <div class="section-header animate-on-scroll fade-up">
+                    <span class="section-badge" style="background-color: rgba(var(--secondary-rgb), 0.1); color: var(--secondary-700);">Nos Conseils</span>
+                    <h2 class="section-title">Actualités & Conseils Nutritionnels</h2>
+                    <p class="section-subtitle">
+                        Découvrez nos derniers articles, conseils scientifiques et astuces pratiques pour vous accompagner vers une santé durable et un bien-être optimal.
+                    </p>
+                </div>
+
+                {%- set latestPosts = collections.actualites.slice(0, 3) -%}
+
+                {% if latestPosts.length > 0 %}
+                <div class="row g-4 justify-content-center">
+                    {% for post in latestPosts %}
+                    <div class="col-lg-4 col-md-6 d-flex animate-on-scroll fade-up delay-{{ loop.index0 * 100 + 100 }}">
+                        <div class="article-teaser-card">
+                            {% if post.data.image %}
+                            <a href="{{ post.url | url }}" class="teaser-card-image-link">
+                                <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-image" loading="lazy">
+                            </a>
+                            {% endif %}
+                            <div class="teaser-card-body">
+                              {% if post.data.category %}
+                                  <span class="teaser-card-category">{{ post.data.category }}</span>
+                              {% else %}
+                                  {% set displayTag = "" %}
+                                  {% if post.data.tags %}
+                                      {% for tag in post.data.tags %}
+                                          {% if tag != 'actualites' and tag != 'posts' and displayTag == "" %}
+                                              {% set displayTag = tag %}
+                                          {% endif %}
+                                      {% endfor %}
+                                  {% endif %}
+                                  {% if displayTag %}
+                                      <span class="teaser-card-category">{{ displayTag }}</span>
+                                  {% endif %}
+                              {% endif %}
+                                <h3 class="teaser-card-title"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+
+                                {% set excerpt = post.data.description %}
+                                {% if not excerpt and post.templateContent %}
+                                    {% set excerpt = post.templateContent | striptags | truncate(120) %}
+                                {% elif excerpt %}
+                                    {% set excerpt = excerpt | truncate(120) %}
+                                {% endif %}
+
+                                {% if excerpt %}
+                                    <p class="teaser-card-excerpt">{{ excerpt }}</p>
+                                {% endif %}
+
+                                <div class="teaser-card-meta">
+                                    {% if post.data.date %}
+                                    <span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>
+                                    {% endif %}
+                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Lire la suite <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
+                    <a href="{{ '/fr/actualites/' | url }}" class="btn btn-primary btn-lg">
+                        <span>Voir toutes les Actualités</span>
+                        <i class="fas fa-newspaper btn-icon-right"></i>
+                    </a>
+                </div>
+                {% else %}
+                <p class="text-center animate-on-scroll fade-up"><em>Nos dernières actualités seront bientôt disponibles ici.</em></p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section id="tarifs" class="tarifs-section gradient-section py-5">
+          <div class="container">
+              <div class="section-header text-center mb-5 animate-on-scroll fade-up">
+                  <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Votre Investissement Santé</span>
+                  <h2 class="section-title">Nos Consultations et Tarifs</h2>
+                  <p class="section-subtitle">
+                      Un accompagnement diététique personnalisé et scientifique, adapté à vos besoins spécifiques pour des résultats durables, sans faim ni frustration.
+                  </p>
+              </div>
+
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-100">
+                  <h3 class="text-center mb-1" style="color: var(--primary-600); font-family: var(--font-display);">Prise en Charge : Perte de Poids Durable, Diabète T2, Cholestérol & Autres Besoins Nutritionnels</h3>
+                  <p class="text-center text-muted mb-4 small">
+                      (La structure tarifaire ci-dessous s'applique à ces accompagnements. Le contenu de chaque séance est entièrement personnalisé.)
+                  </p>
+                  <div class="row justify-content-center g-4">
+                      <div class="col-md-6 col-lg-4">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Première Consultation</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 60 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Bilan complet : santé, antécédents, habitudes.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse composition corporelle.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Définition objectifs & stratégie initiale personnalisée.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                           <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Premier Suivi</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 40 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse journal alimentaire (via application mobile).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Discussion progrès & défis.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Ajustement de votre stratégie nutritionnelle.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                           <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Suivis Réguliers</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Suivi évolution (poids, composition, symptômes).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Adaptation continue du plan.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Motivation & conseils pratiques. Soutien via application mobile.</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-200">
+                  <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Prise en Charge : Syndrome du Côlon Irritable (SCI/SII) - Approche Pauvre en FODMAP</h3>
+                   <div class="row justify-content-center g-4">
+                       <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">1. Première Consultation (SCI)</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 60 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Évaluation symptômes et habitudes.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Explication SCI & approche Low FODMAP.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Préparation pour le journal alimentaire.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">2. Suivi Bilan & Plan Élimination FODMAP</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 40 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Analyse journal alimentaire.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Plan pour phase d'élimination (4 sem.).</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Listes d'aliments & alternatives.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">3. Démarrage & Planification Réintroductions FODMAP</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Explication du protocole de réintroduction.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Planification des tests par famille de FODMAPs.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Conseils pour le suivi des symptômes.</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                          <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
+                              <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">4. Consultation Plan Personnalisé Post-Réintroduction</h4>
+                              <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Env. 30 min)</span></p>
+                              <ul class="feature-list mt-3 text-start small flex-grow-1">
+                                  <li><i class="fa-solid fa-check text-accent"></i> Bilan complet des tests de réintroduction.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Élaboration de votre alimentation personnalisée et diversifiée à long terme.</li>
+                                  <li><i class="fa-solid fa-check text-accent"></i> Stratégies pour gérer durablement le SCI.</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-300">
+                  <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Tests Nutrigénétiques (Optionnel)</h3>
+                  <div class="row justify-content-center">
+                      <div class="col-lg-8 col-xl-6">
+                          <div class="tarif-item p-4 text-center" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm);">
+                              <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Test Nutrigénétique (Nutrigenomix®)</h4>
+                              <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€275 <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(pour le kit et l'analyse ADN de +70 marqueurs)</span></p>
+                              <p class="small mt-2 mb-3">Découvrez comment vos gènes influencent vos besoins nutritionnels pour une personnalisation de pointe (gestion du poids, sport, fertilité, nutrition végétale).</p>
+                              <a href="/fr/tests-nutrigenetiques/" class="btn btn-outline-primary btn-sm mb-2">En savoir plus sur les tests</a>
+                              <p class="text-muted small mb-0">La consultation d'interprétation des résultats et d'intégration au plan est facturée au tarif d'un suivi (€50).</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
+                  <div class="offre-duo-box p-3 mb-4" style="background-color: var(--primary-50); border-radius: var(--border-radius-md); display: inline-block; border: 1px solid var(--primary-200); max-width: 500px;">
+                      <h4 class="h5" style="color: var(--primary-600); margin-bottom: 0.5rem;">✨ Offre Spéciale Duo ✨</h4>
+                      <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">
+                          Première consultation pour couple : <strong>€130</strong> (au lieu de €160).
+                      </p>
+                  </div>
+              </div>
+
+              <div class="text-center mt-4 animate-on-scroll fade-up delay-450">
+                  <p class="mb-3">
+                      <i class="fa-solid fa-shield-heart"></i> Nos services peuvent être partiellement remboursés par certaines mutuelles belges. Renseignez-vous auprès de votre organisme assureur.
+                  </p>
+                  <p class="text-muted small mb-3">
+                      Modes de paiement acceptés en cabinet : Espèces, Bancontact via QR code sur smartphone.
+                  </p>
+                  <p class="text-muted small mb-4">
+                      En cas d'empêchement, merci de nous prévenir au minimum 24 heures à l'avance. Une annulation tardive ou non justifiée pourra faire l'objet de frais (plus d'infos sur la page <a href="/fr/rendez-vous/" class="text-decoration-underline">Rendez-vous</a>).
+                  </p>
+                  <a href="/fr/tarifs/" class="btn btn-primary btn-lg">
+                      <span>Plus d'info</span><i class="fa-solid fa-arrow-right btn-icon-right"></i>
+                  </a>
+              </div>
+          </div>
+      </section>
+      </main>
+
+    </body>
+</html>
