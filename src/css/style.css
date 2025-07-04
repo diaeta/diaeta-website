@@ -2017,6 +2017,7 @@ footer.footer .footer-bottom {
   justify-content: space-between;
   align-items: center;
   font-size: var(--text-sm);
+  white-space: nowrap;
 }
 
 footer.footer .footer-copyright {
@@ -2026,6 +2027,8 @@ footer.footer .footer-copyright {
 footer.footer .footer-legal {
   display: flex;
   gap: var(--space-4);
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 footer.footer .footer-legal-link {
@@ -4158,7 +4161,7 @@ section {
   color: var(--primary-700);
   border-color: white;
   transform: translateY(-2px);
-}}
+}
 
 .btn-icon-right {
   transition: transform 0.3s ease;
@@ -8134,6 +8137,7 @@ section {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Show 3 lines */
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
