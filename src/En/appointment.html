@@ -35,7 +35,7 @@ eleventyNavigation:
                 <p class="section-subtitle">Select a clinic or opt for a video consultation. Specific availabilities will then be displayed in the booking module.</p>
             </div>
 
-            {% if cabinets and cabinets.length > 0 %}
+            {% if cabinets_en and cabinets_en.length > 0 %}
             <div class="location-cards-container animate-on-scroll fade-up delay-100">
                 {# "All Cabinets" Card/Button #}
                 <div class="location-card select-cabinet-card default-selection" data-practice-id="" data-cabinet-name="All clinics">
@@ -46,34 +46,33 @@ eleventyNavigation:
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>
-                {# Loop through actual cabinets from _data/cabinets.json #}
-                {% for cabinet in cabinets %}
+                {# Loop through actual cabinets from _data/cabinets_en.json #}
+                {% for cabinet_item in cabinets_en %}
                 <div class="location-card select-cabinet-card"
-                    data-practice-id="{{ cabinet.doctorpracticeId }}"
-                    data-cabinet-name="{{ cabinet.name | escape }}"
-                    data-cabinet-id="{{ cabinet.id }}">
+                    data-practice-id="{{ cabinet_item.doctorpracticeId }}"
+                    data-cabinet-name="{{ cabinet_item.name | escape }}"
+                    data-cabinet-id="{{ cabinet_item.id }}">
                     <div class="location-card-icon">
-                        {% if cabinet.id == 'video' %}<i class="fa-solid fa-video"></i>
+                        {% if cabinet_item.id == 'video' %}<i class="fa-solid fa-video"></i>
                         {% else %}<i class="fa-solid fa-map-marker-alt"></i>{% endif %}
                     </div>
                     <div class="location-card-content">
                         <h3 class="location-card-name">
-                            {% if cabinet.id != 'video' %} {# Only add link for physical locations #}
-                                <a href="/en/locations/{{ cabinet.id | slugify }}/" class="clinic-name-link"> {# Reusing class from index.html cards #}
-                                    {{ cabinet.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i> {# Reusing class #}
+                            {% if cabinet_item.id != 'video' %} {# Only add link for physical locations #}
+                                <a href="/en/locations/{{ cabinet_item.id | slugify | replace('fr-', 'en-') }}/" class="clinic-name-link">
+                                    {{ cabinet_item.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i>
                                 </a>
                             {% else %}
-                                {{ cabinet.name }} {# For "Video Consultation", just display the name #}
+                                {{ cabinet_item.name }} {# For "Video Consultation", just display the name #}
                             {% endif %}
                         </h3>
-                        <p class="location-card-address">{{ cabinet.fullAddress }}</p>
+                        <p class="location-card-address">{{ cabinet_item.fullAddress }}</p>
 
-                        {# Updated Hours Display from previous step #}
-                        {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                        {% if cabinet_item.opening_hours and cabinet_item.opening_hours.length > 0 %}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
                             <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Hours for this location:</strong>
                             <ul class="list-unstyled text-xs mb-0 specific-hours-list">
-                                {% for day_schedule in cabinet.opening_hours %}
+                                {% for day_schedule in cabinet_item.opening_hours %}
                                     <li>
                                         <strong>{{ day_schedule.dayOfWeekENGLISH | capitalize }} :</strong>
                                         {% for slot in day_schedule.timeSlots %}
@@ -81,21 +80,21 @@ eleventyNavigation:
                                         {% endfor %}
                                     </li>
                                 {% endfor %}
-                                {% if cabinet.hours_details_note %}
-                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                                {% if cabinet_item.hours_details_note %}
+                                <li class="hours-details-note"><small><em>{{ cabinet_item.hours_details_note }}</em></small></li>
                                 {% endif %}
                             </ul>
                         </div>
-                        {% elif cabinet.hours_details_note %}
+                        {% elif cabinet_item.hours_details_note %}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
                             <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Hours for this location:</strong>
                             <ul class="list-unstyled text-xs mb-0 specific-hours-list">
-                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                                <li class="hours-details-note"><small><em>{{ cabinet_item.hours_details_note }}</em></small></li>
                             </ul>
                         </div>
                         {% endif %}
 
-                        {% if cabinet.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet.notes }}</p>{% endif %}
+                        {% if cabinet_item.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet_item.notes }}</p>{% endif %}
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>

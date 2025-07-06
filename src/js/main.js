@@ -831,28 +831,34 @@ function initViewToggles() {
 function filterAndDisplayClinics(dayFilter, allCabinetsData) {
     const listCardsContainer = document.getElementById('cabinetCardContainer');
     const listCountDisplay = document.getElementById('list-count-display');
-    const noResultsMsgList = listCardsContainer ? listCardsContainer.querySelector('.no-results-message') : null; 
+    const noResultsMsgList = listCardsContainer ? listCardsContainer.querySelector('.no-results-message') : null;
     const sidebarResults = document.querySelector('.map-sidebar .sidebar-results');
+    const currentLang = window.pageLang || 'fr';
+    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
 
     let visibleListCabinets = allCabinetsData.filter(cabinet => {
         if (dayFilter === 'all') return true;
-        if (cabinet.id === 'video') { 
-            return (cabinet.opening_hours || []).some(oh => oh.dayOfWeekFRENCH.toLowerCase().trim() === dayFilter);
+        // For video, check if any opening_hours match the dayFilter, using the correct language property
+        if (cabinet.id === 'video') {
+            return (cabinet.opening_hours || []).some(oh => oh[dayOfWeekProperty] && oh[dayOfWeekProperty].toLowerCase().trim() === dayFilter);
         }
-        const cardDays = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim());
+        // For physical clinics
+        const cardDays = (cabinet.opening_hours || []).map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '');
         return cardDays.includes(dayFilter);
     });
-    if (typeof generateClinicCards === "function") { 
-        generateClinicCards(visibleListCabinets); 
+
+    if (typeof generateClinicCards === "function") {
+        generateClinicCards(visibleListCabinets);
     } else { console.error("generateClinicCards function is not defined."); }
 
     const physicalClinics = allCabinetsData.filter(c => c.id !== 'video' && c.coordinates && c.coordinates.length === 2);
     let visibleMapCabinets = [];
-    if (typeof clinicMap !== 'undefined' && clinicMap && typeof clinicMarkers !== 'undefined' && clinicMarkers) { 
+
+    if (typeof clinicMap !== 'undefined' && clinicMap && typeof clinicMarkers !== 'undefined' && clinicMarkers) {
         physicalClinics.forEach(cabinet => {
             const marker = clinicMarkers[cabinet.id];
             if (!marker) return;
-            const cabinetDays = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim());
+            const cabinetDays = (cabinet.opening_hours || []).map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '');
             const isVisibleOnMap = dayFilter === 'all' || cabinetDays.includes(dayFilter);
             if (isVisibleOnMap) {
                 if (!clinicMap.hasLayer(marker)) marker.addTo(clinicMap);
@@ -862,10 +868,19 @@ function filterAndDisplayClinics(dayFilter, allCabinetsData) {
             }
         });
     }
-    if (typeof generateSidebarCards === "function") { 
-        generateSidebarCards(visibleMapCabinets); 
+
+    if (typeof generateSidebarCards === "function") {
+        generateSidebarCards(visibleMapCabinets);
     } else { console.error("generateSidebarCards function is not defined."); }
-    if (sidebarResults) sidebarResults.textContent = `${visibleMapCabinets.length} cabinet${visibleMapCabinets.length !== 1 ? 's' : ''} trouvé${visibleMapCabinets.length !== 1 ? 's' : ''}`;
+
+    if (sidebarResults) {
+        const count = visibleMapCabinets.length;
+        if (currentLang === 'en') {
+            sidebarResults.textContent = `${count} clinic${count !== 1 ? 's' : ''} found`;
+        } else {
+            sidebarResults.textContent = `${count} cabinet${count !== 1 ? 's' : ''} trouvé${count !== 1 ? 's' : ''}`;
+        }
+    }
 }
 
 function initDayFilters(allCabinetsData) {
@@ -951,37 +966,57 @@ function generateClinicCards(cabinetsDataToDisplay) {
     currentNoResultsMsg.style.display = 'block';
     return;
   }
-  if (noResultsMsg) noResultsMsg.style.display = 'none'; 
-  cabinetsDataToDisplay.forEach((cabinet, index) => { /* ... card generation logic ... */ 
+    if (noResultsMsg) noResultsMsg.style.display = 'none';
+    const currentLang = window.pageLang || 'fr';
+    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+
+    cabinetsDataToDisplay.forEach((cabinet, index) => { /* ... card generation logic ... */
     const card = document.createElement('div');
     card.className = 'cabinet-explorer-card';
     card.setAttribute('data-clinic-id', cabinet.id);
-    let cabinetDaysAttr = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim()).join(' ');
-    if (cabinet.id === 'video' && cabinetDaysAttr === '') { 
-        cabinetDaysAttr = 'lundi mardi mercredi jeudi vendredi samedi'; 
+
+        let cabinetDaysAttr = (cabinet.opening_hours || [])
+            .map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '')
+            .filter(day => day) // remove empty strings if dayOfWeekProperty is missing
+            .join(' ');
+
+        if (cabinet.id === 'video' && cabinetDaysAttr === '') {
+             const allWeekDays = currentLang === 'en'
+                ? ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+                : ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+            cabinetDaysAttr = allWeekDays.join(' ');
     }
     card.setAttribute('data-days', cabinetDaysAttr);
-    const name = cabinet.name || "Nom non disponible";
-    const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? "Consultation en ligne" : "Adresse non spécifiée");
-    const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? (window.pageLang === 'fr' ? 'À distance' : 'Remote') : ''));
+
+        const name = cabinet.name || (currentLang === 'fr' ? "Nom non disponible" : "Name unavailable");
+        const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? (currentLang === 'fr' ? "Consultation en ligne" : "Online consultation") : (currentLang === 'fr' ? "Adresse non spécifiée" : "Address not specified"));
+        const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? (currentLang === 'fr' ? 'À distance' : 'Remote') : ''));
     const notes = cabinet.notes || '';
-    const currentLang = window.pageLang || 'fr';
-    const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/` : '#';
+
+        const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : '#';
     const isVideoConsult = cabinet.id === 'video';
-    let hoursTeaser = window.pageLang === 'fr' ? "Consulter les détails pour les horaires" : "See details for hours";
+
+        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : "See details for hours";
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
-        const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long' }).toLowerCase();
-        let relevantDaySchedule = cabinet.opening_hours.find(d => d.dayOfWeekFRENCH.toLowerCase() === today);
-        if (!relevantDaySchedule) relevantDaySchedule = cabinet.opening_hours[0]; 
+            const today = new Date().toLocaleDateString(currentLang === 'en' ? 'en-US' : 'fr-FR', { weekday: 'long' }).toLowerCase();
+            let relevantDaySchedule = cabinet.opening_hours.find(d => d[dayOfWeekProperty] && d[dayOfWeekProperty].toLowerCase() === today);
+
+            if (!relevantDaySchedule && cabinet.opening_hours.length > 0) { // Fallback to first available day if today's schedule not found
+                relevantDaySchedule = cabinet.opening_hours[0];
+            }
+
         if (relevantDaySchedule && relevantDaySchedule.timeSlots && relevantDaySchedule.timeSlots.length > 0) {
             const firstSlot = relevantDaySchedule.timeSlots[0];
-            hoursTeaser = `${relevantDaySchedule.dayOfWeekFRENCH}: ${firstSlot.opens.replace(":", "h")} - ${firstSlot.closes.replace(":", "h")}`;
-            if (cabinet.opening_hours.length > 1 || relevantDaySchedule.timeSlots.length > 1) hoursTeaser += ' (et autres)';
+                const dayName = relevantDaySchedule[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour' : 'Day');
+                hoursTeaser = `${dayName}: ${firstSlot.opens.replace(":", "h")} - ${firstSlot.closes.replace(":", "h")}`;
+                if (cabinet.opening_hours.length > 1 || relevantDaySchedule.timeSlots.length > 1) {
+                    hoursTeaser += currentLang === 'fr' ? ' (et autres)' : ' (and others)';
+                }
         }
     } else if (cabinet.hours_details_note) {
         hoursTeaser = cabinet.hours_details_note;
     } else if (isVideoConsult) {
-        hoursTeaser = "Flexibles, voir module de réservation.";
+            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : "Flexible, see booking module.";
     }
     card.innerHTML = `
         <div class="card-content-wrapper">
@@ -1017,23 +1052,30 @@ function generateClinicCards(cabinetsDataToDisplay) {
 function generateSidebarCards(cabinetsData) { /* ... as before ... */ 
   const sidebarContainer = document.querySelector('.map-sidebar .sidebar-clinics');
   if (!sidebarContainer) return;
-  sidebarContainer.innerHTML = ''; 
+  sidebarContainer.innerHTML = '';
   let count = 0;
+  const currentLang = window.pageLang || 'fr';
+  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+
   cabinetsData.forEach(cabinet => {
     if (cabinet.id === 'video' || !cabinet.coordinates || !cabinet.coordinates.length === 2) return;
     count++;
-    let scheduleStr = 'Horaires non spécifiés';
+    let scheduleStr = currentLang === 'fr' ? 'Horaires non spécifiés' : 'Hours not specified';
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
-      scheduleStr = cabinet.opening_hours.map(day => `${day.dayOfWeekFRENCH.substring(0,3)}: ${day.timeSlots.map(slot => `${slot.opens.replace(':','h')}-${slot.closes.replace(':','h')}`).join(', ')}`).join('; ');
-    } else if (cabinet.hours_details_note) { 
-      scheduleStr = `<em>${cabinet.hours_details_note}</em>`; 
+      scheduleStr = cabinet.opening_hours.map(day => {
+        const dayName = day[dayOfWeekProperty] ? day[dayOfWeekProperty].substring(0,3) : (currentLang === 'fr' ? 'Jour' : 'Day');
+        const slots = day.timeSlots.map(slot => `${slot.opens.replace(':','h')}-${slot.closes.replace(':','h')}`).join(', ');
+        return `${dayName}: ${slots}`;
+      }).join('; ');
+    } else if (cabinet.hours_details_note) {
+      scheduleStr = `<em>${cabinet.hours_details_note}</em>`;
     }
-    const currentLang = window.pageLang || 'fr';
+
     const cardHTML = `
         <h4>${cabinet.name}</h4>
-        <div class="sidebar-clinic-address text-xs"><i class="fas fa-location-dot me-1 text-primary"></i>${cabinet.fullAddress || (window.pageLang === 'fr' ? 'Adresse non spécifiée' : 'Address not specified')}</div>
+        <div class="sidebar-clinic-address text-xs"><i class="fas fa-location-dot me-1 text-primary"></i>${cabinet.fullAddress || (currentLang === 'fr' ? 'Adresse non spécifiée' : 'Address not specified')}</div>
         <div class="sidebar-clinic-hours text-xs mt-1"><i class="fas fa-clock me-1 text-primary"></i>${scheduleStr}</div>
-        <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">${window.pageLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>`;
+        <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">${currentLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>`;
     const cardElement = document.createElement('div');
     cardElement.className = 'sidebar-clinic-card';
     cardElement.setAttribute('data-clinic-id', cabinet.id);
@@ -1052,29 +1094,42 @@ function generateSidebarCards(cabinetsData) { /* ... as before ... */
     });
     sidebarContainer.appendChild(cardElement);
   });
+
   const resultsCountElement = document.querySelector('.map-sidebar .sidebar-results');
-  if (resultsCountElement) resultsCountElement.textContent = `${count} cabinet${count !== 1 ? 's' : ''} affiché${count !== 1 ? 's' : ''}`;
+  if (resultsCountElement) {
+      if (currentLang === 'en') {
+          resultsCountElement.textContent = `${count} clinic${count !== 1 ? 's' : ''} displayed`;
+      } else {
+          resultsCountElement.textContent = `${count} cabinet${count !== 1 ? 's' : ''} affiché${count !== 1 ? 's' : ''}`;
+      }
+  }
   if (count === 0 && sidebarContainer) {
-    sidebarContainer.innerHTML = '<p class="text-center p-3 text-muted"><i>Aucun cabinet ne correspond aux filtres.</i></p>';
+      const noResultsText = currentLang === 'en' ? 'No clinics match the filters.' : 'Aucun cabinet ne correspond aux filtres.';
+      sidebarContainer.innerHTML = `<p class="text-center p-3 text-muted"><i>${noResultsText}</i></p>`;
   }
 }
 
-function showClinicDetails(cabinet, marker) { /* ... as before, ensure panelCloseButtonMap is unique if this panel can be shown multiple times or find a better way to get the button ... */ 
+function showClinicDetails(cabinet, marker) {
   const detailPanel = document.getElementById('clinicDetailPanel');
   if (!detailPanel) return;
-  // ... (rest of the function as provided previously) ...
+
+  const currentLang = window.pageLang || 'fr';
+  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
   let scheduleHtml = '';
+
   if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
     cabinet.opening_hours.forEach(day_schedule => {
       let dayHours = day_schedule.timeSlots.map(slot => `${slot.opens.replace(":", "h")} - ${slot.closes.replace(":", "h")}`).join(', ');
-      scheduleHtml += `<li><span class="day">${day_schedule.dayOfWeekFRENCH}:</span> <span class="hours available">${dayHours}</span></li>`;
+      const dayName = day_schedule[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour inconnu' : 'Unknown day');
+      scheduleHtml += `<li><span class="day">${dayName}:</span> <span class="hours available">${dayHours}</span></li>`;
     });
   }
   if (cabinet.hours_details_note) { scheduleHtml += `<li class="mt-1"><em class="text-xs text-muted">${cabinet.hours_details_note}</em></li>`; }
-  const currentLang = window.pageLang || 'fr';
+
   if (!scheduleHtml) { scheduleHtml = `<li><span class="day">${currentLang === 'fr' ? 'Horaires:' : 'Hours:'}</span> <span class="hours">${currentLang === 'fr' ? 'Veuillez consulter le module de réservation.' : 'Please consult the booking module.'}</span></li>`; }
+
   const addressDisplay = cabinet.fullAddress || (currentLang === 'fr' ? 'Lieu de consultation en ligne' : 'Online consultation location');
-  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/` : null;
+  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : null;
   detailPanel.innerHTML = `
     <div class="detail-panel-header"><h3>${cabinet.name}</h3><button class="close-panel-btn" id="panelCloseButtonMap" aria-label="${currentLang === 'fr' ? 'Fermer' : 'Close'}"><i class="fa-solid fa-times"></i></button></div>
     <div class="detail-panel-body">
@@ -1188,6 +1243,7 @@ function initializeRendezVousPage() {
 
   const doctorId = '80669';
   const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
+  const currentLang = window.pageLang || 'fr';
 
   const showIframeLoading = () => {
       if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
@@ -1204,16 +1260,30 @@ function initializeRendezVousPage() {
   const updateIframeAndTitle = (practiceId, cabinetName) => {
       showIframeLoading();
       let newSrc = baseIframeSrc;
-      let titleText = "Sélectionnez Votre Horaire";
-      let subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
+      let titleText, subTitleText;
 
-      if (practiceId) {
-          newSrc += `&doctorpracticeId=${practiceId}`;
-          titleText = `Disponibilités pour : ${cabinetName}`;
-          subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
-      } else {
-          titleText = "Disponibilités : Tous les cabinets";
-          subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+      if (currentLang === 'en') {
+          titleText = "Select Your Schedule";
+          subTitleText = "Choose a time slot for the selected location.";
+          if (practiceId) {
+              newSrc += `&doctorpracticeId=${practiceId}`;
+              titleText = `Availability for: ${cabinetName}`;
+              subTitleText = `Choose a time slot for ${cabinetName}.`;
+          } else {
+              titleText = "Availability: All Clinics";
+              subTitleText = "Choose a time slot at one of our clinics or for a video consultation.";
+          }
+      } else { // French (default)
+          titleText = "Sélectionnez Votre Horaire";
+          subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
+          if (practiceId) {
+              newSrc += `&doctorpracticeId=${practiceId}`;
+              titleText = `Disponibilités pour : ${cabinetName}`;
+              subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
+          } else {
+              titleText = "Disponibilités : Tous les cabinets";
+              subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+          }
       }
 
       const handleLoad = () => {
