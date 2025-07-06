@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 lang: en
-permalink: "/en/locations/{{ cabinet.id | slugify }}/index.html"
+permalink: "/en/locations/{{ cabinet.id | slugify | replace('fr-', 'en-') }}/index.html"
 ---
 
 {# HERO SECTION FOR LOCATION PAGE #}
@@ -81,7 +81,7 @@ permalink: "/en/locations/{{ cabinet.id | slugify }}/index.html"
 
             </div>
             <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
-                <img src="/images/cabinets/{{ cabinet.id | slugify }}.jpg"
+                <img src="/images/cabinets/{{ cabinet.id | slugify | replace('fr-', 'en-') }}.jpg"
                      onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';"
                      alt="Diaeta consultation clinic at {{ cabinet.name }}, {{ displayCity }}"
                      class="img-fluid rounded shadow-sm"
@@ -116,7 +116,7 @@ permalink: "/en/locations/{{ cabinet.id | slugify }}/index.html"
 
   "telephone": "+32479355551",
   "priceRange": "€50-€80",
-  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'en-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
 
   {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
   "hasMap": "{{ cabinet.Maps_link }}",

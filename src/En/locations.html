@@ -123,7 +123,7 @@ canonicalUrl: https://diaeta.be/en/locations/
 
    "telephone": "+32479355551",
    "priceRange": "€50-€80",
-   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'en-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
 
     "description": "Diaeta is a nutrition practice in Brussels offering personalized consultations for weight loss, management of diabetes, IBS, and cholesterol.",
     "employee": {

@@ -6,7 +6,7 @@ pagination:
   data: collections.actualites
   size: 6
   alias: items
-permalink: "/en/news/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+permalink: "/en/news/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html" # Already in English format
 lang: en
 canonicalUrl: "https://diaeta.be/en/news/"
 ---
@@ -39,7 +39,7 @@ canonicalUrl: "https://diaeta.be/en/news/"
                             {% endif %}
                             <div class="teaser-card-body">
                                 {% if post.data.category %}
-                                    <span class="teaser-card-category"><a href="{{ ('/en/news/categories/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
+                                    <span class="teaser-card-category"><a href="{{ ('/en/news/categories/' + post.data.category | slugify | replace('fr-', 'en-') + '/') | url }}">{{ post.data.category }}</a></span>
                                 {% endif %}
                                 <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
                                 {% set excerpt = post.data.description %}
@@ -80,7 +80,7 @@ canonicalUrl: "https://diaeta.be/en/news/"
                         <ul class="list-unstyled category-list">
                             {% for category in collections.uniqueCategories %}
                             <li>
-                                <a href="{{ ('/en/news/categories/' + category | slugify + '/') | url }}">{{ category }}
+                                <a href="{{ ('/en/news/categories/' + category | slugify | replace('fr-', 'en-') + '/') | url }}">{{ category }}
                                     <span class="badge bg-primary rounded-pill">
                                         {{ collections.postsByCategory[category].length }}
                                     </span>

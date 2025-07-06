@@ -5,8 +5,8 @@ date: 2025-05-28
 author: "Pierre Abou-Zeid"
 authorKey: "pierre-abou-zeid"
 authorUrl: "/en/our-expertise/"
-category: "Type 2 Diabetes" # <<< ADD PRIMARY CATEGORY HERE
-tags: ["news", "type 2 diabetes", "nutrition", "health tips"] # Category can also be a tag
+category: "Type 2 Diabetes"
+tags: ["news", "type 2 diabetes", "nutrition", "health tips"]
 image: "/images/actualites/gestion-diabete-conseils.jpg"
 imageAlt: "Balanced plate for diabetes."
 canonicalUrl: "https://diaeta.be/en/news/5-key-tips-for-managing-your-type-2-diabetes-without-frustration/"
@@ -15,7 +15,7 @@ about:
   type: "MedicalCondition"
   name: "Type 2 Diabetes"
 layout: layouts/blog-post.njk
-permalink: "/en/news/{{ title | slugify }}/index.html"
+permalink: "/en/news/{{ title | slugify | replace('fr-', 'en-') }}/index.html"
 lang: en
 ---
 
@@ -65,4 +65,3 @@ Everyone is unique, and diabetes management must be too. A "one-size-fits-all" d
 **At Diaeta, we are here to support you.** Our goal is to give you the keys to manage your type 2 diabetes independently, effectively, and without frustration, by rediscovering the pleasure of healthy and delicious food.
 
 Do not hesitate to [make an appointment](/en/appointment/) for a personalized consultation.
----

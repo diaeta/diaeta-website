@@ -4,7 +4,7 @@ pagination:
   size: 1 # One page per category
   alias: categoryData
   addAllPagesToCollections: true # So you can link to these if needed
-permalink: "/en/news/categories/{{ categoryData.key | slugify }}/index.html"
+permalink: "/en/news/categories/{{ categoryData.key | slugify | replace('fr-', 'en-') }}/index.html"
 layout: layouts/base.njk
 lang: en
 eleventyComputed:
@@ -34,7 +34,7 @@ eleventyComputed:
     <div class="container">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ '/en/' | url }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ '/en/news/' | url }}">News</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ categoryName }}</li>
             </ol>

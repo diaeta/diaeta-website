@@ -1,23 +1,24 @@
 ---
 layout: layouts/base.njk
-title: Prendre Rendez-vous Diététicien Diaeta Bruxelles | Consultation en Ligne/Cabinet
-description: Réservez facilement votre consultation avec Pierre Abou-Zeid, Diététicien Nutritionniste agréé Diaeta à Bruxelles. Cabinets ou téléconsultation disponibles. Prenez RDV en ligne.
-lang: fr
+title: Book an Appointment with a Diaeta Dietitian in Brussels | Online/In-Person Consultation
+description: "Easily book your consultation with Pierre Abou-Zeid, certified Diaeta Dietitian-Nutritionist in Brussels. In-person or video consultations available. Book your appointment online."
+lang: en
+canonicalUrl: "https://diaeta.be/en/appointment/"
 eleventyNavigation:
-  key: Rendez-vous
+  key: Appointment
   order: 3
 ---
 
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <main id="main-content">
     {# Hero Section with Left-Aligned Content #}
     <section class="service-hero rd-hero">
         <div class="container">
              {# Optional wrapper if more control needed, otherwise direct children inherit text-align from .container #}
              <div class="rd-hero-content">
-                <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-calendar-check hero-badge-icon"></i>Prise de Rendez-vous</span>
-                <h1 class="animate-on-scroll fade-up">Votre Parcours Santé Commence Ici</h1>
-                <p class="lead animate-on-scroll fade-up delay-200">Planifiez votre consultation diététique personnalisée. C'est simple, rapide et adapté à vos besoins.</p>
+                <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-calendar-check hero-badge-icon"></i>Book an Appointment</span>
+                <h1 class="animate-on-scroll fade-up">Your Health Journey Starts Here</h1>
+                <p class="lead animate-on-scroll fade-up delay-200">Schedule your personalized nutrition consultation. It's simple, fast, and tailored to your needs.</p>
              </div>
         </div>
     </section>
@@ -29,19 +30,19 @@ eleventyNavigation:
                 {# Title with Step Number - Corrected Alignment via CSS #}
                 <h2 class="section-title">
                     <span class="step-number">1</span>
-                    Choisissez Votre Lieu de Consultation
+                    Choose Your Consultation Location
                 </h2>
-                <p class="section-subtitle">Sélectionnez un cabinet ou optez pour une téléconsultation. Les disponibilités spécifiques s'afficheront ensuite dans le module de réservation.</p>
+                <p class="section-subtitle">Select a clinic or opt for a video consultation. Specific availabilities will then be displayed in the booking module.</p>
             </div>
 
             {% if cabinets and cabinets.length > 0 %}
             <div class="location-cards-container animate-on-scroll fade-up delay-100">
                 {# "All Cabinets" Card/Button #}
-                <div class="location-card select-cabinet-card default-selection" data-practice-id="" data-cabinet-name="Tous les cabinets">
+                <div class="location-card select-cabinet-card default-selection" data-practice-id="" data-cabinet-name="All clinics">
                     <div class="location-card-icon"><i class="fa-solid fa-hospital-user"></i></div>
                     <div class="location-card-content">
-                        <h3 class="location-card-name">Voir Tous les Cabinets</h3>
-                        <p class="location-card-address">Afficher toutes les disponibilités.</p>
+                        <h3 class="location-card-name">See All Clinics</h3>
+                        <p class="location-card-address">Show all availabilities.</p>
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>
@@ -58,11 +59,11 @@ eleventyNavigation:
                     <div class="location-card-content">
                         <h3 class="location-card-name">
                             {% if cabinet.id != 'video' %} {# Only add link for physical locations #}
-                                <a href="/fr/cabinets/{{ cabinet.id | slugify }}/" class="clinic-name-link"> {# Reusing class from index.html cards #}
+                                <a href="/en/locations/{{ cabinet.id | slugify }}/" class="clinic-name-link"> {# Reusing class from index.html cards #}
                                     {{ cabinet.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i> {# Reusing class #}
                                 </a>
                             {% else %}
-                                {{ cabinet.name }} {# For "Vidéo Consultation", just display the name #}
+                                {{ cabinet.name }} {# For "Video Consultation", just display the name #}
                             {% endif %}
                         </h3>
                         <p class="location-card-address">{{ cabinet.fullAddress }}</p>
@@ -70,13 +71,13 @@ eleventyNavigation:
                         {# Updated Hours Display from previous step #}
                         {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
-                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Hours for this location:</strong>
                             <ul class="list-unstyled text-xs mb-0 specific-hours-list">
                                 {% for day_schedule in cabinet.opening_hours %}
                                     <li>
-                                        <strong>{{ day_schedule.dayOfWeekFRENCH | capitalize }} :</strong>
+                                        <strong>{{ day_schedule.dayOfWeekENGLISH | capitalize }} :</strong>
                                         {% for slot in day_schedule.timeSlots %}
-                                            {{ slot.opens | replace(":", "h") }} - {{ slot.closes | replace(":", "h") }}{{ ", " if not loop.last else "" }}
+                                            {{ slot.opens }} - {{ slot.closes }}{{ ", " if not loop.last else "" }}
                                         {% endfor %}
                                     </li>
                                 {% endfor %}
@@ -87,7 +88,7 @@ eleventyNavigation:
                         </div>
                         {% elif cabinet.hours_details_note %}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
-                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Horaires pour ce lieu :</strong>
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Hours for this location:</strong>
                             <ul class="list-unstyled text-xs mb-0 specific-hours-list">
                                 <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
                             </ul>
@@ -101,12 +102,12 @@ eleventyNavigation:
                 {% endfor %}
             </div>
             {% else %}
-            <p class="text-center"><em>Chargement des informations des cabinets... Si ce message persiste, veuillez nous <a href="{{ '/fr/contact/' | url }}">contacter</a>.</em></p>
+            <p class="text-center"><em>Loading clinic information... If this message persists, please <a href="{{ '/en/contact/' | url }}">contact us</a>.</em></p>
             {% endif %}
 
              {# Optional Clarifying Note - Placed after the cards #}
              <p class="text-center text-muted text-sm mt-5 animate-on-scroll fade-up delay-300">
-                <i class="fa-solid fa-circle-info me-1"></i>Veuillez consulter le module de réservation ci-dessous pour les disponibilités précises et en temps réel pour le lieu sélectionné.
+                <i class="fa-solid fa-circle-info me-1"></i>Please consult the booking module below for precise, real-time availability for the selected location.
             </p>
 
         </div>
@@ -119,15 +120,15 @@ eleventyNavigation:
                  {# Title with Step Number - Corrected Alignment via CSS #}
                  <h2 class="section-title">
                     <span class="step-number">2</span>
-                    <span id="booking-module-dynamic-title">Sélectionnez Votre Horaire</span>
+                    <span id="booking-module-dynamic-title">Select Your Time Slot</span>
                  </h2>
-                 <p class="section-subtitle" id="booking-module-subtitle">Choisissez un créneau pour le lieu sélectionné.</p>
+                 <p class="section-subtitle" id="booking-module-subtitle">Choose a time slot for the selected location.</p>
                  {# Loading Indicator for iFrame #}
                  <div id="iframe-loading-indicator" style="display: none; min-height: 30px;"> {# Added min-height #}
                     <div class="spinner-border text-primary spinner-border-sm" role="status">
-                        <span class="visually-hidden">Chargement...</span>
+                        <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="text-muted mt-1 text-sm"><em>Mise à jour des disponibilités...</em></p>
+                    <p class="text-muted mt-1 text-sm"><em>Updating availabilities...</em></p>
                  </div>
             </div>
 
@@ -137,7 +138,7 @@ eleventyNavigation:
                         style="border: none; overflow: hidden; width: 100%; height: 445px; margin: 0 auto; display: block;"
                         allowtransparency="true"
                         id="defaultiFrame"
-                        title="Prise de rendez-vous en ligne Doctoranytime pour Diaeta"></iframe>
+                        title="Online appointment booking by Doctoranytime for Diaeta"></iframe>
             </div>
         </div>
     </section>
@@ -149,28 +150,28 @@ eleventyNavigation:
                  {# Title with Step Number - Corrected Alignment via CSS #}
                  <h2 class="section-title">
                     <span class="step-number">3</span>
-                    Préparez Votre Visite
+                    Prepare for Your Visit
                  </h2>
             </div>
             <div class="row">
                 <div class="col-lg-6 mb-4 animate-on-scroll fade-up delay-100">
                     <div class="info-card h-100 preparation-card">
                         <div class="info-card-icon prep-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                        <h3 class="info-card-title">Ce Qu'il Faut Apporter</h3>
+                        <h3 class="info-card-title">What to Bring</h3>
                         <ul class="list-styled">
-                            <li>Votre carte d'identité.</li>
-                            <li>Informations médicales pertinentes (analyses sanguines récentes si disponibles).</li>
-                            <li>Liste de vos médicaments ou compléments alimentaires actuels.</li>
+                            <li>Your identity card.</li>
+                            <li>Relevant medical information (recent blood tests if available).</li>
+                            <li>A list of your current medications or dietary supplements.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4 animate-on-scroll fade-up delay-200">
                     <div class="info-card h-100 preparation-card">
                         <div class="info-card-icon prep-icon"><i class="fa-solid fa-circle-info"></i></div>
-                        <h3 class="info-card-title">Bon à Savoir</h3>
-                        <p><strong>Politique d'Annulation :</strong> En cas d'empêchement, merci de nous prévenir au minimum 24 heures à l'avance. Une annulation non justifiée fera l'objet d'une amende forfaitaire de 20€.</p>
-                        <p>Consultez nos <a href="{{ '/fr/tarifs/' | url }}" class="link-primary">tarifs et conditions de remboursement</a>.</p>
-                        <p class="mt-3">Pour toute question, n'hésitez pas à <a href="{{ '/fr/contact' | url }}" class="link-primary">nous contacter</a>.</p>
+                        <h3 class="info-card-title">Good to Know</h3>
+                        <p><strong>Cancellation Policy:</strong> If you are unable to attend, please notify us at least 24 hours in advance. An unjustified cancellation will be subject to a flat-rate fee of €20.</p>
+                        <p>Consult our <a href="{{ '/en/tariffs/' | url }}" class="link-primary">prices and reimbursement conditions</a>.</p>
+                        <p class="mt-3">For any questions, do not hesitate to <a href="{{ '/en/contact/' | url }}" class="link-primary">contact us</a>.</p>
                     </div>
                 </div>
             </div>
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const doctorId = '80669'; // Your Doctoranytime ID
     const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
     const locationCards = document.querySelectorAll('.select-cabinet-card');
-    let currentPracticeId = ''; // Default "All Cabinets" ID
+    let currentPracticeId = ''; // Default "All Clinics" ID
 
     function showIframeLoading() {
         if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
@@ -218,16 +219,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         showIframeLoading();
         let newSrc = baseIframeSrc;
-        let titleText = "Sélectionnez Votre Horaire"; // Default Title
-        let subTitleText = "Choisissez un créneau pour le lieu sélectionné."; // Default Subtitle
+        let titleText = "Select Your Time Slot"; // Default Title
+        let subTitleText = "Choose a time slot for the selected location."; // Default Subtitle
 
         if (practiceId) {
             newSrc += '&doctorpracticeId=' + practiceId;
-            titleText = `Disponibilités pour : ${cabinetName}`;
-            subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
+            titleText = `Availabilities for: ${cabinetName}`;
+            subTitleText = `Choose a time slot for ${cabinetName}.`;
         } else {
-            titleText = "Disponibilités : Tous les cabinets";
-            subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+            titleText = "Availabilities: All clinics";
+            subTitleText = "Choose a time slot in one of our clinics or for a video consultation.";
         }
 
         const handleLoad = () => {
@@ -276,15 +277,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Initialize with the "Tous les cabinets" card active
+    // Initialize with the "All clinics" card active
     const defaultSelectionCard = document.querySelector('.location-card.default-selection');
     if (defaultSelectionCard) {
         defaultSelectionCard.classList.add('active');
         if (bookingModuleDynamicTitleSpan) {
-             bookingModuleDynamicTitleSpan.textContent = `Disponibilités pour : ${defaultSelectionCard.dataset.cabinetName}`;
+             bookingModuleDynamicTitleSpan.textContent = `Availabilities for: ${defaultSelectionCard.dataset.cabinetName}`;
         }
          if (bookingModuleSubtitle) {
-             bookingModuleSubtitle.textContent = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+             bookingModuleSubtitle.textContent = "Choose a time slot in one of our clinics or for a video consultation.";
          }
     }
 
@@ -304,13 +305,13 @@ document.addEventListener('DOMContentLoaded', function () {
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "Accueil Diaeta", // Or just "Accueil"
-        "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
+        "name": "Diaeta Home",
+        "item": "https://diaeta.be/en/index.html"
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "Prendre Rendez-vous Diététicien Diaeta", // The name of the current page's topic
-        "item": "https://diaeta.be/fr/rendez-vous/" // The URL of the current page
+        "name": "Book an Appointment with a Diaeta Dietitian",
+        "item": "https://diaeta.be/en/appointment/"
       }]
     }
     </script>
