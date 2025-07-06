@@ -1,7 +1,17 @@
 ---
 layout: layouts/base.njk
 lang: en
+pagination:
+  data: cabinets_en
+  size: 1
+  alias: cabinet
+  filter:
+    - video
 permalink: "/en/locations/{{ cabinet.id | slugify | replace('fr-', 'en-') }}/index.html"
+eleventyComputed:
+  title: "Diaeta Clinic in {{ cabinet.name }} | Nutritionist {{ displayCity }}"
+  description: "Consult with Pierre Abou-Zeid, dietitian-nutritionist, at the Diaeta clinic in {{ cabinet.name }}, {{ displayCity }}. Specialized in weight loss, IBS, diabetes."
+  # displayCity is already computed by cabinet-location.11tydata.js, so no need to repeat here if that file is active
 ---
 
 {# HERO SECTION FOR LOCATION PAGE #}
