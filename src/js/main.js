@@ -263,8 +263,10 @@ function initializeScrollToTopButton() {
 }
 
 function initializeHeader() {
-  const header = document.querySelector('.site-header');
-  const menuToggle = document.querySelector('.menu-toggle');
+  console.log('Diaeta: Initializing header...');
+  try {
+    const header = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
   if (!header) return;
@@ -275,8 +277,10 @@ function initializeHeader() {
   window.addEventListener('scroll', scrollHandler, { passive: true });
   scrollHandler(); 
 
+    console.log('Diaeta: Setting up menu toggle listener...');
   if (menuToggle) {
     menuToggle.addEventListener('click', function() {
+      console.log('Diaeta: Menu toggle clicked.'); // Added log
       const isOpen = header.classList.toggle('menu-open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       document.body.classList.toggle('mobile-menu-is-open', isOpen); 
@@ -529,6 +533,10 @@ function initializeHeader() {
     }
   }
   setActiveNavLinkOnLoad();
+  console.log('Diaeta: Header initialization complete.');
+  } catch (error) {
+    console.error('Diaeta: Error during initializeHeader:', error);
+  }
 }
 
 function initializeHero() {
