@@ -105,6 +105,9 @@
     {% endif %}
 
     {# Your JS files - IMPORTANT: Paths are root-relative #}
+    <script>
+        window.pageLang = "{{ lang | default('fr') }}";
+    </script>
     <script src="/js/main.js"></script>
     {# --- End scripts --- #}
 

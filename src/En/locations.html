@@ -159,13 +159,13 @@ canonicalUrl: https://diaeta.be/en/locations/
 </script>
 
 {# This script makes the cabinet data from Eleventy available to main.js #}
-{% if cabinets and cabinets.length > 0 %}
+{% if cabinets_en and cabinets_en.length > 0 %}
 <script>
-  window.diaetaCabinetsData = {{ cabinets | dump | safe }};
+  window.diaetaCabinetsData = {{ cabinets_en | dump | safe }};
 </script>
 {% else %}
 <script>
   window.diaetaCabinetsData = [];
-  console.warn("Diaeta Warning: window.diaetaCabinetsData is empty on locations.html. The clinic finder may not display locations.");
+  console.warn("Diaeta Warning: window.diaetaCabinetsData (cabinets_en) is empty on locations.html. The clinic finder may not display locations.");
 </script>
 {% endif %}
