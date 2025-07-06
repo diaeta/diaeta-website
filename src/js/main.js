@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (loadingMsg) loadingMsg.style.display = 'none';
         if (noResultsMsg) {
-           noResultsMsg.innerHTML = "<i>Impossible de charger les informations des cabinets. Données non disponibles ou vides. Veuillez <a href='/fr/contact/'>nous contacter</a>.</i>";
+           const currentLang = window.pageLang || 'fr';
+           const contactLink = `/${currentLang}/contact/`;
+           noResultsMsg.innerHTML = `<i>${currentLang === 'fr' ? "Impossible de charger les informations des cabinets. Données non disponibles ou vides. Veuillez <a href='" + contactLink + "'>nous contacter</a>." : "Could not load clinic information. Data unavailable or empty. Please <a href='" + contactLink + "'>contact us</a>."}</i>`;
            noResultsMsg.style.display = 'block';
         }
     }
@@ -261,8 +263,10 @@ function initializeScrollToTopButton() {
 }
 
 function initializeHeader() {
-  const header = document.querySelector('.site-header');
-  const menuToggle = document.querySelector('.menu-toggle');
+  console.log('Diaeta: Initializing header...');
+  try {
+    const header = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
   if (!header) return;
@@ -273,8 +277,10 @@ function initializeHeader() {
   window.addEventListener('scroll', scrollHandler, { passive: true });
   scrollHandler(); 
 
+    console.log('Diaeta: Setting up menu toggle listener...');
   if (menuToggle) {
     menuToggle.addEventListener('click', function() {
+      console.log('Diaeta: Menu toggle clicked.'); // Added log
       const isOpen = header.classList.toggle('menu-open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       document.body.classList.toggle('mobile-menu-is-open', isOpen); 
@@ -289,19 +295,30 @@ function initializeHeader() {
 
   document.querySelectorAll('.lang-toggle').forEach(toggle => {
     toggle.addEventListener('click', function(e) {
+      console.log('Language toggle clicked:', this); // Log the clicked element
       e.preventDefault();
       e.stopPropagation();
       const langSelector = this.closest('.lang-selector');
-      if (!langSelector) return;
+      console.log('Found langSelector:', langSelector); // Log the found parent
+      if (!langSelector) {
+        console.error('Diaeta: .lang-selector not found for this toggle.');
+        return;
+      }
       const currentlyOpen = langSelector.classList.contains('open');
+      console.log('Is currently open?', currentlyOpen);
+
+      // Close other potentially open language selectors
       document.querySelectorAll('.lang-selector.open').forEach(sel => {
         if (sel !== langSelector) {
+          console.log('Closing other langSelector:', sel);
           sel.classList.remove('open');
           sel.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
         }
       });
+
       langSelector.classList.toggle('open', !currentlyOpen);
       this.setAttribute('aria-expanded', String(!currentlyOpen));
+      console.log('Toggled "open" class. Now open?', langSelector.classList.contains('open'), 'Aria-expanded set to:', this.getAttribute('aria-expanded'));
     });
   });
 
@@ -436,15 +453,19 @@ function initializeHeader() {
   function setActiveNavLinkOnLoad() {
     if (!mainNav) return;
     let currentPath = window.location.pathname;
+    // Normalize currentPath: remove trailing 'index.html' or '/'
     if (currentPath.endsWith('/index.html')) {
         currentPath = currentPath.substring(0, currentPath.length - 'index.html'.length);
     }
     if (currentPath !== '/' && currentPath.endsWith('/')) {
         currentPath = currentPath.substring(0, currentPath.length - 1);
     }
-     if (currentPath === "" || currentPath === "/fr") { 
-        currentPath = "/fr"; // Base path for French homepage
+    // Handle base paths for different languages
+    const langBasePath = "/" + (document.documentElement.lang || "fr");
+    if (currentPath === "" || currentPath === langBasePath.substring(0, langBasePath.length -1) ) { // e.g. /en or /fr
+        currentPath = langBasePath;
     }
+
 
     const navLinks = mainNav.querySelectorAll('.nav-list > .nav-item > .nav-link');
     const dropdownItems = mainNav.querySelectorAll('.dropdown-menu .dropdown-item');
@@ -461,8 +482,9 @@ function initializeHeader() {
         if (linkHref !== '/' && linkHref.endsWith('/')) {
             linkHref = linkHref.substring(0, linkHref.length - 1);
         }
-         if (linkHref === "" && currentPath === "/fr") { 
-            linkHref = "/fr";
+        // Ensure base path for linkHref matches current language for homepage links
+        if (linkHref === "" || linkHref === "/") { // Handles cases like href="/" or href=""
+             linkHref = langBasePath;
         }
         if (linkHref === currentPath) {
             link.classList.add('active');
@@ -484,8 +506,9 @@ function initializeHeader() {
             if (linkHref !== '/' && linkHref.endsWith('/')) {
                 linkHref = linkHref.substring(0, linkHref.length - 1);
             }
-            if (linkHref === "" && currentPath === "/fr") { 
-                linkHref = "/fr";
+            // Ensure base path for linkHref matches current language for homepage links
+            if (linkHref === "" || linkHref === "/") { // Handles cases like href="/" or href=""
+                 linkHref = langBasePath;
             }
             if (linkHref === currentPath) {
                 link.classList.add('active');
@@ -494,17 +517,26 @@ function initializeHeader() {
         });
     }
     
+    // Fallback for section pages like news or locations if no specific item is active
     if (!RDMpresent) {
-        if (currentPath.startsWith('/fr/actualites')) {
-            const actualitesLink = mainNav.querySelector('.nav-link[href="/fr/actualites/"]');
-            if (actualitesLink) actualitesLink.classList.add('active');
-        } else if (currentPath.startsWith('/fr/cabinets/')) { 
-            const cabinetsLink = mainNav.querySelector('.nav-link[href="/fr/cabinets-bruxelles/"]');
-            if (cabinetsLink) cabinetsLink.classList.add('active');
+        // Example: if currentPath is /en/news/categories/some-category or /en/news/page/2
+        // We want to highlight the main /en/news/ link.
+        // The actual href in header_en.njk for news is /en/news/ and for locations is /en/locations/
+        if (currentPath.startsWith(langBasePath + '/news')) {
+            const newsLink = mainNav.querySelector(`.nav-link[href="${langBasePath}/news/"]`);
+            if (newsLink) newsLink.classList.add('active');
+        } else if (currentPath.startsWith(langBasePath + '/locations')) {
+            const locationsLink = mainNav.querySelector(`.nav-link[href="${langBasePath}/locations/"]`);
+            if (locationsLink) locationsLink.classList.add('active');
         }
+        // Add other similar fallback checks if needed for other sections
     }
   }
   setActiveNavLinkOnLoad();
+  console.log('Diaeta: Header initialization complete.');
+  } catch (error) {
+    console.error('Diaeta: Error during initializeHeader:', error);
+  }
 }
 
 function initializeHero() {
@@ -818,28 +850,34 @@ function initViewToggles() {
 function filterAndDisplayClinics(dayFilter, allCabinetsData) {
     const listCardsContainer = document.getElementById('cabinetCardContainer');
     const listCountDisplay = document.getElementById('list-count-display');
-    const noResultsMsgList = listCardsContainer ? listCardsContainer.querySelector('.no-results-message') : null; 
+    const noResultsMsgList = listCardsContainer ? listCardsContainer.querySelector('.no-results-message') : null;
     const sidebarResults = document.querySelector('.map-sidebar .sidebar-results');
+    const currentLang = window.pageLang || 'fr';
+    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
 
     let visibleListCabinets = allCabinetsData.filter(cabinet => {
         if (dayFilter === 'all') return true;
-        if (cabinet.id === 'video') { 
-            return (cabinet.opening_hours || []).some(oh => oh.dayOfWeekFRENCH.toLowerCase().trim() === dayFilter);
+        // For video, check if any opening_hours match the dayFilter, using the correct language property
+        if (cabinet.id === 'video') {
+            return (cabinet.opening_hours || []).some(oh => oh[dayOfWeekProperty] && oh[dayOfWeekProperty].toLowerCase().trim() === dayFilter);
         }
-        const cardDays = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim());
+        // For physical clinics
+        const cardDays = (cabinet.opening_hours || []).map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '');
         return cardDays.includes(dayFilter);
     });
-    if (typeof generateClinicCards === "function") { 
-        generateClinicCards(visibleListCabinets); 
+
+    if (typeof generateClinicCards === "function") {
+        generateClinicCards(visibleListCabinets);
     } else { console.error("generateClinicCards function is not defined."); }
 
     const physicalClinics = allCabinetsData.filter(c => c.id !== 'video' && c.coordinates && c.coordinates.length === 2);
     let visibleMapCabinets = [];
-    if (typeof clinicMap !== 'undefined' && clinicMap && typeof clinicMarkers !== 'undefined' && clinicMarkers) { 
+
+    if (typeof clinicMap !== 'undefined' && clinicMap && typeof clinicMarkers !== 'undefined' && clinicMarkers) {
         physicalClinics.forEach(cabinet => {
             const marker = clinicMarkers[cabinet.id];
             if (!marker) return;
-            const cabinetDays = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim());
+            const cabinetDays = (cabinet.opening_hours || []).map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '');
             const isVisibleOnMap = dayFilter === 'all' || cabinetDays.includes(dayFilter);
             if (isVisibleOnMap) {
                 if (!clinicMap.hasLayer(marker)) marker.addTo(clinicMap);
@@ -849,10 +887,19 @@ function filterAndDisplayClinics(dayFilter, allCabinetsData) {
             }
         });
     }
-    if (typeof generateSidebarCards === "function") { 
-        generateSidebarCards(visibleMapCabinets); 
+
+    if (typeof generateSidebarCards === "function") {
+        generateSidebarCards(visibleMapCabinets);
     } else { console.error("generateSidebarCards function is not defined."); }
-    if (sidebarResults) sidebarResults.textContent = `${visibleMapCabinets.length} cabinet${visibleMapCabinets.length !== 1 ? 's' : ''} trouvé${visibleMapCabinets.length !== 1 ? 's' : ''}`;
+
+    if (sidebarResults) {
+        const count = visibleMapCabinets.length;
+        if (currentLang === 'en') {
+            sidebarResults.textContent = `${count} clinic${count !== 1 ? 's' : ''} found`;
+        } else {
+            sidebarResults.textContent = `${count} cabinet${count !== 1 ? 's' : ''} trouvé${count !== 1 ? 's' : ''}`;
+        }
+    }
 }
 
 function initDayFilters(allCabinetsData) {
@@ -938,36 +985,47 @@ function generateClinicCards(cabinetsDataToDisplay) {
     currentNoResultsMsg.style.display = 'block';
     return;
   }
-  if (noResultsMsg) noResultsMsg.style.display = 'none'; 
-  cabinetsDataToDisplay.forEach((cabinet, index) => { /* ... card generation logic ... */ 
+    if (noResultsMsg) noResultsMsg.style.display = 'none';
+    const currentLang = window.pageLang || 'fr';
+    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+
+    cabinetsDataToDisplay.forEach((cabinet, index) => { /* ... card generation logic ... */
     const card = document.createElement('div');
     card.className = 'cabinet-explorer-card';
     card.setAttribute('data-clinic-id', cabinet.id);
-    let cabinetDaysAttr = (cabinet.opening_hours || []).map(oh => oh.dayOfWeekFRENCH.toLowerCase().trim()).join(' ');
-    if (cabinet.id === 'video' && cabinetDaysAttr === '') { 
-        cabinetDaysAttr = 'lundi mardi mercredi jeudi vendredi samedi'; 
+
+        let cabinetDaysAttr = (cabinet.opening_hours || [])
+            .map(oh => oh[dayOfWeekProperty] ? oh[dayOfWeekProperty].toLowerCase().trim() : '')
+            .filter(day => day) // remove empty strings if dayOfWeekProperty is missing
+            .join(' ');
+
+        if (cabinet.id === 'video' && cabinetDaysAttr === '') {
+             const allWeekDays = currentLang === 'en'
+                ? ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+                : ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+            cabinetDaysAttr = allWeekDays.join(' ');
     }
     card.setAttribute('data-days', cabinetDaysAttr);
-    const name = cabinet.name || "Nom non disponible";
-    const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? "Consultation en ligne" : "Adresse non spécifiée");
-    const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? 'À distance' : ''));
+
+        const name = cabinet.name || (currentLang === 'fr' ? "Nom non disponible" : "Name unavailable");
+        const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? (currentLang === 'fr' ? "Consultation en ligne" : "Online consultation") : (currentLang === 'fr' ? "Adresse non spécifiée" : "Address not specified"));
+        const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? (currentLang === 'fr' ? 'À distance' : 'Remote') : ''));
     const notes = cabinet.notes || '';
-    const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/fr/cabinets/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/` : '#';
+
+        const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : '#';
     const isVideoConsult = cabinet.id === 'video';
-    let hoursTeaser = "Consulter les détails pour les horaires";
+
+        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : "See details for hours";
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
-        const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long' }).toLowerCase();
-        let relevantDaySchedule = cabinet.opening_hours.find(d => d.dayOfWeekFRENCH.toLowerCase() === today);
-        if (!relevantDaySchedule) relevantDaySchedule = cabinet.opening_hours[0]; 
-        if (relevantDaySchedule && relevantDaySchedule.timeSlots && relevantDaySchedule.timeSlots.length > 0) {
-            const firstSlot = relevantDaySchedule.timeSlots[0];
-            hoursTeaser = `${relevantDaySchedule.dayOfWeekFRENCH}: ${firstSlot.opens.replace(":", "h")} - ${firstSlot.closes.replace(":", "h")}`;
-            if (cabinet.opening_hours.length > 1 || relevantDaySchedule.timeSlots.length > 1) hoursTeaser += ' (et autres)';
-        }
+        hoursTeaser = cabinet.opening_hours.map(day => {
+            const dayName = day[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour' : 'Day');
+            const slots = day.timeSlots.map(slot => `${slot.opens.replace(':','h')} - ${slot.closes.replace(':','h')}`).join(', ');
+            return `${dayName}: ${slots}`;
+        }).join('; ');
     } else if (cabinet.hours_details_note) {
         hoursTeaser = cabinet.hours_details_note;
     } else if (isVideoConsult) {
-        hoursTeaser = "Flexibles, voir module de réservation.";
+            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : "Flexible, see booking module.";
     }
     card.innerHTML = `
         <div class="card-content-wrapper">
@@ -983,8 +1041,8 @@ function generateClinicCards(cabinetsDataToDisplay) {
                 ${notes ? `<p class="card-notes text-xs fst-italic mt-1"><i class="fas fa-info-circle fa-xs me-2 text-primary"></i>${notes}</p>` : ''}
             </div>
             <div class="card-footer-actions">
-                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>Page Cabinet</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> Infos Cabinet</span>`}
-                <a href="/fr/rendez-vous/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>Prendre RDV</a>
+                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>${window.pageLang === 'fr' ? 'Page Cabinet' : 'Clinic Page'}</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> ${window.pageLang === 'fr' ? 'Infos Cabinet' : 'Clinic Info'}</span>`}
+                <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>${window.pageLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>
             </div>
         </div>`;
     card.addEventListener('click', (e) => {
@@ -1003,22 +1061,30 @@ function generateClinicCards(cabinetsDataToDisplay) {
 function generateSidebarCards(cabinetsData) { /* ... as before ... */ 
   const sidebarContainer = document.querySelector('.map-sidebar .sidebar-clinics');
   if (!sidebarContainer) return;
-  sidebarContainer.innerHTML = ''; 
+  sidebarContainer.innerHTML = '';
   let count = 0;
+  const currentLang = window.pageLang || 'fr';
+  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+
   cabinetsData.forEach(cabinet => {
     if (cabinet.id === 'video' || !cabinet.coordinates || !cabinet.coordinates.length === 2) return;
     count++;
-    let scheduleStr = 'Horaires non spécifiés';
+    let scheduleStr = currentLang === 'fr' ? 'Horaires non spécifiés' : 'Hours not specified';
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
-      scheduleStr = cabinet.opening_hours.map(day => `${day.dayOfWeekFRENCH.substring(0,3)}: ${day.timeSlots.map(slot => `${slot.opens.replace(':','h')}-${slot.closes.replace(':','h')}`).join(', ')}`).join('; ');
-    } else if (cabinet.hours_details_note) { 
-      scheduleStr = `<em>${cabinet.hours_details_note}</em>`; 
+      scheduleStr = cabinet.opening_hours.map(day => {
+        const dayName = day[dayOfWeekProperty] ? day[dayOfWeekProperty].substring(0,3) : (currentLang === 'fr' ? 'Jour' : 'Day');
+        const slots = day.timeSlots.map(slot => `${slot.opens.replace(':','h')}-${slot.closes.replace(':','h')}`).join(', ');
+        return `${dayName}: ${slots}`;
+      }).join('; ');
+    } else if (cabinet.hours_details_note) {
+      scheduleStr = `<em>${cabinet.hours_details_note}</em>`;
     }
+
     const cardHTML = `
         <h4>${cabinet.name}</h4>
-        <div class="sidebar-clinic-address text-xs"><i class="fas fa-location-dot me-1 text-primary"></i>${cabinet.fullAddress || 'Adresse non spécifiée'}</div>
+        <div class="sidebar-clinic-address text-xs"><i class="fas fa-location-dot me-1 text-primary"></i>${cabinet.fullAddress || (currentLang === 'fr' ? 'Adresse non spécifiée' : 'Address not specified')}</div>
         <div class="sidebar-clinic-hours text-xs mt-1"><i class="fas fa-clock me-1 text-primary"></i>${scheduleStr}</div>
-        <a href="/fr/rendez-vous/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">Prendre RDV</a>`;
+        <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">${currentLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>`;
     const cardElement = document.createElement('div');
     cardElement.className = 'sidebar-clinic-card';
     cardElement.setAttribute('data-clinic-id', cabinet.id);
@@ -1037,35 +1103,49 @@ function generateSidebarCards(cabinetsData) { /* ... as before ... */
     });
     sidebarContainer.appendChild(cardElement);
   });
+
   const resultsCountElement = document.querySelector('.map-sidebar .sidebar-results');
-  if (resultsCountElement) resultsCountElement.textContent = `${count} cabinet${count !== 1 ? 's' : ''} affiché${count !== 1 ? 's' : ''}`;
+  if (resultsCountElement) {
+      if (currentLang === 'en') {
+          resultsCountElement.textContent = `${count} clinic${count !== 1 ? 's' : ''} displayed`;
+      } else {
+          resultsCountElement.textContent = `${count} cabinet${count !== 1 ? 's' : ''} affiché${count !== 1 ? 's' : ''}`;
+      }
+  }
   if (count === 0 && sidebarContainer) {
-    sidebarContainer.innerHTML = '<p class="text-center p-3 text-muted"><i>Aucun cabinet ne correspond aux filtres.</i></p>';
+      const noResultsText = currentLang === 'en' ? 'No clinics match the filters.' : 'Aucun cabinet ne correspond aux filtres.';
+      sidebarContainer.innerHTML = `<p class="text-center p-3 text-muted"><i>${noResultsText}</i></p>`;
   }
 }
 
-function showClinicDetails(cabinet, marker) { /* ... as before, ensure panelCloseButtonMap is unique if this panel can be shown multiple times or find a better way to get the button ... */ 
+function showClinicDetails(cabinet, marker) {
   const detailPanel = document.getElementById('clinicDetailPanel');
   if (!detailPanel) return;
-  // ... (rest of the function as provided previously) ...
+
+  const currentLang = window.pageLang || 'fr';
+  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
   let scheduleHtml = '';
+
   if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
     cabinet.opening_hours.forEach(day_schedule => {
       let dayHours = day_schedule.timeSlots.map(slot => `${slot.opens.replace(":", "h")} - ${slot.closes.replace(":", "h")}`).join(', ');
-      scheduleHtml += `<li><span class="day">${day_schedule.dayOfWeekFRENCH}:</span> <span class="hours available">${dayHours}</span></li>`;
+      const dayName = day_schedule[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour inconnu' : 'Unknown day');
+      scheduleHtml += `<li><span class="day">${dayName}:</span> <span class="hours available">${dayHours}</span></li>`;
     });
   }
   if (cabinet.hours_details_note) { scheduleHtml += `<li class="mt-1"><em class="text-xs text-muted">${cabinet.hours_details_note}</em></li>`; }
-  if (!scheduleHtml) { scheduleHtml = '<li><span class="day">Horaires:</span> <span class="hours">Veuillez consulter le module de réservation.</span></li>'; }
-  const addressDisplay = cabinet.fullAddress || 'Lieu de consultation en ligne';
-  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/fr/cabinets/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/` : null;
+
+  if (!scheduleHtml) { scheduleHtml = `<li><span class="day">${currentLang === 'fr' ? 'Horaires:' : 'Hours:'}</span> <span class="hours">${currentLang === 'fr' ? 'Veuillez consulter le module de réservation.' : 'Please consult the booking module.'}</span></li>`; }
+
+  const addressDisplay = cabinet.fullAddress || (currentLang === 'fr' ? 'Lieu de consultation en ligne' : 'Online consultation location');
+  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : null;
   detailPanel.innerHTML = `
-    <div class="detail-panel-header"><h3>${cabinet.name}</h3><button class="close-panel-btn" id="panelCloseButtonMap" aria-label="Fermer"><i class="fa-solid fa-times"></i></button></div>
+    <div class="detail-panel-header"><h3>${cabinet.name}</h3><button class="close-panel-btn" id="panelCloseButtonMap" aria-label="${currentLang === 'fr' ? 'Fermer' : 'Close'}"><i class="fa-solid fa-times"></i></button></div>
     <div class="detail-panel-body">
-      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-location-dot text-primary"></i> Adresse</h4><p class="detail-text">${addressDisplay}</p>${(cabinet.Maps_link && cabinet.id !== 'video') ? `<a href="${cabinet.Maps_link}" class="detail-action-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-directions"></i> Itinéraire</a>` : ''} ${detailPageUrl ? `<a href="${detailPageUrl}" class="detail-action-link d-block mt-1" target="_blank"><i class="fa-solid fa-circle-info"></i> Infos Cabinet</a>` : ''}</div>
-      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-clock text-primary"></i> Horaires (indicatifs)</h4><ul class="schedule-list">${scheduleHtml}</ul></div>
-      ${cabinet.notes ? `<div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-info-circle text-primary"></i> Informations</h4><p class="detail-text">${cabinet.notes}</p></div>` : ''}
-      <div class="detail-action mt-3"><a href="/fr/rendez-vous/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-primary w-100 book-btn"><i class="fa-solid fa-calendar-check"></i> RDV ici</a></div>
+      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-location-dot text-primary"></i> ${currentLang === 'fr' ? 'Adresse' : 'Address'}</h4><p class="detail-text">${addressDisplay}</p>${(cabinet.Maps_link && cabinet.id !== 'video') ? `<a href="${cabinet.Maps_link}" class="detail-action-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-directions"></i> ${currentLang === 'fr' ? 'Itinéraire' : 'Directions'}</a>` : ''} ${detailPageUrl ? `<a href="${detailPageUrl}" class="detail-action-link d-block mt-1" target="_blank"><i class="fa-solid fa-circle-info"></i> ${currentLang === 'fr' ? 'Infos Cabinet' : 'Clinic Info'}</a>` : ''}</div>
+      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-clock text-primary"></i> ${currentLang === 'fr' ? 'Horaires (indicatifs)' : 'Hours (indicative)'}</h4><ul class="schedule-list">${scheduleHtml}</ul></div>
+      ${cabinet.notes ? `<div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-info-circle text-primary"></i> ${currentLang === 'fr' ? 'Informations' : 'Information'}</h4><p class="detail-text">${cabinet.notes}</p></div>` : ''}
+      <div class="detail-action mt-3"><a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-primary w-100 book-btn"><i class="fa-solid fa-calendar-check"></i> ${currentLang === 'fr' ? 'RDV ici' : 'Book here'}</a></div>
     </div>`;
   detailPanel.classList.remove('d-none');
   detailPanel.classList.add('active');
@@ -1172,6 +1252,7 @@ function initializeRendezVousPage() {
 
   const doctorId = '80669';
   const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
+  const currentLang = window.pageLang || 'fr';
 
   const showIframeLoading = () => {
       if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
@@ -1188,16 +1269,30 @@ function initializeRendezVousPage() {
   const updateIframeAndTitle = (practiceId, cabinetName) => {
       showIframeLoading();
       let newSrc = baseIframeSrc;
-      let titleText = "Sélectionnez Votre Horaire";
-      let subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
+      let titleText, subTitleText;
 
-      if (practiceId) {
-          newSrc += `&doctorpracticeId=${practiceId}`;
-          titleText = `Disponibilités pour : ${cabinetName}`;
-          subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
-      } else {
-          titleText = "Disponibilités : Tous les cabinets";
-          subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+      if (currentLang === 'en') {
+          titleText = "Select Your Schedule";
+          subTitleText = "Choose a time slot for the selected location.";
+          if (practiceId) {
+              newSrc += `&doctorpracticeId=${practiceId}`;
+              titleText = `Availability for: ${cabinetName}`;
+              subTitleText = `Choose a time slot for ${cabinetName}.`;
+          } else {
+              titleText = "Availability: All Clinics";
+              subTitleText = "Choose a time slot at one of our clinics or for a video consultation.";
+          }
+      } else { // French (default)
+          titleText = "Sélectionnez Votre Horaire";
+          subTitleText = "Choisissez un créneau pour le lieu sélectionné.";
+          if (practiceId) {
+              newSrc += `&doctorpracticeId=${practiceId}`;
+              titleText = `Disponibilités pour : ${cabinetName}`;
+              subTitleText = `Choisissez un créneau pour ${cabinetName}.`;
+          } else {
+              titleText = "Disponibilités : Tous les cabinets";
+              subTitleText = "Choisissez un créneau dans un de nos cabinets ou en téléconsultation.";
+          }
       }
 
       const handleLoad = () => {

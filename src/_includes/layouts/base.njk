@@ -72,16 +72,24 @@
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    {# Include the header partial #}
-    {% include "partials/header.njk" %}
+    {# Include the header partial based on language #}
+    {% if lang == 'en' %}
+        {% include "partials/header_en.njk" %}
+    {% else %}
+        {% include "partials/header.njk" %} {# Default to French #}
+    {% endif %}
 
     <main id="main-content">
         {# This is where the content from each specific page will be inserted #}
         {{ content | safe }}
     </main>
 
-    {# Include the footer partial #}
-    {% include "partials/footer.njk" %}
+    {# Include the footer partial based on language #}
+    {% if lang == 'en' %}
+        {% include "partials/footer_en.njk" %}
+    {% else %}
+        {% include "partials/footer.njk" %} {# Default to French #}
+    {% endif %}
 
     {# --- Copied & Paths UPDATED from bottom of your index.html --- #}
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -90,13 +98,16 @@
 
      {# DATA INJECTION SCRIPT - PLACE BEFORE MAIN.JS #}
     {# This script will only output if 'cabinets' data is available in the current page's context #}
-    {% if cabinets %}
+    {% if lang == 'fr' and cabinets %}
     <script>
       window.diaetaCabinetsData = {{ cabinets | dump | safe }};
     </script>
     {% endif %}
 
     {# Your JS files - IMPORTANT: Paths are root-relative #}
+    <script>
+        window.pageLang = "{{ lang | default('fr') }}";
+    </script>
     <script src="/js/main.js"></script>
     {# --- End scripts --- #}
 
@@ -105,6 +116,63 @@
     </button>
 
     <div id="cookieConsentContainer" style="display: none;">
+        {% if lang == 'en' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>We use cookies to optimize your experience on our site. Some cookies are necessary for the site to function, while others help us improve this site and your experience. You can choose to accept all cookies or customize your preferences. To learn more, see our <a href="{{ '/en/cookie-policy/' | url }}" class="cookie-consent-link">Cookie Policy</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Accept All</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Customize</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Decline All</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie Preferences</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>We use different types of cookies. Select the ones you accept:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Necessary Cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                             <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies are essential for the site to function properly and cannot be disabled.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analytical Cookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies help us understand how visitors interact with the site by collecting information anonymously.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketing Cookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies are used to track visitors across websites to display relevant and engaging ads.</p>
+                    </div>
+                     <p class="text-xs mt-3">For more details on the specific cookies used, please see our <a href="{{ '/en/cookie-policy/' | url }}" class="cookie-consent-link">Cookie Policy</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Save my preferences</button>
+                </div>
+            </div>
+        </div>
+        {% else %}
         <div class="cookie-consent-banner active" id="cookieMainBanner">
             <div class="container cookie-consent-content">
                 <div class="cookie-consent-text">
@@ -160,6 +228,22 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
+
+    <script>
+    (function() {
+      // Only run on the root homepage (not /fr/ or /en/ or other subpages)
+      var path = window.location.pathname.replace(/\/+/g, '/');
+      if (path === '/' || path === '/index.html') {
+        var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (userLang.startsWith('fr')) {
+          window.location.replace('/fr/');
+        } else {
+          window.location.replace('/en/');
+        }
+      }
+    })();
+    </script>
 </body>
 </html>
