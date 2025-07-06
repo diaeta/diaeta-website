@@ -291,19 +291,30 @@ function initializeHeader() {
 
   document.querySelectorAll('.lang-toggle').forEach(toggle => {
     toggle.addEventListener('click', function(e) {
+      console.log('Language toggle clicked:', this); // Log the clicked element
       e.preventDefault();
       e.stopPropagation();
       const langSelector = this.closest('.lang-selector');
-      if (!langSelector) return;
+      console.log('Found langSelector:', langSelector); // Log the found parent
+      if (!langSelector) {
+        console.error('Diaeta: .lang-selector not found for this toggle.');
+        return;
+      }
       const currentlyOpen = langSelector.classList.contains('open');
+      console.log('Is currently open?', currentlyOpen);
+
+      // Close other potentially open language selectors
       document.querySelectorAll('.lang-selector.open').forEach(sel => {
         if (sel !== langSelector) {
+          console.log('Closing other langSelector:', sel);
           sel.classList.remove('open');
           sel.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
         }
       });
+
       langSelector.classList.toggle('open', !currentlyOpen);
       this.setAttribute('aria-expanded', String(!currentlyOpen));
+      console.log('Toggled "open" class. Now open?', langSelector.classList.contains('open'), 'Aria-expanded set to:', this.getAttribute('aria-expanded'));
     });
   });
 
