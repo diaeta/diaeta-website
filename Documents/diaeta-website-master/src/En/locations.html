@@ -1,0 +1,171 @@
+---
+layout: layouts/base.njk
+title: "Find Your Diaeta Clinic in Brussels | Interactive Map & List"
+description: "Easily explore Diaeta consultation clinics in Brussels. Use our interactive map, filter by day, and find the address and hours for your dietitian, Pierre Abou-Zeid."
+lang: en
+canonicalUrl: https://diaeta.be/en/locations/
+---
+
+{# HERO SECTION FOR LOCATIONS PAGE - MORE DIRECT #}
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Our Consultation Locations</span>
+        <h1 class="animate-on-scroll fade-up">Explore Our Diaeta Clinics in Brussels</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Find the ideal location for your nutrition consultation. Use the filters, the interactive map, or browse the list to choose the clinic that suits you best.
+        </p>
+    </div>
+</section>
+
+{# Main Clinic Finder section - ID 'cabinet-explorer-main-content' for JS #}
+<section id="cabinet-explorer-main-content" class="clinic-finder-section section">
+     <div class="container">
+        <div class="section-header animate-on-scroll fade-up">
+             <span class="section-badge" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">Search Tools</span>
+             <h2 class="section-title">Refine Your Clinic Search</h2>
+             <p class="section-subtitle">Use the options below to quickly find the Diaeta clinic that meets your needs.</p>
+        </div>
+
+        <div class="clinic-filters controls-bar animate-on-scroll fade-up delay-100">
+            <button class="filter-btn active" data-day="all" aria-pressed="true">All days</button>
+            <button class="filter-btn" data-day="monday" aria-pressed="false">Monday</button>
+            <button class="filter-btn" data-day="tuesday" aria-pressed="false">Tuesday</button>
+            <button class="filter-btn" data-day="wednesday" aria-pressed="false">Wednesday</button>
+            <button class="filter-btn" data-day="thursday" aria-pressed="false">Thursday</button>
+            <button class="filter-btn" data-day="friday" aria-pressed="false">Friday</button>
+            <button class="filter-btn" data-day="saturday" aria-pressed="false">Saturday</button>
+            <button class="locate-me-btn" id="locateMeMainBtn" title="Find the clinics closest to my current position"><i class="fa-solid fa-location-crosshairs"></i> Nearby</button>
+        </div>
+
+        <div class="view-toggle-container animate-on-scroll fade-up delay-200">
+            <button class="view-toggle active" data-view="list" aria-label="Show list of clinics" aria-pressed="true"><i class="fa-solid fa-list"></i> List (<span id="list-count-display">0</span>)</button>
+            <button class="view-toggle" data-view="map" aria-label="Show map of clinics" aria-pressed="false"><i class="fa-solid fa-map-location-dot"></i> Map</button>
+        </div>
+
+        <div class="clinic-content animate-on-scroll fade-up delay-300">
+          <div class="clinic-grid-view active" id="listView">
+              {# Container for dynamically generated cards by main.js #}
+              <div id="cabinetCardContainer" class="clinic-grid explorer-list-scrollable">
+                  <div class="loading-message text-center p-5">
+                      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                          <span class="visually-hidden">Loading...</span>
+                      </div>
+                      <p class="text-muted mt-3"><i>Loading clinic information...</i></p>
+                  </div>
+                  <div class="no-results-message text-center p-5" style="display: none;">
+                      <i>No clinics match your current criteria. Please broaden your search or <a href="/en/contact/" class="text-accent">contact us</a>.</i>
+                  </div>
+              </div>
+          </div>
+          <div class="clinic-map-view" id="mapView">
+              <div class="map-container">
+                  <div id="clinicsMap"></div>
+                  <div class="map-sidebar">
+                      <div class="sidebar-header">
+                          <h3>Our Clinics in Brussels</h3>
+                          <p class="sidebar-results">0 clinic(s) found</p>
+                      </div>
+                      <div class="sidebar-body">
+                          <div class="sidebar-clinics">
+                              <p class="text-center p-3 text-muted"><i>Use the filters or click a marker on the map to see details.</i></p>
+                          </div>
+                      </div>
+                  </div>
+                  {# Detail panel for map view - d-none d-lg-block ensures it's hidden on mobile #}
+                  <div id="clinicDetailPanel" class="clinic-detail-panel d-none d-lg-block">
+                      {# Content populated by showClinicDetails() in main.js #}
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="clinic-cta text-center mt-5 animate-on-scroll fade-up delay-400">
+            <p>Ready to start? After exploring our clinics, book an appointment online or <a href="/en/contact/" class="text-decoration-underline">contact us</a> if you have any questions.</p>
+            <a href="/en/appointment/" class="btn btn-accent btn-lg"><span>Book an Appointment</span><i class="fa-solid fa-calendar-check ms-2"></i></a>
+        </div>
+     </div>
+</section>
+
+{# Schema for this specific page - Enhanced with CollectionPage #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Diaeta Clinics in Brussels | Nutrition Consultation Locations (Map & List)",
+  "description": "Easily find all Diaeta consultation clinics in Brussels. Addresses, hours, interactive map, and filters to book an appointment with Pierre Abou-Zeid, dietitian.",
+  "url": "https://diaeta.be/en/locations/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Diaeta",
+    "url": "https://diaeta.be",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://diaeta.be/images/logo.svg"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Diaeta consultation clinics in Brussels",
+    "description": "Interactive list and map of Diaeta clinics where you can consult with Pierre Abou-Zeid, dietitian-nutritionist in Brussels. Filter by day of availability.",
+    "numberOfItems": {{ cabinets | length | default(0) }}
+  },
+   "about": {
+    "@type": "MedicalBusiness",
+    "name": "Diaeta",
+    "address": { // Add the primary address here too for consistency
+      "@type": "PostalAddress",
+      "streetAddress": "Dieweg 99",
+      "addressLocality": "Uccle",
+      "postalCode": "1180",
+      "addressRegion": "Brussels-Capital Region",
+      "addressCountry": "BE"
+    },
+
+   "telephone": "+32479355551",
+   "priceRange": "€50-€80",
+   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'en-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+    "description": "Diaeta is a nutrition practice in Brussels offering personalized consultations for weight loss, management of diabetes, IBS, and cholesterol.",
+    "employee": {
+      "@type": "Person",
+      "name": "Pierre Abou-Zeid",
+      "jobTitle": "Certified Dietitian-Nutritionist (INAMI)",
+      "url": "https://diaeta.be/en/our-expertise/"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Brussels"
+    },
+    "hasMap": "https://diaeta.be/en/locations/#mapView"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Diaeta Home",
+    "item": "https://diaeta.be/en/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Our Clinics in Brussels",
+    "item": "https://diaeta.be/en/locations/"
+  }]
+}
+</script>
+
+{# This script makes the cabinet data from Eleventy available to main.js #}
+{% if cabinets_en and cabinets_en.length > 0 %}
+<script>
+  window.diaetaCabinetsData = {{ cabinets_en | dump | safe }};
+</script>
+{% else %}
+<script>
+  window.diaetaCabinetsData = [];
+  console.warn("Diaeta Warning: window.diaetaCabinetsData (cabinets_en) is empty on locations.html. The clinic finder may not display locations.");
+</script>
+{% endif %}

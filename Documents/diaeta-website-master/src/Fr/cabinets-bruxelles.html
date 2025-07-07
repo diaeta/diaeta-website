@@ -1,0 +1,171 @@
+---
+layout: layouts/base.njk
+title: "Trouvez Votre Cabinet Diaeta à Bruxelles | Carte & Liste Interactive"
+description: "Explorez facilement les cabinets de consultation Diaeta à Bruxelles. Utilisez notre carte interactive, filtrez par jour et trouvez l'adresse et les horaires de votre diététicien Pierre Abou-Zeid."
+lang: fr
+canonicalUrl: https://diaeta.be/fr/cabinets-bruxelles/
+---
+
+{# HERO SECTION FOR CABINETS BRUXELLES PAGE - MORE DIRECT #}
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Nos Lieux de Consultation</span>
+        <h1 class="animate-on-scroll fade-up">Explorez Nos Cabinets Diaeta à Bruxelles</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Trouvez le lieu idéal pour votre consultation diététique. Utilisez les filtres, la carte interactive ou parcourez la liste pour choisir le cabinet qui vous convient le mieux.
+        </p>
+    </div>
+</section>
+
+{# Main Clinic Finder section - ID 'cabinet-explorer-main-content' for JS #}
+<section id="cabinet-explorer-main-content" class="clinic-finder-section section">
+     <div class="container">
+        <div class="section-header animate-on-scroll fade-up">
+             <span class="section-badge" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">Outils de Recherche</span>
+             <h2 class="section-title">Affinez Votre Recherche de Cabinet</h2>
+             <p class="section-subtitle">Utilisez les options ci-dessous pour trouver rapidement le cabinet Diaeta adapté à vos besoins.</p>
+        </div>
+
+        <div class="clinic-filters controls-bar animate-on-scroll fade-up delay-100">
+            <button class="filter-btn active" data-day="all" aria-pressed="true">Tous les jours</button>
+            <button class="filter-btn" data-day="lundi" aria-pressed="false">Lundi</button>
+            <button class="filter-btn" data-day="mardi" aria-pressed="false">Mardi</button>
+            <button class="filter-btn" data-day="mercredi" aria-pressed="false">Mercredi</button>
+            <button class="filter-btn" data-day="jeudi" aria-pressed="false">Jeudi</button>
+            <button class="filter-btn" data-day="vendredi" aria-pressed="false">Vendredi</button>
+            <button class="filter-btn" data-day="samedi" aria-pressed="false">Samedi</button>
+            <button class="locate-me-btn" id="locateMeMainBtn" title="Trouver les cabinets les plus proches de ma position actuelle"><i class="fa-solid fa-location-crosshairs"></i> À proximité</button>
+        </div>
+
+        <div class="view-toggle-container animate-on-scroll fade-up delay-200">
+            <button class="view-toggle active" data-view="list" aria-label="Afficher la liste des cabinets" aria-pressed="true"><i class="fa-solid fa-list"></i> Liste (<span id="list-count-display">0</span>)</button>
+            <button class="view-toggle" data-view="map" aria-label="Afficher la carte des cabinets" aria-pressed="false"><i class="fa-solid fa-map-location-dot"></i> Carte</button>
+        </div>
+
+        <div class="clinic-content animate-on-scroll fade-up delay-300">
+          <div class="clinic-grid-view active" id="listView">
+              {# Container for dynamically generated cards by main.js #}
+              <div id="cabinetCardContainer" class="clinic-grid explorer-list-scrollable">
+                  <div class="loading-message text-center p-5">
+                      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                          <span class="visually-hidden">Chargement...</span>
+                      </div>
+                      <p class="text-muted mt-3"><i>Chargement des informations des cabinets...</i></p>
+                  </div>
+                  <div class="no-results-message text-center p-5" style="display: none;">
+                      <i>Aucun cabinet ne correspond à vos critères actuels. Veuillez élargir votre recherche ou <a href="/fr/contact/" class="text-accent">nous contacter</a>.</i>
+                  </div>
+              </div>
+          </div>
+          <div class="clinic-map-view" id="mapView">
+              <div class="map-container">
+                  <div id="clinicsMap"></div>
+                  <div class="map-sidebar">
+                      <div class="sidebar-header">
+                          <h3>Nos Cabinets à Bruxelles</h3>
+                          <p class="sidebar-results">0 cabinet(s) trouvé(s)</p>
+                      </div>
+                      <div class="sidebar-body">
+                          <div class="sidebar-clinics">
+                              <p class="text-center p-3 text-muted"><i>Utilisez les filtres ou cliquez sur un marqueur sur la carte pour voir les détails.</i></p>
+                          </div>
+                      </div>
+                  </div>
+                  {# Detail panel for map view - d-none d-lg-block ensures it's hidden on mobile #}
+                  <div id="clinicDetailPanel" class="clinic-detail-panel d-none d-lg-block">
+                      {# Content populated by showClinicDetails() in main.js #}
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="clinic-cta text-center mt-5 animate-on-scroll fade-up delay-400">
+            <p>Prêt à commencer ? Après avoir exploré nos cabinets, prenez rendez-vous en ligne ou <a href="/fr/contact/" class="text-decoration-underline">contactez-nous</a> si vous avez des questions.</p>
+            <a href="/fr/rendez-vous/" class="btn btn-accent btn-lg"><span>Prendre Rendez-Vous</span><i class="fa-solid fa-calendar-check ms-2"></i></a>
+        </div>
+     </div>
+</section>
+
+{# Schema for this specific page - Enhanced with CollectionPage #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Nos Cabinets Diaeta à Bruxelles | Lieux de Consultation Diététique (Carte & Liste)",
+  "description": "Trouvez facilement tous les cabinets de consultation Diaeta à Bruxelles. Adresses, horaires, carte interactive et filtres pour prendre rendez-vous avec Pierre Abou-Zeid, diététicien.",
+  "url": "https://diaeta.be/fr/cabinets-bruxelles/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Diaeta",
+    "url": "https://diaeta.be",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://diaeta.be/images/logo.svg"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Cabinets de consultation Diaeta à Bruxelles",
+    "description": "Liste interactive et carte des cabinets Diaeta où consulter Pierre Abou-Zeid, diététicien nutritionniste à Bruxelles. Filtrez par jour de disponibilité.",
+    "numberOfItems": {{ cabinets | length | default(0) }}
+  },
+   "about": {
+    "@type": "MedicalBusiness",
+    "name": "Diaeta",
+    "address": { // Add the primary address here too for consistency
+      "@type": "PostalAddress",
+      "streetAddress": "Dieweg 99",
+      "addressLocality": "Uccle",
+      "postalCode": "1180",
+      "addressRegion": "Région de Bruxelles-Capitale",
+      "addressCountry": "BE"
+    },
+    
+   "telephone": "+32479355551",
+   "priceRange": "50€-80€",
+   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+    "description": "Diaeta est une pratique diététique à Bruxelles offrant des consultations personnalisées pour la perte de poids, la gestion du diabète, du SCI, et du cholestérol.",
+    "employee": {
+      "@type": "Person",
+      "name": "Pierre Abou-Zeid",
+      "jobTitle": "Diététicien Nutritionniste agréé (INAMI)",
+      "url": "https://diaeta.be/fr/notre-expertise/"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bruxelles"
+    },
+    "hasMap": "https://diaeta.be/fr/cabinets-bruxelles/#mapView"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil Diaeta",
+    "item": "https://diaeta.be/fr/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Nos Cabinets à Bruxelles",
+    "item": "https://diaeta.be/fr/cabinets-bruxelles/"
+  }]
+}
+</script>
+
+{# This script makes the cabinet data from Eleventy available to main.js #}
+{% if cabinets and cabinets.length > 0 %}
+<script>
+  window.diaetaCabinetsData = {{ cabinets | dump | safe }};
+</script>
+{% else %}
+<script>
+  window.diaetaCabinetsData = [];
+  console.warn("Diaeta Warning: window.diaetaCabinetsData is empty on cabinets-bruxelles.html. The clinic finder may not display locations.");
+</script>
+{% endif %}

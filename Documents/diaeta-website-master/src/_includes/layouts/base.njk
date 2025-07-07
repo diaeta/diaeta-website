@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('fr') }}"> {# Sets language from page data, defaults to 'fr' #}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Page title and description will come from individual page front matter #}
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <link rel="preload" href="/images/logo.svg" as="image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    {# Main Stylesheet - IMPORTANT: Path is root-relative #}
+    <link href="/css/style.css" rel="stylesheet">
+
+    {# Favicons - IMPORTANT: Paths are root-relative #}
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Diaeta",
+      "url": "https://diaeta.be"
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DietNutrition", // Consistent type
+  "@id": "https://diaeta.be#organization", // Consistent ID
+  "name": "Diaeta",
+  "url": "https://diaeta.be/fr/", // Main French site URL
+  "logo": "https://diaeta.be/images/logo.svg",
+  "telephone": "+32479355551",
+  "email": "info@diaeta.be", // Consistent email
+  "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
+  "address": { // Add the primary address here too for consistency
+    "@type": "PostalAddress",
+    "streetAddress": "Dieweg 99",
+    "addressLocality": "Uccle",
+    "postalCode": "1180",
+    "addressRegion": "Région de Bruxelles-Capitale",
+    "addressCountry": "BE"
+  },
+  "sameAs": [
+    "https://www.facebook.com/Dieteticien.colon.irritable/",
+    "https://www.linkedin.com/in/pierre-abou-zeid/",
+    "https://www.instagram.com/expert.fodmap/",
+    "https://www.tiktok.com/@expert.fodmap"
+  ],
+  "priceRange": "50€-80€", // CHAMP AJOUTÉ
+  "image": { // CHAMP AJOUTÉ (avec exemple d'ImageObject)
+    "@type": "ImageObject",
+    "url": "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg",
+    "caption": "Cabinet Diaeta", 
+    "height": "800", 
+    "width": "800" 
+  }
+}
+</script>
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    {# Include the header partial based on language #}
+    {% if lang == 'en' %}
+        {% include "partials/header_en.njk" %}
+    {% else %}
+        {% include "partials/header.njk" %} {# Default to French #}
+    {% endif %}
+
+    <main id="main-content">
+        {# This is where the content from each specific page will be inserted #}
+        {{ content | safe }}
+    </main>
+
+    {# Include the footer partial based on language #}
+    {% if lang == 'en' %}
+        {% include "partials/footer_en.njk" %}
+    {% else %}
+        {% include "partials/footer.njk" %} {# Default to French #}
+    {% endif %}
+
+    {# --- Copied & Paths UPDATED from bottom of your index.html --- #}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+     {# DATA INJECTION SCRIPT - PLACE BEFORE MAIN.JS #}
+    {# This script will only output if 'cabinets' data is available in the current page's context #}
+    {% if lang == 'fr' and cabinets %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets | dump | safe }};
+    </script>
+    {% endif %}
+
+    {# Your JS files - IMPORTANT: Paths are root-relative #}
+    <script>
+        window.pageLang = "{{ lang | default('fr') }}";
+    </script>
+    <script src="/js/main.js"></script>
+    {# --- End scripts --- #}
+
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="cookieConsentContainer" style="display: none;">
+        {% if lang == 'en' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>We use cookies to optimize your experience on our site. Some cookies are necessary for the site to function, while others help us improve this site and your experience. You can choose to accept all cookies or customize your preferences. To learn more, see our <a href="{{ '/en/cookie-policy/' | url }}" class="cookie-consent-link">Cookie Policy</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Accept All</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Customize</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Decline All</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie Preferences</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>We use different types of cookies. Select the ones you accept:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Necessary Cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                             <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies are essential for the site to function properly and cannot be disabled.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analytical Cookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies help us understand how visitors interact with the site by collecting information anonymously.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketing Cookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">These cookies are used to track visitors across websites to display relevant and engaging ads.</p>
+                    </div>
+                     <p class="text-xs mt-3">For more details on the specific cookies used, please see our <a href="{{ '/en/cookie-policy/' | url }}" class="cookie-consent-link">Cookie Policy</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Save my preferences</button>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>Nous utilisons des cookies pour optimiser votre expérience sur notre site. Certains cookies sont nécessaires au fonctionnement du site, tandis que d'autres nous aident à améliorer ce site et votre expérience. Vous pouvez choisir d'accepter tous les cookies ou de personnaliser vos préférences. Pour en savoir plus, consultez notre <a href="{{ '/fr/politique-de-cookies/' | url }}" class="cookie-consent-link">Politique de Cookies</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Tout Accepter</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Personnaliser</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Tout Refuser</button> 
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Préférences de Cookies</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Fermer">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Nous utilisons différents types de cookies. Sélectionnez ceux que vous acceptez :</p>
+                    
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Cookies Nécessaires</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                             <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Cookies Analytiques</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies nous aident à comprendre comment les visiteurs interagissent avec le site en collectant des informations de manière anonyme.</p>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Cookies Marketing</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Ces cookies sont utilisés pour suivre les visiteurs sur les sites web afin d'afficher des publicités pertinentes et engageantes.</p>
+                    </div>
+                     <p class="text-xs mt-3">Pour plus de détails sur les cookies spécifiques utilisés, veuillez consulter notre <a href="{{ '/fr/politique-de-cookies/' | url }}" class="cookie-consent-link">Politique de Cookies</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Enregistrer mes préférences</button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+    (function() {
+      // Only run on the root homepage (not /fr/ or /en/ or other subpages)
+      var path = window.location.pathname.replace(/\/+/g, '/');
+      if (path === '/' || path === '/index.html') {
+        var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (userLang.startsWith('fr')) {
+          window.location.replace('/fr/');
+        } else {
+          window.location.replace('/en/');
+        }
+      }
+    })();
+    </script>
+</body>
+</html>
