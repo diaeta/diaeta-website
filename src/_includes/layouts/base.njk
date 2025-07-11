@@ -75,6 +75,8 @@
     {# Include the header partial based on language #}
     {% if lang == 'en' %}
         {% include "partials/header_en.njk" %}
+    {% elif lang == 'nl' %}
+        {% include "partials/header_nl.njk" %}
     {% else %}
         {% include "partials/header.njk" %} {# Default to French #}
     {% endif %}
@@ -87,6 +89,8 @@
     {# Include the footer partial based on language #}
     {% if lang == 'en' %}
         {% include "partials/footer_en.njk" %}
+    {% elif lang == 'nl' %}
+        {% include "partials/footer_nl.njk" %}
     {% else %}
         {% include "partials/footer.njk" %} {# Default to French #}
     {% endif %}

@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+title: "Categorieën | Nieuws & Advies | Diaeta Brussel"
+description: "Ontdek nieuws en advies per categorie van Diaeta Brussel."
+lang: nl
+---
+
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Categorieën</span>
+        <h1 class="animate-on-scroll fade-up">Nieuws per categorie</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Blader door onze artikelen op basis van categorieën.
+        </p>
+    </div>
+</section>
+
+<section class="categories-section section">
+    <div class="container">
+        <div class="row">
+            {% for category in collections.categories_nl %}
+            <div class="col-md-4 mb-4">
+                <div class="category-card animate-on-scroll fade-up">
+                    <a href="{{ category.url | url }}" class="category-card-link">
+                        <h2 class="category-card-title">{{ category.data.title }}</h2>
+                        <p class="category-card-description">{{ category.data.description }}</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> 

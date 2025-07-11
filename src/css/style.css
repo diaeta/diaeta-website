@@ -2233,7 +2233,7 @@ footer.footer .footer-legal-link:hover::after {
   height: 100%;
   object-fit: contain;
   opacity: 0.9;
-  animation: dnaRotate 15s infinite linear;
+  animation: none !important;
 }
 
 @keyframes dnaRotate {

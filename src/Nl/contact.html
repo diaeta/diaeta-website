@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+title: "Contact | Diaeta Brussel"
+description: "Neem contact op met Pierre Abou-Zeid, gecertificeerd diëtist-voedingsdeskundige in Brussel. Stel uw vragen of maak een afspraak."
+lang: nl
+---
+
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Contact</span>
+        <h1 class="animate-on-scroll fade-up">Neem contact op</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Heeft u vragen of wilt u meer informatie? Vul het formulier in of neem direct contact op.
+        </p>
+    </div>
+</section>
+
+<section class="contact-section section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form id="contactForm" class="contact-form" method="POST" action="mailto:info@diaeta.be">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Naam</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Bericht</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Verzenden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> 

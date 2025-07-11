@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: "Locatie | Diaeta Brussel"
+description: "Vind de locatie van Diaeta Brussel en maak een afspraak met diëtist Pierre Abou-Zeid."
+lang: nl
+---
+
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Locatie</span>
+        <h1 class="animate-on-scroll fade-up">Onze praktijklocatie</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Bezoek onze praktijk in Brussel voor persoonlijk voedingsadvies en begeleiding.
+        </p>
+    </div>
+</section>
+
+<section class="cabinet-location-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Adres</h2>
+                <p>{{ cabinet.address }}</p>
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:{{ cabinet.email }}">{{ cabinet.email }}</a><br>Telefoon: <a href="tel:{{ cabinet.phone }}">{{ cabinet.phone }}</a></p>
+                <h2>Openingsuren</h2>
+                <ul>
+                    {% for day, hours in cabinet.openingHours %}
+                    <li><strong>{{ day }}:</strong> {{ hours }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="/nl/afspraak/" class="btn btn-primary mt-3">Afspraak maken</a>
+            </div>
+            <div class="col-lg-4 animate-on-scroll fade-in">
+                {% if cabinet.image %}
+                <img src="{{ cabinet.image | url }}" alt="{{ cabinet.name }}" class="img-fluid rounded shadow">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section> 

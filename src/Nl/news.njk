@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: "Nieuws & Voedingsadvies | Diaeta Brussel"
+description: "Blijf op de hoogte met het laatste nieuws, wetenschappelijk advies en praktische voedingstips van Pierre Abou-Zeid, diëtist in Brussel."
+pagination:
+  data: collections.actualites_nl
+  size: 6
+  alias: items
+permalink: "/nl/nieuws/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+lang: nl
+canonicalUrl: "https://diaeta.be/nl/nieuws/"
+---
+
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Nieuws</span>
+        <h1 class="animate-on-scroll fade-up">Nieuws & Voedingsadvies</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Ontdek het laatste nieuws, tips en wetenschappelijk advies over voeding en gezondheid.
+        </p>
+    </div>
+</section>
+
+<section class="news-section section">
+    <div class="container">
+        <div class="row">
+            {% for post in items %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="teaser-card animate-on-scroll fade-up">
+                    <a href="{{ post.url | url }}" class="teaser-card-link">
+                        {% if post.data.image %}
+                        <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-img img-fluid rounded shadow-sm">
+                        {% endif %}
+                        <div class="teaser-card-body">
+                            <span class="teaser-card-category"><a href="{{ ('/nl/nieuws/categorieen/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
+                            <h2 class="teaser-card-title">{{ post.data.title }}</h2>
+                            <p class="teaser-card-excerpt">{{ post.data.description | truncate(120) }}</p>
+                            <span class="teaser-card-date">Gepubliceerd op {{ post.date | date('dd MMMM yyyy', 'nl') }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> 

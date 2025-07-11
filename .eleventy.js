@@ -96,6 +96,44 @@ module.exports = function(eleventyConfig) {
         return Array.from(uniqueCategories).sort();
     });
   
+    // --- Dutch News Collections ---
+    eleventyConfig.addCollection("actualites_nl", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_nl", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_nl", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+  
     // --- Nunjucks Filters ---
     // Date Filter (e.g., 25 mai 2025)
     eleventyConfig.addNunjucksFilter("date", function(dateObj, format = "dd LLLL yyyy", locale = "fr") {
