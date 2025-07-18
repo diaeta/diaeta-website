@@ -185,21 +185,25 @@ eleventyComputed:
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Diaeta Home",
-    "item": "https://diaeta.be/en/"
-  },{
-    "@type": "ListItem",
-    "position": 2,
-    "name": "Our Locations",
-    "item": "https://diaeta.be/en/locations/"
-  },{
-    "@type": "ListItem",
-    "position": 3,
-    "name": "Diaeta {{ cabinet.name | escape }} ({{ displayCity | escape }})",
-    "item": "https://diaeta.be{{ page.url }}"
-  }]
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Diaeta Home",
+      "item": "https://diaeta.be/en/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Locations",
+      "item": "https://diaeta.be/en/locations/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ cabinet.name }}",
+      "item": "https://diaeta.be/en/locations/{{ cabinet.id | slugify | replace('fr-', 'en-') }}/"
+    }
+  ]
 }
 </script>

@@ -35,14 +35,14 @@
     "id": "basilik-k-sante",
     "name": "Basili-K Santé",
     "address_obj": {
-      "streetName": "Avenue Seghers",
+      "streetName": "Segherslaan",
       "streetNumber": "99",
       "postalCode": "1081",
       "city": "Koekelberg",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Avenue Seghers 99, 1081 Koekelberg, Brussel",
+    "fullAddress": "Segherslaan 99, 1081 Koekelberg, Brussel",
     "zip": "1081",
     "city": "Koekelberg",
     "Maps_link": "https://maps.google.com/?q=Avenue+Seghers+99,+1081+Koekelberg,+Bruxelles",
@@ -67,14 +67,14 @@
     "id": "centre-medic-alix",
     "name": "Centre Médic-Alix",
     "address_obj": {
-      "streetName": "Parvis Sainte-Alix",
+      "streetName": "Sint-Aleidisvoorplein",
       "streetNumber": "3",
       "postalCode": "1150",
       "city": "Sint-Pieters-Woluwe",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Parvis Sainte-Alix 3, 1150 Sint-Pieters-Woluwe, Brussel",
+    "fullAddress": "Sint-Aleidisvoorplein 3, 1150 Sint-Pieters-Woluwe, Brussel",
     "zip": "1150",
     "city": "Sint-Pieters-Woluwe",
     "Maps_link": "https://maps.google.com/?q=Parvis+Sainte-Alix+3,+1150+Woluwe-Saint-Pierre,+Bruxelles",
@@ -99,14 +99,14 @@
     "id": "centre-medical-tenbosch-chatelain",
     "name": "Centre Médical Tenbosch-Châtelain",
     "address_obj": {
-      "streetName": "Rue Tenbosch",
+      "streetName": "Tenboschstraat",
       "streetNumber": "85",
       "postalCode": "1050",
       "city": "Elsene",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Rue Tenbosch 85, 1050 Elsene, Brussel",
+    "fullAddress": "Tenboschstraat 85, 1050 Elsene, Brussel",
     "zip": "1050",
     "city": "Elsene",
     "Maps_link": "https://maps.google.com/?q=Rue+Tenbosch+85,+1050+Ixelles,+Bruxelles",
@@ -140,16 +140,16 @@
     "id": "centre-revago",
     "name": "Centre REVAGO",
     "address_obj": {
-      "streetName": "Avenue du Roi Albert",
+      "streetName": "Koning Albertlaan",
       "streetNumber": "187",
       "postalCode": "1082",
-      "city": "Berchem-Sainte-Agathe",
+      "city": "Sint-Agatha-Berchem",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Avenue du Roi Albert 187, 1082 Berchem-Sainte-Agathe, Brussel",
+    "fullAddress": "Koning Albertlaan 187, 1082 Sint-Agatha-Berchem, Brussel",
     "zip": "1082",
-    "city": "Berchem-Sainte-Agathe",
+    "city": "Sint-Agatha-Berchem",
     "Maps_link": "https://maps.google.com/?q=Avenue+du+Roi+Albert+187,+1082+Berchem-Sainte-Agathe,+Bruxelles",
     "doctorpracticeId": "113544",
     "notes": "Gemakkelijk parkeren met een blauwe schijf voor het centrum.",
@@ -172,14 +172,14 @@
     "id": "centre-etrimaux",
     "name": "Les Etrimaux",
     "address_obj": {
-      "streetName": "Drève de Nivelles",
+      "streetName": "Nijvelsedreef",
       "streetNumber": "168",
       "postalCode": "1150",
       "city": "Sint-Pieters-Woluwe",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Drève de Nivelles 168, 1150 Sint-Pieters-Woluwe, Brussel",
+    "fullAddress": "Nijvelsedreef 168, 1150 Sint-Pieters-Woluwe, Brussel",
     "zip": "1150",
     "city": "Sint-Pieters-Woluwe",
     "Maps_link": "https://maps.google.com/?q=Drève+de+Nivelles+168,+1150+Woluwe-Saint-Pierre,+Bruxelles",
@@ -204,14 +204,14 @@
     "id": "centre-mediwoluwe",
     "name": "Mediwoluwe",
     "address_obj": {
-      "streetName": "Avenue de Broqueville",
+      "streetName": "de Broquevillelaan",
       "streetNumber": "9",
       "postalCode": "1150",
       "city": "Sint-Pieters-Woluwe",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Avenue de Broqueville 9, 1150 Sint-Pieters-Woluwe, Brussel",
+    "fullAddress": "de Broquevillelaan 9, 1150 Sint-Pieters-Woluwe, Brussel",
     "zip": "1150",
     "city": "Sint-Pieters-Woluwe",
     "Maps_link": "https://maps.google.com/?q=Avenue+de+Broqueville+9,+1150+Woluwe-Saint-Pierre,+Bruxelles",
@@ -236,14 +236,14 @@
     "id": "wolu20-medical-center",
     "name": "Wolu20 Medisch Centrum",
     "address_obj": {
-      "streetName": "Avenue Marcel Thiry",
+      "streetName": "Marcel Thirylaan",
       "streetNumber": "20",
       "postalCode": "1200",
       "city": "Sint-Lambrechts-Woluwe",
       "region": "Brussels Hoofdstedelijk Gewest",
       "country": "BE"
     },
-    "fullAddress": "Avenue Marcel Thiry 20, 1200 Sint-Lambrechts-Woluwe, Brussel",
+    "fullAddress": "Marcel Thirylaan 20, 1200 Sint-Lambrechts-Woluwe, Brussel",
     "zip": "1200",
     "city": "Sint-Lambrechts-Woluwe",
     "Maps_link": "https://maps.google.com/?q=Avenue+Marcel+Thiry+20,+1200+Woluwe-Saint-Lambert,+Bruxelles",
@@ -340,4 +340,4 @@
     "hours_details_note": "Veel tijdslots beschikbaar voor videoconsultatie.",
     "coordinates": null
   }
-] 
+]

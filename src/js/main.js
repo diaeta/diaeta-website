@@ -949,7 +949,7 @@ function initMap(clinicsToMap) {
     marker.bindPopup(function() { 
         const cabinetName = cabinet.name || "Cabinet Diaeta";
         const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || '');
-        return `<div class="map-popup"><h4>${cabinetName}</h4><p>${city}</p><button class="popup-details-btn btn btn-xs btn-primary" data-clinicid="${cabinet.id}">Voir détails</button></div>`;
+        return `<div class="map-popup"><h4>${cabinetName}</h4><p>${city}</p><button class="popup-details-btn btn btn-xs btn-primary" data-clinicid="${cabinet.id}">${window.pageLang === 'fr' ? 'Voir détails' : window.pageLang === 'nl' ? 'Zie details' : 'See details'}</button></div>`;
     });
     marker.on('popupopen', (e) => { /* ... popup button logic ... */ 
       const button = e.popup.getElement().querySelector('.popup-details-btn');
@@ -1012,10 +1012,17 @@ function generateClinicCards(cabinetsDataToDisplay) {
         const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? (currentLang === 'fr' ? 'À distance' : 'Remote') : ''));
     const notes = cabinet.notes || '';
 
-        const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : '#';
+        // Use the correct path segment for each language
+        const pathSegment =
+          currentLang === 'en' ? 'locations'
+          : currentLang === 'nl' ? 'locaties'
+          : 'cabinets'; // fallback for fr and others
+        const detailPageUrl = (cabinet.id && cabinet.id !== 'video')
+          ? `/${currentLang}/${pathSegment}/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/`
+          : '#';
     const isVideoConsult = cabinet.id === 'video';
 
-        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : "See details for hours";
+        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : currentLang === 'nl' ? 'Zie details voor uren' : "See details for hours";
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
         hoursTeaser = cabinet.opening_hours.map(day => {
             const dayName = day[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour' : 'Day');
@@ -1025,7 +1032,7 @@ function generateClinicCards(cabinetsDataToDisplay) {
     } else if (cabinet.hours_details_note) {
         hoursTeaser = cabinet.hours_details_note;
     } else if (isVideoConsult) {
-            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : "Flexible, see booking module.";
+            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : currentLang === 'nl' ? 'Flexibel, zie boekingsmodule.' : "Flexible, see booking module.";
     }
     card.innerHTML = `
         <div class="card-content-wrapper">
@@ -1041,8 +1048,8 @@ function generateClinicCards(cabinetsDataToDisplay) {
                 ${notes ? `<p class="card-notes text-xs fst-italic mt-1"><i class="fas fa-info-circle fa-xs me-2 text-primary"></i>${notes}</p>` : ''}
             </div>
             <div class="card-footer-actions">
-                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>${window.pageLang === 'fr' ? 'Page Cabinet' : 'Clinic Page'}</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> ${window.pageLang === 'fr' ? 'Infos Cabinet' : 'Clinic Info'}</span>`}
-                <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>${window.pageLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>
+                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>${window.pageLang === 'fr' ? 'Page Cabinet' : window.pageLang === 'nl' ? 'Praktijkpagina' : 'Clinic Page'}</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> ${window.pageLang === 'fr' ? 'Infos Cabinet' : window.pageLang === 'nl' ? 'Praktijkinfo' : 'Clinic Info'}</span>`}
+                <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>${window.pageLang === 'fr' ? 'Prendre RDV' : window.pageLang === 'nl' ? 'Boek nu' : 'Book Now'}</a>
             </div>
         </div>`;
     card.addEventListener('click', (e) => {
@@ -1069,22 +1076,24 @@ function generateSidebarCards(cabinetsData) { /* ... as before ... */
   cabinetsData.forEach(cabinet => {
     if (cabinet.id === 'video' || !cabinet.coordinates || !cabinet.coordinates.length === 2) return;
     count++;
-    let scheduleStr = currentLang === 'fr' ? 'Horaires non spécifiés' : 'Hours not specified';
+    let scheduleStr = currentLang === 'fr' ? 'Horaires non spécifiés' : currentLang === 'nl' ? 'Uren niet gespecificeerd' : 'Hours not specified';
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
       scheduleStr = cabinet.opening_hours.map(day => {
-        const dayName = day[dayOfWeekProperty] ? day[dayOfWeekProperty].substring(0,3) : (currentLang === 'fr' ? 'Jour' : 'Day');
+        const dayName = day[dayOfWeekProperty] ? day[dayOfWeekProperty].substring(0,3) : (currentLang === 'fr' ? 'Jour' : currentLang === 'nl' ? 'Dag' : 'Day');
         const slots = day.timeSlots.map(slot => `${slot.opens.replace(':','h')}-${slot.closes.replace(':','h')}`).join(', ');
         return `${dayName}: ${slots}`;
       }).join('; ');
     } else if (cabinet.hours_details_note) {
       scheduleStr = `<em>${cabinet.hours_details_note}</em>`;
+    } else {
+      scheduleStr = currentLang === 'fr' ? 'Voir détails' : currentLang === 'nl' ? 'Zie details voor uren' : 'See details for hours';
     }
 
     const cardHTML = `
         <h4>${cabinet.name}</h4>
         <div class="sidebar-clinic-address text-xs"><i class="fas fa-location-dot me-1 text-primary"></i>${cabinet.fullAddress || (currentLang === 'fr' ? 'Adresse non spécifiée' : 'Address not specified')}</div>
         <div class="sidebar-clinic-hours text-xs mt-1"><i class="fas fa-clock me-1 text-primary"></i>${scheduleStr}</div>
-        <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">${currentLang === 'fr' ? 'Prendre RDV' : 'Book Now'}</a>`;
+        <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-xs btn-accent mt-2 d-block text-center">${currentLang === 'fr' ? 'Prendre RDV' : currentLang === 'nl' ? 'Boek nu' : 'Book Now'}</a>`;
     const cardElement = document.createElement('div');
     cardElement.className = 'sidebar-clinic-card';
     cardElement.setAttribute('data-clinic-id', cabinet.id);
@@ -1123,13 +1132,13 @@ function showClinicDetails(cabinet, marker) {
   if (!detailPanel) return;
 
   const currentLang = window.pageLang || 'fr';
-  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+  const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : currentLang === 'nl' ? 'dayOfWeekDUTCH' : 'dayOfWeekFRENCH';
   let scheduleHtml = '';
 
   if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
     cabinet.opening_hours.forEach(day_schedule => {
       let dayHours = day_schedule.timeSlots.map(slot => `${slot.opens.replace(":", "h")} - ${slot.closes.replace(":", "h")}`).join(', ');
-      const dayName = day_schedule[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour inconnu' : 'Unknown day');
+      const dayName = day_schedule[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour inconnu' : currentLang === 'nl' ? 'Onbekende dag' : 'Unknown day');
       scheduleHtml += `<li><span class="day">${dayName}:</span> <span class="hours available">${dayHours}</span></li>`;
     });
   }
@@ -1138,14 +1147,15 @@ function showClinicDetails(cabinet, marker) {
   if (!scheduleHtml) { scheduleHtml = `<li><span class="day">${currentLang === 'fr' ? 'Horaires:' : 'Hours:'}</span> <span class="hours">${currentLang === 'fr' ? 'Veuillez consulter le module de réservation.' : 'Please consult the booking module.'}</span></li>`; }
 
   const addressDisplay = cabinet.fullAddress || (currentLang === 'fr' ? 'Lieu de consultation en ligne' : 'Online consultation location');
-  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/locations/${cabinet.id.toLowerCase().replace(/\s+/g, '-').replace('fr-', 'en-')}/` : null;
+  const pathSegment = (currentLang === 'en') ? 'locations' : 'cabinets';
+  const detailPageUrl = (cabinet.id && cabinet.id !== 'video') ? `/${currentLang}/${pathSegment}/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/` : null;
   detailPanel.innerHTML = `
     <div class="detail-panel-header"><h3>${cabinet.name}</h3><button class="close-panel-btn" id="panelCloseButtonMap" aria-label="${currentLang === 'fr' ? 'Fermer' : 'Close'}"><i class="fa-solid fa-times"></i></button></div>
     <div class="detail-panel-body">
-      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-location-dot text-primary"></i> ${currentLang === 'fr' ? 'Adresse' : 'Address'}</h4><p class="detail-text">${addressDisplay}</p>${(cabinet.Maps_link && cabinet.id !== 'video') ? `<a href="${cabinet.Maps_link}" class="detail-action-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-directions"></i> ${currentLang === 'fr' ? 'Itinéraire' : 'Directions'}</a>` : ''} ${detailPageUrl ? `<a href="${detailPageUrl}" class="detail-action-link d-block mt-1" target="_blank"><i class="fa-solid fa-circle-info"></i> ${currentLang === 'fr' ? 'Infos Cabinet' : 'Clinic Info'}</a>` : ''}</div>
-      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-clock text-primary"></i> ${currentLang === 'fr' ? 'Horaires (indicatifs)' : 'Hours (indicative)'}</h4><ul class="schedule-list">${scheduleHtml}</ul></div>
-      ${cabinet.notes ? `<div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-info-circle text-primary"></i> ${currentLang === 'fr' ? 'Informations' : 'Information'}</h4><p class="detail-text">${cabinet.notes}</p></div>` : ''}
-      <div class="detail-action mt-3"><a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-primary w-100 book-btn"><i class="fa-solid fa-calendar-check"></i> ${currentLang === 'fr' ? 'RDV ici' : 'Book here'}</a></div>
+      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-location-dot text-primary"></i> ${currentLang === 'fr' ? 'Adresse' : 'Address'}</h4><p class="detail-text">${addressDisplay}</p>${(cabinet.Maps_link && cabinet.id !== 'video') ? `<a href="${cabinet.Maps_link}" class="detail-action-link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-directions"></i> ${currentLang === 'fr' ? 'Itinéraire' : currentLang === 'nl' ? 'Routebeschrijving' : 'Directions'}</a>` : ''} ${detailPageUrl ? `<a href="${detailPageUrl}" class="detail-action-link d-block mt-1" target="_blank"><i class="fa-solid fa-circle-info"></i> ${currentLang === 'fr' ? 'Infos Cabinet' : currentLang === 'nl' ? 'Praktijkinfo' : 'Clinic Info'}</a>` : ''}</div>
+      <div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-clock text-primary"></i> ${currentLang === 'fr' ? 'Horaires (indicatifs)' : currentLang === 'nl' ? 'Uren (indicatief)' : 'Hours (indicative)'}</h4><ul class="schedule-list">${scheduleHtml}</ul></div>
+      ${cabinet.notes ? `<div class="detail-section"><h4 class="detail-title"><i class="fa-solid fa-info-circle text-primary"></i> ${currentLang === 'fr' ? 'Informations' : currentLang === 'nl' ? 'Informatie' : 'Information'}</h4><p class="detail-text">${cabinet.notes}</p></div>` : ''}
+      <div class="detail-action mt-3"><a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${cabinet.name ? '&cabinetName=' + encodeURIComponent(cabinet.name) : ''}" class="btn btn-primary w-100 book-btn"><i class="fa-solid fa-calendar-check"></i> ${currentLang === 'fr' ? 'RDV ici' : currentLang === 'nl' ? 'Boek hier' : 'Book here'}</a></div>
     </div>`;
   detailPanel.classList.remove('d-none');
   detailPanel.classList.add('active');
@@ -1251,8 +1261,14 @@ function initializeRendezVousPage() {
   }
 
   const doctorId = '80669';
-  const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
-  const currentLang = window.pageLang || 'fr';
+  let baseIframeSrc;
+  if (currentLang === 'en') {
+    baseIframeSrc = `https://www.doctoranytime.be/en/iframes/agenda?doctorId=${doctorId}`;
+  } else if (currentLang === 'nl') {
+    baseIframeSrc = `https://www.doctoranytime.be/nl/iframes/agenda?doctorId=${doctorId}`;
+  } else {
+    baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`; // French default
+  }
 
   const showIframeLoading = () => {
       if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';

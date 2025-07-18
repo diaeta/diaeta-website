@@ -1,9 +1,8 @@
 ---
 layout: layouts/base.njk
-title: Book an Appointment with a Diaeta Dietitian in Brussels | Online/In-Person Consultation
+title: "Book an Appointment with a Diaeta Dietitian in Brussels | Online/In-Person Consultation"
 description: "Easily book your consultation with Pierre Abou-Zeid, certified Diaeta Dietitian-Nutritionist in Brussels. In-person or video consultations available. Book your appointment online."
 lang: en
-canonicalUrl: "https://diaeta.be/en/appointment/"
 eleventyNavigation:
   key: Appointment
   order: 3
@@ -14,7 +13,6 @@ eleventyNavigation:
     {# Hero Section with Left-Aligned Content #}
     <section class="service-hero rd-hero">
         <div class="container">
-             {# Optional wrapper if more control needed, otherwise direct children inherit text-align from .container #}
              <div class="rd-hero-content">
                 <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-calendar-check hero-badge-icon"></i>Book an Appointment</span>
                 <h1 class="animate-on-scroll fade-up">Your Health Journey Starts Here</h1>
@@ -27,7 +25,6 @@ eleventyNavigation:
     <section class="rd-step-section rd-location-choice-section py-5 bg-light">
         <div class="container">
             <div class="section-header text-center mb-5 animate-on-scroll fade-up">
-                {# Title with Step Number - Corrected Alignment via CSS #}
                 <h2 class="section-title">
                     <span class="step-number">1</span>
                     Choose Your Consultation Location
@@ -37,7 +34,6 @@ eleventyNavigation:
 
             {% if cabinets_en and cabinets_en.length > 0 %}
             <div class="location-cards-container animate-on-scroll fade-up delay-100">
-                {# "All Cabinets" Card/Button #}
                 <div class="location-card select-cabinet-card default-selection" data-practice-id="" data-cabinet-name="All clinics">
                     <div class="location-card-icon"><i class="fa-solid fa-hospital-user"></i></div>
                     <div class="location-card-content">
@@ -46,10 +42,9 @@ eleventyNavigation:
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>
-                {# Loop through actual cabinets from _data/cabinets_en.json #}
                 {% for cabinet_item in cabinets_en %}
-                <div class="location-card select-cabinet-card"
-                    data-practice-id="{{ cabinet_item.doctorpracticeId }}"
+                <div class="location-card select-cabinet-card" 
+                    data-practice-id="{{ cabinet_item.doctorpracticeId }}" 
                     data-cabinet-name="{{ cabinet_item.name | escape }}"
                     data-cabinet-id="{{ cabinet_item.id }}">
                     <div class="location-card-icon">
@@ -58,16 +53,16 @@ eleventyNavigation:
                     </div>
                     <div class="location-card-content">
                         <h3 class="location-card-name">
-                            {% if cabinet_item.id != 'video' %} {# Only add link for physical locations #}
-                                <a href="/en/locations/{{ cabinet_item.id | slugify | replace('fr-', 'en-') }}/" class="clinic-name-link">
+                            {% if cabinet_item.id != 'video' %}
+                                <a href="/en/locations/{{ cabinet_item.id | slugify }}/" class="clinic-name-link">
                                     {{ cabinet_item.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i>
                                 </a>
                             {% else %}
-                                {{ cabinet_item.name }} {# For "Video Consultation", just display the name #}
+                                {{ cabinet_item.name }}
                             {% endif %}
                         </h3>
                         <p class="location-card-address">{{ cabinet_item.fullAddress }}</p>
-
+                        
                         {% if cabinet_item.opening_hours and cabinet_item.opening_hours.length > 0 %}
                         <div class="cabinet-hours-display mt-2 pt-2 border-top">
                             <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Hours for this location:</strong>
@@ -93,7 +88,7 @@ eleventyNavigation:
                             </ul>
                         </div>
                         {% endif %}
-
+                        
                         {% if cabinet_item.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet_item.notes }}</p>{% endif %}
                     </div>
                     <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
@@ -104,7 +99,6 @@ eleventyNavigation:
             <p class="text-center"><em>Loading clinic information... If this message persists, please <a href="{{ '/en/contact/' | url }}">contact us</a>.</em></p>
             {% endif %}
 
-             {# Optional Clarifying Note - Placed after the cards #}
              <p class="text-center text-muted text-sm mt-5 animate-on-scroll fade-up delay-300">
                 <i class="fa-solid fa-circle-info me-1"></i>Please consult the booking module below for precise, real-time availability for the selected location.
             </p>
@@ -113,17 +107,15 @@ eleventyNavigation:
     </section>
 
     {# Step 2: Select Time Slot (iFrame) #}
-    <section class="rd-step-section rd-booking-module-section py-5 bg-white"> {# Changed background for contrast #}
+    <section class="rd-step-section rd-booking-module-section py-5 bg-white">
         <div class="container">
             <div class="section-header text-center mb-4 animate-on-scroll fade-up">
-                 {# Title with Step Number - Corrected Alignment via CSS #}
                  <h2 class="section-title">
                     <span class="step-number">2</span>
                     <span id="booking-module-dynamic-title">Select Your Time Slot</span>
                  </h2>
                  <p class="section-subtitle" id="booking-module-subtitle">Choose a time slot for the selected location.</p>
-                 {# Loading Indicator for iFrame #}
-                 <div id="iframe-loading-indicator" style="display: none; min-height: 30px;"> {# Added min-height #}
+                 <div id="iframe-loading-indicator" style="display: none; min-height: 30px;">
                     <div class="spinner-border text-primary spinner-border-sm" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -132,7 +124,7 @@ eleventyNavigation:
             </div>
 
             <div class="iframe-container animate-on-scroll fade-up delay-100" id="booking-module-wrapper">
-                <iframe src="https://www.doctoranytime.be/iframes/agenda?doctorId=80669"
+                <iframe src="https://www.doctoranytime.be/en/iframes/agenda?doctorId=80669"
                         frameborder="0"
                         style="border: none; overflow: hidden; width: 100%; height: 445px; margin: 0 auto; display: block;"
                         allowtransparency="true"
@@ -146,7 +138,6 @@ eleventyNavigation:
     <section class="rd-step-section rd-preparation-section py-5 bg-light">
         <div class="container">
             <div class="section-header text-center mb-5 animate-on-scroll fade-up">
-                 {# Title with Step Number - Corrected Alignment via CSS #}
                  <h2 class="section-title">
                     <span class="step-number">3</span>
                     Prepare for Your Visit
@@ -168,7 +159,7 @@ eleventyNavigation:
                     <div class="info-card h-100 preparation-card">
                         <div class="info-card-icon prep-icon"><i class="fa-solid fa-circle-info"></i></div>
                         <h3 class="info-card-title">Good to Know</h3>
-                        <p><strong>Cancellation Policy:</strong> If you are unable to attend, please notify us at least 24 hours in advance. An unjustified cancellation will be subject to a flat-rate fee of €20.</p>
+                        <p><strong>Cancellation Policy:</strong> If you are unable to attend, please notify us at least 24 working hours in advance. An unjustified cancellation will be subject to a flat-rate administrative fee of €20.</p>
                         <p>Consult our <a href="{{ '/en/tariffs/' | url }}" class="link-primary">prices and reimbursement conditions</a>.</p>
                         <p class="mt-3">For any questions, do not hesitate to <a href="{{ '/en/contact/' | url }}" class="link-primary">contact us</a>.</p>
                     </div>
@@ -179,124 +170,6 @@ eleventyNavigation:
 
 </main>
 
-{# JavaScript for iFrame interaction - Should be placed before closing </body> tag, often in base.njk #}
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const iframe = document.getElementById('defaultiFrame');
-    const bookingModuleDynamicTitleSpan = document.getElementById('booking-module-dynamic-title');
-    const bookingModuleSubtitle = document.getElementById('booking-module-subtitle');
-    const iframeLoadingIndicator = document.getElementById('iframe-loading-indicator');
-    const bookingModuleWrapper = document.getElementById('booking-module-wrapper');
-
-    if (!iframe) {
-        console.error('Doctoranytime iframe not found');
-        return;
-    }
-
-    const doctorId = '80669'; // Your Doctoranytime ID
-    const baseIframeSrc = `https://www.doctoranytime.be/iframes/agenda?doctorId=${doctorId}`;
-    const locationCards = document.querySelectorAll('.select-cabinet-card');
-    let currentPracticeId = ''; // Default "All Clinics" ID
-
-    function showIframeLoading() {
-        if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
-        if (iframe) iframe.style.opacity = '0.5';
-    }
-
-    function hideIframeLoading() {
-        // Add a small delay to ensure loading is visible if iframe loads extremely fast
-        setTimeout(() => {
-             if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'none';
-             if (iframe) iframe.style.opacity = '1';
-        }, 200);
-    }
-
-    function updateIframeAndTitle(practiceId, cabinetName) {
-        // Prevent unnecessary reload if already selected
-        if (iframe.src.includes(`doctorpracticeId=${practiceId}`) && practiceId !== '') return;
-        if (!practiceId && !iframe.src.includes('doctorpracticeId=')) return; // Already showing all
-
-        showIframeLoading();
-        let newSrc = baseIframeSrc;
-        let titleText = "Select Your Time Slot"; // Default Title
-        let subTitleText = "Choose a time slot for the selected location."; // Default Subtitle
-
-        if (practiceId) {
-            newSrc += '&doctorpracticeId=' + practiceId;
-            titleText = `Availabilities for: ${cabinetName}`;
-            subTitleText = `Choose a time slot for ${cabinetName}.`;
-        } else {
-            titleText = "Availabilities: All clinics";
-            subTitleText = "Choose a time slot in one of our clinics or for a video consultation.";
-        }
-
-        const handleLoad = () => {
-            hideIframeLoading();
-            iframe.removeEventListener('load', handleLoad);
-            iframe.removeEventListener('error', handleError);
-        };
-        const handleError = () => {
-            console.error("Iframe failed to load:", newSrc);
-            hideIframeLoading();
-            iframe.removeEventListener('load', handleLoad);
-            iframe.removeEventListener('error', handleError);
-        };
-
-        iframe.removeEventListener('load', handleLoad); // Remove previous listener if any
-        iframe.removeEventListener('error', handleError); // Remove previous listener if any
-        iframe.addEventListener('load', handleLoad);
-        iframe.addEventListener('error', handleError);
-        iframe.src = newSrc; // Change source
-
-        if (bookingModuleDynamicTitleSpan) {
-            bookingModuleDynamicTitleSpan.textContent = titleText;
-        }
-        if (bookingModuleSubtitle) {
-            bookingModuleSubtitle.textContent = subTitleText;
-        }
-        currentPracticeId = practiceId;
-
-        // Update active state on cards
-        locationCards.forEach(card => {
-            card.classList.toggle('active', card.dataset.practiceId === currentPracticeId);
-        });
-    }
-
-    locationCards.forEach(card => {
-        card.addEventListener('click', function () {
-            const practiceId = this.dataset.practiceId;
-            // Use the full name from data attribute for the title
-            const cabinetName = this.dataset.cabinetName;
-            updateIframeAndTitle(practiceId, cabinetName);
-
-            // Scroll to the booking module
-            if (bookingModuleWrapper) {
-                bookingModuleWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
-    });
-
-    // Initialize with the "All clinics" card active
-    const defaultSelectionCard = document.querySelector('.location-card.default-selection');
-    if (defaultSelectionCard) {
-        defaultSelectionCard.classList.add('active');
-        if (bookingModuleDynamicTitleSpan) {
-             bookingModuleDynamicTitleSpan.textContent = `Availabilities for: ${defaultSelectionCard.dataset.cabinetName}`;
-        }
-         if (bookingModuleSubtitle) {
-             bookingModuleSubtitle.textContent = "Choose a time slot in one of our clinics or for a video consultation.";
-         }
-    }
-
-    // Initial check for iframe load state
-    if (iframe.contentWindow && iframe.contentWindow.document.readyState === 'complete') {
-        hideIframeLoading();
-    } else {
-        iframe.addEventListener('load', hideIframeLoading, { once: true }); // Use once to avoid multiple calls
-        iframe.addEventListener('error', hideIframeLoading, { once: true });
-    }
-});
-</script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -305,12 +178,74 @@ document.addEventListener('DOMContentLoaded', function () {
         "@type": "ListItem",
         "position": 1,
         "name": "Diaeta Home",
-        "item": "https://diaeta.be/en/index.html"
+        "item": "https://diaeta.be/en/"
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "Book an Appointment with a Diaeta Dietitian",
+        "name": "Book an Appointment",
         "item": "https://diaeta.be/en/appointment/"
       }]
     }
-    </script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I book an appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can book an appointment online via our booking form, by phone, or by email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods are accepted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept cash, Bancontact, and bank transfer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel or reschedule my appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can cancel or reschedule up to 24 hours in advance without penalty. Please contact us if you need to make changes."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to book an appointment with Diaeta",
+  "description": "Step-by-step guide to booking a nutrition consultation appointment with Diaeta.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Go to the appointment page",
+      "text": "Visit the appointment page on the Diaeta website."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Select your preferred location and date",
+      "text": "Choose the clinic location and date that suits you best."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Fill in your details",
+      "text": "Enter your name, contact information, and any relevant health details."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Confirm your booking",
+      "text": "Submit the form to confirm your appointment. You will receive a confirmation email."
+    }
+  ]
+}
+</script>

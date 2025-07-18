@@ -98,13 +98,13 @@ module.exports = function(eleventyConfig) {
   
     // --- Dutch News Collections ---
     eleventyConfig.addCollection("actualites_nl", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md").sort((a, b) => {
+        return collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md").sort((a, b) => {
             return b.date - a.date;
         });
     });
 
     eleventyConfig.addCollection("postsByCategory_nl", (collectionApi) => {
-        const posts = collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md");
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md");
         const categories = {};
         posts.forEach(post => {
             const category = post.data.category;
@@ -124,7 +124,7 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addCollection("uniqueCategories_nl", (collectionApi) => {
-        const posts = collectionApi.getFilteredByGlob("./src/Nl/actualites/**/*.md");
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md");
         let uniqueCategories = new Set();
         posts.forEach(post => {
             if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {

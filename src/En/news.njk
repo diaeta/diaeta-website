@@ -6,7 +6,7 @@ pagination:
   data: collections.actualites_en
   size: 6
   alias: items
-permalink: "/en/news/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html" # Already in English format
+permalink: "/en/news/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 lang: en
 canonicalUrl: "https://diaeta.be/en/news/"
 ---
@@ -80,7 +80,7 @@ canonicalUrl: "https://diaeta.be/en/news/"
                         <ul class="list-unstyled category-list">
                             {% for category in collections.uniqueCategories_en %}
                             <li>
-                                <a href="{{ ('/en/news/categories/' + category | slugify | replace('fr-', 'en-') + '/') | url }}">{{ category }}
+                                <a href="{{ ('/en/news/categories/' + category | slugify + '/') | url }}">{{ category }} 
                                     <span class="badge bg-primary rounded-pill">
                                         {{ collections.postsByCategory_en[category].length }}
                                     </span>
@@ -103,7 +103,7 @@ canonicalUrl: "https://diaeta.be/en/news/"
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "News & Nutritional Tips | Diaeta Brussels",
-  "description": "Stay informed of the latest news, scientific advice, and practical nutrition tips by Pierre Abou-Zeid, dietitian in Brussels. Articles on weight loss, IBS, diabetes, and more.",
+  "description": "Stay informed with the latest news, scientific advice, and practical nutrition tips by Pierre Abou-Zeid, dietitian in Brussels.",
   "url": "https://diaeta.be{{ canonicalUrl }}",
   "publisher": {
     "@id": "https://diaeta.be#organization"
@@ -121,5 +121,25 @@ canonicalUrl: "https://diaeta.be/en/news/"
       {% endfor %}
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Diaeta Home",
+      "item": "https://diaeta.be/en/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "News",
+      "item": "https://diaeta.be/en/news/"
+    }
+  ]
 }
 </script>
