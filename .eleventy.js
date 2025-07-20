@@ -1,8 +1,15 @@
 // .eleventy.js
 const { DateTime } = require("luxon"); // For date formatting
 const slugify = require("slugify");   // For creating URL-friendly slugs
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 module.exports = function(eleventyConfig) {
+    // Sitemap plugin
+    eleventyConfig.addPlugin(sitemap, {
+        sitemap: {
+            hostname: "https://diaeta.be",
+        },
+    });
 
     // --- Passthrough Copy for Static Assets ---
     eleventyConfig.addPassthroughCopy("src/css");
@@ -18,6 +25,13 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   
     // --- Collections ---
+    eleventyConfig.addCollection("sitemap", function(collectionApi) {
+        return collectionApi.getAll().filter((item) => {
+            // Filter out files that don't have a URL, are paginated, or are explicitly excluded
+            return item.url && !item.data.pagination && !(item.data.sitemap && item.data.sitemap.ignore);
+        });
+    });
+
     // Blog Posts ("Actualités")
     eleventyConfig.addCollection("actualites", function(collectionApi) {
         return collectionApi.getFilteredByGlob("./src/fr/actualites/**/*.md").sort((a, b) => {
