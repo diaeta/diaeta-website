@@ -1,0 +1,164 @@
+---
+layout: layouts/base.njk
+title: "Vind uw Diaeta-praktijk in Brussel | Interactieve Kaart & Lijst"
+description: "Ontdek eenvoudig de Diaeta-consultatiepraktijken in Brussel. Gebruik onze interactieve kaart, filter op dag, en vind het adres en de openingsuren van uw diëtist, Pierre Abou-Zeid."
+lang: nl
+---
+
+<section class="service-hero-wp">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">Onze Praktijken</span>
+        <h1 class="animate-on-scroll fade-up">Ontdek onze Diaeta-praktijken in Brussel</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Vind de ideale locatie voor uw voedingsconsultatie. Gebruik de filters, de interactieve kaart of bekijk de lijst om de praktijk te kiezen die het beste bij u past.
+        </p>
+    </div>
+</section>
+
+<section id="cabinet-explorer-main-content" class="clinic-finder-section section">
+     <div class="container">
+        <div class="section-header animate-on-scroll fade-up">
+             <span class="section-badge" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">Zoekhulpmiddelen</span>
+             <h2 class="section-title">Verfijn uw praktijkzoektocht</h2>
+             <p class="section-subtitle">Gebruik de opties hieronder om snel de Diaeta-praktijk te vinden die aan uw wensen voldoet.</p>
+        </div>
+
+        <div class="clinic-filters controls-bar animate-on-scroll fade-up delay-100">
+            <button class="filter-btn active" data-day="all" aria-pressed="true">Alle dagen</button>
+            <button class="filter-btn" data-day="monday" aria-pressed="false">Maandag</button>
+            <button class="filter-btn" data-day="tuesday" aria-pressed="false">Dinsdag</button>
+            <button class="filter-btn" data-day="wednesday" aria-pressed="false">Woensdag</button>
+            <button class="filter-btn" data-day="thursday" aria-pressed="false">Donderdag</button>
+            <button class="filter-btn" data-day="friday" aria-pressed="false">Vrijdag</button>
+            <button class="filter-btn" data-day="saturday" aria-pressed="false">Zaterdag</button>
+            <button class="locate-me-btn" id="locateMeMainBtn" title="Vind de praktijken het dichtst bij mijn huidige locatie"><i class="fa-solid fa-location-crosshairs"></i> Dichtbij</button>
+        </div>
+
+        <div class="view-toggle-container animate-on-scroll fade-up delay-200">
+            <button class="view-toggle active" data-view="list" aria-label="Toon lijst van praktijken" aria-pressed="true"><i class="fa-solid fa-list"></i> Lijst (<span id="list-count-display">0</span>)</button>
+            <button class="view-toggle" data-view="map" aria-label="Toon kaart van praktijken" aria-pressed="false"><i class="fa-solid fa-map-location-dot"></i> Kaart</button>
+        </div>
+
+        <div class="clinic-content animate-on-scroll fade-up delay-300">
+          <div class="clinic-grid-view active" id="listView">
+              <div id="cabinetCardContainer" class="clinic-grid explorer-list-scrollable">
+                  <div class="loading-message text-center p-5">
+                      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                          <span class="visually-hidden">Laden...</span>
+                      </div>
+                      <p class="text-muted mt-3"><i>Praktijkinformatie wordt geladen...</i></p>
+                  </div>
+                  <div class="no-results-message text-center p-5" style="display: none;">
+                      <i>Geen praktijken voldoen aan uw huidige criteria. Breid uw zoekopdracht uit of <a href="/nl/contact/" class="text-accent">contacteer ons</a>.</i>
+                  </div>
+              </div>
+          </div>
+          <div class="clinic-map-view" id="mapView">
+              <div class="map-container">
+                  <div id="clinicsMap"></div>
+                  <div class="map-sidebar">
+                      <div class="sidebar-header">
+                          <h3>Onze Praktijken in Brussel</h3>
+                          <p class="sidebar-results">0 praktijk/praktijken gevonden</p>
+                      </div>
+                      <div class="sidebar-body">
+                          <div class="sidebar-clinics">
+                              <p class="text-center p-3 text-muted"><i>Gebruik de filters of klik op een marker op de kaart om details te zien.</i></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="clinicDetailPanel" class="clinic-detail-panel d-none d-lg-block">
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="clinic-cta text-center mt-5 animate-on-scroll fade-up delay-400">
+            <p>Klaar om te starten? Boek na het bekijken van onze praktijken online een afspraak of <a href="/nl/contact/" class="text-decoration-underline">contacteer ons</a> bij vragen.</p>
+            <a href="/nl/afspraak/" class="btn btn-accent btn-lg"><span>Afspraak maken</span><i class="fa-solid fa-calendar-check ms-2"></i></a>
+        </div>
+     </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Diaeta Praktijken in Brussel | Voedingsconsultatie Locaties (Kaart & Lijst)",
+  "description": "Vind eenvoudig alle Diaeta-consultatiepraktijken in Brussel. Adressen, openingsuren, interactieve kaart en filters om een afspraak te boeken met Pierre Abou-Zeid, diëtist.",
+  "url": "https://diaeta.be/nl/locaties/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Diaeta",
+    "url": "https://diaeta.be",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://diaeta.be/images/logo.svg"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Diaeta consultatiepraktijken in Brussel",
+    "description": "Interactieve lijst en kaart van Diaeta-praktijken waar u Pierre Abou-Zeid, diëtist-voedingsdeskundige in Brussel, kunt raadplegen. Filter op beschikbaarheidsdag.",
+    "numberOfItems": {{ cabinets_nl | length | default(0) }}
+  },
+   "about": {
+    "@type": "MedicalBusiness",
+    "name": "Diaeta",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dieweg 99",
+      "addressLocality": "Ukkel",
+      "postalCode": "1180",
+      "addressRegion": "Brussels Hoofdstedelijk Gewest",
+      "addressCountry": "BE"
+    },
+   "telephone": "+32479355551",
+   "priceRange": "€50-€80",
+   "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'nl-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+    "description": "Diaeta is een voedingspraktijk in Brussel die gepersonaliseerde consultaties aanbiedt voor gewichtsverlies, diabetesbeheer, PDS en cholesterol.",
+    "employee": {
+      "@type": "Person",
+      "name": "Pierre Abou-Zeid",
+      "jobTitle": "Erkend Diëtist-Voedingsdeskundige (RIZIV)",
+      "url": "https://diaeta.be/nl/onze-expertise/"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Brussel"
+    },
+    "hasMap": "https://diaeta.be/nl/locaties/#mapView"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Diaeta Startpagina",
+      "item": "https://diaeta.be/nl/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Locaties",
+      "item": "https://diaeta.be/nl/locaties.html"
+    }
+  ]
+}
+</script>
+
+{% if cabinets_nl and cabinets_nl.length > 0 %}
+<script>
+  window.diaetaCabinetsData = {{ cabinets_nl | dump | safe }};
+</script>
+{% else %}
+<script>
+  window.diaetaCabinetsData = [];
+  console.warn("Diaeta Waarschuwing: window.diaetaCabinetsData (cabinets_nl) is leeg op locations.html. De praktijkzoeker toont mogelijk geen locaties.");
+</script>
+{% endif %} 
