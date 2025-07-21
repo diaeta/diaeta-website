@@ -253,22 +253,141 @@ lang: nl
 </section>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Startpagina",
-      "item": "https://diaeta.be/nl/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Prikkelbare Darm Syndroom (FODMAP)",
-      "item": "https://diaeta.be/nl/prikkelbare-darm-syndroom.html"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://diaeta.be/nl/prikkelbare-darm-syndroom/#service",
+      "serviceType": "Voedingsbeheer van het Prikkelbare Darm Syndroom (PDS)",
+      "name": "Expert PDS & Low FODMAP Dieet Beheer (Brussel & Europa)",
+      "description": "Diaeta biedt deskundige begeleiding voor het Prikkelbare Darm Syndroom (PDS) aan volwassenen in Europa, met een gepersonaliseerde benadering van het Low FODMAP-dieet door een MONASH-gecertificeerde diëtist. Gericht op het verlichten van symptomen en het verbeteren van spijsverteringscomfort.",
+      "provider": {
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/nl/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99",
+            "addressLocality": "Ukkel",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Europa"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Patiënt",
+        "description": "Volwassenen (25-50 jaar, voornamelijk vrouwen) in Europa die lijden aan het Prikkelbare Darm Syndroom en gespecialiseerde begeleiding zoeken."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diaeta.be/nl/prikkelbare-darm-syndroom/"
+      }
     }
-  ]
-}
-</script>
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          "headline": "PDS & FODMAP Dieet: Begrijpen en Verlichten | Diaeta (Brussel & Europa)",
+          "description": "Vind verlichting voor het Prikkelbare Darm Syndroom (PDS) met het Low FODMAP-dieet. Diaeta, een MONASH-gecertificeerde diëtist in Brussel, begeleidt volwassenen (Europa) naar duurzaam spijsverteringscomfort.",
+          "keywords": "Prikkelbare Darm Syndroom, PDS, Low FODMAP dieet, PDS diëtist Europa, Monash gecertificeerd, spijsverteringscomfort, opgeblazen gevoel, diaeta",
+          "url": "https://diaeta.be/nl/prikkelbare-darm-syndroom/",
+          "datePublished": "2025-05-23",
+          "dateModified": "2025-05-23",
+          "author": {
+            "@type": "Person",
+            "name": "Pierre Abou-Zeid",
+            "url": "https://diaeta.be/nl/onze-expertise/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Diaeta",
+            "url": "https://diaeta.be",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://diaeta.be/images/logo.svg"
+            }
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://diaeta.be/nl/prikkelbare-darm-syndroom/#service"
+          },
+          "about": {
+            "@type": "MedicalCondition",
+            "name": "Prikkelbare Darm Syndroom (PDS)"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Diaeta Startpagina",
+                "item": "https://diaeta.be/nl/index.html"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Prikkelbare Darm Syndroom (FODMAP)",
+                "item": "https://diaeta.be/nl/prikkelbare-darm-syndroom.html"
+              }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Is het low FODMAP-dieet erg restrictief en moeilijk te volgen?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "De initiële eliminatiefase van het Low FODMAP-dieet kan restrictief lijken, maar is tijdelijk (meestal 2-6 weken). Bij Diaeta begeleiden we u stap voor stap, met voedingslijsten, maaltijdideeën en alternatieven om het zo beheersbaar en comfortabel mogelijk te maken. Het uiteindelijke doel is om uw dieet zo veel mogelijk uit te breiden."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Als bepaalde FODMAP-rijke voedingsmiddelen mijn symptomen veroorzaken, moet ik ze dan voor altijd vermijden?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Niet noodzakelijk. Fase 2 van het protocol is juist bedoeld om methodisch elke FODMAP-groep opnieuw te introduceren om UW specifieke triggers en persoonlijke tolerantiedrempels te identificeren. Het doel is een gepersonaliseerd en zo min mogelijk restrictief dieet op de lange termijn."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Hoe helpt Diaeta mij concreet te bepalen welke FODMAPs voor mij een probleem zijn?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Uw diëtist bij Diaeta, gecertificeerd door Monash University, begeleidt u door een gestructureerd herintroductieprotocol (Fase 2). We plannen samen de herintroductietests voor elke FODMAP-familie en analyseren uw reacties om uw individuele gevoeligheden nauwkeurig te bepalen."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Kan ik nog uit eten gaan of bij vrienden eten tijdens het FODMAP-traject?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ja, hoewel het wat meer planning vergt, vooral tijdens de eliminatiefase. Uw Diaeta-diëtist geeft u praktische tips en strategieën om maaltijden buitenshuis te beheren met inachtneming van het protocol en het minimaliseren van symptomen."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Hoe lang duurt het volledige FODMAP-protocol met Diaeta en wanneer kan ik verlichting verwachten?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Het volledige protocol duurt enkele maanden. De eliminatiefase duurt ongeveer 2-6 weken, en de gestructureerde herintroductiefase ongeveer 8-12 weken. Veel patiënten ervaren al een aanzienlijke verlichting van hun symptomen tijdens de eliminatiefase. Het doel is duurzaam spijsverteringscomfort."
+                  }
+                }
+              ]
+            }
+            </script>
