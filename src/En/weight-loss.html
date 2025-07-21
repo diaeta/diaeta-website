@@ -321,22 +321,151 @@ lang: en
 </div>
 </section>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Home",
-      "item": "https://diaeta.be/en/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Weight Loss",
-      "item": "https://diaeta.be/en/weight-loss.html"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://diaeta.be/en/weight-loss/#service",
+      "serviceType": "Personalized Weight Loss Program",
+      "name": "Sustainable and Scientific Weight Loss in Brussels",
+      "description": "Diaeta offers a personalized and scientific method for sustainable weight loss in Brussels, without hunger or frustration. Approach based on your unique metabolism, with body composition analysis and follow-up by a certified dietitian.",
+      "provider": {
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/en/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99",
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Brussels"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Patient",
+        "description": "Adults (18-88 years old) seeking to lose weight in a healthy and sustainable way in Brussels."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diaeta.be/en/weight-loss/"
+      }
     }
-  ]
-}
-</script>
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          "headline": "Sustainable Weight Loss Without Hunger in Brussels | Diaeta - Certified Dietitian",
+          "description": "Lose weight sustainably in Brussels with Diaeta. Pierre Abou-Zeid, a certified dietitian, offers a scientific and personalized method to lose weight without frustration or hunger. Body composition analysis.",
+          "keywords": "weight loss, lose weight brussels, dietitian, personalized nutrition, metabolism, body composition, diaeta",
+          "url": "https://diaeta.be/en/weight-loss/",
+          "datePublished": "2025-05-23",
+          "dateModified": "2025-05-23",
+          "author": {
+            "@type": "Person",
+            "name": "Pierre Abou-Zeid",
+            "url": "https://diaeta.be/en/our-expertise/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Diaeta",
+            "url": "https://diaeta.be",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://diaeta.be/images/logo.svg"
+            }
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://diaeta.be/en/weight-loss/#service"
+             },
+           "about": [
+              {
+                "@type": "MedicalCondition",
+                "name": "Overweight"
+              },
+              {
+                "@type": "MedicalCondition",
+                "name": "Obesity"
+              },
+              {
+                 "@type": "MedicalCondition",
+                 "name": "Weight management"
+              }
+            ]
+        }
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Diaeta Home",
+                "item": "https://diaeta.be/en/index.html"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Weight Loss",
+                "item": "https://diaeta.be/en/weight-loss.html"
+              }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Will I feel hungry with the Diaeta method for weight loss?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely not. One of the pillars of the Diaeta Method is to ensure effective weight loss without ever feeling hungry. We create nutrient-dense meal plans focused on satiety, so you feel satisfied and energized throughout your journey."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What types of food will I be able to eat? Will I have to give up my favorite dishes?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our approach is 100% personalized and has no forbidden foods. We work with you to integrate the foods you love into your plan in a balanced and intelligent way. The goal is to teach you to make delicious choices that promote satiety and pleasure, leading to habits you will naturally maintain."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How much weight can I expect to lose and in how much time?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Weight loss is highly individual and depends on many factors, including your basal metabolic rate, initial body composition, activity level, and adherence to the plan. Our goal is healthy and sustainable weight loss, prioritizing fat mass loss while preserving muscle mass. During the first consultation, we will discuss realistic and personalized goals. Our patients, on average, see a significant reduction in fat mass and waist circumference after completing the program."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is body composition analysis included and what is its purpose?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, an analysis of your body composition via bioimpedance is an integral part of our follow-up. It provides a precise picture of your fat mass, muscle mass, and hydration. This data is essential for tracking your real progress beyond the number on the scale and for adapting your nutritional strategy to ensure targeted fat loss while preserving your muscle mass."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is using the mobile app mandatory with the Diaeta Method?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Using our secure mobile application is a tool we offer to facilitate tracking your food intake, communicating with your dietitian, and adjusting your plan between consultations. While it is highly recommended for optimizing your support and results, we can discuss alternatives if using it poses a challenge for you."
+                  }
+                }
+              ]
+            }
+            </script>

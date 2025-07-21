@@ -227,22 +227,147 @@ lang: en
 </section>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Home",
-      "item": "https://diaeta.be/en/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Hypertension & Cholesterol",
-      "item": "https://diaeta.be/en/hypertension-cholesterol.html"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://diaeta.be/en/hypertension-cholesterol/#service",
+      "serviceType": "Nutritional Program for Cardiovascular Health",
+      "name": "Nutritional Management of Hypertension & Cholesterol in Brussels",
+      "description": "Diaeta in Brussels offers personalized nutritional plans to manage high blood pressure and cholesterol. Scientific approaches (DASH, Portfolio) adapted by a certified dietitian for your heart health.",
+      "provider": {
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/en/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99",
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Brussels"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Patient",
+        "description": "Adults in Brussels seeking to manage their high blood pressure and/or high cholesterol through personalized, science-based nutrition."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diaeta.be/en/hypertension-cholesterol/"
+      }
     }
-  ]
-}
-</script>
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          "headline": "Hypertension & Cholesterol: Heart Health Nutrition Brussels | Diaeta",
+          "description": "Manage hypertension and high cholesterol in Brussels with Diaeta. A certified dietitian uses scientific approaches (DASH, Portfolio) for your cardiovascular health through personalized plans.",
+          "keywords": "hypertension brussels, cholesterol brussels, cardiovascular health, DASH diet, Portfolio diet, dietitian nutritionist, blood pressure, diaeta",
+          "url": "https://diaeta.be/en/hypertension-cholesterol/",
+          "datePublished": "2025-05-23",
+          "dateModified": "2025-05-23",
+          "author": {
+            "@type": "Person",
+            "name": "Pierre Abou-Zeid",
+            "url": "https://diaeta.be/en/our-expertise/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Diaeta",
+            "url": "https://diaeta.be",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://diaeta.be/images/logo.svg"
+            }
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://diaeta.be/en/hypertension-cholesterol/#service"
+          },
+          "about": [
+            {
+              "@type": "MedicalCondition",
+              "name": "Hypertension"
+            },
+            {
+              "@type": "MedicalCondition",
+              "name": "Hypercholesterolemia (High Cholesterol)"
+            }
+          ]
+        }
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Diaeta Home",
+                "item": "https://diaeta.be/en/index.html"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Hypertension & Cholesterol",
+                "item": "https://diaeta.be/en/hypertension-cholesterol.html"
+              }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Do I have to follow a very strict salt-free diet for hypertension?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Moderating sodium is crucial, but it doesn't always mean a bland, 'salt-free' diet. We help you understand where salt is hidden (often in processed foods) and adopt strategies to reduce your intake enjoyably, using herbs, spices, and naturally low-sodium foods."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What key foods will Diaeta help me integrate to improve my cholesterol?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We rely on evidence-based approaches like the Portfolio Diet, which focuses on beneficial foods: soluble fibers (oats, legumes), plant sterols, soy proteins, and nuts. Your plan will be personalized to incorporate these elements in a way that suits your tastes."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can a nutritional approach really make a significant impact, or will I still need medication?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, targeted dietary changes can have a very significant impact. Approaches like the DASH and Portfolio diets have proven effective. The goal is to optimize your cardiovascular health through nutrition. Any changes to your medication will always be made in agreement with your doctor."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does Diaeta personalize approaches like the DASH diet to my situation?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We don't rigidly apply standard protocols. We start with these solid scientific foundations and fully adapt them to your health assessment, lifestyle, and food preferences to create a unique plan that you can follow long-term."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does it take to see improvements in my blood pressure or lipid profile?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "While individual results vary, positive changes can often be observed within a few weeks to a couple of months of adhering to a tailored nutritional plan. Regular follow-ups allow us to track your progress and adjust the strategy."
+                  }
+                }
+              ]
+            }
+            </script>

@@ -3,8 +3,10 @@ layout: layouts/base.njk
 title: "Nutrigenetische Tests Brussel | Uw DNA als Sleutel tot Voeding - Diaeta"
 description: "Optimaliseer uw gezondheid met Nutrigenomix® nutrigenetische tests bij Diaeta Brussel. Ontdek hoe uw DNA uw voeding kan sturen voor gepersonaliseerde resultaten bij gewichtsbeheersing, sport, vruchtbaarheid of plantaardige voeding. Interpretatie door erkend diëtist Pierre Abou-Zeid."
 lang: nl
+canonicalUrl: "https://diaeta.be/nl/tests-nutrigenetiques/"
 ---
 
+{# HERO SECTION #}
 <section class="service-hero-wp" style="background-color: var(--primary-50);">
     <div class="container text-center">
         <span class="section-badge animate-on-scroll fade-in" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700); border: 1px solid rgba(var(--accent-rgb), 0.3);">Precisievoeding</span>
@@ -12,13 +14,14 @@ lang: nl
         <p class="lead animate-on-scroll fade-up delay-200" style="max-width: 800px; margin: 1rem auto 1.5rem;">
             Stel u een voedingsplan voor, niet voor het grote publiek, maar exclusief voor u, gebaseerd op de unieke informatie in uw genen. Bij Diaeta maken geavanceerde nutrigenetische tests het mogelijk uw genetisch profiel te ontcijferen en uw voedingsstrategie diepgaand te personaliseren voor duurzame gezondheid en welzijn.
         </p>
-        <a href="#ontdek-de-tests" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400 scroll-to">
+        <a href="#explorez-les-tests" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400 scroll-to">
             <span>Ontdek de Tests</span><i class="fas fa-chevron-down ms-2"></i>
         </a>
     </div>
 </section>
 
-<section id="introductie-nutrigenetica" class="content-section bg-white">
+{# INTRODUCTION TO NUTRIGENETICS #}
+<section id="introduction-nutrigenetique" class="content-section bg-white">
     <div class="container">
         <div class="row align-items-center g-lg-5">
             <div class="col-lg-7 animate-on-scroll fade-up">
@@ -54,7 +57,8 @@ lang: nl
     </div>
 </section>
 
-<section id="hoe-werkt-het" class="content-section" style="background-color: var(--neutral-50);">
+{# HOW IT WORKS WITH DIAETA #}
+<section id="comment-ca-marche" class="content-section" style="background-color: var(--neutral-50);">
     <div class="container">
         <div class="section-header text-center animate-on-scroll fade-up">
             <span class="section-badge">Uw Persoonlijk Traject</span>
@@ -90,14 +94,17 @@ lang: nl
     </div>
 </section>
 
-<section id="ontdek-de-tests" class="content-section bg-white">
+{# EXPLORE THE TESTS #}
+<section id="explorez-les-tests" class="content-section bg-white">
     <div class="container">
         <div class="section-header text-center animate-on-scroll fade-up">
             <span class="section-badge">Ontdek uw panel</span>
             <h2 class="section-title">Vier gerichte tests voor specifieke doelen</h2>
             <p class="section-subtitle" style="max-width: 800px;">Elke nutrigenetische test analyseert dezelfde 70 genetische markers, maar uw rapport en aanbevelingen zijn specifiek afgestemd op uw gezondheids-, prestatie-, vruchtbaarheids- of plantaardige voedingsdoelen.</p>
         </div>
+
         <div class="row g-4 justify-content-center">
+            {# Health Test Card #}
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-100">
                 <div class="test-card genetic-test-card h-100">
                     <div class="card-header text-center">
@@ -120,12 +127,14 @@ lang: nl
                     </div>
                 </div>
             </div>
+
+            {# Sport Test Card #}
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-200">
                 <div class="test-card genetic-test-card h-100">
                     <div class="card-header text-center">
                         <div class="card-icon" style="background-color: rgba(var(--accent-rgb),0.1); color: var(--accent-500);"><i class="fas fa-dumbbell"></i></div>
                         <h3>Panel Sport & Prestatie</h3>
-                        <div class="price-tag mt-2">€275</div>
+                         <div class="price-tag mt-2">€275</div>
                     </div>
                     <div class="card-body">
                         <p class="target-audience-intro"><strong>Ideaal voor:</strong> Sporters en actieve mensen die hun voeding willen optimaliseren voor prestaties, herstel en lichaamssamenstelling.</p>
@@ -137,18 +146,20 @@ lang: nl
                             <li><span class="gene-marker">FTO</span> Pas uw eiwitinname aan voor optimale lichaamssamenstelling en herstel.</li>
                             <li><span class="gene-marker">CYP1A2</span> Bepaal het effect van cafeïne op uw duurprestaties.</li>
                         </ul>
-                        <div class="diaeta-plus-box">
+                         <div class="diaeta-plus-box">
                             <strong>Het + Diaeta:</strong> Deze gegevens helpen ons uw macronutriënteninname, voedingstiming en herstelstrategieën te personaliseren voor maximale prestaties.
                         </div>
                     </div>
                 </div>
             </div>
+
+            {# Fertility Test Card #}
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-300">
                 <div class="test-card genetic-test-card h-100">
-                    <div class="card-header text-center">
+                     <div class="card-header text-center">
                         <div class="card-icon" style="background-color: rgba(var(--secondary-rgb),0.1); color: var(--secondary-500);"><i class="fas fa-venus-mars"></i></div>
                         <h3>Panel Vruchtbaarheid & Zwangerschap</h3>
-                        <div class="price-tag mt-2">€275</div>
+                         <div class="price-tag mt-2">€275</div>
                     </div>
                     <div class="card-body">
                         <p class="target-audience-intro"><strong>Ideaal voor:</strong> Mannen en vrouwen die hun natuurlijke vruchtbaarheid willen optimaliseren of zich voorbereiden op een zwangerschap met gerichte voeding.</p>
@@ -160,18 +171,20 @@ lang: nl
                             <li><span class="gene-marker">CYP2R1, GC</span> Pas uw vitamine D-inname aan, belangrijk voor vruchtbaarheid en zwangerschap.</li>
                             <li><span class="gene-marker">CYP1A2</span> Advies over cafeïnegebruik tijdens de conceptie- en zwangerschapsperiode.</li>
                         </ul>
-                        <div class="diaeta-plus-box">
+                         <div class="diaeta-plus-box">
                             <strong>Het + Diaeta:</strong> Pierre Abou-Zeid begeleidt u met nauwkeurige voedingsadviezen om uw status van essentiële micronutriënten te optimaliseren en een gezonde vruchtbaarheid en zwangerschap te ondersteunen.
                         </div>
                     </div>
                 </div>
             </div>
+
+            {# Plant-Based Test Card - CORRECTLY ADDED HERE #}
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-400">
                 <div class="test-card genetic-test-card h-100">
-                    <div class="card-header text-center">
+                     <div class="card-header text-center">
                         <div class="card-icon" style="background-color: rgba(var(--info-rgb), 0.15); color: var(--info);"><i class="fas fa-leaf"></i></div>
                         <h3>Panel Plantaardige Voeding</h3>
-                        <div class="price-tag mt-2">€275</div>
+                         <div class="price-tag mt-2">€275</div>
                     </div>
                     <div class="card-body">
                         <p class="target-audience-intro"><strong>Ideaal voor:</strong> Mensen die vegetarisch of veganistisch eten en willen zorgen dat hun voeding past bij hun unieke behoeften en tekorten voorkomen.</p>
@@ -193,75 +206,263 @@ lang: nl
     </div>
 </section>
 
-<section id="faq-nutrigenetica" class="content-section bg-light py-5">
+{# DIAETA'S EXPERTISE - BEYOND THE REPORT #}
+<section id="expertise-diaeta-interpretation" class="content-section" style="background-color: var(--primary-50);">
+    <div class="container">
+        <div class="row align-items-center g-lg-5">
+            <div class="col-lg-5 text-center animate-on-scroll fade-up order-lg-2">
+                <img src="/images/Pierre Abou-Zeid-consultation-detail.webp" alt="Pierre Abou-Zeid in een dieetconsultatie die resultaten uitlegt" class="img-fluid rounded-circle shadow-lg" style="max-width: 320px; border: 5px solid var(--primary-200);">
+            </div>
+            <div class="col-lg-7 animate-on-scroll fade-up order-lg-1">
+                <h2 style="color: var(--primary-700);">De Diaeta Expertise: Uw Genen Vertaald in een Concreet Actieplan</h2>
+                <p>Een nutrigenetisch rapport ontvangen is een fascinerende eerste stap. De ware waarde van deze informatie komt echter pas tot uiting wanneer deze wordt geïnterpreteerd door een gekwalificeerde professional en geïntegreerd in een unieke voedingsstrategie.</p>
+                <p>Bij Diaeta geeft Pierre Abou-Zeid, erkend diëtist-nutritionist en gepassioneerd door wetenschappelijke vooruitgang, u niet alleen de resultaten. Hij engageert zich om:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex">
+                        <i class="fas fa-user-tie fa-2x text-primary me-3 mt-1"></i>
+                        <div><strong>Analyseren en Contextualiseren:</strong> Uw genetische gegevens in perspectief plaatsen met uw algemene gezondheidsbalans, levensstijl, specifieke doelen en voedingsvoorkeuren.</div>
+                    </li>
+                    <li class="mb-3 d-flex">
+                        <i class="fas fa-lightbulb fa-2x text-accent me-3 mt-1"></i>
+                        <div><strong>Vertalen naar Praktische Aanbevelingen:</strong> Wetenschappelijke informatie omzetten in duidelijke, haalbare voedingsadviezen die verenigbaar zijn met de Diaeta-filosofie: met plezier eten, zonder honger of frustratie.</div>
+                    </li>
+                    <li class="mb-3 d-flex">
+                        <i class="fas fa-cogs fa-2x text-secondary me-3 mt-1"></i>
+                        <div><strong>Integreren en Personaliseren:</strong> Deze nieuwe kennis integreren in uw Diaeta-voedingsplan, of gebruiken als basis voor een nieuw, nog scherper plan.</div>
+                    </li>
+                    <li class="d-flex">
+                        <i class="fas fa-comments fa-2x text-info me-3 mt-1"></i>
+                        <div><strong>Begeleiden en Opleiden:</strong> Het 'waarom' achter elke aanbeveling uit uw genen uitleggen, zodat u een geïnformeerde speler wordt in uw eigen gezondheid.</div>
+                    </li>
+                </ul>
+                <p class="mt-3">Met de expertise van Diaeta wordt uw nutrigenetische test veel meer dan een rapport: het is een krachtige hefboom voor een duurzame gezondheidstransformatie die diep is afgestemd op wie u bent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# FAQ Section #}
+<section id="faq-nutrigenetica" class="content-section bg-white">
     <div class="container" style="max-width: 850px;">
         <div class="section-header text-center animate-on-scroll fade-up">
             <h2 class="section-title">Uw vragen over nutrigenetische tests</h2>
         </div>
-        <div class="accordion accordion-flush" id="faqAccordionNutrigenetica">
+        <div class="accordion accordion-flush" id="faqAccordionNutrigenetics">
             <div class="accordion-item animate-on-scroll fade-up delay-100">
-                <h3 class="accordion-header" id="faqNutrigeneticaHeading1">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNutrigeneticaCollapse1" aria-expanded="false" aria-controls="faqNutrigeneticaCollapse1">
-                        Zijn nutrigenetische tests voor iedereen nuttig?
+                <h2 class="accordion-header" id="faqH1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC1" aria-expanded="false" aria-controls="faqC1">
+                        Wat houdt een nutrigenetische test precies in?
                     </button>
-                </h3>
-                <div id="faqNutrigeneticaCollapse1" class="accordion-collapse collapse" aria-labelledby="faqNutrigeneticaHeading1" data-bs-parent="#faqAccordionNutrigenetica">
+                </h2>
+                <div id="faqC1" class="accordion-collapse collapse" aria-labelledby="faqH1" data-bs-parent="#faqAccordionNutrigenetics">
                     <div class="accordion-body">
-                        Nutrigenetische tests zijn vooral nuttig voor mensen die hun voeding diepgaand willen personaliseren op basis van hun genetisch profiel. Ze zijn optioneel en niet noodzakelijk voor een gezond voedingspatroon, maar kunnen waardevolle inzichten bieden voor wie zijn gezondheid wil optimaliseren.
+                        Een nutrigenetische test analyseert specifieke variaties in uw DNA (meestal uit een speekselmonster) om te bepalen hoe uw genen uw reactie op voedsel, uw behoefte aan voedingsstoffen en uw aanleg voor bepaalde gezondheids- en metabolisme-gerelateerde kenmerken kunnen beïnvloeden. Het doel is niet om ziekten te diagnosticeren, maar om informatie te verstrekken voor het personaliseren van voedings- en levensstijladviezen.
                     </div>
                 </div>
             </div>
             <div class="accordion-item animate-on-scroll fade-up delay-200">
-                <h3 class="accordion-header" id="faqNutrigeneticaHeading2">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNutrigeneticaCollapse2" aria-expanded="false" aria-controls="faqNutrigeneticaCollapse2">
-                        Worden de kosten van nutrigenetische tests vergoed?
+                <h2 class="accordion-header" id="faqH2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC2" aria-expanded="false" aria-controls="faqC2">
+                        Kunnen Nutrigenomix®-tests mij vertellen of ik een ziekte zal ontwikkelen?
                     </button>
-                </h3>
-                <div id="faqNutrigeneticaCollapse2" class="accordion-collapse collapse" aria-labelledby="faqNutrigeneticaHeading2" data-bs-parent="#faqAccordionNutrigenetica">
+                </h2>
+                <div id="faqC2" class="accordion-collapse collapse" aria-labelledby="faqH2" data-bs-parent="#faqAccordionNutrigenetics">
                     <div class="accordion-body">
-                        In België worden nutrigenetische tests doorgaans niet terugbetaald door de mutualiteit. De consultaties bij een erkend diëtist kunnen wel gedeeltelijk worden terugbetaald. Vraag uw diëtist naar de mogelijkheden.
+                        Nee, het is cruciaal te begrijpen dat Nutrigenomix®-tests geen medische diagnostische tests zijn en de ontwikkeling van ziekten niet voorspellen. Ze beoordelen aanleg of genetische gevoeligheden met betrekking tot voeding. Medische zorgen moeten met uw arts worden besproken.
                     </div>
                 </div>
             </div>
             <div class="accordion-item animate-on-scroll fade-up delay-300">
-                <h3 class="accordion-header" id="faqNutrigeneticaHeading3">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNutrigeneticaCollapse3" aria-expanded="false" aria-controls="faqNutrigeneticaCollapse3">
-                        Hoe lang duurt het voor ik mijn resultaten krijg?
+                <h2 class="accordion-header" id="faqH3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC3" aria-expanded="false" aria-controls="faqC3">
+                        Is de afname van het DNA-monster ingewikkeld of pijnlijk?
                     </button>
-                </h3>
-                <div id="faqNutrigeneticaCollapse3" class="accordion-collapse collapse" aria-labelledby="faqNutrigeneticaHeading3" data-bs-parent="#faqAccordionNutrigenetica">
+                </h2>
+                <div id="faqC3" class="accordion-collapse collapse" aria-labelledby="faqH3" data-bs-parent="#faqAccordionNutrigenetics">
                     <div class="accordion-body">
-                        De resultaten zijn meestal beschikbaar binnen 4 tot 6 weken na afname van het speekselmonster. Daarna wordt een consult ingepland voor interpretatie en integratie in uw voedingsplan.
+                        Helemaal niet. De afname is eenvoudig, niet-invasief en pijnloos. Het betreft het verzamelen van speeksel door in een speciale buis te spugen.
                     </div>
                 </div>
             </div>
             <div class="accordion-item animate-on-scroll fade-up delay-400">
-                <h3 class="accordion-header" id="faqNutrigeneticaHeading4">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNutrigeneticaCollapse4" aria-expanded="false" aria-controls="faqNutrigeneticaCollapse4">
-                        Zijn de resultaten van nutrigenetische tests vertrouwelijk?
+                <h2 class="accordion-header" id="faqH4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC4" aria-expanded="false" aria-controls="faqC4">
+                        Hoe worden mijn genetische gegevens beschermd?
                     </button>
-                </h3>
-                <div id="faqNutrigeneticaCollapse4" class="accordion-collapse collapse" aria-labelledby="faqNutrigeneticaHeading4" data-bs-parent="#faqAccordionNutrigenetica">
+                </h2>
+                <div id="faqC4" class="accordion-collapse collapse" aria-labelledby="faqH4" data-bs-parent="#faqAccordionNutrigenetics">
                     <div class="accordion-body">
-                        Ja, uw genetische gegevens worden strikt vertrouwelijk behandeld en alleen gebruikt voor uw persoonlijke voedingsadvies. Ze worden niet gedeeld met derden zonder uw toestemming.
+                        De vertrouwelijkheid van uw gegevens is een prioriteit. Nutrigenomix® gebruikt strikte beveiligingsprotocollen en uw monster wordt in het laboratorium geanonimiseerd. De resultaten worden u meegedeeld door Pierre Abou-Zeid. Diaeta respecteert de GDPR voor al uw gegevens.
                     </div>
                 </div>
             </div>
-            <div class="accordion-item animate-on-scroll fade-up delay-500">
-                <h3 class="accordion-header" id="faqNutrigeneticaHeading5">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNutrigeneticaCollapse5" aria-expanded="false" aria-controls="faqNutrigeneticaCollapse5">
-                        Kan ik mijn voedingsplan aanpassen zonder nutrigenetische test?
+             <div class="accordion-item animate-on-scroll fade-up delay-500">
+                <h2 class="accordion-header" id="faqH5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC5" aria-expanded="false" aria-controls="faqC5">
+                        Is de nutrigenetische test verplicht om door Diaeta te worden gevolgd?
                     </button>
-                </h3>
-                <div id="faqNutrigeneticaCollapse5" class="accordion-collapse collapse" aria-labelledby="faqNutrigeneticaHeading5" data-bs-parent="#faqAccordionNutrigenetica">
+                </h2>
+                <div id="faqC5" class="accordion-collapse collapse" aria-labelledby="faqH5" data-bs-parent="#faqAccordionNutrigenetics">
                     <div class="accordion-body">
-                        Absoluut. Een gepersonaliseerd voedingsplan kan ook zonder genetische test worden opgesteld, op basis van uw doelen, medische voorgeschiedenis en voorkeuren. De test biedt extra inzichten, maar is geen vereiste voor een succesvolle begeleiding.
+                        Nee, het is een optionele dienst. Onze klassieke dieetconsultaties zijn zeer uitgebreid en gepersonaliseerd zonder genetische test.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item animate-on-scroll fade-up delay-600">
+                <h2 class="accordion-header" id="faqH6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC6" aria-expanded="false" aria-controls="faqC6">
+                        Wat is inbegrepen in de prijs van €275 voor de Nutrigenomix®-test?
+                    </button>
+                </h2>
+                <div id="faqC6" class="accordion-collapse collapse" aria-labelledby="faqH6" data-bs-parent="#faqAccordionNutrigenetics">
+                    <div class="accordion-body">
+                        Het tarief van €275 dekt de Nutrigenomix®-kit, de laboratoriumanalyse van de 70 genetische markers en het gepersonaliseerde rapport. De interpretatieconsultatie met Pierre Abou-Zeid wordt apart gefactureerd tegen het tarief van een opvolgconsult.
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{# FINAL CTA SECTION #}
+<section class="final-cta-section">
+    <div class="container text-center">
+        <h2 class="animate-on-scroll fade-up">Klaar om te Ontdekken wat Uw Genen Zeggen over Uw Voeding?</h2>
+        <p class="animate-on-scroll fade-up delay-200" style="max-width: 700px; margin: 0 auto 2rem;">
+            Zet de stap naar een dieper begrip van uw lichaam. Een nutrigenetische test, geïnterpreteerd met de expertise van Diaeta, kan de katalysator zijn voor uw transformatie naar een geoptimaliseerde gezondheid en duurzaam welzijn.
+        </p>
+        <a href="/nl/afspraak/" class="btn btn-secondary btn-lg animate-on-scroll fade-up delay-400">
+            <span>Ik Maak een Afspraak om dit te Bespreken</span>
+            <i class="fas fa-calendar-alt btn-icon-right"></i>
+        </a>
+         <p class="mt-4 animate-on-scroll fade-up delay-500">
+            <small>Voor specifieke vragen over de tests alvorens een afspraak te maken, aarzel niet om <a href="/nl/contact/" class="link-light text-decoration-underline">contact met ons op te nemen</a>.</small>
+        </p>
+    </div>
+</section>
+
+{# Schema.org for this page - Ensure all IDs like #organization and #person are defined in base.njk or globally if referenced #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Nutrigenetische Tests Brussel | Uw DNA als Sleutel tot Voeding - Diaeta",
+  "description": "Optimaliseer uw gezondheid met Nutrigenomix® nutrigenetische tests bij Diaeta Brussel. Ontdek hoe uw DNA uw voeding kan sturen voor gepersonaliseerde resultaten bij gewichtsbeheersing, sport, vruchtbaarheid of plantaardige voeding. Interpretatie door erkend diëtist Pierre Abou-Zeid.",
+  "url": "https://diaeta.be/nl/tests-nutrigenetiques/",
+  "keywords": "nutrigenetische test Brussel, Nutrigenomix Diaeta, DNA voeding, genetische test diëtist, gepersonaliseerde voeding genetica, DNA gezondheid, DNA sport, DNA vruchtbaarheid, DNA plantaardig dieet, Pierre Abou-Zeid",
+  "mainEntity": {
+    "@type": "MedicalTest",
+    "name": "Nutrigenomix® Nutrigenetische Test (Panels: Gezondheid, Sport, Vruchtbaarheid, Plantaardig)",
+    "alternateName": "Nutrigenomix DNA Voedingstest",
+    "description": "Analyse van 70 genetische markers om aanbevelingen voor voeding, gezondheid en levensstijl te personaliseren. Nutrigenomix®-tests helpen individuele voedingsbehoeften, voedselovergevoeligheden en metabole aanleg te begrijpen. Interpretatie en actieplan door een Diaeta erkend diëtist.",
+    "medicalSpecialty": "DietNutrition",
+    "howPerformed": "Afname van een speekselmonster met een wattenstaafje, gevolgd door laboratoriumanalyse.",
+    "preparation": "Het wordt algemeen aanbevolen om 30 minuten voor de speekselafname niet te eten, drinken, roken of kauwgom te kauwen.",
+    "usedToDiagnose": null,
+    "usesDevice": {
+      "@type": "MedicalDevice",
+      "name": "Nutrigenomix® speekselafnamekit"
+    },
+    "provider": {
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/nl/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99",
+            "addressLocality": "Ukkel",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }
+      },
+    "offers": {
+        "@type": "Offer",
+        "itemOffered": {
+            "@type": "Service",
+            "name": "Nutrigenomix® Nutrigenetische Test (één panel naar keuze) inclusief analyserapport",
+            "provider": {"@id": "https://diaeta.be#organization"}
+        },
+        "price": "275.00",
+        "priceCurrency": "EUR",
+        "category": "Genetic Testing Service",
+        "areaServed": {"@type": "City", "name": "Brussel"}
+    }
+  },
+  "author": {"@id": "https://diaeta.be/nl/onze-expertise/#person"},
+  "publisher": {"@id": "https://diaeta.be#organization"},
+  "datePublished": "2025-05-25",
+  "dateModified": "2025-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat houdt een nutrigenetische test precies in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een nutrigenetische test analyseert specifieke variaties in uw DNA om te bepalen hoe uw genen uw reactie op voedsel, uw behoefte aan voedingsstoffen en uw aanleg voor gezondheidsgerelateerde kenmerken kunnen beïnvloeden. Het doel is om voedingsaanbevelingen te personaliseren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen Nutrigenomix®-tests mij vertellen of ik een ziekte zal ontwikkelen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, deze tests diagnosticeren geen ziekten. Ze beoordelen aanleg met betrekking tot voeding. Medische vragen moeten met uw arts worden besproken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is de afname van het DNA-monster ingewikkeld?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, het is een eenvoudige, pijnloze mondswab met een meegeleverd wattenstaafje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Zijn mijn genetische gegevens beschermd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, Nutrigenomix® en Diaeta volgen strikte protocollen voor gegevensbescherming en anonimisering, conform de GDPR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is de nutrigenetische test verplicht bij Diaeta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, het is een optionele dienst. Onze klassieke consultaties zijn al zeer gepersonaliseerd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is de wachttijd voor de resultaten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meestal 4 tot 6 weken nadat het monster door het laboratorium is ontvangen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is de interpretatieconsultatie inbegrepen in de prijs van €275?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, het tarief van €275 dekt de kit, analyse en het Nutrigenomix®-rapport. De interpretatieconsultatie met Pierre Abou-Zeid wordt apart gefactureerd."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

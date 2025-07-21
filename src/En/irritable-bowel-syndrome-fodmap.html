@@ -270,22 +270,141 @@ lang: en
 </section>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Home",
-      "item": "https://diaeta.be/en/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "IBS & FODMAP",
-      "item": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap.html"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/#service",
+      "serviceType": "Nutritional Management of Irritable Bowel Syndrome (IBS)",
+      "name": "Expert IBS & Low FODMAP Diet Management (Brussels & Europe)",
+      "description": "Diaeta offers expert guidance for Irritable Bowel Syndrome (IBS) to adults in Europe, with a personalized approach to the Low FODMAP diet by a MONASH-certified dietitian. Aims to relieve symptoms and improve digestive comfort.",
+      "provider": {
+        "@type": "DietNutrition",
+        "@id": "https://diaeta.be#organization",
+        "name": "Diaeta",
+        "url": "https://diaeta.be/en/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diaeta.be/images/logo.svg"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dieweg 99",
+            "addressLocality": "Uccle",
+            "postalCode": "1180",
+            "addressCountry": "BE"
+             }
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Europe"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Patient",
+        "description": "Adults (25-50 years, mainly women) in Europe suffering from Irritable Bowel Syndrome and seeking specialized guidance."
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/"
+      }
     }
-  ]
-}
-</script>
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          "headline": "IBS & FODMAP Diet: Understand and Relieve | Diaeta (Brussels & Europe)",
+          "description": "Find relief from Irritable Bowel Syndrome (IBS) with the Low FODMAP diet. Diaeta, a MONASH-certified dietitian in Brussels, guides adults (Europe) towards lasting digestive comfort.",
+          "keywords": "Irritable Bowel Syndrome, IBS, Low FODMAP diet, IBS dietitian Europe, Monash certified, digestive comfort, bloating, diaeta",
+          "url": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/",
+          "datePublished": "2025-05-23",
+          "dateModified": "2025-05-23",
+          "author": {
+            "@type": "Person",
+            "name": "Pierre Abou-Zeid",
+            "url": "https://diaeta.be/en/our-expertise/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Diaeta",
+            "url": "https://diaeta.be",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://diaeta.be/images/logo.svg"
+            }
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/#service"
+          },
+          "about": {
+            "@type": "MedicalCondition",
+            "name": "Irritable Bowel Syndrome (IBS)"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Diaeta Home",
+                "item": "https://diaeta.be/en/index.html"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Irritable Bowel Syndrome (FODMAP)",
+                "item": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap.html"
+              }]
+            }
+            </script>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Is the low FODMAP diet very restrictive and difficult to follow?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The initial elimination phase of the Low FODMAP diet can seem restrictive, but it is temporary (usually 2-6 weeks). At Diaeta, we guide you step-by-step, providing food lists, meal ideas, and alternatives to make it as manageable as possible. The end goal is to broaden your diet as much as possible."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "If certain high-FODMAP foods trigger my symptoms, will I have to avoid them forever?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not necessarily. Phase 2 of the protocol is precisely for methodically reintroducing each FODMAP group to identify YOUR specific triggers and personal tolerance thresholds. The goal is a personalized and minimally restrictive long-term diet."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does Diaeta help me identify the specific FODMAPs that are a problem for me?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your Diaeta dietitian, certified by Monash University, guides you through a structured reintroduction protocol (Phase 2). We plan the reintroduction tests for each FODMAP family together and analyze your reactions to accurately determine your individual sensitivities."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I still eat out at restaurants during the FODMAP process?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, although it requires more planning, especially during the elimination phase. Your Diaeta dietitian will give you practical tips and strategies for managing meals out while respecting the protocol and minimizing symptoms."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does the full FODMAP protocol with Diaeta take and when can I expect relief?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The full protocol spans several months. The elimination phase lasts about 2-6 weeks, and the structured reintroduction phase about 8-12 weeks. Many patients experience significant symptom relief early on. The goal is lasting digestive comfort."
+                  }
+                }
+              ]
+            }
+            </script>
