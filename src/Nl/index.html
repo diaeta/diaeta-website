@@ -17,107 +17,17 @@ lang: nl
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "DietNutrition",
-        "@id": "https://diaeta.be#organization",
-        "name": "Diaeta",
-        "url": "https://diaeta.be/nl/",
-        "logo": "https://diaeta.be/images/logo.svg",
-        "telephone": "+32479355551",
-        "email": "info@diaeta.be",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Dieweg 99",
-          "addressLocality": "Ukkel",
-          "postalCode": "1180",
-          "addressRegion": "Brussels Hoofdstedelijk Gewest",
-          "addressCountry": "BE"
-        },
-        "description": "Diaeta, een gecertificeerd diëtist-voedingsdeskundige in Brussel (hoofdpraktijk in Ukkel), biedt gepersonaliseerde en wetenschappelijke voeding voor duurzaam gewichtsverlies, diabetesbeheer, PDS en cholesterol. Een zorgzame en frustratievrije aanpak.",
-        "medicalSpecialty": "DietNutrition",
-        "founder": {
-          "@type": "Person",
-          "@id": "https://diaeta.be/nl/onze-expertise/#person"
-        },
-        "sameAs": [
-          "https://www.facebook.com/Dieteticien.colon.irritable/",
-          "https://www.instagram.com/expert.fodmap/",
-          "https://www.linkedin.com/in/pierre-abou-zeid/"
-        ],
-        "makesOffer": [
+        "@type": "BreadcrumbList",
+        "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Duurzaam Gewichtsverlies",
-              "url": "https://diaeta.be/nl/gewichtsverlies/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Beheer van Prikkelbare Darm Syndroom (PDS)",
-              "url": "https://diaeta.be/nl/prikkelbare-darm-syndroom/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Beheer van Type 2 Diabetes",
-              "url": "https://diaeta.be/nl/type-2-diabetes/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Beheersing van Hypertensie & Cholesterol",
-              "url": "https://diaeta.be/nl/hypertensie-cholesterol/"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Nutrigenetische Tests",
-              "url": "https://diaeta.be/nl/nutrigenetische-tests/"
-            }
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Diaeta Startpagina",
+            "item": "https://diaeta.be/nl/index.html"
           }
         ]
       }
       </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://diaeta.be/nl/",
-      "name": "Diaeta",
-      "publisher": {
-        "@type": "Organization",
-        "@id": "https://diaeta.be#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://diaeta.be/nl/zoeken?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Startpagina",
-      "item": "https://diaeta.be/nl/index.html"
-    }
-  ]
-}
-</script>
 </head>
 <body>
     {{ layoutContent | safe }}

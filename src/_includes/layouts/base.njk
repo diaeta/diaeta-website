@@ -24,31 +24,22 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Diaeta",
-      "url": "https://diaeta.be"
-    }
-    </script>
-
-    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "DietNutrition", // Consistent type
-  "@id": "https://diaeta.be#organization", // Consistent ID
+  "@type": "DietNutrition",
+  "@id": "https://diaeta.be#organization",
   "name": "Diaeta",
-  "url": "https://diaeta.be/fr/", // Main French site URL
+  "url": "https://diaeta.be/{% if lang == 'en' %}en/{% elif lang == 'nl' %}nl/{% else %}fr/{% endif %}",
   "logo": "https://diaeta.be/images/logo.svg",
   "telephone": "+32479355551",
-  "email": "info@diaeta.be", // Consistent email
-  "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
-  "address": { // Add the primary address here too for consistency
+  "email": "info@diaeta.be",
+  "description": "{% if lang == 'en' %}Pierre Abou-Zeid, certified Dietitian-Nutritionist (INAMI) in Brussels. Diaeta offers personalized and scientific nutrition for sustainable weight loss (without hunger), diabetes management, IBS, and cholesterol. A caring approach.{% elif lang == 'nl' %}Pierre Abou-Zeid, gecertificeerd diëtist-voedingsdeskundige (INAMI) in Brussel. Diaeta biedt persoonlijke en wetenschappelijke voeding voor duurzaam gewichtsverlies (zonder honger), diabetesbeheer, PDS en cholesterol. Een zorgzame aanpak.{% else %}Pierre Abou-Zeid, Diététicien Nutritionniste agréé (INAMI) à Bruxelles. Diaeta offre une nutrition personnalisée et scientifique pour perte de poids durable (sans faim), gestion du diabète, SCI, cholestérol. Approche bienveillante.{% endif %}",
+  "address": {
     "@type": "PostalAddress",
     "streetAddress": "Dieweg 99",
     "addressLocality": "Uccle",
     "postalCode": "1180",
-    "addressRegion": "Région de Bruxelles-Capitale",
+    "addressRegion": "{% if lang == 'en' %}Brussels-Capital Region{% elif lang == 'nl' %}Brussels Hoofdstedelijk Gewest{% else %}Région de Bruxelles-Capitale{% endif %}",
     "addressCountry": "BE"
   },
   "sameAs": [
@@ -57,13 +48,51 @@
     "https://www.instagram.com/expert.fodmap/",
     "https://www.tiktok.com/@expert.fodmap"
   ],
-  "priceRange": "50€-80€", // CHAMP AJOUTÉ
-  "image": { // CHAMP AJOUTÉ (avec exemple d'ImageObject)
-    "@type": "ImageObject",
-    "url": "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg",
-    "caption": "Cabinet Diaeta", 
-    "height": "800", 
-    "width": "800" 
+  "priceRange": "50€-80€",
+  "image": "https://diaeta.be/images/logo.svg",
+  "medicalSpecialty": "DietNutrition",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://diaeta.be/{% if lang == 'en' %}en/our-expertise/{% elif lang == 'nl' %}nl/onze-expertise/{% else %}fr/notre-expertise/{% endif %}#person"
+  },
+  "makesOffer": [
+    {% if lang == 'en' %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sustainable Weight Loss", "url": "https://diaeta.be/en/weight-loss/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Management of Irritable Bowel Syndrome (IBS)", "url": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Management of Type 2 Diabetes", "url": "https://diaeta.be/en/type-2-diabetes/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mastery of Hypertension & Cholesterol", "url": "https://diaeta.be/en/hypertension-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nutrigenetic Tests", "url": "https://diaeta.be/en/nutrigenetic-tests/"}}
+    {% elif lang == 'nl' %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Duurzaam Gewichtsverlies", "url": "https://diaeta.be/nl/gewichtsverlies/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheer van Prikkelbare Darm Syndroom (PDS)", "url": "https://diaeta.be/nl/prikkelbare-darm-syndroom/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheer van Type 2 Diabetes", "url": "https://diaeta.be/nl/type-2-diabetes/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheersing van Hypertensie & Cholesterol", "url": "https://diaeta.be/nl/hypertensie-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nutrigenetische Tests", "url": "https://diaeta.be/nl/nutrigenetic-tests/"}}
+    {% else %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Perte de Poids Durable", "url": "https://diaeta.be/fr/perte-de-poids/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestion du Syndrome de l'Intestin Irritable (SII/SCI)", "url": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestion du Diabète de Type 2", "url": "https://diaeta.be/fr/diabete-type-2/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maîtrise de l'Hypertension & du Cholestérol", "url": "https://diaeta.be/fr/hypertension-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tests Nutrigénétiques", "url": "https://diaeta.be/fr/tests-nutrigenetiques/"}}
+    {% endif %}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://diaeta.be/{% if lang == 'en' %}en/{% elif lang == 'nl' %}nl/{% else %}fr/{% endif %}",
+  "name": "Diaeta",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://diaeta.be#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://diaeta.be/{% if lang == 'en' %}en/search{% elif lang == 'nl' %}nl/zoeken{% else %}fr/recherche{% endif %}?q={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
 }
 </script>

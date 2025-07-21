@@ -76,6 +76,59 @@
         </div>
     </div>
 </footer>
+<div id="cookieConsentContainer" style="display: none;">
+    <div class="cookie-consent-banner active" id="cookieMainBanner">
+        <div class="container cookie-consent-content">
+            <div class="cookie-consent-text">
+                <p>We gebruiken cookies om uw ervaring op onze site te optimaliseren. Sommige cookies zijn noodzakelijk voor het functioneren van de site, terwijl andere ons helpen deze site en uw ervaring te verbeteren. U kunt ervoor kiezen om alle cookies te accepteren of uw voorkeuren aan te passen. Meer informatie vindt u in ons <a href="/nl/cookiebeleid/" class="cookie-consent-link">Cookiebeleid</a>.</p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Alles accepteren</button>
+                <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Aanpassen</button>
+                <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Alles weigeren</button> 
+            </div>
+        </div>
+    </div>
+    <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cookievoorkeuren</h3>
+                <button id="cookieModalCloseBtn" class="btn-close" aria-label="Sluiten">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>We gebruiken verschillende soorten cookies. Selecteer welke u accepteert:</p>
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <label for="cookieCatNecessary" class="category-label">Noodzakelijke cookies</label>
+                        <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                        <span class="toggle-switch-display" aria-hidden="true"></span>
+                    </div>
+                    <p class="category-description text-xs">Deze cookies zijn essentieel voor het goed functioneren van de site en kunnen niet worden uitgeschakeld.</p>
+                </div>
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <label for="cookieCatAnalytics" class="category-label">Analytische cookies</label>
+                        <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                        <span class="toggle-switch-display" aria-hidden="true"></span>
+                    </div>
+                    <p class="category-description text-xs">Deze cookies helpen ons te begrijpen hoe bezoekers de site gebruiken door informatie anoniem te verzamelen.</p>
+                </div>
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <label for="cookieCatMarketing" class="category-label">Marketingcookies</label>
+                        <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                        <span class="toggle-switch-display" aria-hidden="true"></span>
+                    </div>
+                    <p class="category-description text-xs">Deze cookies worden gebruikt om bezoekers over verschillende websites te volgen en relevante, boeiende advertenties te tonen.</p>
+                </div>
+                <p class="text-xs mt-3">Voor meer details over de specifieke cookies die worden gebruikt, raadpleeg ons <a href="/nl/cookiebeleid/" class="cookie-consent-link">Cookiebeleid</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Voorkeuren opslaan</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
