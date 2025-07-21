@@ -4,6 +4,9 @@ title: "Contact Diaeta | Diëtist-Voedingsdeskundige in Brussel"
 description: "Contacteer Pierre Abou-Zeid, diëtist-voedingsdeskundige in Brussel. Stel uw vragen via ons formulier, of vind onze contactgegevens en links om een afspraak te maken."
 lang: nl
 canonicalUrl: "https://diaeta.be/nl/contact/"
+eleventyNavigation:
+  key: Contact
+  order: 6
 ---
 
 <section class="service-hero-wp">
@@ -121,23 +124,64 @@ canonicalUrl: "https://diaeta.be/nl/contact/"
     </div>
 </section>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Startpagina",
-      "item": "https://diaeta.be/nl/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contact",
-      "item": "https://diaeta.be/nl/contact/"
+<script>
+    const contactForm = document.getElementById('contactQuestionForm');
+    const formMessageContactDiv = document.getElementById('form-message-contact');
+    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+    if (contactForm && submitButton) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Voorkomt standaard formulierinzending
+
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Verzenden...';
+            formMessageContactDiv.innerHTML = ''; // Wis vorige berichten
+
+            const formData = new FormData(contactForm);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            const backendUrl = contactForm.action;
+
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formObject)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.message || `HTTP Fout ${response.status}`);
+                    }).catch(() => {
+                        throw new Error(`HTTP Fout ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    formMessageContactDiv.innerHTML = `<div class="alert alert-success" role="alert">${data.message || 'Uw vraag is succesvol verzonden!'}</div>`;
+                    contactForm.reset();
+                } else {
+                    formMessageContactDiv.innerHTML = `<div class="alert alert-danger" role="alert">${data.message || "Er is een fout opgetreden."}</div>`;
+                }
+            })
+            .catch(error => {
+                console.error('Fout bij het verzenden van het formulier:', error);
+                formMessageContactDiv.innerHTML = `<div class="alert alert-danger" role="alert">Kan uw vraag momenteel niet verzenden. Probeer het later opnieuw of neem direct contact met ons op via telefoon/e-mail. Fout: ${error.message}</div>`;
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, 1000);
+            });
+        });
     }
-  ]
-}
-</script> 
+</script>
