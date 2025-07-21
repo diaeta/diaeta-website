@@ -22,13 +22,28 @@ let searchIndex = null;
 let debounceTimer = null;
 const $ = sel => document.querySelector(sel);
 
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, function(m) {
+    return ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[m];
+  });
+}
+
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 function highlight(text, terms) {
-  if (!terms.length) return text;
+  if (!terms.length) return escapeHtml(text);
   let pattern = terms.map(escapeRegExp).join('|');
-  return text.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
+  // Escape HTML in text before highlighting
+  let safeText = escapeHtml(text);
+  // Now highlight
+  return safeText.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
 }
 function getSnippet(content, terms, length = 160) {
   if (!content) return '';
@@ -37,7 +52,7 @@ function getSnippet(content, terms, length = 160) {
     let i = content.toLowerCase().indexOf(t.toLowerCase());
     if (i !== -1 && (idx === -1 || i < idx)) { idx = i; term = t; }
   }
-  if (idx === -1) return content.slice(0, length) + (content.length > length ? '…' : '');
+  if (idx === -1) return escapeHtml(content.slice(0, length)) + (content.length > length ? '…' : '');
   let start = Math.max(0, idx - 40);
   let end = Math.min(content.length, idx + 120);
   let snippet = content.slice(start, end);
@@ -58,17 +73,18 @@ function rankResult(item, terms) {
 function renderResults(results, query, timeMs) {
   const container = $('#search-results');
   const status = $('#search-status');
+  const safeQuery = escapeHtml(query);
   if (!query) {
     if (status) status.textContent = 'Voer een zoekterm in.';
     container.innerHTML = '';
     return;
   }
   if (!results.length) {
-    if (status) status.innerHTML = `Geen resultaten voor <strong>${query}</strong>.`;
+    if (status) status.innerHTML = `Geen resultaten voor <strong>${safeQuery}</strong>.`;
     container.innerHTML = '';
     return;
   }
-  if (status) status.innerHTML = `${results.length} resultaat${results.length > 1 ? 'en' : ''} voor <strong>${query}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
+  if (status) status.innerHTML = `${results.length} resultaat${results.length > 1 ? 'en' : ''} voor <strong>${safeQuery}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
   container.innerHTML = '<ul class="search-results-list" style="list-style:none; padding:0;">' +
     results.map(item => `
       <li style="margin-bottom:2rem;" role="listitem">

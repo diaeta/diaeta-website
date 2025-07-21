@@ -29,8 +29,11 @@ function getFiles(dir, exts = ['.html', '.njk', '.md']) {
 }
 
 function getUrlFromFile(file, lang) {
-  // Remove src/XX/ and extension, add leading slash and language
-  let rel = file.replace(/\\/g, '/').replace(/^src\/(Fr|En|Nl)\//, '');
+  // Always get the path relative to src/XX/
+  const parts = file.replace(/\\/g, '/').split('/');
+  const langDir = lang.charAt(0).toUpperCase() + lang.slice(1);
+  const langIdx = parts.findIndex(p => p === langDir);
+  let rel = parts.slice(langIdx + 1).join('/');
   rel = rel.replace(/index\.html$/, '');
   rel = rel.replace(/\.(html|njk|md)$/, '');
   if (!rel.endsWith('/')) rel += '/';

@@ -1388,3 +1388,7 @@ function initializeScrollToLinks() { /* ... as before ... */
       });
   });
 }
+
+// === INSTANT SEARCH/AUTOCOMPLETE FOR HEADER SEARCH ===
+// (Removed: rollback to simple search form)
+// ... existing code ...

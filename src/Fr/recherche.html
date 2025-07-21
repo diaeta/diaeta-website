@@ -6,10 +6,11 @@ description: "Résultats de votre recherche sur Diaeta."
 permalink: /fr/recherche/
 ---
 
+<body class="search-results-page">
 <section class="search-results-section container" style="padding-top: 6rem;">
   <h1>Résultats de recherche</h1>
   <form id="search-form" action="/fr/recherche" method="get" style="margin-bottom:2rem;">
-    <input type="text" name="q" id="search-input" placeholder="Rechercher…" value="{{ query | default('') }}" style="padding:0.5em 2em 0.5em 1em; border-radius:2em; border:1px solid #ccc; min-width: 220px;">
+    <input type="text" name="q" id="search-input" placeholder="Rechercher…" style="padding:0.5em 2em 0.5em 1em; border-radius:2em; border:1px solid #ccc; min-width: 220px;">
     <button type="submit" style="margin-left:-2.5em; background:none; border:none; color:var(--primary-700); cursor:pointer;"><i class="fa fa-search"></i></button>
   </form>
   <div id="search-results">
@@ -23,13 +24,28 @@ let searchIndex = null;
 let debounceTimer = null;
 const $ = sel => document.querySelector(sel);
 
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, function(m) {
+    return ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[m];
+  });
+}
+
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 function highlight(text, terms) {
-  if (!terms.length) return text;
+  if (!terms.length) return escapeHtml(text);
   let pattern = terms.map(escapeRegExp).join('|');
-  return text.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
+  // Escape HTML in text before highlighting
+  let safeText = escapeHtml(text);
+  // Now highlight
+  return safeText.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
 }
 function getSnippet(content, terms, length = 160) {
   if (!content) return '';
@@ -38,7 +54,7 @@ function getSnippet(content, terms, length = 160) {
     let i = content.toLowerCase().indexOf(t.toLowerCase());
     if (i !== -1 && (idx === -1 || i < idx)) { idx = i; term = t; }
   }
-  if (idx === -1) return content.slice(0, length) + (content.length > length ? '…' : '');
+  if (idx === -1) return escapeHtml(content.slice(0, length)) + (content.length > length ? '…' : '');
   let start = Math.max(0, idx - 40);
   let end = Math.min(content.length, idx + 120);
   let snippet = content.slice(start, end);
@@ -59,17 +75,18 @@ function rankResult(item, terms) {
 function renderResults(results, query, timeMs) {
   const container = $('#search-results');
   const status = $('#search-status');
+  const safeQuery = escapeHtml(query);
   if (!query) {
     if (status) status.textContent = 'Veuillez entrer un terme de recherche.';
     container.innerHTML = '';
     return;
   }
   if (!results.length) {
-    if (status) status.innerHTML = `Aucun résultat pour <strong>${query}</strong>.`;
+    if (status) status.innerHTML = `Aucun résultat pour <strong>${safeQuery}</strong>.`;
     container.innerHTML = '';
     return;
   }
-  if (status) status.innerHTML = `${results.length} résultat${results.length > 1 ? 's' : ''} pour <strong>${query}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
+  if (status) status.innerHTML = `${results.length} résultat${results.length > 1 ? 's' : ''} pour <strong>${safeQuery}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
   container.innerHTML = '<ul class="search-results-list" style="list-style:none; padding:0;">' +
     results.map(item => `
       <li style="margin-bottom:2rem;" role="listitem">
@@ -123,7 +140,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const params = new URLSearchParams(window.location.search);
       const query = params.get('q') ? params.get('q').trim() : '';
       if (input) input.value = query;
+      console.log('[DEBUG] Query param:', query, '| Input value after set:', input && input.value);
       doSearch(query);
+      console.log('[DEBUG] Called doSearch with:', query);
     })
     .catch(() => {
       const status = document.getElementById('search-status');

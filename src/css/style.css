@@ -3188,12 +3188,6 @@ with a more specific selector.
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.desktop-actions .search-form {
-    display: flex;
 }
 
 .phone-link {
@@ -3387,12 +3381,6 @@ with a more specific selector.
   margin-top: var(--space-5);
 }
 
-@media (max-width: 1134px) {
-    .site-header.menu-open .mobile-actions {
-        display: flex;
-    }
-}
-
 .mobile-actions .phone-link,
 .mobile-actions .btn {
   width: 100%;
@@ -3432,7 +3420,7 @@ with a more specific selector.
   }
 
   .desktop-actions {
-    display: none !important;
+    display: none;
   }
 
   .main-nav {
