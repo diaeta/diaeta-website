@@ -20,5 +20,13 @@ Disallow: /fr/hors-ligne.html
 Disallow: /en/offline.html
 Disallow: /nl/offline.html
 
+# Disallow search result pages and search indexes
+Disallow: /fr/recherche/
+Disallow: /en/search/
+Disallow: /nl/zoeken/
+Disallow: /search-index.fr.json
+Disallow: /search-index.en.json
+Disallow: /search-index.nl.json
+
 # Allow everything else
 Allow: / 

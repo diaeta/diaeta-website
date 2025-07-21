@@ -1,0 +1,132 @@
+---
+layout: layouts/base.njk
+lang: en
+title: "Search Results"
+description: "Your search results on Diaeta."
+permalink: /en/search/
+---
+
+<section class="search-results-section container" style="padding-top: 6rem;">
+  <h1>Search Results</h1>
+  <form id="search-form" action="/en/search" method="get" role="search" aria-label="Search on Diaeta" style="margin-bottom:2rem; display:flex; align-items:center; gap:1rem;">
+    <input type="text" name="q" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search" style="padding:0.5em 2em 0.5em 1em; border-radius:2em; border:1px solid #ccc; min-width: 220px; flex:1;">
+    <button type="submit" aria-label="Start search" style="margin-left:-2.5em; background:none; border:none; color:var(--primary-700); cursor:pointer;"><i class="fa fa-search"></i></button>
+  </form>
+  <div id="search-status" role="status" aria-live="polite" style="margin-bottom:1rem;"></div>
+  <div id="search-results" role="list"></div>
+</section>
+
+<script>
+const indexUrl = '/search-index.en.json';
+let searchIndex = null;
+let debounceTimer = null;
+const $ = sel => document.querySelector(sel);
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+function highlight(text, terms) {
+  if (!terms.length) return text;
+  let pattern = terms.map(escapeRegExp).join('|');
+  return text.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
+}
+function getSnippet(content, terms, length = 160) {
+  if (!content) return '';
+  let idx = -1, term = '';
+  for (let t of terms) {
+    let i = content.toLowerCase().indexOf(t.toLowerCase());
+    if (i !== -1 && (idx === -1 || i < idx)) { idx = i; term = t; }
+  }
+  if (idx === -1) return content.slice(0, length) + (content.length > length ? '…' : '');
+  let start = Math.max(0, idx - 40);
+  let end = Math.min(content.length, idx + 120);
+  let snippet = content.slice(start, end);
+  if (start > 0) snippet = '…' + snippet;
+  if (end < content.length) snippet = snippet + '…';
+  return highlight(snippet, terms);
+}
+function rankResult(item, terms) {
+  let score = 0;
+  for (let t of terms) {
+    let re = new RegExp(escapeRegExp(t), 'i');
+    if (item.title && re.test(item.title)) score += 10;
+    if (item.summary && re.test(item.summary)) score += 5;
+    if (item.content && re.test(item.content)) score += 2;
+  }
+  return score;
+}
+function renderResults(results, query, timeMs) {
+  const container = $('#search-results');
+  const status = $('#search-status');
+  if (!query) {
+    if (status) status.textContent = 'Please enter a search term.';
+    container.innerHTML = '';
+    return;
+  }
+  if (!results.length) {
+    if (status) status.innerHTML = `No results for <strong>${query}</strong>.`;
+    container.innerHTML = '';
+    return;
+  }
+  if (status) status.innerHTML = `${results.length} result${results.length > 1 ? 's' : ''} for <strong>${query}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
+  container.innerHTML = '<ul class="search-results-list" style="list-style:none; padding:0;">' +
+    results.map(item => `
+      <li style="margin-bottom:2rem;" role="listitem">
+        <a href="${item.url}" style="font-size:1.2em; font-weight:600; color:var(--primary-700); text-decoration:none;">${highlight(item.title, query.split(' '))}</a>
+        <p style="margin:0.5em 0 0.2em 0; color:#555;">${highlight(item.summary || '', query.split(' '))}</p>
+        <p style="font-size:0.95em; color:#888;">${getSnippet(item.content, query.split(' '))}</p>
+      </li>
+    `).join('') +
+    '</ul>';
+}
+function doSearch(query) {
+  if (!searchIndex) return;
+  if (!query) {
+    renderResults([], '', 0);
+    return;
+  }
+  const terms = query.trim().split(/\s+/).filter(Boolean);
+  const t0 = performance.now();
+  let results = searchIndex.filter(item =>
+    terms.some(t =>
+      (item.title && item.title.toLowerCase().includes(t.toLowerCase())) ||
+      (item.summary && item.summary.toLowerCase().includes(t.toLowerCase())) ||
+      (item.content && item.content.toLowerCase().includes(t.toLowerCase()))
+    )
+  );
+  results = results
+    .map(item => ({ ...item, _score: rankResult(item, terms) }))
+    .filter(item => item._score > 0)
+    .sort((a, b) => b._score - a._score);
+  const t1 = performance.now();
+  renderResults(results, query, Math.round(t1 - t0));
+}
+function handleInput(e) {
+  const query = e.target.value.trim();
+  if (debounceTimer) clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => doSearch(query), 150);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('search-input');
+  const form = document.getElementById('search-form');
+  if (input) input.addEventListener('input', handleInput);
+  if (form) form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    doSearch(input.value.trim());
+  });
+  fetch(indexUrl)
+    .then(res => res.json())
+    .then(data => {
+      searchIndex = data;
+      // Initial search if query param present
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('q') ? params.get('q').trim() : '';
+      if (input) input.value = query;
+      doSearch(query);
+    })
+    .catch(() => {
+      const status = document.getElementById('search-status');
+      if (status) status.textContent = "Error loading search index.";
+    });
+});
+</script> 

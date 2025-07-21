@@ -13,6 +13,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/fonts");
     eleventyConfig.addPassthroughCopy("src/videos");
     eleventyConfig.addPassthroughCopy("src/_data/cabinets.json"); // To make cabinets.json available if needed client-side
+    // Copy search indexes to output root
+    eleventyConfig.addPassthroughCopy({ "src/search-index.fr.json": "search-index.fr.json" });
+    eleventyConfig.addPassthroughCopy({ "src/search-index.en.json": "search-index.en.json" });
+    eleventyConfig.addPassthroughCopy({ "src/search-index.nl.json": "search-index.nl.json" });
 
     // --- Add Shortcode for Current Year ---
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);

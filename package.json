@@ -28,6 +28,8 @@
     "stylelint-config-standard": "^38.0.0"
   },
   "dependencies": {
-    "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+    "gray-matter": "^4.0.3",
+    "jsdom": "^26.1.0"
   }
 }
