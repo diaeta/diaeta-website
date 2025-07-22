@@ -1,0 +1,115 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: cabinets_de
+  size: 1
+  alias: clinic
+permalink: "/de/praxis/{{ clinic.id }}/index.html"
+eleventyComputed:
+  title: "{{ clinic.name }} - Diaeta Ernährungsberatung | {{ clinic.city }}"
+  description: "Vereinbaren Sie einen Termin mit Pierre Abou-Zeid in der Praxis {{ clinic.name }} in {{ clinic.city }}. Professionelle Ernährungsberatung und personalisierte Behandlung."
+  clinic_name: "{{ clinic.name }}"
+lang: de
+---
+
+<section class="service-hero rd-hero">
+    <div class="container">
+        <div class="rd-hero-content">
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-map-marker-alt hero-badge-icon"></i>Diaeta Praxis</span>
+            <h1 class="animate-on-scroll fade-up">{{ clinic.name }}</h1>
+            <p class="lead animate-on-scroll fade-up delay-200">
+                Ihre Ernährungsberatung mit Pierre Abou-Zeid in {{ clinic.city }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="clinic-details">
+                    <h2>Adresse & Kontakt</h2>
+                    <div class="clinic-info-card">
+                        <div class="clinic-info-header">
+                            <h3>{{ clinic.name }}</h3>
+                            <div class="clinic-address">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                                <div>
+                                    <p>{{ clinic.fullAddress }}</p>
+                                    {% if clinic.Maps_link %}
+                                    <a href="{{ clinic.Maps_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
+                                        <i class="fa-solid fa-external-link-alt"></i> Route anzeigen
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if clinic.notes %}
+                        <div class="clinic-notes">
+                            <i class="fa-solid fa-info-circle"></i>
+                            <p>{{ clinic.notes }}</p>
+                        </div>
+                        {% endif %}
+
+                        {% if clinic.opening_hours %}
+                        <div class="clinic-hours">
+                            <h4><i class="fa-solid fa-clock"></i> Öffnungszeiten</h4>
+                            <ul class="hours-list">
+                                {% for day in clinic.opening_hours %}
+                                <li>
+                                    <strong>{{ day.dayOfWeekFRENCH }}:</strong>
+                                    {% for slot in day.timeSlots %}
+                                        {{ slot.opens }} - {{ slot.closes }}{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% if clinic.hours_details_note %}
+                            <p class="hours-note"><em>{{ clinic.hours_details_note }}</em></p>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="clinic-cta-sidebar">
+                    <div class="cta-card">
+                        <h3>Termin vereinbaren</h3>
+                        <p>Buchen Sie Ihren Beratungstermin bei Pierre Abou-Zeid</p>
+                        {% if clinic.doctorpracticeId %}
+                        <a href="https://app.doctorpractice.be/profile/{{ clinic.doctorpracticeId }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="fa-solid fa-calendar-check"></i> Online Buchen
+                        </a>
+                        {% endif %}
+                        <a href="tel:+32479355551" class="btn btn-outline-primary w-100">
+                            <i class="fa-solid fa-phone"></i> +32 479 35 55 51
+                        </a>
+                    </div>
+
+                    <div class="clinic-services">
+                        <h4>Unsere Leistungen</h4>
+                        <ul>
+                            <li><a href="/de/gewichtsverlust/">Gewichtsverlust</a></li>
+                            <li><a href="/de/reizdarmsyndrom-fodmap/">Reizdarmsyndrom (FODMAP)</a></li>
+                            <li><a href="/de/diabetes-typ-2/">Diabetes Typ 2</a></li>
+                            <li><a href="/de/bluthochdruck-cholesterin/">Bluthochdruck & Cholesterin</a></li>
+                            <li><a href="/de/nutrigenetische-tests/">Nutrigenetische Tests</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if clinic.coordinates %}
+<section class="clinic-map-section">
+    <div class="container-fluid p-0">
+        <div id="clinic-map" class="clinic-map" data-lat="{{ clinic.coordinates[0] }}" data-lng="{{ clinic.coordinates[1] }}" data-name="{{ clinic.name }}"></div>
+    </div>
+</section>
+{% endif %}

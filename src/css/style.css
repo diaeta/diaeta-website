@@ -3095,7 +3095,6 @@ with a more specific selector.
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   /* Ensure no overflowing content */
   overflow: visible;
@@ -3113,6 +3112,7 @@ with a more specific selector.
   position: relative;
   z-index: 60;
   flex-shrink: 0;
+  order: 0;
 }
 
 .logo img {
@@ -3130,6 +3130,9 @@ with a more specific selector.
 .main-nav {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: center;
+  order: 1;
 }
 
 .nav-list {
@@ -3188,6 +3191,54 @@ with a more specific selector.
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  order: 2;
+  margin-left: var(--space-6);
+}
+
+/* Search Container - Separate from desktop-actions */
+.search-container {
+  margin-left: auto;
+  flex-shrink: 0;
+  order: 3;
+  padding-left: var(--space-6);
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  min-width: 180px;
+  padding: 0.3em 2.5em 0.3em 1em;
+  border-radius: 2em;
+  border: 1px solid #ccc;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-form input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.search-form button {
+  position: absolute;
+  right: 0.5em;
+  background: none;
+  border: none;
+  color: var(--primary-700);
+  cursor: pointer;
+  padding: 0.25em;
+  border-radius: 50%;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.search-form button:hover {
+  color: var(--primary-500);
+  background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 .phone-link {
@@ -3351,10 +3402,11 @@ with a more specific selector.
   font-size: 1.5rem;
   cursor: pointer;
   padding: var(--space-2);
-  margin-left: var(--space-2);
+  margin-left: auto;
   z-index: 60;
   border-radius: var(--border-radius-md);
   transition: background-color 0.2s ease;
+  order: 10;
 
   /* Fix for half-visible icon */
   position: relative;
@@ -3414,13 +3466,14 @@ with a more specific selector.
   }
 }
 
-@media (max-width: 1134px) {
+@media (max-width: 1686px) {
   .menu-toggle {
     display: flex !important;
   }
 
-  .desktop-actions {
-    display: none;
+  .desktop-actions,
+  .search-container {
+    display: none !important;
   }
 
   .main-nav {

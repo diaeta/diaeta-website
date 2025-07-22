@@ -24,8 +24,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
+    {
+      "@context": "https://schema.org",
   "@type": "DietNutrition",
   "@id": "https://diaeta.be#organization",
   "name": "Diaeta",
@@ -106,6 +106,10 @@
         {% include "partials/header_en.njk" %}
     {% elif lang == 'nl' %}
         {% include "partials/header_nl.njk" %}
+    {% elif lang == 'de' %}
+        {% include "partials/header_de.njk" %}
+    {% elif lang == 'ar' %}
+        {% include "partials/header_ar.njk" %}
     {% else %}
         {% include "partials/header.njk" %} {# Default to French #}
     {% endif %}
@@ -120,6 +124,10 @@
         {% include "partials/footer_en.njk" %}
     {% elif lang == 'nl' %}
         {% include "partials/footer_nl.njk" %}
+    {% elif lang == 'de' %}
+        {% include "partials/footer_de.njk" %}
+    {% elif lang == 'ar' %}
+        {% include "partials/footer_ar.njk" %}
     {% else %}
         {% include "partials/footer.njk" %} {# Default to French #}
     {% endif %}

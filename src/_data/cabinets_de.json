@@ -1,0 +1,313 @@
+[
+  {
+    "id": "espace-pluridys",
+    "name": "Espace Pluridys",
+    "address_obj": {
+      "streetName": "Dieweg",
+      "streetNumber": "99",
+      "postalCode": "1180",
+      "city": "Uccle",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Dieweg 99, 1180 Uccle, Brüssel",
+    "zip": "1180",
+    "city": "Uccle",
+    "Maps_link": "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles",
+    "doctorpracticeId": "84434",
+    "notes": "Kostenlose Parkplätze vor dem Zentrum verfügbar.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Mittwoch",
+        "dayOfWeekSCHEMA": "Wednesday",
+        "timeSlots": [
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden jeden Mittwoch.",
+    "coordinates": [50.795910, 4.347600]
+  },
+  {
+    "id": "basilik-k-sante",
+    "name": "Basili-K Santé",
+    "address_obj": {
+      "streetName": "Avenue Seghers",
+      "streetNumber": "99",
+      "postalCode": "1081",
+      "city": "Koekelberg",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Avenue Seghers 99, 1081 Koekelberg, Brüssel",
+    "zip": "1081",
+    "city": "Koekelberg",
+    "Maps_link": "https://maps.google.com/?q=Avenue+Seghers+99,+1081+Koekelberg,+Bruxelles",
+    "doctorpracticeId": "84474",
+    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekSCHEMA": "Saturday",
+        "timeSlots": [
+          {"opens": "09:00", "closes": "13:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden jeden Samstagmorgen.",
+    "coordinates": [50.864650, 4.320200]
+  },
+  {
+    "id": "centre-medic-alix",
+    "name": "Centre Médic-Alix",
+    "address_obj": {
+      "streetName": "Parvis Sainte-Alix",
+      "streetNumber": "3",
+      "postalCode": "1150",
+      "city": "Woluwe-Saint-Pierre",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Parvis Sainte-Alix 3, 1150 Woluwe-Saint-Pierre, Brüssel",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.google.com/?q=Parvis+Sainte-Alix+3,+1150+Woluwe-Saint-Pierre,+Bruxelles",
+    "doctorpracticeId": "117961",
+    "notes": "Einfaches Parken vor dem Zentrum.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekSCHEMA": "Tuesday",
+        "timeSlots": [
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden dienstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "coordinates": [50.827480, 4.461210]
+  },
+  {
+    "id": "centre-medical-tenbosch-chatelain",
+    "name": "Centre Médical Tenbosch-Châtelain",
+    "address_obj": {
+      "streetName": "Rue Tenbosch",
+      "streetNumber": "85",
+      "postalCode": "1050",
+      "city": "Ixelles",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Rue Tenbosch 85, 1050 Ixelles, Brüssel",
+    "zip": "1050",
+    "city": "Ixelles",
+    "Maps_link": "https://maps.google.com/?q=Rue+Tenbosch+85,+1050+Ixelles,+Bruxelles",
+    "doctorpracticeId": "86140",
+    "notes": "Kostenpflichtige Parkplätze vor dem Zentrum verfügbar.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekSCHEMA": "Thursday",
+        "timeSlots": [
+          {"opens": "13:00", "closes": "18:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekSCHEMA": "Saturday",
+        "timeSlots": [
+          {"opens": "14:00", "closes": "18:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden donnerstagnachmittags (alle zwei Wochen) und jeden Samstagnachmittag (Verfügbarkeit prüfen).",
+    "coordinates": [50.821350, 4.361130]
+  },
+  {
+    "id": "centre-revago",
+    "name": "Centre REVAGO",
+    "address_obj": {
+      "streetName": "Avenue du Roi Albert",
+      "streetNumber": "187",
+      "postalCode": "1082",
+      "city": "Berchem-Sainte-Agathe",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Avenue du Roi Albert 187, 1082 Berchem-Sainte-Agathe, Brüssel",
+    "zip": "1082",
+    "city": "Berchem-Sainte-Agathe",
+    "Maps_link": "https://maps.google.com/?q=Avenue+du+Roi+Albert+187,+1082+Berchem-Sainte-Agathe,+Bruxelles",
+    "doctorpracticeId": "113544",
+    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekSCHEMA": "Tuesday",
+        "timeSlots": [
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden dienstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "coordinates": [50.866860, 4.287240]
+  },
+  {
+    "id": "centre-etrimaux",
+    "name": "Les Etrimaux",
+    "address_obj": {
+      "streetName": "Drève de Nivelles",
+      "streetNumber": "168",
+      "postalCode": "1150",
+      "city": "Woluwe-Saint-Pierre",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Drève de Nivelles 168, 1150 Woluwe-Saint-Pierre, Brüssel",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.google.com/?q=Drève+de+Nivelles+168,+1150+Woluwe-Saint-Pierre,+Bruxelles",
+    "doctorpracticeId": "96326",
+    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekSCHEMA": "Monday",
+        "timeSlots": [
+          {"opens": "12:30", "closes": "16:30"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden montagnachmittags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "coordinates": [50.824880, 4.411230]
+  },
+  {
+    "id": "centre-mediwoluwe",
+    "name": "Mediwoluwe",
+    "address_obj": {
+      "streetName": "Avenue de Broqueville",
+      "streetNumber": "9",
+      "postalCode": "1150",
+      "city": "Woluwe-Saint-Pierre",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Avenue de Broqueville 9, 1150 Woluwe-Saint-Pierre, Brüssel",
+    "zip": "1150",
+    "city": "Woluwe-Saint-Pierre",
+    "Maps_link": "https://maps.google.com/?q=Avenue+de+Broqueville+9,+1150+Woluwe-Saint-Pierre,+Bruxelles",
+    "doctorpracticeId": "86003",
+    "notes": "Kostenpflichtige Parkplätze vor dem Zentrum verfügbar.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekSCHEMA": "Monday",
+        "timeSlots": [
+          {"opens": "11:00", "closes": "21:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden jeden Montag.",
+    "coordinates": [50.838350, 4.409340]
+  },
+  {
+    "id": "wolu20-medical-center",
+    "name": "Wolu20 Medical Center",
+    "address_obj": {
+      "streetName": "Avenue Marcel Thiry",
+      "streetNumber": "20",
+      "postalCode": "1200",
+      "city": "Woluwe-Saint-Lambert",
+      "region": "Region Brüssel-Hauptstadt",
+      "country": "BE"
+    },
+    "fullAddress": "Avenue Marcel Thiry 20, 1200 Woluwe-Saint-Lambert, Brüssel",
+    "zip": "1200",
+    "city": "Woluwe-Saint-Lambert",
+    "Maps_link": "https://maps.google.com/?q=Avenue+Marcel+Thiry+20,+1200+Woluwe-Saint-Lambert,+Bruxelles",
+    "doctorpracticeId": "117960",
+    "notes": "Einfaches Parken vor dem Zentrum.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekSCHEMA": "Thursday",
+        "timeSlots": [
+          {"opens": "13:30", "closes": "20:30"}
+        ]
+      }
+    ],
+    "hours_details_note": "Sprechstunden donnerstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "coordinates": [50.854990, 4.440910]
+  },
+  {
+    "id": "video",
+    "name": "Video Beratung",
+    "address_obj": null,
+    "fullAddress": "Aus der Ferne (online von zu Hause)",
+    "zip": null,
+    "city": null,
+    "Maps_link": null,
+    "doctorpracticeId": "121864",
+    "notes": "Ernährungsberatung, wo immer Sie sind.",
+    "hours_type": "specific",
+    "opening_hours": [
+      {
+        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekSCHEMA": "Monday",
+        "timeSlots": [
+          {"opens": "12:30", "closes": "16:30"},
+          {"opens": "17:00", "closes": "21:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekSCHEMA": "Tuesday",
+        "timeSlots": [
+          {"opens": "10:00", "closes": "13:00"},
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Mittwoch",
+        "dayOfWeekSCHEMA": "Wednesday",
+        "timeSlots": [
+          {"opens": "10:00", "closes": "13:00"},
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekSCHEMA": "Thursday",
+        "timeSlots": [
+          {"opens": "10:00", "closes": "13:00"},
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Freitag",
+        "dayOfWeekSCHEMA": "Friday",
+        "timeSlots": [
+          {"opens": "10:00", "closes": "13:00"},
+          {"opens": "14:00", "closes": "20:00"}
+        ]
+      },
+      {
+        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekSCHEMA": "Saturday",
+        "timeSlots": [
+          {"opens": "10:00", "closes": "13:00"},
+          {"opens": "14:00", "closes": "18:00"}
+        ]
+      }
+    ],
+    "hours_details_note": "Viele verfügbare Termine für Teleberatung.",
+    "coordinates": null
+  }
+]

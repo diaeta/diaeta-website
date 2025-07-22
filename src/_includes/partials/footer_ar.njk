@@ -1,0 +1,82 @@
+<footer class="footer" dir="rtl" style="text-align: right;">
+    <div class="container footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="{{ '/ar/' | url }}" class="footer-logo mb-3">
+                    <img src="{{ '/images/logo.svg' | url }}" alt="شعار دياتا - التغذية الشخصية والعلمية" style="height: 50px; width: auto;">
+                </a>
+                <p class="footer-about text-sm">
+                    دياتا تحول صحتك من خلال حلول غذائية شخصية مبنية على العلم من أجل رفاهية مستدامة.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="فيسبوك دياتا"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="إنستغرام دياتا"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="لينكد إن بيير أبو زيد"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="تيك توك دياتا"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">استكشف دياتا</h3>
+                <ul class="footer-links">
+                    <li><a href="{{ '/ar/' | url }}" class="footer-link">الصفحة الرئيسية</a></li>
+                    <li><a href="{{ '/ar/طريقة-دياتا/' | url }}" class="footer-link">الطريقة</a></li>
+                    <li><a href="{{ '/ar/خبرتنا/' | url }}" class="footer-link">خبرتنا</a></li>
+                    <li><a href="{{ '/ar/الأسعار/' | url }}" class="footer-link">الأسعار</a></li>
+                    <li><a href="{{ '/ar/الأخبار/' | url }}" class="footer-link">المدونة</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">خدماتنا</h3>
+                <ul class="footer-links">
+                    <li><a href="{{ '/ar/فقدان-الوزن/' | url }}" class="footer-link">فقدان الوزن</a></li>
+                    <li><a href="{{ '/ar/متلازمة-القولون-العصبي/' | url }}" class="footer-link">متلازمة القولون العصبي</a></li>
+                    <li><a href="{{ '/ar/السكري-النوع-الثاني/' | url }}" class="footer-link">السكري النوع الثاني</a></li>
+                    <li><a href="{{ '/ar/ضغط-الدم-الكوليسترول/' | url }}" class="footer-link">ضغط الدم والكوليسترول</a></li>
+                    <li><a href="{{ '/ar/الاختبارات-الغذائية-الجينية/' | url }}" class="footer-link">الاختبارات الغذائية الجينية</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">المؤهلات</h3>
+                <ul class="footer-links text-sm">
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="footer-contact-text">أخصائي تغذية معتمد (INAMI)</div>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-shield-alt"></i></div>
+                        <div class="footer-contact-text">معتمد FODMAP من جامعة موناش</div>
+                    </li>
+                     <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="footer-contact-text"><a href="mailto:info@diaeta.be" class="footer-link" style="padding: 0;">info@diaeta.be</a></div>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="footer-contact-text"><a href="tel:+32479355551" class="footer-link" style="padding: 0;">+32 479 35 55 51</a></div>
+                    </li>
+                </ul>
+                 <a href="{{ '/ar/حجز-موعد/' | url }}" class="btn btn-accent btn-sm d-block mt-3" style="max-width: 200px;">
+                    <i class="fa-solid fa-calendar-check me-1"></i> موعد أونلاين
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright text-xs">
+                &copy; <span id="currentYear"></span> دياتا. جميع الحقوق محفوظة.
+            </p>
+            <div class="footer-legal text-xs">
+                <a href="{{ '/ar/سياسة-الخصوصية/' | url }}" class="footer-legal-link">سياسة الخصوصية</a>
+                <a href="{{ '/ar/سياسة-ملفات-تعريف-الارتباط/' | url }}" class="footer-legal-link">سياسة ملفات تعريف الارتباط</a>
+                <a href="{{ '/ar/الإشعار-القانوني/' | url }}" class="footer-legal-link">الإشعار القانوني</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
