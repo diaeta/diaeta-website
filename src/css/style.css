@@ -3647,8 +3647,8 @@ with a more specific selector.
   /* Menu toggle positioning fix for mobile */
   .menu-toggle {
     margin-right: 8px;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     font-size: 1.4rem;
     display: flex !important;
     align-items: center;
@@ -4636,45 +4636,9 @@ section {
   font-weight: var(--font-medium);
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  transition: all 0.25s ease-out;
-  cursor: pointer;;
+  cursor: default;
   border: 1px solid rgba(var(--accent-rgb), 0.3); 
   box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-}
-
-.science-badge::after {
-  content: "\f05a";
-  font-family: 'Font Awesome 6 Free'; 
-  font-weight: 900; 
-  font-size: 1em;
-  line-height: 1;
-  opacity: 0.8;
-  transition:  transform 0.25s ease-out, color 0.25s ease-out;
-  animation: pulse-icon 2.5s infinite ease-in-out;
-}
-
-.science-badge:hover {
-  background-color: rgba(140, 198, 63, 0.2);
-  transform: translateY(-2px);
-}
-
-.science-badge:hover::after,
-.science-badge:focus-visible::after {
-  transform: scale(1.2); /* Enlarge icon slightly */
-  opacity: 1;
-  color: var(--accent-600); /* Darken icon */
-}
-
-/* Active State (when clicked) */
-.science-badge:active {
-  transform: translateY(0px) scale(1); /* Press down effect */
-  box-shadow: 0 2px 4px rgba(var(--accent-rgb),0.1);
-  background-color: rgba(var(--accent-rgb), 0.25);
-}
-
-@keyframes pulse-icon {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .science-title {

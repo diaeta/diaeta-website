@@ -1,20 +1,68 @@
 ---
 layout: layouts/base.njk
-title: "دياتا بروكسل: أخصائي تغذية معتمد - التغذية الشخصية والعلمية"
-description: بيير أبو زيد، أخصائي تغذية معتمد (INAMI) في بروكسل. دياتا تقدم تغذية شخصية وعلمية لفقدان الوزن المستدام (بدون جوع)، إدارة السكري، متلازمة القولون العصبي والكوليسترول. نهج رعاية شامل.
+title: "أخصائي تغذية معتمد في بروكسل | دايتا - علم التغذية"
+description: "بيير أبو زيد، أخصائي التغذية المعتمد (INAMI) في بروكسل. تقدم دايتا نهجًا شخصيًا وعلميًا لفقدان الوزن المستدام، إدارة السكري، متلازمة القولون العصبي، والكوليسترول. احصل على خبرة متعاطفة ونتائج ملموسة."
 lang: ar
 ---
-<!-- Only keep BreadcrumbList schema in <head> -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "الصفحة الرئيسية دياتا",
-      "item": "https://diaeta.be/ar/index.html"
+      "@type": "WebSite",
+      "name": "دايتا",
+      "url": "https://diaeta.be/ar/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://diaeta.be/ar/البحث/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "ar-BE"
+    },
+    {
+      "@type": "Organization",
+      "name": "دايتا",
+      "url": "https://diaeta.be/ar/",
+      "logo": "https://diaeta.be/images/logo.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/pierre-abou-zeid-b8a734103/"
+      ]
+    },
+    {
+      "@type": "MedicalBusiness",
+      "name": "دايتا - استشارات التغذية بيير أبو زيد",
+      "description": "أخصائي تغذية معتمد في بروكسل متخصص في فقدان الوزن المستدام، السكري، متلازمة القولون العصبي، والكوليسترول.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue de Tervueren 232",
+        "addressLocality": "بروكسل",
+        "postalCode": "1150",
+        "addressCountry": "BE"
+      },
+      "telephone": "+32492523823",
+      "email": "info@diaeta.be",
+      "openingHours": "Mo-Fr 09:00-19:00",
+      "priceRange": "€50 - €80",
+      "image": "https://diaeta.be/images/Pierre%20Abou-Zeid.jpg",
+      "url": "https://diaeta.be/ar/",
+      "founder": {
+        "@type": "Person",
+        "name": "Pierre Abou-Zeid",
+        "jobTitle": "أخصائي تغذية معتمد",
+        "image": "https://diaeta.be/images/Pierre%20Abou-Zeid.jpg",
+        "url": "https://www.linkedin.com/in/pierre-abou-zeid-b8a734103/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "دايتا الرئيسية",
+          "item": "https://diaeta.be/ar/index.html"
+        }
+      ]
     }
   ]
 }
@@ -31,17 +79,17 @@ lang: ar
         </div>
         <div class="container hero-content">
             <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>علم التغذية المتقدم</span></div>
-            <h1 class="hero-headline animate-on-scroll fade-up">التغذية العلمية، النتائج المستدامة. صحتك، <span class="text-accent">مُعاد اختراعها.</span></h1>
-            <p class="hero-tagline animate-on-scroll fade-up delay-200">خبرة أخصائي تغذية مبتكر للحلول المتطورة في فقدان الوزن، متلازمة القولون العصبي وصحة الأيض.</p>
-            <div class="hero-description animate-on-scroll fade-up delay-300"><p>في دياتا، ندمج <span class="text-highlight">أحدث الأبحاث</span> و<span class="text-highlight">التكنولوجيا</span> مع نهج إنساني للحصول على نتائج يمكنك رؤيتها وشعورها.</p></div>
+            <h1 class="hero-headline animate-on-scroll fade-up">تغذية علمية، نتائج مستدامة. صحتكم، <span class="text-accent">نعيد تعريفها.</span></h1>
+            <p class="hero-tagline animate-on-scroll fade-up delay-200">خبرة أخصائي تغذية مبتكر لحلول متطورة في فقدان الوزن، متلازمة القولون العصبي، وصحة التمثيل الغذائي في بروكسل.</p>
+            <div class="hero-description animate-on-scroll fade-up delay-300"><p>في دايتا، ندمج <span class="text-highlight">أحدث الأبحاث</span> مع <span class="text-highlight">المتابعة الشخصية</span> لتحقيق نتائج ملموسة يمكنكم رؤيتها والإحساس بها.</p></div>
             <div class="feature-badges animate-on-scroll fade-up delay-400">
-                <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>نهج علمي</span></div>
+                <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>نهج قائم على الأدلة</span></div>
                 <div class="feature-badge"><i class="fa-solid fa-chart-line"></i><span>نتائج مستدامة</span></div>
-                <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% شخصي</span></div>
+                <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>شخصي 100%</span></div>
             </div>
             <div class="hero-cta animate-on-scroll fade-up delay-500">
-                <a href="/ar/حجز-موعد/" class="btn btn-primary pulse-animation"><span>حجز موعد</span><i class="fa-solid fa-arrow-left btn-icon-right"></i></a>
-                <a href="#approche" class="btn btn-outline scroll-to"><span>اكتشف نهجنا</span><i class="fa-solid fa-chevron-left btn-icon-right"></i></a>
+                <a href="/ar/حجز-موعد/" class="btn btn-primary pulse-animation"><span>احجزوا موعدكم</span><i class="fa-solid fa-arrow-left btn-icon-right"></i></a>
+                <a href="#approche" class="btn btn-outline scroll-to"><span>اكتشفوا نهجنا</span><i class="fa-solid fa-chevron-left btn-icon-right"></i></a>
             </div>
         </div>
     </section>
@@ -50,32 +98,32 @@ lang: ar
       <div class="container">
           <div class="science-grid">
               <div class="science-content animate-on-scroll fade-up">
-                  <span class="science-badge">فلسفتنا</span>
-                  <h2 class="science-title">حيث تلتقي علوم التغذية بالابتكار التكنولوجي</h2>
-                  <p class="science-description">في دياتا، لا نتبع العلم فحسب، بل ندمجه. بخبرة مزدوجة في علم التغذية والتكنولوجيا، نطبق أحدث الأبحاث والأدوات المبتكرة لإنشاء مسار صحي خاص بك.</p>
+                  <span class="science-badge">معًا نحقق أهدافك</span>
+                  <h2 class="science-title">رعاية فردية من أجل نجاحك الشخصي</h2>
+                  <p class="science-description">في دايتا، نحن لا نتبع العلم فحسب، بل ندمجه. بخبرة مزدوجة في التغذية العلاجية والتكنولوجيا، نطبق أحدث الأبحاث والأدوات المبتكرة لإنشاء مسار صحي خاص بكم.</p>
                   <div class="science-fact animate-on-scroll fade-in">
                       <div class="fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                      <p class="fact-text">تُظهر الأبحاث في علم التغذية الجيني أن جيناتنا تؤثر بشكل كبير على استجابتنا للطعام. لهذا السبب يكون النهج الشخصي أكثر فعالية من الخطة المعيارية.</p>
+                      <p class="fact-text">تكشف أبحاث علم التغذية الجيني أن جيناتنا تؤثر بشكل كبير على استجابتنا للأطعمة. لهذا السبب، غالبًا ما يكون النهج الشخصي أكثر فعالية من خطة "مقاس واحد يناسب الجميع" الموحدة.</p>
                   </div>
                   <div class="science-pillar-groups">
                       <div class="pillar-group animate-on-scroll fade-in">
                           <div class="pillar-group-title">
                               <div class="pillar-group-icon"><i class="fa-solid fa-flask-vial"></i></div>
-                              <h3>الأساس العلمي</h3>
+                              <h3>لماذا دايتا؟</h3>
                           </div>
                           <div class="pillars-container">
                               <div class="science-pillar">
                                   <div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div>
                                   <div class="pillar-content">
-                                      <h4 class="pillar-title">مبني على الأدلة</h4>
-                                      <p class="pillar-description">توصيات مبنية على أحدث البحوث العلمية المتحققة. نعتمد على الدراسات السريرية وعلم الأيض وعلم وظائف الأعضاء البشرية.</p>
+                                      <h4 class="pillar-title">قائم على العلم</h4>
+                                      <p class="pillar-description">تستند استشاراتنا إلى أحدث الأبحاث العلمية، كما نقدم تحليلات جينية اختيارية لتغذية شخصية مصممة خصيصًا لجسمك.</p>
                                   </div>
                               </div>
                               <div class="science-pillar">
                                   <div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div>
                                   <div class="pillar-content">
-                                      <h4 class="pillar-title">شخصنة</h4>
-                                      <p class="pillar-description">خطة تغذية فريدة، مصممة خصيصاً لعملية الأيض ونمط الحياة الخاص بك.</p>
+                                      <h4 class="pillar-title">خبراء معتمدون</h4>
+                                      <p class="pillar-description">أخصائيو التغذية لدينا معتمدون من قبل وزارة الصحة العامة (SPF Santé)، مما يضمن لك جودة الخدمة وإمكانية استرداد التكاليف من قبل شركة التأمين الصحي الخاصة بك.</p>
                                   </div>
                               </div>
                           </div>
@@ -83,7 +131,7 @@ lang: ar
                       <div class="pillar-group animate-on-scroll fade-in">
                           <div class="pillar-group-title">
                               <div class="pillar-group-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                              <h3>استراتيجية التنفيذ</h3>
+                              <h3>رعاية فردية</h3>
                           </div>
                           <div class="pillars-container">
                               <div class="science-pillar">
@@ -97,14 +145,14 @@ lang: ar
                                   <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
                                   <div class="pillar-content">
                                       <h4 class="pillar-title">رفاهية مستدامة</h4>
-                                      <p class="pillar-description">حقق أهدافك بعادات صحية وعملية ولذيذة، بدون إحباط أو حميات مقيدة.</p>
+                                      <p class="pillar-description">سواء كنت تعاني من القولون العصبي، أو ترغب في إدارة وزنك، أو لديك حساسية من طعام معين، أو ببساطة تطمح إلى نمط حياة أكثر صحة، نحن هنا لمساعدتك.</p>
                                   </div>
                               </div>
                               <div class="science-pillar">
                                   <div class="pillar-icon"><i class="fa-solid fa-mobile-alt"></i></div>
                                   <div class="pillar-content">
                                       <h4 class="pillar-title">التكنولوجيا والمتابعة</h4>
-                                      <p class="pillar-description">نستخدم أحدث الأدوات لتتبع تقدمك، وتحسين استراتيجيتك وتقديم دعم مستمر ومتفاعل.</p>
+                                      <p class="pillar-description">نستخدم أحدث الأدوات، مثل تطبيق الهاتف المحمول، لتتبع تقدمكم وتحسين استراتيجيتكم وتقديم دعم مستمر ومتفاعل.</p>
                                   </div>
                               </div>
                           </div>
@@ -216,17 +264,17 @@ lang: ar
                 </div>
                 <div class="specialty-content">
                     <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
-                    <h3 class="specialty-title">إدارة متخصصة لمتلازمة القولون العصبي في بروكسل</h3>
+                    <h3 class="specialty-title">إدارة خبيرة لمتلازمة القولون العصبي (SII/SCI) في بروكسل</h3>
                     <p class="specialty-description">
-                        هل تعاني من آلام البطن، الانتفاخ، الإسهال أو الإمساك المرتبط بمتلازمة القولون العصبي؟ هذا الاضطراب الهضمي الوظيفي، رغم كونه حميداً، يمكن أن يؤثر بشدة على حياتك اليومية. استعد أخيراً راحتك الهضمية من خلال نهج مُثبت علمياً ومعترف به عالمياً: حمية FODMAP المنخفضة من جامعة موناش. في دياتا، يرافقك أخصائي التغذية الخبير شخصياً عبر المراحل الثلاث الأساسية لهذا البروتوكول:
+                        هل تعانون من آلام البطن، الانتفاخ، الإسهال أو الإمساك المرتبط بمتلازمة القولون العصبي؟ هذا الاضطراب الهضمي الوظيفي، على الرغم من كونه حميدًا، يمكن أن يؤثر بشكل كبير على حياتكم اليومية. استعيدوا أخيرًا راحتكم الهضمية من خلال نهج مثبت علميًا ومعترف به عالميًا: حمية فودماب المنخفضة من جامعة موناش. في دايتا، يرافقكم أخصائي التغذية الخبير في بروكسل شخصيًا عبر المراحل الأساسية الثلاث لهذا البروتوكول:
                     </p>
                     <ol class="text-sm mt-1 mb-3" style="padding-right: 1.2em; text-align: right; list-style-position: inside; line-height: 1.6;">
-                        <li><strong>المرحلة 1 - الإقصاء (4 أسابيع):</strong> تقليل مؤقت ومستهدف للأطعمة الغنية بـ FODMAP (Fermentable Oligo-, Di-, Mono-saccharides And Polyols) لتهدئة أعراضك بسرعة وتحديد خط أساس.</li>
-                        <li><strong>المرحلة 2 - إعادة الإدخال (11 أسبوع):</strong> تحديد منهجي ومنظم لمحفزاتك الشخصية (الفروكتان، اللاكتوز، الفروكتوز، البوليولات، إلخ) وعتبات التحمل الفردية لكل عائلة FODMAP.</li>
-                        <li><strong>المرحلة 3 - الشخصنة المستدامة:</strong> إعادة دمج أقصى عدد من الأطعمة المُتحملة لتغذية متنوعة ومتوازنة ولذيذة على المدى الطويل. الهدف هو توسيع نظامك الغذائي إلى أقصى حد دون إثارة الأعراض، تجنب القيود غير الضرورية وضمان تناول غذائي كامل.</li>
+                        <li><strong>المرحلة 1 - الإقصاء (4 أسابيع):</strong> تقليل مؤقت ومستهدف للأطعمة الغنية بالفودماب (سكريات قليلة التخمر، ثنائية، أحادية، والبوليولات) لتهدئة الأعراض بسرعة وتوفير أساس مستقر.</li>
+                        <li><strong>المرحلة 2 - إعادة الإدخال (حوالي 8 أسابيع):</strong> تحديد منظم ومنهجي لمسبباتكم الشخصية (الفركتان، اللاكتوز، الفركتوز، البوليولات، إلخ) وعتبات تحملكم الفردية لكل عائلة فودماب.</li>
+                        <li><strong>المرحلة 3 - التخصيص المستدام:</strong> وضع خطة غذائية شخصية ومرنة تسمح بأقصى تنوع غذائي مع أقل قدر من الأعراض، لضمان نظام غذائي غني وممتع على المدى الطويل.</li>
                     </ol>
                     <p class="specialty-description" style="margin-bottom: 1.5rem;">
-                        هدفنا في دياتا هو إعادة السيطرة إليك، تحسين جودة حياتك بشكل مستدام والسماح لك بالأكل بمتعة وهدوء، حتى مع متلازمة القولون العصبي.
+                        هدفنا في دايتا هو إعادة السيطرة إليكم، تحسين جودة حياتكم بشكل مستدام والسماح لكم بالأكل بمتعة وهدوء، حتى مع متلازمة القولون العصبي.
                     </p>
                     <div class="specialty-stats">
                         <div class="stat-item" data-bs-toggle="tooltip" title="معدل تحسن الأعراض الهضمية المُلاحظ عند المرضى الذين يتبعون حمية Low FODMAP الموجهة.">
@@ -270,7 +318,7 @@ lang: ar
                         السكري النوع الثاني هو مرض مزمن يتميز بارتفاع السكر في الدم (مستوى سكر مرتفع في الدم)، غالباً بسبب مقاومة الأنسولين و/أو إنتاج أنسولين غير كافٍ. <span class="text-highlight-primary">التغذية المتكيفة</span> هي ركيزة أساسية في علاجه، تسمح بتحكم أفضل في سكر الدم، منع المضاعفات وتحسين جودة الحياة.
                     </p>
                     <p class="specialty-description" style="margin-bottom: 1rem;">
-                        نهجنا في دياتا <strong class="text-highlight-accent">علمي وشخصي للغاية</strong>. نتجاوز التوصيات العامة لنقدم لك خطة تأخذ في الاعتبار:
+                        نهجنا في دايتا <strong class="text-highlight-accent">علمي وشخصي للغاية</strong>. نتجاوز التوصيات العامة لنقدم لك خطة تأخذ في الاعتبار:
                     </p>
                     <ul class="text-sm mb-3" style="padding-right: 1.2em; text-align: right; list-style-type: disc; line-height: 1.6;">
                         <li><strong>ملفك الأيضي:</strong> حساسية الأنسولين، سكر الدم الصائم وما بعد الوجبة، HbA1c.</li>
@@ -323,7 +371,7 @@ lang: ar
                         ارتفاع ضغط الدم ومستويات الكوليسترول المرتفعة هي عوامل خطر رئيسية لأمراض القلب والأوعية الدموية، الأسباب الرئيسية للوفاة في العالم. <span class="text-highlight-primary">النهج الغذائي المستهدف</span> هو أحد أكثر التدخلات فعالية للوقاية والعلاج.
                     </p>
                     <p class="specialty-description" style="margin-bottom: 1rem;">
-                        في دياتا، لا نكتفي بالنصائح العامة. ندمج استراتيجيات مُثبتة علمياً مثل:
+                        في دايتا، لا نكتفي بالنصائح العامة. ندمج استراتيجيات مُثبتة علمياً مثل:
                     </p>
                     <ul class="text-sm mb-3" style="padding-right: 1.2em; text-align: right; list-style-type: disc; line-height: 1.6;">
                         <li><strong>نهج DASH (Dietary Approaches to Stop Hypertension):</strong> غني بالفواكه والخضروات والحبوب الكاملة ومنتجات الألبان قليلة الدسم، مع تقييد الصوديوم والدهون المشبعة والسكر.</li>
@@ -463,7 +511,7 @@ lang: ar
                 <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">صحتك، قربنا</span>
                 <h2 class="section-title" style="color: var(--primary-700);">أخصائي تغذية خبير، دائماً بالقرب منك في بروكسل</h2>
                 <p class="section-subtitle" style="color: var(--text-secondary); max-width: 750px;">
-                    في دياتا، نؤمن أن الرعاية الممتازة يجب أن تكون متاحة. لهذا نستقبلك في 8 عيادات، موزعة استراتيجياً في بلديات بروكسل.
+                    في دايتا، نؤمن أن الرعاية الممتازة يجب أن تكون متاحة. لهذا نستقبلك في 8 عيادات، موزعة استراتيجياً في بلديات بروكسل.
                 </p>
             </div>
     
@@ -486,7 +534,7 @@ lang: ar
                 اعثر على أقرب عيادة دياتا واتخذ الخطوة الأولى نحو رعاية تغذية تحدث الفرق.
             </p>
             <a href="/ar/العيادات-بروكسل/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
-                <span>استكشف أماكن الاستشارة</span> <i class="fas fa-arrow-left ms-2"></i>
+                <span>استكشف أماكن الاستشارة</span> <i class="fas fa-arrow-left me-2"></i>
             </a>
         </div>
     </section>   
@@ -496,27 +544,27 @@ lang: ar
           <div class="row align-items-center g-lg-5">
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
                   <div class="section-header text-start mb-4">
-                      <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">مستقبل التغذية</span>
-                      <h2 class="section-title mb-3" style="font-size: 2.2rem; text-align: right; padding-bottom: 0.5rem;">فك شفرة الحمض النووي لتغذية فائقة الدقة</h2>
+                      <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">مستقبل التغذية الشخصية</span>
+                      <h2 class="section-title mb-3" style="font-size: 2.2rem; text-align: right; padding-bottom: 0.5rem;">فك شفرة حمضكم النووي لتغذية فائقة الدقة</h2>
                       <p class="section-subtitle text-start" style="max-width: none; text-align: right;">
-                          ماذا لو كانت تغذيتك متوافقة تماماً مع كودك الجيني؟ اختبارات Nutrigenomix® تحلل أكثر من 70 علامة جينية لكشف معلومات علمية مهمة، مما يسمح بشخصنة لا مثيل لها لنظامك الغذائي.
+                          ماذا لو كان نظامكم الغذائي متوافقًا تمامًا مع شفرتكم الجينية؟ تحلل اختبارات <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a> أكثر من 70 علامة جينية للكشف عن معلومات علمية رئيسية، مما يسمح بتخصيص لا مثيل له لنظامكم الغذائي.
                       </p>
                   </div>
-                  <p class="mb-3">كأخصائي تغذية شغوف بالابتكار، أستخدم هذه البيانات المتطورة لتطوير خطة معك تتجاوز التوصيات المعيارية. خطة فعالة ولذيذة ومندمجة تماماً مع حياتك. هذه الاختبارات يمكن أن تساعدك في:</p>
+                  <p class="mb-3">بصفتي أخصائي تغذية شغوف بالابتكار، أستخدم هذه التكنولوجيا المتطورة لتصميم خطة معكم تتجاوز التوصيات القياسية. خطة فعالة ولذيذة ومتكاملة تمامًا مع حياتكم. يمكن أن تساعدكم هذه الاختبارات على:</p>
                   <ul class="list-styled-check small mb-4">
-                      <li>تحسين <strong class="text-primary">إدارة وزنك</strong> بفهم استجابتك الفريدة للبروتينات والدهون والكربوهيدرات.</li>
+                      <li>تحسين <strong class="text-primary">إدارة وزنكم</strong> من خلال فهم استجابتكم الفريدة للبروتينات والدهون والكربوهيدرات.</li>
                       <li>تعديل تناولك للفيتامينات والمعادن (مثل فيت. د، ب12، الفولات) حسب <strong class="text-accent">احتياجاتك الجينية الفعلية</strong>.</li>
                       <li>شخصنة تغذيتك لصحة أفضل <strong class="text-secondary">للقلب والأوعية الدموية</strong>.</li>
                       <li>تحديد حساسيات غذائية محتملة (مثل الكافيين، اللاكتوز) قبل أن تصبح مشكلة.</li>
-                      <li>تحسين استراتيجياتك <strong class="text-accent">للأداء الرياضي</strong>، <strong class="text-secondary">الخصوبة</strong> أو <strong class="text-primary">نظام غذائي نباتي متوازن</strong>.</li>
+                      <li>تحسين استراتيجياتكم <strong class="text-accent">للأداء الرياضي</strong>، <strong class="text-secondary">الخصوبة</strong> أو <strong class="text-primary">نظام غذائي نباتي متوازن</strong>.</li>
                   </ul>
-                  <p class="mb-4">هذه الخدمة التكميلية (275€ لكل لوحة) هي استثمار في فهم عميق لجسمك للحصول على نتائج مستدامة حقاً.</p>
+                  <p class="mb-4">هذه الخدمة التكميلية (275 يورو للعدة والتحليل) هي استثمار في فهم عميق لجسمكم، من أجل نتائج مستدامة حقًا.</p>
                   <div class="d-flex flex-wrap gap-2 cta-equal-width-group">
                       <a href="/ar/الاختبارات-الغذائية-الجينية/" class="btn btn-primary cta-genetic-test">
-                          <i class="fas fa-flask-vial me-2"></i>استكشف الاختبارات بالتفصيل
+                          <i class="fas fa-flask-vial me-2"></i>تفاصيل الاختبارات الجينية
                       </a>
                       <a href="/ar/حجز-موعد/" class="btn btn-outline-accent cta-genetic-test">
-                          <i class="fas fa-comments me-2"></i>ناقش في الاستشارة
+                          <i class="fas fa-comments me-2"></i>ناقشوا حالتكم
                       </a>
                   </div>
               </div>
@@ -722,7 +770,7 @@ lang: ar
           <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-6">
                   <div class="tarif-item p-4 text-center" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm);">
-                      <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">اختبار التغذية الجينية (Nutrigenomix®)</h4>
+                      <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">اختبار التغذية الجينية (<a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a>)</h4>
                       <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€275 <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(للطقم وتحليل الحمض النووي لأكثر من 70 علامة)</span></p>
                       <p class="small mt-2 mb-3">اكتشف كيف تؤثر جيناتك على احتياجاتك الغذائية للحصول على شخصنة متطورة.</p>
                       <a href="/ar/الاختبارات-الغذائية-الجينية/" class="btn btn-outline-primary btn-sm mb-2">اعرف المزيد عن الاختبارات</a>

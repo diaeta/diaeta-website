@@ -1,0 +1,115 @@
+---
+layout: layouts/base.njk
+title: "Datenschutzrichtlinie - Diaeta"
+description: "Erfahren Sie, wie Diaeta, die Ernährungspraxis von Pierre Abou-Zeid, Ihre persönlichen Daten gemäß der DSGVO schützt. Ihre Rechte und unsere Verpflichtungen."
+---
+
+<style>
+    /* Wiederverwendung der Stile für Konsistenz */
+    .legal-card {
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .legal-card h2 {
+        color: var(--primary-700, #345e52);
+        border-bottom: 2px solid var(--primary-200, #b2d8d0);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .legal-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .list-styled-check li {
+        padding-right: 1.5em; /* RTL Anpassung */
+        position: relative;
+    }
+    .list-styled-check li::before {
+        content: '✓';
+        color: var(--primary-500, #4caf50);
+        position: absolute;
+        right: 0; /* RTL Anpassung */
+        font-weight: bold;
+    }
+</style>
+
+<section class="content-section bg-light">
+    <div class="container py-5" dir="rtl" style="text-align: right;">
+        <div class="text-center mb-5">
+            <h1>Datenschutzrichtlinie</h1>
+            <p class="lead text-muted">Ihre Privatsphäre ist unsere Priorität. Hier erfahren Sie, wie wir Ihre Daten schützen.</p>
+            <p class="text-sm"><em>Letzte Aktualisierung: 04. Juli 2025</em></p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Präambel und Verantwortlicher</h2>
+            <p>Diaeta, betrieben von Pierre Abou-Zeid, verpflichtet sich, Ihre Privatsphäre und Ihre personenbezogenen Daten gemäß der Verordnung (EU) 2016/679 („DSGVO“) zu schützen. Der Verantwortliche für die Datenverarbeitung ist Pierre Abou-Zeid (<a href="mailto:pierre@diaeta.be">pierre@diaeta.be</a>).</p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Von uns verarbeitete Daten</h2>
+            <p>Wir erheben verschiedene Datenkategorien, um Ihre Betreuung zu gewährleisten:</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-user-check text-primary ms-2"></i><strong>Identifikationsdaten:</strong> Name, Vorname, Kontaktdaten usw.</li>
+                <li><i class="fas fa-server text-primary ms-2"></i><strong>Verbindungsdaten:</strong> IP-Adresse, Browser-Protokolle.</li>
+                <li><i class="fas fa-file-invoice-dollar text-primary ms-2"></i><strong>Rechnungsdaten.</strong></li>
+                <li><i class="fas fa-heart-pulse text-primary ms-2"></i><strong>Gesundheitsdaten (sensibel):</strong> Diagnosen, Anamnese, Allergien, Ernährungstagebücher usw.</li>
+            </ul>
+        </div>
+        
+        <div class="legal-card">
+            <h2>Zwecke und Rechtsgrundlagen</h2>
+            <p>Wir verarbeiten Ihre Daten für bestimmte Zwecke, insbesondere zur Erbringung von Gesundheitsleistungen (Vertrag), zur Abrechnung (gesetzliche Verpflichtung) und zur Verbesserung unserer Dienste (Einwilligung).</p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Empfänger und Sicherheit</h2>
+            <h3>Datenweitergabe</h3>
+            <p>Ihre Daten sind vertraulich und werden nur an unsere vertrauenswürdigen Auftragsverarbeiter (z. B. Nutrium, Doctoranytime, Combell) weitergegeben, die die DSGVO einhalten.</p>
+            <h3>Sicherheit</h3>
+            <p>Die Sicherheit Ihrer Daten wird durch robuste technische Maßnahmen gewährleistet: sicheres Hosting in der EU, SSL-Verschlüsselung, Firewalls und verschlüsselte Backups.</p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Ihre Rechte</h2>
+            <p>Gemäß der DSGVO haben Sie folgende Rechte:</p>
+            <ul class="list-styled-check">
+                <li><strong>Auskunftsrecht:</strong> Eine Kopie Ihrer Daten zu erhalten.</li>
+                <li><strong>Recht auf Berichtigung:</strong> Ungenaue Daten korrigieren zu lassen.</li>
+                <li><strong>Recht auf Löschung:</strong> Die Löschung Ihrer Daten zu verlangen (vorbehaltlich gesetzlicher Verpflichtungen).</li>
+                <li><strong>Recht auf Einschränkung der Verarbeitung.</strong></li>
+                <li><strong>Recht auf Datenübertragbarkeit.</strong></li>
+                <li><strong>Widerspruchsrecht.</strong></li>
+                <li><strong>Recht, Ihre Einwilligung</strong> jederzeit zu widerrufen.</li>
+            </ul>
+            <p class="mt-3">Um diese Rechte auszuüben, kontaktieren Sie bitte unseren Datenschutzbeauftragten unter <a href="mailto:pierre@diaeta.be">pierre@diaeta.be</a>. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt werden, können Sie eine Beschwerde bei der belgischen Datenschutzbehörde (DPA) einreichen.</p>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite Diaeta",
+      "item": "https://diaeta.be/de/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Datenschutzrichtlinie",
+      "item": "https://diaeta.be/de/datenschutz.html"
+    }
+  ]
+}
+</script>

@@ -1,47 +1,96 @@
 ---
 layout: layouts/base.njk
-title: "Diaeta Brüssel: Anerkannter Diätassistent-Ernährungsberater - Personalisierte & Wissenschaftliche Ernährung"
-description: Pierre Abou-Zeid, anerkannter Diätassistent-Ernährungsberater (INAMI) in Brüssel. Diaeta bietet personalisierte und wissenschaftliche Ernährung für nachhaltigen Gewichtsverlust (ohne Hunger), Diabetesmanagement, Reizdarmsyndrom und Cholesterin. Ein fürsorglicher Ansatz.
+title: "Anerkannter Ernährungsberater in Brüssel | Diaeta - Wissenschaftliche Diätetik"
+description: "Pierre Abou-Zeid, Ihr anerkannter Ernährungsberater (INAMI) in Brüssel. Diaeta bietet einen personalisierten und wissenschaftlichen Ansatz für nachhaltigen Gewichtsverlust, Diabetes-Management, Reizdarmsyndrom und Cholesterin. Finden Sie einen mitfühlenden Experten und greifbare Ergebnisse."
 lang: de
 ---
-<!-- Only keep BreadcrumbList schema in <head> -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Diaeta Startseite",
-      "item": "https://diaeta.be/de/index.html"
+      "@type": "WebSite",
+      "name": "Diaeta",
+      "url": "https://diaeta.be/de/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://diaeta.be/de/suche/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "de-BE"
+    },
+    {
+      "@type": "Organization",
+      "name": "Diaeta",
+      "url": "https://diaeta.be/de/",
+      "logo": "https://diaeta.be/images/logo.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/pierre-abou-zeid-b8a734103/"
+      ]
+    },
+    {
+      "@type": "MedicalBusiness",
+      "name": "Diaeta - Ernährungsberatung Pierre Abou-Zeid",
+      "description": "Anerkannter Ernährungsberater in Brüssel, spezialisiert auf nachhaltigen Gewichtsverlust, Diabetes, Reizdarmsyndrom und Cholesterin.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue de Tervueren 232",
+        "addressLocality": "Brüssel",
+        "postalCode": "1150",
+        "addressCountry": "BE"
+      },
+      "telephone": "+32492523823",
+      "email": "info@diaeta.be",
+      "openingHours": "Mo-Fr 09:00-19:00",
+      "priceRange": "€50 - €80",
+      "image": "https://diaeta.be/images/Pierre%20Abou-Zeid.jpg",
+      "url": "https://diaeta.be/de/",
+      "founder": {
+        "@type": "Person",
+        "name": "Pierre Abou-Zeid",
+        "jobTitle": "Anerkannter Ernährungsberater & Diätassistent",
+        "image": "https://diaeta.be/images/Pierre%20Abou-Zeid.jpg",
+        "url": "https://www.linkedin.com/in/pierre-abou-zeid-b8a734103/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Diaeta Startseite",
+          "item": "https://diaeta.be/de/index.html"
+        }
+      ]
     }
   ]
 }
 </script>
+
     <main id="main-content">
 
       <section class="hero-section">
         <div class="hero-background">
             <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
                 <source src="../videos/Background video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Ihr Browser unterstützt das Video-Tag nicht.
             </video>
             <div class="hero-overlay"></div>
         </div>
         <div class="container hero-content">
-            <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>Fortschrittliche Diätetik</span></div>
-            <h1 class="hero-headline animate-on-scroll fade-up">Wissenschaftliche Ernährung, Nachhaltige Ergebnisse. Ihre Gesundheit, <span class="text-accent">Neu Erfunden.</span></h1>
-            <p class="hero-tagline animate-on-scroll fade-up delay-200">Die Expertise eines innovativen Diätassistenten für modernste Lösungen bei Gewichtsverlust, Reizdarmsyndrom und Stoffwechselgesundheit.</p>
-            <div class="hero-description animate-on-scroll fade-up delay-300"><p>Bei Diaeta verschmelzen wir <span class="text-highlight">neueste Forschung</span> und <span class="text-highlight">Technologie</span> mit einem menschlichen Ansatz für Ergebnisse, die Sie sehen und spüren können.</p></div>
+            <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>Wissenschaftliche Diätetik</span></div>
+            <h1 class="hero-headline animate-on-scroll fade-up">Wissenschaftliche Ernährung, Nachhaltige Ergebnisse. Ihre Gesundheit, <span class="text-accent">Neu Definiert.</span></h1>
+            <p class="hero-tagline animate-on-scroll fade-up delay-200">Die Expertise eines innovativen Ernährungsberaters für modernste Lösungen bei Gewichtsverlust, Reizdarmsyndrom und Stoffwechselgesundheit in Brüssel.</p>
+            <div class="hero-description animate-on-scroll fade-up delay-300"><p>Bei Diaeta verbinden wir <span class="text-highlight">Spitzenforschung</span> und <span class="text-highlight">personalisierte Betreuung</span> für greifbare Ergebnisse, die Sie sehen und fühlen können.</p></div>
             <div class="feature-badges animate-on-scroll fade-up delay-400">
-                <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>Wissenschaftlicher Ansatz</span></div>
+                <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>Evidenzbasierter Ansatz</span></div>
                 <div class="feature-badge"><i class="fa-solid fa-chart-line"></i><span>Nachhaltige Ergebnisse</span></div>
-                <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% personalisiert</span></div>
+                <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% Personalisiert</span></div>
             </div>
             <div class="hero-cta animate-on-scroll fade-up delay-500">
-                <a href="/de/termin/" class="btn btn-primary pulse-animation"><span>Termin Buchen</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
-                <a href="#approche" class="btn btn-outline scroll-to"><span>Unser Ansatz entdecken</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
+                <a href="/de/termin/" class="btn btn-primary pulse-animation"><span>Ihren Termin Buchen</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+                <a href="#approche" class="btn btn-outline scroll-to"><span>Unseren Ansatz Entdecken</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
             </div>
         </div>
     </section>
@@ -52,10 +101,10 @@ lang: de
               <div class="science-content animate-on-scroll fade-up">
                   <span class="science-badge">Unsere Philosophie</span>
                   <h2 class="science-title">Wo Ernährungswissenschaft auf technologische Innovation trifft</h2>
-                  <p class="science-description">Bei Diaeta folgen wir nicht nur der Wissenschaft, wir integrieren sie. Mit doppelter Expertise in Diätetik und Technologie wenden wir die neueste Forschung und innovative Tools an, um einen Gesundheitsweg zu schaffen, der ganz Ihnen gehört.</p>
+                  <p class="science-description">Bei Diaeta folgen wir nicht nur der Wissenschaft, wir integrieren sie. Mit einer doppelten Expertise in Diätetik und Technologie wenden wir die fortschrittlichsten Forschungsergebnisse und innovative Werkzeuge an, um einen Gesundheitspfad zu schaffen, der Ihnen gehört.</p>
                   <div class="science-fact animate-on-scroll fade-in">
                       <div class="fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                      <p class="fact-text">Die Forschung in der Nutrigenomik zeigt, dass unsere Genetik erheblich unsere Reaktion auf Nahrungsmittel beeinflusst. Deshalb ist ein personalisierter Ansatz oft wirksamer als ein standardisierter Plan.</p>
+                      <p class="fact-text">Die Forschung in der Nutrigenomik zeigt, dass unsere Genetik unsere Reaktion auf Lebensmittel erheblich beeinflusst. Deshalb ist ein personalisierter Ansatz effektiver als ein standardisierter "One-Size-Fits-All"-Plan.</p>
                   </div>
                   <div class="science-pillar-groups">
                       <div class="pillar-group animate-on-scroll fade-in">
@@ -68,14 +117,14 @@ lang: de
                                   <div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div>
                                   <div class="pillar-content">
                                       <h4 class="pillar-title">Evidenzbasiert</h4>
-                                      <p class="pillar-description">Empfehlungen basierend auf der neuesten validierten wissenschaftlichen Forschung. Wir stützen uns auf klinische Studien, Stoffwechselwissenschaft und menschliche Physiologie.</p>
+                                      <p class="pillar-description">Empfehlungen, die auf den neuesten validierten wissenschaftlichen Forschungen basieren. Wir stützen uns auf klinische Studien, Stoffwechselwissenschaft und menschliche Physiologie.</p>
                                   </div>
                               </div>
                               <div class="science-pillar">
                                   <div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div>
                                   <div class="pillar-content">
-                                      <h4 class="pillar-title">Personalisierung</h4>
-                                      <p class="pillar-description">Ein einzigartiger Ernährungsplan, angepasst an Ihren besonderen Stoffwechsel und Lebensstil.</p>
+                                      <h4 class="pillar-title">Tiefgehende Personalisierung</h4>
+                                      <p class="pillar-description">Ein einzigartiger Ernährungsplan, angepasst an Ihren speziellen Stoffwechsel, Lebensstil und Ihre persönlichen Ziele.</p>
                                   </div>
                               </div>
                           </div>
@@ -104,7 +153,7 @@ lang: de
                                   <div class="pillar-icon"><i class="fa-solid fa-mobile-alt"></i></div>
                                   <div class="pillar-content">
                                       <h4 class="pillar-title">Technologie & Nachverfolgung</h4>
-                                      <p class="pillar-description">Wir nutzen modernste Tools, um Ihre Fortschritte zu verfolgen, Ihre Strategie zu verfeinern und Ihnen kontinuierliche und reaktive Unterstützung zu bieten.</p>
+                                      <p class="pillar-description">Wir nutzen modernste Tools wie eine mobile App, um Ihre Fortschritte zu verfolgen, Ihre Strategie zu verfeinern und Ihnen kontinuierliche und reaktive Unterstützung zu bieten.</p>
                                   </div>
                               </div>
                           </div>
@@ -142,7 +191,7 @@ lang: de
   <section class="specialties-section" id="services">
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
-            <span class="section-badge">Zielgerichtete Lösungen</span>
+            <span class="section-badge">Gezielte Lösungen</span>
             <h2 class="section-title">Ein maßgeschneiderter Ansatz für jede Herausforderung</h2>
             <p class="section-subtitle">Wir wenden unsere wissenschaftliche und innovative Methodik an, um konkrete Ergebnisse für Ihre spezifischen Gesundheitsbedürfnisse zu liefern.</p>
         </div>
@@ -218,12 +267,12 @@ lang: de
                     <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
                     <h3 class="specialty-title">Expertenmanagement des Reizdarmsyndroms (RDS) in Brüssel</h3>
                     <p class="specialty-description">
-                        Leiden Sie unter Bauchschmerzen, Blähungen, Durchfall oder Verstopfung im Zusammenhang mit dem Reizdarmsyndrom (RDS)? Diese funktionelle Verdauungsstörung kann, obwohl gutartig, Ihren Alltag erheblich beeinträchtigen. Finden Sie endlich Ihren Verdauungskomfort durch einen wissenschaftlich validierten und weltweit anerkannten Ansatz zurück: die FODMAP-arme Diät der Monash Universität. Bei Diaeta begleitet Sie Ihr Experten-Diätassistent persönlich durch die 3 wesentlichen Phasen dieses Protokolls:
+                        Leiden Sie unter Bauchschmerzen, Blähungen, Durchfall oder Verstopfung im Zusammenhang mit dem Reizdarmsyndrom (RDS)? Diese funktionelle Verdauungsstörung kann, obwohl gutartig, Ihren Alltag erheblich beeinträchtigen. Finden Sie endlich Ihren Verdauungskomfort durch einen wissenschaftlich validierten und weltweit anerkannten Ansatz zurück: die FODMAP-arme Diät der Monash Universität. Bei Diaeta begleitet Sie Ihr Experten-Diätassistent in Brüssel persönlich durch die 3 wesentlichen Phasen dieses Protokolls:
                     </p>
                     <ol class="text-sm mt-1 mb-3" style="padding-left: 1.2em; text-align: left; list-style-position: inside; line-height: 1.6;">
-                        <li><strong>Phase 1 - Elimination (4 Wo.):</strong> Temporäre und gezielte Reduktion von FODMAP-reichen Lebensmitteln (Fermentable Oligo-, Di-, Mono-saccharides And Polyols), um Ihre Symptome schnell zu beruhigen und eine Grundlinie zu identifizieren.</li>
-                        <li><strong>Phase 2 - Wiedereinführung (11 Wo.):</strong> Strukturierte und methodische Identifikation IHRER persönlichen Auslöser (Fruktane, Laktose, Fruktose, Polyole, etc.) und Ihrer individuellen Toleranzschwellen für jede FODMAP-Familie.</li>
-                        <li><strong>Phase 3 - Dauerhafte Personalisierung:</strong> Reintegration eines Maximums an tolerierten Lebensmitteln für eine vielfältige, ausgewogene und schmackhafte Ernährung auf lange Sicht. Das Ziel ist es, Ihre Ernährung maximal zu erweitern ohne Symptome zu provozieren, unnötige Einschränkungen zu vermeiden und eine vollständige Nährstoffzufuhr sicherzustellen.</li>
+                        <li><strong>Phase 1 - Elimination (4 Wo.):</strong> Temporäre und gezielte Reduktion von FODMAP-reichen Lebensmitteln (Fermentable Oligo-, Di-, Mono-saccharides And Polyols), um Ihre Symptome schnell zu beruhigen und eine stabile Basis zu schaffen.</li>
+                        <li><strong>Phase 2 - Wiedereinführung (ca. 8 Wo.):</strong> Strukturierte und methodische Identifikation IHRER persönlichen Auslöser (Fruktane, Laktose, Fruktose, Polyole, etc.) und Ihrer individuellen Toleranzschwellen für jede FODMAP-Familie.</li>
+                        <li><strong>Phase 3 - Dauerhafte Personalisierung:</strong> Erstellung eines personalisierten und flexiblen Ernährungsplans, der eine maximale Vielfalt an Lebensmitteln bei minimalen Symptomen ermöglicht, um eine reiche und genussvolle Ernährung langfristig zu gewährleisten.</li>
                     </ol>
                     <p class="specialty-description" style="margin-bottom: 1.5rem;">
                         Unser Ziel bei Diaeta ist es, Ihnen die Kontrolle zurückzugeben, Ihre Lebensqualität nachhaltig zu verbessern und Ihnen zu ermöglichen, mit Vergnügen und Gelassenheit zu essen, auch mit RDS.
@@ -496,13 +545,13 @@ lang: de
           <div class="row align-items-center g-lg-5">
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
                   <div class="section-header text-start mb-4">
-                      <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">Die Zukunft der Ernährung</span>
-                      <h2 class="section-title mb-3" style="font-size: 2.2rem; text-align: left; padding-bottom: 0.5rem;">Entschlüsseln Sie Ihre DNA für Ultra-Präzisionsernährung</h2>
+                      <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">Die Zukunft der Personalisierten Ernährung</span>
+                      <h2 class="section-title mb-3" style="font-size: 2.2rem; text-align: left; padding-bottom: 0.5rem;">Entschlüsseln Sie Ihre DNA für eine ultra-präzise Ernährung</h2>
                       <p class="section-subtitle text-start" style="max-width: none;">
-                          Was wäre, wenn Ihre Ernährung perfekt auf Ihren genetischen Code abgestimmt wäre? Die Nutrigenomix®-Tests analysieren über 70 genetische Marker, um wichtige wissenschaftliche Informationen zu enthüllen und eine unvergleichliche Personalisierung Ihrer Ernährung zu ermöglichen.
+                          Was wäre, wenn Ihre Ernährung perfekt auf Ihren genetischen Code abgestimmt wäre? Die <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a>-Tests analysieren über 70 genetische Marker, um wichtige wissenschaftliche Informationen zu enthüllen und eine unvergleichliche Personalisierung Ihrer Ernährung zu ermöglichen.
                       </p>
                   </div>
-                  <p class="mb-3">Als Diätassistent mit Leidenschaft für Innovation nutze ich diese modernsten Daten, um mit Ihnen einen Plan zu entwickeln, der über Standardempfehlungen hinausgeht. Ein effektiver, schmackhafter und perfekt in Ihr Leben integrierter Plan. Diese Tests können Ihnen helfen:</p>
+                  <p class="mb-3">Als Diätassistent mit einer Leidenschaft für Innovation nutze ich diese Spitzentechnologie, um mit Ihnen einen Plan zu entwickeln, der weit über Standardempfehlungen hinausgeht. Ein effektiver, schmackhafter und perfekt in Ihr Leben integrierter Plan. Diese Tests können Ihnen insbesondere dabei helfen:</p>
                   <ul class="list-styled-check small mb-4">
                       <li>Ihr <strong class="text-primary">Gewichtsmanagement</strong> zu optimieren, indem Sie Ihre einzigartige Reaktion auf Proteine, Fette und Kohlenhydrate verstehen.</li>
                       <li>Ihre Vitamin- und Mineralstoffzufuhr (z.B. Vit. D, B12, Folat) nach <strong class="text-accent">Ihren tatsächlichen genetischen Bedürfnissen</strong> anzupassen.</li>
@@ -510,13 +559,13 @@ lang: de
                       <li>Potentielle Nahrungsmittelempfindlichkeiten (z.B. Koffein, Laktose) zu identifizieren, bevor sie zum Problem werden.</li>
                       <li>Ihre Strategien für <strong class="text-accent">sportliche Leistung</strong>, <strong class="text-secondary">Fruchtbarkeit</strong> oder eine <strong class="text-primary">ausgewogene pflanzliche Ernährung</strong> zu verfeinern.</li>
                   </ul>
-                  <p class="mb-4">Diese ergänzende Dienstleistung (€275 pro Panel) ist eine Investition in ein tiefgreifendes Verständnis Ihres Körpers für wirklich nachhaltige Ergebnisse.</p>
+                  <p class="mb-4">Diese ergänzende Dienstleistung (€275 für das Testkit & die Analyse) ist eine Investition in ein tiefgreifendes Verständnis Ihres Körpers für wirklich nachhaltige Ergebnisse.</p>
                   <div class="d-flex flex-wrap gap-2 cta-equal-width-group">
                       <a href="/de/nutrigenetische-tests/" class="btn btn-primary cta-genetic-test">
-                          <i class="fas fa-flask-vial me-2"></i>Tests Im Detail Erkunden
+                          <i class="fas fa-flask-vial me-2"></i>Details zu den Gentests
                       </a>
                       <a href="/de/termin/" class="btn btn-outline-accent cta-genetic-test">
-                          <i class="fas fa-comments me-2"></i>In Beratung Besprechen
+                          <i class="fas fa-comments me-2"></i>Ihren Fall Besprechen
                       </a>
                   </div>
               </div>
@@ -718,13 +767,13 @@ lang: de
       </div>
 
       <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-300">
-          <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Erweiterte Option: Nutrigenetische Tests</h3>
+          <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Fortgeschrittene Option: Nutrigenetische Tests</h3>
           <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-6">
                   <div class="tarif-item p-4 text-center" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm);">
-                      <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Nutrigenetischer Test (Nutrigenomix®)</h4>
-                      <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€275 <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(für das Kit und die DNA-Analyse von +70 Markern)</span></p>
-                      <p class="small mt-2 mb-3">Entdecken Sie, wie Ihre Gene Ihre Ernährungsbedürfnisse beeinflussen für modernste Personalisierung.</p>
+                      <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Nutrigenetischer Test (<a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a>)</h4>
+                      <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">275€ <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(für Kit und DNA-Analyse von +70 Markern)</span></p>
+                      <p class="small mt-2 mb-3">Entdecken Sie, wie Ihre Genetik Ihre Ernährungsbedürfnisse für eine hochmoderne Personalisierung beeinflusst.</p>
                       <a href="/de/nutrigenetische-tests/" class="btn btn-outline-primary btn-sm mb-2">Mehr über die Tests erfahren</a>
                       <p class="text-muted small mb-0">Die Beratung zur Ergebnisinterpretation und Planintegration wird zum Nachbetreuungstarif (€50) berechnet.</p>
                   </div>
