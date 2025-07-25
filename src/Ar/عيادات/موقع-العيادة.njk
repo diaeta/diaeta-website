@@ -7,7 +7,7 @@ pagination:
 permalink: "/ar/عيادة/{{ clinic.id }}/index.html"
 eleventyComputed:
   title: "{{ clinic.name }} - استشارة التغذية دياتا | {{ clinic.city }}"
-  description: "احجز موعداً مع بيير أبو زيد في عيادة {{ clinic.name }} في {{ clinic.city }}. استشارة تغذية مهنية وعلاج شخصي."
+  description: "احجز موعداً مع بيار أبو زيد في عيادة {{ clinic.name }} في {{ clinic.city }}. استشارة تغذية مهنية وعلاج شخصي."
   clinic_name: "{{ clinic.name }}"
 lang: ar
 ---
@@ -18,7 +18,7 @@ lang: ar
             <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-map-marker-alt hero-badge-icon"></i>عيادة دياتا</span>
             <h1 class="animate-on-scroll fade-up">{{ clinic.name }}</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                استشارة التغذية مع بيير أبو زيد في {{ clinic.city }}
+                استشارة التغذية مع بيار أبو زيد في {{ clinic.city }}
             </p>
         </div>
     </div>
@@ -79,14 +79,14 @@ lang: ar
                 <div class="clinic-cta-sidebar">
                     <div class="cta-card">
                         <h3>حجز موعد</h3>
-                        <p>احجز موعد استشارتك مع بيير أبو زيد</p>
+                        <p>احجز موعد استشارتك مع بيار أبو زيد</p>
                         {% if clinic.doctorpracticeId %}
                         <a href="https://app.doctorpractice.be/profile/{{ clinic.doctorpracticeId }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg w-100 mb-3">
                             <i class="fa-solid fa-calendar-check"></i> حجز أونلاين
                         </a>
                         {% endif %}
-                        <a href="tel:+32479355551" class="btn btn-outline-primary w-100">
-                            <i class="fa-solid fa-phone"></i> +32 479 35 55 51
+                        <a href="tel:+32479355551" class="btn btn-outline-primary w-100" style="text-align: center;">
+                            <i class="fa-solid fa-phone"></i> +٣٢ ٤٧٩ ٣٥ ٥٥ ٥١
                         </a>
                     </div>
 

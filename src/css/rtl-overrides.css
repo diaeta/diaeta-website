@@ -110,77 +110,18 @@
     right: 0; /* This positions the bullet correctly */
 }
 
-/* --- Bullet points in first section (RTL) --- */
-[dir="rtl"] .content-section.bg-white ul.list-unstyled li {
-  display: flex !important;
-  flex-direction: row-reverse !important;
-  align-items: flex-start !important;
-  padding: 0 !important;
-}
-[dir="rtl"] .content-section.bg-white ul.list-unstyled li i.fa-check {
+.rtl-check-icon {
+  float: right !important;
   margin-left: 0.5em !important;
   margin-right: 0 !important;
-  color: var(--accent-500, #8cc63f) !important;
-  font-size: 1.1em !important;
-  position: static !important;
 }
 
 /* --- FAQ accordion arrow icon RTL override (Bootstrap 5) --- */
 [dir="rtl"] .accordion-button::after {
   /* Restore original Bootstrap chevron (down arrow) */
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1.5 6l6 6 6-6'/%3e%3c/svg%3e") !important;
-  background-size: 1.25rem 1.25rem !important;
-  background-color: transparent !important;
-  position: static !important;
-  left: auto !important; /* reset */
-  margin-right: auto !important;
   margin-left: 0 !important;
-}
-[dir="rtl"] .accordion-button {
-  position: relative !important;
-  padding-left: 2.5rem !important; /* restore default spacing */
-  padding-right: 1.25rem !important;
-}
-[dir="rtl"] .accordion-button::after {
-  z-index: 9999 !important;
-  pointer-events: none !important;
-}
-
-/* --- Bullet points in first section (Font Awesome check icon, RTL) --- */
-[dir="rtl"] .content-section.bg-white ul.list-unstyled > li {
-  display: flex !important;
-  align-items: flex-start !important;
-  flex-direction: row-reverse !important;
-  padding-right: 0 !important;
-  padding-left: 0 !important; /* We'll control spacing with margin on icon */
-}
-[dir="rtl"] .content-section.bg-white ul.list-unstyled > li i.fas.fa-check {
-  margin-left: 0.5em !important; /* space between icon and text */
-  margin-right: 0 !important;
-  position: static !important; /* no absolute positioning */
-  color: var(--accent-500, #8cc63f) !important;
-  font-size: 1.1em !important;
-}
-
-/* Diaeta Methode: RTL support for check icon alignment in first section */
-[dir="rtl"] .content-section.bg-white ul.list-unstyled > li > i.fas.fa-check {
-  left: auto !important;
-  right: auto !important;
-  top: 0.5em !important;
-  position: static !important;
-  margin-left: 0.5em !important;
-  margin-right: 0 !important;
-}
-[dir="rtl"] .content-section.bg-white ul.list-unstyled > li {
-  padding-left: 0 !important;
-  padding-right: 2em !important;
-}
-
-/* RTL check icon styling */
-.rtl-check-icon {
-  float: right !important;
-  margin-left: 0.5em !important;
-  margin-right: 0 !important;
+  margin-right: auto !important;
 }
 
 .phone-ltr {
@@ -191,4 +132,9 @@
 
 [dir="rtl"] .phone-link .fa-phone {
   margin-left: 0.5rem;
+}
+
+/* Increase space between icon and text in philosophy cards for RTL */
+[dir="rtl"] .card h4 .fas {
+    margin-left: 0.8em !important;
 } 
