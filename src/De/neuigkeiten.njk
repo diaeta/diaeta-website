@@ -1,9 +1,9 @@
 ---
 layout: layouts/base.njk
-title: "Neuigkeiten & Ernährungsberatung | Diaeta Brüssel"
-description: "Bleiben Sie informiert über die neuesten Nachrichten, wissenschaftliche Beratung und praktische Tipps zur Ernährung von Pierre Abou-Zeid, Ernährungsberater in Brüssel."
+title: "Neuigkeiten & Ernährungstipps | Diaeta Brüssel"
+description: "Bleiben Sie informiert mit den neuesten Nachrichten, wissenschaftlichen Ratschlägen und praktischen Ernährungstipps von Pierre Abou-Zeid, Ernährungsberater in Brüssel."
 pagination:
-  data: collections.neuigkeiten
+  data: collections.actualites_de
   size: 6
   alias: items
 permalink: "/de/neuigkeiten/{% if pagination.pageNumber > 0 %}seite/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
@@ -15,9 +15,9 @@ canonicalUrl: "https://diaeta.be/de/neuigkeiten/"
     <div class="container">
         <div class="rd-hero-content">
             <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>Diaeta Neuigkeiten</span>
-            <h1 class="animate-on-scroll fade-up">Unsere Artikel & Beratung</h1>
+            <h1 class="animate-on-scroll fade-up">Unsere Artikel & Tipps</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                Tauchen Sie ein in das Herz der Ernährungswissenschaft mit den Einblicken von Pierre Abou-Zeid. Praktische Tipps, tiefgreifende Analysen und die neuesten Trends zur Optimierung Ihrer Gesundheit.
+                Tauchen Sie ein in die Welt der Ernährungswissenschaft mit Einblicken von Pierre Abou-Zeid. Praktische Tipps, detaillierte Analysen und die neuesten Trends zur Optimierung Ihrer Gesundheit.
             </p>
         </div>
     </div>
@@ -39,7 +39,7 @@ canonicalUrl: "https://diaeta.be/de/neuigkeiten/"
                             {% endif %}
                             <div class="teaser-card-body">
                                 {% if post.data.category %}
-                                    <span class="teaser-card-category"><a href="{{ ('/de/nachrichten/kategorien/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
+                                    <span class="teaser-card-category"><a href="{{ ('/de/neuigkeiten/kategorien/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
                                 {% endif %}
                                 <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
                                 {% set excerpt = post.data.description %}
@@ -57,13 +57,13 @@ canonicalUrl: "https://diaeta.be/de/neuigkeiten/"
 
                 {# Pagination Navigation #}
                 {% if pagination.pages.length > 1 %}
-                <nav aria-label="Neuigkeiten Navigation" class="mt-5 pt-4 border-top">
+                <nav aria-label="Neuigkeiten Paginierung" class="mt-5 pt-4 border-top">
                     <ul class="pagination justify-content-center">
-                        {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">Vorherige</a></li>
-                        {% else %}<li class="page-item disabled"><span class="page-link">Vorherige</span></li>{% endif %}
+                        {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">Zurück</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">Zurück</span></li>{% endif %}
                         {% for pageLink in pagination.hrefs %}<li class="page-item {% if page.url == pageLink %}active{% endif %}" aria-current="{% if page.url == pageLink %}page{% endif %}"><a class="page-link" href="{{ pageLink | url }}">{{ loop.index }}</a></li>{% endfor %}
-                        {% if pagination.href.next %}<li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">Nächste</a></li>
-                        {% else %}<li class="page-item disabled"><span class="page-link">Nächste</span></li>{% endif %}
+                        {% if pagination.href.next %}<li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">Weiter</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">Weiter</span></li>{% endif %}
                     </ul>
                 </nav>
                 {% endif %}
@@ -76,22 +76,23 @@ canonicalUrl: "https://diaeta.be/de/neuigkeiten/"
             <aside class="col-lg-3 mt-5 mt-lg-0">
                 <div class="sidebar-widget">
                     <h4 class="sidebar-title">Kategorien</h4>
-                    {% if collections.uniqueCategories.length > 0 %}
+                    {% if collections.uniqueCategories_de.length > 0 %}
                         <ul class="list-unstyled category-list">
-                            {% for category in collections.uniqueCategories %}
+                            {% for category in collections.uniqueCategories_de %}
                             <li>
-                                <a href="{{ ('/de/nachrichten/kategorien/' + category | slugify + '/') | url }}">{{ category }} 
+                                <a href="{{ ('/de/neuigkeiten/kategorien/' + category | slugify + '/') | url }}">{{ category }} 
                                     <span class="badge bg-primary rounded-pill">
-                                        {{ collections.postsByCategory[category].length }}
+                                        {{ collections.postsByCategory_de[category].length }}
                                     </span>
                                 </a>
                             </li>
                             {% endfor %}
                         </ul>
                     {% else %}
-                        <p><em>Noch keine Kategorien vorhanden.</em></p>
+                        <p><em>Derzeit keine Kategorien verfügbar.</em></p>
                     {% endif %}
                 </div>
+                {# You can add other sidebar widgets here: Recent Posts, Archives, Search Bar #}
             </aside>
         </div>
     </div>
@@ -101,8 +102,8 @@ canonicalUrl: "https://diaeta.be/de/neuigkeiten/"
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Neuigkeiten & Ernährungsberatung | Diaeta Brüssel",
-  "description": "Bleiben Sie informiert über die neuesten Nachrichten, wissenschaftliche Beratung und praktische Tipps zur Ernährung von Pierre Abou-Zeid, Ernährungsberater in Brüssel. Artikel über Gewichtsverlust, Reizdarmsyndrom, Diabetes und mehr.",
+  "name": "Neuigkeiten & Ernährungstipps | Diaeta Brüssel",
+  "description": "Bleiben Sie informiert mit den neuesten Nachrichten, wissenschaftlichen Ratschlägen und praktischen Ernährungstipps von Pierre Abou-Zeid, Ernährungsberater in Brüssel.",
   "url": "https://diaeta.be{{ canonicalUrl }}",
   "publisher": {
     "@id": "https://diaeta.be#organization"

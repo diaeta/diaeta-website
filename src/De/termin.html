@@ -1,0 +1,316 @@
+---
+layout: layouts/base.njk
+title: Termin Vereinbaren Ernährungsberater Diaeta Brüssel | Beratung Online/Praxis
+description: Buchen Sie einfach Ihre Beratung mit Pierre Abou-Zeid, zugelassener Ernährungsberater Diaeta in Brüssel. Praxen oder Online-Beratung verfügbar. Termin online buchen.
+lang: de
+eleventyNavigation:
+  key: Rendez-vous
+  order: 3
+---
+
+<a href="#main-content" class="skip-link">Zum Hauptinhalt</a>
+<main id="main-content">
+    {# Hero Section with Left-Aligned Content #}
+    <section class="service-hero rd-hero">
+        <div class="container">
+             {# Optional wrapper if more control needed, otherwise direct children inherit text-align from .container #}
+             <div class="rd-hero-content">
+                <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-calendar-check hero-badge-icon"></i>Terminbuchung</span>
+                <h1 class="animate-on-scroll fade-up">Ihr Gesundheitsweg Beginnt Hier</h1>
+                <p class="lead animate-on-scroll fade-up delay-200">Planen Sie Ihre personalisierte Ernährungsberatung. Es ist einfach, schnell und an Ihre Bedürfnisse angepasst.</p>
+             </div>
+        </div>
+    </section>
+
+    {# Step 1: Choose Location #}
+    <section class="rd-step-section rd-location-choice-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5 animate-on-scroll fade-up">
+                {# Title with Step Number - Corrected Alignment via CSS #}
+                <h2 class="section-title">
+                    <span class="step-number">1</span>
+                    Wählen Sie Ihren Beratungsort
+                </h2>
+                <p class="section-subtitle">Wählen Sie eine Praxis oder entscheiden Sie sich für eine Online-Beratung. Die spezifischen Verfügbarkeiten werden dann im Buchungsmodul angezeigt.</p>
+            </div>
+
+            {% if cabinets_de and cabinets_de.length > 0 %}
+            <div class="location-cards-container animate-on-scroll fade-up delay-100">
+                {# "All Cabinets" Card/Button #}
+                <div class="location-card select-cabinet-card default-selection" data-practice-id="" data-cabinet-name="Alle Praxen">
+                    <div class="location-card-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                    <div class="location-card-content">
+                        <h3 class="location-card-name">Alle Praxen Anzeigen</h3>
+                        <p class="location-card-address">Alle Verfügbarkeiten anzeigen.</p>
+                    </div>
+                    <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                </div>
+                {# Loop through actual cabinets from _data/cabinets_de.json #}
+                {% for cabinet in cabinets_de %}
+                <div class="location-card select-cabinet-card" 
+                    data-practice-id="{{ cabinet.doctorpracticeId }}" 
+                    data-cabinet-name="{{ cabinet.name | escape }}"
+                    data-cabinet-id="{{ cabinet.id }}">
+                    <div class="location-card-icon">
+                        {% if cabinet.id == 'video' %}<i class="fa-solid fa-video"></i>
+                        {% else %}<i class="fa-solid fa-map-marker-alt"></i>{% endif %}
+                    </div>
+                    <div class="location-card-content">
+                        <h3 class="location-card-name">
+                            {% if cabinet.id != 'video' %} {# Only add link for physical locations #}
+                                <a href="/de/praxen/{{ cabinet.id | slugify }}/" class="clinic-name-link"> {# Reusing class from index.html cards #}
+                                    {{ cabinet.name }} <i class="fas fa-info-circle fa-xs clinic-info-icon"></i> {# Reusing class #}
+                                </a>
+                            {% else %}
+                                {{ cabinet.name }} {# For "Video-Beratung", just display the name #}
+                            {% endif %}
+                        </h3>
+                        <p class="location-card-address">{{ cabinet.fullAddress }}</p>
+                        
+                        {# Updated Hours Display from previous step #}
+                        {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                        <div class="cabinet-hours-display mt-2 pt-2 border-top">
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Öffnungszeiten für diesen Ort:</strong>
+                            <ul class="list-unstyled text-xs mb-0 specific-hours-list">
+                                {% for day_schedule in cabinet.opening_hours %}
+                                    <li>
+                                        <strong>{{ day_schedule.dayOfWeekGERMAN | capitalize }}:</strong>
+                                        {% for slot in day_schedule.timeSlots %}
+                                            {{ slot.opens | replace(":", "h") }} - {{ slot.closes | replace(":", "h") }}{{ ", " if not loop.last else "" }}
+                                        {% endfor %}
+                                    </li>
+                                {% endfor %}
+                                {% if cabinet.hours_details_note %}
+                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        {% elif cabinet.hours_details_note %}
+                        <div class="cabinet-hours-display mt-2 pt-2 border-top">
+                            <strong class="text-xs text-primary d-block mb-1"><i class="fa-regular fa-clock me-1"></i>Öffnungszeiten für diesen Ort:</strong>
+                            <ul class="list-unstyled text-xs mb-0 specific-hours-list">
+                                <li class="hours-details-note"><small><em>{{ cabinet.hours_details_note }}</em></small></li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        {% if cabinet.notes %}<p class="location-card-notes text-xs fst-italic mt-2">{{ cabinet.notes }}</p>{% endif %}
+                    </div>
+                    <div class="location-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-center"><em>Laden der Praxisinformationen... Falls diese Meldung bestehen bleibt, kontaktieren Sie uns bitte <a href="{{ '/de/kontakt/' | url }}">hier</a>.</em></p>
+            {% endif %}
+
+             {# Optional Clarifying Note - Placed after the cards #}
+             <p class="text-center text-muted text-sm mt-5 animate-on-scroll fade-up delay-300">
+                <i class="fa-solid fa-circle-info me-1"></i>Bitte konsultieren Sie das Buchungsmodul unten für die genauen und aktuellen Verfügbarkeiten für den ausgewählten Ort.
+            </p>
+
+        </div>
+    </section>
+
+    {# Step 2: Select Time Slot (iFrame) #}
+    <section class="rd-step-section rd-booking-module-section py-5 bg-white"> {# Changed background for contrast #}
+        <div class="container">
+            <div class="section-header text-center mb-4 animate-on-scroll fade-up">
+                 {# Title with Step Number - Corrected Alignment via CSS #}
+                 <h2 class="section-title">
+                    <span class="step-number">2</span>
+                    <span id="booking-module-dynamic-title">Wählen Sie Ihre Uhrzeit</span>
+                 </h2>
+                 <p class="section-subtitle" id="booking-module-subtitle">Wählen Sie einen Termin für den ausgewählten Ort.</p>
+                 {# Loading Indicator for iFrame #}
+                 <div id="iframe-loading-indicator" style="display: none; min-height: 30px;"> {# Added min-height #}
+                    <div class="spinner-border text-primary spinner-border-sm" role="status">
+                        <span class="visually-hidden">Laden...</span>
+                    </div>
+                    <p class="text-muted mt-1 text-sm"><em>Aktualisierung der Verfügbarkeiten...</em></p>
+                 </div>
+            </div>
+
+            <div class="iframe-container animate-on-scroll fade-up delay-100" id="booking-module-wrapper">
+                <iframe src="https://www.doctoranytime.be/de/iframes/agenda?doctorId=80669"
+                        frameborder="0"
+                        style="border: none; overflow: hidden; width: 100%; height: 445px; margin: 0 auto; display: block;"
+                        allowtransparency="true"
+                        id="defaultiFrame"
+                        title="Online Terminbuchung Doctoranytime für Diaeta"></iframe>
+            </div>
+        </div>
+    </section>
+
+    {# Step 3: Prepare Your Visit #}
+    <section class="rd-step-section rd-preparation-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5 animate-on-scroll fade-up">
+                 {# Title with Step Number - Corrected Alignment via CSS #}
+                 <h2 class="section-title">
+                    <span class="step-number">3</span>
+                    Bereiten Sie Ihren Besuch Vor
+                 </h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 animate-on-scroll fade-up delay-100">
+                    <div class="info-card h-100 preparation-card">
+                        <div class="info-card-icon prep-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                        <h3 class="info-card-title">Was Sie Mitbringen Sollten</h3>
+                        <ul class="list-styled">
+                            <li>Ihren Personalausweis.</li>
+                            <li>Relevante medizinische Informationen (kürzliche Blutuntersuchungen falls verfügbar).</li>
+                            <li>Liste Ihrer aktuellen Medikamente oder Nahrungsergänzungsmittel.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 animate-on-scroll fade-up delay-200">
+                    <div class="info-card h-100 preparation-card">
+                        <div class="info-card-icon prep-icon"><i class="fa-solid fa-circle-info"></i></div>
+                        <h3 class="info-card-title">Wichtige Informationen</h3>
+                        <p><strong>Stornierungsrichtlinie:</strong> Bei Verhinderung bitten wir Sie, uns mindestens 24 Stunden im Voraus zu benachrichtigen. Eine unbegründete Stornierung wird mit einer Pauschalgebühr von 20€ belegt.</p>
+                        <p>Konsultieren Sie unsere <a href="{{ '/de/preise/' | url }}" class="link-primary">Preise und Erstattungsbedingungen</a>.</p>
+                        <p class="mt-3">Bei Fragen zögern Sie nicht, <a href="{{ '/de/kontakt' | url }}" class="link-primary">uns zu kontaktieren</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{# JavaScript for iFrame interaction - Should be placed before closing </body> tag, often in base.njk #}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const iframe = document.getElementById('defaultiFrame');
+    const bookingModuleDynamicTitleSpan = document.getElementById('booking-module-dynamic-title');
+    const bookingModuleSubtitle = document.getElementById('booking-module-subtitle');
+    const iframeLoadingIndicator = document.getElementById('iframe-loading-indicator');
+    const bookingModuleWrapper = document.getElementById('booking-module-wrapper');
+
+    if (!iframe) {
+        console.error('Doctoranytime iframe not found');
+        return;
+    }
+
+    const doctorId = '80669'; // Your Doctoranytime ID
+    const baseIframeSrc = `https://www.doctoranytime.be/de/iframes/agenda?doctorId=${doctorId}`;
+    const locationCards = document.querySelectorAll('.select-cabinet-card');
+    let currentPracticeId = ''; // Default "All Cabinets" ID
+
+    function showIframeLoading() {
+        if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'block';
+        if (iframe) iframe.style.opacity = '0.5';
+    }
+
+    function hideIframeLoading() {
+        // Add a small delay to ensure loading is visible if iframe loads extremely fast
+        setTimeout(() => {
+             if (iframeLoadingIndicator) iframeLoadingIndicator.style.display = 'none';
+             if (iframe) iframe.style.opacity = '1';
+        }, 200);
+    }
+
+    function updateIframeAndTitle(practiceId, cabinetName) {
+        // Prevent unnecessary reload if already selected
+        if (iframe.src.includes(`doctorpracticeId=${practiceId}`) && practiceId !== '') return;
+        if (!practiceId && !iframe.src.includes('doctorpracticeId=')) return; // Already showing all
+
+        showIframeLoading();
+        let newSrc = baseIframeSrc;
+        let titleText = "Wählen Sie Ihre Uhrzeit"; // Default Title
+        let subTitleText = "Wählen Sie einen Termin für den ausgewählten Ort."; // Default Subtitle
+
+        if (practiceId) {
+            newSrc += '&doctorpracticeId=' + practiceId;
+            titleText = `Verfügbarkeiten für: ${cabinetName}`;
+            subTitleText = `Wählen Sie einen Termin für ${cabinetName}.`;
+        } else {
+            titleText = "Verfügbarkeiten: Alle Praxen";
+            subTitleText = "Wählen Sie einen Termin in einer unserer Praxen oder für eine Online-Beratung.";
+        }
+
+        const handleLoad = () => {
+            hideIframeLoading();
+            iframe.removeEventListener('load', handleLoad);
+            iframe.removeEventListener('error', handleError);
+        };
+        const handleError = () => {
+            console.error("Iframe failed to load:", newSrc);
+            hideIframeLoading();
+            iframe.removeEventListener('load', handleLoad);
+            iframe.removeEventListener('error', handleError);
+        };
+
+        iframe.removeEventListener('load', handleLoad); // Remove previous listener if any
+        iframe.removeEventListener('error', handleError); // Remove previous listener if any
+        iframe.addEventListener('load', handleLoad);
+        iframe.addEventListener('error', handleError);
+        iframe.src = newSrc; // Change source
+
+        if (bookingModuleDynamicTitleSpan) {
+            bookingModuleDynamicTitleSpan.textContent = titleText;
+        }
+        if (bookingModuleSubtitle) {
+            bookingModuleSubtitle.textContent = subTitleText;
+        }
+        currentPracticeId = practiceId;
+
+        // Update active state on cards
+        locationCards.forEach(card => {
+            card.classList.toggle('active', card.dataset.practiceId === currentPracticeId);
+        });
+    }
+
+    locationCards.forEach(card => {
+        card.addEventListener('click', function () {
+            const practiceId = this.dataset.practiceId;
+            // Use the full name from data attribute for the title
+            const cabinetName = this.dataset.cabinetName;
+            updateIframeAndTitle(practiceId, cabinetName);
+
+            // Scroll to the booking module
+            if (bookingModuleWrapper) {
+                bookingModuleWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    });
+
+    // Initialize with the "Alle Praxen" card active
+    const defaultSelectionCard = document.querySelector('.location-card.default-selection');
+    if (defaultSelectionCard) {
+        defaultSelectionCard.classList.add('active');
+        if (bookingModuleDynamicTitleSpan) {
+             bookingModuleDynamicTitleSpan.textContent = `Verfügbarkeiten für: ${defaultSelectionCard.dataset.cabinetName}`;
+        }
+         if (bookingModuleSubtitle) {
+             bookingModuleSubtitle.textContent = "Wählen Sie einen Termin in einer unserer Praxen oder für eine Online-Beratung.";
+         }
+    }
+
+    // Initial check for iframe load state
+    if (iframe.contentWindow && iframe.contentWindow.document.readyState === 'complete') {
+        hideIframeLoading();
+    } else {
+        iframe.addEventListener('load', hideIframeLoading, { once: true }); // Use once to avoid multiple calls
+        iframe.addEventListener('error', hideIframeLoading, { once: true });
+    }
+});
+</script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Diaeta Startseite",
+        "item": "https://diaeta.be/de/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Termin Vereinbaren Ernährungsberater Diaeta",
+        "item": "https://diaeta.be/de/termin/"
+      }]
+    }
+    </script>

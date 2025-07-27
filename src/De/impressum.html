@@ -1,7 +1,9 @@
 ---
 layout: layouts/base.njk
 title: "Impressum - Diaeta"
-description: "Lesen Sie das Impressum der Website diaeta.be, herausgegeben von Pierre Abou-Zeid, zugelassener Ernährungsberater. Informationen über den Herausgeber, den Hoster und das geistige Eigentum."
+description: "Impressum der diaeta.be Website, betrieben von Pierre Abou-Zeid, einem zertifizierten Diätologen in Belgien. Informationen zu Herausgeber, Host und beruflicher Konformität."
+lang: de
+canonicalUrl: "https://diaeta.be/de/impressum/"
 ---
 
 <style>
@@ -29,79 +31,88 @@ description: "Lesen Sie das Impressum der Website diaeta.be, herausgegeben von P
     }
 </style>
 
-<section class="content-section bg-light">
-    <div class="container py-5" dir="rtl" style="text-align: right;">
-        <div class="text-center mb-5">
-            <h1>Impressum</h1>
-            <p class="lead text-muted">Rechtliche Informationen zur Website diaeta.be</p>
-            <p class="text-sm"><em>Letzte Aktualisierung: 04. Juli 2025</em></p>
-        </div>
+<section class="content-section container py-5">
+    <div class="text-center mb-5">
+        <h1>Impressum</h1>
+        <p class="lead text-muted">Gemäß belgischem und europäischem Recht.</p>
+        <p class="text-sm"><em>Letzte Aktualisierung: {{ "" | date("d. MMMM yyyy", "de") }}</em></p>
+    </div>
 
-        <div class="legal-card">
-            <h2>I. Herausgeber der Website</h2>
-            <p>Diese Website, erreichbar unter der URL <a href="https://diaeta.be">https://diaeta.be</a> (die „Website“), wird herausgegeben von:</p>
-            <dl class="row definition-list">
-                <dt class="col-sm-4">Name des Unternehmens</dt>
-                <dd class="col-sm-8">Diaeta</dd>
-                <dt class="col-sm-4">Name des Betreibers</dt>
-                <dd class="col-sm-8">Pierre Abou-Zeid</dd>
-                <dt class="col-sm-4">Rechtsform</dt>
-                <dd class="col-sm-8">Einzelunternehmen (Selbstständiger)</dd>
-                <dt class="col-sm-4">Betriebssitz</dt>
-                <dd class="col-sm-8">Laudinnestraat 94A, 1602 Vlezenbeek, Belgien.</dd>
-                <dt class="col-sm-4">Unternehmensnummer (ZDU)</dt>
-                <dd class="col-sm-8">0540.714.226</dd>
-                <dt class="col-sm-4">E-Mail</dt>
-                <dd class="col-sm-8"><a href="mailto:info@diaeta.be">info@diaeta.be</a></dd>
-                <dt class="col-sm-4">Telefon</dt>
-                <dd class="col-sm-8">+32 479 35 55 51</dd>
-            </dl>
-        </div>
+    <div class="legal-card">
+        <h2>I. Herausgeber & Redaktionelle Verantwortung</h2>
+        <dl class="row definition-list">
+            <dt class="col-sm-4">Name des Praktikers</dt>
+            <dd class="col-sm-8">Pierre Abou-Zeid</dd>
+            <dt class="col-sm-4">Handelsname</dt>
+            <dd class="col-sm-8">Diaeta</dd>
+            <dt class="col-sm-4">Rechtsform</dt>
+            <dd class="col-sm-8">Einzelunternehmen (Natürliche Person)</dd>
+            <dt class="col-sm-4">Praxisadresse</dt>
+            <dd class="col-sm-8">Laudinnestraat 94A, 1602 Vlezenbeek, Belgien</dd>
+            <dt class="col-sm-4">Unternehmensnummer</dt>
+            <dd class="col-sm-8">ZDU BE 0540.714.226</dd>
+            <dt class="col-sm-4">USt-IdNr.</dt>
+            <dd class="col-sm-8">BE 0540.714.226</dd>
+            <dt class="col-sm-4">E-Mail</dt>
+            <dd class="col-sm-8"><a href="mailto:info@diaeta.be">info@diaeta.be</a> (für direkte Kommunikation überwacht)</dd>
+            <dt class="col-sm-4">Telefon</dt>
+            <dd class="col-sm-8">+32 479 35 55 51</dd>
+            <dt class="col-sm-4">Verantwortlicher für den Inhalt</dt>
+            <dd class="col-sm-8">Pierre Abou-Zeid</dd>
+        </dl>
+    </div>
 
-        <div class="legal-card">
-            <h2>II. Reglementierter Beruf</h2>
-            <dl class="row definition-list">
-                <dt class="col-sm-4">Berufsbezeichnung</dt>
-                <dd class="col-sm-8">Zugelassener Ernährungsberater</dd>
-                <dt class="col-sm-4">Verleihungsstaat</dt>
-                <dd class="col-sm-8">Belgien</dd>
-                <dt class="col-sm-4">Aufsichtsbehörde</dt>
-                <dd class="col-sm-8">FÖD Volksgesundheit, Sicherheit der Nahrungsmittelkette und Umwelt</dd>
-                <dt class="col-sm-4">Anwendbare Regeln</dt>
-                <dd class="col-sm-8">Königlicher Erlass vom 19. Februar 1997 über die Berufsbezeichnung und die Qualifikationsanforderungen für die Ausübung des Berufs des Ernährungsberaters.</dd>
-                 <dt class="col-sm-4">Berufsverband</dt>
-                <dd class="col-sm-8">UPDLF</dd>
-            </dl>
-        </div>
+    <div class="legal-card">
+        <h2>II. Reglementierter Gesundheitsberuf</h2>
+        <dl class="row definition-list">
+            <dt class="col-sm-4">Berufsbezeichnung</dt>
+            <dd class="col-sm-8">Zertifizierter Diätologe (Diététicien/Diëtist)</dd>
+            <dt class="col-sm-4">Anwendbare Vorschrift</dt>
+            <dd class="col-sm-8">Königlicher Erlass vom 19. Feb. 1997 über den geschützten Titel und die Qualifikationsanforderungen für den Beruf des Diätologen in Belgien.</dd>
+            <dt class="col-sm-4">Aufsichtsbehörde</dt>
+            <dd class="col-sm-8">FÖD Volksgesundheit, Sicherheit der Nahrungsmittelkette und Umwelt</dd>
+            <dt class="col-sm-4">RIZIV/LIKIV-Nummer</dt>
+            <dd class="col-sm-8">5-60313-21-001</dd>
+            <dt class="col-sm-4">Berufsverbände</dt>
+            <dd class="col-sm-8">Mitglied von VBVD &amp; UPDLF. Die Praxis unterliegt den jeweiligen berufsständischen Regeln.</dd>
+        </dl>
+    </div>
 
-        <div class="legal-card">
-            <h2>III. Hoster der Website</h2>
-            <dl class="row definition-list">
-                <dt class="col-sm-4">Firmenname</dt>
-                <dd class="col-sm-8">Combell SA</dd>
-                <dt class="col-sm-4">Adresse</dt>
-                <dd class="col-sm-8">9042 Gent, Skaldenstraat 121, Belgien</dd>
-                <dt class="col-sm-4">Website</dt>
-                <dd class="col-sm-8"><a href="https://www.combell.com" target="_blank" rel="noopener noreferrer">www.combell.com</a></dd>
-                 <dt class="col-sm-4">Serverstandort</dt>
-                <dd class="col-sm-8">Europäische Union (Belgien)</dd>
-            </dl>
-        </div>
+    <div class="legal-card">
+        <h2>III. Website-Host</h2>
+        <dl class="row definition-list">
+            <dt class="col-sm-4">Unternehmen</dt>
+            <dd class="col-sm-8">Combell NV</dd>
+            <dt class="col-sm-4">Adresse</dt>
+            <dd class="col-sm-8">Skaldenstraat 121, 9042 Gent, Belgien</dd>
+            <dt class="col-sm-4">Kontakt</dt>
+            <dd class="col-sm-8"><a href="https://www.combell.com" target="_blank" rel="noopener">www.combell.com</a></dd>
+        </dl>
+    </div>
 
-        <div class="legal-card">
-            <h2>IV. Zugang zur Website und Haftung</h2>
-            <p>Die auf der Website diaeta.be bereitgestellten Informationen dienen ausschließlich zu Informationszwecken. Sie können in keinem Fall eine ärztliche Beratung, Diagnose oder Konsultation durch einen qualifizierten Gesundheitsfachmann ersetzen. Der Herausgeber kann nicht für die Auslegung oder Verwendung der Inhalte der Website haftbar gemacht werden.</p>
-        </div>
+    <div class="legal-card">
+        <h2>IV. Inhalt & Haftung</h2>
+        <p>Die Informationen auf dieser Website dienen nur zu Informationszwecken und ersetzen keine medizinische Beratung. Gemäß dem belgischen Qualitätsgesetz sind die Inhalte objektiv, nachprüfbar und nicht zur unrechtmäßigen Anwerbung von Patienten bestimmt.</p>
+        <p class="mt-2">In Übereinstimmung mit den RIZIV/LIKIV-Vorschriften wird auf dieser Website keine Kostenerstattung durch die Krankenversicherung erwähnt.</p>
+    </div>
 
-        <div class="legal-card">
-            <h2>V. Geistiges Eigentum</h2>
-            <p>Die Struktur, Texte, Grafiken, Bilder und das Logo, aus denen die Website diaeta.be besteht, sind ausschließliches Eigentum von Pierre Abou-Zeid. Jede auch nur teilweise Vervielfältigung oder Nutzung ohne vorherige schriftliche Genehmigung ist strengstens untersagt.</p>
-        </div>
+    <div class="legal-card">
+        <h2>V. Geistiges Eigentum</h2>
+        <p>Alle Inhalte auf diaeta.be (Texte, Bilder, Logo) sind alleiniges Eigentum von Pierre Abou-Zeid und urheberrechtlich geschützt.</p>
+    </div>
 
-        <div class="legal-card">
-            <h2>VI. Anwendbares Recht und Gerichtsstand</h2>
-            <p>Diese rechtlichen Hinweise unterliegen belgischem Recht. Im Streitfall sind ausschließlich die Gerichte des Gerichtsbezirks Brüssel zuständig.</p>
-        </div>
+    <div class="legal-card">
+        <h2>VI. Datenschutz</h2>
+        <p>Informationen zur Verarbeitung Ihrer personenbezogenen Daten und zur Verwaltung von Cookies finden Sie in unseren Richtlinien:</p>
+        <ul>
+            <li><a href="{{ '/de/datenschutz/' | url }}">Datenschutzrichtlinie</a></li>
+            <li><a href="{{ '/de/cookie-richtlinie/' | url }}">Cookie-Richtlinie</a></li>
+        </ul>
+    </div>
+
+    <div class="legal-card">
+        <h2>VII. Anwendbares Recht & Gerichtsstand</h2>
+        <p>Dieses Impressum unterliegt belgischem Recht. Ausschließlicher Gerichtsstand ist Brüssel.</p>
     </div>
 </section>
 

@@ -1,115 +1,208 @@
 ---
 layout: layouts/base.njk
+lang: de
 pagination:
   data: cabinets_de
   size: 1
-  alias: clinic
-permalink: "/de/praxis/{{ clinic.id }}/index.html"
+  alias: cabinet
+  filter:
+    - video
+permalink: "/de/praxen/{{ cabinet.id | slugify | replace('fr-', 'de-') }}/index.html"
 eleventyComputed:
-  title: "{{ clinic.name }} - Diaeta Ernährungsberatung | {{ clinic.city }}"
-  description: "Vereinbaren Sie einen Termin mit Pierre Abou-Zeid in der Praxis {{ clinic.name }} in {{ clinic.city }}. Professionelle Ernährungsberatung und personalisierte Behandlung."
-  clinic_name: "{{ clinic.name }}"
-lang: de
+  title: "Diaeta Praxis in {{ cabinet.name }} | Ernährungsberater {{ displayCity }}"
+  description: "Konsultation mit Pierre Abou-Zeid, Ernährungsberater, in der Diaeta Praxis in {{ cabinet.name }}, {{ displayCity }}. Spezialisiert auf Gewichtsverlust, Reizdarmsyndrom, Diabetes."
 ---
 
-<section class="service-hero rd-hero">
+{# HERO SECTION FOR LOCATION PAGE #}
+<section class="service-hero-wp">
     <div class="container">
-        <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-map-marker-alt hero-badge-icon"></i>Diaeta Praxis</span>
-            <h1 class="animate-on-scroll fade-up">{{ clinic.name }}</h1>
-            <p class="lead animate-on-scroll fade-up delay-200">
-                Ihre Ernährungsberatung mit Pierre Abou-Zeid in {{ clinic.city }}
-            </p>
-        </div>
+        <span class="section-badge animate-on-scroll fade-in">{{ cabinet.name }}</span>
+        <h1 class="animate-on-scroll fade-up">Ihre Diaeta Beratung in {{ displayCity }}</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            Treffen Sie Pierre Abou-Zeid, zertifizierter Ernährungsberater, für Ihre personalisierte Betreuung in {{ cabinet.name }} ({{ displayCity }}).
+        </p>
+        {# Link to appointment.html, with locationId parameter #}
+        <a href="/de/termin/?locationId={{ cabinet.doctorpracticeId }}" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+            <span>Termin in {{ cabinet.name }} vereinbaren</span><i class="fa-solid fa-calendar-check btn-icon-right"></i>
+        </a>
     </div>
 </section>
 
 <section class="content-section bg-white">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="clinic-details">
-                    <h2>Adresse & Kontakt</h2>
-                    <div class="clinic-info-card">
-                        <div class="clinic-info-header">
-                            <h3>{{ clinic.name }}</h3>
-                            <div class="clinic-address">
-                                <i class="fa-solid fa-map-marker-alt"></i>
-                                <div>
-                                    <p>{{ clinic.fullAddress }}</p>
-                                    {% if clinic.Maps_link %}
-                                    <a href="{{ clinic.Maps_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
-                                        <i class="fa-solid fa-external-link-alt"></i> Route anzeigen
-                                    </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2 class="h3 mb-4" style="color: var(--primary-700);">Diaeta Praxis in {{ cabinet.name }}, {{ displayCity }}</h2>
 
-                        {% if clinic.notes %}
-                        <div class="clinic-notes">
-                            <i class="fa-solid fa-info-circle"></i>
-                            <p>{{ clinic.notes }}</p>
-                        </div>
-                        {% endif %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-signs me-2"></i>Adresse</h4>
+                    <p>{{ cabinet.fullAddress }}</p>
+                </div>
 
-                        {% if clinic.opening_hours %}
-                        <div class="clinic-hours">
-                            <h4><i class="fa-solid fa-clock"></i> Öffnungszeiten</h4>
-                            <ul class="hours-list">
-                                {% for day in clinic.opening_hours %}
-                                <li>
-                                    <strong>{{ day.dayOfWeekFRENCH }}:</strong>
-                                    {% for slot in day.timeSlots %}
-                                        {{ slot.opens }} - {{ slot.closes }}{% if not loop.last %}, {% endif %}
-                                    {% endfor %}
-                                </li>
+                {# Dynamically display hours from the structured opening_hours array #}
+                {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-clock me-2"></i>Beratungszeiten (Pierre Abou-Zeid)</h4>
+                    <ul class="list-unstyled">
+                        {% for day_schedule in cabinet.opening_hours %}
+                            <li>
+                                <strong>{{ day_schedule.dayOfWeekGERMAN | capitalize }} :</strong>
+                                {% for slot in day_schedule.timeSlots %}
+                                    {{ slot.opens }} - {{ slot.closes }}{{ ", " if not loop.last else "" }}
                                 {% endfor %}
-                            </ul>
-                            {% if clinic.hours_details_note %}
-                            <p class="hours-note"><em>{{ clinic.hours_details_note }}</em></p>
-                            {% endif %}
-                        </div>
-                        {% endif %}
-                    </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if cabinet.hours_details_note %}
+                    <p class="text-muted"><em>{{ cabinet.hours_details_note }}</em></p>
+                    {% endif %}
+                    <p class="text-muted text-sm"><em>Für genaue Verfügbarkeit konsultieren Sie bitte das Terminbuchungsmodul.</em></p>
                 </div>
+                {% endif %}
+
+                {% if cabinet.notes %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-info-circle me-2"></i>Zugang & Informationen</h4>
+                    <p>{{ cabinet.notes }}</p>
+                </div>
+                {% endif %}
+
+                {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-marker-alt me-2"></i>Standort</h4>
+                    <p><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary">Auf Google Maps anzeigen <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
+                </div>
+                {% endif %}
+
+                 <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-concierge-bell me-2"></i>Angebotene Leistungen an diesem Standort</h4>
+                    <ul class="list-styled-check">
+                        <li>Personalisierte Programme für nachhaltigen Gewichtsverlust</li>
+                        <li>Ernährungsmanagement bei Typ-2-Diabetes</li>
+                        <li>Cholesterin- und Bluthochdruckmanagement</li>
+                        <li>Unterstützung bei Reizdarmsyndrom (Low-FODMAP-Ansatz)</li>
+                        <li>Nutrigenomik-Beratungen (auf Anfrage)</li>
+                        <li>Und andere personalisierte Ernährungsbetreuungen...</li>
+                    </ul>
+                </div>
+                 <p>Alle Beratungen in {{ cabinet.name }} werden von Pierre Abou-Zeid, einem zertifizierten Ernährungsberater (INAMI) und MONASH-zertifiziert, durchgeführt.</p>
+                 <a href="/de/unsere-expertise/" class="btn btn-outline-primary mt-3"><span>Entdecken Sie Pierres Expertise</span><i class="fa-solid fa-arrow-right btn-icon-right ms-2"></i></a>
+
             </div>
-
-            <div class="col-lg-4">
-                <div class="clinic-cta-sidebar">
-                    <div class="cta-card">
-                        <h3>Termin vereinbaren</h3>
-                        <p>Buchen Sie Ihren Beratungstermin bei Pierre Abou-Zeid</p>
-                        {% if clinic.doctorpracticeId %}
-                        <a href="https://app.doctorpractice.be/profile/{{ clinic.doctorpracticeId }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg w-100 mb-3">
-                            <i class="fa-solid fa-calendar-check"></i> Online Buchen
-                        </a>
-                        {% endif %}
-                        <a href="tel:+32479355551" class="btn btn-outline-primary w-100">
-                            <i class="fa-solid fa-phone"></i> +32 479 35 55 51
-                        </a>
-                    </div>
-
-                    <div class="clinic-services">
-                        <h4>Unsere Leistungen</h4>
-                        <ul>
-                            <li><a href="/de/gewichtsverlust/">Gewichtsverlust</a></li>
-                            <li><a href="/de/reizdarmsyndrom-fodmap/">Reizdarmsyndrom (FODMAP)</a></li>
-                            <li><a href="/de/diabetes-typ-2/">Diabetes Typ 2</a></li>
-                            <li><a href="/de/bluthochdruck-cholesterin/">Bluthochdruck & Cholesterin</a></li>
-                            <li><a href="/de/nutrigenetische-tests/">Nutrigenetische Tests</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
+                <img src="/images/cabinets/{{ cabinet.id | slugify | replace('fr-', 'de-') }}.jpg"
+                     onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';"
+                     alt="Diaeta Beratungspraxis in {{ cabinet.name }}, {{ displayCity }}"
+                     class="img-fluid rounded shadow-sm"
+                     style="margin-top: 1.5rem; max-height: 400px; object-fit: cover;"
+                     loading="lazy">
+                <p class="mt-4 p-3 bg-light rounded"><em>Diaeta begrüßt Sie in {{ cabinet.name }} ({{ displayCity }}) und unterstützt Sie bei der Erreichung Ihrer Gesundheits- und Wohlfühlziele.</em></p>
             </div>
         </div>
     </div>
 </section>
 
-{% if clinic.coordinates %}
-<section class="clinic-map-section">
-    <div class="container-fluid p-0">
-        <div id="clinic-map" class="clinic-map" data-lat="{{ clinic.coordinates[0] }}" data-lng="{{ clinic.coordinates[1] }}" data-name="{{ clinic.name }}"></div>
-    </div>
-</section>
-{% endif %}
+{# === Updated and Consolidated Schema for this specific Cabinet Page === #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://diaeta.be{{ page.url }}#clinic",
+  "name": "Diaeta - {{ cabinet.name | escape }}",
+  "description": "Diaeta Beratungspraxis in {{ displayCity | escape }} ({{ cabinet.name | escape }}) mit Pierre Abou-Zeid, Ernährungsberater. {{ cabinet.notes | default('') | escape }}",
+  "url": "https://diaeta.be{{ page.url }}",
+
+  {% if cabinet.address_obj %}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName | escape }}",
+    "addressLocality": "{{ cabinet.address_obj.city | escape }}",
+    "postalCode": "{{ cabinet.address_obj.postalCode | escape }}",
+    "addressRegion": "{{ cabinet.address_obj.region | escape }}",
+    "addressCountry": "{{ cabinet.address_obj.country | escape }}"
+  },
+  {% endif %}
+
+  "telephone": "+32479355551",
+  "priceRange": "€50-€80",
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'de-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+  {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+  "hasMap": "{{ cabinet.Maps_link }}",
+  {% endif %}
+
+  {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ cabinet.coordinates[0] }}",
+    "longitude": "{{ cabinet.coordinates[1] }}"
+  },
+  {% endif %}
+
+  {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+  {% set hasActualHours = false %}
+  {% for day_schedule_check in cabinet.opening_hours %}
+    {% if day_schedule_check.timeSlots and day_schedule_check.timeSlots.length > 0 %}
+      {% set hasActualHours = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hasActualHours %}
+  "openingHoursSpecification": [
+    {%- set printedOHSItemCount = 0 -%}
+    {%- for day_schedule in cabinet.opening_hours -%}
+      {%- for slot in day_schedule.timeSlots -%}
+        {%- if printedOHSItemCount > 0 %},{% endif -%}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "https://schema.org/{{ day_schedule.dayOfWeekSCHEMA }}",
+          "opens": "{{ slot.opens }}",
+          "closes": "{{ slot.closes }}"
+        }
+        {%- set printedOHSItemCount = printedOHSItemCount + 1 -%}
+      {%- endfor -%}
+    {%- endfor %}
+  ],
+  {% endif %}
+  {% endif %}
+
+  "parentOrganization": {
+    "@type": "DietNutrition",
+    "@id": "https://diaeta.be#organization",
+    "name": "Diaeta"
+  },
+  "employee": {
+    "@type": "Person",
+    "@id": "https://diaeta.be/de/unsere-expertise/#person",
+    "name": "Pierre Abou-Zeid"
+  },
+  "medicalSpecialty": "DietNutrition"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Diaeta Startseite",
+      "item": "https://diaeta.be/de/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Praxen",
+      "item": "https://diaeta.be/de/praxen-bruessel/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ cabinet.name }}",
+      "item": "https://diaeta.be/de/praxen/{{ cabinet.id | slugify | replace('fr-', 'de-') }}/"
+    }
+  ]
+}
+</script>

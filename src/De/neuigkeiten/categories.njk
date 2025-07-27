@@ -1,30 +1,27 @@
 ---
 pagination:
-  data: collections.postsByCategory_fr
+  data: collections.postsByCategory_de
   size: 1 # One page per category
   alias: categoryData
-  addAllPagesToCollections: false # So you can link to these if needed
-permalink: "/fr/actualites/categories/{{ categoryData.key | slugify }}/index.html"
+  addAllPagesToCollections: true # So you can link to these if needed
+permalink: "/de/neuigkeiten/kategorien/{{ categoryData.key | slugify }}/index.html"
 layout: layouts/base.njk
-lang: fr
+lang: de
 eleventyComputed:
   categoryName: (data) => data.categoryData.key
-  title: "(data) => 'Actualités - Catégorie : ' + data.categoryData.key + ' | Diaeta Bruxelles'"
-  description: "(data) => 'Articles et conseils nutritionnels de Diaeta Bruxelles pour la catégorie : ' + data.categoryData.key + '.'"
+  title: "(data) => 'Neuigkeiten - Kategorie: ' + data.categoryData.key + ' | Diaeta Brüssel'"
+  description: "(data) => 'Ernährungsartikel und Ratschläge von Diaeta Brüssel für die Kategorie: ' + data.categoryData.key + '.'"
   canonicalUrl: "(data) => 'https://diaeta.be' + data.page.url"
 ---
-{# Set postsInThisCategory for easier looping in the template #}
 {% set postsInThisCategory = categoryData.value %}
-
-{# ... (The rest of your template remains the same) ... #}
 
 <section class="service-hero rd-hero">
     <div class="container">
         <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-folder-open hero-badge-icon"></i>Catégorie</span>
-            <h1 class="animate-on-scroll fade-up">Actualités : {{ categoryName }}</h1>
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-folder-open hero-badge-icon"></i>Kategorie</span>
+            <h1 class="animate-on-scroll fade-up">Neuigkeiten: {{ categoryData.key | title }}</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                Tous nos articles et conseils concernant "{{ categoryName }}".
+                Alle unsere Artikel und Tipps zum Thema "{{ categoryData.key | title }}".
             </p>
         </div>
     </div>
@@ -34,9 +31,9 @@ eleventyComputed:
     <div class="container">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ '/' | url }}">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{ '/fr/actualites/' | url }}">Actualités</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ categoryName }}</li>
+                <li class="breadcrumb-item"><a href="{{ '/de/' | url }}">Startseite</a></li>
+                <li class="breadcrumb-item"><a href="{{ '/de/neuigkeiten/' | url }}">Neuigkeiten</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ categoryData.key | title }}</li>
             </ol>
         </nav>
 
@@ -60,7 +57,7 @@ eleventyComputed:
                         {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
                         <div class="teaser-card-meta">
                             {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
-                            <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Lire la suite <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                            <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">Weiterlesen <i class="fa-solid fa-arrow-right fa-xs"></i></a>
                         </div>
                     </div>
                 </article>
@@ -68,11 +65,11 @@ eleventyComputed:
             {% endfor %}
         </div>
         {% else %}
-        <p class="text-center"><em>Aucun article dans la catégorie "{{ categoryName }}" pour le moment.</em></p>
+        <p class="text-center"><em>Derzeit keine Artikel in der Kategorie "{{ categoryData.key | title }}" verfügbar.</em></p>
         {% endif %}
 
         <div class="mt-5 text-center">
-            <a href="{{ '/fr/actualites/' | url }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Toutes les actualités</a>
+            <a href="{{ '/de/neuigkeiten/' | url }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Alle Neuigkeiten</a>
         </div>
     </div>
 </section>
@@ -110,21 +107,21 @@ eleventyComputed:
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Accueil Diaeta",
-      "item": "https://diaeta.be/fr/index.html"
+      "name": "Diaeta Startseite",
+      "item": "https://diaeta.be/de/index.html"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Actualités",
-      "item": "https://diaeta.be/fr/actualites/"
+      "name": "Neuigkeiten",
+      "item": "https://diaeta.be/de/neuigkeiten/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "{{ categoryData.key | title }}",
-      "item": "https://diaeta.be/fr/actualites/categories/{{ categoryData.key | slugify }}/"
+      "item": "https://diaeta.be/de/neuigkeiten/kategorien/{{ categoryData.key | slugify }}/"
     }
   ]
 }
-</script>
+</script> 

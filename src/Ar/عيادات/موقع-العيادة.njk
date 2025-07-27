@@ -1,115 +1,208 @@
 ---
 layout: layouts/base.njk
+lang: ar
 pagination:
   data: cabinets_ar
   size: 1
-  alias: clinic
-permalink: "/ar/عيادة/{{ clinic.id }}/index.html"
+  alias: cabinet
+  filter:
+    - video
+permalink: "/ar/عيادات/{{ cabinet.id | slugify | replace('fr-', 'ar-') }}/index.html"
 eleventyComputed:
-  title: "{{ clinic.name }} - استشارة التغذية دياتا | {{ clinic.city }}"
-  description: "احجز موعداً مع بيار أبو زيد في عيادة {{ clinic.name }} في {{ clinic.city }}. استشارة تغذية مهنية وعلاج شخصي."
-  clinic_name: "{{ clinic.name }}"
-lang: ar
+  title: "عيادة دايتا في {{ cabinet.name }} | أخصائي تغذية {{ displayCity }}"
+  description: "احجز موعداً مع بيار أبو زيد في عيادة {{ cabinet.name }} في {{ displayCity }}. استشارة تغذية مهنية وعلاج شخصي."
 ---
 
-<section class="service-hero rd-hero" dir="rtl" style="text-align: right;">
+{# HERO SECTION FOR LOCATION PAGE #}
+<section class="service-hero-wp" dir="rtl">
     <div class="container">
-        <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-map-marker-alt hero-badge-icon"></i>عيادة دياتا</span>
-            <h1 class="animate-on-scroll fade-up">{{ clinic.name }}</h1>
-            <p class="lead animate-on-scroll fade-up delay-200">
-                استشارة التغذية مع بيار أبو زيد في {{ clinic.city }}
-            </p>
-        </div>
+        <span class="section-badge animate-on-scroll fade-in">{{ cabinet.name }}</span>
+        <h1 class="animate-on-scroll fade-up">استشارتك في دايتا في {{ displayCity }}</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            قابل بيار أبو زيد، أخصائي تغذية معتمد، لرعايتك الشخصية في {{ cabinet.name }} ({{ displayCity }}).
+        </p>
+        {# Link to appointment.html, with locationId parameter #}
+        <a href="/ar/حجز-موعد/?locationId={{ cabinet.doctorpracticeId }}" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
+            <i class="fa-solid fa-calendar-check btn-icon-left"></i><span>احجز موعداً في {{ cabinet.name }}</span>
+        </a>
     </div>
 </section>
 
-<section class="content-section bg-white" dir="rtl" style="text-align: right;">
+<section class="content-section bg-white" dir="rtl">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="clinic-details">
-                    <h2>العنوان والاتصال</h2>
-                    <div class="clinic-info-card">
-                        <div class="clinic-info-header">
-                            <h3>{{ clinic.name }}</h3>
-                            <div class="clinic-address">
-                                <i class="fa-solid fa-map-marker-alt"></i>
-                                <div>
-                                    <p>{{ clinic.fullAddress }}</p>
-                                    {% if clinic.Maps_link %}
-                                    <a href="{{ clinic.Maps_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
-                                        <i class="fa-solid fa-external-link-alt"></i> عرض الطريق
-                                    </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2 class="h3 mb-4" style="color: var(--primary-700);">عيادة دايتا في {{ cabinet.name }}، {{ displayCity }}</h2>
 
-                        {% if clinic.notes %}
-                        <div class="clinic-notes">
-                            <i class="fa-solid fa-info-circle"></i>
-                            <p>{{ clinic.notes }}</p>
-                        </div>
-                        {% endif %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-signs me-2"></i>العنوان</h4>
+                    <p>{{ cabinet.fullAddress }}</p>
+                </div>
 
-                        {% if clinic.opening_hours %}
-                        <div class="clinic-hours">
-                            <h4><i class="fa-solid fa-clock"></i> ساعات العمل</h4>
-                            <ul class="hours-list">
-                                {% for day in clinic.opening_hours %}
-                                <li>
-                                    <strong>{{ day.dayOfWeekFRENCH }}:</strong>
-                                    {% for slot in day.timeSlots %}
-                                        {{ slot.opens }} - {{ slot.closes }}{% if not loop.last %}، {% endif %}
-                                    {% endfor %}
-                                </li>
+                {# Dynamically display hours from the structured opening_hours array #}
+                {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-clock me-2"></i>أوقات الاستشارة (بيار أبو زيد)</h4>
+                    <ul class="list-unstyled">
+                        {% for day_schedule in cabinet.opening_hours %}
+                            <li>
+                                <strong>{{ day_schedule.dayOfWeekARABIC | capitalize }} :</strong>
+                                {% for slot in day_schedule.timeSlots %}
+                                    {{ slot.opens }} - {{ slot.closes }}{{ ", " if not loop.last else "" }}
                                 {% endfor %}
-                            </ul>
-                            {% if clinic.hours_details_note %}
-                            <p class="hours-note"><em>{{ clinic.hours_details_note }}</em></p>
-                            {% endif %}
-                        </div>
-                        {% endif %}
-                    </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if cabinet.hours_details_note %}
+                    <p class="text-muted"><em>{{ cabinet.hours_details_note }}</em></p>
+                    {% endif %}
+                    <p class="text-muted text-sm"><em>للحصول على التوفر الدقيق، يرجى استشارة وحدة حجز المواعيد.</em></p>
                 </div>
+                {% endif %}
+
+                {% if cabinet.notes %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-info-circle me-2"></i>الوصول والمعلومات</h4>
+                    <p>{{ cabinet.notes }}</p>
+                </div>
+                {% endif %}
+
+                {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+                <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-map-marker-alt me-2"></i>الموقع</h4>
+                    <p><a href="{{ cabinet.Maps_link }}" target="_blank" rel="noopener noreferrer" class="link-primary">عرض على خرائط جوجل <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a></p>
+                </div>
+                {% endif %}
+
+                 <div class="mb-4">
+                    <h4 class="h5 text-primary"><i class="fas fa-concierge-bell me-2"></i>الخدمات المقدمة في هذا الموقع</h4>
+                    <ul class="list-styled-check">
+                        <li>برامج شخصية لفقدان الوزن المستدام</li>
+                        <li>إدارة التغذية لمرض السكري من النوع الثاني</li>
+                        <li>إدارة الكوليسترول وارتفاع ضغط الدم</li>
+                        <li>دعم متلازمة القولون العصبي (نهج FODMAP المنخفض)</li>
+                        <li>استشارات التغذية الجينية (عند الطلب)</li>
+                        <li>وغيرها من المتابعات الغذائية الشخصية...</li>
+                    </ul>
+                </div>
+                 <p>جميع الاستشارات في {{ cabinet.name }} يقدمها بيار أبو زيد، أخصائي تغذية معتمد (INAMI) ومعتمد من MONASH.</p>
+                 <a href="/ar/خبرتنا/" class="btn btn-outline-primary mt-3"><i class="fa-solid fa-arrow-left btn-icon-left ms-2"></i><span>اكتشف خبرة بيار</span></a>
+
             </div>
-
-            <div class="col-lg-4">
-                <div class="clinic-cta-sidebar">
-                    <div class="cta-card">
-                        <h3>حجز موعد</h3>
-                        <p>احجز موعد استشارتك مع بيار أبو زيد</p>
-                        {% if clinic.doctorpracticeId %}
-                        <a href="https://app.doctorpractice.be/profile/{{ clinic.doctorpracticeId }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg w-100 mb-3">
-                            <i class="fa-solid fa-calendar-check"></i> حجز أونلاين
-                        </a>
-                        {% endif %}
-                        <a href="tel:+32479355551" class="btn btn-outline-primary w-100" style="text-align: center;">
-                            <i class="fa-solid fa-phone"></i> +٣٢ ٤٧٩ ٣٥ ٥٥ ٥١
-                        </a>
-                    </div>
-
-                    <div class="clinic-services">
-                        <h4>خدماتنا</h4>
-                        <ul>
-                            <li><a href="/ar/فقدان-الوزن/">فقدان الوزن</a></li>
-                            <li><a href="/ar/متلازمة-القولون-العصبي/">متلازمة القولون العصبي (FODMAP)</a></li>
-                            <li><a href="/ar/السكري-النوع-الثاني/">السكري النوع الثاني</a></li>
-                            <li><a href="/ar/ضغط-الدم-الكوليسترول/">ضغط الدم والكوليسترول</a></li>
-                            <li><a href="/ar/الاختبارات-الغذائية-الجينية/">الاختبارات الغذائية الجينية</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-lg-5 text-center align-self-start animate-on-scroll fade-up delay-200">
+                <img src="/images/cabinets/{{ cabinet.id | slugify | replace('fr-', 'ar-') }}.jpg"
+                     onerror="this.onerror=null;this.src='/images/cabinets/placeholder-clinic-generic.jpg';"
+                     alt="عيادة استشارة دايتا في {{ cabinet.name }}، {{ displayCity }}"
+                     class="img-fluid rounded shadow-sm"
+                     style="margin-top: 1.5rem; max-height: 400px; object-fit: cover;"
+                     loading="lazy">
+                <p class="mt-4 p-3 bg-light rounded"><em>دايتا ترحب بك في {{ cabinet.name }} ({{ displayCity }}) لدعمك في تحقيق أهدافك الصحية والعافية.</em></p>
             </div>
         </div>
     </div>
 </section>
 
-{% if clinic.coordinates %}
-<section class="clinic-map-section">
-    <div class="container-fluid p-0">
-        <div id="clinic-map" class="clinic-map" data-lat="{{ clinic.coordinates[0] }}" data-lng="{{ clinic.coordinates[1] }}" data-name="{{ clinic.name }}"></div>
-    </div>
-</section>
-{% endif %}
+{# === Updated and Consolidated Schema for this specific Cabinet Page === #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": "https://diaeta.be{{ page.url }}#clinic",
+  "name": "دايتا - {{ cabinet.name | escape }}",
+  "description": "عيادة استشارة دايتا في {{ displayCity | escape }} ({{ cabinet.name | escape }}) مع بيار أبو زيد، أخصائي تغذية. {{ cabinet.notes | default('') | escape }}",
+  "url": "https://diaeta.be{{ page.url }}",
+
+  {% if cabinet.address_obj %}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ cabinet.address_obj.streetNumber }} {{ cabinet.address_obj.streetName | escape }}",
+    "addressLocality": "{{ cabinet.address_obj.city | escape }}",
+    "postalCode": "{{ cabinet.address_obj.postalCode | escape }}",
+    "addressRegion": "{{ cabinet.address_obj.region | escape }}",
+    "addressCountry": "{{ cabinet.address_obj.country | escape }}"
+  },
+  {% endif %}
+
+  "telephone": "+32479355551",
+  "priceRange": "€50-€80",
+  "image": "https://diaeta.be{%- if cabinet.image_exists %}{{ '/images/cabinets/' ~ (cabinet.id | slugify | replace('fr-', 'ar-')) ~ '.jpg' }}{% else %}/images/logo.svg{% endif -%}",
+
+  {% if cabinet.Maps_link and cabinet.Maps_link != "https://maps.google.com/?q=Dieweg+99,+1180+Uccle,+Bruxelles" %}
+  "hasMap": "{{ cabinet.Maps_link }}",
+  {% endif %}
+
+  {% if cabinet.coordinates and cabinet.coordinates.length == 2 %}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ cabinet.coordinates[0] }}",
+    "longitude": "{{ cabinet.coordinates[1] }}"
+  },
+  {% endif %}
+
+  {% if cabinet.opening_hours and cabinet.opening_hours.length > 0 %}
+  {% set hasActualHours = false %}
+  {% for day_schedule_check in cabinet.opening_hours %}
+    {% if day_schedule_check.timeSlots and day_schedule_check.timeSlots.length > 0 %}
+      {% set hasActualHours = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hasActualHours %}
+  "openingHoursSpecification": [
+    {%- set printedOHSItemCount = 0 -%}
+    {%- for day_schedule in cabinet.opening_hours -%}
+      {%- for slot in day_schedule.timeSlots -%}
+        {%- if printedOHSItemCount > 0 %},{% endif -%}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "https://schema.org/{{ day_schedule.dayOfWeekSCHEMA }}",
+          "opens": "{{ slot.opens }}",
+          "closes": "{{ slot.closes }}"
+        }
+        {%- set printedOHSItemCount = printedOHSItemCount + 1 -%}
+      {%- endfor -%}
+    {%- endfor %}
+  ],
+  {% endif %}
+  {% endif %}
+
+  "parentOrganization": {
+    "@type": "DietNutrition",
+    "@id": "https://diaeta.be#organization",
+    "name": "دايتا"
+  },
+  "employee": {
+    "@type": "Person",
+    "@id": "https://diaeta.be/ar/خبرتنا/#person",
+    "name": "بيار أبو زيد"
+  },
+  "medicalSpecialty": "DietNutrition"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية دايتا",
+      "item": "https://diaeta.be/ar/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "العيادات",
+      "item": "https://diaeta.be/ar/العيادات-بروكسل/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ cabinet.name }}",
+      "item": "https://diaeta.be/ar/عيادات/{{ cabinet.id | slugify | replace('fr-', 'ar-') }}/"
+    }
+  ]
+}
+</script>

@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "Datenschutzrichtlinie - Diaeta"
-description: "Erfahren Sie, wie Diaeta, die Ernährungspraxis von Pierre Abou-Zeid, Ihre persönlichen Daten gemäß der DSGVO schützt. Ihre Rechte und unsere Verpflichtungen."
+description: "Erfahren Sie, wie Diaeta Ihre personenbezogenen Daten gemäß DSGVO und belgischem Recht schützt, einschließlich besonderer Schutzmaßnahmen für Gesundheitsdaten."
 ---
 
 <style>
@@ -39,58 +39,86 @@ description: "Erfahren Sie, wie Diaeta, die Ernährungspraxis von Pierre Abou-Ze
     }
 </style>
 
-<section class="content-section bg-light">
-    <div class="container py-5" dir="rtl" style="text-align: right;">
-        <div class="text-center mb-5">
-            <h1>Datenschutzrichtlinie</h1>
-            <p class="lead text-muted">Ihre Privatsphäre ist unsere Priorität. Hier erfahren Sie, wie wir Ihre Daten schützen.</p>
-            <p class="text-sm"><em>Letzte Aktualisierung: 04. Juli 2025</em></p>
-        </div>
+<section class="content-section container py-5">
+  <h1>Datenschutzrichtlinie</h1>
+  <p class="text-muted"><em>Letzte Aktualisierung: {{ "" | date("d. MMMM yyyy", "de") }}</em></p>
 
-        <div class="legal-card">
-            <h2>Präambel und Verantwortlicher</h2>
-            <p>Diaeta, betrieben von Pierre Abou-Zeid, verpflichtet sich, Ihre Privatsphäre und Ihre personenbezogenen Daten gemäß der Verordnung (EU) 2016/679 („DSGVO“) zu schützen. Der Verantwortliche für die Datenverarbeitung ist Pierre Abou-Zeid (<a href="mailto:pierre@diaeta.be">pierre@diaeta.be</a>).</p>
-        </div>
+  <h2>1. Einleitung</h2>
+  <p><strong>Diaeta</strong> ("wir", "uns") verarbeitet Ihre personenbezogenen Daten konform zur Datenschutz-Grundverordnung (DSGVO) und dem belgischen Gesetz vom 30.&nbsp;Juli&nbsp;2018.</p>
 
-        <div class="legal-card">
-            <h2>Von uns verarbeitete Daten</h2>
-            <p>Wir erheben verschiedene Datenkategorien, um Ihre Betreuung zu gewährleisten:</p>
-            <ul class="list-unstyled">
-                <li><i class="fas fa-user-check text-primary ms-2"></i><strong>Identifikationsdaten:</strong> Name, Vorname, Kontaktdaten usw.</li>
-                <li><i class="fas fa-server text-primary ms-2"></i><strong>Verbindungsdaten:</strong> IP-Adresse, Browser-Protokolle.</li>
-                <li><i class="fas fa-file-invoice-dollar text-primary ms-2"></i><strong>Rechnungsdaten.</strong></li>
-                <li><i class="fas fa-heart-pulse text-primary ms-2"></i><strong>Gesundheitsdaten (sensibel):</strong> Diagnosen, Anamnese, Allergien, Ernährungstagebücher usw.</li>
-            </ul>
-        </div>
-        
-        <div class="legal-card">
-            <h2>Zwecke und Rechtsgrundlagen</h2>
-            <p>Wir verarbeiten Ihre Daten für bestimmte Zwecke, insbesondere zur Erbringung von Gesundheitsleistungen (Vertrag), zur Abrechnung (gesetzliche Verpflichtung) und zur Verbesserung unserer Dienste (Einwilligung).</p>
-        </div>
+  <h2>2. Wer ist verantwortlich?</h2>
+  <p><strong>Verantwortlicher:</strong> Diaeta, Laudinnestraat&nbsp;94A, 1602&nbsp;Vlezenbeek, Belgien – E-Mail: <a href="mailto:info@diaeta.be">info@diaeta.be</a> – Tel.&nbsp;<a href="tel:+32479355551">+32&nbsp;479&nbsp;35&nbsp;55&nbsp;51</a></p>
 
-        <div class="legal-card">
-            <h2>Empfänger und Sicherheit</h2>
-            <h3>Datenweitergabe</h3>
-            <p>Ihre Daten sind vertraulich und werden nur an unsere vertrauenswürdigen Auftragsverarbeiter (z. B. Nutrium, Doctoranytime, Combell) weitergegeben, die die DSGVO einhalten.</p>
-            <h3>Sicherheit</h3>
-            <p>Die Sicherheit Ihrer Daten wird durch robuste technische Maßnahmen gewährleistet: sicheres Hosting in der EU, SSL-Verschlüsselung, Firewalls und verschlüsselte Backups.</p>
-        </div>
+  <h2>3. Welche Daten verarbeiten wir?</h2>
+  <ul>
+    <li><strong>Identifikations- und Kontaktdaten:</strong> Name, Adresse, E-Mail, Telefon, Geburtsdatum.</li>
+    <li><strong>Gesundheits- und Ernährungsdaten (besondere Kategorie):</strong> Krankengeschichte, Diagnosen, Allergien, Lebensstil, Körpermaße, personalisierte Ernährungspläne.</li>
+    <li><strong>Finanzdaten:</strong> Rechnungen, Zahlungsstatus (Kartendaten verbleiben beim Zahlungsdienstleister).</li>
+    <li><strong>Technische Daten:</strong> IP-Adresse, Browser, Geräte-IDs, Cookie-Kennungen.</li>
+  </ul>
 
-        <div class="legal-card">
-            <h2>Ihre Rechte</h2>
-            <p>Gemäß der DSGVO haben Sie folgende Rechte:</p>
-            <ul class="list-styled-check">
-                <li><strong>Auskunftsrecht:</strong> Eine Kopie Ihrer Daten zu erhalten.</li>
-                <li><strong>Recht auf Berichtigung:</strong> Ungenaue Daten korrigieren zu lassen.</li>
-                <li><strong>Recht auf Löschung:</strong> Die Löschung Ihrer Daten zu verlangen (vorbehaltlich gesetzlicher Verpflichtungen).</li>
-                <li><strong>Recht auf Einschränkung der Verarbeitung.</strong></li>
-                <li><strong>Recht auf Datenübertragbarkeit.</strong></li>
-                <li><strong>Widerspruchsrecht.</strong></li>
-                <li><strong>Recht, Ihre Einwilligung</strong> jederzeit zu widerrufen.</li>
-            </ul>
-            <p class="mt-3">Um diese Rechte auszuüben, kontaktieren Sie bitte unseren Datenschutzbeauftragten unter <a href="mailto:pierre@diaeta.be">pierre@diaeta.be</a>. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt werden, können Sie eine Beschwerde bei der belgischen Datenschutzbehörde (DPA) einreichen.</p>
-        </div>
-    </div>
+  <h2>4. Zwecke und Rechtsgrundlagen</h2>
+  <table class="table table-bordered small">
+    <thead><tr><th>Zweck</th><th>Daten</th><th>Rechtsgrundlage</th></tr></thead>
+    <tbody>
+      <tr><td>Terminplanung &amp; ‑bestätigung</td><td>Identifikation &amp; Kontakt</td><td>Vertrag (Art.&nbsp;6(1)(b) DSGVO)</td></tr>
+      <tr><td>Diätetische Beratung</td><td>Identifikation; <em>Gesundheitsdaten</em></td><td><em>Ausdrückliche Einwilligung</em> (Art.&nbsp;9(2)(a))</td></tr>
+      <tr><td>Abrechnung &amp; Buchhaltung</td><td>Identifikation; Finanzdaten</td><td>Rechtliche Pflicht (Art.&nbsp;6(1)(c))</td></tr>
+      <tr><td>Terminerinnerungen</td><td>Kontaktdaten</td><td>Berechtigtes Interesse (Art.&nbsp;6(1)(f))</td></tr>
+      <tr><td>Website-Sicherheit</td><td>Technische Daten</td><td>Berechtigtes Interesse (Art.&nbsp;6(1)(f))</td></tr>
+      <tr><td>Newsletter (optional)</td><td>Kontaktdaten</td><td>Einwilligung (Art.&nbsp;6(1)(a))</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Minderjährige:</strong> In Belgien ist Online-Einwilligung ab 13&nbsp;Jahren gültig, darunter ist die Zustimmung der Eltern erforderlich.</p>
+
+  <h2>5. Aufbewahrungsfristen</h2>
+  <ul>
+    <li>Patientenakte: 30&nbsp;Jahre nach dem letzten Kontakt.</li>
+    <li>Buchhaltungsunterlagen: 7&nbsp;Jahre.</li>
+    <li>Server-Logs: 6–12&nbsp;Monate.</li>
+    <li>Anfragen ohne Vertragsabschluss: 12&nbsp;Monate.</li>
+  </ul>
+
+  <h2>6. Empfänger</h2>
+  <ul>
+    <li>Berechtigte Mitarbeiter unter medizinischer Schweigepflicht.</li>
+    <li>Auftragsverarbeiter mit Datenverarbeitungsvertrag.</li>
+    <li>Andere Gesundheitsdienstleister mit Ihrer Einwilligung.</li>
+    <li>Behörden, sofern gesetzlich vorgeschrieben.</li>
+  </ul>
+
+  <h2>7. Internationale Datenübermittlungen</h2>
+  <p>Datenübermittlungen außerhalb des EWR erfolgen auf Basis von Standardvertragsklauseln oder Angemessenheitsbeschlüssen.</p>
+
+  <h2>8. Sicherheitsmaßnahmen</h2>
+  <ul class="list-styled-check">
+    <li>HTTPS und TLS-E-Mail.</li>
+    <li>Starke Passwörter und 2-Faktor-Authentifizierung.</li>
+    <li>Regelmäßige Updates.</li>
+    <li>Verschlüsselte Back-ups in der EU.</li>
+    <li>Formelle Zugriffskontrolle für Gesundheitsdaten.</li>
+  </ul>
+
+  <h2>9. Ihre Rechte</h2>
+  <ul class="list-styled-check">
+    <li>Auskunft</li>
+    <li>Berichtigung</li>
+    <li>Löschung</li>
+    <li>Einschränkung oder Widerspruch</li>
+    <li>Datenübertragbarkeit</li>
+    <li>Widerruf der Einwilligung</li>
+  </ul>
+  <p>Kontakt: <a href="mailto:info@diaeta.be">info@diaeta.be</a>. Antwort innerhalb eines Monats.</p>
+
+  <h2>10. Beschwerden</h2>
+  <p>Sie können sich an die belgische Datenschutzbehörde (APD/GBA), Rue de la Presse&nbsp;35, 1000&nbsp;Brüssel – <a href="mailto:contact@apd-gba.be">contact@apd-gba.be</a> wenden.</p>
+
+  <h2>11. Änderungen</h2>
+  <p>Die jeweils aktuelle Fassung dieser Richtlinie ist jederzeit auf dieser Website verfügbar.</p>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-secondary" onclick="window.manageCookieConsent && window.manageCookieConsent();">Cookie-Einstellungen öffnen</button>
+  </div>
 </section>
 
 <script type="application/ld+json">

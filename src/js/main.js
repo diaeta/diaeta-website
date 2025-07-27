@@ -75,6 +75,9 @@ function initializeAdvancedCookieConsent() {
   const cookieName = 'diaeta_cookie_preferences';
   const cookieVersion = '1.0'; // Increment if structure changes to re-prompt users
 
+  const consentMaxAgeDays = 180; // 6 months
+  const nowMs = Date.now();
+
   if (!container || !mainBanner || !preferencesModal || !acceptAllBtn || !customizeBtn || !savePreferencesBtn || !closeModalBtn || !analyticsCheckbox || !marketingCheckbox ) {
     console.warn('Advanced cookie consent elements not found. Skipping initialization.');
     return;
@@ -138,21 +141,32 @@ function initializeAdvancedCookieConsent() {
     }, 400);
   };
   
+  const activateDeferredScripts = (category) => {
+      const selector = `script[type="text/plain"][data-cookie-category="${category}"]`;
+      document.querySelectorAll(selector).forEach(node => {
+          const s = document.createElement('script');
+          [...node.attributes].forEach(attr=>{
+              if(attr.name!=='type') s.setAttribute(attr.name, attr.value);
+          });
+          s.setAttribute('data-loaded-category', category);
+          s.text = node.text || '';
+          node.parentNode.replaceChild(s, node);
+      });
+  };
+  const disableCategory = (category) => {
+      // This is a simple placeholder: remove dynamically added scripts
+      document.querySelectorAll(`script[data-loaded-category="${category}"]`).forEach(s=>s.remove());
+  };
   const applyConsent = (preferences) => {
-    // console.log('Applying consent:', preferences);
     if (preferences.analytics) {
-      // console.log('Analytics ENABLED');
-      // loadAnalyticsScripts(); 
+      activateDeferredScripts('analytics');
     } else {
-      // console.log('Analytics DISABLED');
-      // unloadAnalyticsScripts(); 
+      disableCategory('analytics');
     }
     if (preferences.marketing) {
-      // console.log('Marketing ENABLED');
-      // loadMarketingScripts();
+      activateDeferredScripts('marketing');
     } else {
-      // console.log('Marketing DISABLED');
-      // unloadMarketingScripts();
+      disableCategory('marketing');
     }
   };
 
@@ -168,10 +182,25 @@ function initializeAdvancedCookieConsent() {
     }
   };
 
+  const showIfOldOrMissing = () => {
+      const currentPrefs = getCookie(cookieName);
+      if (!currentPrefs || currentPrefs.version !== cookieVersion) {
+          showMainBanner();
+          return;
+      }
+      const ts = currentPrefs.ts || 0;
+      if (nowMs - ts > consentMaxAgeDays*24*60*60*1000) {
+          // expired – ask again
+          showMainBanner();
+      } else {
+          hideMainBanner();
+      }
+  };
+
   // --- Event Listeners ---
   acceptAllBtn.addEventListener('click', () => {
     const preferences = { necessary: true, analytics: true, marketing: true };
-    setCookie(cookieName, { version: cookieVersion, preferences: preferences }, 365);
+    setCookie(cookieName, { version: cookieVersion, ts: Date.now(), preferences: preferences }, 365*5);
     applyConsent(preferences);
     hideMainBanner();
   });
@@ -179,7 +208,7 @@ function initializeAdvancedCookieConsent() {
   if(declineAllBtn) { // If the decline all button exists
     declineAllBtn.addEventListener('click', () => {
         const preferences = { necessary: true, analytics: false, marketing: false };
-        setCookie(cookieName, { version: cookieVersion, preferences: preferences }, 365);
+        setCookie(cookieName, { version: cookieVersion, ts: Date.now(), preferences: preferences }, 365*5);
         applyConsent(preferences);
         hideMainBanner();
     });
@@ -205,7 +234,7 @@ function initializeAdvancedCookieConsent() {
       analytics: analyticsCheckbox.checked,
       marketing: marketingCheckbox.checked
     };
-    setCookie(cookieName, { version: cookieVersion, preferences: preferences }, 365);
+    setCookie(cookieName, { version: cookieVersion, ts: Date.now(), preferences: preferences }, 365*5);
     applyConsent(preferences);
     hidePreferencesModal();
   });
@@ -226,6 +255,21 @@ function initializeAdvancedCookieConsent() {
     loadCurrentPreferencesToModal();
     showPreferencesModal();
   };
+
+  // Initial load existing prefs into modal & decide if we show banner
+  loadCurrentPreferencesToModal();
+  showIfOldOrMissing();
+
+  // store consent helper now adds timestamp
+  const savePreferencesCookie = (preferences) => {
+      setCookie(cookieName, { version: cookieVersion, ts: Date.now(), preferences: preferences }, 365*5);
+  };
+
+  // replace all setCookie calls to use savePreferencesCookie
+
+  // ... at end of initializeAdvancedCookieConsent before closing of function
+  const manageLink = document.getElementById('cookieManageLink');
+  if (manageLink) manageLink.addEventListener('click', function(e){ e.preventDefault(); showPreferencesModal(); });
 }
 
 // Placeholder for script loading functions
@@ -974,20 +1018,37 @@ function generateClinicCards(cabinetsDataToDisplay) {
   if (loadingMsg) loadingMsg.style.display = 'none'; 
   const listCountDisplay = document.getElementById('list-count-display');
   if (listCountDisplay) listCountDisplay.textContent = cabinetsDataToDisplay.length;
-  if (cabinetsDataToDisplay.length === 0) { /* ... no results message ... */ 
+      if (cabinetsDataToDisplay.length === 0) { /* ... no results message ... */ 
     let currentNoResultsMsg = noResultsMsg;
     if (!currentNoResultsMsg) {
         currentNoResultsMsg = document.createElement('div');
         currentNoResultsMsg.className = 'no-results-message text-center p-5';
         cardContainer.appendChild(currentNoResultsMsg);
     }
-    currentNoResultsMsg.innerHTML = "<i>Aucun cabinet ne correspond à vos critères actuels.</i>";
+    
+    // Language-specific no results message
+    let noResultsText = "Aucun cabinet ne correspond à vos critères actuels.";
+    if (currentLang === 'en') {
+        noResultsText = "No clinic matches your current criteria.";
+    } else if (currentLang === 'nl') {
+        noResultsText = "Geen praktijk komt overeen met uw huidige criteria.";
+    } else if (currentLang === 'de') {
+        noResultsText = "Keine Praxis entspricht Ihren aktuellen Kriterien.";
+    } else if (currentLang === 'ar') {
+        noResultsText = "لا توجد عيادة تطابق معاييرك الحالية.";
+    }
+    
+    currentNoResultsMsg.innerHTML = `<i>${noResultsText}</i>`;
     currentNoResultsMsg.style.display = 'block';
     return;
   }
     if (noResultsMsg) noResultsMsg.style.display = 'none';
     const currentLang = window.pageLang || 'fr';
-    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 'dayOfWeekFRENCH';
+    const dayOfWeekProperty = currentLang === 'en' ? 'dayOfWeekENGLISH' : 
+                             currentLang === 'nl' ? 'dayOfWeekDUTCH' :
+                             currentLang === 'de' ? 'dayOfWeekGERMAN' :
+                             currentLang === 'ar' ? 'dayOfWeekARABIC' :
+                             'dayOfWeekFRENCH';
 
     cabinetsDataToDisplay.forEach((cabinet, index) => { /* ... card generation logic ... */
     const card = document.createElement('div');
@@ -1002,37 +1063,78 @@ function generateClinicCards(cabinetsDataToDisplay) {
         if (cabinet.id === 'video' && cabinetDaysAttr === '') {
              const allWeekDays = currentLang === 'en'
                 ? ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+                : currentLang === 'nl'
+                ? ['maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
+                : currentLang === 'de'
+                ? ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag']
+                : currentLang === 'ar'
+                ? ['الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']
                 : ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
             cabinetDaysAttr = allWeekDays.join(' ');
     }
     card.setAttribute('data-days', cabinetDaysAttr);
 
-        const name = cabinet.name || (currentLang === 'fr' ? "Nom non disponible" : "Name unavailable");
-        const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? (currentLang === 'fr' ? "Consultation en ligne" : "Online consultation") : (currentLang === 'fr' ? "Adresse non spécifiée" : "Address not specified"));
-        const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? (currentLang === 'fr' ? 'À distance' : 'Remote') : ''));
+        const name = cabinet.name || (currentLang === 'fr' ? "Nom non disponible" : 
+                                    currentLang === 'en' ? "Name unavailable" :
+                                    currentLang === 'nl' ? "Naam niet beschikbaar" :
+                                    currentLang === 'de' ? "Name nicht verfügbar" :
+                                    currentLang === 'ar' ? "الاسم غير متوفر" : "Name unavailable");
+        
+        const fullAddress = cabinet.fullAddress || (cabinet.id === 'video' ? 
+            (currentLang === 'fr' ? "Consultation en ligne" : 
+             currentLang === 'en' ? "Online consultation" :
+             currentLang === 'nl' ? "Online consultatie" :
+             currentLang === 'de' ? "Online-Beratung" :
+             currentLang === 'ar' ? "استشارة عبر الإنترنت" : "Online consultation") : 
+            (currentLang === 'fr' ? "Adresse non spécifiée" : 
+             currentLang === 'en' ? "Address not specified" :
+             currentLang === 'nl' ? "Adres niet opgegeven" :
+             currentLang === 'de' ? "Adresse nicht angegeben" :
+             currentLang === 'ar' ? "العنوان غير محدد" : "Address not specified"));
+        
+        const city = cabinet.address_obj ? cabinet.address_obj.city : (cabinet.city || (cabinet.id === 'video' ? 
+            (currentLang === 'fr' ? 'À distance' : 
+             currentLang === 'en' ? 'Remote' :
+             currentLang === 'nl' ? 'Op afstand' :
+             currentLang === 'de' ? 'Fernberatung' :
+             currentLang === 'ar' ? 'عن بُعد' : 'Remote') : ''));
     const notes = cabinet.notes || '';
 
         // Use the correct path segment for each language
         const pathSegment =
           currentLang === 'en' ? 'locations'
           : currentLang === 'nl' ? 'locaties'
+          : currentLang === 'de' ? 'praxen'
+          : currentLang === 'ar' ? 'عيادات'
           : 'cabinets'; // fallback for fr and others
         const detailPageUrl = (cabinet.id && cabinet.id !== 'video')
           ? `/${currentLang}/${pathSegment}/${cabinet.id.toLowerCase().replace(/\s+/g, '-')}/`
           : '#';
     const isVideoConsult = cabinet.id === 'video';
 
-        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : currentLang === 'nl' ? 'Zie details voor uren' : "See details for hours";
+        let hoursTeaser = currentLang === 'fr' ? "Consulter les détails pour les horaires" : 
+                         currentLang === 'nl' ? 'Zie details voor uren' : 
+                         currentLang === 'de' ? 'Siehe Details für Öffnungszeiten' :
+                         currentLang === 'ar' ? 'راجع التفاصيل للجدول الزمني' :
+                         "See details for hours";
     if (cabinet.opening_hours && cabinet.opening_hours.length > 0) {
         hoursTeaser = cabinet.opening_hours.map(day => {
-            const dayName = day[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour' : 'Day');
+            const dayName = day[dayOfWeekProperty] || (currentLang === 'fr' ? 'Jour' : 
+                                                      currentLang === 'en' ? 'Day' :
+                                                      currentLang === 'nl' ? 'Dag' :
+                                                      currentLang === 'de' ? 'Tag' :
+                                                      currentLang === 'ar' ? 'يوم' : 'Day');
             const slots = day.timeSlots.map(slot => `${slot.opens.replace(':','h')} - ${slot.closes.replace(':','h')}`).join(', ');
             return `${dayName}: ${slots}`;
         }).join('; ');
     } else if (cabinet.hours_details_note) {
         hoursTeaser = cabinet.hours_details_note;
     } else if (isVideoConsult) {
-            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : currentLang === 'nl' ? 'Flexibel, zie boekingsmodule.' : "Flexible, see booking module.";
+            hoursTeaser = currentLang === 'fr' ? "Flexibles, voir module de réservation." : 
+                         currentLang === 'nl' ? 'Flexibel, zie boekingsmodule.' : 
+                         currentLang === 'de' ? 'Flexibel, siehe Buchungsmodul.' :
+                         currentLang === 'ar' ? 'مرنة، راجع وحدة الحجز.' :
+                         "Flexible, see booking module.";
     }
     card.innerHTML = `
         <div class="card-content-wrapper">
@@ -1048,8 +1150,8 @@ function generateClinicCards(cabinetsDataToDisplay) {
                 ${notes ? `<p class="card-notes text-xs fst-italic mt-1"><i class="fas fa-info-circle fa-xs me-2 text-primary"></i>${notes}</p>` : ''}
             </div>
             <div class="card-footer-actions">
-                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>${window.pageLang === 'fr' ? 'Page Cabinet' : window.pageLang === 'nl' ? 'Praktijkpagina' : 'Clinic Page'}</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> ${window.pageLang === 'fr' ? 'Infos Cabinet' : window.pageLang === 'nl' ? 'Praktijkinfo' : 'Clinic Info'}</span>`}
-                <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>${window.pageLang === 'fr' ? 'Prendre RDV' : window.pageLang === 'nl' ? 'Boek nu' : 'Book Now'}</a>
+                ${!isVideoConsult && detailPageUrl !== '#' ? `<a href="${detailPageUrl}" target="_blank" class="btn btn-sm btn-outline-primary details-btn"><i class="fas fa-info-circle me-1"></i>${window.pageLang === 'fr' ? 'Page Cabinet' : window.pageLang === 'nl' ? 'Praktijkpagina' : window.pageLang === 'de' ? 'Praxis-Seite' : window.pageLang === 'ar' ? 'صفحة العيادة' : 'Clinic Page'}</a>` : `<span class="btn btn-sm btn-outline-secondary details-btn disabled" style="opacity:0.5; cursor:default;"><i class="fas fa-info-circle me-1"></i> ${window.pageLang === 'fr' ? 'Infos Cabinet' : window.pageLang === 'nl' ? 'Praktijkinfo' : window.pageLang === 'de' ? 'Praxis-Info' : window.pageLang === 'ar' ? 'معلومات العيادة' : 'Clinic Info'}</span>`}
+                <a href="/${currentLang}/appointment/?locationId=${cabinet.doctorpracticeId || ''}${name ? '&cabinetName=' + encodeURIComponent(name) : ''}" class="btn btn-sm btn-accent rdv-btn"><i class="fas fa-calendar-check me-1"></i>${window.pageLang === 'fr' ? 'Prendre RDV' : window.pageLang === 'nl' ? 'Boek nu' : window.pageLang === 'de' ? 'Termin buchen' : window.pageLang === 'ar' ? 'احجز موعدًا' : 'Book Now'}</a>
             </div>
         </div>`;
     card.addEventListener('click', (e) => {

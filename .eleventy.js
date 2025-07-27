@@ -137,6 +137,120 @@ module.exports = function(eleventyConfig) {
         });
         return Array.from(uniqueCategories).sort();
     });
+
+    // --- French News Collections ---
+    eleventyConfig.addCollection("actualites_fr", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_fr", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_fr", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+
+    // --- German News Collections ---
+    eleventyConfig.addCollection("actualites_de", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_de", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_de", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+
+    // --- Arabic News Collections ---
+    eleventyConfig.addCollection("actualites_ar", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_ar", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_ar", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
   
     // --- Nunjucks Filters ---
     // Date Filter (e.g., 25 mai 2025)
@@ -157,6 +271,17 @@ module.exports = function(eleventyConfig) {
             strict: true,
             remove: /[#,&,+()$~%.'":*?<>{}]/g
         });
+    });
+
+    // Custom `where` filter (similar to Liquid's)
+    eleventyConfig.addFilter("where", function(arr, key, val) {
+        if (!Array.isArray(arr)) return [];
+        return arr.filter(item => item && item[key] === val);
+    });
+
+    // Custom `first` filter (returns first element or undefined)
+    eleventyConfig.addFilter("first", function(arr) {
+        return Array.isArray(arr) && arr.length > 0 ? arr[0] : undefined;
     });
 
     // Truncate Filter

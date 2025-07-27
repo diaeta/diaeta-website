@@ -19,7 +19,7 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Mittwoch",
+        "dayOfWeekGERMAN": "Mittwoch",
         "dayOfWeekSCHEMA": "Wednesday",
         "timeSlots": [
           {"opens": "14:00", "closes": "20:00"}
@@ -45,11 +45,11 @@
     "city": "Koekelberg",
     "Maps_link": "https://maps.google.com/?q=Avenue+Seghers+99,+1081+Koekelberg,+Bruxelles",
     "doctorpracticeId": "84474",
-    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "notes": "Einfaches Parken mit blauer Parkscheibe vor dem Zentrum.",
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekGERMAN": "Samstag",
         "dayOfWeekSCHEMA": "Saturday",
         "timeSlots": [
           {"opens": "09:00", "closes": "13:00"}
@@ -79,14 +79,14 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekGERMAN": "Dienstag",
         "dayOfWeekSCHEMA": "Tuesday",
         "timeSlots": [
           {"opens": "14:00", "closes": "20:00"}
         ]
       }
     ],
-    "hours_details_note": "Sprechstunden dienstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "hours_details_note": "Sprechstunden dienstags, jede zweite Woche (Verfügbarkeit prüfen).",
     "coordinates": [50.827480, 4.461210]
   },
   {
@@ -109,21 +109,21 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekGERMAN": "Donnerstag",
         "dayOfWeekSCHEMA": "Thursday",
         "timeSlots": [
           {"opens": "13:00", "closes": "18:00"}
         ]
       },
       {
-        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekGERMAN": "Samstag",
         "dayOfWeekSCHEMA": "Saturday",
         "timeSlots": [
           {"opens": "14:00", "closes": "18:00"}
         ]
       }
     ],
-    "hours_details_note": "Sprechstunden donnerstagnachmittags (alle zwei Wochen) und jeden Samstagnachmittag (Verfügbarkeit prüfen).",
+    "hours_details_note": "Sprechstunden am Donnerstagnachmittag (jede zweite Woche) und jeden Samstagnachmittag (Verfügbarkeit prüfen).",
     "coordinates": [50.821350, 4.361130]
   },
   {
@@ -142,18 +142,18 @@
     "city": "Berchem-Sainte-Agathe",
     "Maps_link": "https://maps.google.com/?q=Avenue+du+Roi+Albert+187,+1082+Berchem-Sainte-Agathe,+Bruxelles",
     "doctorpracticeId": "113544",
-    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "notes": "Einfaches Parken mit blauer Parkscheibe vor dem Zentrum.",
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekGERMAN": "Dienstag",
         "dayOfWeekSCHEMA": "Tuesday",
         "timeSlots": [
           {"opens": "14:00", "closes": "20:00"}
         ]
       }
     ],
-    "hours_details_note": "Sprechstunden dienstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "hours_details_note": "Sprechstunden dienstags, jede zweite Woche (Verfügbarkeit prüfen).",
     "coordinates": [50.866860, 4.287240]
   },
   {
@@ -172,18 +172,18 @@
     "city": "Woluwe-Saint-Pierre",
     "Maps_link": "https://maps.google.com/?q=Drève+de+Nivelles+168,+1150+Woluwe-Saint-Pierre,+Bruxelles",
     "doctorpracticeId": "96326",
-    "notes": "Einfaches Parken mit blauer Scheibe vor dem Zentrum.",
+    "notes": "Einfaches Parken mit blauer Parkscheibe vor dem Zentrum.",
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekGERMAN": "Montag",
         "dayOfWeekSCHEMA": "Monday",
         "timeSlots": [
           {"opens": "12:30", "closes": "16:30"}
         ]
       }
     ],
-    "hours_details_note": "Sprechstunden montagnachmittags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "hours_details_note": "Sprechstunden am Montagnachmittag, jede zweite Woche (Verfügbarkeit prüfen).",
     "coordinates": [50.824880, 4.411230]
   },
   {
@@ -206,7 +206,7 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekGERMAN": "Montag",
         "dayOfWeekSCHEMA": "Monday",
         "timeSlots": [
           {"opens": "11:00", "closes": "21:00"}
@@ -236,21 +236,21 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekGERMAN": "Donnerstag",
         "dayOfWeekSCHEMA": "Thursday",
         "timeSlots": [
           {"opens": "13:30", "closes": "20:30"}
         ]
       }
     ],
-    "hours_details_note": "Sprechstunden donnerstags, alle zwei Wochen (Verfügbarkeit prüfen).",
+    "hours_details_note": "Sprechstunden am Donnerstag, jede zweite Woche (Verfügbarkeit prüfen).",
     "coordinates": [50.854990, 4.440910]
   },
   {
     "id": "video",
-    "name": "Video Beratung",
+    "name": "Videosprechstunde",
     "address_obj": null,
-    "fullAddress": "Aus der Ferne (online von zu Hause)",
+    "fullAddress": "Fernberatung (online von zu Hause aus)",
     "zip": null,
     "city": null,
     "Maps_link": null,
@@ -259,7 +259,7 @@
     "hours_type": "specific",
     "opening_hours": [
       {
-        "dayOfWeekFRENCH": "Montag",
+        "dayOfWeekGERMAN": "Montag",
         "dayOfWeekSCHEMA": "Monday",
         "timeSlots": [
           {"opens": "12:30", "closes": "16:30"},
@@ -267,7 +267,7 @@
         ]
       },
       {
-        "dayOfWeekFRENCH": "Dienstag",
+        "dayOfWeekGERMAN": "Dienstag",
         "dayOfWeekSCHEMA": "Tuesday",
         "timeSlots": [
           {"opens": "10:00", "closes": "13:00"},
@@ -275,7 +275,7 @@
         ]
       },
       {
-        "dayOfWeekFRENCH": "Mittwoch",
+        "dayOfWeekGERMAN": "Mittwoch",
         "dayOfWeekSCHEMA": "Wednesday",
         "timeSlots": [
           {"opens": "10:00", "closes": "13:00"},
@@ -283,7 +283,7 @@
         ]
       },
       {
-        "dayOfWeekFRENCH": "Donnerstag",
+        "dayOfWeekGERMAN": "Donnerstag",
         "dayOfWeekSCHEMA": "Thursday",
         "timeSlots": [
           {"opens": "10:00", "closes": "13:00"},
@@ -291,7 +291,7 @@
         ]
       },
       {
-        "dayOfWeekFRENCH": "Freitag",
+        "dayOfWeekGERMAN": "Freitag",
         "dayOfWeekSCHEMA": "Friday",
         "timeSlots": [
           {"opens": "10:00", "closes": "13:00"},
@@ -299,7 +299,7 @@
         ]
       },
       {
-        "dayOfWeekFRENCH": "Samstag",
+        "dayOfWeekGERMAN": "Samstag",
         "dayOfWeekSCHEMA": "Saturday",
         "timeSlots": [
           {"opens": "10:00", "closes": "13:00"},
@@ -307,7 +307,7 @@
         ]
       }
     ],
-    "hours_details_note": "Viele verfügbare Termine für Teleberatung.",
+    "hours_details_note": "Viele Termine für Videosprechstunden verfügbar.",
     "coordinates": null
   }
 ]

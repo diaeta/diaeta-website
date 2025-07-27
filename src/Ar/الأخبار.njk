@@ -1,29 +1,29 @@
 ---
 layout: layouts/base.njk
-title: "الأخبار ونصائح التغذية | دياتا بروكسل"
-description: "ابق مطلعاً على آخر الأخبار والنصائح العلمية والنصائح العملية في التغذية من قبل بيار أبو زيد، اختصاصي التغذية في بروكسل."
+title: "الأخبار ونصائح التغذية | دايتا بروكسل"
+description: "ابق على اطلاع بأحدث الأخبار والنصائح العلمية ونصائح التغذية العملية من بيار أبو زيد، أخصائي تغذية في بروكسل."
 pagination:
-  data: collections.أخبار
+  data: collections.actualites_ar
   size: 6
   alias: items
-permalink: "/ar/الأخبار/{% if pagination.pageNumber > 0 %}صفحة/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+permalink: "/ar/akhbar/{% if pagination.pageNumber > 0 %}safha/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 lang: ar
-canonicalUrl: "https://diaeta.be/ar/الأخبار/"
+canonicalUrl: "https://diaeta.be/ar/akhbar/"
 ---
 
-<section class="service-hero rd-hero" dir="rtl" style="text-align: right;">
+<section class="service-hero rd-hero" dir="rtl">
     <div class="container">
         <div class="rd-hero-content">
-            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>أخبار دياتا</span>
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>أخبار دايتا</span>
             <h1 class="animate-on-scroll fade-up">مقالاتنا ونصائحنا</h1>
             <p class="lead animate-on-scroll fade-up delay-200">
-                انغمس في قلب علم التغذية مع رؤى بيار أبو زيد. نصائح عملية وتحليلات عميقة وأحدث الاتجاهات لتحسين صحتك.
+                اغرق في عالم علوم التغذية مع رؤى من بيار أبو زيد. نصائح عملية، تحليلات مفصلة، وأحدث الاتجاهات لتحسين صحتك.
             </p>
         </div>
     </div>
 </section>
 
-<section class="content-section actualites-listing-section bg-white" dir="rtl" style="text-align: right;">
+<section class="content-section actualites-listing-section bg-white" dir="rtl">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -39,7 +39,7 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
                             {% endif %}
                             <div class="teaser-card-body">
                                 {% if post.data.category %}
-                                    <span class="teaser-card-category"><a href="{{ ('/ar/أخبار/فئات/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
+                                    <span class="teaser-card-category"><a href="{{ ('/ar/akhbar/faeat/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
                                 {% endif %}
                                 <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
                                 {% set excerpt = post.data.description %}
@@ -47,7 +47,7 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
                                 {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
                                 <div class="teaser-card-meta">
                                      {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
-                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore">اقرأ المزيد <i class="fa-solid fa-arrow-left fa-xs"></i></a>
+                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore"><i class="fa-solid fa-arrow-left fa-xs"></i> اقرأ المزيد</a>
                                 </div>
                             </div>
                         </article>
@@ -57,7 +57,7 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
 
                 {# Pagination Navigation #}
                 {% if pagination.pages.length > 1 %}
-                <nav aria-label="تنقل الأخبار" class="mt-5 pt-4 border-top">
+                <nav aria-label="تصفح الأخبار" class="mt-5 pt-4 border-top">
                     <ul class="pagination justify-content-center">
                         {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">السابق</a></li>
                         {% else %}<li class="page-item disabled"><span class="page-link">السابق</span></li>{% endif %}
@@ -69,29 +69,30 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
                 {% endif %}
 
                 {% else %}
-                <p class="text-center"><em>لم يتم نشر أي مقالات حتى الآن. عد قريباً!</em></p>
+                <p class="text-center"><em>لا توجد مقالات منشورة بعد. تحقق مرة أخرى قريبًا!</em></p>
                 {% endif %}
             </div>
 
             <aside class="col-lg-3 mt-5 mt-lg-0">
                 <div class="sidebar-widget">
                     <h4 class="sidebar-title">الفئات</h4>
-                    {% if collections.uniqueCategories.length > 0 %}
+                    {% if collections.uniqueCategories_ar.length > 0 %}
                         <ul class="list-unstyled category-list">
-                            {% for category in collections.uniqueCategories %}
+                            {% for category in collections.uniqueCategories_ar %}
                             <li>
-                                <a href="{{ ('/ar/أخبار/فئات/' + category | slugify + '/') | url }}">{{ category }} 
+                                <a href="{{ ('/ar/akhbar/faeat/' + category | slugify + '/') | url }}">{{ category }} 
                                     <span class="badge bg-primary rounded-pill">
-                                        {{ collections.postsByCategory[category].length }}
+                                        {{ collections.postsByCategory_ar[category].length }}
                                     </span>
                                 </a>
                             </li>
                             {% endfor %}
                         </ul>
                     {% else %}
-                        <p><em>لا توجد فئات حالياً.</em></p>
+                        <p><em>لا توجد فئات متاحة حاليًا.</em></p>
                     {% endif %}
                 </div>
+                {# You can add other sidebar widgets here: Recent Posts, Archives, Search Bar #}
             </aside>
         </div>
     </div>
@@ -101,8 +102,8 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "الأخبار ونصائح التغذية | دياتا بروكسل",
-  "description": "ابق مطلعاً على آخر الأخبار والنصائح العلمية والنصائح العملية في التغذية من قبل بيار أبو زيد، اختصاصي التغذية في بروكسل. مقالات حول فقدان الوزن ومتلازمة القولون العصبي والسكري وأكثر.",
+  "name": "الأخبار ونصائح التغذية | دايتا بروكسل",
+  "description": "ابق على اطلاع بأحدث الأخبار والنصائح العلمية ونصائح التغذية العملية من بيار أبو زيد، أخصائي تغذية في بروكسل.",
   "url": "https://diaeta.be{{ canonicalUrl }}",
   "publisher": {
     "@id": "https://diaeta.be#organization"
@@ -130,7 +131,7 @@ canonicalUrl: "https://diaeta.be/ar/الأخبار/"
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "الصفحة الرئيسية دياتا",
+      "name": "الرئيسية دايتا",
       "item": "https://diaeta.be/ar/index.html"
     },
     {

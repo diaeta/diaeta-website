@@ -163,6 +163,22 @@
     <script>
       window.diaetaCabinetsData = {{ cabinets | dump | safe }};
     </script>
+    {% elif lang == 'en' and cabinets_en %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_en | dump | safe }};
+    </script>
+    {% elif lang == 'nl' and cabinets_nl %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_nl | dump | safe }};
+    </script>
+    {% elif lang == 'de' and cabinets_de %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_de | dump | safe }};
+    </script>
+    {% elif lang == 'ar' and cabinets_ar %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_ar | dump | safe }};
+    </script>
     {% endif %}
 
     {# Your JS files - IMPORTANT: Paths are root-relative #}
@@ -186,7 +202,7 @@
                 <div class="cookie-consent-actions">
                     <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Accept All</button>
                     <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Customize</button>
-                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Decline All</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Decline All</button>
                 </div>
             </div>
         </div>
@@ -233,6 +249,167 @@
                 </div>
             </div>
         </div>
+        {% elif lang == 'de' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu optimieren. Einige Cookies sind für das Funktionieren der Seite notwendig, andere helfen uns, diese Seite und Ihre Erfahrung zu verbessern. Da unsere Website Gesundheits- und Ernährungsthemen behandelt, können Analyse-Cookies sensible Rückschlüsse auf Ihre Gesundheitsinteressen zulassen. Sie können alle Cookies akzeptieren oder Ihre Präferenzen anpassen. Weitere Informationen finden Sie in unserer <a href="{{ '/de/cookie-richtlinie/' | url }}" class="cookie-consent-link">Cookie-Richtlinie</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Alle akzeptieren</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Einstellungen</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Alle ablehnen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie-Einstellungen</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Schließen">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Wir verwenden verschiedene Arten von Cookies. Wählen Sie aus, welche Sie akzeptieren:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Notwendige Cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analyse-Cookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketing-Cookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen und relevante Werbung anzuzeigen.</p>
+                    </div>
+                    <p class="text-xs mt-3">Weitere Details finden Sie in unserer <a href="{{ '/de/cookie-richtlinie/' | url }}" class="cookie-consent-link">Cookie-Richtlinie</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Meine Auswahl speichern</button>
+                </div>
+            </div>
+        </div>
+        {% elif lang == 'nl' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>We gebruiken cookies om je ervaring op onze site te optimaliseren. Sommige cookies zijn noodzakelijk voor de werking van de site, terwijl andere ons helpen deze site en jouw ervaring te verbeteren. Omdat onze website gezondheids- en voedingsthema's behandelt, kunnen analysecookies gevoelige informatie over je gezondheidsinteresses onthullen. Je kunt alle cookies accepteren of je voorkeuren aanpassen. Meer informatie vind je in ons <a href="{{ '/nl/cookiebeleid/' | url }}" class="cookie-consent-link">Cookiebeleid</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Alles accepteren</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Aanpassen</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Alles weigeren</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie-instellingen</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Sluiten">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>We gebruiken verschillende soorten cookies. Kies welke je accepteert:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Noodzakelijke cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies zijn essentieel voor het correct functioneren van de site en kunnen niet worden uitgeschakeld.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analysecookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies helpen ons te begrijpen hoe bezoekers met de site omgaan.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketingcookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies worden gebruikt om bezoekers over websites te volgen en relevante advertenties te tonen.</p>
+                    </div>
+                    <p class="text-xs mt-3">Voor meer details zie ons <a href="{{ '/nl/cookiebeleid/' | url }}" class="cookie-consent-link">Cookiebeleid</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Voorkeuren opslaan</button>
+                </div>
+            </div>
+        </div>
+        {% elif lang == 'ar' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner" dir="rtl">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا. بعض هذه الملفات ضرورية لعمل الموقع، بينما يساعدنا البعض الآخر على تحسين الموقع وتجربتك. نظرًا لأن موقعنا يتناول مواضيع الصحة والتغذية، فقد تسمح ملفات تعريف الارتباط التحليلية باستنتاج معلومات حساسة حول اهتماماتك الصحية. يمكنك قبول جميع ملفات تعريف الارتباط أو تخصيص تفضيلاتك. لمزيد من المعلومات، راجع <a href="{{ '/ar/سياسة-ملفات-تعريف-الارتباط/' | url }}" class="cookie-consent-link">سياسة ملفات تعريف الارتباط</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">قبول الكل</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">تخصيص</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">رفض الكل</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;" dir="rtl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>تفضيلات ملفات تعريف الارتباط</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="إغلاق">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>نستخدم أنواعًا مختلفة من ملفات تعريف الارتباط. اختر ما تقبله:</p>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">الضرورية</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">هذه الملفات ضرورية لعمل الموقع ولا يمكن تعطيلها.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">التحليلية</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">تساعدنا على فهم كيفية تفاعل الزوار مع الموقع.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">التسويقية</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">تُستخدم لتتبع الزوار عبر المواقع وعرض إعلانات ملائمة.</p>
+                    </div>
+                    <p class="text-xs mt-3">لمزيد من التفاصيل، يرجى مراجعة <a href="{{ '/ar/سياسة-ملفات-تعريف-الارتباط/' | url }}" class="cookie-consent-link">سياسة ملفات تعريف الارتباط</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">حفظ التفضيلات</button>
+                </div>
+            </div>
+        </div>
         {% else %}
         <div class="cookie-consent-banner active" id="cookieMainBanner">
             <div class="container cookie-consent-content">
@@ -242,7 +419,7 @@
                 <div class="cookie-consent-actions">
                     <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Tout Accepter</button>
                     <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Personnaliser</button>
-                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Tout Refuser</button> 
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Tout Refuser</button> 
                 </div>
             </div>
         </div>
@@ -291,6 +468,8 @@
         </div>
         {% endif %}
     </div>
+<a href="#" id="cookieManageLink" class="cookie-settings-link" style="position:fixed;bottom:12px;left:12px;z-index:9999;font-size:0.85rem;background:rgba(0,0,0,.6);color:#fff;padding:6px 10px;border-radius:3px;">
+{% if lang == 'fr' %}Paramètres cookies{% elif lang == 'de' %}Cookie-Einstellungen{% elif lang == 'nl' %}Cookie-instellingen{% elif lang=='ar' %}إعدادات الكوكيز{% else %}Cookie Settings{% endif %}</a>
 
     <script>
     (function() {
@@ -306,5 +485,7 @@
       }
     })();
     </script>
+    {# Matomo Analytics (deferred until analytics consent) #}
+    <script type="text/plain" data-cookie-category="analytics" src="/matomo.js"></script>
 </body>
 </html>
