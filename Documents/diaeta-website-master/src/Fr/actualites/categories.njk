@@ -1,9 +1,9 @@
 ---
 pagination:
-  data: collections.postsByCategory
+  data: collections.postsByCategory_fr
   size: 1 # One page per category
   alias: categoryData
-  addAllPagesToCollections: true # So you can link to these if needed
+  addAllPagesToCollections: false # So you can link to these if needed
 permalink: "/fr/actualites/categories/{{ categoryData.key | slugify }}/index.html"
 layout: layouts/base.njk
 lang: fr
@@ -100,5 +100,31 @@ eleventyComputed:
       {% endfor %}
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil Diaeta",
+      "item": "https://diaeta.be/fr/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Actualités",
+      "item": "https://diaeta.be/fr/actualites/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ categoryData.key | title }}",
+      "item": "https://diaeta.be/fr/actualites/categories/{{ categoryData.key | slugify }}/"
+    }
+  ]
 }
 </script>

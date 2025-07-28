@@ -1,0 +1,143 @@
+---
+layout: layouts/base.njk
+title: "Datenschutzrichtlinie - Diaeta"
+description: "Erfahren Sie, wie Diaeta Ihre personenbezogenen Daten gemäß DSGVO und belgischem Recht schützt, einschließlich besonderer Schutzmaßnahmen für Gesundheitsdaten."
+---
+
+<style>
+    /* Wiederverwendung der Stile für Konsistenz */
+    .legal-card {
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .legal-card h2 {
+        color: var(--primary-700, #345e52);
+        border-bottom: 2px solid var(--primary-200, #b2d8d0);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .legal-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .list-styled-check li {
+        padding-right: 1.5em; /* RTL Anpassung */
+        position: relative;
+    }
+    .list-styled-check li::before {
+        content: '✓';
+        color: var(--primary-500, #4caf50);
+        position: absolute;
+        right: 0; /* RTL Anpassung */
+        font-weight: bold;
+    }
+</style>
+
+<section class="content-section container py-5">
+  <h1>Datenschutzrichtlinie</h1>
+  <p class="text-muted"><em>Letzte Aktualisierung: {{ "" | date("d. MMMM yyyy", "de") }}</em></p>
+
+  <h2>1. Einleitung</h2>
+  <p><strong>Diaeta</strong> ("wir", "uns") verarbeitet Ihre personenbezogenen Daten konform zur Datenschutz-Grundverordnung (DSGVO) und dem belgischen Gesetz vom 30.&nbsp;Juli&nbsp;2018.</p>
+
+  <h2>2. Wer ist verantwortlich?</h2>
+  <p><strong>Verantwortlicher:</strong> Diaeta, Laudinnestraat&nbsp;94A, 1602&nbsp;Vlezenbeek, Belgien – E-Mail: <a href="mailto:info@diaeta.be">info@diaeta.be</a> – Tel.&nbsp;<a href="tel:+32479355551">+32&nbsp;479&nbsp;35&nbsp;55&nbsp;51</a></p>
+
+  <h2>3. Welche Daten verarbeiten wir?</h2>
+  <ul>
+    <li><strong>Identifikations- und Kontaktdaten:</strong> Name, Adresse, E-Mail, Telefon, Geburtsdatum.</li>
+    <li><strong>Gesundheits- und Ernährungsdaten (besondere Kategorie):</strong> Krankengeschichte, Diagnosen, Allergien, Lebensstil, Körpermaße, personalisierte Ernährungspläne.</li>
+    <li><strong>Finanzdaten:</strong> Rechnungen, Zahlungsstatus (Kartendaten verbleiben beim Zahlungsdienstleister).</li>
+    <li><strong>Technische Daten:</strong> IP-Adresse, Browser, Geräte-IDs, Cookie-Kennungen.</li>
+  </ul>
+
+  <h2>4. Zwecke und Rechtsgrundlagen</h2>
+  <table class="table table-bordered small">
+    <thead><tr><th>Zweck</th><th>Daten</th><th>Rechtsgrundlage</th></tr></thead>
+    <tbody>
+      <tr><td>Terminplanung &amp; ‑bestätigung</td><td>Identifikation &amp; Kontakt</td><td>Vertrag (Art.&nbsp;6(1)(b) DSGVO)</td></tr>
+      <tr><td>Diätetische Beratung</td><td>Identifikation; <em>Gesundheitsdaten</em></td><td><em>Ausdrückliche Einwilligung</em> (Art.&nbsp;9(2)(a))</td></tr>
+      <tr><td>Abrechnung &amp; Buchhaltung</td><td>Identifikation; Finanzdaten</td><td>Rechtliche Pflicht (Art.&nbsp;6(1)(c))</td></tr>
+      <tr><td>Terminerinnerungen</td><td>Kontaktdaten</td><td>Berechtigtes Interesse (Art.&nbsp;6(1)(f))</td></tr>
+      <tr><td>Website-Sicherheit</td><td>Technische Daten</td><td>Berechtigtes Interesse (Art.&nbsp;6(1)(f))</td></tr>
+      <tr><td>Newsletter (optional)</td><td>Kontaktdaten</td><td>Einwilligung (Art.&nbsp;6(1)(a))</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Minderjährige:</strong> In Belgien ist Online-Einwilligung ab 13&nbsp;Jahren gültig, darunter ist die Zustimmung der Eltern erforderlich.</p>
+
+  <h2>5. Aufbewahrungsfristen</h2>
+  <ul>
+    <li>Patientenakte: 30&nbsp;Jahre nach dem letzten Kontakt.</li>
+    <li>Buchhaltungsunterlagen: 7&nbsp;Jahre.</li>
+    <li>Server-Logs: 6–12&nbsp;Monate.</li>
+    <li>Anfragen ohne Vertragsabschluss: 12&nbsp;Monate.</li>
+  </ul>
+
+  <h2>6. Empfänger</h2>
+  <ul>
+    <li>Berechtigte Mitarbeiter unter medizinischer Schweigepflicht.</li>
+    <li>Auftragsverarbeiter mit Datenverarbeitungsvertrag.</li>
+    <li>Andere Gesundheitsdienstleister mit Ihrer Einwilligung.</li>
+    <li>Behörden, sofern gesetzlich vorgeschrieben.</li>
+  </ul>
+
+  <h2>7. Internationale Datenübermittlungen</h2>
+  <p>Datenübermittlungen außerhalb des EWR erfolgen auf Basis von Standardvertragsklauseln oder Angemessenheitsbeschlüssen.</p>
+
+  <h2>8. Sicherheitsmaßnahmen</h2>
+  <ul class="list-styled-check">
+    <li>HTTPS und TLS-E-Mail.</li>
+    <li>Starke Passwörter und 2-Faktor-Authentifizierung.</li>
+    <li>Regelmäßige Updates.</li>
+    <li>Verschlüsselte Back-ups in der EU.</li>
+    <li>Formelle Zugriffskontrolle für Gesundheitsdaten.</li>
+  </ul>
+
+  <h2>9. Ihre Rechte</h2>
+  <ul class="list-styled-check">
+    <li>Auskunft</li>
+    <li>Berichtigung</li>
+    <li>Löschung</li>
+    <li>Einschränkung oder Widerspruch</li>
+    <li>Datenübertragbarkeit</li>
+    <li>Widerruf der Einwilligung</li>
+  </ul>
+  <p>Kontakt: <a href="mailto:info@diaeta.be">info@diaeta.be</a>. Antwort innerhalb eines Monats.</p>
+
+  <h2>10. Beschwerden</h2>
+  <p>Sie können sich an die belgische Datenschutzbehörde (APD/GBA), Rue de la Presse&nbsp;35, 1000&nbsp;Brüssel – <a href="mailto:contact@apd-gba.be">contact@apd-gba.be</a> wenden.</p>
+
+  <h2>11. Änderungen</h2>
+  <p>Die jeweils aktuelle Fassung dieser Richtlinie ist jederzeit auf dieser Website verfügbar.</p>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-secondary" onclick="window.manageCookieConsent && window.manageCookieConsent();">Cookie-Einstellungen öffnen</button>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite Diaeta",
+      "item": "https://diaeta.be/de/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Datenschutzrichtlinie",
+      "item": "https://diaeta.be/de/datenschutz.html"
+    }
+  ]
+}
+</script>

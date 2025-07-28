@@ -35,6 +35,7 @@ lang: fr
                 <p class="text-muted"><em>Diététicien Nutritionniste expérimenté</em></p>
                 <p>Fort de mon expérience et d'une passion pour la science de la nutrition, je m'engage à vous fournir les outils et les connaissances nécessaires pour reprendre le contrôle de votre santé. Mon parcours, incluant un <strong class="text-highlight-primary">Bachelier en science diététique de l'école supérieur d'Erasmus</strong> et une formation antérieure de <strong class="text-highlight-secondary">Programmateur et Analyste en Informatique</strong>, m'apporte une perspective unique, alliant rigueur scientifique et approche analytique pour résoudre vos défis nutritionnels.</p>
                 <p>En tant que <strong class="text-highlight-primary">Diététicien Nutritionniste agréé par l'INAMI</strong> et <strong class="text-highlight-accent">certifié par l'Université MONASH</strong> pour l'approche Pauvre en FODMAP dans la gestion du Syndrome du Côlon Irritable, je suis continuellement à la pointe des dernières avancées pour vous offrir les meilleurs soins.</p>
+                <p>Mon expérience personnelle avec le diabète de type 2 me donne également une compréhension profonde et authentique des défis et des réussites liés à la gestion d'une condition métabolique.</p>
                 <p>Je suis également membre de l'<strong class="text-highlight-primary">UPDLF (Union Professionnelle des Diététiciens de Langue Française)</strong>, gage de mon engagement envers les plus hauts standards professionnels.</p>
             </div>
         </div>
@@ -150,22 +151,20 @@ lang: fr
         "Diététique scientifique"
       ],
       "description": "Pierre Abou-Zeid est un diététicien nutritionniste agréé (INAMI) et certifié MONASH, expert chez Diaeta à Bruxelles. Spécialisé en perte de poids, SII, diabète et cholestérol, il propose une approche scientifique, personnalisée et bienveillante.",
-      "knowsLanguage": ["fr", "en", "nl", "de", "ar"]
-      sameAs": [ // From authors.json
+      "knowsLanguage": ["fr", "en", "nl", "de", "ar"],
+      "sameAs": [
       "https://www.linkedin.com/in/pierre-abou-zeid/"
-      // Add other relevant professional profiles if available (e.g., ResearchGate, UPDLF profile if public)
     ],
-    "memberOf": [ // Added based on page content "membre de l'UPDLF"
+      "memberOf": [
       {
         "@type": "Organization",
-        "name": "UPDLF (Union Professionnelle des Diététiciens de Langue Française)"
-        // "url": "URL_OF_UPDLF_IF_KNOWN" // Add if available
+          "name": "UPDLF (Union Professionnelle des Diététiciens de Langue Française)",
+          "url": "https://www.updlf-asbl.be/"
       }
     ],
-    "award": [ // You can use "award" or "honorificSuffix" for certifications
-      "Certifié MONASH University (SII/FODMAP)"
-      // If "agréé INAMI" has a formal title/award name, it could go here too,
-      // otherwise it's well covered in jobTitle and description.
+      "award": [
+        "Certifié MONASH University (SII/FODMAP)",
+        "Agréé INAMI"
     ]
   }
   </script>
@@ -173,16 +172,19 @@ lang: fr
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Accueil Diaeta", // Or just "Accueil"
-            "item": "https://diaeta.be/fr/index.html" // Or "https://diaeta.be/" or "/fr/" depending on your true homepage URL
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Notre Expertise", // The name of the current page's topic
-            "item": "https://diaeta.be/fr/notre-expertise/" // The URL of the current page
-          }]
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil Diaeta",
+              "item": "https://diaeta.be/fr/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Notre expertise",
+              "item": "https://diaeta.be/fr/notre-expertise.html"
+            }
+          ]
         }
         </script>

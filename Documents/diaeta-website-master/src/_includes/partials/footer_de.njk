@@ -1,0 +1,91 @@
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="{{ '/de/' | url }}" class="footer-logo mb-3">
+                    <img src="{{ '/images/logo.svg' | url }}" alt="Diaeta Logo - Personalisierte und Wissenschaftliche Ernährung" style="height: 50px; width: auto;">
+                </a>
+                <p class="footer-about text-sm">
+                    Diaeta transformiert Ihre Gesundheit durch personalisierte, wissenschaftlich fundierte Ernährungslösungen für nachhaltiges Wohlbefinden.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook Diaeta"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram Diaeta"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn Pierre Abou-Zeid"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok Diaeta"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Diaeta Entdecken</h3>
+                <ul class="footer-links">
+                    <li><a href="{{ '/de/' | url }}" class="footer-link">Startseite</a></li>
+                    <li><a href="{{ '/de/diaeta-methode/' | url }}" class="footer-link">Die Methode</a></li>
+                    <li><a href="{{ '/de/unsere-expertise/' | url }}" class="footer-link">Unsere Expertise</a></li>
+                    <li><a href="{{ '/de/preise/' | url }}" class="footer-link">Preise</a></li>
+                    <li><a href="{{ '/de/neuigkeiten/' | url }}" class="footer-link">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Unsere Leistungen</h3>
+                <ul class="footer-links">
+                    <li><a href="{{ '/de/gewichtsverlust/' | url }}" class="footer-link">Gewichtsverlust</a></li>
+                    <li><a href="{{ '/de/reizdarmsyndrom-fodmap/' | url }}" class="footer-link">Reizdarmsyndrom</a></li>
+                    <li><a href="{{ '/de/diabetes-typ-2/' | url }}" class="footer-link">Diabetes Typ 2</a></li>
+                    <li><a href="{{ '/de/bluthochdruck-cholesterin/' | url }}" class="footer-link">Bluthochdruck & Cholesterin</a></li>
+                    <li><a href="{{ '/de/nutrigenetische-tests/' | url }}" class="footer-link">Nutrigenetische Tests</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Für Unternehmen</h3>
+                <ul class="footer-links">
+                    <li><a href="{{ '/de/unternehmen/' | url }}" class="footer-link">Überblick</a></li>
+                    <li><a href="{{ '/de/unternehmen/betriebliches-gesundheitsmanagement/' | url }}" class="footer-link">Betriebliches Gesundheitsmanagement</a></li>
+                    <li><a href="{{ '/de/unternehmen/gesundheitswesen/' | url }}" class="footer-link">Gesundheitswesen</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Qualifikationen</h3>
+                <ul class="footer-links text-sm">
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="footer-contact-text">Anerkannter Ernährungsberater (INAMI)</div>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-shield-alt"></i></div>
+                        <div class="footer-contact-text">FODMAP-Zertifiziert von der Monash Universität</div>
+                    </li>
+                     <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="footer-contact-text"><a href="mailto:info@diaeta.be" class="footer-link" style="padding: 0;">info@diaeta.be</a></div>
+                    </li>
+                    <li class="footer-contact-item">
+                        <div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="footer-contact-text"><a href="tel:+32479355551" class="footer-link" style="padding: 0;">+32 479 35 55 51</a></div>
+                    </li>
+                </ul>
+                 <a href="{{ '/de/termin/' | url }}" class="btn btn-accent btn-sm d-block mt-3" style="max-width: 200px;">
+                    <i class="fa-solid fa-calendar-check me-1"></i> Online Termin
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright text-xs">
+                &copy; <span id="currentYear"></span> Diaeta. Alle Rechte vorbehalten.
+            </p>
+            <div class="footer-legal text-xs">
+                <a href="{{ '/de/datenschutz/' | url }}" class="footer-legal-link">Datenschutz</a>
+                <a href="{{ '/de/cookie-richtlinie/' | url }}" class="footer-legal-link">Cookie-Richtlinie</a>
+                <a href="{{ '/de/impressum/' | url }}" class="footer-legal-link">Impressum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>

@@ -2233,7 +2233,7 @@ footer.footer .footer-legal-link:hover::after {
   height: 100%;
   object-fit: contain;
   opacity: 0.9;
-  animation: dnaRotate 15s infinite linear;
+  animation: none !important;
 }
 
 @keyframes dnaRotate {
@@ -2747,6 +2747,33 @@ footer.footer .footer-legal-link:hover::after {
 
 /* FAQ Section */
 
+/* FAQ Accordion styling (uses Bootstrap, but can be customized) */
+.accordion-button {
+  font-weight: 500;
+  color: var(--primary-700);
+  font-size: 1.25rem; /* Increased for better readability */
+}
+.accordion-button:not(.collapsed) {
+  background-color: rgba(var(--primary-rgb), 0.05);
+  color: var(--primary-600);
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem var(--focus-ring);
+}
+.accordion-body {
+    font-size: 1.1rem; /* Increased for better readability */
+    line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .accordion-button {
+    font-size: 1.05rem;
+  }
+  .accordion-body {
+    font-size: 1rem;
+  }
+}
+
 /* CTA Section */
 .test-cta {
   position: relative;
@@ -3059,6 +3086,23 @@ with a more specific selector.
     top: 100%;
   }
 }
+
+/* --- Diaeta Methode: Adjust check icon alignment in first section --- */
+.content-section.bg-white ul.list-unstyled > li > i.fas.fa-check {
+  position: absolute !important;
+  left: 0.7em !important;
+  top: 0.5em !important;
+  margin-right: 0 !important;
+  color: var(--accent-500, #8cc63f) !important;
+  font-size: 1.1em !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+.content-section.bg-white ul.list-unstyled > li {
+  position: relative !important;
+  padding-left: 2em !important;
+}
+
 /* header.css - Fixed Header with Corrected Issues */
 .site-header {
   position: fixed;
@@ -3095,7 +3139,6 @@ with a more specific selector.
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   /* Ensure no overflowing content */
   overflow: visible;
@@ -3113,6 +3156,7 @@ with a more specific selector.
   position: relative;
   z-index: 60;
   flex-shrink: 0;
+  order: 0;
 }
 
 .logo img {
@@ -3130,6 +3174,9 @@ with a more specific selector.
 .main-nav {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: center;
+  order: 1;
 }
 
 .nav-list {
@@ -3188,6 +3235,54 @@ with a more specific selector.
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  order: 2;
+  margin-left: var(--space-6);
+}
+
+/* Search Container - Separate from desktop-actions */
+.search-container {
+  margin-left: auto;
+  flex-shrink: 0;
+  order: 3;
+  padding-left: var(--space-6);
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  min-width: 180px;
+  padding: 0.3em 2.5em 0.3em 1em;
+  border-radius: 2em;
+  border: 1px solid #ccc;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-form input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.search-form button {
+  position: absolute;
+  right: 0.5em;
+  background: none;
+  border: none;
+  color: var(--primary-700);
+  cursor: pointer;
+  padding: 0.25em;
+  border-radius: 50%;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.search-form button:hover {
+  color: var(--primary-500);
+  background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 .phone-link {
@@ -3351,10 +3446,11 @@ with a more specific selector.
   font-size: 1.5rem;
   cursor: pointer;
   padding: var(--space-2);
-  margin-left: var(--space-2);
+  margin-left: auto;
   z-index: 60;
   border-radius: var(--border-radius-md);
   transition: background-color 0.2s ease;
+  order: 10;
 
   /* Fix for half-visible icon */
   position: relative;
@@ -3414,13 +3510,14 @@ with a more specific selector.
   }
 }
 
-@media (max-width: 1134px) {
+@media (max-width: 1686px) {
   .menu-toggle {
     display: flex !important;
   }
 
-  .desktop-actions {
-    display: none;
+  .desktop-actions,
+  .search-container {
+    display: none !important;
   }
 
   .main-nav {
@@ -3594,8 +3691,8 @@ with a more specific selector.
   /* Menu toggle positioning fix for mobile */
   .menu-toggle {
     margin-right: 8px;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     font-size: 1.4rem;
     display: flex !important;
     align-items: center;
@@ -4583,45 +4680,9 @@ section {
   font-weight: var(--font-medium);
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  transition: all 0.25s ease-out;
-  cursor: pointer;;
+  cursor: default;
   border: 1px solid rgba(var(--accent-rgb), 0.3); 
   box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-}
-
-.science-badge::after {
-  content: "\f05a";
-  font-family: 'Font Awesome 6 Free'; 
-  font-weight: 900; 
-  font-size: 1em;
-  line-height: 1;
-  opacity: 0.8;
-  transition:  transform 0.25s ease-out, color 0.25s ease-out;
-  animation: pulse-icon 2.5s infinite ease-in-out;
-}
-
-.science-badge:hover {
-  background-color: rgba(140, 198, 63, 0.2);
-  transform: translateY(-2px);
-}
-
-.science-badge:hover::after,
-.science-badge:focus-visible::after {
-  transform: scale(1.2); /* Enlarge icon slightly */
-  opacity: 1;
-  color: var(--accent-600); /* Darken icon */
-}
-
-/* Active State (when clicked) */
-.science-badge:active {
-  transform: translateY(0px) scale(1); /* Press down effect */
-  box-shadow: 0 2px 4px rgba(var(--accent-rgb),0.1);
-  background-color: rgba(var(--accent-rgb), 0.25);
-}
-
-@keyframes pulse-icon {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .science-title {
@@ -8306,6 +8367,7 @@ section {
 .accordion-button {
   font-weight: 500;
   color: var(--primary-700);
+  font-size: 1.25rem; /* Increased for better readability */
 }
 .accordion-button:not(.collapsed) {
   background-color: rgba(var(--primary-rgb), 0.05);
@@ -8315,8 +8377,17 @@ section {
   box-shadow: 0 0 0 0.25rem var(--focus-ring);
 }
 .accordion-body {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 1.1rem; /* Increased for better readability */
+    line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .accordion-button {
+    font-size: 1.05rem;
+  }
+  .accordion-body {
+    font-size: 1rem;
+  }
 }
 
 /* Updated DNA animation styling for homepage section if changed */

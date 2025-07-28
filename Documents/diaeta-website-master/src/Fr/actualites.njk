@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: "Actualités & Conseils Nutritionnels | Diaeta Bruxelles"
 description: "Restez informé des dernières actualités, conseils scientifiques et astuces pratiques en nutrition par Pierre Abou-Zeid, diététicien à Bruxelles."
 pagination:
-  data: collections.actualites
+  data: collections.actualites_fr
   size: 6
   alias: items
 permalink: "/fr/actualites/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
@@ -76,13 +76,14 @@ canonicalUrl: "https://diaeta.be/fr/actualites/"
             <aside class="col-lg-3 mt-5 mt-lg-0">
                 <div class="sidebar-widget">
                     <h4 class="sidebar-title">Catégories</h4>
-                    {% if collections.uniqueCategories.length > 0 %}
+                    {% if collections.uniqueCategories_fr.length > 0 %}
                         <ul class="list-unstyled category-list">
-                            {% for category in collections.uniqueCategories %}
+                            {% for category in collections.uniqueCategories_fr %}
                             <li>
                                 <a href="{{ ('/fr/actualites/categories/' + category | slugify + '/') | url }}">{{ category }} 
                                     <span class="badge bg-primary rounded-pill">
-                                        {{ collections.postsByCategory[category].length }}
+                                        {% set categoryObject = collections.postsByCategory_fr | where("key", category) | first %}
+                                        {{ categoryObject.value.length if categoryObject else 0 }}
                                     </span>
                                 </a>
                             </li>
@@ -121,5 +122,25 @@ canonicalUrl: "https://diaeta.be/fr/actualites/"
       {% endfor %}
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil Diaeta",
+      "item": "https://diaeta.be/fr/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Actualités",
+      "item": "https://diaeta.be/fr/actualites/"
+    }
+  ]
 }
 </script>

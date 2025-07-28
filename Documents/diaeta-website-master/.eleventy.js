@@ -13,6 +13,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/fonts");
     eleventyConfig.addPassthroughCopy("src/videos");
     eleventyConfig.addPassthroughCopy("src/_data/cabinets.json"); // To make cabinets.json available if needed client-side
+    // Copy search indexes to output root
+    eleventyConfig.addPassthroughCopy({ "src/search-index.fr.json": "search-index.fr.json" });
+    eleventyConfig.addPassthroughCopy({ "src/search-index.en.json": "search-index.en.json" });
+    eleventyConfig.addPassthroughCopy({ "src/search-index.nl.json": "search-index.nl.json" });
 
     // --- Add Shortcode for Current Year ---
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -96,6 +100,158 @@ module.exports = function(eleventyConfig) {
         return Array.from(uniqueCategories).sort();
     });
   
+    // --- Dutch News Collections ---
+    eleventyConfig.addCollection("actualites_nl", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_nl", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_nl", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Nl/nieuws/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+
+    // --- French News Collections ---
+    eleventyConfig.addCollection("actualites_fr", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_fr", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_fr", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Fr/actualites/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+
+    // --- German News Collections ---
+    eleventyConfig.addCollection("actualites_de", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_de", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_de", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/De/neuigkeiten/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+
+    // --- Arabic News Collections ---
+    eleventyConfig.addCollection("actualites_ar", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md").sort((a, b) => {
+            return b.date - a.date;
+        });
+    });
+
+    eleventyConfig.addCollection("postsByCategory_ar", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md");
+        const categories = {};
+        posts.forEach(post => {
+            const category = post.data.category;
+            if (category && category.trim()) {
+                const key = slugify(category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g });
+                if (!categories[key]) {
+                    categories[key] = [];
+                }
+                categories[key].push(post);
+            }
+        });
+        for (const categoryKey in categories) {
+            categories[categoryKey].sort((a, b) => b.date - a.date);
+        }
+        // Return as array of { key, value }
+        return Object.entries(categories).map(([key, value]) => ({ key, value }));
+    });
+
+    eleventyConfig.addCollection("uniqueCategories_ar", (collectionApi) => {
+        const posts = collectionApi.getFilteredByGlob("./src/Ar/أخبار/**/*.md");
+        let uniqueCategories = new Set();
+        posts.forEach(post => {
+            if (post.data.category && typeof post.data.category === 'string' && post.data.category.trim() !== '') {
+                uniqueCategories.add(slugify(post.data.category.trim(), { lower: true, strict: true, remove: /[#,&,+()$~%.'":*?<>{}]/g }));
+            }
+        });
+        return Array.from(uniqueCategories).sort();
+    });
+  
     // --- Nunjucks Filters ---
     // Date Filter (e.g., 25 mai 2025)
     eleventyConfig.addNunjucksFilter("date", function(dateObj, format = "dd LLLL yyyy", locale = "fr") {
@@ -115,6 +271,17 @@ module.exports = function(eleventyConfig) {
             strict: true,
             remove: /[#,&,+()$~%.'":*?<>{}]/g
         });
+    });
+
+    // Custom `where` filter (similar to Liquid's)
+    eleventyConfig.addFilter("where", function(arr, key, val) {
+        if (!Array.isArray(arr)) return [];
+        return arr.filter(item => item && item[key] === val);
+    });
+
+    // Custom `first` filter (returns first element or undefined)
+    eleventyConfig.addFilter("first", function(arr) {
+        return Array.isArray(arr) && arr.length > 0 ? arr[0] : undefined;
     });
 
     // Truncate Filter

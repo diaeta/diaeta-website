@@ -1,0 +1,145 @@
+---
+layout: layouts/base.njk
+title: "الأخبار ونصائح التغذية | دايتا بروكسل"
+description: "ابق على اطلاع بأحدث الأخبار والنصائح العلمية ونصائح التغذية العملية من بيار أبو زيد، أخصائي تغذية في بروكسل."
+pagination:
+  data: collections.actualites_ar
+  size: 6
+  alias: items
+permalink: "/ar/akhbar/{% if pagination.pageNumber > 0 %}safha/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+lang: ar
+canonicalUrl: "https://diaeta.be/ar/akhbar/"
+---
+
+<section class="service-hero rd-hero" dir="rtl">
+    <div class="container">
+        <div class="rd-hero-content">
+            <span class="hero-badge rd-hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-newspaper hero-badge-icon"></i>أخبار دايتا</span>
+            <h1 class="animate-on-scroll fade-up">مقالاتنا ونصائحنا</h1>
+            <p class="lead animate-on-scroll fade-up delay-200">
+                اغرق في عالم علوم التغذية مع رؤى من بيار أبو زيد. نصائح عملية، تحليلات مفصلة، وأحدث الاتجاهات لتحسين صحتك.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section actualites-listing-section bg-white" dir="rtl">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                {% if items.length > 0 %}
+                <div class="row g-4">
+                    {% for post in items %}
+                    <div class="col-md-6 d-flex">
+                        <article class="article-teaser-card animate-on-scroll fade-up w-100">
+                            {% if post.data.image %}
+                            <a href="{{ post.url | url }}" class="teaser-card-image-link" aria-hidden="true" tabindex="-1">
+                                <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-image" loading="lazy">
+                            </a>
+                            {% endif %}
+                            <div class="teaser-card-body">
+                                {% if post.data.category %}
+                                    <span class="teaser-card-category"><a href="{{ ('/ar/akhbar/faeat/' + post.data.category | slugify + '/') | url }}">{{ post.data.category }}</a></span>
+                                {% endif %}
+                                <h3 class="teaser-card-title h5"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+                                {% set excerpt = post.data.description %}
+                                {% if not excerpt and post.templateContent %}{% set excerpt = post.templateContent | striptags | truncate(100) %}{% elif excerpt %}{% set excerpt = excerpt | truncate(100) %}{% endif %}
+                                {% if excerpt %}<p class="teaser-card-excerpt">{{ excerpt }}</p>{% endif %}
+                                <div class="teaser-card-meta">
+                                     {% if post.data.date %}<span class="teaser-card-date"><i class="fa-regular fa-calendar"></i> {{ post.date | date }}</span>{% endif %}
+                                    <a href="{{ post.url | url }}" class="btn btn-sm btn-outline-primary teaser-card-readmore"><i class="fa-solid fa-arrow-left fa-xs"></i> اقرأ المزيد</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {# Pagination Navigation #}
+                {% if pagination.pages.length > 1 %}
+                <nav aria-label="تصفح الأخبار" class="mt-5 pt-4 border-top">
+                    <ul class="pagination justify-content-center">
+                        {% if pagination.href.previous %}<li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">السابق</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">السابق</span></li>{% endif %}
+                        {% for pageLink in pagination.hrefs %}<li class="page-item {% if page.url == pageLink %}active{% endif %}" aria-current="{% if page.url == pageLink %}page{% endif %}"><a class="page-link" href="{{ pageLink | url }}">{{ loop.index }}</a></li>{% endfor %}
+                        {% if pagination.href.next %}<li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">التالي</a></li>
+                        {% else %}<li class="page-item disabled"><span class="page-link">التالي</span></li>{% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+
+                {% else %}
+                <p class="text-center"><em>لا توجد مقالات منشورة بعد. تحقق مرة أخرى قريبًا!</em></p>
+                {% endif %}
+            </div>
+
+            <aside class="col-lg-3 mt-5 mt-lg-0">
+                <div class="sidebar-widget">
+                    <h4 class="sidebar-title">الفئات</h4>
+                    {% if collections.uniqueCategories_ar.length > 0 %}
+                        <ul class="list-unstyled category-list">
+                            {% for category in collections.uniqueCategories_ar %}
+                            <li>
+                                <a href="{{ ('/ar/akhbar/faeat/' + category | slugify + '/') | url }}">{{ category }} 
+                                    <span class="badge bg-primary rounded-pill">
+                                        {{ collections.postsByCategory_ar[category].length }}
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p><em>لا توجد فئات متاحة حاليًا.</em></p>
+                    {% endif %}
+                </div>
+                {# You can add other sidebar widgets here: Recent Posts, Archives, Search Bar #}
+            </aside>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "الأخبار ونصائح التغذية | دايتا بروكسل",
+  "description": "ابق على اطلاع بأحدث الأخبار والنصائح العلمية ونصائح التغذية العملية من بيار أبو زيد، أخصائي تغذية في بروكسل.",
+  "url": "https://diaeta.be{{ canonicalUrl }}",
+  "publisher": {
+    "@id": "https://diaeta.be#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for post in items %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index + (pagination.pageNumber * pagination.size) }},
+        "url": "https://diaeta.be{{ post.url | url }}",
+        "name": "{{ post.data.title | escape }}"
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية دايتا",
+      "item": "https://diaeta.be/ar/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "الأخبار",
+      "item": "https://diaeta.be/ar/الأخبار/"
+    }
+  ]
+}
+</script>

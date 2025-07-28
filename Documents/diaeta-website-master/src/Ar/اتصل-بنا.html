@@ -1,0 +1,233 @@
+---
+layout: layouts/base.njk
+title: "اتصل بدايتا | أخصائي تغذية في بروكسل"
+description: "اتصل ببيار أبو زيد، أخصائي تغذية في بروكسل. اطرح أسئلتك عبر نموذجنا، أو ابحث عن معلومات الاتصال والروابط لحجز المواعيد."
+lang: ar
+canonicalUrl: "https://diaeta.be/ar/اتصل-بنا/"
+eleventyNavigation:
+  key: Contact
+  order: 6
+---
+
+<section class="service-hero-wp" dir="rtl">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">دعنا نبقى على تواصل</span>
+        <h1 class="animate-on-scroll fade-up">اتصل بدايتا</h1>
+        <p class="lead animate-on-scroll fade-up delay-200" style="max-width: 800px; margin: 1rem auto 1.5rem;">
+            هل لديك أسئلة حول خدماتنا أو نهجنا أو تريد ببساطة معرفة المزيد قبل حجز موعد؟ نحن هنا لمساعدتك.
+        </p>
+    </div>
+</section>
+
+<section class="contact-section py-5" id="main-contact-area" dir="rtl">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info animate-on-scroll fade-up">
+                <span class="contact-subtitle" style="background-color: rgba(var(--accent-rgb),0.1); color: var(--accent-600);">صحتك، أولويتنا</span>
+                <h2 class="contact-title">سؤال؟ تحتاج معلومات؟</h2>
+                <p class="contact-description">
+                    لا تتردد في استخدام النموذج على اليسار لأي طلب معلومات. لحجز موعد، ندعوك لاستخدام وحدة الحجز عبر الإنترنت أو استشارة قائمة عياداتنا.
+                </p>
+                
+                <div class="my-4">
+                    <a href="/ar/حجز-موعد/" class="btn btn-primary d-block mb-3">
+                        <i class="fa-solid fa-calendar-check me-2"></i>احجز موعداً عبر الإنترنت
+                    </a>
+                    <a href="/ar/العيادات-بروكسل/" class="btn btn-outline-primary d-block">
+                        <i class="fa-solid fa-map-location-dot me-2"></i>شاهد أماكن استشاراتنا
+                    </a>
+                </div>
+
+                <h3 class="h5 mt-4 mb-3" style="color: var(--primary-600);">اتصال مباشر</h3>
+                <ul class="contact-list p-0 m-0" style="list-style: none;">
+                    <li class="contact-item mb-3 animate-on-scroll fade-in delay-100">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-text">
+                            <div class="contact-label">الهاتف</div>
+                            <div class="contact-value"><a href="tel:+32479355551">+٣٢ ٤٧٩ ٣٥ ٥٥ ٥١</a></div>
+                        </div>
+                    </li>
+                    <li class="contact-item mb-3 animate-on-scroll fade-in delay-200">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <div class="contact-label">البريد الإلكتروني</div>
+                            <div class="contact-value"><a href="mailto:pierre@diaeta.be">info@diaeta.be</a></div>
+                        </div>
+                    </li>
+                    <li class="contact-item animate-on-scroll fade-in delay-300">
+                        <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-text">
+                            <div class="contact-label">التوفر للإجابة على الأسئلة (عادةً)</div>
+                            <div class="contact-value">الاثنين - السبت: ١٠:٠٠ - ١٨:٠٠</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="social-links mt-4">
+                    <a href="https://www.facebook.com/Dieteticien.colon.irritable/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="فيسبوك دايتا"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/expert.fodmap/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="إنستغرام دايتا"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pierre-abou-zeid/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="لينكد إن بيار أبو زيد"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.tiktok.com/@expert.fodmap" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="تيك توك دايتا"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form-container animate-on-scroll fade-up delay-200">
+                <h3 class="form-title">اطرح سؤالك</h3>
+                <form id="contactQuestionForm" action="http://localhost:3001/api/contact-inquiry" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="contactFullName" class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-control" id="contactFullName" name="contactFullName" placeholder="اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone" class="form-label">الهاتف (اختياري)</label>
+                            <input type="tel" class="form-control" id="contactPhone" name="contactPhone" placeholder="+٣٢ XX XXX XX XX">
+                        </div>
+                        <div class="form-group form-full">
+                            <label for="contactEmail" class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="بريدك.الإلكتروني@مثال.com" required>
+                        </div>
+                        <div class="form-group form-full">
+                            <label for="contactServiceType" class="form-label">موضوع سؤالك</label>
+                            <select class="form-control form-select" id="contactServiceType" name="contactServiceType">
+                                <option value="" selected disabled>اختر موضوعاً...</option>
+                                <option value="general_inquiry">سؤال عام</option>
+                                <option value="weight-loss">فقدان الوزن</option>
+                                <option value="ibs">متلازمة القولون العصبي</option>
+                                <option value="cardio">ضغط الدم والكوليسترول</option>
+                                <option value="diabetes">السكري من النوع الثاني</option>
+                                <option value="genetic">الاختبار الغذائي الجيني</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-full">
+                            <label for="contactMessage" class="form-label">رسالتك</label>
+                            <textarea class="form-control" id="contactMessage" name="contactMessage" rows="5" placeholder="اطرح سؤالك أو صف طلبك هنا..." required></textarea>
+                        </div>
+                        <div class="form-group form-full">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="contactPrivacyPolicy" name="privacyPolicy" required>
+                                <label class="form-check-label" for="contactPrivacyPolicy">
+                                    لقد قرأت ووافقت على <a href="/ar/سياسة-الخصوصية/" target="_blank">سياسة الخصوصية</a> ومعالجة بياناتي.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-submit mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span>أرسل سؤالي</span><i class="fa-solid fa-paper-plane ms-2"></i>
+                        </button>
+                    </div>
+                </form>
+                <div id="form-message-contact" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "اتصل بدايتا | أخصائي تغذية في بروكسل",
+  "description": "اتصل ببيار أبو زيد، أخصائي تغذية في بروكسل. اطرح أسئلتك عبر نموذجنا، أو ابحث عن معلومات الاتصال والروابط لحجز المواعيد.",
+  "url": "https://diaeta.be/ar/اتصل-بنا/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Diaeta",
+    "url": "https://diaeta.be",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://diaeta.be/images/logo.svg"
+    },
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+32479355551",
+      "contactType": "Customer Service",
+      "areaServed": "BE",
+      "availableLanguage": ["French", "English", "Dutch", "German", "Arabic"]
+    },{
+      "@type": "ContactPoint",
+      "email": "pierre@diaeta.be",
+      "contactType": "Customer Service",
+      "availableLanguage": ["French", "English", "Dutch", "German", "Arabic"]
+    }]
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "الرئيسية دايتا",
+      "item": "https://diaeta.be/ar/index.html"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "اتصل بنا",
+      "item": "https://diaeta.be/ar/اتصل-بنا/"
+    }]
+  }
+}
+</script>
+
+<script>
+    const contactForm = document.getElementById('contactQuestionForm');
+    const formMessageContactDiv = document.getElementById('form-message-contact');
+    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+    if (contactForm && submitButton) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> جاري الإرسال...';
+            formMessageContactDiv.innerHTML = '';
+
+            const formData = new FormData(contactForm);
+            
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            const backendUrl = contactForm.action;
+
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formObject)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.message || `خطأ HTTP ${response.status}`);
+                    }).catch(() => {
+                        throw new Error(`خطأ HTTP ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    formMessageContactDiv.innerHTML = `<div class="alert alert-success" role="alert">${data.message || 'تم إرسال سؤالك بنجاح!'}</div>`;
+                    contactForm.reset();
+                } else {
+                    formMessageContactDiv.innerHTML = `<div class="alert alert-danger" role="alert">${data.message || "حدث خطأ."}</div>`;
+                }
+            })
+            .catch(error => {
+                console.error('خطأ في إرسال النموذج:', error);
+                formMessageContactDiv.innerHTML = `<div class="alert alert-danger" role="alert">لا يمكن إرسال سؤالك حالياً. يرجى المحاولة لاحقاً أو الاتصال بنا مباشرة عبر الهاتف/البريد الإلكتروني. الخطأ: ${error.message}</div>`;
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, 1000);
+            });
+        });
+    }
+</script>

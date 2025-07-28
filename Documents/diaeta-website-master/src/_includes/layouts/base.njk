@@ -17,6 +17,26 @@
 
     {# Main Stylesheet - IMPORTANT: Path is root-relative #}
     <link href="/css/style.css" rel="stylesheet">
+    {% if lang == 'ar' %}
+    <link href="/css/rtl-overrides.css?v=1.1" rel="stylesheet">
+    <style>
+      html[lang="ar"]{font-family:"Tajawal","Cairo","Noto Kufi Arabic",sans-serif;font-size:100%;}
+      html[lang="ar"] body,html[lang="ar"] p,html[lang="ar"] li{font-family:inherit;font-size:1rem;line-height:1.5;}
+      html[lang="ar"] h1{font-size:2rem;line-height:1.3;}html[lang="ar"] h2{font-size:1.75rem;line-height:1.35;}html[lang="ar"] h3{font-size:1.5rem;line-height:1.4;}html[lang="ar"] h4{font-size:1.25rem;line-height:1.45;}
+      @media (min-width:576px){html[lang="ar"] body,html[lang="ar"] p,html[lang="ar"] li{font-size:1.0625rem;}html[lang="ar"] h1{font-size:2.25rem;}html[lang="ar"] h2{font-size:2rem;}html[lang="ar"] h3{font-size:1.75rem;}}
+      @media (min-width:992px){html[lang="ar"] body,html[lang="ar"] p,html[lang="ar"] li{font-size:1.125rem;}html[lang="ar"] h1{font-size:2.5rem;}html[lang="ar"] h2{font-size:2.25rem;}html[lang="ar"] h3{font-size:2rem;}}
+    </style>
+    {% else %}
+    <style>
+      /* TEMP inline RTL fix for check icons */
+      [dir="rtl"] .content-section.bg-white ul.list-unstyled li{
+        display:flex!important;flex-direction:row-reverse!important;align-items:flex-start!important;padding:0!important;
+      }
+      [dir="rtl"] .content-section.bg-white ul.list-unstyled li i.fa-check{
+        margin-left:.5em!important;margin-right:0!important;color:var(--accent-500,#8cc63f)!important;font-size:1.1em!important;position:static!important;
+      }
+    </style>
+    {% endif %}
 
     {# Favicons - IMPORTANT: Paths are root-relative #}
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -26,29 +46,20 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Diaeta",
-      "url": "https://diaeta.be"
-    }
-    </script>
-
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "DietNutrition", // Consistent type
-  "@id": "https://diaeta.be#organization", // Consistent ID
+  "@type": "DietNutrition",
+  "@id": "https://diaeta.be#organization",
   "name": "Diaeta",
-  "url": "https://diaeta.be/fr/", // Main French site URL
+  "url": "https://diaeta.be/{% if lang == 'en' %}en/{% elif lang == 'nl' %}nl/{% else %}fr/{% endif %}",
   "logo": "https://diaeta.be/images/logo.svg",
   "telephone": "+32479355551",
-  "email": "info@diaeta.be", // Consistent email
-  "description": "Diaeta offre une nutrition personnalisée et scientifique à Bruxelles pour la perte de poids durable, la gestion du diabète, du SCI (Syndrome de l'Intestin Irritable), et du cholestérol. Approche bienveillante par diététicien nutritionniste agréé.",
-  "address": { // Add the primary address here too for consistency
+  "email": "info@diaeta.be",
+  "description": "{% if lang == 'en' %}Pierre Abou-Zeid, certified Dietitian-Nutritionist (INAMI) in Brussels. Diaeta offers personalized and scientific nutrition for sustainable weight loss (without hunger), diabetes management, IBS, and cholesterol. A caring approach.{% elif lang == 'nl' %}Pierre Abou-Zeid, gecertificeerd diëtist-voedingsdeskundige (INAMI) in Brussel. Diaeta biedt persoonlijke en wetenschappelijke voeding voor duurzaam gewichtsverlies (zonder honger), diabetesbeheer, PDS en cholesterol. Een zorgzame aanpak.{% else %}Pierre Abou-Zeid, Diététicien Nutritionniste agréé (INAMI) à Bruxelles. Diaeta offre une nutrition personnalisée et scientifique pour perte de poids durable (sans faim), gestion du diabète, SCI, cholestérol. Approche bienveillante.{% endif %}",
+  "address": {
     "@type": "PostalAddress",
     "streetAddress": "Dieweg 99",
     "addressLocality": "Uccle",
     "postalCode": "1180",
-    "addressRegion": "Région de Bruxelles-Capitale",
+    "addressRegion": "{% if lang == 'en' %}Brussels-Capital Region{% elif lang == 'nl' %}Brussels Hoofdstedelijk Gewest{% else %}Région de Bruxelles-Capitale{% endif %}",
     "addressCountry": "BE"
   },
   "sameAs": [
@@ -57,13 +68,51 @@
     "https://www.instagram.com/expert.fodmap/",
     "https://www.tiktok.com/@expert.fodmap"
   ],
-  "priceRange": "50€-80€", // CHAMP AJOUTÉ
-  "image": { // CHAMP AJOUTÉ (avec exemple d'ImageObject)
-    "@type": "ImageObject",
-    "url": "https://diaeta.be/images/cabinets/cabinet-dietetique.jpg",
-    "caption": "Cabinet Diaeta", 
-    "height": "800", 
-    "width": "800" 
+  "priceRange": "50€-80€",
+  "image": "https://diaeta.be/images/logo.svg",
+  "medicalSpecialty": "DietNutrition",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://diaeta.be/{% if lang == 'en' %}en/our-expertise/{% elif lang == 'nl' %}nl/onze-expertise/{% else %}fr/notre-expertise/{% endif %}#person"
+  },
+  "makesOffer": [
+    {% if lang == 'en' %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sustainable Weight Loss", "url": "https://diaeta.be/en/weight-loss/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Management of Irritable Bowel Syndrome (IBS)", "url": "https://diaeta.be/en/irritable-bowel-syndrome-fodmap/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Management of Type 2 Diabetes", "url": "https://diaeta.be/en/type-2-diabetes/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mastery of Hypertension & Cholesterol", "url": "https://diaeta.be/en/hypertension-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nutrigenetic Tests", "url": "https://diaeta.be/en/nutrigenetic-tests/"}}
+    {% elif lang == 'nl' %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Duurzaam Gewichtsverlies", "url": "https://diaeta.be/nl/gewichtsverlies/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheer van Prikkelbare Darm Syndroom (PDS)", "url": "https://diaeta.be/nl/prikkelbare-darm-syndroom/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheer van Type 2 Diabetes", "url": "https://diaeta.be/nl/type-2-diabetes/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Beheersing van Hypertensie & Cholesterol", "url": "https://diaeta.be/nl/hypertensie-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nutrigenetische Tests", "url": "https://diaeta.be/nl/nutrigenetic-tests/"}}
+    {% else %}
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Perte de Poids Durable", "url": "https://diaeta.be/fr/perte-de-poids/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestion du Syndrome de l'Intestin Irritable (SII/SCI)", "url": "https://diaeta.be/fr/syndrome-colon-irritable-fodmap/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestion du Diabète de Type 2", "url": "https://diaeta.be/fr/diabete-type-2/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maîtrise de l'Hypertension & du Cholestérol", "url": "https://diaeta.be/fr/hypertension-cholesterol/"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tests Nutrigénétiques", "url": "https://diaeta.be/fr/tests-nutrigenetiques/"}}
+    {% endif %}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://diaeta.be/{% if lang == 'en' %}en/{% elif lang == 'nl' %}nl/{% else %}fr/{% endif %}",
+  "name": "Diaeta",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://diaeta.be#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://diaeta.be/{% if lang == 'en' %}en/search{% elif lang == 'nl' %}nl/zoeken{% else %}fr/recherche{% endif %}?q={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
 }
 </script>
@@ -75,6 +124,12 @@
     {# Include the header partial based on language #}
     {% if lang == 'en' %}
         {% include "partials/header_en.njk" %}
+    {% elif lang == 'nl' %}
+        {% include "partials/header_nl.njk" %}
+    {% elif lang == 'de' %}
+        {% include "partials/header_de.njk" %}
+    {% elif lang == 'ar' %}
+        {% include "partials/header_ar.njk" %}
     {% else %}
         {% include "partials/header.njk" %} {# Default to French #}
     {% endif %}
@@ -87,6 +142,12 @@
     {# Include the footer partial based on language #}
     {% if lang == 'en' %}
         {% include "partials/footer_en.njk" %}
+    {% elif lang == 'nl' %}
+        {% include "partials/footer_nl.njk" %}
+    {% elif lang == 'de' %}
+        {% include "partials/footer_de.njk" %}
+    {% elif lang == 'ar' %}
+        {% include "partials/footer_ar.njk" %}
     {% else %}
         {% include "partials/footer.njk" %} {# Default to French #}
     {% endif %}
@@ -101,6 +162,22 @@
     {% if lang == 'fr' and cabinets %}
     <script>
       window.diaetaCabinetsData = {{ cabinets | dump | safe }};
+    </script>
+    {% elif lang == 'en' and cabinets_en %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_en | dump | safe }};
+    </script>
+    {% elif lang == 'nl' and cabinets_nl %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_nl | dump | safe }};
+    </script>
+    {% elif lang == 'de' and cabinets_de %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_de | dump | safe }};
+    </script>
+    {% elif lang == 'ar' and cabinets_ar %}
+    <script>
+      window.diaetaCabinetsData = {{ cabinets_ar | dump | safe }};
     </script>
     {% endif %}
 
@@ -125,7 +202,7 @@
                 <div class="cookie-consent-actions">
                     <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Accept All</button>
                     <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Customize</button>
-                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Decline All</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Decline All</button>
                 </div>
             </div>
         </div>
@@ -172,6 +249,167 @@
                 </div>
             </div>
         </div>
+        {% elif lang == 'de' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu optimieren. Einige Cookies sind für das Funktionieren der Seite notwendig, andere helfen uns, diese Seite und Ihre Erfahrung zu verbessern. Da unsere Website Gesundheits- und Ernährungsthemen behandelt, können Analyse-Cookies sensible Rückschlüsse auf Ihre Gesundheitsinteressen zulassen. Sie können alle Cookies akzeptieren oder Ihre Präferenzen anpassen. Weitere Informationen finden Sie in unserer <a href="{{ '/de/cookie-richtlinie/' | url }}" class="cookie-consent-link">Cookie-Richtlinie</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Alle akzeptieren</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Einstellungen</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Alle ablehnen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie-Einstellungen</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Schließen">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Wir verwenden verschiedene Arten von Cookies. Wählen Sie aus, welche Sie akzeptieren:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Notwendige Cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analyse-Cookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketing-Cookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Diese Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen und relevante Werbung anzuzeigen.</p>
+                    </div>
+                    <p class="text-xs mt-3">Weitere Details finden Sie in unserer <a href="{{ '/de/cookie-richtlinie/' | url }}" class="cookie-consent-link">Cookie-Richtlinie</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Meine Auswahl speichern</button>
+                </div>
+            </div>
+        </div>
+        {% elif lang == 'nl' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>We gebruiken cookies om je ervaring op onze site te optimaliseren. Sommige cookies zijn noodzakelijk voor de werking van de site, terwijl andere ons helpen deze site en jouw ervaring te verbeteren. Omdat onze website gezondheids- en voedingsthema's behandelt, kunnen analysecookies gevoelige informatie over je gezondheidsinteresses onthullen. Je kunt alle cookies accepteren of je voorkeuren aanpassen. Meer informatie vind je in ons <a href="{{ '/nl/cookiebeleid/' | url }}" class="cookie-consent-link">Cookiebeleid</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Alles accepteren</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Aanpassen</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Alles weigeren</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Cookie-instellingen</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="Sluiten">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>We gebruiken verschillende soorten cookies. Kies welke je accepteert:</p>
+
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">Noodzakelijke cookies</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies zijn essentieel voor het correct functioneren van de site en kunnen niet worden uitgeschakeld.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">Analysecookies</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies helpen ons te begrijpen hoe bezoekers met de site omgaan.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">Marketingcookies</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">Deze cookies worden gebruikt om bezoekers over websites te volgen en relevante advertenties te tonen.</p>
+                    </div>
+                    <p class="text-xs mt-3">Voor meer details zie ons <a href="{{ '/nl/cookiebeleid/' | url }}" class="cookie-consent-link">Cookiebeleid</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">Voorkeuren opslaan</button>
+                </div>
+            </div>
+        </div>
+        {% elif lang == 'ar' %}
+        <div class="cookie-consent-banner active" id="cookieMainBanner" dir="rtl">
+            <div class="container cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا. بعض هذه الملفات ضرورية لعمل الموقع، بينما يساعدنا البعض الآخر على تحسين الموقع وتجربتك. نظرًا لأن موقعنا يتناول مواضيع الصحة والتغذية، فقد تسمح ملفات تعريف الارتباط التحليلية باستنتاج معلومات حساسة حول اهتماماتك الصحية. يمكنك قبول جميع ملفات تعريف الارتباط أو تخصيص تفضيلاتك. لمزيد من المعلومات، راجع <a href="{{ '/ar/سياسة-ملفات-تعريف-الارتباط/' | url }}" class="cookie-consent-link">سياسة ملفات تعريف الارتباط</a>.</p>
+                </div>
+                <div class="cookie-consent-actions">
+                    <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">قبول الكل</button>
+                    <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">تخصيص</button>
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">رفض الكل</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-preferences-modal" id="cookiePreferencesModal" style="display: none;" dir="rtl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>تفضيلات ملفات تعريف الارتباط</h3>
+                    <button id="cookieModalCloseBtn" class="btn-close" aria-label="إغلاق">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>نستخدم أنواعًا مختلفة من ملفات تعريف الارتباط. اختر ما تقبله:</p>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatNecessary" class="category-label">الضرورية</label>
+                            <input type="checkbox" id="cookieCatNecessary" checked disabled>
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">هذه الملفات ضرورية لعمل الموقع ولا يمكن تعطيلها.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatAnalytics" class="category-label">التحليلية</label>
+                            <input type="checkbox" id="cookieCatAnalytics" data-cookie-category="analytics">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">تساعدنا على فهم كيفية تفاعل الزوار مع الموقع.</p>
+                    </div>
+                    <div class="cookie-category">
+                        <div class="category-header">
+                            <label for="cookieCatMarketing" class="category-label">التسويقية</label>
+                            <input type="checkbox" id="cookieCatMarketing" data-cookie-category="marketing">
+                            <span class="toggle-switch-display" aria-hidden="true"></span>
+                        </div>
+                        <p class="category-description text-xs">تُستخدم لتتبع الزوار عبر المواقع وعرض إعلانات ملائمة.</p>
+                    </div>
+                    <p class="text-xs mt-3">لمزيد من التفاصيل، يرجى مراجعة <a href="{{ '/ar/سياسة-ملفات-تعريف-الارتباط/' | url }}" class="cookie-consent-link">سياسة ملفات تعريف الارتباط</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cookieSavePreferencesBtn" class="btn btn-primary btn-sm">حفظ التفضيلات</button>
+                </div>
+            </div>
+        </div>
         {% else %}
         <div class="cookie-consent-banner active" id="cookieMainBanner">
             <div class="container cookie-consent-content">
@@ -181,7 +419,7 @@
                 <div class="cookie-consent-actions">
                     <button id="cookieAcceptAllBtn" class="btn btn-primary btn-sm">Tout Accepter</button>
                     <button id="cookieCustomizeBtn" class="btn btn-outline btn-sm">Personnaliser</button>
-                    <button id="cookieDeclineAllBtn" class="btn btn-outline btn-sm">Tout Refuser</button> 
+                    <button id="cookieDeclineAllBtn" class="btn btn-primary btn-sm">Tout Refuser</button> 
                 </div>
             </div>
         </div>
@@ -230,6 +468,8 @@
         </div>
         {% endif %}
     </div>
+<a href="#" id="cookieManageLink" class="cookie-settings-link" style="position:fixed;bottom:12px;left:12px;z-index:9999;font-size:0.85rem;background:rgba(0,0,0,.6);color:#fff;padding:6px 10px;border-radius:3px;">
+{% if lang == 'fr' %}Paramètres cookies{% elif lang == 'de' %}Cookie-Einstellungen{% elif lang == 'nl' %}Cookie-instellingen{% elif lang=='ar' %}إعدادات الكوكيز{% else %}Cookie Settings{% endif %}</a>
 
     <script>
     (function() {
@@ -245,5 +485,7 @@
       }
     })();
     </script>
+    {# Matomo Analytics (deferred until analytics consent) #}
+    <script type="text/plain" data-cookie-category="analytics" src="/matomo.js"></script>
 </body>
 </html>

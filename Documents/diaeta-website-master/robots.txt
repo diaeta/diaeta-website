@@ -1,0 +1,32 @@
+User-agent: *
+
+# Disallow privacy, cookie, and legal pages in all languages
+Disallow: /fr/politique-de-cookies/
+Disallow: /fr/politique-de-confidentialite/
+Disallow: /fr/mentions-legales/
+Disallow: /en/cookie-policy/
+Disallow: /en/privacy-policy/
+Disallow: /en/legal-notice/
+Disallow: /nl/cookiebeleid/
+Disallow: /nl/privacybeleid/
+Disallow: /nl/wettelijke-vermeldingen/
+Disallow: /fr/404.html
+Disallow: /en/404.html
+Disallow: /nl/404.html
+Disallow: /fr/merci.html
+Disallow: /en/thank-you.html
+Disallow: /nl/bedankt.html
+Disallow: /fr/hors-ligne.html
+Disallow: /en/offline.html
+Disallow: /nl/offline.html
+
+# Disallow search result pages and search indexes
+Disallow: /fr/recherche/
+Disallow: /en/search/
+Disallow: /nl/zoeken/
+Disallow: /search-index.fr.json
+Disallow: /search-index.en.json
+Disallow: /search-index.nl.json
+
+# Allow everything else
+Allow: / 

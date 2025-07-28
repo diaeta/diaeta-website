@@ -1,0 +1,140 @@
+/* RTL specific overrides for Arabic pages */
+[dir="rtl"] .list-styled-check li {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
+[dir="rtl"] .list-styled-check li::before {
+  right: 0;
+  left: auto;
+}
+[dir="rtl"] .btn-icon-right {
+  margin-right: .5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .desktop-actions,
+[dir="rtl"] .mobile-actions {
+  gap: 1.5rem;
+}
+
+[dir="rtl"] .desktop-actions .phone-link {
+  margin-left: 1.5rem;
+}
+
+[dir="rtl"] .mobile-actions .phone-link {
+  margin-left: 0; /* Remove previous margin */
+}
+
+[dir="rtl"] .main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+[dir="rtl"] .nav-list {
+  margin-left: auto;
+}
+
+[dir="rtl"] .desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 2rem;
+}
+
+[dir="rtl"] .desktop-actions .phone-link {
+  margin-left: 0;
+}
+
+[dir="rtl"] .hero-badge-icon {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* Science-Fact Box RTL Fix */
+[dir="rtl"] .science-fact {
+    padding-left: 0;
+    padding-right: 3.5rem; /* Space for icon and border */
+    text-align: right;
+}
+
+[dir="rtl"] .science-fact:before {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .science-fact .fact-icon {
+    left: auto;
+    right: -1.75rem; /* Position icon on the right */
+}
+
+/* Pillar Group Icons RTL Fix */
+[dir="rtl"] .pillar-icon {
+    margin-left: 1.5rem;
+    margin-right: 0;
+}
+
+[dir="rtl"] .pillar-group-title h3 {
+    margin-bottom: 0;
+}
+
+[dir="rtl"] .pillar-group-icon {
+    margin-left: 0.75rem;
+}
+
+/* Testimonial Card RTL Fixes */
+[dir="rtl"] .story-segment h4 i {
+    margin-right: 0;
+    margin-left: 0.75rem;
+}
+
+[dir="rtl"] .story-card-header .client-location {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Testimonial bullet points RTL fix */
+[dir="rtl"] .story-segment ul {
+    padding-left: 0;
+    padding-right: 0; /* Resetting UL padding */
+}
+
+[dir="rtl"] .story-segment ul li {
+    padding-left: 0;
+    padding-right: 1.2em; /* This creates space for the bullet */
+}
+
+[dir="rtl"] .story-segment ul li::before {
+    left: auto;
+    right: 0; /* This positions the bullet correctly */
+}
+
+.rtl-check-icon {
+  float: right !important;
+  margin-left: 0.5em !important;
+  margin-right: 0 !important;
+}
+
+/* --- FAQ accordion arrow icon RTL override (Bootstrap 5) --- */
+[dir="rtl"] .accordion-button::after {
+  /* Restore original Bootstrap chevron (down arrow) */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1.5 6l6 6 6-6'/%3e%3c/svg%3e") !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.phone-ltr {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+  display: inline-block;
+}
+
+[dir="rtl"] .phone-link .fa-phone {
+  margin-left: 0.5rem;
+}
+
+/* Increase space between icon and text in philosophy cards for RTL */
+[dir="rtl"] .card h4 .fas {
+    margin-left: 0.8em !important;
+} 

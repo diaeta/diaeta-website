@@ -11,8 +11,21 @@ layout: layouts/base.njk # Path to the main base layout file
     <header class="blog-post-hero service-hero" style="background-color: var(--neutral-50);"> {# Simple hero for posts #}
         <div class="container text-center">
             {% if category %} {# Use 'category' from front matter #}
+            {% if lang == 'fr' %}
+              {% set categoryUrl = '/fr/actualites/categories/' + (category | slugify) + '/' %}
+            {% elif lang == 'en' %}
+              {% set categoryUrl = '/en/news/categories/' + (category | slugify) + '/' %}
+            {% elif lang == 'nl' %}
+              {% set categoryUrl = '/nl/nieuws/categorieen/' + (category | slugify) + '/' %}
+            {% elif lang == 'de' %}
+              {% set categoryUrl = '/de/neuigkeiten/kategorien/' + (category | slugify) + '/' %}
+            {% elif lang == 'ar' %}
+              {% set categoryUrl = '/ar/akhbar/faeat/' + (category | slugify) + '/' %}
+            {% else %}
+              {% set categoryUrl = '/fr/actualites/categories/' + (category | slugify) + '/' %}
+            {% endif %}
             <span class="section-badge animate-on-scroll fade-in" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">
-                <a href="{{ ('/fr/actualites/categories/' + category | slugify + '/') | url }}" style="color: inherit; text-decoration: none;">{{ category }}</a>
+                <a href="{{ categoryUrl | url }}" style="color: inherit; text-decoration: none;">{{ category }}</a>
             </span>
             {% else %}
                 {% set displayTag = "" %}
@@ -34,6 +47,21 @@ layout: layouts/base.njk # Path to the main base layout file
                 Published on <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
                 {% if author %}
                     by <a href="{{ authorUrl | default('/' + lang + '/our-expertise/') | url }}" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ author }}</span></a>
+                {% endif %}
+                {% elif lang == 'nl' %}
+                Gepubliceerd op <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
+                {% if author %}
+                    door <a href="{{ authorUrl | default('/' + lang + '/onze-expertise/') | url }}" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ author }}</span></a>
+                {% endif %}
+                {% elif lang == 'de' %}
+                Veröffentlicht am <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
+                {% if author %}
+                    von <a href="{{ authorUrl | default('/' + lang + '/unsere-expertise/') | url }}" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ author }}</span></a>
+                {% endif %}
+                {% elif lang == 'ar' %}
+                نُشر في <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
+                {% if author %}
+                    بواسطة <a href="{{ authorUrl | default('/' + lang + '/خبرتنا/') | url }}" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ author }}</span></a>
                 {% endif %}
                 {% else %}
                 Publié le <time itemprop="datePublished" datetime="{{ date | dateISO }}">{{ date | date }}</time>
@@ -61,6 +89,12 @@ layout: layouts/base.njk # Path to the main base layout file
                 {% set authorCollection = authors %}
                 {% if lang == 'en' and authors_en %}
                     {% set authorCollection = authors_en %}
+                {% elif lang == 'nl' and authors_nl %}
+                    {% set authorCollection = authors_nl %}
+                {% elif lang == 'de' and authors_de %}
+                    {% set authorCollection = authors_de %}
+                {% elif lang == 'ar' and authors_ar %}
+                    {% set authorCollection = authors_ar %}
                 {% endif %}
                 {% set authorData = authorCollection[authorKey] %}
                 {% if authorData %}
@@ -103,11 +137,13 @@ layout: layouts/base.njk # Path to the main base layout file
                         {% set authorCollection = authors %}
                         {% if lang == 'en' and authors_en %}
                             {% set authorCollection = authors_en %}
+                        {% elif lang == 'nl' and authors_nl %}
+                            {% set authorCollection = authors_nl %}
                         {% endif %}
                         {% set authorData = authorCollection[authorKey] %}
                         {% if authorData %}
                         <div class="author-box mt-5 pt-4 border-top animate-on-scroll fade-up">
-                            <h4 class="h5 mb-3">{{ 'À propos de l\'auteur' if lang == 'fr' else 'About the author' }}</h4>
+                            <h4 class="h5 mb-3">{{ 'À propos de l\'auteur' if lang == 'fr' else ('About the author' if lang == 'en' else ('Over de auteur' if lang == 'nl' else ('Über den Autor' if lang == 'de' else 'عن الكاتب'))) }}</h4>
                             <div class="d-flex align-items-center">
                                 {% if authorData.image %}
                                 <img src="{{ authorData.image | url }}" alt="{{ authorData.name }}" class="rounded-circle me-3" style="width: 70px; height: 70px; object-fit: cover;">
@@ -124,13 +160,32 @@ layout: layouts/base.njk # Path to the main base layout file
                         {% endif %}
                     {% elif author %} {# Fallback display if only author name is provided #}
                         <div class="author-box mt-5 pt-4 border-top animate-on-scroll fade-up">
-                             <h4 class="h5 mb-3">{{ 'À propos de l\'auteur' if lang == 'fr' else 'About the author' }}</h4>
+                             <h4 class="h5 mb-3">{{ 'À propos de l\'auteur' if lang == 'fr' else ('About the author' if lang == 'en' else ('Over de auteur' if lang == 'nl' else ('Über den Autor' if lang == 'de' else 'عن الكاتب'))) }}</h4>
                              <p><strong><a href="{{ authorUrl | default('/' + lang + '/our-expertise/') | url }}">{{ author }}</a></strong></p>
                         </div>
                     {% endif %}
                     
                     <div class="mt-5 text-center">
-                        <a href="{{ ('/' + lang + '/news/') | url }}" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-left"></i> {{ 'Retour aux actualités' if lang == 'fr' else 'Back to news' }}</a>
+                        {% if lang == 'fr' %}
+                          {% set backToNewsUrl = '/fr/actualites/' %}
+                          {% set backToNewsLabel = 'Retour aux actualités' %}
+                        {% elif lang == 'en' %}
+                          {% set backToNewsUrl = '/en/news/' %}
+                          {% set backToNewsLabel = 'Back to news' %}
+                        {% elif lang == 'nl' %}
+                          {% set backToNewsUrl = '/nl/nieuws/' %}
+                          {% set backToNewsLabel = 'Terug naar nieuws' %}
+                        {% elif lang == 'de' %}
+                          {% set backToNewsUrl = '/de/neuigkeiten/' %}
+                          {% set backToNewsLabel = 'Zurück zu den Neuigkeiten' %}
+                        {% elif lang == 'ar' %}
+                          {% set backToNewsUrl = '/ar/akhbar/' %}
+                          {% set backToNewsLabel = 'العودة إلى الأخبار' %}
+                        {% else %}
+                          {% set backToNewsUrl = '/fr/actualites/' %}
+                          {% set backToNewsLabel = 'Retour aux actualités' %}
+                        {% endif %}
+                        <a href="{{ backToNewsUrl | url }}" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-left"></i> {{ backToNewsLabel }}</a>
                     </div>
                 </div>
             </div>
@@ -144,13 +199,47 @@ layout: layouts/base.njk # Path to the main base layout file
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "{{ 'Accueil Diaeta' if lang == 'fr' else 'Diaeta Home' }}",
-        "item": "https://diaeta.be/{{ lang }}/"
+        {% if lang == 'fr' %}
+          "name": "Accueil Diaeta",
+          "item": "https://diaeta.be/fr/"
+        {% elif lang == 'en' %}
+          "name": "Diaeta Home",
+          "item": "https://diaeta.be/en/"
+        {% elif lang == 'nl' %}
+          "name": "Diaeta Startpagina",
+          "item": "https://diaeta.be/nl/"
+        {% elif lang == 'de' %}
+          "name": "Diaeta Startseite",
+          "item": "https://diaeta.be/de/"
+        {% elif lang == 'ar' %}
+          "name": "الرئيسية دايتا",
+          "item": "https://diaeta.be/ar/"
+        {% else %}
+          "name": "Accueil Diaeta",
+          "item": "https://diaeta.be/fr/"
+        {% endif %}
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ 'Actualités' if lang == 'fr' else 'News' }}",
-        "item": "https://diaeta.be/{{ lang }}/news/"
+        {% if lang == 'fr' %}
+          "name": "Actualités",
+          "item": "https://diaeta.be/fr/actualites/"
+        {% elif lang == 'en' %}
+          "name": "News",
+          "item": "https://diaeta.be/en/news/"
+        {% elif lang == 'nl' %}
+          "name": "Nieuws",
+          "item": "https://diaeta.be/nl/nieuws/"
+        {% elif lang == 'de' %}
+          "name": "Neuigkeiten",
+          "item": "https://diaeta.be/de/neuigkeiten/"
+        {% elif lang == 'ar' %}
+          "name": "الأخبار",
+          "item": "https://diaeta.be/ar/akhbar/"
+        {% else %}
+          "name": "Actualités",
+          "item": "https://diaeta.be/fr/actualites/"
+        {% endif %}
       },{
         "@type": "ListItem",
         "position": 3,
@@ -181,9 +270,9 @@ layout: layouts/base.njk # Path to the main base layout file
     , "dateModified": "{{ dateModified | default(date) | dateISO }}"
     , "author": {
         "@type": "Person",
-        "name": "{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
-        "url": "https://diaeta.be{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/{{ lang }}/our-expertise/{% endif %}",
-        "@id": "https://diaeta.be{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].url | url }}#person{% elif authorUrl %}{{ authorUrl | url }}#person{% else %}/{{ lang }}/our-expertise/#person{% endif %}"
+        "name": "{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if lang == 'nl' and authors_nl %}{% set authorCollection = authors_nl %}{% endif %}{% if lang == 'de' and authors_de %}{% set authorCollection = authors_de %}{% endif %}{% if lang == 'ar' and authors_ar %}{% set authorCollection = authors_ar %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].name | escape | safe }}{% elif author %}{{ author | escape | safe }}{% else %}Pierre Abou-Zeid{% endif %}",
+        "url": "https://diaeta.be{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if lang == 'nl' and authors_nl %}{% set authorCollection = authors_nl %}{% endif %}{% if lang == 'de' and authors_de %}{% set authorCollection = authors_de %}{% endif %}{% if lang == 'ar' and authors_ar %}{% set authorCollection = authors_ar %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].url | url }}{% elif authorUrl %}{{ authorUrl | url }}{% else %}/{{ lang }}/our-expertise/{% endif %}",
+        "@id": "https://diaeta.be{% set authorCollection = authors %}{% if lang == 'en' and authors_en %}{% set authorCollection = authors_en %}{% endif %}{% if lang == 'nl' and authors_nl %}{% set authorCollection = authors_nl %}{% endif %}{% if lang == 'de' and authors_de %}{% set authorCollection = authors_de %}{% endif %}{% if lang == 'ar' and authors_ar %}{% set authorCollection = authors_ar %}{% endif %}{% if authorKey and authorCollection[authorKey] %}{{ authorCollection[authorKey].url | url }}#person{% elif authorUrl %}{{ authorUrl | url }}#person{% else %}/{{ lang }}/our-expertise/#person{% endif %}"
     }
     , "publisher": {
         "@type": "DietNutrition",

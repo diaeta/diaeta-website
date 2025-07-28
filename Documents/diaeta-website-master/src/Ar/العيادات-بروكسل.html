@@ -1,0 +1,156 @@
+---
+layout: layouts/base.njk
+title: "ابحث عن عيادة دايتا الخاصة بك في بروكسل | خريطة وقائمة تفاعلية"
+description: "استكشف عيادات دايتا للاستشارات في بروكسل بسهولة. استخدم خريطتنا التفاعلية، وقم بالتصفية حسب اليوم للعثور على عنوان وساعات عمل أخصائي التغذية بيار أبو زيد."
+lang: ar
+---
+
+{# HERO SECTION FOR ARABIC CLINICS PAGE #}
+<section class="service-hero-wp" dir="rtl">
+    <div class="container">
+        <span class="section-badge animate-on-scroll fade-in">أماكن استشاراتنا</span>
+        <h1 class="animate-on-scroll fade-up">استكشف عيادات دايتا في بروكسل</h1>
+        <p class="lead animate-on-scroll fade-up delay-200">
+            ابحث عن المكان المثالي لاستشارتك الغذائية. استخدم الفلاتر، الخريطة التفاعلية، أو تصفح القائمة لاختيار العيادة التي تناسبك.
+        </p>
+    </div>
+</section>
+
+{# Main Clinic Finder section - ID 'cabinet-explorer-main-content' for JS #}
+<section id="cabinet-explorer-main-content" class="clinic-finder-section section" dir="rtl">
+     <div class="container">
+        <div class="section-header animate-on-scroll fade-up">
+             <span class="section-badge" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-700);">أدوات البحث</span>
+             <h2 class="section-title">صقل بحثك عن عيادة</h2>
+             <p class="section-subtitle">استخدم الخيارات أدناه للعثور بسرعة على عيادة دايتا التي تلبي احتياجاتك.</p>
+        </div>
+
+        <div class="clinic-filters controls-bar animate-on-scroll fade-up delay-100">
+            <button class="filter-btn active" data-day="all" aria-pressed="true">كل الأيام</button>
+            <button class="filter-btn" data-day="الاثنين" aria-pressed="false">الاثنين</button>
+            <button class="filter-btn" data-day="الثلاثاء" aria-pressed="false">الثلاثاء</button>
+            <button class="filter-btn" data-day="الأربعاء" aria-pressed="false">الأربعاء</button>
+            <button class="filter-btn" data-day="الخميس" aria-pressed="false">الخميس</button>
+            <button class="filter-btn" data-day="الجمعة" aria-pressed="false">الجمعة</button>
+            <button class="filter-btn" data-day="السبت" aria-pressed="false">السبت</button>
+            <button class="locate-me-btn" id="locateMeMainBtn" title="العثور على أقرب العيادات لموقعي الحالي"><i class="fa-solid fa-location-crosshairs"></i> بالقرب مني</button>
+        </div>
+
+        <div class="view-toggle-container animate-on-scroll fade-up delay-200">
+            <button class="view-toggle active" data-view="list" aria-label="عرض قائمة العيادات" aria-pressed="true">(<span id="list-count-display">0</span>) <i class="fa-solid fa-list"></i> القائمة</button>
+            <button class="view-toggle" data-view="map" aria-label="عرض خريطة العيادات" aria-pressed="false"><i class="fa-solid fa-map-location-dot"></i> الخريطة</button>
+        </div>
+
+        <div class="clinic-content animate-on-scroll fade-up delay-300">
+          <div class="clinic-grid-view active" id="listView">
+              {# Container for dynamically generated cards by main.js #}
+              <div id="cabinetCardContainer" class="clinic-grid explorer-list-scrollable">
+                  <div class="loading-message text-center p-5">
+                      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                          <span class="visually-hidden">جار التحميل...</span>
+                      </div>
+                      <p class="text-muted mt-3"><i>جاري تحميل معلومات العيادات...</i></p>
+                  </div>
+                  <div class="no-results-message text-center p-5" style="display: none;">
+                      <i>لا توجد عيادة تطابق معاييرك الحالية. يرجى توسيع نطاق البحث أو <a href="/ar/اتصل-بنا/" class="text-accent">الاتصال بنا</a>.</i>
+                  </div>
+              </div>
+          </div>
+          <div class="clinic-map-view" id="mapView">
+              <div class="map-container">
+                  <div id="clinicsMap"></div>
+                  <div class="map-sidebar">
+                      <div class="sidebar-header">
+                          <h3>عياداتنا في بروكسل</h3>
+                          <p class="sidebar-results">تم العثور على 0 عيادة (عيادات)</p>
+                      </div>
+                      <div class="sidebar-body">
+                          <div class="sidebar-clinics">
+                              <p class="text-center p-3 text-muted"><i>استخدم الفلاتر أو انقر على علامة على الخريطة لعرض التفاصيل.</i></p>
+                          </div>
+                      </div>
+                  </div>
+                  {# Detail panel for map view - d-none d-lg-block ensures it's hidden on mobile #}
+                  <div id="clinicDetailPanel" class="clinic-detail-panel d-none d-lg-block">
+                      {# Content populated by showClinicDetails() in main.js #}
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="clinic-cta text-center mt-5 animate-on-scroll fade-up delay-400">
+            <p>هل أنت مستعد للبدء؟ بعد استكشاف عياداتنا، احجز موعدًا عبر الإنترنت أو <a href="/ar/اتصل-بنا/" class="text-decoration-underline">اتصل بنا</a> إذا كانت لديك أي أسئلة.</p>
+            <a href="/ar/حجز-موعد/" class="btn btn-accent btn-lg"><i class="fa-solid fa-calendar-check me-2"></i><span>احجز موعدًا</span></a>
+        </div>
+     </div>
+</section>
+
+{# Schema for this specific page - Enhanced with CollectionPage #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "عيادات دايتا في بروكسل | أماكن الاستشارة (خريطة وقائمة)",
+  "description": "ابحث بسهولة عن جميع عيادات دايتا للاستشارات في بروكسل. العناوين، ساعات العمل، خريطة تفاعلية وفلاتر لتحديد موعد مع بيار أبو زيد، أخصائي التغذية.",
+  "url": "https://diaeta.be/ar/العيادات-بروكسل/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Diaeta",
+    "url": "https://diaeta.be/ar/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://diaeta.be/images/logo.svg"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "عيادات دايتا للاستشارات في بروكسل",
+    "description": "قائمة تفاعلية وخريطة لعيادات دايتا حيث يمكنك استشارة بيار أبو زيد، أخصائي تغذية في بروكسل. قم بالتصفية حسب يوم التوافر.",
+    "numberOfItems": {{ cabinets_ar | length | default(0) }}
+  },
+   "about": {
+    "@type": "MedicalBusiness",
+    "name": "Diaeta",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dieweg 99",
+      "addressLocality": "Uccle",
+      "postalCode": "1180",
+      "addressRegion": "إقليم بروكسل العاصمة",
+      "addressCountry": "BE"
+    },
+   "telephone": "+32479355551",
+   "priceRange": "50€-80€",
+   "image": "https://diaeta.be/images/logo.svg",
+    "description": "دايتا هي عيادة تغذية في بروكسل تقدم استشارات شخصية لفقدان الوزن، إدارة السكري، القولون العصبي، والكوليسترول.",
+    "employee": {
+      "@type": "Person",
+      "name": "بيار أبو زيد",
+      "jobTitle": "أخصائي تغذية معتمد (INAMI)",
+      "url": "https://diaeta.be/ar/خبرتنا/"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "بروكسل"
+    },
+    "hasMap": "https://diaeta.be/ar/العيادات-بروكسل/#mapView"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "دايتا الرئيسية",
+    "item": "https://diaeta.be/ar/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "عياداتنا في بروكسل",
+    "item": "https://diaeta.be/ar/العيادات-بروكسل/"
+  }]
+}
+</script>
