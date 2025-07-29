@@ -3,3 +3,9 @@ _site/
 
 # Node dependencies
 node_modules/
+
+# Windows system files
+desktop.ini
+Thumbs.db
+ehthumbs.db
+Desktop.ini
