@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy"
   },
@@ -22,6 +26,7 @@
   "homepage": "https://github.com/diaeta/diaeta-website#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@playwright/test": "^1.54.2",
     "luxon": "^3.7.1",
     "slugify": "^1.6.6",
     "stylelint": "^16.19.1",

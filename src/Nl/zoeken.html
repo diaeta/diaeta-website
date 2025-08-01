@@ -1,11 +1,19 @@
 ---
 layout: layouts/base.njk
+title: "Zoeken | Diaeta"
+description: "Zoek door de inhoud en bronnen van Diaeta."
 lang: nl
-title: "Zoekresultaten"
-description: "Uw zoekresultaten op Diaeta."
-permalink: /nl/zoeken/
 ---
 
+{# === Breadcrumb Navigation === #}
+<nav aria-label="breadcrumb" class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/nl/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Zoeken</li>
+    </ol>
+</nav>
+
+{# Main content starts here #}
 <section class="search-results-section container" style="padding-top: 6rem;">
   <h1>Zoekresultaten</h1>
   <form id="search-form" action="/nl/zoeken" method="get" role="search" aria-label="Zoeken op Diaeta" style="margin-bottom:2rem; display:flex; align-items:center; gap:1rem;">
