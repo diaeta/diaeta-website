@@ -14,58 +14,171 @@ lang: en
 </nav>
 
 {# === Hero Section === #}
-<section class="service-hero-wp">
-    <div class="container">
-        <span class="section-badge animate-on-scroll fade-in">Your Digestive Health Guide</span>
-        <h1 class="animate-on-scroll fade-up">Irritable Bowel Syndrome (IBS) & The Low FODMAP Diet</h1>
-        <p class="lead animate-on-scroll fade-up delay-200">
+<section class="service-hero-wp" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 50%, var(--neutral-50) 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-4">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-heartbeat me-2"></i>Your Digestive Health Guide
+            </span>
+        </div>
+        
+        <h1 class="animate-on-scroll fade-up" style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem;">
+            Irritable Bowel Syndrome (IBS) & The Low FODMAP Diet
+        </h1>
+        
+        <p class="lead animate-on-scroll fade-up delay-200" style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto 2rem; color: var(--neutral-700);">
             Living with the pain and unpredictability of IBS can be exhausting. At Diaeta, we help you regain control of your digestive comfort with a scientific and personalized approach, expertly guiding you through the MONASH-certified Low FODMAP diet to restore peace to your life.
         </p>
-        <a href="/en/appointment/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400"><span>Consult a MONASH Certified Expert</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+        
+        <div class="animate-on-scroll fade-up delay-400">
+            <a href="/en/appointment/" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 50px; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <span style="position: relative; z-index: 2;">Consult a MONASH Certified Expert</span>
+                <i class="fa-solid fa-arrow-right btn-icon-right ms-2" style="position: relative; z-index: 2;"></i>
+                <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary-600), var(--accent-500)); transition: left 0.3s ease;"></div>
+            </a>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="row mt-5 pt-4 animate-on-scroll fade-up delay-600">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="trust-indicator" style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <i class="fas fa-certificate text-primary" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h5 class="mb-1">MONASH Certified</h5>
+                        <p class="small text-muted mb-0">Expert FODMAP Training</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="trust-indicator" style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <i class="fas fa-users text-accent" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h5 class="mb-1">Personalized Approach</h5>
+                        <p class="small text-muted mb-0">Tailored to Your Needs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="trust-indicator" style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <i class="fas fa-chart-line text-success" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <h5 class="mb-1">Proven Results</h5>
+                        <p class="small text-muted mb-0">Evidence-Based Methods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 {# === What is IBS? Section === #}
-<section id="understand-ibs" class="content-section bg-white">
-    <div class="container">
+<section id="understand-ibs" class="content-section bg-white" style="position: relative;">
+    <!-- Decorative Background Pattern -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(135deg, var(--primary-50) 0%, transparent 100%); opacity: 0.5;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-brain me-2"></i>Understanding IBS
+            </span>
+        </div>
+        
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-7 animate-on-scroll fade-up">
-                <h2>What is Irritable Bowel Syndrome (IBS)?</h2>
-                <p>Irritable Bowel Syndrome (IBS) is a chronic functional gastrointestinal disorder. This means that while there is no visible disease or damage in the gut, its function is impaired. IBS is characterized by recurring abdominal pain, bloating, and changes in bowel habits (diarrhea, constipation, or a mix of both).</p>
-                <p>It is a common condition affecting 7-15% of the global population, more prevalent in women. While not life-threatening, IBS can significantly impact one's quality of life.</p>
+                <h2 style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem;">
+                    What is Irritable Bowel Syndrome (IBS)?
+                </h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: 1.5rem;">
+                    Irritable Bowel Syndrome (IBS) is a chronic functional gastrointestinal disorder. This means that while there is no visible disease or damage in the gut, its function is impaired. IBS is characterized by recurring abdominal pain, bloating, and changes in bowel habits (diarrhea, constipation, or a mix of both).
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: 2rem;">
+                    It is a common condition affecting <strong style="color: var(--primary-600);">7-15% of the global population</strong>, more prevalent in women. While not life-threatening, IBS can significantly impact one's quality of life.
+                </p>
                 
-                <h3 class="h4 mt-4">Common Symptoms of IBS</h3>
-                <ul class="list-styled">
-                    <li>Abdominal pain or cramping, often related to bowel movements.</li>
-                    <li>Changes in stool frequency and consistency.</li>
-                    <li>Bloating and a sensation of abdominal fullness.</li>
-                    <li>Excess gas (flatulence).</li>
-                </ul>
+                <div class="symptoms-card" style="background: linear-gradient(135deg, var(--neutral-50), var(--primary-50)); border-radius: 20px; padding: 2rem; border: 2px solid var(--primary-100); margin-bottom: 2rem;">
+                    <h3 class="h4 mb-3" style="color: var(--primary-600); font-weight: 600;">
+                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>Common Symptoms of IBS
+                    </h3>
+                    <ul class="list-styled" style="list-style: none; padding: 0;">
+                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--primary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <i class="fas fa-pain text-primary me-2"></i>Abdominal pain or cramping, often related to bowel movements.
+                        </li>
+                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--accent-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <i class="fas fa-chart-line text-accent me-2"></i>Changes in stool frequency and consistency.
+                        </li>
+                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--secondary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <i class="fas fa-expand-arrows-alt text-secondary me-2"></i>Bloating and a sensation of abdominal fullness.
+                        </li>
+                        <li style="background: white; padding: 1rem; margin-bottom: 0; border-radius: 10px; border-left: 4px solid var(--success-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <i class="fas fa-wind text-success me-2"></i>Excess gas (flatulence).
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
-                 <img
-                    src="../../images/digestive-system-illustration.jpg" 
-                    alt="Simplified illustration of the digestive system to explain IBS"
-                    class="img-fluid rounded shadow-sm"
-                    style="max-width: 400px; margin-top: 2rem;"
-                    loading="lazy"
-                    width="400" 
-                    height="350">
+                <div style="position: relative;">
+                    <img
+                       src="../../images/digestive-system-illustration.jpg" 
+                       alt="Simplified illustration of the digestive system to explain IBS"
+                       class="img-fluid rounded"
+                       style="max-width: 400px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 3px solid white;"
+                       loading="lazy"
+                       width="400" 
+                       height="350">
+                    <!-- Decorative Elements -->
+                    <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div style="position: absolute; bottom: -10px; left: -10px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row mt-5">
             <div class="col-12 animate-on-scroll fade-up">
-                <h3 class="h4">Causes and Diagnosis of IBS</h3>
-                <p>The exact causes of IBS are multifactorial and complex, potentially involving:</p>
-                <ul class="list-styled-dots">
-                    <li>Altered gastrointestinal motility.</li>
-                    <li>Visceral hypersensitivity (increased pain perception in the gut).</li>
-                    <li>Disturbances in the brain-gut axis.</li>
-                    <li>Low-grade inflammation in the intestinal lining.</li>
-                    <li>Changes in the gut microbiota (gut flora).</li>
-                </ul>
-                <p>A formal diagnosis from a medical doctor is essential to rule out other conditions (like Celiac disease or IBD) before starting a dietary approach. Once IBS is diagnosed, exploring nutritional factors like FODMAPs is a primary pathway to regaining control and improving your quality of life.</p>
+                <div class="causes-card" style="background: linear-gradient(135deg, var(--accent-50), var(--neutral-50)); border-radius: 20px; padding: 2.5rem; border: 2px solid var(--accent-100);">
+                    <h3 class="h4 mb-4" style="color: var(--accent-600); font-weight: 600; text-align: center;">
+                        <i class="fas fa-search-plus me-2"></i>Causes and Diagnosis of IBS
+                    </h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: 1.5rem;">
+                        The exact causes of IBS are multifactorial and complex, potentially involving:
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <ul class="list-styled-dots" style="list-style: none; padding: 0;">
+                                <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--primary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <i class="fas fa-running text-primary me-2"></i>Altered gastrointestinal motility.
+                                </li>
+                                <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--accent-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <i class="fas fa-brain text-accent me-2"></i>Visceral hypersensitivity (increased pain perception in the gut).
+                                </li>
+                                <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--secondary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <i class="fas fa-network-wired text-secondary me-2"></i>Disturbances in the brain-gut axis.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-styled-dots" style="list-style: none; padding: 0;">
+                                <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--warning-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <i class="fas fa-fire text-warning me-2"></i>Low-grade inflammation in the intestinal lining.
+                                </li>
+                                <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--success-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <i class="fas fa-bacteria text-success me-2"></i>Changes in the gut microbiota (gut flora).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-4" style="background: linear-gradient(135deg, var(--primary-50), var(--accent-50)); border: 2px solid var(--primary-200); border-radius: 15px;">
+                        <i class="fas fa-info-circle me-2 text-primary"></i>
+                        <strong>A formal diagnosis from a medical doctor is essential</strong> to rule out other conditions (like Celiac disease or IBD) before starting a dietary approach. Once IBS is diagnosed, exploring nutritional factors like FODMAPs is a primary pathway to regaining control and improving your quality of life.
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -87,43 +200,110 @@ lang: en
                 </div>
             </div>
         </div>
-            </div>
-        </div>
     </div>
 </section>
 
 {# === What are FODMAPs? Section === #}
-<section id="what-are-fodmaps" class="content-section" style="background-color: var(--neutral-50);">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">Understanding FODMAPs: The Hidden Triggers</h2>
-        <p class="text-center lead mb-4 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto;">
+<section id="what-are-fodmaps" class="content-section" style="background: linear-gradient(135deg, var(--neutral-50) 0%, var(--accent-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 20px; right: 20px; width: 100px; height: 100px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 20px; left: 20px; width: 80px; height: 80px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-utensils me-2"></i>Understanding FODMAPs
+            </span>
+        </div>
+        
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-600), var(--secondary-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
+            Understanding FODMAPs: The Hidden Triggers
+        </h2>
+        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
             FODMAPs are a group of short-chain carbohydrates that are poorly absorbed in the small intestine. In people with IBS, they can trigger symptoms by drawing excess water into the gut and being rapidly fermented by bacteria, producing gas.
         </p>
+        
         <div class="row g-4 justify-content-center">
             <div class="col-md-10 col-lg-8 animate-on-scroll fade-up delay-200">
-                <div class="diaeta-difference-card text-center w-100">
-                    <div class="icon"><i class="fas fa-utensils"></i></div>
-                    <h4>What FODMAP stands for:</h4>
-                    <ul class="list-unstyled text-start mt-3 mb-0 mx-auto" style="max-width: 400px;">
-                        <li class="mb-2"><strong class="text-primary">F</strong>ermentable</li>
-                        <li class="mb-2"><strong class="text-primary">O</strong>ligosaccharides (e.g., Fructans, GOS)</li>
-                        <li class="mb-2"><strong class="text-primary">D</strong>isaccharides (e.g., Lactose)</li>
-                        <li class="mb-2"><strong class="text-primary">M</strong>onosaccharides (e.g., Fructose)</li>
-                        <li class="mb-2"><strong class="text-primary">A</strong>nd</li>
-                        <li class="mb-2"><strong class="text-primary">P</strong>olyols (e.g., Sorbitol, Mannitol)</li>
-                    </ul>
+                <div class="diaeta-difference-card text-center w-100" style="background: linear-gradient(135deg, white, var(--accent-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 3rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 2rem;">What FODMAP stands for:</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled text-start mb-0">
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--primary-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-primary" style="font-size: 1.2rem;">F</strong>ermentable
+                                </li>
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--accent-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-accent" style="font-size: 1.2rem;">O</strong>ligosaccharides (e.g., Fructans, GOS)
+                                </li>
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--secondary-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-secondary" style="font-size: 1.2rem;">D</strong>isaccharides (e.g., Lactose)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled text-start mb-0">
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--warning-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-warning" style="font-size: 1.2rem;">M</strong>onosaccharides (e.g., Fructose)
+                                </li>
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--success-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-success" style="font-size: 1.2rem;">A</strong>nd
+                                </li>
+                                <li class="mb-3" style="background: white; padding: 1rem; border-radius: 15px; border-left: 5px solid var(--info-500); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                                    <strong class="text-info" style="font-size: 1.2rem;">P</strong>olyols (e.g., Sorbitol, Mannitol)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
+        
+        <div class="row mt-5">
             <div class="col-lg-10 mx-auto animate-on-scroll fade-up delay-300">
-                <h3 class="h4 text-center">How Do FODMAPs Cause Symptoms?</h3>
-                <p>Due to their small size and poor absorption, FODMAPs exert two main effects in the gut:</p>
-                <ol class="list-styled-numbered">
-                    <li><strong>Osmotic Effect:</strong> They draw water into the small intestine and colon, which can lead to loose stools or a sensation of distension.</li>
-                    <li><strong>Fermentation:</strong> As they are not fully absorbed, they arrive intact in the large intestine where they are rapidly fermented by gut bacteria. This fermentation process produces gas.</li>
-                </ol>
-                <p>In people with IBS, who often have heightened visceral sensitivity, this increase in fluid and gas can stretch the intestinal wall, triggering nerves and causing symptoms like pain, bloating, and changes in bowel habits. Understanding this mechanism is key to seeing how a targeted dietary strategy, like the Low FODMAP approach guided by an expert, can provide significant relief.</p>
+                <div class="mechanism-card" style="background: linear-gradient(135deg, var(--neutral-50), white); border-radius: 25px; padding: 3rem; border: 2px solid var(--neutral-200); box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <h3 class="h4 text-center mb-4" style="color: var(--accent-600); font-weight: 700;">
+                        <i class="fas fa-cogs text-accent me-2"></i>How Do FODMAPs Cause Symptoms?
+                    </h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: 2rem; text-align: center;">
+                        Due to their small size and poor absorption, FODMAPs exert two main effects in the gut:
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="mechanism-item" style="background: white; padding: 2rem; border-radius: 20px; border-left: 5px solid var(--primary-500); box-shadow: 0 8px 25px rgba(0,0,0,0.1); height: 100%;">
+                                <div class="text-center mb-3">
+                                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 1.5rem;">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-center mb-3" style="color: var(--primary-600); font-weight: 600;">1. Osmotic Effect</h5>
+                                <p class="text-center mb-0" style="color: var(--neutral-700);">
+                                    They draw water into the small intestine and colon, which can lead to loose stools or a sensation of distension.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mechanism-item" style="background: white; padding: 2rem; border-radius: 20px; border-left: 5px solid var(--accent-500); box-shadow: 0 8px 25px rgba(0,0,0,0.1); height: 100%;">
+                                <div class="text-center mb-3">
+                                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 1.5rem;">
+                                        <i class="fas fa-bacteria"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-center mb-3" style="color: var(--accent-600); font-weight: 600;">2. Fermentation</h5>
+                                <p class="text-center mb-0" style="color: var(--neutral-700);">
+                                    As they are not fully absorbed, they arrive intact in the large intestine where they are rapidly fermented by gut bacteria. This fermentation process produces gas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-4" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border: 2px solid var(--accent-200); border-radius: 15px; margin-top: 2rem;">
+                        <i class="fas fa-lightbulb text-accent me-2"></i>
+                        <strong>Understanding this mechanism is key</strong> to seeing how a targeted dietary strategy, like the Low FODMAP approach guided by an expert, can provide significant relief.
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -149,37 +329,76 @@ lang: en
 </section>
 
 {# === The Low FODMAP Diet Section === #}
-<section id="low-fodmap-diet" class="content-section bg-white">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">The Low FODMAP Diet: A 3-Phase Journey to Relief</h2>
-        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto;">
+<section id="low-fodmap-diet" class="content-section bg-white" style="position: relative;">
+    <!-- Decorative Background Pattern -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(135deg, var(--secondary-50) 0%, transparent 100%); opacity: 0.6;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--secondary-500), var(--primary-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-clipboard-list me-2"></i>3-Phase Journey
+            </span>
+        </div>
+        
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--secondary-600), var(--primary-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
+            The Low FODMAP Diet: A 3-Phase Journey to Relief
+        </h2>
+        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
             The Low FODMAP diet is a structured, evidence-based approach developed by Monash University to identify your specific dietary triggers. It is not a lifelong diet but a diagnostic tool to help you achieve long-term comfort.
         </p>
+        
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4 d-flex animate-on-scroll fade-up delay-200">
-                <div class="diaeta-difference-card text-center w-100 plan">
-                    <div class="icon" style="background-color: rgba(var(--secondary-rgb), 0.1); color: var(--secondary-500);"><span class="h5 mb-0">1</span></div>
-                    <h4>Phase 1: Elimination</h4>
-                    <p>For 2-6 weeks, you will temporarily restrict high-FODMAP foods to calm your symptoms and establish a baseline of digestive comfort.</p>
+                <div class="diaeta-difference-card text-center w-100 plan" style="background: linear-gradient(135deg, white, var(--secondary-50)); border: 3px solid var(--secondary-200); border-radius: 25px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 700; box-shadow: 0 8px 25px rgba(var(--secondary-rgb), 0.3);">
+                        <span>1</span>
+                    </div>
+                    <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 1: Elimination</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7;">
+                        For 2-6 weeks, you will temporarily restrict high-FODMAP foods to calm your symptoms and establish a baseline of digestive comfort.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--secondary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-flex animate-on-scroll fade-up delay-300">
-                <div class="diaeta-difference-card text-center w-100 tech">
-                     <div class="icon" style="background-color: rgba(var(--accent-rgb), 0.1); color: var(--accent-500);"><span class="h5 mb-0">2</span></div>
-                    <h4>Phase 2: Reintroduction</h4>
-                    <p>We systematically reintroduce each FODMAP group one by one to identify which specific types and amounts trigger your symptoms. This phase is crucial for personalization.</p>
+                <div class="diaeta-difference-card text-center w-100 tech" style="background: linear-gradient(135deg, white, var(--accent-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 700; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                        <span>2</span>
+                    </div>
+                    <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 2: Reintroduction</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7;">
+                        We systematically reintroduce each FODMAP group one by one to identify which specific types and amounts trigger your symptoms. This phase is crucial for personalization.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-flex animate-on-scroll fade-up delay-400">
-                <div class="diaeta-difference-card text-center w-100 support">
-                     <div class="icon" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-500);"><span class="h5 mb-0">3</span></div>
-                    <h4>Phase 3: Personalization</h4>
-                    <p>Based on your results, we create a long-term, personalized diet that is as varied and enjoyable as possible, limiting only your specific triggers.</p>
+                <div class="diaeta-difference-card text-center w-100 support" style="background: linear-gradient(135deg, white, var(--primary-50)); border: 3px solid var(--primary-200); border-radius: 25px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 700; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">
+                        <span>3</span>
+                    </div>
+                    <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 3: Personalization</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7;">
+                        Based on your results, we create a long-term, personalized diet that is as varied and enjoyable as possible, limiting only your specific triggers.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
                 </div>
             </div>
         </div>
+        
         <div class="text-center mt-5 animate-on-scroll fade-up delay-500">
-            <p class="lead"><strong>Important:</strong> This diet requires expert guidance. As a MONASH University certified dietitian, Pierre Abou-Zeid ensures the process is done safely and effectively, preventing nutritional deficiencies.</p>
+            <div class="important-notice" style="background: linear-gradient(135deg, var(--warning-50), var(--accent-50)); border: 3px solid var(--warning-200); border-radius: 25px; padding: 2.5rem; max-width: 800px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 2rem;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h4 style="color: var(--warning-600); font-weight: 700; margin-bottom: 1rem;">Important: Expert Guidance Required</h4>
+                <p class="lead mb-0" style="color: var(--neutral-700); font-size: 1.1rem; line-height: 1.7;">
+                    <strong>This diet requires expert guidance.</strong> As a MONASH University certified dietitian, Pierre Abou-Zeid ensures the process is done safely and effectively, preventing nutritional deficiencies.
+                </p>
+            </div>
         </div>
 
         <!-- Read More Section -->
@@ -206,60 +425,192 @@ lang: en
 
 
 {# === Foods & FODMAPs Examples Section === #}
-<section id="aliments-fodmaps" class="content-section" style="background-color: var(--neutral-100);">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">Examples of High-FODMAP Foods</h2>
-        <p class="text-center lead mb-4 animate-on-scroll fade-up delay-100">
+<section id="aliments-fodmaps" class="content-section" style="background: linear-gradient(135deg, var(--neutral-100) 0%, var(--warning-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 30px; right: 30px; width: 120px; height: 120px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 30px; left: 30px; width: 100px; height: 100px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-apple-alt me-2"></i>Food Examples
+            </span>
+        </div>
+        
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--warning-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
+            Examples of High-FODMAP Foods
+        </h2>
+        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
             Identifying high-FODMAP foods is crucial. Here are some common examples (note that portion sizes are key):
         </p>
-        <div class="row g-3">
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-apple-alt"></i></div><h4>Fructose (in excess)</h4><p>Apples, pears, mangoes, cherries, honey, agave nectar.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-250"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-cheese"></i></div><h4>Lactose</h4><p>Cow's milk, yogurt, soft cheeses (ricotta, cottage).</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-bread-slice"></i></div><h4>Fructans</h4><p>Wheat, rye, onions, garlic, leeks, artichokes.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-350"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-seedling"></i></div><h4>Galacto-Oligosaccharides (GOS)</h4><p>Beans, lentils, chickpeas, green peas, cashews.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-candy-cane"></i></div><h4>Polyols</h4><p>Apples, apricots, avocados, mushrooms, cauliflower, artificial sweeteners ending in "-ol".</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-450"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-leaf"></i></div><h4>Low-FODMAP Alternatives</h4><p>Many alternatives exist! A dietitian will help you identify them, such as oranges, bananas, carrots, zucchini, rice, and lactose-free milk.</p></div></div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--warning-50)); border: 3px solid var(--warning-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--warning-rgb), 0.3);">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h4 style="color: var(--warning-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Fructose (in excess)</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Apples, pears, mangoes, cherries, honey, agave nectar.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-250">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--primary-50)); border: 3px solid var(--primary-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Lactose</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Cow's milk, yogurt, soft cheeses (ricotta, cottage).
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--secondary-50)); border: 3px solid var(--secondary-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--secondary-rgb), 0.3);">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Fructans</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Wheat, rye, onions, garlic, leeks, artichokes.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--secondary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-350">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--success-50)); border: 3px solid var(--success-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--success-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--success-rgb), 0.3);">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4 style="color: var(--success-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Galacto-Oligosaccharides (GOS)</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Beans, lentils, chickpeas, green peas, cashews.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--success-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--info-50)); border: 3px solid var(--info-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--info-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--info-rgb), 0.3);">
+                        <i class="fas fa-candy-cane"></i>
+                    </div>
+                    <h4 style="color: var(--info-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Polyols</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Apples, apricots, avocados, mushrooms, cauliflower, artificial sweeteners ending in "-ol".
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--info-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-450">
+                <div class="benefit-card h-100" style="background: linear-gradient(135deg, white, var(--accent-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--success-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Low-FODMAP Alternatives</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">
+                        Many alternatives exist! A dietitian will help you identify them, such as oranges, bananas, carrots, zucchini, rice, and lactose-free milk.
+                    </p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Info Card -->
+        <div class="row mt-5">
+            <div class="col-12 animate-on-scroll fade-up delay-500">
+                <div class="text-center">
+                    <div class="info-card" style="background: linear-gradient(135deg, var(--success-50), var(--accent-50)); border: 3px solid var(--success-200); border-radius: 25px; padding: 2.5rem; max-width: 800px; margin: 0 auto; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 2rem;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 style="color: var(--success-600); font-weight: 700; margin-bottom: 1rem;">Remember: Portion Sizes Matter!</h4>
+                        <p style="color: var(--neutral-700); font-size: 1.1rem; line-height: 1.7; margin-bottom: 0;">
+                            The amount of FODMAPs in foods can vary significantly. Some foods may be low-FODMAP in small portions but high-FODMAP in larger amounts. This is why expert guidance is crucial for accurate portion control and symptom management.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 {# === Diaeta's Approach Section === #}
-<section id="diaeta-approach-ibs" class="content-section diaeta-difference-section">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">The Diaeta Difference: Expert Guidance for Your IBS Journey</h2>
+<section id="diaeta-approach-ibs" class="content-section diaeta-difference-section" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 50px; right: 50px; width: 150px; height: 150px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 50px; left: 50px; width: 120px; height: 120px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-user-md me-2"></i>Expert Approach
+            </span>
+        </div>
+        
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
+            The Diaeta Difference: Expert Guidance for Your IBS Journey
+        </h2>
+        
         <div class="row g-lg-5 gy-4 align-items-center">
             <div class="col-lg-6 animate-on-scroll fade-up delay-200">
-                <img
-                   src="../../images/dietitian-consultation-ibs.jpg" 
-                   alt="Diaeta dietitian explaining the low FODMAP diet to a patient"
-                   class="img-fluid rounded shadow"
-                   style="max-width: 500px;"
-                   loading="lazy"
-                   width="500" 
-                   height="430"
-                >
-           </div>
-            <div class="col-lg-6">
-                <p class="lead animate-on-scroll fade-up delay-100">Managing IBS is more than just avoiding foods. Our approach combines scientific expertise with compassionate, personalized support:</p>
-                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-300">
-                    <div class="icon"><i class="fas fa-microscope"></i></div>
-                    <div>
-                        <h4>Expert Application of the Low FODMAP Diet</h4>
-                        <p>As a MONASH-certified dietitian, Pierre Abou-Zeid guides you through all 3 phases, adapting the protocol to your lifestyle and ensuring it's as manageable as possible.</p>
+                <div style="position: relative;">
+                    <img
+                       src="../../images/dietitian-consultation-ibs.jpg" 
+                       alt="Diaeta dietitian explaining the low FODMAP diet to a patient"
+                       class="img-fluid rounded"
+                       style="max-width: 500px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 4px solid white; border-radius: 20px;"
+                       loading="lazy"
+                       width="500" 
+                       height="430"
+                    >
+                    <!-- Decorative Elements -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                        <i class="fas fa-heart"></i>
                     </div>
                 </div>
-                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-400">
-                    <div class="icon"><i class="fas fa-balance-scale-right"></i></div>
+           </div>
+            <div class="col-lg-6">
+                <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: 2rem;">
+                    Managing IBS is more than just avoiding foods. Our approach combines scientific expertise with compassionate, personalized support:
+                </p>
+                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-300" style="background: white; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; border-left: 5px solid var(--primary-500); box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.3);">
+                        <i class="fas fa-microscope"></i>
+                    </div>
                     <div>
-                        <h4>Maintaining Nutritional Balance</h4>
-                        <p>We ensure your diet remains balanced and enjoyable, helping you find delicious and nutritious alternatives to prevent deficiencies and frustration.</p>
+                        <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 0.75rem;">Expert Application of the Low FODMAP Diet</h4>
+                        <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 0;">As a MONASH-certified dietitian, Pierre Abou-Zeid guides you through all 3 phases, adapting the protocol to your lifestyle and ensuring it's as manageable as possible.</p>
+                    </div>
+                </div>
+                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-400" style="background: white; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; border-left: 5px solid var(--accent-500); box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);">
+                        <i class="fas fa-balance-scale-right"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 0.75rem;">Maintaining Nutritional Balance</h4>
+                        <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 0;">We ensure your diet remains balanced and enjoyable, helping you find delicious and nutritious alternatives to prevent deficiencies and frustration.</p>
                     </div>
                  </div>
-                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-500">
-                    <div class="icon"><i class="fas fa-hands-helping"></i></div>
+                 <div class="diaeta-difference-item animate-on-scroll fade-up delay-500" style="background: white; padding: 1.5rem; border-radius: 20px; margin-bottom: 0; border-left: 5px solid var(--secondary-500); box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--primary-500)); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(var(--secondary-rgb), 0.3);">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
                     <div>
-                        <h4>Continuous Support & Education</h4>
-                        <p>We provide the tools (food lists, meal ideas, tips for dining out) and support you need to feel confident and empowered in managing your symptoms long-term.</p>
+                        <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 0.75rem;">Continuous Support & Education</h4>
+                        <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 0;">We provide the tools (food lists, meal ideas, tips for dining out) and support you need to feel confident and empowered in managing your symptoms long-term.</p>
                     </div>
                  </div>
             </div>
@@ -268,66 +619,136 @@ lang: en
 </section>
 
 {# === Limitations & Considerations Section === #}
-<section id="considerations-fodmap-diet" class="content-section" style="background-color: var(--neutral-50);">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">Good to Know: Limitations and Considerations</h2>
+<section id="considerations-fodmap-diet" class="content-section" style="background: linear-gradient(135deg, var(--neutral-50) 0%, var(--warning-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 40px; right: 40px; width: 100px; height: 100px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 40px; left: 40px; width: 80px; height: 80px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-exclamation-triangle me-2"></i>Important Considerations
+            </span>
+        </div>
+        
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--warning-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
+            Good to Know: Limitations and Considerations
+        </h2>
+        
         <div class="row g-4">
-            <div class="col-md-6 animate-on-scroll fade-up delay-100"><div class="challenge-box h-100"><h4><i class="fas fa-users"></i> Not for Everyone</h4><p>The Low FODMAP diet is effective for about 70-75% of people with IBS, but it doesn't work for everyone. If symptoms don't improve, other strategies will be explored.</p></div></div>
-            <div class="col-md-6 animate-on-scroll fade-up delay-200"><div class="challenge-box h-100"><h4><i class="fas fa-tasks"></i> Complexity and Rigor</h4><p>The elimination and reintroduction phases require rigor. Professional guidance is essential to avoid mistakes and excessive restriction.</p></div></div>
-            <div class="col-md-6 animate-on-scroll fade-up delay-300"><div class="challenge-box h-100"><h4><i class="fas fa-bacteria"></i> Impact on Microbiota</h4><p>Prolonged restriction of FODMAPs (which are prebiotics) can negatively impact gut microbiota diversity. This is why the personalization phase is crucial.</p></div></div>
-            <div class="col-md-6 animate-on-scroll fade-up delay-400"><div class="challenge-box h-100"><h4><i class="fas fa-cookie-bite"></i> Risk of Disordered Eating</h4><p>In vulnerable individuals, a restrictive diet can potentially exacerbate or trigger disordered eating behaviors. Careful assessment is necessary.</p></div></div>
+            <div class="col-md-6 animate-on-scroll fade-up delay-100">
+                <div class="challenge-box h-100" style="background: linear-gradient(135deg, white, var(--warning-50)); border: 3px solid var(--warning-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--warning-rgb), 0.3);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 style="color: var(--warning-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Not for Everyone</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">The Low FODMAP diet is effective for about 70-75% of people with IBS, but it doesn't work for everyone. If symptoms don't improve, other strategies will be explored.</p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 animate-on-scroll fade-up delay-200">
+                <div class="challenge-box h-100" style="background: linear-gradient(135deg, white, var(--primary-50)); border: 3px solid var(--primary-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Complexity and Rigor</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">The elimination and reintroduction phases require rigor. Professional guidance is essential to avoid mistakes and excessive restriction.</p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 animate-on-scroll fade-up delay-300">
+                <div class="challenge-box h-100" style="background: linear-gradient(135deg, white, var(--success-50)); border: 3px solid var(--success-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--success-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--success-rgb), 0.3);">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <h4 style="color: var(--success-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Impact on Microbiota</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">Prolonged restriction of FODMAPs (which are prebiotics) can negatively impact gut microbiota diversity. This is why the personalization phase is crucial.</p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--success-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6 animate-on-scroll fade-up delay-400">
+                <div class="challenge-box h-100" style="background: linear-gradient(135deg, white, var(--accent-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Risk of Disordered Eating</h4>
+                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 0;">In vulnerable individuals, a restrictive diet can potentially exacerbate or trigger disordered eating behaviors. Careful assessment is necessary.</p>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 {# === Enhanced IBS Knowledge Hub Section === #}
-<section id="ibs-knowledge-hub" class="content-section bg-white">
-    <div class="container">
+<section id="ibs-knowledge-hub" class="content-section bg-white" style="position: relative;">
+    <!-- Decorative Background Pattern -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(135deg, var(--accent-50) 0%, transparent 100%); opacity: 0.5;"></div>
+    
+    <div class="container position-relative">
         <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in">Complete Resource Center</span>
-            <h2 class="animate-on-scroll fade-up">Your Complete IBS Knowledge Hub</h2>
-            <p class="lead animate-on-scroll fade-up delay-100">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-books me-2"></i>Complete Resource Center
+            </span>
+            <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-600), var(--primary-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem;">
+                Your Complete IBS Knowledge Hub
+            </h2>
+            <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700); max-width: 800px; margin: 0 auto;">
                 Explore our comprehensive collection of evidence-based resources to better understand and manage your IBS journey.
             </p>
         </div>
 
         <!-- Featured Resources - Most Important -->
         <div class="mb-5">
-            <h3 class="h4 text-center mb-4 animate-on-scroll fade-up delay-200">Start Here: Essential Guides</h3>
+            <h3 class="h4 text-center mb-4 animate-on-scroll fade-up delay-200" style="color: var(--accent-600); font-weight: 700;">
+                <i class="fas fa-star text-warning me-2"></i>Start Here: Essential Guides
+            </h3>
             <div class="row g-4">
                 <div class="col-lg-6 animate-on-scroll fade-up delay-300">
                     <a href="/en/irritable-bowel-syndrome-fodmap/understanding-ibs-causes-diagnosis" class="text-decoration-none">
-                        <div class="featured-resource-card h-100">
-                            <div class="card-header">
-                                <div class="icon-large"><i class="fas fa-brain"></i></div>
-                                <div class="badge-featured">Essential</div>
+                        <div class="featured-resource-card h-100" style="background: linear-gradient(135deg, white, var(--primary-50)); border: 3px solid var(--primary-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="card-header" style="border: none; background: none; padding: 0; margin-bottom: 1.5rem; text-align: center;">
+                                <div class="icon-large" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="badge-featured" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Essential</div>
                             </div>
-                            <div class="card-body">
-                                <h4>Understanding IBS: Causes & Diagnosis</h4>
-                                <p>Discover the science behind IBS - from gut-brain axis dysfunction to microbiome changes and Rome IV criteria.</p>
-                                <div class="resource-meta">
-                                    <span class="reading-time"><i class="fas fa-clock"></i> 8 min read</span>
-                                    <span class="difficulty"><i class="fas fa-graduation-cap"></i> Beginner</span>
+                            <div class="card-body" style="padding: 0; text-align: center;">
+                                <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1rem;">Understanding IBS: Causes & Diagnosis</h4>
+                                <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 1.5rem;">Discover the science behind IBS - from gut-brain axis dysfunction to microbiome changes and Rome IV criteria.</p>
+                                <div class="resource-meta" style="display: flex; justify-content: center; gap: 1rem; font-size: 0.9rem;">
+                                    <span class="reading-time" style="background: var(--neutral-100); padding: 0.5rem 0.75rem; border-radius: 15px; color: var(--neutral-700);"><i class="fas fa-clock me-1"></i> 8 min read</span>
+                                    <span class="difficulty" style="background: var(--success-100); padding: 0.5rem 0.75rem; border-radius: 15px; color: var(--success-700);"><i class="fas fa-graduation-cap me-1"></i> Beginner</span>
                                 </div>
                             </div>
+                            <!-- Decorative Element -->
+                            <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-6 animate-on-scroll fade-up delay-400">
                     <a href="/en/irritable-bowel-syndrome-fodmap/nutrition-diet-therapy-ibs" class="text-decoration-none">
-                        <div class="featured-resource-card h-100">
-                            <div class="card-header">
-                                <div class="icon-large"><i class="fas fa-apple-alt"></i></div>
-                                <div class="badge-featured">Essential</div>
+                        <div class="featured-resource-card h-100" style="background: linear-gradient(135deg, white, var(--accent-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                            <div class="card-header" style="border: none; background: none; padding: 0; margin-bottom: 1.5rem; text-align: center;">
+                                <div class="icon-large" style="background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                                    <i class="fas fa-apple-alt"></i>
+                                </div>
+                                <div class="badge-featured" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Essential</div>
                             </div>
-                            <div class="card-body">
-                                <h4>Nutrition & Diet Therapy for IBS</h4>
-                                <p>Comprehensive guide to food triggers, FODMAPs, fiber management, probiotics, and meal strategies.</p>
-                                <div class="resource-meta">
-                                    <span class="reading-time"><i class="fas fa-clock"></i> 12 min read</span>
-                                    <span class="difficulty"><i class="fas fa-graduation-cap"></i> Beginner</span>
+                            <div class="card-body" style="padding: 0; text-align: center;">
+                                <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1rem;">Nutrition & Diet Therapy for IBS</h4>
+                                <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 1.5rem;">Comprehensive guide to food triggers, FODMAPs, fiber management, probiotics, and meal strategies.</p>
+                                <div class="resource-meta" style="display: flex; justify-content: center; gap: 1rem; font-size: 0.9rem;">
+                                    <span class="reading-time" style="background: var(--neutral-100); padding: 0.5rem 0.75rem; border-radius: 15px; color: var(--neutral-700);"><i class="fas fa-clock me-1"></i> 12 min read</span>
+                                    <span class="difficulty" style="background: var(--success-100); padding: 0.5rem 0.75rem; border-radius: 15px; color: var(--success-700);"><i class="fas fa-graduation-cap me-1"></i> Beginner</span>
                                 </div>
                             </div>
+                            <!-- Decorative Element -->
+                            <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
                         </div>
                     </a>
                 </div>
@@ -429,47 +850,87 @@ lang: en
 
         <!-- Quick Action CTA -->
         <div class="text-center mt-5 animate-on-scroll fade-up delay-800">
-            <div class="quick-action-box">
-                <h4>Need Personalized Guidance?</h4>
-                <p>Our comprehensive guides are just the beginning. Get expert, personalized support from a MONASH-certified dietitian.</p>
-                <a href="/en/contact" class="btn btn-primary">Book Your Consultation</a>
+            <div class="quick-action-box" style="background: linear-gradient(135deg, var(--primary-50), var(--accent-50)); border: 3px solid var(--primary-200); border-radius: 25px; padding: 2.5rem; max-width: 600px; margin: 0 auto; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 2rem;">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1rem;">Need Personalized Guidance?</h4>
+                <p style="color: var(--neutral-700); line-height: 1.7; margin-bottom: 1.5rem;">Our comprehensive guides are just the beginning. Get expert, personalized support from a MONASH-certified dietitian.</p>
+                <a href="/en/contact" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border: none; padding: 1rem 2rem; font-weight: 600; border-radius: 25px; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">Book Your Consultation</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="content-section bg-white py-4">
-    <div class="container">
-        <div class="expert-showcase-section">
-            <img src="/images/Pierre Abou-Zeid.jpg" alt="Pierre Abou-Zeid, Diaeta Dietitian-Nutritionist" class="expert-showcase-image">
-            <div class="expert-showcase-text">
-                <p class="expert-showcase-greeting">An approach designed for you by</p>
-                <p class="expert-showcase-name">Pierre Abou-Zeid</p>
-                <p class="expert-showcase-titles"><em>Certified Dietitian-Nutritionist (INAMI)<br>MONASH University Certified (IBS/FODMAP)</em></p>
-                <a href="/en/our-expertise/" class="expert-showcase-link"><span>Discover my expertise</span> <i class="fas fa-arrow-right fa-xs"></i></a>
+<section class="content-section py-5" style="background: linear-gradient(135deg, var(--neutral-50) 0%, var(--primary-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 30px; right: 30px; width: 100px; height: 100px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 30px; left: 30px; width: 80px; height: 80px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <div class="expert-showcase-section" style="background: white; border-radius: 25px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 3px solid var(--primary-100); display: flex; align-items: center; gap: 2rem; max-width: 800px; margin: 0 auto;">
+            <div style="position: relative;">
+                <img src="/images/Pierre Abou-Zeid.jpg" alt="Pierre Abou-Zeid, Diaeta Dietitian-Nutritionist" class="expert-showcase-image" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-200); box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                <!-- Decorative Badge -->
+                <div style="position: absolute; bottom: 5px; right: 5px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    <i class="fas fa-certificate"></i>
+                </div>
+            </div>
+            <div class="expert-showcase-text" style="flex: 1;">
+                <p class="expert-showcase-greeting" style="color: var(--accent-600); font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600;">An approach designed for you by</p>
+                <p class="expert-showcase-name" style="color: var(--primary-600); font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem;">Pierre Abou-Zeid</p>
+                <p class="expert-showcase-titles" style="color: var(--neutral-600); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;"><em>Certified Dietitian-Nutritionist (INAMI)<br>MONASH University Certified (IBS/FODMAP)</em></p>
+                <a href="/en/our-expertise/" class="expert-showcase-link" style="display: inline-flex; align-items: center; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease;">
+                    <span>Discover my expertise</span> 
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 {# === Final CTA Section === #}
-<section class="final-cta-section">
-    <div class="container">
-        <h2 class="animate-on-scroll fade-up">Ready to Better Manage Your Irritable Bowel Syndrome?</h2>
-        <p class="animate-on-scroll fade-up delay-200">
-            Don't let IBS control your daily life. The Diaeta team is here to help you identify your triggers and implement a personalized, effective dietary strategy.
-        </p>
-        <a href="/en/appointment/" class="btn btn-secondary btn-lg animate-on-scroll fade-up delay-400">
-            <span>Book an Appointment for an IBS Consultation</span>
-            <i class="fas fa-calendar-check btn-icon-right"></i>
-        </a>
+<section class="final-cta-section" style="background: linear-gradient(135deg, var(--secondary-500) 0%, var(--primary-600) 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); border-radius: 50%;"></div>
+    
+    <div class="container position-relative" style="text-align: center; padding: 4rem 1rem;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                <i class="fas fa-heartbeat" style="font-size: 2.5rem; color: white;"></i>
+            </div>
+            
+            <h2 class="animate-on-scroll fade-up" style="color: white; font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                Ready to Better Manage Your Irritable Bowel Syndrome?
+            </h2>
+            <p class="animate-on-scroll fade-up delay-200" style="color: rgba(255,255,255,0.9); font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; text-shadow: 0 1px 5px rgba(0,0,0,0.2);">
+                Don't let IBS control your daily life. The Diaeta team is here to help you identify your triggers and implement a personalized, effective dietary strategy.
+            </p>
+            <a href="/en/appointment/" class="btn btn-lg animate-on-scroll fade-up delay-400" style="background: white; color: var(--primary-600); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem; font-weight: 700; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;">
+                <span>Book an Appointment for an IBS Consultation</span>
+                <i class="fas fa-calendar-check"></i>
+            </a>
+        </div>
     </div>
 </section>
 
-<section id="faq-ibs" class="content-section bg-light py-5">
-    <div class="container" style="max-width: 850px;">
-        <div class="section-header text-center animate-on-scroll fade-up">
-            <h2 class="section-title">Your Questions About IBS and the Low FODMAP Approach</h2>
+<section id="faq-ibs" class="content-section py-5" style="background: linear-gradient(135deg, var(--neutral-100) 0%, var(--accent-50) 100%); position: relative;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: 40px; right: 40px; width: 120px; height: 120px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 40px; left: 40px; width: 100px; height: 100px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    
+    <div class="container position-relative" style="max-width: 850px;">
+        <div class="section-header text-center animate-on-scroll fade-up mb-5">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; margin-bottom: 1rem;">
+                <i class="fas fa-question-circle me-2"></i>Frequently Asked Questions
+            </span>
+            <h2 class="section-title" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-600), var(--primary-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+                Your Questions About IBS and the Low FODMAP Approach
+            </h2>
+            <p style="color: var(--neutral-700); font-size: 1.1rem; line-height: 1.7;">
+                Get answers to the most common questions about IBS management and the Low FODMAP diet approach.
+            </p>
         </div>
         <div class="accordion accordion-flush" id="faqAccordionIBS">
             <div class="accordion-item animate-on-scroll fade-up delay-100">
@@ -489,8 +950,8 @@ lang: en
                 <div id="faqIBSCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionIBS"><div class="accordion-body">Yes, although it requires more planning, especially during the elimination phase. Your Diaeta dietitian will give you practical tips and strategies for managing meals out while respecting the protocol and minimizing symptoms.</div></div>
             </div>
             <div class="accordion-item animate-on-scroll fade-up delay-500">
-                <h3 class="accordion-header" id="faqIBSHeading5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse5">How long does the full FODMAP protocol with Diaeta take?</button></h3>
-                <div id="faqIBSCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionIBS"><div class="accordion-body">The full protocol spans several months. The elimination phase lasts about 2-6 weeks, and the reintroduction phase about 8-12 weeks. Many patients experience significant symptom relief early on. The goal is lasting digestive comfort.</div></div>
+                <h3 class="accordion-header" id="faqIBSHeading5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIBSCollapse5">How long does the full FODMAP protocol with Diaeta take and when can I expect relief?</button></h3>
+                <div id="faqIBSCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionIBS"><div class="accordion-body">The full protocol spans several months. The elimination phase lasts about 2-6 weeks, and the structured reintroduction phase about 8-12 weeks. Many patients experience significant symptom relief early on. The goal is lasting digestive comfort.</div></div>
             </div>
         </div>
     </div>
@@ -633,5 +1094,7 @@ lang: en
                   }
                 }
               ]
+            }
+            </script>
             }
             </script>
