@@ -7449,6 +7449,147 @@ section {
   }
 }
 
+/* FODMAP Timeline Design */
+.fodmap-timeline-section {
+  position: relative;
+}
+
+.timeline-container {
+  position: relative;
+}
+
+.timeline-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-content {
+  transition: all 0.3s ease;
+  transform-origin: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+}
+
+.timeline-icon {
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover .timeline-icon {
+  transform: translateY(-50%) scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Ensure equal height for timeline rows */
+.fodmap-timeline-section .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fodmap-timeline-section .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.fodmap-timeline-section .col-md-6 > .timeline-item {
+  flex: 1;
+}
+
+/* Food Examples Section - Equal Height Cards */
+#aliments-fodmaps .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#aliments-fodmaps .col-md-6,
+#aliments-fodmaps .col-lg-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+#aliments-fodmaps .benefit-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#aliments-fodmaps .benefit-card .icon {
+  flex-shrink: 0;
+}
+
+#aliments-fodmaps .benefit-card h4 {
+  flex-shrink: 0;
+}
+
+#aliments-fodmaps .benefit-card p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#aliments-fodmaps .benefit-card div[style*="background: rgba"] {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* Floating animation for background elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Mechanism cards styling */
+.mechanism-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.mechanism-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15) !important;
+}
+
+.mechanism-card:hover .mechanism-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* CTA card styling */
+.cta-card {
+  transition: all 0.4s ease;
+}
+
+.cta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15) !important;
+}
+
+/* Timeline responsive design */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 1rem 0 !important;
+  }
+  
+  .timeline-item {
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-content:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .mechanism-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
 /* iFrame Container */
 .iframe-container {
   max-width: 850px; /* Max width for the iframe module */
