@@ -52,6 +52,7 @@
 
   /* Semantic Colors */
   --success: var(--accent-500);
+  --success-500: #9c27b0; /* Purple for variety */
   --warning: #ffb74d;
   --error: #ef5350;
   --info: #64b5f6;
@@ -7183,6 +7184,158 @@ section {
   left: 0;
   top: 1px; /* Adjust vertical alignment */
   font-size: 1.1em;
+}
+
+/* Symptoms list - custom styling without pseudo-element conflicts */
+.symptoms-list {
+  list-style: none;
+  padding-left: 0;
+}
+.symptoms-list li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Enhanced symptom items styling */
+.symptom-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.symptom-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.symptom-item:hover h4 {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Enhanced IBS image styling */
+.ibs-image-container {
+  transition: all 0.4s ease;
+}
+
+.ibs-image-container:hover {
+  transform: scale(1.02);
+}
+
+.ibs-image-container:hover img {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
+}
+
+.ibs-image-container:hover .floating-info {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Floating decorative elements animation */
+.ibs-image-container .decorative-element {
+  transition: all 0.3s ease;
+}
+
+.ibs-image-container:hover .decorative-element:nth-child(1) {
+  transform: rotate(25deg) scale(1.1);
+}
+
+.ibs-image-container:hover .decorative-element:nth-child(2) {
+  transform: rotate(-25deg) scale(1.1);
+}
+
+.ibs-image-container:hover .decorative-element:nth-child(3) {
+  transform: translateY(-50%) rotate(65deg) scale(1.1);
+}
+
+/* Enhanced symptom cards styling */
+.symptom-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  height: 100%; /* Ensure full height */
+  display: flex;
+  flex-direction: column;
+}
+
+.symptom-card .card-content {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.symptom-card .card-content p {
+  flex: 1; /* Make description take up remaining space */
+  margin-bottom: 0;
+}
+
+.symptom-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+}
+
+.symptom-card:hover .symptom-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.symptom-card:hover h4 {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+
+/* Symptom card icon animations */
+.symptom-card .symptom-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse animation for symptom cards */
+@keyframes symptomPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.symptom-card:hover .symptom-icon {
+  animation: symptomPulse 2s infinite;
+}
+
+/* Ensure row items have equal height */
+.symptoms-row .col-lg-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.symptoms-row .col-lg-6 > .symptom-card {
+  flex: 1;
+}
+
+/* Enhanced symptoms card background */
+.symptoms-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.symptoms-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive improvements for symptom cards */
+@media (max-width: 768px) {
+  .symptom-card {
+    margin-bottom: 1rem !important;
+  }
+  
+  .symptom-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
 }
 
 /* iFrame Container */

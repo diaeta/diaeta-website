@@ -99,42 +99,107 @@ lang: en
                     It is a common condition affecting <strong style="color: var(--primary-600);">7-15% of the global population</strong>, more prevalent in women. While not life-threatening, IBS can significantly impact one's quality of life.
                 </p>
                 
-                <div class="symptoms-card" style="background: linear-gradient(135deg, var(--neutral-50), var(--primary-50)); border-radius: 20px; padding: 2rem; border: 2px solid var(--primary-100); margin-bottom: 2rem;">
-                    <h3 class="h4 mb-3" style="color: var(--primary-600); font-weight: 600;">
-                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>Common Symptoms of IBS
-                    </h3>
-                    <ul class="list-styled" style="list-style: none; padding: 0;">
-                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--primary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                            <i class="fas fa-pain text-primary me-2"></i>Abdominal pain or cramping, often related to bowel movements.
-                        </li>
-                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--accent-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                            <i class="fas fa-chart-line text-accent me-2"></i>Changes in stool frequency and consistency.
-                        </li>
-                        <li style="background: white; padding: 1rem; margin-bottom: 0.75rem; border-radius: 10px; border-left: 4px solid var(--secondary-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                            <i class="fas fa-expand-arrows-alt text-secondary me-2"></i>Bloating and a sensation of abdominal fullness.
-                        </li>
-                        <li style="background: white; padding: 1rem; margin-bottom: 0; border-radius: 10px; border-left: 4px solid var(--success-500); box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                            <i class="fas fa-wind text-success me-2"></i>Excess gas (flatulence).
-                        </li>
-                    </ul>
+                <div class="symptoms-card" style="background: linear-gradient(135deg, var(--neutral-50), var(--primary-50)); border-radius: 25px; padding: 3rem; border: 3px solid var(--primary-100); margin-bottom: 2rem; box-shadow: 0 15px 40px rgba(0,0,0,0.12); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: linear-gradient(135deg, var(--primary-200), var(--accent-200)); border-radius: 50%; opacity: 0.3;"></div>
+                    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(135deg, var(--accent-200), var(--secondary-200)); border-radius: 50%; opacity: 0.2;"></div>
+                    
+                    <div style="position: relative; z-index: 2;">
+                        <div class="text-center mb-5">
+                            <div style="display: inline-block; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); padding: 1rem 2rem; border-radius: 50px; margin-bottom: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                                <i class="fas fa-exclamation-triangle text-white me-2" style="font-size: 1.2rem;"></i>
+                                <span style="color: white; font-weight: 600; font-size: 1.1rem;">Common Symptoms of IBS</span>
+                            </div>
+                            <p style="color: var(--neutral-600); font-size: 1rem; margin: 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                                These symptoms can vary in intensity and may come and go. Understanding them is the first step toward effective management.
+                            </p>
+                        </div>
+                        
+                        <div class="row g-4 symptoms-row">
+                            <div class="col-lg-6">
+                                <div class="symptom-card" style="background: linear-gradient(135deg, white, var(--primary-50)); padding: 2rem; margin-bottom: 1.5rem; border-radius: 20px; border: 2px solid var(--primary-200); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;">
+                                    <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); opacity: 0.1; border-radius: 0 20px 0 50%;"></div>
+                                    <div class="card-content" style="position: relative; z-index: 2;">
+                                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                            <div class="symptom-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                                <i class="fas fa-heartbeat text-white" style="font-size: 1.2rem;"></i>
+                                            </div>
+                                            <h4 style="color: var(--primary-600); font-weight: 700; margin: 0; font-size: 1.3rem;">Abdominal Pain</h4>
+                                        </div>
+                                        <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.6; padding-left: 3.5rem;">Pain or cramping, often related to bowel movements and varying in intensity.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="symptom-card" style="background: linear-gradient(135deg, white, var(--accent-50)); padding: 2rem; margin-bottom: 1.5rem; border-radius: 20px; border: 2px solid var(--accent-200); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;">
+                                    <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); opacity: 0.1; border-radius: 0 20px 0 50%;"></div>
+                                    <div class="card-content" style="position: relative; z-index: 2;">
+                                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                            <div class="symptom-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                                <i class="fas fa-chart-line text-white" style="font-size: 1.2rem;"></i>
+                                            </div>
+                                            <h4 style="color: var(--accent-600); font-weight: 700; margin: 0; font-size: 1.3rem;">Stool Changes</h4>
+                                        </div>
+                                        <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.6; padding-left: 3.5rem;">Changes in frequency and consistency of bowel movements, including diarrhea and constipation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="symptom-card" style="background: linear-gradient(135deg, white, var(--secondary-50)); padding: 2rem; margin-bottom: 1.5rem; border-radius: 20px; border: 2px solid var(--secondary-200); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;">
+                                    <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); opacity: 0.1; border-radius: 0 20px 0 50%;"></div>
+                                    <div class="card-content" style="position: relative; z-index: 2;">
+                                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                            <div class="symptom-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                                <i class="fas fa-expand-arrows-alt text-white" style="font-size: 1.2rem;"></i>
+                                            </div>
+                                            <h4 style="color: var(--secondary-600); font-weight: 700; margin: 0; font-size: 1.3rem;">Bloating</h4>
+                                        </div>
+                                        <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.6; padding-left: 3.5rem;">Sensation of abdominal fullness and distension, often worse after meals.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="symptom-card" style="background: linear-gradient(135deg, white, var(--success-50)); padding: 2rem; margin-bottom: 1.5rem; border-radius: 20px; border: 2px solid var(--success-200); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;">
+                                    <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-500), #7b1fa2); opacity: 0.1; border-radius: 0 20px 0 50%;"></div>
+                                    <div class="card-content" style="position: relative; z-index: 2;">
+                                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                            <div class="symptom-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--success-500), #7b1fa2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                                <i class="fas fa-wind text-white" style="font-size: 1.2rem;"></i>
+                                            </div>
+                                            <h4 style="color: var(--success-500); font-weight: 700; margin: 0; font-size: 1.3rem;">Excess Gas</h4>
+                                        </div>
+                                        <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.6; padding-left: 3.5rem;">Increased flatulence and gas production, often causing discomfort and embarrassment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <div style="background: white; padding: 1.5rem; border-radius: 15px; border: 2px solid var(--primary-100); box-shadow: 0 5px 20px rgba(0,0,0,0.08); display: inline-block;">
+                                <i class="fas fa-info-circle text-primary me-2" style="font-size: 1.1rem;"></i>
+                                <span style="color: var(--primary-600); font-weight: 600;">Symptoms can vary significantly between individuals and may change over time.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
-                <div style="position: relative;">
+                <div class="ibs-image-container" style="position: relative; display: inline-block;">
                     <img
                        src="../../images/digestive-system-illustration.jpg" 
                        alt="Simplified illustration of the digestive system to explain IBS"
                        class="img-fluid rounded"
-                       style="max-width: 400px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 3px solid white;"
+                       style="max-width: 400px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 4px solid white; border-radius: 20px; transition: all 0.3s ease;"
                        loading="lazy"
                        width="400" 
                        height="350">
-                    <!-- Decorative Elements -->
-                    <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <div style="position: absolute; bottom: -10px; left: -10px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                        <i class="fas fa-heartbeat"></i>
+                    <!-- Enhanced visual elements without icons -->
+                    <div class="decorative-element" style="position: absolute; top: -15px; right: -15px; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; opacity: 0.9; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transform: rotate(15deg);"></div>
+                    <div class="decorative-element" style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; opacity: 0.8; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transform: rotate(-15deg);"></div>
+                    <div class="decorative-element" style="position: absolute; top: 50%; left: -20px; width: 40px; height: 40px; background: linear-gradient(135deg, var(--secondary-500), var(--primary-500)); border-radius: 50%; opacity: 0.7; box-shadow: 0 6px 20px rgba(0,0,0,0.25); transform: translateY(-50%) rotate(45deg);"></div>
+                    <!-- Floating info card -->
+                    <div class="floating-info" style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background: white; padding: 1rem 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--primary-100); min-width: 200px; transition: all 0.3s ease;">
+                        <p style="margin: 0; color: var(--primary-600); font-weight: 600; font-size: 0.9rem;">Digestive System Health</p>
+                        <p style="margin: 0; color: var(--neutral-600); font-size: 0.8rem;">Understanding IBS symptoms</p>
                     </div>
                 </div>
             </div>
