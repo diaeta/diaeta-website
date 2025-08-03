@@ -159,6 +159,7 @@ body {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px; /* Account for fixed header */
 }
 
 h1,
@@ -3112,37 +3113,28 @@ with a more specific selector.
   padding-left: 2em !important;
 }
 
-/* header.css - Fixed Header with Corrected Issues */
+/* Simple Sticky Header */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
   background-color: white;
-  box-shadow: var(--box-shadow-sm);
-  z-index: 50;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999 !important;
   height: 80px;
   display: flex;
   align-items: center;
-}
-
-/* Explicitly remove any pseudo-elements that might be creating lines */
-.site-header::before,
-.site-header::after,
-.header-container::before,
-.header-container::after {
-  display: none !important;
-  content: none !important;
-  border: none !important;
-  background: transparent !important;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 !important;
+  padding: 0 !important;
+  will-change: height, box-shadow;
+  transform: translateZ(0);
 }
 
 .site-header.scrolled {
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
@@ -3193,59 +3185,72 @@ with a more specific selector.
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--space-5); /* Adjusted gap to prevent wrapping */
+  gap: var(--space-5);
+  position: relative;
+  z-index: 2;
 }
 
 .nav-item {
   position: relative;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
+/* Enhanced nav links with modern effects */
 .nav-link {
   display: inline-block;
   padding: var(--space-2) var(--space-1);
   color: var(--text-primary);
   font-weight: var(--font-medium);
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  font-size: 0.95rem; /* Slightly reduced font size to fit better */
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+/* Animated underline effect */
 .nav-link::after {
   content: "";
   position: absolute;
   bottom: -2px;
-  left: 0;
+  left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--primary-500);
-  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 1px;
 }
 
+/* Hover and active states */
 .nav-link:hover,
 .nav-link:focus,
 .nav-link.active {
-  color: var(--primary-500);
+  color: var(--primary-600);
+  background: rgba(var(--primary-rgb), 0.05);
+  transform: translateY(-1px);
 }
 
 .nav-link:hover::after,
 .nav-link:focus::after,
 .nav-link.active::after {
-  width: 100%;
+  width: 80%;
 }
 
 .nav-link.active {
   font-weight: var(--font-semibold);
+  background: rgba(var(--primary-rgb), 0.08);
 }
 
-/* Desktop Actions */
+/* Enhanced Desktop Actions */
 .desktop-actions {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   order: 2;
   margin-left: var(--space-6);
+  position: relative;
 }
 
 /* Search Container - Separate from desktop-actions */
@@ -3668,6 +3673,10 @@ with a more specific selector.
 }
 
 @media (max-width: 639px) {
+  body {
+    padding-top: 70px; /* Adjust for smaller mobile header */
+  }
+  
   .site-header {
     height: 70px;
   }
@@ -3763,6 +3772,10 @@ html {
 }
 
 @media (max-width: 767px) {
+  body {
+    padding-top: 70px; /* Adjust for smaller mobile header */
+  }
+  
   /* Header fixes */
   .site-header {
     height: 70px;

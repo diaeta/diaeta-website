@@ -315,11 +315,19 @@ function initializeHeader() {
 
   if (!header) return;
 
+  // Throttled scroll handler for better performance
+  let ticking = false;
   const scrollHandler = () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      });
+      ticking = true;
+    }
   };
   window.addEventListener('scroll', scrollHandler, { passive: true });
-  scrollHandler(); 
+  scrollHandler(); // Initial call 
 
     console.log('Diaeta: Setting up menu toggle listener...');
   if (menuToggle) {
