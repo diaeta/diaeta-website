@@ -54,6 +54,7 @@
   --success: var(--accent-500);
   --success-500: #9c27b0; /* Purple for variety */
   --warning: #ffb74d;
+  --warning-500: #ff9800; /* Orange for warning elements */
   --error: #ef5350;
   --info: #64b5f6;
 
@@ -7335,6 +7336,116 @@ section {
   
   .symptom-card:hover {
     transform: translateY(-5px) scale(1.01);
+  }
+}
+
+/* Zen Design Elements */
+.zen-harmony-section {
+  transition: all 0.4s ease;
+}
+
+.zen-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.zen-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+}
+
+.zen-symptom-item,
+.zen-cause-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.zen-symptom-item:hover,
+.zen-cause-item:hover {
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+}
+
+.zen-symptom-item:hover .zen-icon,
+.zen-cause-item:hover .zen-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Ensure all zen items display properly */
+.zen-symptom-item,
+.zen-cause-item {
+  position: relative;
+  overflow: visible;
+}
+
+.zen-symptom-item div,
+.zen-cause-item div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure icons are always visible */
+.zen-symptom-item i,
+.zen-cause-item i {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+.zen-image-container {
+  transition: all 0.4s ease;
+}
+
+.zen-image-container:hover {
+  transform: scale(1.02);
+}
+
+.zen-image-container:hover img {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
+}
+
+.zen-element {
+  transition: all 0.3s ease;
+}
+
+.zen-image-container:hover .zen-element:nth-child(1) {
+  transform: rotate(25deg) scale(1.1);
+}
+
+.zen-image-container:hover .zen-element:nth-child(2) {
+  transform: rotate(-25deg) scale(1.1);
+}
+
+/* Zen harmony animations */
+@keyframes zenFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.zen-harmony-section {
+  animation: zenFloat 6s ease-in-out infinite;
+}
+
+/* Zen card content animations */
+.zen-symptom-item:hover h5,
+.zen-cause-item:hover h5 {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+
+/* Zen responsive design */
+@media (max-width: 768px) {
+  .zen-harmony-section {
+    padding: 2rem !important;
+  }
+  
+  .zen-card {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .zen-symptom-item:hover,
+  .zen-cause-item:hover {
+    transform: translateX(5px) scale(1.01);
   }
 }
 
