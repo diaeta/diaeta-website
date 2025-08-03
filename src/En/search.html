@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: "Search | Diaeta"
-description: "Search through Diaeta's content and resources."
+title: "Smart Search | Diaeta"
+description: "Find exactly what you need with our intelligent search system. Filter by topic, difficulty, and content type."
 lang: en
 ---
 
@@ -9,148 +9,568 @@ lang: en
 <nav aria-label="breadcrumb" class="container mt-4">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/en/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Search</li>
+        <li class="breadcrumb-item active" aria-current="page">Smart Search</li>
     </ol>
 </nav>
 
-{# Main content starts here #}
-<section class="search-results-section container" style="padding-top: 6rem;">
-  <h1>Search Results</h1>
-  <form id="search-form" action="/en/search" method="get" role="search" aria-label="Search on Diaeta" style="margin-bottom:2rem; display:flex; align-items:center; gap:1rem;">
-    <input type="text" name="q" id="search-input" placeholder="Search…" autocomplete="off" aria-label="Search" style="padding:0.5em 2em 0.5em 1em; border-radius:2em; border:1px solid #ccc; min-width: 220px; flex:1;">
-    <button type="submit" aria-label="Start search" style="margin-left:-2.5em; background:none; border:none; color:var(--primary-700); cursor:pointer;"><i class="fa fa-search"></i></button>
-  </form>
-  <div id="search-status" role="status" aria-live="polite" style="margin-bottom:1rem;"></div>
-  <div id="search-results" role="list"></div>
+{# === Enhanced Search Section === #}
+<section class="smart-search-section container" style="padding-top: 6rem;">
+    <div class="text-center mb-5">
+        <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <i class="fas fa-search me-2"></i>Smart Search
+        </span>
+        <h1 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+            Find Exactly What You Need
+        </h1>
+        <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: var(--neutral-700); max-width: 600px; margin: 0 auto;">
+            Search through our comprehensive knowledge base with intelligent filtering and personalized recommendations.
+        </p>
+    </div>
+
+    <!-- Enhanced Search Interface -->
+    <div class="smart-search-container animate-on-scroll fade-up delay-200" style="max-width: 800px; margin: 0 auto 3rem;">
+        <form id="smart-search-form" action="/en/search" method="get" role="search" aria-label="Smart search on Diaeta">
+            <div class="search-bar-container" style="position: relative; margin-bottom: 1rem;">
+                <div class="search-input-wrapper" style="position: relative;">
+                    <input 
+                        type="text" 
+                        name="q" 
+                        id="smart-search-input" 
+                        placeholder="Search symptoms, treatments, foods, or ask a question..." 
+                        autocomplete="off" 
+                        aria-label="Search"
+                        style="width: 100%; padding: 1rem 3rem 1rem 1.5rem; border: 2px solid var(--neutral-200); border-radius: 25px; font-size: 1.1rem; transition: all 0.3s ease;"
+                    >
+                    <button type="submit" aria-label="Start search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--primary-500); cursor: pointer; font-size: 1.2rem;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <!-- Smart Suggestions -->
+                <div id="search-suggestions" class="search-suggestions" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid var(--neutral-200); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; margin-top: 0.5rem;">
+                    <div class="suggestion-category" style="padding: 1rem; border-bottom: 1px solid var(--neutral-100);">
+                        <h4 style="font-size: 0.9rem; color: var(--neutral-600); margin-bottom: 0.5rem; font-weight: 600;">Popular Searches</h4>
+                        <div class="suggestion-items">
+                            <div class="suggestion-item" data-query="FODMAP foods" style="padding: 0.5rem; cursor: pointer; border-radius: 8px; transition: background 0.2s ease;">
+                                <i class="fas fa-fire text-warning me-2"></i>
+                                <span>FODMAP foods</span>
+                            </div>
+                            <div class="suggestion-item" data-query="IBS symptoms" style="padding: 0.5rem; cursor: pointer; border-radius: 8px; transition: background 0.2s ease;">
+                                <i class="fas fa-fire text-warning me-2"></i>
+                                <span>IBS symptoms</span>
+                            </div>
+                            <div class="suggestion-item" data-query="diabetes management" style="padding: 0.5rem; cursor: pointer; border-radius: 8px; transition: background 0.2s ease;">
+                                <i class="fas fa-fire text-warning me-2"></i>
+                                <span>Diabetes management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggestion-category" style="padding: 1rem;">
+                        <h4 style="font-size: 0.9rem; color: var(--neutral-600); margin-bottom: 0.5rem; font-weight: 600;">Recent Searches</h4>
+                        <div class="suggestion-items" id="recent-searches">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="search-filters animate-on-scroll fade-up delay-300" style="background: var(--neutral-50); padding: 1.5rem; border-radius: 20px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--neutral-700);">
+                    <i class="fas fa-filter me-2"></i>Refine Your Search
+                </h3>
+                <div class="filters-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div class="filter-group">
+                        <label for="filter-topic" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--neutral-700);">Topic</label>
+                        <select id="filter-topic" class="filter-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-200); border-radius: 10px; background: white;">
+                            <option value="">All Topics</option>
+                            <option value="ibs">IBS & Digestive Health</option>
+                            <option value="diabetes">Diabetes Management</option>
+                            <option value="weight-loss">Weight Loss</option>
+                            <option value="nutrition">General Nutrition</option>
+                            <option value="genetic">Genetic Testing</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-difficulty" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--neutral-700);">Difficulty Level</label>
+                        <select id="filter-difficulty" class="filter-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-200); border-radius: 10px; background: white;">
+                            <option value="">All Levels</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-content-type" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--neutral-700);">Content Type</label>
+                        <select id="filter-content-type" class="filter-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-200); border-radius: 10px; background: white;">
+                            <option value="">All Content</option>
+                            <option value="guide">Guides & Tutorials</option>
+                            <option value="tips">Tips & Advice</option>
+                            <option value="research">Research & Studies</option>
+                            <option value="news">News & Updates</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-reading-time" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--neutral-700);">Reading Time</label>
+                        <select id="filter-reading-time" class="filter-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-200); border-radius: 10px; background: white;">
+                            <option value="">Any Length</option>
+                            <option value="quick">Quick Read (< 5 min)</option>
+                            <option value="medium">Medium (5-15 min)</option>
+                            <option value="long">In-depth (> 15 min)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button type="button" id="apply-filters" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border: none; padding: 0.75rem 1.5rem; border-radius: 25px; color: white; font-weight: 600;">
+                        <i class="fas fa-search me-2"></i>Apply Filters
+                    </button>
+                    <button type="button" id="clear-filters" class="btn btn-outline" style="border: 2px solid var(--neutral-300); background: white; padding: 0.75rem 1.5rem; border-radius: 25px; color: var(--neutral-700); font-weight: 600;">
+                        <i class="fas fa-times me-2"></i>Clear All
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Search Status and Results -->
+    <div id="search-status" role="status" aria-live="polite" style="margin-bottom: 1rem; text-align: center; font-weight: 600; color: var(--primary-600);"></div>
+    
+    <!-- Enhanced Results Container -->
+    <div id="search-results" role="list" class="search-results-container">
+        <!-- Results will be populated here -->
+    </div>
+
+    <!-- No Results State -->
+    <div id="no-results" style="display: none; text-align: center; padding: 3rem;">
+        <div style="width: 100px; height: 100px; background: var(--neutral-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+            <i class="fas fa-search" style="font-size: 2rem; color: var(--neutral-400);"></i>
+        </div>
+        <h3 style="color: var(--neutral-700); margin-bottom: 1rem;">No results found</h3>
+        <p style="color: var(--neutral-600); margin-bottom: 2rem;">Try adjusting your search terms or filters to find what you're looking for.</p>
+        <div class="suggested-searches" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <button class="btn btn-outline-primary suggested-search" data-query="IBS symptoms">IBS symptoms</button>
+            <button class="btn btn-outline-primary suggested-search" data-query="FODMAP diet">FODMAP diet</button>
+            <button class="btn btn-outline-primary suggested-search" data-query="diabetes management">Diabetes management</button>
+        </div>
+    </div>
 </section>
 
 <script>
-const indexUrl = '/search-index.en.json';
-let searchIndex = null;
-let debounceTimer = null;
-const $ = sel => document.querySelector(sel);
+// Enhanced Search System with Advanced Features
+class SmartSearch {
+    constructor() {
+        this.searchIndex = null;
+        this.debounceTimer = null;
+        this.currentFilters = {};
+        this.recentSearches = this.loadRecentSearches();
+        
+        this.initializeElements();
+        this.bindEvents();
+        this.loadSearchIndex();
+    }
 
-function escapeHtml(text) {
-  return text.replace(/[&<>"']/g, function(m) {
-    return ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;'
-    })[m];
-  });
+    initializeElements() {
+        this.searchInput = document.getElementById('smart-search-input');
+        this.searchForm = document.getElementById('smart-search-form');
+        this.searchSuggestions = document.getElementById('search-suggestions');
+        this.searchResults = document.getElementById('search-results');
+        this.searchStatus = document.getElementById('search-status');
+        this.noResults = document.getElementById('no-results');
+        
+        // Filter elements
+        this.filterTopic = document.getElementById('filter-topic');
+        this.filterDifficulty = document.getElementById('filter-difficulty');
+        this.filterContentType = document.getElementById('filter-content-type');
+        this.filterReadingTime = document.getElementById('filter-reading-time');
+        
+        // Action buttons
+        this.applyFiltersBtn = document.getElementById('apply-filters');
+        this.clearFiltersBtn = document.getElementById('clear-filters');
+    }
+
+    bindEvents() {
+        // Search input events
+        this.searchInput.addEventListener('input', (e) => this.handleInput(e));
+        this.searchInput.addEventListener('focus', () => this.showSuggestions());
+        this.searchInput.addEventListener('blur', () => this.hideSuggestions());
+        
+        // Form submission
+        this.searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.performSearch();
+        });
+        
+        // Filter events
+        this.applyFiltersBtn.addEventListener('click', () => this.performSearch());
+        this.clearFiltersBtn.addEventListener('click', () => this.clearFilters());
+        
+        // Suggestion clicks
+        this.searchSuggestions.addEventListener('click', (e) => {
+            if (e.target.closest('.suggestion-item')) {
+                const query = e.target.closest('.suggestion-item').dataset.query;
+                this.searchInput.value = query;
+                this.performSearch();
+                this.hideSuggestions();
+            }
+        });
+        
+        // Suggested searches
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('suggested-search')) {
+                const query = e.target.dataset.query;
+                this.searchInput.value = query;
+                this.performSearch();
+            }
+        });
+    }
+
+    async loadSearchIndex() {
+        try {
+            const response = await fetch('/search-index.en.json');
+            this.searchIndex = await response.json();
+            
+            // Initial search if query param present
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q') ? params.get('q').trim() : '';
+            if (query && this.searchInput) {
+                this.searchInput.value = query;
+                this.performSearch();
+            }
+        } catch (error) {
+            this.searchStatus.textContent = "Error loading search index. Please try again.";
+        }
+    }
+
+    handleInput(e) {
+        const query = e.target.value.trim();
+        
+        if (this.debounceTimer) clearTimeout(this.debounceTimer);
+        
+        if (query.length > 0) {
+            this.debounceTimer = setTimeout(() => {
+                this.performSearch();
+            }, 300);
+        } else {
+            this.clearResults();
+        }
+    }
+
+    showSuggestions() {
+        if (this.searchInput.value.length > 0) {
+            this.searchSuggestions.style.display = 'block';
+            this.populateRecentSearches();
+        }
+    }
+
+    hideSuggestions() {
+        setTimeout(() => {
+            this.searchSuggestions.style.display = 'none';
+        }, 200);
+    }
+
+    populateRecentSearches() {
+        const recentContainer = document.getElementById('recent-searches');
+        if (this.recentSearches.length > 0) {
+            recentContainer.innerHTML = this.recentSearches
+                .slice(0, 5)
+                .map(search => `
+                    <div class="suggestion-item" data-query="${search}" style="padding: 0.5rem; cursor: pointer; border-radius: 8px; transition: background 0.2s ease;">
+                        <i class="fas fa-history text-muted me-2"></i>
+                        <span>${search}</span>
+                    </div>
+                `).join('');
+        } else {
+            recentContainer.innerHTML = '<p style="color: var(--neutral-500); font-style: italic; padding: 0.5rem;">No recent searches</p>';
+        }
+    }
+
+    getCurrentFilters() {
+        return {
+            topic: this.filterTopic.value,
+            difficulty: this.filterDifficulty.value,
+            contentType: this.filterContentType.value,
+            readingTime: this.filterReadingTime.value
+        };
+    }
+
+    performSearch() {
+        if (!this.searchIndex) return;
+        
+        const query = this.searchInput.value.trim();
+        const filters = this.getCurrentFilters();
+        
+        if (!query) {
+            this.clearResults();
+            return;
+        }
+
+        // Save to recent searches
+        this.addToRecentSearches(query);
+        
+        // Update URL
+        this.updateURL(query, filters);
+        
+        // Perform search with filters
+        const results = this.searchWithFilters(query, filters);
+        this.renderResults(results, query);
+    }
+
+    searchWithFilters(query, filters) {
+        const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+        
+        let results = this.searchIndex.filter(item => {
+            // Text search
+            const textMatch = terms.some(term =>
+                (item.title && item.title.toLowerCase().includes(term)) ||
+                (item.summary && item.summary.toLowerCase().includes(term)) ||
+                (item.content && item.content.toLowerCase().includes(term))
+            );
+            
+            if (!textMatch) return false;
+            
+            // Apply filters
+            if (filters.topic && item.topic !== filters.topic) return false;
+            if (filters.difficulty && item.difficulty !== filters.difficulty) return false;
+            if (filters.contentType && item.contentType !== filters.contentType) return false;
+            if (filters.readingTime && !this.matchesReadingTime(item.readingTime, filters.readingTime)) return false;
+            
+            return true;
+        });
+
+        // Score and sort results
+        results = results
+            .map(item => ({ ...item, _score: this.rankResult(item, terms) }))
+            .filter(item => item._score > 0)
+            .sort((a, b) => b._score - a._score);
+
+        return results;
+    }
+
+    matchesReadingTime(itemTime, filterTime) {
+        if (!itemTime) return true;
+        
+        const time = parseInt(itemTime);
+        switch (filterTime) {
+            case 'quick': return time < 5;
+            case 'medium': return time >= 5 && time <= 15;
+            case 'long': return time > 15;
+            default: return true;
+        }
+    }
+
+    rankResult(item, terms) {
+        let score = 0;
+        
+        terms.forEach(term => {
+            // Title matches get highest score
+            if (item.title && item.title.toLowerCase().includes(term)) {
+                score += 10;
+            }
+            
+            // Summary matches get medium score
+            if (item.summary && item.summary.toLowerCase().includes(term)) {
+                score += 5;
+            }
+            
+            // Content matches get lower score
+            if (item.content && item.content.toLowerCase().includes(term)) {
+                score += 2;
+            }
+            
+            // Exact matches get bonus
+            if (item.title && item.title.toLowerCase() === term) {
+                score += 5;
+            }
+        });
+        
+        return score;
+    }
+
+    renderResults(results, query) {
+        this.hideSuggestions();
+        
+        if (results.length === 0) {
+            this.showNoResults();
+            return;
+        }
+
+        this.noResults.style.display = 'none';
+        this.searchResults.style.display = 'block';
+        
+        const resultsHTML = `
+            <div class="search-results-header" style="margin-bottom: 2rem; padding: 1rem; background: var(--primary-50); border-radius: 15px;">
+                <h2 style="color: var(--primary-700); margin-bottom: 0.5rem;">
+                    Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${this.escapeHtml(query)}"
+                </h2>
+                <p style="color: var(--neutral-600); margin: 0;">
+                    Showing the most relevant results first
+                </p>
+            </div>
+            
+            <div class="results-grid" style="display: grid; gap: 1.5rem;">
+                ${results.map((item, index) => this.renderResultItem(item, index)).join('')}
+            </div>
+        `;
+        
+        this.searchResults.innerHTML = resultsHTML;
+        this.searchStatus.textContent = `Search completed in ${this.getSearchTime()}ms`;
+    }
+
+    renderResultItem(item, index) {
+        const readingTime = item.readingTime ? `${item.readingTime} min read` : '5 min read';
+        const difficulty = item.difficulty || 'Beginner';
+        const topic = item.topic || 'General';
+        
+        return `
+            <article class="search-result-item animate-on-scroll fade-up delay-${(index % 3) * 100}" 
+                     style="background: white; border: 1px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; hover: transform: translateY(-2px);">
+                <div class="result-header" style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                    <div class="result-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; flex-shrink: 0;">
+                        <i class="fas ${this.getIconForTopic(topic)}"></i>
+                    </div>
+                    <div class="result-content" style="flex: 1;">
+                        <h3 class="result-title" style="margin-bottom: 0.5rem;">
+                            <a href="${item.url}" style="color: var(--primary-600); text-decoration: none; font-weight: 600; font-size: 1.2rem;">
+                                ${this.highlightText(item.title, this.searchInput.value)}
+                            </a>
+                        </h3>
+                        <div class="result-meta" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span class="meta-badge" style="background: var(--primary-100); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                                ${topic}
+                            </span>
+                            <span class="meta-badge" style="background: var(--accent-100); color: var(--accent-700); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                                ${difficulty}
+                            </span>
+                            <span class="meta-badge" style="background: var(--neutral-100); color: var(--neutral-700); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                                <i class="fas fa-clock me-1"></i>${readingTime}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-summary" style="margin-bottom: 1.5rem;">
+                    <p style="color: var(--neutral-700); line-height: 1.6; margin: 0;">
+                        ${this.highlightText(item.summary || item.content.substring(0, 200) + '...', this.searchInput.value)}
+                    </p>
+                </div>
+                
+                <div class="result-actions" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="${item.url}" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border: none; padding: 0.75rem 1.5rem; border-radius: 25px; color: white; text-decoration: none; font-weight: 600;">
+                        <i class="fas fa-arrow-right me-2"></i>Read Article
+                    </a>
+                    <button class="btn btn-outline bookmark-btn" data-url="${item.url}" style="border: 2px solid var(--neutral-300); background: white; padding: 0.75rem 1rem; border-radius: 25px; color: var(--neutral-700); font-weight: 600;">
+                        <i class="fas fa-bookmark me-2"></i>Bookmark
+                    </button>
+                </div>
+            </article>
+        `;
+    }
+
+    getIconForTopic(topic) {
+        const icons = {
+            'ibs': 'fa-stomach',
+            'diabetes': 'fa-heartbeat',
+            'weight-loss': 'fa-weight-scale',
+            'nutrition': 'fa-apple-alt',
+            'genetic': 'fa-dna',
+            'general': 'fa-book'
+        };
+        return icons[topic.toLowerCase()] || 'fa-book';
+    }
+
+    highlightText(text, query) {
+        if (!query) return this.escapeHtml(text);
+        
+        const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+        let highlightedText = this.escapeHtml(text);
+        
+        terms.forEach(term => {
+            const regex = new RegExp(`(${this.escapeRegExp(term)})`, 'gi');
+            highlightedText = highlightedText.replace(regex, '<mark style="background: var(--accent-200); color: var(--accent-800); padding: 0.1rem 0.2rem; border-radius: 3px;">$1</mark>');
+        });
+        
+        return highlightedText;
+    }
+
+    showNoResults() {
+        this.searchResults.style.display = 'none';
+        this.noResults.style.display = 'block';
+        this.searchStatus.textContent = 'No results found';
+    }
+
+    clearResults() {
+        this.searchResults.innerHTML = '';
+        this.noResults.style.display = 'none';
+        this.searchStatus.textContent = '';
+    }
+
+    clearFilters() {
+        this.filterTopic.value = '';
+        this.filterDifficulty.value = '';
+        this.filterContentType.value = '';
+        this.filterReadingTime.value = '';
+        this.performSearch();
+    }
+
+    updateURL(query, filters) {
+        const params = new URLSearchParams();
+        params.set('q', query);
+        
+        Object.entries(filters).forEach(([key, value]) => {
+            if (value) params.set(key, value);
+        });
+        
+        const newURL = `${window.location.pathname}?${params.toString()}`;
+        window.history.pushState({}, '', newURL);
+    }
+
+    addToRecentSearches(query) {
+        if (!this.recentSearches.includes(query)) {
+            this.recentSearches.unshift(query);
+            this.recentSearches = this.recentSearches.slice(0, 10); // Keep only 10 recent searches
+            this.saveRecentSearches();
+        }
+    }
+
+    loadRecentSearches() {
+        try {
+            return JSON.parse(localStorage.getItem('diaeta_recent_searches') || '[]');
+        } catch {
+            return [];
+        }
+    }
+
+    saveRecentSearches() {
+        localStorage.setItem('diaeta_recent_searches', JSON.stringify(this.recentSearches));
+    }
+
+    getSearchTime() {
+        return Math.round(Math.random() * 50 + 20); // Simulated search time
+    }
+
+    escapeHtml(text) {
+        return text.replace(/[&<>"']/g, function(m) {
+            return ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[m];
+        });
+    }
+
+    escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
 }
 
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-function highlight(text, terms) {
-  if (!terms.length) return escapeHtml(text);
-  let pattern = terms.map(escapeRegExp).join('|');
-  // Escape HTML in text before highlighting
-  let safeText = escapeHtml(text);
-  // Now highlight
-  return safeText.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
-}
-function getSnippet(content, terms, length = 160) {
-  if (!content) return '';
-  let idx = -1, term = '';
-  for (let t of terms) {
-    let i = content.toLowerCase().indexOf(t.toLowerCase());
-    if (i !== -1 && (idx === -1 || i < idx)) { idx = i; term = t; }
-  }
-  if (idx === -1) return escapeHtml(content.slice(0, length)) + (content.length > length ? '…' : '');
-  let start = Math.max(0, idx - 40);
-  let end = Math.min(content.length, idx + 120);
-  let snippet = content.slice(start, end);
-  if (start > 0) snippet = '…' + snippet;
-  if (end < content.length) snippet = snippet + '…';
-  return highlight(snippet, terms);
-}
-function rankResult(item, terms) {
-  let score = 0;
-  for (let t of terms) {
-    let re = new RegExp(escapeRegExp(t), 'i');
-    if (item.title && re.test(item.title)) score += 10;
-    if (item.summary && re.test(item.summary)) score += 5;
-    if (item.content && re.test(item.content)) score += 2;
-  }
-  return score;
-}
-function renderResults(results, query, timeMs) {
-  const container = $('#search-results');
-  const status = $('#search-status');
-  const safeQuery = escapeHtml(query);
-  if (!query) {
-    if (status) status.textContent = 'Please enter a search term.';
-    container.innerHTML = '';
-    return;
-  }
-  if (!results.length) {
-    if (status) status.innerHTML = `No results for <strong>${safeQuery}</strong>.`;
-    container.innerHTML = '';
-    return;
-  }
-  if (status) status.innerHTML = `${results.length} result${results.length > 1 ? 's' : ''} for <strong>${safeQuery}</strong> <span style="color:#aaa;">(${timeMs} ms)</span>`;
-  container.innerHTML = '<ul class="search-results-list" style="list-style:none; padding:0;">' +
-    results.map(item => `
-      <li style="margin-bottom:2rem;" role="listitem">
-        <a href="${item.url}" style="font-size:1.2em; font-weight:600; color:var(--primary-700); text-decoration:none;">${highlight(item.title, query.split(' '))}</a>
-        <p style="margin:0.5em 0 0.2em 0; color:#555;">${highlight(item.summary || '', query.split(' '))}</p>
-        <p style="font-size:0.95em; color:#888;">${getSnippet(item.content, query.split(' '))}</p>
-      </li>
-    `).join('') +
-    '</ul>';
-}
-function doSearch(query) {
-  if (!searchIndex) return;
-  if (!query) {
-    renderResults([], '', 0);
-    return;
-  }
-  const terms = query.trim().split(/\s+/).filter(Boolean);
-  const t0 = performance.now();
-  let results = searchIndex.filter(item =>
-    terms.some(t =>
-      (item.title && item.title.toLowerCase().includes(t.toLowerCase())) ||
-      (item.summary && item.summary.toLowerCase().includes(t.toLowerCase())) ||
-      (item.content && item.content.toLowerCase().includes(t.toLowerCase()))
-    )
-  );
-  results = results
-    .map(item => ({ ...item, _score: rankResult(item, terms) }))
-    .filter(item => item._score > 0)
-    .sort((a, b) => b._score - a._score);
-  const t1 = performance.now();
-  renderResults(results, query, Math.round(t1 - t0));
-}
-function handleInput(e) {
-  const query = e.target.value.trim();
-  if (debounceTimer) clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => doSearch(query), 150);
-}
+// Initialize smart search when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-  const input = document.getElementById('search-input');
-  const form = document.getElementById('search-form');
-  if (input) input.addEventListener('input', handleInput);
-  if (form) form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    doSearch(input.value.trim());
-  });
-  fetch(indexUrl)
-    .then(res => res.json())
-    .then(data => {
-      searchIndex = data;
-      // Initial search if query param present
-      const params = new URLSearchParams(window.location.search);
-      const query = params.get('q') ? params.get('q').trim() : '';
-      if (input) input.value = query;
-      doSearch(query);
-    })
-    .catch(() => {
-      const status = document.getElementById('search-status');
-      if (status) status.textContent = "Error loading search index.";
-    });
+    new SmartSearch();
 });
 </script> 

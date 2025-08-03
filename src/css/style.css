@@ -9888,3 +9888,203 @@ section {
   }
 }
 
+
+}
+
+.accessibility-toggle {
+    transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* === Notification Styles === */
+.notification {
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* === Knowledge Hub Dashboard Styles === */
+.knowledge-hub-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-welcome-card {
+    transition: all 0.3s ease;
+}
+
+.dashboard-welcome-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+
+}
+
+/* === Bookmarking System Styles === */
+.bookmark-btn {
+    transition: all 0.3s ease;
+}
+
+.bookmark-btn:hover {
+    transform: scale(1.1);
+}
+
+.bookmark-btn.bookmarked {
+    color: var(--accent-500);
+}
+
+/* === Content Difficulty Indicators === */
+.difficulty-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.difficulty-beginner {
+    background: var(--success-100);
+    color: var(--success-700);
+    border: 2px solid var(--success-300);
+}
+
+.difficulty-intermediate {
+    background: var(--warning-100);
+    color: var(--warning-700);
+    border: 2px solid var(--warning-300);
+}
+
+.difficulty-advanced {
+    background: var(--primary-100);
+    color: var(--primary-700);
+    border: 2px solid var(--primary-300);
+}
+
+/* === Reading Time Estimates === */
+.reading-time-estimate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--neutral-100);
+    color: var(--neutral-700);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    background: var(--neutral-50);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.reading-mode h1,
+.reading-mode h2,
+.reading-mode h3,
+.reading-mode h4,
+.reading-mode h5,
+.reading-mode h6 {
+    color: var(--primary-600);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.reading-mode p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* === Font Size Controls === */
+.font-size-small {
+    font-size: 0.9rem !important;
+}
+
+.font-size-normal {
+    font-size: 1rem !important;
+}
+
+.font-size-large {
+    font-size: 1.2rem !important;
+}
+
+.font-size-xlarge {
+    font-size: 1.4rem !important;
+}
+
+/* === Dyslexia Friendly Mode === */
+.dyslexia-friendly {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.1em !important;
+    word-spacing: 0.2em !important;
+}
+
+/* === Mobile Responsive Styles === */
+@media (max-width: 768px) {
+    .smart-search-container {
+        padding: 0 1rem;
+    }
+    
+    .search-filters {
+        grid-template-columns: 1fr;
+    }
+    
+    .learning-paths-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .notes-panel {
+        width: 90vw;
+        right: 5vw;
+    }
+    
+    .accessibility-panel {
+        width: 90vw;
+        left: 5vw;
+    }
+    
+    .dashboard-welcome-card {
+        padding: 1.5rem;
+    }
+    
+    .progress-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+
+
+
