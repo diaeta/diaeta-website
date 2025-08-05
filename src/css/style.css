@@ -3602,19 +3602,25 @@ with a more specific selector.
   /* Custom dropdown styling for mobile overlay navigation */
   .main-nav .dropdown-menu {
     position: static !important;
-    float: none;
-    width: 100%;
+    float: none !important;
+    width: 100% !important;
     margin-top: 0 !important;
-    background-color: rgba(var(--primary-rgb), 0.02);
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    display: none; /* Hidden by default */
+    background-color: rgba(var(--primary-rgb), 0.02) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: none !important; /* Hidden by default */
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .main-nav .dropdown-menu.show {
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
   }
 
   .main-nav .dropdown-item {

@@ -451,13 +451,41 @@ function initializeHeader() {
     if (mainNavForDropdowns) {
         const dropdownToggles = mainNavForDropdowns.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
 
+        // Completely disable Bootstrap dropdowns for mobile overlay
+        function disableBootstrapForMobile() {
+            dropdownToggles.forEach(toggle => {
+                if (window.innerWidth < 1200) {
+                    toggle.removeAttribute('data-bs-toggle');
+                    toggle.removeAttribute('data-bs-target');
+                    
+                    // If Bootstrap instance exists, destroy it
+                    if (window.bootstrap && window.bootstrap.Dropdown) {
+                        const instance = window.bootstrap.Dropdown.getInstance(toggle);
+                        if (instance) {
+                            instance.dispose();
+                        }
+                    }
+                } else {
+                    // Restore for desktop
+                    if (!toggle.hasAttribute('data-bs-toggle')) {
+                        toggle.setAttribute('data-bs-toggle', 'dropdown');
+                    }
+                }
+            });
+        }
+
+        disableBootstrapForMobile();
+        window.addEventListener('resize', disableBootstrapForMobile);
+
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (event) {
                 // Only intercept when in mobile overlay mode (below 1200px)
                 if (window.innerWidth >= 1200) return;
 
-                // Prevent Bootstrap from handling this
+                // Completely prevent Bootstrap
                 event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
 
                 const dropdownMenu = this.nextElementSibling;
                 const isOpen = dropdownMenu.classList.contains('show');
