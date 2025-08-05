@@ -3611,16 +3611,10 @@ with a more specific selector.
     border-radius: 0;
     padding: 0;
     display: none; /* Hidden by default */
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
   }
 
   .main-nav .dropdown-menu.show {
-    display: block;
-    opacity: 1;
-    max-height: 500px; /* Adjust as needed */
+    display: block !important;
   }
 
   .main-nav .dropdown-item {

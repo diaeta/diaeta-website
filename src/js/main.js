@@ -410,10 +410,12 @@ function initializeHeader() {
 
         if (isPureBootstrapDropdownToggle) {
           // For desktop, let Bootstrap handle dropdown toggles
-          // For mobile overlay, let our custom handler manage it
+          // For mobile overlay, prevent default and let custom handler manage it
           if (window.innerWidth >= 1200) {
             return; // Bootstrap handles it
           } else {
+            navClickEvent.preventDefault();
+            navClickEvent.stopPropagation();
             return; // Custom handler manages it
           }
         }
@@ -450,10 +452,33 @@ function initializeHeader() {
     });
   }
 
-    // Custom Dropdown Logic for Mobile Overlay Navigation
+        // Custom Dropdown Logic for Mobile Overlay Navigation
     const mainNavForDropdowns = document.getElementById('main-nav');
     if (mainNavForDropdowns) {
         const dropdownToggles = mainNavForDropdowns.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
+
+        // Disable Bootstrap dropdowns in mobile mode
+        function toggleBootstrapDropdowns() {
+            dropdownToggles.forEach(toggle => {
+                if (window.innerWidth < 1200) {
+                    // Disable Bootstrap dropdown
+                    toggle.removeAttribute('data-bs-toggle');
+                    toggle.setAttribute('data-bs-toggle-disabled', 'dropdown');
+                } else {
+                    // Re-enable Bootstrap dropdown
+                    if (toggle.hasAttribute('data-bs-toggle-disabled')) {
+                        toggle.setAttribute('data-bs-toggle', toggle.getAttribute('data-bs-toggle-disabled'));
+                        toggle.removeAttribute('data-bs-toggle-disabled');
+                    }
+                }
+            });
+        }
+
+        // Initial setup
+        toggleBootstrapDropdowns();
+
+        // Re-check on window resize
+        window.addEventListener('resize', toggleBootstrapDropdowns);
 
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (event) {
@@ -462,10 +487,13 @@ function initializeHeader() {
 
                 event.preventDefault();
                 event.stopPropagation();
+                event.stopImmediatePropagation();
 
-                const dropdownMenu = this.nextElementSibling;
-                const parentDropdown = this.closest('.nav-item.dropdown');
-                const isCurrentlyOpen = dropdownMenu.classList.contains('show');
+                                 const dropdownMenu = this.nextElementSibling;
+                 const parentDropdown = this.closest('.nav-item.dropdown');
+                 const isCurrentlyOpen = dropdownMenu.classList.contains('show');
+                 
+
 
                 // Close all other dropdowns (accordion behavior for mobile only)
                 if (window.innerWidth < 768) {
