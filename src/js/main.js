@@ -410,14 +410,8 @@ function initializeHeader() {
 
         if (isPureBootstrapDropdownToggle) {
           // For desktop, let Bootstrap handle dropdown toggles
-          // For mobile overlay, prevent default and let custom handler manage it
-          if (window.innerWidth >= 1200) {
-            return; // Bootstrap handles it
-          } else {
-            navClickEvent.preventDefault();
-            navClickEvent.stopPropagation();
-            return; // Custom handler manages it
-          }
+          // For mobile overlay, let our simple custom handler manage it
+          return;
         }
         
         setActiveNavLink(this);
@@ -452,73 +446,29 @@ function initializeHeader() {
     });
   }
 
-        // Custom Dropdown Logic for Mobile Overlay Navigation
+    // Simple Dropdown Logic for Mobile Overlay Navigation
     const mainNavForDropdowns = document.getElementById('main-nav');
     if (mainNavForDropdowns) {
         const dropdownToggles = mainNavForDropdowns.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
 
-        // Disable Bootstrap dropdowns in mobile mode
-        function toggleBootstrapDropdowns() {
-            dropdownToggles.forEach(toggle => {
-                if (window.innerWidth < 1200) {
-                    // Disable Bootstrap dropdown
-                    toggle.removeAttribute('data-bs-toggle');
-                    toggle.setAttribute('data-bs-toggle-disabled', 'dropdown');
-                } else {
-                    // Re-enable Bootstrap dropdown
-                    if (toggle.hasAttribute('data-bs-toggle-disabled')) {
-                        toggle.setAttribute('data-bs-toggle', toggle.getAttribute('data-bs-toggle-disabled'));
-                        toggle.removeAttribute('data-bs-toggle-disabled');
-                    }
-                }
-            });
-        }
-
-        // Initial setup
-        toggleBootstrapDropdowns();
-
-        // Re-check on window resize
-        window.addEventListener('resize', toggleBootstrapDropdowns);
-
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (event) {
-                // Only use custom logic when in mobile overlay mode
-                if (window.innerWidth >= 1200) return; // Let Bootstrap handle desktop
+                // Only intercept when in mobile overlay mode (below 1200px)
+                if (window.innerWidth >= 1200) return;
 
+                // Prevent Bootstrap from handling this
                 event.preventDefault();
-                event.stopPropagation();
-                event.stopImmediatePropagation();
 
-                                 const dropdownMenu = this.nextElementSibling;
-                 const parentDropdown = this.closest('.nav-item.dropdown');
-                 const isCurrentlyOpen = dropdownMenu.classList.contains('show');
-                 
+                const dropdownMenu = this.nextElementSibling;
+                const isOpen = dropdownMenu.classList.contains('show');
 
-
-                // Close all other dropdowns (accordion behavior for mobile only)
-                if (window.innerWidth < 768) {
-                    dropdownToggles.forEach(otherToggle => {
-                        if (otherToggle !== this) {
-                            const otherDropdownMenu = otherToggle.nextElementSibling;
-                            const otherParentDropdown = otherToggle.closest('.nav-item.dropdown');
-                            if (otherDropdownMenu.classList.contains('show')) {
-                                otherDropdownMenu.classList.remove('show');
-                                otherToggle.setAttribute('aria-expanded', 'false');
-                                otherParentDropdown.classList.remove('show');
-                            }
-                        }
-                    });
-                }
-
-                // Toggle current dropdown
-                if (isCurrentlyOpen) {
+                // Simple toggle - exactly like small screens
+                if (isOpen) {
                     dropdownMenu.classList.remove('show');
                     this.setAttribute('aria-expanded', 'false');
-                    parentDropdown.classList.remove('show');
                 } else {
                     dropdownMenu.classList.add('show');
                     this.setAttribute('aria-expanded', 'true');
-                    parentDropdown.classList.add('show');
                 }
             });
         });
