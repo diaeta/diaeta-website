@@ -409,8 +409,13 @@ function initializeHeader() {
         const isPureBootstrapDropdownToggle = this.matches('[data-bs-toggle="dropdown"]') && this.getAttribute('href') === '#';
 
         if (isPureBootstrapDropdownToggle) {
-          // Let Bootstrap handle dropdown toggles
-          return;
+          // For desktop, let Bootstrap handle dropdown toggles
+          // For mobile overlay, let our custom handler manage it
+          if (window.innerWidth >= 1200) {
+            return; // Bootstrap handles it
+          } else {
+            return; // Custom handler manages it
+          }
         }
         
         setActiveNavLink(this);
@@ -445,29 +450,48 @@ function initializeHeader() {
     });
   }
 
-    // Mobile Menu Accordion Logic
-    const mainNavForAccordion = document.getElementById('main-nav');
-    if (mainNavForAccordion) {
-        const dropdownToggles = mainNavForAccordion.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
+    // Custom Dropdown Logic for Mobile Overlay Navigation
+    const mainNavForDropdowns = document.getElementById('main-nav');
+    if (mainNavForDropdowns) {
+        const dropdownToggles = mainNavForDropdowns.querySelectorAll('.nav-list > .nav-item.dropdown > .nav-link.dropdown-toggle');
 
         dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('show.bs.dropdown', function (event) {
-                // Only run accordion logic on true mobile screens (not tablets)
-                if (window.innerWidth >= 768) return; // Only mobile phones need accordion behavior
+            toggle.addEventListener('click', function (event) {
+                // Only use custom logic when in mobile overlay mode
+                if (window.innerWidth >= 1200) return; // Let Bootstrap handle desktop
 
-                // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
+                event.preventDefault();
+                event.stopPropagation();
 
-                dropdownToggles.forEach(otherToggle => {
-                    if (otherToggle !== this) { // Don't mess with the current toggle
-                        const otherDropdownMenu = otherToggle.nextElementSibling;
-                        if (otherDropdownMenu && otherDropdownMenu.classList.contains('show')) {
-                            const instance = bootstrap.Dropdown.getInstance(otherToggle);
-                            if (instance) {
-                                instance.hide();
+                const dropdownMenu = this.nextElementSibling;
+                const parentDropdown = this.closest('.nav-item.dropdown');
+                const isCurrentlyOpen = dropdownMenu.classList.contains('show');
+
+                // Close all other dropdowns (accordion behavior for mobile only)
+                if (window.innerWidth < 768) {
+                    dropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherDropdownMenu = otherToggle.nextElementSibling;
+                            const otherParentDropdown = otherToggle.closest('.nav-item.dropdown');
+                            if (otherDropdownMenu.classList.contains('show')) {
+                                otherDropdownMenu.classList.remove('show');
+                                otherToggle.setAttribute('aria-expanded', 'false');
+                                otherParentDropdown.classList.remove('show');
                             }
                         }
-                    }
-                });
+                    });
+                }
+
+                // Toggle current dropdown
+                if (isCurrentlyOpen) {
+                    dropdownMenu.classList.remove('show');
+                    this.setAttribute('aria-expanded', 'false');
+                    parentDropdown.classList.remove('show');
+                } else {
+                    dropdownMenu.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
+                    parentDropdown.classList.add('show');
+                }
             });
         });
     }

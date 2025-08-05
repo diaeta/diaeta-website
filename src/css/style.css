@@ -3599,8 +3599,8 @@ with a more specific selector.
     background-color: rgba(var(--primary-rgb), 0.1);
   }
 
-  /* Bootstrap dropdown fixes for mobile overlay navigation */
-  .dropdown-menu {
+  /* Custom dropdown styling for mobile overlay navigation */
+  .main-nav .dropdown-menu {
     position: static !important;
     float: none;
     width: 100%;
@@ -3610,9 +3610,20 @@ with a more specific selector.
     box-shadow: none;
     border-radius: 0;
     padding: 0;
+    display: none; /* Hidden by default */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
   }
 
-  .dropdown-item {
+  .main-nav .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    max-height: 500px; /* Adjust as needed */
+  }
+
+  .main-nav .dropdown-item {
     padding: var(--space-2) var(--space-4);
     color: var(--text-primary);
     background-color: transparent;
@@ -3622,8 +3633,8 @@ with a more specific selector.
     display: block;
   }
 
-  .dropdown-item:hover,
-  .dropdown-item:focus {
+  .main-nav .dropdown-item:hover,
+  .main-nav .dropdown-item:focus {
     background-color: rgba(var(--primary-rgb), 0.05);
     color: var(--primary-600);
   }
