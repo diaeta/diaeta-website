@@ -3453,7 +3453,7 @@ with a more specific selector.
 
 /* Mobile Navigation */
 .menu-toggle {
-  display: none !important;
+  display: none;
   background: none;
   border: none;
   color: var(--primary-500);
@@ -3471,7 +3471,6 @@ with a more specific selector.
   overflow: visible;
   width: 40px;
   height: 40px;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -3524,9 +3523,11 @@ with a more specific selector.
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .menu-toggle {
     display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .desktop-actions,

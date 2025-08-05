@@ -453,7 +453,7 @@ function initializeHeader() {
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('show.bs.dropdown', function (event) {
                 // Only run this logic if in mobile view.
-                if (window.innerWidth >= 1024) return; // Desktop breakpoint
+                if (window.innerWidth >= 1200) return; // Desktop breakpoint
 
                 // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
 
