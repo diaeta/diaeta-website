@@ -3524,7 +3524,7 @@ with a more specific selector.
   }
 }
 
-@media (max-width: 1686px) {
+@media (max-width: 1023px) {
   .menu-toggle {
     display: flex !important;
   }
@@ -3589,21 +3589,9 @@ with a more specific selector.
     display: none;
   }
 
-  /* Ensure green line is hidden for dropdown toggles specifically on mobile */
-  /* Aggressively neutralize ::after for dropdown toggles on mobile */
+  /* Hide navigation underlines for dropdown toggles on mobile */
   .nav-link.dropdown-toggle::after {
       display: none !important;
-      background-color: transparent !important;
-      height: 0 !important;
-      width: 0 !important;
-      content: "" !important;
-      visibility: hidden !important;
-      border: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      /* Reset any other properties that might make it visible */
-      position: static !important; /* Prevent absolute positioning if it was ever set */
-      transform: none !important;
   }
 
   .nav-link.active {
@@ -9230,290 +9218,22 @@ section {
   }
 }
 
-/* ============================================= */
-/* == Corrected Header & Navigation Menu Styles v5 == */
-/* ============================================= */
+/* Duplicate navigation styles removed - see consolidated header section above */
 
-/* General Nav Link Styling (ensure no default borders from .nav-link itself) */
-.nav-link {
-    position: relative; /* For ::after and ::before positioning */
-    padding: var(--space-2) var(--space-1) 10px var(--space-1);
-    transition: color 0.3s ease;
-    border: none !important;
-    box-shadow: none !important;
-    display: inline-block;
-    text-decoration: none;
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
-    line-height: normal;
-}
+/* Conflicting nav-link styles removed */
 
-/* "The Healthy Path" Line - using ::after for ALL nav-links */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: calc(100% - var(--space-1) * 2); /* Width based on text area */
-    height: 2px;
-    background-color: var(--accent-500); /* Accent Green */
-    border-radius: 1px;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
-    display: block !important;
-    border: none !important;
-}
+/* Dropdown caret styles removed - handled in main header section */
 
-.nav-item:hover > .nav-link::after,
-.nav-link.active::after {
-    transform: translateX(-50%) scaleX(1); /* Animate to full width */
-}
-
-/* Ensure dropdown toggles don't have extra lines on hover */
-.nav-item.dropdown:hover > .nav-link.dropdown-toggle {
-    border-bottom: none !important;
-    box-shadow: none !important;
-}
-
-.nav-link.active {
-    color: var(--primary-500);
-    font-weight: var(--font-semibold);
-}
-.nav-item:hover > .nav-link {
-    color: var(--primary-500);
-}
-
-/* --- Desktop-Specific Styles for Dropdown Toggles & Caret --- */
-@media (min-width: 1024px) {
-    /* 1. Hide Bootstrap's default ::after caret on desktop dropdown toggles */
-    .nav-item.dropdown > .nav-link.dropdown-toggle::after {
-        display: none !important; /* Completely hide Bootstrap's caret */
-    }
-
-    /* 2. Add our own custom caret using ::before for desktop dropdown toggles */
-    .nav-item.dropdown > .nav-link.dropdown-toggle::before {
-        content: "\f078"; /* Font Awesome chevron-down icon */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900; /* Solid icon style for FA6 */
-        font-size: 0.6em;   /* Make it small and subtle */
-        margin-left: 0.5em; /* Space after the text, before the icon */
-        color: var(--neutral-400); /* Subtle initial color */
-        transition: color 0.3s ease;
-        display: inline-block; /* Allow margin and proper alignment */
-        vertical-align: middle; /* Align with text */
-        order: 1; /* If using flex on parent, to place it after text */
-    }
-
-    .nav-item:hover > .nav-link.dropdown-toggle::before {
-        color: var(--primary-500); /* Change arrow color on hover */
-    }
-}
-
-/* Desktop Dropdown Menu Panel Styling - WITH SMOOTHER TRANSITION */
-.dropdown-menu {
-    background-color: var(--neutral-50);
-    border: none;
-    box-shadow: var(--box-shadow-md);
-    border-radius: var(--border-radius-sm);
-    margin-top: 8px !important;
-    padding: var(--space-2) 0;
-    min-width: 220px;
-
-    /* For smooth transition with Bootstrap's .show class */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0.25s ease-out;
-    display: block; /* Keep it block for transitions, Bootstrap JS will add .show */
-                    /* Or, if Bootstrap strictly needs display:none initially:
-                       display: none;
-                       transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-                       Remove visibility transition if using display:none.
-                    */
-}
-
-.nav-item.dropdown:hover > .dropdown-menu, /* For hover-activated dropdowns */
-.nav-item.dropdown .dropdown-menu.show { /* For click-activated via Bootstrap .show class */
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    /* display: block; /* Ensure it's block if display:none was used initially */
-}
+/* Dropdown menu styles removed - handled in main header section */
 
 
-/* Items WITHIN dropdowns - hover effect */
-.main-nav .dropdown-menu .dropdown-item {
-    font-family: var(--font-primary);
-    font-weight: var(--font-normal);
-    color: var(--text-primary);
-    padding: var(--space-2) var(--space-4);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    white-space: nowrap;
-    background-color: transparent; /* Ensure default is transparent */
-}
+/* Mobile menu styles removed - handled in main header section with standard breakpoint */
+/* Complex mobile animation styles removed - using simplified version in main header section */
 
-.main-nav .dropdown-menu .dropdown-item:hover,
-.main-nav .dropdown-menu .dropdown-item:focus {
-    background-color: var(--primary-50) !important; /* !important for specificity if needed */
-    color: var(--primary-600) !important;
-}
+/* Animation delays and keyframes removed */
 
-
-/* --- MOBILE Menu Styles --- */
-@media (max-width: 1023px) {
-    /* Hide our custom "Healthy Path" line on mobile */
-    .nav-link::after {
-        display: none !important;
-    }
-    /* Hide our custom ::before desktop caret on mobile */
-    .nav-item.dropdown > .nav-link.dropdown-toggle::before {
-        display: none !important;
-    }
-
-    /* Restore/Ensure Bootstrap's default ::after caret for mobile */
-    .nav-item.dropdown .nav-link.dropdown-toggle::after {
-        display: inline-block !important;
-        content: "" !important;
-        border-top: .3em solid;
-        border-right: .3em solid transparent;
-        border-bottom: 0;
-        border-left: .3em solid transparent;
-        vertical-align: .255em;
-        margin-left: auto;
-        transition: transform 0.3s ease;
-    }
-    .nav-item.dropdown.show .nav-link.dropdown-toggle::after {
-        transform: rotate(180deg);
-    }
-
-    /* === PASTE THE REST OF YOUR MOBILE STYLES FROM THE PREVIOUS CSS (v4) HERE === */
-    /* This includes:
-       - .site-header.menu-open .main-nav (background, backdrop-filter for "Layered Clarity")
-       - body.mobile-menu-is-open #main-content effects (JS will toggle body class)
-       - .main-nav transform for slide-in/out animation
-       - .nav-list, .nav-item, and their staggered animation (manual version)
-       - .nav-link styling for mobile (padding, font-size)
-       - .nav-link.active styling for mobile (background color)
-       - .nav-item.dropdown .dropdown-menu for mobile (how submenus display inline)
-       - .dropdown-item for mobile (padding, font-size, separators) and their hover
-       - .mobile-actions styling
-    */
-    .site-header.menu-open .main-nav {
-        background-color: rgba(var(--neutral-50-rgb), 0.97);
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        box-shadow: var(--box-shadow-lg); transform: translateX(0);
-        opacity: 1; visibility: visible;
-        padding-top: var(--space-5); padding-bottom: var(--space-5);
-    }
-    body.mobile-menu-is-open #main-content,
-    body.mobile-menu-is-open .footer {
-        transform: scale(0.97); filter: blur(3px);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        overflow: hidden; border-radius: var(--border-radius-lg);
-    }
-    .main-nav {
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .nav-list { width: 100%; }
-    .nav-item {
-        width: 100%; opacity: 0; transform: translateY(15px);
-        animation: fadeInUpItemMobile 0.5s forwards;
-        border-bottom: 1px solid rgba(var(--primary-rgb), 0.05);
-    }
-    .nav-item:last-child { border-bottom: none; }
-
-    .site-header.menu-open .nav-item:nth-child(1) { animation-delay: 0.17s; }
-    .site-header.menu-open .nav-item:nth-child(2) { animation-delay: 0.24s; }
-    .site-header.menu-open .nav-item:nth-child(3) { animation-delay: 0.31s; }
-    .site-header.menu-open .nav-item:nth-child(4) { animation-delay: 0.38s; }
-    .site-header.menu-open .nav-item:nth-child(5) { animation-delay: 0.45s; }
-    .site-header.menu-open .nav-item:nth-child(6) { animation-delay: 0.52s; }
-    .site-header.menu-open .nav-item:nth-child(7) { animation-delay: 0.59s; }
-
-    @keyframes fadeInUpItemMobile { to { opacity: 1; transform: translateY(0); } }
-
-    .nav-item.dropdown.show { /* Targeting the LI element */
-        height: auto !important;
-        transform: none !important; /* Diagnostic: neutralize animation transform for this item when open */
-        overflow: visible !important; /* Ensure it doesn't clip its children unnecessarily */
-    }
-
-    .nav-link { /* Mobile nav links */
-        display: block; padding: var(--space-3) var(--space-4);
-        font-size: var(--text-lg); color: var(--text-primary);
-    }
-    .nav-link.active { /* Mobile active link */
-        background-color: var(--primary-100); color: var(--primary-600);
-        border-radius: var(--border-radius-sm);
-    }
-    .nav-item:hover > .nav-link { /* Mobile hover on nav items */
-        background-color: var(--primary-50); color: var(--primary-500);
-        border-radius: var(--border-radius-sm);
-    }
-    .nav-item.dropdown .dropdown-menu { /* Mobile dropdown panel */
-        /* Layout properties from original mobile design, ensure they are not conflicting with transform:none on .show */
-        width: 100%;
-        position: static; /* Crucial for layout */
-        float: none;
-        margin-top: 0 !important; 
-        padding: 0; /* Padding is on items inside */
-        background-color: rgba(var(--primary-rgb), 0.03); /* Subtle background */
-        border-top: none;
-        box-shadow: none;
-        border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
-        
-        /* Animation properties for closed state */
-        max-height: 0;
-        overflow: hidden; /* Necessary for max-height animation */
-        visibility: hidden;
-        transition: max-height 0.35s ease-in-out, visibility 0s 0.35s; /* visibility delayed on close */
-        
-        /* Ensure display is block to allow max-height transition */
-        display: block; 
-    }
-    .nav-item.dropdown .dropdown-menu.show { 
-        max-height: 500px; /* Or e.g., 40vh */
-        visibility: visible;
-        transition: max-height 0.35s ease-in-out, visibility 0s 0s;
-
-        /* Retain critical layout overrides if they helped prevent overlap */
-        position: static !important; 
-        transform: none !important; 
-        /* Other visual properties are inherited from the base .nav-item.dropdown .dropdown-menu rule */
-    }
-    
-    .nav-item.dropdown .dropdown-menu .dropdown-item { /* Mobile sub-item */
-        padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
-        font-size: var(--text-base); color: var(--text-secondary);
-        border-bottom: 1px solid rgba(var(--primary-rgb), 0.03);
-    }
-    .nav-item.dropdown .dropdown-menu .dropdown-item:last-child { border-bottom: none; }
-    .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
-    .nav-item.dropdown .dropdown-menu .dropdown-item:focus { /* Mobile sub-item hover */
-         background-color: var(--primary-100) !important;
-         color: var(--primary-600) !important;
-    }
-    .mobile-actions { /* Container for lang switch, phone, CTA in mobile menu */
-        margin-top: var(--space-5); padding-top: var(--space-4);
-        border-top: 1px solid var(--neutral-300);
-    }
-    .mobile-actions .lang-selector { margin-bottom: var(--space-3); }
-    .mobile-actions .phone-link { font-size: var(--text-base); padding: var(--space-3); justify-content: center; }
-    .mobile-actions .mobile-cta { width: 100%; padding: var(--space-3); font-size: var(--text-lg); }
-}
-
-/* "Rendez-vous" CTA Button Hover Effect */
-.btn.header-cta:hover,
-.btn.mobile-cta:hover {
-    background-color: var(--secondary-600) !important;
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-md);
-}
-.btn.header-cta,
-.btn.mobile-cta {
-    transition: var(--transition-standard);
-}
+/* Duplicate mobile dropdown and nav-link styles removed */
+/* All duplicate navigation styles removed - using consolidated header section above */
 
 /* Scroll to Top Button */
 #scrollToTopBtn {
