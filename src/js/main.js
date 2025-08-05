@@ -400,65 +400,48 @@ function initializeHeader() {
     }
   });
 
+  // Initialize optimized navigation listeners
   if (mainNav) {
-    // Click listener for top-level navigation links (items directly in .nav-list)
+    // Click listener for top-level navigation links
     const topLevelNavLinks = mainNav.querySelectorAll('.nav-list > .nav-item > .nav-link');
     topLevelNavLinks.forEach(link => {
       link.addEventListener('click', function(navClickEvent) {
         const isPureBootstrapDropdownToggle = this.matches('[data-bs-toggle="dropdown"]') && this.getAttribute('href') === '#';
 
         if (isPureBootstrapDropdownToggle) {
-          // This is a top-level item like "À Propos" or "Spécialisations" used PURELY to toggle a submenu.
-          // Bootstrap's own JavaScript will handle opening/closing this submenu.
-          // We do NOT call setActiveNavLinkOnClick or close the main mobile panel here.
-          // Let the event propagate to Bootstrap's handlers.
-          // If Bootstrap is correctly initialized, it will toggle the dropdown.
-        } else {
-          // This code runs for:
-          // 1. Top-level links that are NOT dropdown toggles (e.g., "Accueil", "Cabinets").
-          // 2. Dropdown toggles that ARE actual links (e.g., href="/fr/a-propos/" instead of href="#") - less common for this setup.
-          
-          setActiveNavLinkOnClick(this); // Set this link as active
-
-          const href = this.getAttribute('href');
-          // Handle same-page anchor scrolling
-          if (href && href.includes('#') && !href.startsWith("http")) {
-            const targetId = href.split('#')[1];
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              const currentBase = window.location.pathname.split('#')[0].replace(/\/$/, "");
-              const linkBase = href.split('#')[0].replace(/\/$/, "");
-              if (linkBase === "" || linkBase === currentBase || `/${linkBase}` === currentBase || linkBase === `/${currentBase}`) {
-                 navClickEvent.preventDefault();
-                  const headerHeight = header ? header.offsetHeight : 0;
-                  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-              }
+          // Let Bootstrap handle dropdown toggles
+          return;
+        }
+        
+        setActiveNavLink(this);
+        
+        // Handle same-page anchor scrolling
+        const href = this.getAttribute('href');
+        if (href && href.includes('#') && !href.startsWith("http")) {
+          const targetId = href.split('#')[1];
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const currentBase = window.location.pathname.split('#')[0].replace(/\/$/, "");
+            const linkBase = href.split('#')[0].replace(/\/$/, "");
+            if (linkBase === "" || linkBase === currentBase || `/${linkBase}` === currentBase || linkBase === `/${currentBase}`) {
+              navClickEvent.preventDefault();
+              const headerHeight = header ? header.offsetHeight : 0;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+              window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
           }
-          // else: it's a link to a different page, allow default navigation.
-
-          // Close the main mobile navigation panel if it's open
-          if (header.classList.contains('menu-open') && menuToggle) {
-            menuToggle.click(); // This toggles the main mobile menu closed
-          }
         }
+        
+        closeMobileMenu();
       });
     });
 
-    // Listener for items WITHIN dropdowns (e.g., "La Méthode Diaeta")
-    // This ensures that when a submenu item is clicked, the main panel closes.
+    // Listener for dropdown items
     mainNav.querySelectorAll('.dropdown-menu .dropdown-item').forEach(itemLink => {
-        itemLink.addEventListener('click', function() {
-            // When a dropdown item is clicked, it should navigate.
-            setActiveNavLinkOnClick(this); // Set this item and its parent active
-
-            // Close the main mobile navigation panel
-            if (header.classList.contains('menu-open') && menuToggle) {
-                menuToggle.click();
-            }
-            // Allow default link navigation
-        });
+      itemLink.addEventListener('click', function() {
+        setActiveNavLink(this);
+        closeMobileMenu();
+      });
     });
   }
 
@@ -489,18 +472,7 @@ function initializeHeader() {
         });
     }
 
-  function setActiveNavLinkOnClick(clickedLink) {
-    if (!mainNav) return;
-    mainNav.querySelectorAll('.nav-link, .dropdown-item').forEach(l => l.classList.remove('active'));
-    clickedLink.classList.add('active');
-    if (clickedLink.classList.contains('dropdown-item')) {
-        const parentDropdown = clickedLink.closest('.nav-item.dropdown');
-        if (parentDropdown) {
-            const parentToggle = parentDropdown.querySelector('.nav-link.dropdown-toggle');
-            if (parentToggle) parentToggle.classList.add('active');
-        }
-    }
-  }
+// Function removed - replaced by optimized setActiveNavLink
 
   function setActiveNavLinkOnLoad() {
     if (!mainNav) return;
@@ -1502,3 +1474,53 @@ function initializeScrollToLinks() { /* ... as before ... */
 // === INSTANT SEARCH/AUTOCOMPLETE FOR HEADER SEARCH ===
 // (Removed: rollback to simple search form)
 // ... existing code ...
+
+// Consolidated Navigation Helper Functions
+function setActiveNavLink(link) {
+  if (!mainNav) return;
+  
+  // Remove active class from all nav items
+  mainNav.querySelectorAll('.nav-link, .dropdown-item').forEach(l => l.classList.remove('active'));
+  
+  // Add active class to clicked item
+  link.classList.add('active');
+  
+  // If it's a dropdown item, also activate parent dropdown
+  if (link.classList.contains('dropdown-item')) {
+    const parentDropdown = link.closest('.nav-item.dropdown');
+    if (parentDropdown) {
+      const parentToggle = parentDropdown.querySelector('.nav-link.dropdown-toggle');
+      if (parentToggle) parentToggle.classList.add('active');
+    }
+  }
+}
+
+function closeMobileMenu() {
+  if (header.classList.contains('menu-open') && menuToggle) {
+    menuToggle.click();
+  }
+}
+
+function initializeNavigationListeners() {
+  if (!mainNav) return;
+
+  // Add click listeners to main nav links
+  mainNav.querySelectorAll('.nav-list > .nav-item > .nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+      if (!this.classList.contains('dropdown-toggle')) {
+        setActiveNavLink(this);
+        closeMobileMenu();
+      }
+    });
+  });
+
+  // Add click listeners to dropdown items
+  mainNav.querySelectorAll('.dropdown-menu .dropdown-item').forEach(item => {
+    item.addEventListener('click', function() {
+      setActiveNavLink(this);
+      closeMobileMenu();
+    });
+  });
+}
+
+// Legacy function removed - all references updated to use setActiveNavLink
