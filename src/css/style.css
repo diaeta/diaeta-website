@@ -3599,6 +3599,35 @@ with a more specific selector.
     background-color: rgba(var(--primary-rgb), 0.1);
   }
 
+  /* Bootstrap dropdown fixes for mobile overlay navigation */
+  .dropdown-menu {
+    position: static !important;
+    float: none;
+    width: 100%;
+    margin-top: 0 !important;
+    background-color: rgba(var(--primary-rgb), 0.02);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .dropdown-item {
+    padding: var(--space-2) var(--space-4);
+    color: var(--text-primary);
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    display: block;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: rgba(var(--primary-rgb), 0.05);
+    color: var(--primary-600);
+  }
+
   .mobile-actions {
     display: flex;
     width: 100%;

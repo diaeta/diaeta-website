@@ -452,8 +452,8 @@ function initializeHeader() {
 
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('show.bs.dropdown', function (event) {
-                // Only run this logic if in mobile view.
-                if (window.innerWidth >= 1200) return; // Desktop breakpoint
+                // Only run accordion logic on true mobile screens (not tablets)
+                if (window.innerWidth >= 768) return; // Only mobile phones need accordion behavior
 
                 // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
 
