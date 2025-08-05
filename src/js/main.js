@@ -308,6 +308,10 @@ function initializeScrollToTopButton() {
 
 function initializeHeader() {
   console.log('Diaeta: Initializing header...');
+  
+  // Add dropdown arrows to mobile menu
+  addDropdownArrows();
+  
   try {
     const header = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -469,8 +473,8 @@ function initializeHeader() {
 
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('show.bs.dropdown', function (event) {
-                // Only run this logic if in mobile view.
-                if (window.innerWidth >= 1024) return; // Desktop breakpoint
+                // Run this logic for all screen sizes that show mobile menu (up to 1686px)
+                if (window.innerWidth > 1686) return; // Desktop breakpoint
 
                 // const currentDropdownMenu = this.nextElementSibling; // The ul.dropdown-menu being opened - Not needed for this logic
 
@@ -1502,3 +1506,53 @@ function initializeScrollToLinks() { /* ... as before ... */
 // === INSTANT SEARCH/AUTOCOMPLETE FOR HEADER SEARCH ===
 // (Removed: rollback to simple search form)
 // ... existing code ...
+
+// Add dropdown arrows to mobile menu using JavaScript
+function addDropdownArrows() {
+  console.log('Diaeta: Adding dropdown arrows...');
+  
+  // Find all dropdown toggle links
+  const dropdownToggles = document.querySelectorAll('.nav-item.dropdown .nav-link.dropdown-toggle');
+  console.log('Diaeta: Found', dropdownToggles.length, 'dropdown toggles');
+  
+  dropdownToggles.forEach((toggle, index) => {
+    console.log('Diaeta: Processing dropdown toggle', index + 1, ':', toggle.textContent.trim());
+    
+    // Check if arrow already exists
+    if (!toggle.querySelector('.dropdown-arrow')) {
+      // Create arrow element
+      const arrow = document.createElement('span');
+      arrow.className = 'dropdown-arrow';
+      arrow.innerHTML = ' ▼';
+      arrow.style.cssText = `
+        color: var(--primary-500) !important;
+        font-size: 0.8em !important;
+        position: absolute !important;
+        left: 1rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+      `;
+      
+      // Add arrow to the toggle
+      toggle.style.position = 'relative';
+      toggle.style.paddingLeft = '2rem';
+      toggle.appendChild(arrow);
+      
+      console.log('Diaeta: Added dropdown arrow to:', toggle.textContent.trim());
+    } else {
+      console.log('Diaeta: Arrow already exists for:', toggle.textContent.trim());
+    }
+  });
+  
+  // Re-run when menu opens (for mobile)
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      console.log('Diaeta: Menu toggle clicked, adding arrows...');
+      // Small delay to ensure menu is rendered
+      setTimeout(addDropdownArrows, 100);
+    });
+  }
+}

@@ -3209,8 +3209,8 @@ with a more specific selector.
   overflow: hidden;
 }
 
-/* Animated underline effect */
-.nav-link::after {
+/* Animated underline effect - but NOT for dropdown toggles */
+.nav-link:not(.dropdown-toggle)::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -3232,9 +3232,9 @@ with a more specific selector.
   transform: translateY(-1px);
 }
 
-.nav-link:hover::after,
-.nav-link:focus::after,
-.nav-link.active::after {
+.nav-link:not(.dropdown-toggle):hover::after,
+.nav-link:not(.dropdown-toggle):focus::after,
+.nav-link:not(.dropdown-toggle).active::after {
   width: 80%;
 }
 
@@ -9275,6 +9275,18 @@ section {
     box-shadow: none !important;
 }
 
+/* Add subtle visual indicator for dropdown items */
+.nav-item.dropdown > .nav-link.dropdown-toggle {
+    position: relative;
+    padding-right: 1.5em; /* Extra space for the arrow */
+}
+
+/* Add a subtle background on hover for dropdown items */
+.nav-item.dropdown:hover > .nav-link.dropdown-toggle {
+    background-color: rgba(var(--primary-rgb), 0.05);
+    border-radius: var(--border-radius-sm);
+}
+
 .nav-link.active {
     color: var(--primary-500);
     font-weight: var(--font-semibold);
@@ -9295,10 +9307,10 @@ section {
         content: "\f078"; /* Font Awesome chevron-down icon */
         font-family: "Font Awesome 6 Free";
         font-weight: 900; /* Solid icon style for FA6 */
-        font-size: 0.6em;   /* Make it small and subtle */
+        font-size: 0.7em;   /* Slightly larger for better visibility */
         margin-left: 0.5em; /* Space after the text, before the icon */
-        color: var(--neutral-400); /* Subtle initial color */
-        transition: color 0.3s ease;
+        color: var(--neutral-500); /* More visible initial color */
+        transition: color 0.3s ease, transform 0.3s ease;
         display: inline-block; /* Allow margin and proper alignment */
         vertical-align: middle; /* Align with text */
         order: 1; /* If using flex on parent, to place it after text */
@@ -9306,6 +9318,12 @@ section {
 
     .nav-item:hover > .nav-link.dropdown-toggle::before {
         color: var(--primary-500); /* Change arrow color on hover */
+    }
+
+    /* Rotate arrow when dropdown is open */
+    .nav-item.dropdown.show > .nav-link.dropdown-toggle::before {
+        transform: rotate(180deg);
+        color: var(--primary-600);
     }
 }
 
@@ -9360,148 +9378,313 @@ section {
 
 
 /* --- MOBILE Menu Styles --- */
-@media (max-width: 1023px) {
-    /* Hide our custom "Healthy Path" line on mobile */
-    .nav-link::after {
-        display: none !important;
-    }
-    /* Hide our custom ::before desktop caret on mobile */
-    .nav-item.dropdown > .nav-link.dropdown-toggle::before {
-        display: none !important;
-    }
+@media (max-width: 1686px) {
+  .menu-toggle {
+    display: flex !important;
+  }
 
-    /* Restore/Ensure Bootstrap's default ::after caret for mobile */
-    .nav-item.dropdown .nav-link.dropdown-toggle::after {
-        display: inline-block !important;
-        content: "" !important;
-        border-top: .3em solid;
-        border-right: .3em solid transparent;
-        border-bottom: 0;
-        border-left: .3em solid transparent;
-        vertical-align: .255em;
-        margin-left: auto;
-        transition: transform 0.3s ease;
-    }
-    .nav-item.dropdown.show .nav-link.dropdown-toggle::after {
-        transform: rotate(180deg);
-    }
+  .desktop-actions,
+  .search-container {
+    display: none !important;
+  }
 
-    /* === PASTE THE REST OF YOUR MOBILE STYLES FROM THE PREVIOUS CSS (v4) HERE === */
-    /* This includes:
-       - .site-header.menu-open .main-nav (background, backdrop-filter for "Layered Clarity")
-       - body.mobile-menu-is-open #main-content effects (JS will toggle body class)
-       - .main-nav transform for slide-in/out animation
-       - .nav-list, .nav-item, and their staggered animation (manual version)
-       - .nav-link styling for mobile (padding, font-size)
-       - .nav-link.active styling for mobile (background color)
-       - .nav-item.dropdown .dropdown-menu for mobile (how submenus display inline)
-       - .dropdown-item for mobile (padding, font-size, separators) and their hover
-       - .mobile-actions styling
-    */
-    .site-header.menu-open .main-nav {
-        background-color: rgba(var(--neutral-50-rgb), 0.97);
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        box-shadow: var(--box-shadow-lg); transform: translateX(0);
-        opacity: 1; visibility: visible;
-        padding-top: var(--space-5); padding-bottom: var(--space-5);
-    }
-    body.mobile-menu-is-open #main-content,
-    body.mobile-menu-is-open .footer {
-        transform: scale(0.97); filter: blur(3px);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        overflow: hidden; border-radius: var(--border-radius-lg);
-    }
-    .main-nav {
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .nav-list { width: 100%; }
-    .nav-item {
-        width: 100%; opacity: 0; transform: translateY(15px);
-        animation: fadeInUpItemMobile 0.5s forwards;
-        border-bottom: 1px solid rgba(var(--primary-rgb), 0.05);
-    }
-    .nav-item:last-child { border-bottom: none; }
+  .main-nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: var(--box-shadow-md);
+    padding: var(--space-4);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 50;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .site-header.menu-open .nav-item:nth-child(1) { animation-delay: 0.17s; }
-    .site-header.menu-open .nav-item:nth-child(2) { animation-delay: 0.24s; }
-    .site-header.menu-open .nav-item:nth-child(3) { animation-delay: 0.31s; }
-    .site-header.menu-open .nav-item:nth-child(4) { animation-delay: 0.38s; }
-    .site-header.menu-open .nav-item:nth-child(5) { animation-delay: 0.45s; }
-    .site-header.menu-open .nav-item:nth-child(6) { animation-delay: 0.52s; }
-    .site-header.menu-open .nav-item:nth-child(7) { animation-delay: 0.59s; }
+  .site-header.menu-open .main-nav {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
 
-    @keyframes fadeInUpItemMobile { to { opacity: 1; transform: translateY(0); } }
+  .nav-list {
+    flex-direction: column;
+    gap: var(--space-1);
+    width: 100%;
+  }
 
-    .nav-item.dropdown.show { /* Targeting the LI element */
-        height: auto !important;
-        transform: none !important; /* Diagnostic: neutralize animation transform for this item when open */
-        overflow: visible !important; /* Ensure it doesn't clip its children unnecessarily */
-    }
+  .nav-item {
+    width: 100%;
+  }
 
-    .nav-link { /* Mobile nav links */
-        display: block; padding: var(--space-3) var(--space-4);
-        font-size: var(--text-lg); color: var(--text-primary);
-    }
-    .nav-link.active { /* Mobile active link */
-        background-color: var(--primary-100); color: var(--primary-600);
-        border-radius: var(--border-radius-sm);
-    }
-    .nav-item:hover > .nav-link { /* Mobile hover on nav items */
-        background-color: var(--primary-50); color: var(--primary-500);
-        border-radius: var(--border-radius-sm);
-    }
-    .nav-item.dropdown .dropdown-menu { /* Mobile dropdown panel */
-        /* Layout properties from original mobile design, ensure they are not conflicting with transform:none on .show */
-        width: 100%;
-        position: static; /* Crucial for layout */
-        float: none;
-        margin-top: 0 !important; 
-        padding: 0; /* Padding is on items inside */
-        background-color: rgba(var(--primary-rgb), 0.03); /* Subtle background */
-        border-top: none;
-        box-shadow: none;
-        border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
-        
-        /* Animation properties for closed state */
-        max-height: 0;
-        overflow: hidden; /* Necessary for max-height animation */
-        visibility: hidden;
-        transition: max-height 0.35s ease-in-out, visibility 0s 0.35s; /* visibility delayed on close */
-        
-        /* Ensure display is block to allow max-height transition */
-        display: block; 
-    }
-    .nav-item.dropdown .dropdown-menu.show { 
-        max-height: 500px; /* Or e.g., 40vh */
-        visibility: visible;
-        transition: max-height 0.35s ease-in-out, visibility 0s 0s;
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: var(--space-3) var(--space-2);
+    font-size: var(--text-lg);
+    border-radius: var(--border-radius-md);
+  }
 
-        /* Retain critical layout overrides if they helped prevent overlap */
-        position: static !important; 
-        transform: none !important; 
-        /* Other visual properties are inherited from the base .nav-item.dropdown .dropdown-menu rule */
-    }
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: rgba(var(--primary-rgb), 0.05);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* Ensure green line is hidden for dropdown toggles specifically on mobile */
+  /* Aggressively neutralize ::after for dropdown toggles on mobile */
+  .nav-link.dropdown-toggle::after {
+      display: none !important;
+      background-color: transparent !important;
+      height: 0 !important;
+      width: 0 !important;
+      content: "" !important;
+      visibility: hidden !important;
+      border: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      /* Reset any other properties that might make it visible */
+      position: static !important; /* Prevent absolute positioning if it was ever set */
+      transform: none !important;
+  }
+
+  .nav-link.active {
+    background-color: rgba(var(--primary-rgb), 0.1);
+  }
+
+  .mobile-actions {
+    display: flex;
+    width: 100%;
+    margin-top: var(--space-6);
+  }
+
+  .mobile-actions .lang-selector {
+    position: relative;
+    margin: var(--space-5) auto var(--space-3);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mobile language toggle button */
+  .mobile-actions .lang-toggle {
+    width: 50%;
+    justify-content: center;
+    padding: var(--space-3);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    border-radius: var(--border-radius-pill);
+    background-color: white;
+    color: var(--primary-500);
+  }
+
+  .mobile-actions .lang-toggle:hover,
+  .mobile-actions .lang-toggle:focus {
+    background-color: rgba(var(--primary-rgb), 0.05);
+  }
+
+  /* Mobile language dropdown positioning */
+  .mobile-actions .lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    margin-top: 8px;
+  }
+
+  .mobile-actions .phone-link {
+    font-size: var(--text-base);
+    padding: var(--space-3);
+    justify-content: center;
+  }
+
+  .mobile-actions .btn-secondary {
+    width: 100%;
+    padding: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  /* Mobile dropdown behavior for all screen sizes that show mobile menu */
+  /* Hide our custom "Healthy Path" line on mobile - but NOT for dropdown toggles */
+  .nav-link:not(.dropdown-toggle)::after {
+    display: none !important;
+  }
+  /* Hide our custom ::before desktop caret on mobile */
+  .nav-item.dropdown > .nav-link.dropdown-toggle::before {
+    display: none !important;
+  }
+
+  /* Use simple arrow character for mobile dropdown arrows for better compatibility */
+  /* This rule must override the conflicting rule that hides dropdown arrows */
+  .nav-item.dropdown .nav-link.dropdown-toggle::after {
+    display: inline-block !important;
+    content: "▼" !important; /* Simple down arrow character */
+    font-size: 0.8em !important; /* Slightly smaller for better proportion */
+    color: var(--primary-500) !important; /* Primary color for consistency */
+    transition: transform 0.3s ease, color 0.3s ease !important;
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    font-weight: normal !important; /* Normal weight for cleaner look */
+    font-family: Arial, "Segoe UI Symbol", "Noto Sans Symbols", sans-serif !important; /* Force font that supports arrows */
+    /* Override any conflicting rules */
+    visibility: visible !important;
+    height: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Hide all CSS-based dropdown arrows since we're using JavaScript injection */
+  .nav-link.dropdown-toggle::after {
+    display: none !important;
+  }
+  
+  .nav-item.dropdown .nav-link.dropdown-toggle::after {
+    display: none !important;
+  }
+  
+  .main-nav .nav-list .nav-item.dropdown .nav-link.dropdown-toggle::after {
+    display: none !important;
+  }
+  
+  /* Dropdown arrow styling for mobile */
+  .nav-item.dropdown .nav-link.dropdown-toggle::after {
+    display: none !important; /* Hide CSS arrows since we're using JS injection */
+  }
+  .nav-item.dropdown.show .nav-link.dropdown-toggle::after {
+    transform: translateY(-50%) rotate(180deg) !important;
+    color: var(--primary-600) !important;
+  }
+  
+  /* Hover state for mobile dropdown arrows */
+  .nav-item.dropdown:hover .nav-link.dropdown-toggle::after {
+    color: var(--primary-500) !important;
+  }
+
+  /* Mobile menu styles for all screen sizes that show mobile menu */
+  .site-header.menu-open .main-nav {
+    background-color: rgba(var(--neutral-50-rgb), 0.97);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--box-shadow-lg); transform: translateX(0);
+    opacity: 1; visibility: visible;
+    padding-top: var(--space-5); padding-bottom: var(--space-5);
+  }
+  body.mobile-menu-is-open #main-content,
+  body.mobile-menu-is-open .footer {
+    transform: scale(0.97); filter: blur(3px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden; border-radius: var(--border-radius-lg);
+  }
+  .main-nav {
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .nav-list { width: 100%; }
+  .nav-item {
+    width: 100%; opacity: 0; transform: translateY(15px);
+    animation: fadeInUpItemMobile 0.5s forwards;
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.05);
+    position: relative !important;
+  }
+  .nav-item:last-child { border-bottom: none; }
+
+  .site-header.menu-open .nav-item:nth-child(1) { animation-delay: 0.17s; }
+  .site-header.menu-open .nav-item:nth-child(2) { animation-delay: 0.24s; }
+  .site-header.menu-open .nav-item:nth-child(3) { animation-delay: 0.31s; }
+  .site-header.menu-open .nav-item:nth-child(4) { animation-delay: 0.38s; }
+  .site-header.menu-open .nav-item:nth-child(5) { animation-delay: 0.45s; }
+  .site-header.menu-open .nav-item:nth-child(6) { animation-delay: 0.52s; }
+  .site-header.menu-open .nav-item:nth-child(7) { animation-delay: 0.59s; }
+
+  @keyframes fadeInUpItemMobile { to { opacity: 1; transform: translateY(0); } }
+
+  .nav-item.dropdown.show { /* Targeting the LI element */
+    height: auto !important;
+    transform: none !important; /* Diagnostic: neutralize animation transform for this item when open */
+    overflow: visible !important; /* Ensure it doesn't clip its children unnecessarily */
+  }
+
+  .nav-link { /* Mobile nav links */
+    display: block; padding: var(--space-3) var(--space-4);
+    font-size: var(--text-lg); color: var(--text-primary);
+    position: relative;
+  }
+  .nav-link.active { /* Mobile active link */
+    background-color: var(--primary-100); color: var(--primary-600);
+    border-radius: var(--border-radius-sm);
+  }
+  .nav-item:hover > .nav-link { /* Mobile hover on nav items */
+    background-color: var(--primary-50); color: var(--primary-500);
+    border-radius: var(--border-radius-sm);
+  }
+  .nav-item.dropdown .dropdown-menu { /* Mobile dropdown panel */
+    /* Layout properties from original mobile design, ensure they are not conflicting with transform:none on .show */
+    width: 100%;
+    position: static; /* Crucial for layout */
+    float: none;
+    margin-top: 0 !important; 
+    padding: 0; /* Padding is on items inside */
+    background-color: rgba(var(--primary-rgb), 0.03); /* Subtle background */
+    border-top: none;
+    box-shadow: none;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
     
-    .nav-item.dropdown .dropdown-menu .dropdown-item { /* Mobile sub-item */
-        padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
-        font-size: var(--text-base); color: var(--text-secondary);
-        border-bottom: 1px solid rgba(var(--primary-rgb), 0.03);
-    }
-    .nav-item.dropdown .dropdown-menu .dropdown-item:last-child { border-bottom: none; }
-    .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
-    .nav-item.dropdown .dropdown-menu .dropdown-item:focus { /* Mobile sub-item hover */
-         background-color: var(--primary-100) !important;
-         color: var(--primary-600) !important;
-    }
-    .mobile-actions { /* Container for lang switch, phone, CTA in mobile menu */
-        margin-top: var(--space-5); padding-top: var(--space-4);
-        border-top: 1px solid var(--neutral-300);
-    }
-    .mobile-actions .lang-selector { margin-bottom: var(--space-3); }
-    .mobile-actions .phone-link { font-size: var(--text-base); padding: var(--space-3); justify-content: center; }
-    .mobile-actions .mobile-cta { width: 100%; padding: var(--space-3); font-size: var(--text-lg); }
+    /* Animation properties for closed state */
+    max-height: 0;
+    overflow: hidden; /* Necessary for max-height animation */
+    visibility: hidden;
+    transition: max-height 0.35s ease-in-out, visibility 0s 0.35s; /* visibility delayed on close */
+    
+    /* Ensure display is block to allow max-height transition */
+    display: block; 
+  }
+  .nav-item.dropdown .dropdown-menu.show { 
+    max-height: 500px; /* Or e.g., 40vh */
+    visibility: visible;
+    transition: max-height 0.35s ease-in-out, visibility 0s 0s;
+
+    /* Retain critical layout overrides if they helped prevent overlap */
+    position: static !important; 
+    transform: none !important; 
+    /* Other visual properties are inherited from the base .nav-item.dropdown .dropdown-menu rule */
+  }
+  
+  .nav-item.dropdown .dropdown-menu .dropdown-item { /* Mobile sub-item */
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5);
+    font-size: var(--text-base); color: var(--text-secondary);
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.03);
+  }
+  .nav-item.dropdown .dropdown-menu .dropdown-item:last-child { border-bottom: none; }
+  .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
+  .nav-item.dropdown .dropdown-menu .dropdown-item:focus { /* Mobile sub-item hover */
+     background-color: var(--primary-100) !important;
+     color: var(--primary-600) !important;
+  }
+  .mobile-actions { /* Container for lang switch, phone, CTA in mobile menu */
+    margin-top: var(--space-5); padding-top: var(--space-4);
+    border-top: 1px solid var(--neutral-300);
+  }
+  .mobile-actions .lang-selector { margin-bottom: var(--space-3); }
+  .mobile-actions .phone-link { font-size: var(--text-base); padding: var(--space-3); justify-content: center; }
+  .mobile-actions .mobile-cta { width: 100%; padding: var(--space-3); font-size: var(--text-lg); }
 }
+
+
 
 /* "Rendez-vous" CTA Button Hover Effect */
 .btn.header-cta:hover,
