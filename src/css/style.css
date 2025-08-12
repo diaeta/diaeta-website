@@ -53,10 +53,21 @@
   /* Semantic Colors */
   --success: var(--accent-500);
   --success-500: #9c27b0; /* Purple for variety */
+  --success-100: #e1bee7; /* Very light purple */
+  --success-50: #f3e5f5;  /* Faint purple */
+  --success-200: #e1bee7; /* Light purple */
+  --success-rgb: 156, 39, 176; /* RGB for success-500 */
   --warning: #ffb74d;
   --warning-500: #ff9800; /* Orange for warning elements */
+  --warning-100: #ffecb3; /* Very light orange */
+  --warning-50: #fff3e0;  /* Faint orange */
+  --warning-200: #ffe0b2; /* Light orange */
+  --warning-rgb: 255, 152, 0; /* RGB for warning-500 */
   --error: #ef5350;
   --info: #64b5f6;
+  --info-100: #bbdefb;   /* Very light blue */
+  --info-50: #e3f2fd;    /* Faint blue */
+  --info-200: #bbdefb; /* Light blue */
 
   /* Component Variables */
   --body-bg: var(--neutral-50);
@@ -3575,7 +3586,7 @@ with a more specific selector.
   .nav-link {
     display: block;
     width: 100%;
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-3) var(--space-2) var(--space-3) 3rem;
     font-size: var(--text-lg);
     border-radius: var(--border-radius-md);
   }
@@ -7936,7 +7947,7 @@ section {
 }
 
 /* ===================================================== */
-/* == Styles for Rendez-vous Page - Hours Details Note == */
+/* == Styles for Rendez-vous Page - Hours Details Note ==*/
 /* ===================================================== */
 
 .specific-hours-list li.hours-details-note,
@@ -9278,7 +9289,8 @@ section {
 /* Add subtle visual indicator for dropdown items */
 .nav-item.dropdown > .nav-link.dropdown-toggle {
     position: relative;
-    padding-right: 1.5em; /* Extra space for the arrow */
+    padding-left: 0.5em; /* Adjusted space for the arrow */
+    padding-right: 1em; /* Keep some padding on the right */
 }
 
 /* Add a subtle background on hover for dropdown items */
@@ -9304,16 +9316,15 @@ section {
 
     /* 2. Add our own custom caret using ::before for desktop dropdown toggles */
     .nav-item.dropdown > .nav-link.dropdown-toggle::before {
-        content: "\f078"; /* Font Awesome chevron-down icon */
+        content: "\f054"; /* Font Awesome chevron-right icon */
         font-family: "Font Awesome 6 Free";
         font-weight: 900; /* Solid icon style for FA6 */
         font-size: 0.7em;   /* Slightly larger for better visibility */
-        margin-left: 0.5em; /* Space after the text, before the icon */
+        margin-right: 0.5em; /* Space before the text */
         color: var(--neutral-500); /* More visible initial color */
         transition: color 0.3s ease, transform 0.3s ease;
         display: inline-block; /* Allow margin and proper alignment */
         vertical-align: middle; /* Align with text */
-        order: 1; /* If using flex on parent, to place it after text */
     }
 
     .nav-item:hover > .nav-link.dropdown-toggle::before {
@@ -9322,7 +9333,7 @@ section {
 
     /* Rotate arrow when dropdown is open */
     .nav-item.dropdown.show > .nav-link.dropdown-toggle::before {
-        transform: rotate(180deg);
+        transform: rotate(90deg);
         color: var(--primary-600);
     }
 }
@@ -9530,12 +9541,12 @@ section {
   /* This rule must override the conflicting rule that hides dropdown arrows */
   .nav-item.dropdown .nav-link.dropdown-toggle::after {
     display: inline-block !important;
-    content: "▼" !important; /* Simple down arrow character */
+    content: "▶" !important; /* Simple right arrow character */
     font-size: 0.8em !important; /* Slightly smaller for better proportion */
     color: var(--primary-500) !important; /* Primary color for consistency */
     transition: transform 0.3s ease, color 0.3s ease !important;
     position: absolute !important;
-    right: 1rem !important;
+    left: 1.5rem !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 10 !important;
@@ -9567,7 +9578,7 @@ section {
     display: none !important; /* Hide CSS arrows since we're using JS injection */
   }
   .nav-item.dropdown.show .nav-link.dropdown-toggle::after {
-    transform: translateY(-50%) rotate(180deg) !important;
+    transform: translateY(-50%) rotate(90deg) !important;
     color: var(--primary-600) !important;
   }
   
@@ -10084,9 +10095,6 @@ section {
   }
 }
 
-
-}
-
 .accessibility-toggle {
     transition: all 0.3s ease;
 }
@@ -10125,9 +10133,6 @@ section {
 .dashboard-welcome-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-
 }
 
 /* === Bookmarking System Styles === */
@@ -10281,6 +10286,204 @@ section {
     }
 }
 
+/* ============================================= */
+/* == Enhanced FODMAP Food Cards Styling == */
+/* ============================================= */
 
+/* Enhanced FODMAP Food Cards Styling */
+#aliments-fodmaps .benefit-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  cursor: pointer;
+}
 
+#aliments-fodmaps .benefit-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.1) !important;
+}
 
+#aliments-fodmaps .benefit-card:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+}
+
+#aliments-fodmaps .benefit-card:hover h4 {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+#aliments-fodmaps .benefit-card .icon {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#aliments-fodmaps .benefit-card h4 {
+  transition: transform 0.3s ease;
+}
+
+/* Enhanced section badge hover effect */
+#aliments-fodmaps .section-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2) !important;
+}
+
+/* Enhanced information box hover effect */
+#aliments-fodmaps .row.justify-content-center .col-lg-10 > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15), 0 15px 35px rgba(0,0,0,0.1) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced tip cards hover effects */
+#aliments-fodmaps .col-md-6 > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for enhanced cards */
+@media (max-width: 768px) {
+  #aliments-fodmaps .benefit-card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+  
+  #aliments-fodmaps .benefit-card:hover .icon {
+    transform: scale(1.05) rotate(3deg);
+  }
+  
+  #aliments-fodmaps .section-badge:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+}
+
+/* Enhanced pulse animation for decorative elements */
+@keyframes enhancedPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+#aliments-fodmaps .benefit-card div[style*="animation: pulse"] {
+  animation: enhancedPulse 3s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+#aliments-fodmaps * {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced focus states for accessibility */
+#aliments-fodmaps .benefit-card:focus-within {
+  outline: 3px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+/* Enhanced section badge styling */
+#aliments-fodmaps .section-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+#aliments-fodmaps .section-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+#aliments-fodmaps .section-badge:hover::before {
+  left: 100%;
+}
+
+/* Enhanced floating animation for background elements */
+@keyframes enhancedFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-15px) rotate(2deg); 
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(-25px) rotate(0deg); 
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateY(-15px) rotate(-2deg); 
+    opacity: 0.5;
+  }
+}
+
+#aliments-fodmaps div[style*="animation: float"] {
+  animation: enhancedFloat 8s ease-in-out infinite;
+}
+
+/* Enhanced gradient backgrounds for cards */
+#aliments-fodmaps .benefit-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc) !important;
+  position: relative;
+}
+
+#aliments-fodmaps .benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 30px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#aliments-fodmaps .benefit-card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced text readability */
+#aliments-fodmaps .benefit-card p {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#aliments-fodmaps .benefit-card h4 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Enhanced icon glow effect */
+#aliments-fodmaps .benefit-card .icon {
+  position: relative;
+}
+
+#aliments-fodmaps .benefit-card .icon::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: inherit;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+#aliments-fodmaps .benefit-card:hover .icon::after {
+  opacity: 0.3;
+}

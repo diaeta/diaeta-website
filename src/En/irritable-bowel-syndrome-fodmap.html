@@ -346,121 +346,232 @@ lang: en
             Understanding FODMAPs: The Hidden Triggers
         </h2>
         <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
-            FODMAPs are a group of short-chain carbohydrates that are poorly absorbed in the small intestine. In people with IBS, they can trigger symptoms by drawing excess water into the gut and being rapidly fermented by bacteria, producing gas.
+            Think of FODMAPs as certain types of carbs that your gut has trouble digesting. When you have IBS, these carbs can cause problems by pulling extra water into your intestines and getting quickly broken down by bacteria, which creates gas and discomfort.
         </p>
 
-        <!-- FODMAP Acronym Timeline -->
-        <div class="fodmap-timeline-section mb-5">
+        <!-- FODMAP Acronym (refined) -->
+        <div class="fodmap-acronym-section mb-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="timeline-container" style="position: relative; padding: 2rem 0;">
-                        <!-- Timeline Line -->
-                        <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(180deg, var(--accent-500), var(--secondary-500)); border-radius: 2px;"></div>
-                        
-                        <!-- FODMAP Letters Timeline -->
+                    <div class="acronym-container" style="position: relative; padding: 2rem; background: linear-gradient(135deg, #ffffff, var(--neutral-50)); border: 2px solid var(--neutral-200); border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.08);">
+                        <!-- F = Fermentable (umbrella concept) -->
+                        <div class="text-center mb-4 animate-on-scroll fade-up delay-150">
+                            <div style="width: 64px; height: 64px; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.4rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.35);">F</div>
+                            <h4 style="margin-bottom: 0.25rem; color: var(--primary-700); font-weight: 800;">Fermentable</h4>
+                            <p style="margin: 0 auto; max-width: 780px; color: var(--neutral-700); line-height: 1.7;">
+                                These are carbs that your gut bacteria love to feast on, creating gas as they break them down. Think of it like a party in your intestines! All the groups below are fermentable, but some people with IBS are more sensitive to this process than others.
+                            </p>
+                        </div>
+
+                        <!-- The four carbohydrate families -->
                         <div class="row g-4">
-                            <!-- F - Fermentable -->
+                            <!-- Oligosaccharides -->
                             <div class="col-md-6 animate-on-scroll fade-up delay-200">
-                                <div class="timeline-item left" style="position: relative; padding-right: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; right: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            F
+                                <div class="h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 18px; padding: 1.5rem 1.5rem 1.25rem; box-shadow: 0 10px 28px rgba(0,0,0,0.08);">
+                                    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+                                        <div style="width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; font-weight:800; background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); box-shadow: 0 6px 14px rgba(16,185,129,0.35);">O</div>
+                                        <h5 style="margin:0; color: var(--accent-700); font-weight: 800;">Oligosaccharides</h5>
                                         </div>
-                                        <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 0.5rem;">Fermentable</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">These carbohydrates are easily broken down by gut bacteria, leading to gas production and potential symptoms.</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border-left: 3px solid var(--primary-500);">
-                                            <i class="fas fa-leaf text-primary me-2" style="color: var(--primary-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Examples:</strong> All FODMAP foods are fermentable</span>
+                                    <p style="color: var(--neutral-700); margin-bottom: 0.75rem;">These are found in wheat, onions, garlic, and legumes. They're one of the most common triggers for IBS symptoms.</p>
+                                    <div class="food-examples-section" style="margin-top: 1rem;">
+                                        <h6 style="color: var(--accent-700); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-utensils me-1"></i>Common High-FODMAP Foods
+                                        </h6>
+                                        <div class="food-categories" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                            <!-- Grains -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-bread-slice" style="color: var(--accent-600); margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-700);">Grains & Breads</span>
+                                        </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Wheat</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Rye</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Barley</span>
+                                    </div>
+                                </div>
+                                            <!-- Vegetables -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-carrot" style="color: var(--accent-600); margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-700);">Vegetables</span>
+                            </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Onions</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Garlic</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Asparagus</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Artichokes</span>
+                                        </div>
+                                        </div>
+                                            <!-- Legumes -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-seedling" style="color: var(--accent-600); margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-700);">Legumes</span>
+                                                </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Beans</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Lentils</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(16,185,129,0.1); color: var(--accent-700); border: 1px solid rgba(16,185,129,0.2); font-size: 0.8rem; font-weight: 500;">Chickpeas</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- O - Oligosaccharides -->
+                            <!-- Disaccharides -->
+                            <div class="col-md-6 animate-on-scroll fade-up delay-250">
+                                <div class="h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 18px; padding: 1.5rem 1.5rem 1.25rem; box-shadow: 0 10px 28px rgba(0,0,0,0.08);">
+                                    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+                                        <div style="width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; font-weight:800; background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); box-shadow: 0 6px 14px rgba(139,92,246,0.35);">D</div>
+                                        <h5 style="margin:0; color: var(--secondary-700); font-weight: 800;">Disaccharides (Lactose)</h5>
+                                        </div>
+                                    <p style="color: var(--neutral-700); margin-bottom: 0.75rem;">This is the sugar found in milk and dairy products. Many people with IBS have trouble digesting it because they don't have enough of the enzyme that breaks it down.</p>
+                                    <div class="food-examples-section" style="margin-top: 1rem;">
+                                        <h6 style="color: var(--secondary-700); font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-utensils me-1"></i>Common High-Lactose Foods
+                                        </h6>
+                                        <div class="food-categories" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                            <!-- Dairy Products -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-cheese" style="color: var(--secondary-600); margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--secondary-700);">Dairy Products</span>
+                                        </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Cow's Milk</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Goat's Milk</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Yogurt</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Soft Cheeses</span>
+                                    </div>
+                                </div>
+                                            <!-- Processed Foods -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-ice-cream" style="color: var(--secondary-600); margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--secondary-700);">Processed Foods</span>
+                            </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Ice Cream</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Cream</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Butter</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(139,92,246,0.1); color: var(--secondary-700); border: 1px solid rgba(139,92,246,0.2); font-size: 0.8rem; font-weight: 500;">Milk Chocolate</span>
+                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monosaccharides (excess fructose) -->
                             <div class="col-md-6 animate-on-scroll fade-up delay-300">
-                                <div class="timeline-item right" style="position: relative; padding-left: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            O
+                                <div class="h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 18px; padding: 1.5rem 1.5rem 1.25rem; box-shadow: 0 10px 28px rgba(0,0,0,0.08);">
+                                    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+                                        <div style="width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; font-weight:800; background: linear-gradient(135deg, var(--warning-500), #f57c00); box-shadow: 0 6px 14px rgba(245,158,11,0.35);">M</div>
+                                        <h5 style="margin:0; color: #b45309; font-weight: 800;">Monosaccharides (Excess Fructose)</h5>
                                         </div>
-                                        <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 0.5rem;">Oligosaccharides</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">Found in wheat, onions, garlic, and legumes. Includes fructans and galacto-oligosaccharides (GOS).</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border-radius: 10px; border-left: 3px solid var(--accent-500);">
-                                            <i class="fas fa-bread-slice text-accent me-2" style="color: var(--accent-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Examples:</strong> Wheat, onions, garlic, beans, lentils</span>
+                                    <p style="color: var(--neutral-700); margin-bottom: 0.75rem;">This is the natural sugar found in fruits and sweeteners. It's only a problem when there's more fructose than glucose in a food, which can overwhelm your gut's ability to absorb it.</p>
+                                    <div class="food-examples-section" style="margin-top: 1rem;">
+                                        <h6 style="color: #b45309; font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-utensils me-1"></i>Common High-Fructose Foods
+                                        </h6>
+                                        <div class="food-categories" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                            <!-- Fruits -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-apple-alt" style="color: #f57c00; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: #b45309;">High-Fructose Fruits</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- D - Disaccharides -->
-                            <div class="col-md-6 animate-on-scroll fade-up delay-400">
-                                <div class="timeline-item left" style="position: relative; padding-right: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; right: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            D
-                                        </div>
-                                        <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 0.5rem;">Disaccharides</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">Mainly lactose found in dairy products. Many people with IBS have difficulty digesting lactose.</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(139, 92, 246, 0.1); border-radius: 10px; border-left: 3px solid var(--secondary-500);">
-                                            <i class="fas fa-cheese text-secondary me-2" style="color: var(--secondary-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Examples:</strong> Milk, yogurt, soft cheeses, ice cream</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- M - Monosaccharides -->
-                            <div class="col-md-6 animate-on-scroll fade-up delay-500">
-                                <div class="timeline-item right" style="position: relative; padding-left: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--warning-500), #f57c00); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            M
-                                        </div>
-                                        <h4 style="color: var(--warning-500); font-weight: 700; margin-bottom: 0.5rem;">Monosaccharides</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">Excess fructose found in honey, apples, pears, and high-fructose corn syrup.</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(245, 158, 11, 0.1); border-radius: 10px; border-left: 3px solid var(--warning-500);">
-                                            <i class="fas fa-honey text-warning me-2" style="color: var(--warning-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Examples:</strong> Honey, apples, pears, high-fructose corn syrup</span>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Apples</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Pears</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Mango</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Watermelon</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Cherries</span>
+                                                </div>
+                                            </div>
+                                            <!-- Sweeteners -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-candy-cane" style="color: #f57c00; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: #b45309;">Sweeteners & Syrups</span>
+                                                </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Honey</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">HFCS</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Agave Syrup</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(245,158,11,0.1); color: #92400e; border: 1px solid rgba(245,158,11,0.2); font-size: 0.8rem; font-weight: 500;">Fruit Juice</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- A - And -->
-                            <div class="col-md-6 animate-on-scroll fade-up delay-600">
-                                <div class="timeline-item left" style="position: relative; padding-right: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; right: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--success-500), #7b1fa2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            A
+                            <!-- Polyols -->
+                            <div class="col-md-6 animate-on-scroll fade-up delay-350">
+                                <div class="h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 18px; padding: 1.5rem 1.5rem 1.25rem; box-shadow: 0 10px 28px rgba(0,0,0,0.08);">
+                                    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+                                        <div style="width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; font-weight:800; background: linear-gradient(135deg, #2196f3, #1976d2); box-shadow: 0 6px 14px rgba(33,150,243,0.35);">P</div>
+                                        <h5 style="margin:0; color: #0b68a3; font-weight: 800;">Polyols (Sugar Alcohols)</h5>
                                         </div>
-                                        <h4 style="color: var(--success-500); font-weight: 700; margin-bottom: 0.5rem;">And</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">The connecting word that brings all these carbohydrate groups together under one umbrella.</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(156, 39, 176, 0.1); border-radius: 10px; border-left: 3px solid var(--success-500);">
-                                            <i class="fas fa-link text-success me-2" style="color: var(--success-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Connector:</strong> Links all FODMAP groups together</span>
+                                    <p style="color: var(--neutral-700); margin-bottom: 0.75rem;">These are sugar alcohols that your body doesn't absorb well. They can pull water into your intestines and get fermented by bacteria, causing bloating and gas.</p>
+                                    <div class="food-examples-section" style="margin-top: 1rem;">
+                                        <h6 style="color: #0b68a3; font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            <i class="fas fa-utensils me-1"></i>Common High-Polyol Foods
+                                        </h6>
+                                        <div class="food-categories" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                            <!-- Fruits -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-apple-alt" style="color: #2196f3; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: #0b68a3;">Stone Fruits</span>
                                         </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Peaches</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Plums</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Apricots</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Cherries</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Avocado</span>
                                     </div>
                                 </div>
+                                            <!-- Vegetables -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-carrot" style="color: #2196f3; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: #0b68a3;">Vegetables</span>
                             </div>
-
-                            <!-- P - Polyols -->
-                            <div class="col-md-6 animate-on-scroll fade-up delay-700">
-                                <div class="timeline-item right" style="position: relative; padding-left: 3rem;">
-                                    <div class="timeline-content" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; height: 100%;">
-                                        <div class="timeline-icon" style="position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #2196f3, #1976d2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 2;">
-                                            P
-                                        </div>
-                                        <h4 style="color: var(--info-500); font-weight: 700; margin-bottom: 0.5rem;">Polyols</h4>
-                                        <p style="color: var(--neutral-700); margin: 0; line-height: 1.6;">Sugar alcohols like sorbitol and mannitol found in stone fruits, mushrooms, and artificial sweeteners.</p>
-                                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(33, 150, 243, 0.1); border-radius: 10px; border-left: 3px solid var(--info-500);">
-                                            <i class="fas fa-apple-alt text-info me-2" style="color: var(--info-500);"></i>
-                                            <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Examples:</strong> Apples, pears, peaches, mushrooms, sugar-free gum</span>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Mushrooms</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Cauliflower</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Sweet Corn</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Snow Peas</span>
+                        </div>
+                    </div>
+                                            <!-- Artificial Sweeteners -->
+                                            <div class="food-category">
+                                                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                                                    <i class="fas fa-candy-cane" style="color: #2196f3; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                                                    <span style="font-size: 0.85rem; font-weight: 600; color: #0b68a3;">Artificial Sweeteners</span>
+                                                </div>
+                                                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Sorbitol</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Mannitol</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Xylitol</span>
+                                                    <span style="display: inline-block; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(33,150,243,0.1); color: #0b68a3; border: 1px solid rgba(33,150,243,0.2); font-size: 0.8rem; font-weight: 500;">Sugar-free Gum</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Clarifying note about "A" -->
+                        <p class="text-center mt-4" style="color: var(--neutral-600);">
+                            Don't worry about the <strong>"A"</strong> in FODMAP — it just means <em>"and"</em>! It's just there to connect all these different types of carbs together. It's not a separate group you need to remember.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -480,7 +591,7 @@ lang: en
                                 <i class="fas fa-cogs text-accent me-2"></i>How Do FODMAPs Cause Symptoms?
                             </h3>
                             <p class="text-center mb-5" style="font-size: 1.1rem; line-height: 1.8; color: var(--neutral-700); max-width: 700px; margin: 0 auto;">
-                                Due to their small size and poor absorption, FODMAPs exert two main effects in the gut that can trigger IBS symptoms:
+                                FODMAPs cause problems in two main ways that can trigger your IBS symptoms:
                             </p>
                             
                             <div class="row g-4">
@@ -494,7 +605,7 @@ lang: en
                                         </div>
                                         <h4 class="text-center mb-3" style="color: var(--primary-600); font-weight: 700;">1. Osmotic Effect</h4>
                                         <p class="text-center mb-0" style="color: var(--neutral-700); line-height: 1.7;">
-                                            FODMAPs draw water into the small intestine and colon due to their osmotic properties. This can lead to loose stools, increased urgency, and a sensation of abdominal distension.
+                                            FODMAPs act like a sponge, pulling extra water into your intestines. This can make your stools looser, give you that urgent feeling to go to the bathroom, and make your belly feel bloated and uncomfortable.
                                         </p>
                                     </div>
                                 </div>
@@ -508,7 +619,7 @@ lang: en
                                         </div>
                                         <h4 class="text-center mb-3" style="color: var(--accent-600); font-weight: 700;">2. Fermentation</h4>
                                         <p class="text-center mb-0" style="color: var(--neutral-700); line-height: 1.7;">
-                                            As FODMAPs are not fully absorbed, they arrive intact in the large intestine where they are rapidly fermented by gut bacteria. This fermentation process produces gas, bloating, and abdominal discomfort.
+                                            Since your body doesn't fully absorb FODMAPs, they end up in your large intestine where your gut bacteria go to town on them! This creates gas, bloating, and that uncomfortable feeling in your belly.
                                         </p>
                                     </div>
                                 </div>
@@ -517,9 +628,9 @@ lang: en
                             <div class="text-center mt-5">
                                 <div style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); padding: 2rem; border-radius: 20px; border: 2px solid var(--neutral-200); box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: inline-block; max-width: 800px;">
                                     <i class="fas fa-lightbulb text-accent me-2" style="font-size: 1.3rem;"></i>
-                                    <span style="color: var(--accent-600); font-weight: 600; font-size: 1.1rem;">Understanding this mechanism is key</span>
+                                    <span style="color: var(--accent-600); font-weight: 600; font-size: 1.1rem;">Here's the good news!</span>
                                     <p style="color: var(--neutral-600); margin: 0.5rem 0 0 0; font-size: 1rem; line-height: 1.6;">
-                                        to seeing how a targeted dietary strategy, like the Low FODMAP approach guided by an expert, can provide significant relief by reducing these triggers.
+                                        Understanding how FODMAPs work means you can take control! By working with an expert to follow a Low FODMAP diet, you can significantly reduce these triggers and get real relief from your symptoms.
                                     </p>
                                 </div>
                             </div>
@@ -541,7 +652,7 @@ lang: en
                             </div>
                             <h4 class="mb-3" style="color: var(--secondary-600); font-weight: 700;">Ready to Learn About the Diet?</h4>
                             <p class="mb-4" style="color: var(--neutral-700); line-height: 1.7;">
-                                Discover how the Low FODMAP diet works in practice with our comprehensive guides on the 3-phase approach, meal planning, and expert strategies for managing your symptoms.
+                                Now that you understand what FODMAPs are, let's explore how the Low FODMAP diet actually works! We'll walk you through the 3-phase approach, meal planning tips, and expert strategies to help you manage your symptoms effectively.
                             </p>
                             <a href="#low-fodmap-diet" class="btn btn-secondary btn-lg" style="background: linear-gradient(135deg, var(--secondary-500), var(--accent-500)); border: none; padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
                                 <span>Explore FODMAP Diet Resources</span>
@@ -571,7 +682,7 @@ lang: en
             The Low FODMAP Diet: A 3-Phase Journey to Relief
         </h2>
         <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 850px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
-            The Low FODMAP diet is a structured, evidence-based approach developed by Monash University to identify your specific dietary triggers. It is not a lifelong diet but a diagnostic tool to help you achieve long-term comfort.
+            The Low FODMAP diet is a proven approach developed by Monash University to help you figure out which foods trigger your symptoms. Think of it as a detective game for your gut! It's not meant to be a forever diet, but rather a tool to help you find long-term relief.
         </p>
         
         <div class="row g-4 justify-content-center">
@@ -582,7 +693,7 @@ lang: en
                     </div>
                     <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 1: Elimination</h4>
                     <p style="color: var(--neutral-700); line-height: 1.7;">
-                        For 2-6 weeks, you will temporarily restrict high-FODMAP foods to calm your symptoms and establish a baseline of digestive comfort.
+                        For 4 weeks, we'll help you temporarily avoid high-FODMAP foods to give your gut a break and see how much better you feel. This helps us establish a baseline of comfort.
                     </p>
                     <!-- Decorative Element -->
                     <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--secondary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
@@ -595,7 +706,7 @@ lang: en
                     </div>
                     <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 2: Reintroduction</h4>
                     <p style="color: var(--neutral-700); line-height: 1.7;">
-                        We systematically reintroduce each FODMAP group one by one to identify which specific types and amounts trigger your symptoms. This phase is crucial for personalization.
+                        Once you're feeling better, we'll carefully test each FODMAP group one by one to figure out exactly which foods and how much of them trigger your symptoms. This is where we get really personal with your diet!
                     </p>
                     <!-- Decorative Element -->
                     <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
@@ -608,7 +719,7 @@ lang: en
                     </div>
                     <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1.5rem;">Phase 3: Personalization</h4>
                     <p style="color: var(--neutral-700); line-height: 1.7;">
-                        Based on your results, we create a long-term, personalized diet that is as varied and enjoyable as possible, limiting only your specific triggers.
+                        Based on what we discover, we'll create a long-term diet plan that's as varied and enjoyable as possible. You'll only need to avoid the specific foods that actually bother you, not everything!
                     </p>
                     <!-- Decorative Element -->
                     <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
@@ -652,126 +763,196 @@ lang: en
 
 
 {# === Foods & FODMAPs Examples Section === #}
-<section id="aliments-fodmaps" class="content-section" style="background: linear-gradient(135deg, var(--neutral-100) 0%, var(--warning-50) 100%); position: relative;">
-    <!-- Decorative Background Elements -->
-    <div style="position: absolute; top: 30px; right: 30px; width: 120px; height: 120px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%;"></div>
-    <div style="position: absolute; bottom: 30px; left: 30px; width: 100px; height: 100px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+<section id="aliments-fodmaps" class="content-section" style="background: linear-gradient(135deg, var(--neutral-50) 0%, var(--warning-50) 50%, var(--accent-50) 100%); position: relative; overflow: hidden;">
+    <style>
+        /* Ensure equal card heights per row and uniform inner content box height */
+        #aliments-fodmaps .row.g-4 { align-items: stretch; }
+        #aliments-fodmaps .row.g-4 > [class*='col-'] { display: flex; }
+        #aliments-fodmaps .row.g-4 > [class*='col-'] > .benefit-card { height: 100%; }
+        #aliments-fodmaps .benefit-card { display: flex; flex-direction: column; width: 100%; }
+        #aliments-fodmaps .benefit-card .content-box { flex: 1 1 auto; }
+        @media (min-width: 768px) {
+            /* Equalize the visible contour height per row on md+ */
+            #aliments-fodmaps .benefit-card .content-box { min-height: 220px; }
+        }
+    </style>
+    <!-- Enhanced Decorative Background Elements -->
+    <div style="position: absolute; top: 30px; right: 30px; width: 120px; height: 120px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.4; border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: 30px; left: 30px; width: 100px; height: 100px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%; animation: float 6s ease-in-out infinite 2s;"></div>
+    <div style="position: absolute; top: 50%; left: 20%; width: 80px; height: 80px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.2; border-radius: 50%; animation: float 8s ease-in-out infinite 4s;"></div>
+    <div style="position: absolute; top: 20%; right: 20%; width: 60px; height: 60px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.3; border-radius: 50%; animation: float 7s ease-in-out infinite 1s;"></div>
     
     <div class="container position-relative">
         <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: translateY(0); transition: all 0.3s ease;">
                 <i class="fas fa-apple-alt me-2"></i>Food Examples
             </span>
         </div>
         
-        <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-600), var(--primary-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center;">
-            Understanding FODMAP Foods: High vs Low
+        <h2 class="animate-on-scroll fade-up" style="font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #16a34a, #2563eb, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            Your Complete FODMAP Food Guide: High vs Low
         </h2>
-        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 900px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--neutral-700);">
-            Knowledge is power when managing IBS. Understanding which foods contain FODMAPs and finding suitable alternatives is crucial for symptom management. <strong>Remember: portion sizes matter!</strong>
+        <p class="text-center lead mb-5 animate-on-scroll fade-up delay-100" style="max-width: 900px; margin: 0 auto; font-size: 1.3rem; line-height: 1.8; color: #374151; font-weight: 500;">
+            Knowledge is power when managing IBS! Understanding which foods contain FODMAPs and finding delicious alternatives is crucial for symptom management. <strong style="color: #16a34a;">Remember: portion sizes matter, and everyone's tolerance is different!</strong>
         </p>
         
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--warning-rgb), 0.3);">
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--warning-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4); transition: all 0.3s ease;">
                         <i class="fas fa-apple-alt"></i>
                     </div>
-                    <h4 style="color: var(--warning-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Fructose (Excess)</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Common Triggers:</strong> Apples, pears, mangoes, cherries, honey, agave nectar, high-fructose corn syrup
-                    </p>
-                    <div style="background: rgba(239, 68, 68, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--warning-500);">
-                        <i class="fas fa-lightbulb text-warning me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Tip:</strong> Fructose is only problematic when it exceeds glucose content</span>
+                    <h4 style="color: #dc2626; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Fructose (Excess)</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.05), rgba(239, 68, 68, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(220, 38, 38, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #dc2626;">High-FODMAP Fruits:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Apples, pears, mangoes, cherries, watermelon, figs</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #dc2626;">Sweeteners:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Honey, agave nectar, high-fructose corn syrup</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--warning-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #dc2626;">
+                        <i class="fas fa-lightbulb me-2" style="font-size: 1.1rem; color: #dc2626;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Key Insight:</strong> Fructose is only problematic when it exceeds glucose content. Many fruits are safe!</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--warning-50), var(--warning-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-250">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);">
-                        <i class="fas fa-cheese"></i>
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--primary-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(var(--primary-rgb), 0.4); transition: all 0.3s ease;">
+                        <i class="fas fa-glass-whiskey"></i>
                     </div>
-                    <h4 style="color: var(--primary-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Lactose</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Dairy Products:</strong> Cow's milk, yogurt, soft cheeses (ricotta, cottage), ice cream, cream
-                    </p>
-                    <div style="background: rgba(59, 130, 246, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--primary-500);">
-                        <i class="fas fa-info-circle text-primary me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Note:</strong> Hard cheeses are typically low in lactose</span>
+                    <h4 style="color: #2563eb; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Lactose</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(37, 99, 235, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #2563eb;">High-Lactose Dairy:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Cow's milk, goat's milk, yogurt, soft cheeses, ice cream, cream</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #2563eb;">Processed Foods:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Milk chocolate, creamy sauces, some breads</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--primary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #2563eb;">
+                        <i class="fas fa-info-circle me-2" style="font-size: 1.1rem; color: #2563eb;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Good News:</strong> Hard cheeses and lactose-free products are safe alternatives!</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-50), var(--primary-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--secondary-rgb), 0.3);">
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--secondary-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(var(--secondary-rgb), 0.4); transition: all 0.3s ease;">
                         <i class="fas fa-bread-slice"></i>
                     </div>
-                    <h4 style="color: var(--secondary-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Fructans</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Grains & Vegetables:</strong> Wheat, rye, onions, garlic, leeks, artichokes, asparagus
-                    </p>
-                    <div style="background: rgba(139, 92, 246, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--secondary-500);">
-                        <i class="fas fa-exclamation-triangle text-secondary me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Common:</strong> Most problematic for many IBS sufferers</span>
+                    <h4 style="color: #7c3aed; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Fructans</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(139, 92, 246, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(124, 58, 237, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #7c3aed;">Grains:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Wheat, rye, barley, spelt</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #7c3aed;">Vegetables:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Onions, garlic, leeks, artichokes, asparagus, shallots</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--secondary-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(139, 92, 246, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #7c3aed;">
+                        <i class="fas fa-exclamation-triangle me-2" style="font-size: 1.1rem; color: #7c3aed;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Important:</strong> One of the most common triggers for IBS symptoms</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary-100), var(--secondary-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary-50), var(--secondary-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-350">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, var(--success-500), var(--accent-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--success-rgb), 0.3);">
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--success-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--success-500), var(--accent-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(var(--success-rgb), 0.4); transition: all 0.3s ease;">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h4 style="color: var(--success-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Galacto-Oligosaccharides (GOS)</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Legumes & Nuts:</strong> Beans, lentils, chickpeas, green peas, cashews, pistachios
-                    </p>
-                    <div style="background: rgba(16, 185, 129, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--success-500);">
-                        <i class="fas fa-leaf text-success me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Benefit:</strong> These are prebiotics that feed good bacteria</span>
+                    <h4 style="color: #059669; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Galacto-Oligosaccharides (GOS)</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(16, 185, 129, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(5, 150, 105, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #059669;">Legumes:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Beans, lentils, chickpeas, green peas, soybeans</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #059669;">Nuts:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Cashews, pistachios, hazelnuts</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--success-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #059669;">
+                        <i class="fas fa-leaf me-2" style="font-size: 1.1rem; color: #059669;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Interesting:</strong> These are prebiotics that feed good bacteria, but can cause issues for sensitive guts</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-100), var(--success-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-50), var(--success-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);">
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--info-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(30, 64, 175, 0.4); transition: all 0.3s ease;">
                         <i class="fas fa-candy-cane"></i>
                     </div>
-                    <h4 style="color: var(--info-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Polyols (Sugar Alcohols)</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Fruits & Sweeteners:</strong> Apples, apricots, avocados, mushrooms, cauliflower, artificial sweeteners ending in "-ol"
-                    </p>
-                    <div style="background: rgba(59, 130, 246, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--info-500);">
-                        <i class="fas fa-candy-cane text-info me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Watch for:</strong> Sugar-free products often contain polyols</span>
+                    <h4 style="color: #0891b2; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Polyols (Sugar Alcohols)</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.05), rgba(14, 116, 144, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(8, 145, 178, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #0891b2;">Fruits:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Apples, apricots, avocados, peaches, plums, cherries</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #0891b2;">Vegetables:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Mushrooms, cauliflower, sweet corn, snow peas</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #0891b2;">Sweeteners:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Sorbitol, mannitol, xylitol, erythritol</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--info-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(14, 116, 144, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #0891b2;">
+                        <i class="fas fa-candy-cane me-2" style="font-size: 1.1rem; color: #0891b2;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Watch for:</strong> Sugar-free products often contain polyols - check ingredient labels!</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--info-100), var(--info-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--info-50), var(--info-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-450">
-                <div class="benefit-card h-100" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 2px solid var(--neutral-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--success-500)); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3);">
+                <div class="benefit-card h-100" style="background: linear-gradient(145deg, #ffffff, #f8fafc); border: 2px solid var(--accent-200); border-radius: 30px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(0);">
+                    <div class="icon" style="background: linear-gradient(135deg, var(--accent-500), var(--success-500)); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2rem; box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.4); transition: all 0.3s ease;">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h4 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1rem; text-align: center;">Low-FODMAP Alternatives</h4>
-                    <p style="color: var(--neutral-700); line-height: 1.7; text-align: center; margin-bottom: 1rem;">
-                        <strong>Safe Options:</strong> Oranges, bananas, carrots, zucchini, rice, quinoa, lactose-free milk, hard cheeses
-                    </p>
-                    <div style="background: rgba(34, 197, 94, 0.1); padding: 0.75rem; border-radius: 10px; border-left: 3px solid var(--accent-500);">
-                        <i class="fas fa-check-circle text-accent me-2"></i>
-                        <span style="color: var(--neutral-700); font-size: 0.9rem;"><strong>Good news:</strong> Many delicious alternatives exist!</span>
+                    <h4 style="color: #16a34a; font-weight: 800; margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;">Low-FODMAP Alternatives</h4>
+                    <div class="content-box" style="background: linear-gradient(135deg, rgba(22, 163, 74, 0.05), rgba(34, 197, 94, 0.05)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(22, 163, 74, 0.1); margin-bottom: 1.5rem;">
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #16a34a;">Safe Fruits:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Oranges, bananas, strawberries, grapes, kiwi, pineapple</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 1rem; font-weight: 500;">
+                            <strong style="color: #16a34a;">Safe Vegetables:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Carrots, zucchini, eggplant, bell peppers, spinach</span>
+                        </p>
+                        <p style="color: #374151; line-height: 1.7; text-align: center; margin-bottom: 0; font-weight: 500;">
+                            <strong style="color: #16a34a;">Safe Grains:</strong><br>
+                            <span style="font-size: 0.95rem; color: #6b7280;">Rice, quinoa, oats, gluten-free breads</span>
+                        </p>
                     </div>
-                    <!-- Decorative Element -->
-                    <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: radial-gradient(circle, var(--accent-100) 0%, transparent 70%); opacity: 0.5; border-radius: 50%;"></div>
+                    <div style="background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(34, 197, 94, 0.1)); padding: 1rem; border-radius: 12px; border-left: 4px solid #16a34a;">
+                        <i class="fas fa-check-circle me-2" style="font-size: 1.1rem; color: #16a34a;"></i>
+                        <span style="color: #374151; font-size: 0.9rem; font-weight: 500;"><strong>Great news:</strong> Many delicious alternatives exist! You won't feel deprived.</span>
+                    </div>
+                    <!-- Enhanced Decorative Elements -->
+                    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-100), var(--success-50)); opacity: 0.6; border-radius: 50%; animation: pulse 3s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -15px; left: -15px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-50), var(--success-100)); opacity: 0.4; border-radius: 50%; animation: pulse 3s ease-in-out infinite 1.5s;"></div>
                 </div>
             </div>
         </div>
@@ -779,49 +960,50 @@ lang: en
         <!-- Enhanced Information Box -->
         <div class="row justify-content-center mt-5">
             <div class="col-lg-10 animate-on-scroll fade-up delay-500">
-                <div style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border: 3px solid var(--accent-200); border-radius: 25px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, var(--accent-200), var(--primary-200)); opacity: 0.3; border-radius: 50%;"></div>
+                <div style="background: linear-gradient(145deg, var(--accent-50), var(--primary-50)); border: 3px solid var(--accent-200); border-radius: 30px; padding: 3rem; box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 10px 20px rgba(0,0,0,0.08); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: linear-gradient(135deg, var(--accent-200), var(--primary-200)); opacity: 0.4; border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-200), var(--accent-200)); opacity: 0.3; border-radius: 50%; animation: float 6s ease-in-out infinite 2s;"></div>
                     <div style="position: relative; z-index: 2;">
-                        <div class="text-center mb-4">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+                        <div class="text-center mb-5">
+                            <div style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 2.2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.25);">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
-                            <h3 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1rem;">Important Reminders for Your FODMAP Journey</h3>
+                            <h3 style="color: #16a34a; font-weight: 800; margin-bottom: 1rem; font-size: 2rem;">Essential Tips for Your FODMAP Journey</h3>
                         </div>
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
-                                    <i class="fas fa-balance-scale text-accent me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #16a34a; backdrop-filter: blur(10px);">
+                                    <i class="fas fa-balance-scale me-3 mt-1" style="font-size: 1.3rem; color: #16a34a;"></i>
                                     <div>
-                                        <h5 style="color: var(--accent-600); font-weight: 600; margin-bottom: 0.5rem;">Portion Sizes Matter</h5>
-                                        <p style="color: var(--neutral-700); margin: 0; font-size: 0.95rem;">Small amounts of high-FODMAP foods may be tolerated. A dietitian helps determine your individual thresholds.</p>
+                                        <h5 style="color: #16a34a; font-weight: 700; margin-bottom: 0.75rem;">Portion Sizes Matter</h5>
+                                        <p style="color: #374151; margin: 0; font-size: 0.95rem; line-height: 1.6;">Small amounts of high-FODMAP foods may be tolerated! A dietitian helps determine your individual tolerance levels.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
-                                    <i class="fas fa-user-md text-primary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #2563eb; backdrop-filter: blur(10px);">
+                                    <i class="fas fa-user-md me-3 mt-1" style="font-size: 1.3rem; color: #2563eb;"></i>
                                     <div>
-                                        <h5 style="color: var(--primary-600); font-weight: 600; margin-bottom: 0.5rem;">Professional Guidance</h5>
-                                        <p style="color: var(--neutral-700); margin: 0; font-size: 0.95rem;">Work with a MONASH-certified dietitian to ensure nutritional adequacy and proper implementation.</p>
+                                        <h5 style="color: #2563eb; font-weight: 700; margin-bottom: 0.75rem;">Expert Guidance</h5>
+                                        <p style="color: #374151; margin: 0; font-size: 0.95rem; line-height: 1.6;">Work with a MONASH-certified dietitian to ensure you get all the nutrients you need while managing symptoms effectively.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
-                                    <i class="fas fa-clock text-secondary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #7c3aed; backdrop-filter: blur(10px);">
+                                    <i class="fas fa-clock me-3 mt-1" style="font-size: 1.3rem; color: #7c3aed;"></i>
                                     <div>
-                                        <h5 style="color: var(--secondary-600); font-weight: 600; margin-bottom: 0.5rem;">Temporary Approach</h5>
-                                        <p style="color: var(--neutral-700); margin: 0; font-size: 0.95rem;">The Low FODMAP diet is not meant to be lifelong. The goal is to identify triggers and expand your diet safely.</p>
+                                        <h5 style="color: #7c3aed; font-weight: 700; margin-bottom: 0.75rem;">Temporary Approach</h5>
+                                        <p style="color: #374151; margin: 0; font-size: 0.95rem; line-height: 1.6;">The Low FODMAP diet is not meant to be lifelong! The goal is to identify your triggers and then safely expand your diet.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
-                                    <i class="fas fa-heart text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #059669; backdrop-filter: blur(10px);">
+                                    <i class="fas fa-heart me-3 mt-1" style="font-size: 1.3rem; color: #059669;"></i>
                                     <div>
-                                        <h5 style="color: var(--success-600); font-weight: 600; margin-bottom: 0.5rem;">Quality of Life</h5>
-                                        <p style="color: var(--neutral-700); margin: 0; font-size: 0.95rem;">The goal is symptom relief while maintaining an enjoyable, varied, and nutritionally balanced diet.</p>
+                                        <h5 style="color: #059669; font-weight: 700; margin-bottom: 0.75rem;">Quality of Life</h5>
+                                        <p style="color: #374151; margin: 0; font-size: 0.95rem; line-height: 1.6;">The goal is symptom relief while maintaining an enjoyable, varied, and nutritionally balanced diet that you love!</p>
                                     </div>
                                 </div>
                             </div>
@@ -988,7 +1170,7 @@ lang: en
                                 <div style="width: 30px; height: 30px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.8rem; margin-right: 1rem;">2</div>
                                 <div>
                                     <div style="font-weight: 600; color: var(--accent-600); font-size: 0.9rem;">Reintroduction Phase</div>
-                                    <div style="color: var(--neutral-600); font-size: 0.8rem;">Systematic testing of triggers</div>
+                                    <div style="color: var(--neutral-600); font-size: 0.8rem;">Once you're feeling better, we'll carefully test each FODMAP group one by one to figure out exactly which foods and how much of them trigger your symptoms.</div>
                                 </div>
                             </div>
                             <div class="timeline-step" style="display: flex; align-items: center; padding: 0.75rem; background: white; border-radius: 15px; border-left: 4px solid var(--secondary-500); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
