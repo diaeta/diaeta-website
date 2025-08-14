@@ -41,7 +41,9 @@ lang: en
                 <h2>What is Irritable Bowel Syndrome?</h2>
                 <p>Irritable Bowel Syndrome (IBS) is a chronic, common functional gastrointestinal (GI) disorder. The term "functional" is key; it signifies that the symptoms arise from a disturbance in the function of the GI tract rather than from a structural or biochemical abnormality that can be seen on standard diagnostic tests like a colonoscopy.</p>
                 
-                <p>IBS is remarkably widespread, making it one of the most common disorders diagnosed by physicians globally. Global prevalence estimates suggest it affects between 5% and 15% of the world's population, with figures in the United States around 12%. There are clear demographic patterns: IBS is approximately twice as common in women as it is in men and typically manifests before the age of 45 or 50.</p>
+                <p>IBS is remarkably widespread, making it one of the most common disorders diagnosed by physicians globally. Global prevalence estimates suggest it affects between 5% and 15% of the world's population. In Europe, studies show a similar significant prevalence, with estimates often ranging from approximately 9% to 12% depending on the diagnostic criteria used.</p>
+                
+                <p>There are clear demographic patterns: IBS is approximately twice as common in women as it is in men and typically manifests before the age of 45 or 50.</p>
 
                 <h3 class="h4 mt-4">The Evolution of IBS Understanding</h3>
                 <p>The terminology used to describe IBS has evolved significantly over time, reflecting the medical community's deepening understanding. Outdated and often dismissive terms such as "spastic colon," "mucous colitis," and "nervous colon" have been replaced. These historical labels incorrectly implied that the condition was either purely a muscle spasm issue or a direct manifestation of a nervous disposition.</p>
@@ -70,14 +72,24 @@ lang: en
                 </div>
             </div>
             <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
-                <img
-                    src="../../images/digestive-system-illustration.jpg" 
-                    alt="Simplified illustration of the digestive system showing the gut-brain connection"
-                    class="img-fluid rounded shadow-sm"
-                    style="max-width: 400px; margin-top: 2rem;"
-                    loading="lazy"
-                    width="400" 
-                    height="350">
+                <picture>
+                    <source srcset="/images/digestive-system-illustration-large.webp 800w,
+                                    /images/digestive-system-illustration-medium.webp 600w,
+                                    /images/digestive-system-illustration-small.webp 400w"
+                            sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                            type="image/webp">
+                    <img src="/images/digestive-system-illustration-small.jpg"
+                         srcset="/images/digestive-system-illustration-large.jpg 800w,
+                                 /images/digestive-system-illustration-medium.jpg 600w,
+                                 /images/digestive-system-illustration-small.jpg 400w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                         alt="Simplified illustration of the digestive system showing the gut-brain connection"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-width: 400px; margin-top: 2rem;"
+                         loading="lazy"
+                         width="400" 
+                         height="350">
+                </picture>
             </div>
         </div>
     </div>
@@ -114,10 +126,12 @@ lang: en
                     
                     <p>This heightened sensitivity is so integral to the condition that it is often considered a "biological marker" of IBS. This phenomenon involves two key concepts:</p>
                     
-                    <ul class="list-styled">
-                        <li><strong>Allodynia:</strong> The perception of pain from a stimulus that is not normally painful.</li>
-                        <li><strong>Hyperalgesia:</strong> An exaggerated pain response to a stimulus that is normally painful.</li>
-                    </ul>
+                    <div class="medical-terms-grid" style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; margin: 1.5rem 0; background: var(--neutral-50); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent-500);">
+                        <div style="font-weight: 600; color: var(--accent-600); text-align: right; padding-right: 1rem;">Allodynia:</div>
+                        <div style="text-align: left;">The perception of pain from a stimulus that is not normally painful.</div>
+                        <div style="font-weight: 600; color: var(--accent-600); text-align: right; padding-right: 1rem;">Hyperalgesia:</div>
+                        <div style="text-align: left;">An exaggerated pain response to a stimulus that is normally painful.</div>
+                    </div>
                     
                     <p>This hypersensitivity is not merely a subjective experience; it has a firm biological basis. It involves complex disruptions in both the peripheral nerves of the gut and the central nervous system's processing of pain signals.</p>
                 </div>
@@ -129,63 +143,257 @@ lang: en
 {# === Gut-Brain Axis Section === #}
 <section id="gut-brain-axis" class="content-section bg-white">
     <div class="container">
-        <h2 class="animate-on-scroll fade-up">The Gut-Brain Axis: The Master Communication Network</h2>
-        <p class="text-center lead mb-4 animate-on-scroll fade-up delay-100">
-            At the heart of IBS pathophysiology is the dysregulation of the Gut-Brain Axis (GBA), a sophisticated, bidirectional communication network that links the emotional and cognitive centers of the brain with peripheral intestinal functions.
-        </p>
+        <!-- Enhanced Header with Visual Elements -->
+        <div class="text-center mb-5">
+            <div class="gut-brain-header" style="position: relative; display: inline-block; margin-bottom: 2rem;">
+                <div class="header-background" style="background: linear-gradient(135deg, var(--primary-50), var(--accent-50)); padding: 3rem 4rem; border-radius: 20px; border: 2px solid var(--primary-200); position: relative; overflow: hidden;">
+                    <div class="floating-icons" style="position: absolute; top: 10px; left: 20px; opacity: 0.1;">
+                        <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary-600); animation: float 3s ease-in-out infinite;"></i>
+                    </div>
+                    <div class="floating-icons" style="position: absolute; top: 20px; right: 30px; opacity: 0.1;">
+                        <i class="fas fa-network-wired" style="font-size: 1.5rem; color: var(--accent-600); animation: float 3s ease-in-out infinite 1s;"></i>
+                    </div>
+                    <div class="floating-icons" style="position: absolute; bottom: 15px; left: 40px; opacity: 0.1;">
+                        <i class="fas fa-balance-scale" style="font-size: 1.8rem; color: var(--secondary-600); animation: float 3s ease-in-out infinite 2s;"></i>
+                    </div>
+                    
+                    <h2 class="animate-on-scroll fade-up mb-3" style="color: var(--primary-700); font-weight: 700; font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="fas fa-satellite-dish me-3" style="color: var(--accent-500);"></i>
+                        The Gut-Brain Axis
+                    </h2>
+                    <h3 class="animate-on-scroll fade-up delay-100" style="color: var(--accent-600); font-weight: 600; font-size: 1.3rem; margin-bottom: 1.5rem;">
+                        The Master Communication Network
+                    </h3>
+                    <p class="text-center lead mb-0 animate-on-scroll fade-up delay-200" style="color: var(--neutral-700); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                        At the heart of IBS pathophysiology is the dysregulation of the Gut-Brain Axis (GBA), a sophisticated, bidirectional communication network that links the emotional and cognitive centers of the brain with peripheral intestinal functions.
+                    </p>
+                </div>
+            </div>
+        </div>
 
+        <!-- Interactive Network Diagram -->
+        <div class="network-diagram-container mb-5" style="background: linear-gradient(135deg, var(--neutral-50), white); padding: 3rem; border-radius: 20px; border: 1px solid var(--neutral-200);">
+            <h4 class="text-center mb-4" style="color: var(--primary-600); font-weight: 600;">
+                <i class="fas fa-project-diagram me-2"></i>Interactive Communication Network
+            </h4>
+            <div class="network-diagram" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                <!-- Brain Node -->
+                <div class="network-node brain-node" style="text-align: center; flex: 1; min-width: 200px;">
+                    <div class="node-icon" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 12px 35px rgba(var(--primary-rgb), 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(var(--primary-rgb), 0.3)'">
+                        <i class="fas fa-brain" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h5 style="color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Brain</h5>
+                    <p style="font-size: 0.9rem; color: var(--neutral-600); margin: 0;">Emotional & Cognitive Centers</p>
+                </div>
+
+                <!-- Bidirectional Arrows -->
+                <div class="network-arrows" style="flex: 2; display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                    <div class="arrow-container" style="text-align: center;">
+                        <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--accent-500); animation: pulse 2s ease-in-out infinite;"></i>
+                        <div style="font-size: 0.8rem; color: var(--accent-600); font-weight: 600; margin-top: 0.5rem;">Bidirectional Communication</div>
+                    </div>
+                </div>
+
+                <!-- Gut Node -->
+                <div class="network-node gut-node" style="text-align: center; flex: 1; min-width: 200px;">
+                    <div class="node-icon" style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 12px 35px rgba(var(--accent-rgb), 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(var(--accent-rgb), 0.3)'">
+                        <i class="fas fa-stomach" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h5 style="color: var(--accent-700); font-weight: 600; margin-bottom: 0.5rem;">Gut</h5>
+                    <p style="font-size: 0.9rem; color: var(--neutral-600); margin: 0;">Digestive & Immune Systems</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Content Grid -->
         <div class="row g-4">
+            <!-- Components Column -->
             <div class="col-lg-6 animate-on-scroll fade-up delay-200">
-                <h3 class="h4">Components of the Gut-Brain Axis</h3>
-                <p>The GBA is composed of several interconnected systems:</p>
-                
-                <div class="diaeta-difference-item">
-                    <div class="icon"><i class="fas fa-brain"></i></div>
-                    <div>
-                        <h5>Central Nervous System (CNS)</h5>
-                        <p>The brain and spinal cord, which process signals from the gut and send commands back down.</p>
-                    </div>
-                </div>
+                <div class="components-card" style="background: linear-gradient(135deg, var(--primary-50), white); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--primary-500); height: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <h3 class="h4 mb-4" style="color: var(--primary-700); font-weight: 700;">
+                        <i class="fas fa-cogs me-2" style="color: var(--primary-500);"></i>
+                        Components of the Gut-Brain Axis
+                    </h3>
+                    <p class="mb-4" style="color: var(--neutral-700);">The GBA is composed of several interconnected systems that work in harmony:</p>
+                    
+                    <div class="component-items">
+                        <div class="component-item" style="background: linear-gradient(135deg, var(--primary-50), white); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem; border: none; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.1);" onmouseover="this.style.transform='translateX(5px) scale(1.02)'; this.style.boxShadow='0 8px 25px rgba(var(--primary-rgb), 0.2)'" onmouseout="this.style.transform='translateX(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(var(--primary-rgb), 0.1)'">
+                            <!-- Subtle background elements -->
+                            <div style="position: absolute; top: -5px; right: -5px; width: 30px; height: 30px; background: rgba(var(--primary-rgb), 0.05); border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: -8px; left: -8px; width: 25px; height: 25px; background: rgba(var(--primary-rgb), 0.03); border-radius: 50%;"></div>
+                            
+                            <div style="display: flex; align-items: flex-start; gap: 1.5rem; position: relative; z-index: 2;">
+                                <div class="component-icon" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3); border: 2px solid rgba(255,255,255,0.2);">
+                                    <i class="fas fa-brain" style="color: white; font-size: 1.4rem;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h5 style="color: var(--primary-700); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.1rem;">
+                                        <i class="fas fa-cog me-2" style="color: var(--primary-500);"></i>
+                                        Central Nervous System (CNS)
+                                    </h5>
+                                    <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.5;">
+                                        The brain and spinal cord, which process signals from the gut and send commands back down through sophisticated neural pathways.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="diaeta-difference-item">
-                    <div class="icon"><i class="fas fa-network-wired"></i></div>
-                    <div>
-                        <h5>Enteric Nervous System (ENS)</h5>
-                        <p>Often called the "second brain," this intricate network of neurons is embedded in the lining of the GI tract and can operate independently to control digestion, but it also communicates extensively with the CNS.</p>
-                    </div>
-                </div>
+                        <div class="component-item" style="background: linear-gradient(135deg, var(--accent-50), white); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem; border: none; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.1);" onmouseover="this.style.transform='translateX(5px) scale(1.02)'; this.style.boxShadow='0 8px 25px rgba(var(--accent-rgb), 0.2)'" onmouseout="this.style.transform='translateX(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(var(--accent-rgb), 0.1)'">
+                            <!-- Subtle background elements -->
+                            <div style="position: absolute; top: -5px; right: -5px; width: 30px; height: 30px; background: rgba(var(--accent-rgb), 0.05); border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: -8px; left: -8px; width: 25px; height: 25px; background: rgba(var(--accent-rgb), 0.03); border-radius: 50%;"></div>
+                            
+                            <div style="display: flex; align-items: flex-start; gap: 1.5rem; position: relative; z-index: 2;">
+                                <div class="component-icon" style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3); border: 2px solid rgba(255,255,255,0.2);">
+                                    <i class="fas fa-network-wired" style="color: white; font-size: 1.4rem;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h5 style="color: var(--accent-700); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.1rem;">
+                                        <i class="fas fa-microchip me-2" style="color: var(--accent-500);"></i>
+                                        Enteric Nervous System (ENS)
+                                    </h5>
+                                    <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.5;">
+                                        Often called the "second brain," this intricate network of neurons is embedded in the lining of the GI tract and can operate independently to control digestion, while maintaining extensive communication with the CNS.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="diaeta-difference-item">
-                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
-                    <div>
-                        <h5>Autonomic Nervous System (ANS)</h5>
-                        <p>The sympathetic ("fight or flight") and parasympathetic ("rest and digest") branches of the ANS modulate gut function in response to signals from the brain, including stress.</p>
-                    </div>
-                </div>
+                        <div class="component-item" style="background: linear-gradient(135deg, var(--secondary-50), white); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem; border: none; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(var(--secondary-rgb), 0.1);" onmouseover="this.style.transform='translateX(5px) scale(1.02)'; this.style.boxShadow='0 8px 25px rgba(var(--secondary-rgb), 0.2)'" onmouseout="this.style.transform='translateX(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(var(--secondary-rgb), 0.1)'">
+                            <!-- Subtle background elements -->
+                            <div style="position: absolute; top: -5px; right: -5px; width: 30px; height: 30px; background: rgba(var(--secondary-rgb), 0.05); border-radius: 50%;"></div>
+                            <div style="position: absolute; bottom: -8px; left: -8px; width: 25px; height: 25px; background: rgba(var(--secondary-rgb), 0.03); border-radius: 50%;"></div>
+                            
+                            <div style="display: flex; align-items: flex-start; gap: 1.5rem; position: relative; z-index: 2;">
+                                <div class="component-icon" style="background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(var(--secondary-rgb), 0.3); border: 2px solid rgba(255,255,255,0.2);">
+                                    <i class="fas fa-balance-scale" style="color: white; font-size: 1.4rem;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h5 style="color: var(--secondary-700); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.1rem;">
+                                        <i class="fas fa-sync-alt me-2" style="color: var(--secondary-500);"></i>
+                                        Autonomic Nervous System (ANS)
+                                    </h5>
+                                    <p style="color: var(--neutral-700); margin: 0; font-size: 1rem; line-height: 1.5;">
+                                        The sympathetic ("fight or flight") and parasympathetic ("rest and digest") branches of the ANS modulate gut function in response to signals from the brain, including stress responses.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="diaeta-difference-item">
-                    <div class="icon"><i class="fas fa-flask"></i></div>
-                    <div>
-                        <h5>Neuroendocrine and Neuroimmune Systems</h5>
-                        <p>These systems use hormones and immune signaling molecules (cytokines) to communicate between the gut and brain.</p>
+                        <div class="component-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem; border: none; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateX(5px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateX(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.3)'">
+                            <!-- Animated background elements -->
+                            <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 4s ease-in-out infinite;"></div>
+                            <div style="position: absolute; bottom: -15px; left: -15px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%; animation: float 4s ease-in-out infinite 2s;"></div>
+                            
+                            <div style="display: flex; align-items: flex-start; gap: 1.5rem; position: relative; z-index: 2;">
+                                <div class="component-icon" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); border: 3px solid rgba(255,255,255,0.3);">
+                                    <i class="fas fa-atom" style="color: white; font-size: 1.4rem; animation: pulse 2s ease-in-out infinite;"></i>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h5 style="color: white; font-weight: 700; margin-bottom: 0.8rem; font-size: 1.1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                                        <i class="fas fa-dna me-2" style="color: #ffd93d;"></i>
+                                        Neuroendocrine & Neuroimmune Systems
+                                    </h5>
+                                    <p style="color: rgba(255,255,255,0.95); margin: 0; font-size: 1rem; line-height: 1.5; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+                                        These systems use <strong style="color: #ffd93d;">hormones</strong> and <strong style="color: #ffd93d;">immune signaling molecules</strong> (cytokines) to create a sophisticated communication network between the gut and brain.
+                                    </p>
+                                    
+                                    <!-- Additional visual elements -->
+                                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                        <span style="background: rgba(255,255,255,0.2); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; backdrop-filter: blur(10px);">
+                                            <i class="fas fa-hormone me-1"></i>Hormones
+                                        </span>
+                                        <span style="background: rgba(255,255,255,0.2); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; backdrop-filter: blur(10px);">
+                                            <i class="fas fa-shield-alt me-1"></i>Cytokines
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Stress & Serotonin Column -->
             <div class="col-lg-6 animate-on-scroll fade-up delay-300">
-                <h3 class="h4">The Role of Stress and Serotonin</h3>
-                <p>A critical component of this network is the Hypothalamic-Pituitary-Adrenal (HPA) axis, the body's central stress response system. When a person experiences stress, the hypothalamus releases a hormone that signals the pituitary gland, which in turn signals the adrenal glands to release cortisol, the primary stress hormone.</p>
-                
-                <p>In individuals with IBS, this axis can be dysregulated, leading to an exaggerated physiological response to stress that directly impacts the gut by altering motility, increasing intestinal permeability (making the gut "leakier"), and heightening visceral sensitivity.</p>
+                <div class="stress-serotonin-card" style="background: linear-gradient(135deg, var(--accent-50), white); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--accent-500); height: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <h3 class="h4 mb-4" style="color: var(--accent-700); font-weight: 700;">
+                        <i class="fas fa-chart-line me-2" style="color: var(--accent-500);"></i>
+                        The Role of Stress and Serotonin
+                    </h3>
+                    
+                    <!-- HPA Axis Section -->
+                    <div class="hpa-axis-section mb-4" style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent-400);">
+                        <h4 class="h5 mb-3" style="color: var(--accent-600); font-weight: 600;">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Hypothalamic-Pituitary-Adrenal (HPA) Axis
+                        </h4>
+                        <p style="color: var(--neutral-700); margin-bottom: 1rem;">A critical component of this network is the HPA axis, the body's central stress response system. When a person experiences stress, the hypothalamus releases a hormone that signals the pituitary gland, which in turn signals the adrenal glands to release cortisol, the primary stress hormone.</p>
+                        
+                        <div class="hpa-flow" style="display: flex; align-items: center; justify-content: space-between; background: var(--neutral-50); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="background: var(--accent-500); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">H</div>
+                                <small style="color: var(--neutral-600);">Hypothalamus</small>
+                            </div>
+                            <i class="fas fa-arrow-right" style="color: var(--accent-500); margin: 0 1rem;"></i>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="background: var(--accent-500); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">P</div>
+                                <small style="color: var(--neutral-600);">Pituitary</small>
+                            </div>
+                            <i class="fas fa-arrow-right" style="color: var(--accent-500); margin: 0 1rem;"></i>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="background: var(--accent-500); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">A</div>
+                                <small style="color: var(--neutral-600);">Adrenal</small>
+                            </div>
+                        </div>
+                        
+                        <p style="color: var(--neutral-700); margin-top: 1rem; font-size: 0.95rem;">In individuals with IBS, this axis can be dysregulated, leading to an exaggerated physiological response to stress that directly impacts the gut by altering motility, increasing intestinal permeability (making the gut "leakier"), and heightening visceral sensitivity.</p>
+                    </div>
 
-                <h4 class="h5 mt-4">Serotonin's Pivotal Role</h4>
-                <p>Neurotransmitters are the chemical messengers that facilitate this communication. Serotonin (5-HT) plays an especially pivotal role. Over 90% of the body's serotonin is produced and stored in the gut, where it is a key regulator of intestinal motility, secretion, and sensation.</p>
-                
-                <p>When serotonin signaling is dysregulated—either too much or too little activity—it can directly contribute to the symptoms of diarrhea or constipation, as well as the visceral hypersensitivity that causes pain.</p>
+                    <!-- Serotonin Section -->
+                    <div class="serotonin-section" style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--warning-400);">
+                        <h4 class="h5 mb-3" style="color: var(--warning-600); font-weight: 600;">
+                            <i class="fas fa-atom me-2"></i>
+                            Serotonin's Pivotal Role
+                        </h4>
+                        <div style="background: linear-gradient(135deg, var(--warning-50), var(--warning-100)); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <div style="text-align: center; margin-bottom: 1rem;">
+                                <i class="fas fa-percentage" style="font-size: 2rem; color: var(--warning-600);"></i>
+                                <div style="font-size: 2rem; font-weight: bold; color: var(--warning-700);">90%</div>
+                                <div style="color: var(--warning-600); font-weight: 600;">of serotonin is produced in the gut</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--neutral-700); margin-bottom: 1rem;">Neurotransmitters are the chemical messengers that facilitate this communication. Serotonin (5-HT) plays an especially pivotal role. Over 90% of the body's serotonin is produced and stored in the gut, where it is a key regulator of intestinal motility, secretion, and sensation.</p>
+                        <p style="color: var(--neutral-700); margin: 0; font-size: 0.95rem;">When serotonin signaling is dysregulated—either too much or too little activity—it can directly contribute to the symptoms of diarrhea or constipation, as well as the visceral hypersensitivity that causes pain.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Key Takeaway Box -->
+        <div class="key-takeaway mt-5" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); padding: 2rem; border-radius: 15px; color: white; text-align: center;">
+            <h4 style="font-weight: 700; margin-bottom: 1rem;">
+                <i class="fas fa-lightbulb me-2"></i>
+                Key Insight
+            </h4>
+            <p style="font-size: 1.1rem; margin: 0; opacity: 0.95;">
+                The gut-brain axis is not just a one-way street. It's a sophisticated, two-way communication system where your emotions can affect your digestion, and your gut health can influence your mood and mental well-being.
+            </p>
         </div>
     </div>
 </section>
+
+<style>
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+</style>
 
 {# === Microbiome Section === #}
 <section id="microbiome" class="content-section" style="background-color: var(--neutral-50);">
