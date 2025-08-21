@@ -55,6 +55,19 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeScrollToLinks(); 
   initializeScrollToTopButton();
   initializeAdvancedCookieConsent();
+
+  initProgressIndicator();
+  initEnhancedScrollAnimations();
+
+  // Initialize world-class enhancements
+  initStickyNavigation();
+  initFloatingActions();
+  initMethodJourney();
+  initTestimonialCarousel();
+  initAnimatedStats();
+  initEnhancedScrollAnimations();
+  initParallaxEffects();
+  initSmoothScroll();
 });
 
 function initializeAdvancedCookieConsent() {
@@ -1556,3 +1569,452 @@ function addDropdownArrows() {
     });
   }
 }
+
+// Progress indicator functionality
+function initProgressIndicator() {
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const sections = document.querySelectorAll('.content-section');
+    
+    if (!progressSteps.length || !sections.length) return;
+    
+    function updateProgressIndicator() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                // Remove active class from all steps
+                progressSteps.forEach(step => step.classList.remove('active'));
+                
+                // Add active class to current step
+                if (progressSteps[index]) {
+                    progressSteps[index].classList.add('active');
+                }
+            }
+        });
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateProgressIndicator);
+    
+    // Initial update
+    updateProgressIndicator();
+    
+    // Add click functionality to progress steps
+    progressSteps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+            if (sections[index]) {
+                sections[index].scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+        
+        // Add hover effect
+        step.style.cursor = 'pointer';
+    });
+}
+
+// Enhanced scroll animations
+function initEnhancedScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ===== WORLD-CLASS LAYOUT ENHANCEMENTS =====
+
+// Sticky Navigation with Progress
+function initStickyNavigation() {
+    const stickyNav = document.getElementById('stickyNav');
+    const navProgress = document.getElementById('navProgress');
+    
+    if (!stickyNav || !navProgress) return;
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    function updateStickyNav() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Show/hide sticky nav
+        if (scrollY > 200) {
+            stickyNav.classList.add('visible');
+        } else {
+            stickyNav.classList.remove('visible');
+        }
+        
+        // Update progress bar
+        const scrollProgress = (scrollY / (documentHeight - windowHeight)) * 100;
+        navProgress.style.width = `${Math.min(scrollProgress, 100)}%`;
+        
+        lastScrollY = scrollY;
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateStickyNav);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    updateStickyNav();
+}
+
+// Floating Action Buttons
+function initFloatingActions() {
+    const floatingActions = document.getElementById('floatingActions');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const quickContactBtn = document.getElementById('quickContact');
+    
+    if (!floatingActions || !scrollToTopBtn || !quickContactBtn) return;
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    function updateFloatingActions() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        // Show/hide floating actions
+        if (scrollY > windowHeight * 0.5) {
+            floatingActions.classList.add('visible');
+            scrollToTopBtn.classList.add('visible');
+            quickContactBtn.classList.add('visible');
+        } else {
+            floatingActions.classList.remove('visible');
+            scrollToTopBtn.classList.remove('visible');
+            quickContactBtn.classList.remove('visible');
+        }
+        
+        lastScrollY = scrollY;
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateFloatingActions);
+            ticking = true;
+        }
+    }
+    
+    // Scroll to top functionality
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Quick contact functionality
+    quickContactBtn.addEventListener('click', () => {
+        // Navigate to the contact page
+        window.location.href = '/en/contact/';
+    });
+    
+    window.addEventListener('scroll', requestTick);
+    updateFloatingActions();
+}
+
+// Interactive Method Journey
+function initMethodJourney() {
+    const journeySteps = document.querySelectorAll('.journey-step');
+    
+    if (!journeySteps.length) return;
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+    
+    journeySteps.forEach(step => {
+        observer.observe(step);
+        
+        // Add click functionality to scroll to related section
+        step.addEventListener('click', () => {
+            const stepNumber = step.getAttribute('data-step');
+            const targetSection = document.querySelector(`[data-journey-step="${stepNumber}"]`);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+        
+        step.style.cursor = 'pointer';
+    });
+}
+
+// Testimonial Carousel
+function initTestimonialCarousel() {
+    const carousel = document.querySelector('.testimonial-carousel');
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.testimonial-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.nav-btn.prev');
+    const nextBtn = carousel.querySelector('.nav-btn.next');
+    
+    let currentSlide = 0;
+    let autoplayInterval;
+    
+    function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Show current slide
+        if (slides[index]) {
+            slides[index].classList.add('active');
+        }
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+    
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+        });
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoplay();
+        });
+    });
+    
+    // Autoplay functionality
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            startAutoplay();
+        }
+    }
+    
+    // Pause autoplay on hover
+    carousel.addEventListener('mouseenter', () => {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+        }
+    });
+    
+    carousel.addEventListener('mouseleave', startAutoplay);
+    
+    // Initialize
+    showSlide(0);
+    startAutoplay();
+}
+
+// Animated Statistics
+function initAnimatedStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    if (!statNumbers.length) return;
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target;
+                const target = parseInt(statNumber.getAttribute('data-target'));
+                animateNumber(statNumber, target);
+                observer.unobserve(statNumber);
+            }
+        });
+    }, observerOptions);
+    
+    function animateNumber(element, target) {
+        let current = 0;
+        const increment = target / 100;
+        const duration = 2000; // 2 seconds
+        const stepTime = duration / 100;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current);
+        }, stepTime);
+    }
+    
+    statNumbers.forEach(stat => {
+        observer.observe(stat);
+    });
+}
+
+// Enhanced Scroll Animations with Stagger
+function initEnhancedScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add staggered delay based on index
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Parallax Effects
+function initParallaxEffects() {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    
+    if (!parallaxElements.length) return;
+    
+    let ticking = false;
+    
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.getAttribute('data-speed') || 0.5;
+            const yPos = -(scrollY * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+}
+
+// Smooth Scroll for Internal Links
+function initSmoothScroll() {
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 100; // Account for sticky nav
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+
+
+// Initialize all world-class features
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing functionality
+    initializeHeader();
+    initializeHero();
+    initializeSpecialties();
+    initializeContactForm();
+    initializeScrollAnimations();
+    initializeLazyLoading();
+    
+    // Initialize world-class enhancements
+    initStickyNavigation();
+    initFloatingActions();
+    initMethodJourney();
+    initTestimonialCarousel();
+    initAnimatedStats();
+    initEnhancedScrollAnimations();
+    initParallaxEffects();
+    initSmoothScroll();
+    
+    // Existing functionality
+    setTimeout(fixMobileImages, 1000);
+    window.addEventListener('resize', fixMobileImages);
+    
+    initScienceSection();
+    improveScienceSectionMobile();
+    
+    if (window.innerWidth < 768) {
+        addTouchInteractions();
+        improveMobileAnimations();
+    }
+    
+    // ... rest of existing initialization code
+});

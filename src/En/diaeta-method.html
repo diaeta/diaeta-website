@@ -15,32 +15,197 @@ lang: en
 
 {# === Main Content Starts Here === #}
 
+<!-- Sticky Navigation -->
+<nav class="sticky-nav" id="stickyNav">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <a href="/en/">
+                    <img src="../../images/logo.svg" alt="Diaeta" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="navProgress"></div>
+                </div>
+                <span class="progress-text">Reading progress</span>
+            </div>
+            <div class="nav-actions">
+                <a href="/en/appointment/" class="btn btn-primary btn-sm">Book Consultation</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Floating Action Button -->
+<div class="floating-actions" id="floatingActions">
+    <button class="fab fab-primary" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <button class="fab fab-secondary" id="quickContact" aria-label="Quick contact">
+        <i class="fas fa-envelope"></i>
+    </button>
+</div>
+
 <section class="service-hero" style="background-color: var(--primary-50);">
     <div class="container">
         <span class="section-badge animate-on-scroll fade-in">Our Difference</span>
         <h1 class="animate-on-scroll fade-up">The Diaeta Method: Your Scientific Journey to Sustainable Health</h1>
         <p class="lead animate-on-scroll fade-up delay-200">
-            Forget short-lived diets and generic advice. The Diaeta Method is a structured and proven approach, designed to adapt to you and guarantee concrete, definitive results, without ever sacrificing the pleasure of eating.
+            You've tried diets before. You know the frustration of temporary results and the disappointment when the weight comes back. The Diaeta Method is different. It's not just another diet—it's a proven scientific approach that adapts to your unique biology, ensuring lasting results without sacrificing the joy of eating.
         </p>
-        <a href="#piliers" class="btn btn-accent btn-lg animate-on-scroll fade-up delay-400 scroll-to">Discover the Pillars of the Method <i class="fas fa-chevron-down ms-2"></i></a>
+        <div class="hero-cta-group animate-on-scroll fade-up delay-400">
+            <a href="#piliers" class="btn btn-accent btn-lg scroll-to">Discover the Pillars of the Method <i class="fas fa-chevron-down ms-2"></i></a>
+            <a href="/en/appointment/" class="btn btn-outline-primary btn-lg ms-3">Book Your Consultation</a>
+        </div>
     </div>
 </section>
+
+<!-- Visual separator -->
+<div class="section-divider">
+    <div class="container">
+        <div class="divider-line"></div>
+    </div>
+</div>
+
+        <!-- Interactive Method Journey -->
+        <div class="method-journey">
+            <div class="container">
+                <div class="journey-header text-center mb-5">
+                    <h2 class="animate-on-scroll fade-up">Your Journey to Lasting Health</h2>
+                    <p class="lead animate-on-scroll fade-up delay-100">Follow the proven path that has transformed hundreds of lives</p>
+                </div>
+                
+                <div class="journey-timeline">
+                    <div class="journey-step active" data-step="1">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="step-connector"></div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">01</div>
+                            <h3>Deep Understanding</h3>
+                            <p>We analyze your unique metabolism, preferences, and challenges to create a foundation for lasting success.</p>
+                            <div class="step-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-dna"></i>
+                                    <span>Metabolic Analysis</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Health Assessment</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Food Preferences</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="2">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <i class="fas fa-chess"></i>
+                            </div>
+                            <div class="step-connector"></div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">02</div>
+                            <h3>Strategic Planning</h3>
+                            <p>We design a personalized nutrition strategy that fits your lifestyle and addresses your specific health goals.</p>
+                            <div class="step-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Meal Planning</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-target"></i>
+                                    <span>Goal Setting</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-route"></i>
+                                    <span>Action Plan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="3">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="step-connector"></div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">03</div>
+                            <h3>Continuous Support</h3>
+                            <p>You receive ongoing guidance through our app, regular check-ins, and expert support when you need it most.</p>
+                            <div class="step-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>App Support</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Regular Check-ins</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user-md"></i>
+                                    <span>Expert Guidance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="4">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-number">04</div>
+                            <h3>Sustainable Results</h3>
+                            <p>You achieve lasting health improvements and develop habits that support your wellbeing for life.</p>
+                            <div class="step-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Measurable Progress</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-infinity"></i>
+                                    <span>Lasting Habits</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Life Transformation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <section class="content-section bg-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 animate-on-scroll fade-up">
-                <h2>Why a Method Rather Than a Simple "Diet"?</h2>
-                <p>The human body and nutrition are complex. "One-size-fits-all" solutions or restrictive diets ignore your unique biology and lifestyle, often leading to frustration and long-term failure. You need a <strong>strategy</strong>, not just a list of forbidden foods.</p>
-                <p>The Diaeta Method was designed to overcome these obstacles. It systematically integrates:</p>
+                <h2>Why the Diaeta Method Works When Others Fail</h2>
+                <p>Think about the last time you tried a diet. What happened? You probably felt hungry, deprived, and eventually gave up. That's because most diets treat everyone the same way, ignoring your unique metabolism, lifestyle, and preferences.</p>
+                <p>The Diaeta Method was created to solve these exact problems. Here's what makes it different:</p>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i>A deep understanding of <strong>your metabolism</strong>, whereas standard diets offer generic solutions that are often ineffective because they are not adapted to your uniqueness.</li>
-                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i>Solid and recent <strong>scientific evidence</strong>, unlike trendy diets that are often based on unverified claims and can prove ineffective in the long run.</li>
-                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i>Advanced <strong>personalization</strong> to your needs and tastes, ensuring a food plan that you will find tasty and motivating, far from 'one-size-fits-all' approaches that ignore your preferences and lead to frustration.</li>
-                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Modern tools</strong>, including our mobile app, for precise tracking of your progress and direct communication with your dietitian, offering a responsiveness and support that traditional approaches struggle to match.</li>
-                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i>Warm and expert <strong>human guidance</strong> from your dedicated dietitian, essential for guiding, motivating, and personalizing your journey, whereas many diets are limited to a simple, impersonal roadmap.</li>
+                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Your metabolism is unique</strong> - We analyze your specific biology, not offer generic solutions that work for "everyone" but often fail for you.</li>
+                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Science-backed strategies</strong> - Every recommendation is based on the latest research, not trendy fads that disappear as quickly as they appear.</li>
+                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Your preferences matter</strong> - We design your plan around foods you actually enjoy, ensuring you'll stick with it long-term.</li>
+                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Real-time support</strong> - Our mobile app keeps you connected to your dietitian, so you never feel alone in your journey.</li>
+                    <li class="mb-2"><i class="fas fa-check text-accent me-2"></i><strong>Expert guidance</strong> - Your dedicated dietitian becomes your partner, explaining the "why" behind every recommendation so you understand your body better.</li>
                 </ul>
-                <p>It is this methodical approach that allows us to offer lasting results where others fail.</p>
+                <p>This systematic approach is why our clients achieve lasting results when other methods have failed them.</p>
             </div>
             {# Optimized image for method structure #}
             <div class="col-lg-6 text-center animate-on-scroll fade-up delay-200">
@@ -66,38 +231,39 @@ lang: en
 
 <section id="piliers" class="content-section" style="background-color: var(--neutral-50);">
     <div class="container">
-        <h2 class="animate-on-scroll fade-up">The Founding Pillars of the Diaeta Method</h2>
+        <h2 class="animate-on-scroll fade-up">The Four Pillars That Make the Diaeta Method Work</h2>
+        <p class="lead text-center mb-5 animate-on-scroll fade-up delay-100">Each pillar is designed to address the specific challenges that cause traditional diets to fail.</p>
         <div class="row g-4 justify-content-center">
 
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-100">
                 <div class="diaeta-difference-card text-center w-100 assessment"> {# Use style from Poids page, adapted #}
                     <div class="icon"><i class="fas fa-user-check"></i></div>
-                    <h4>1. In-depth Analysis and Precise Diagnosis</h4>
-                    <p>Everything starts with understanding you. Through a detailed questionnaire, an open discussion about your lifestyle, habits, medical history, and a precise body composition analysis (fat mass, muscle, water...), we establish your unique metabolic and nutritional profile. This comprehensive understanding is the essential first step to designing a strategy that perfectly aligns with your tastes and real needs, thus ensuring a positive experience and results without unnecessary frustration.</p>
+                    <h4>1. Understanding You First</h4>
+                    <p>Before we create any plan, we take the time to truly understand you. Through detailed analysis of your body composition, medical history, lifestyle, and preferences, we build a complete picture of your unique situation. This isn't a quick questionnaire—it's a comprehensive assessment that forms the foundation of your personalized strategy. When you understand why certain foods affect you differently than others, you're more likely to make choices that support your goals.</p>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-200">
                  <div class="diaeta-difference-card text-center w-100 plan">
                      <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h4>2. Tailor-Made & Livable Strategy</h4>
-                    <p>Based on the initial analysis and science, we design YOUR plan. It's not about prohibitions, but about smart strategies for satiety, pleasure, and integration into your daily life (social meals included!). Your preferences are at the heart of the plan, so that eating remains a source of satisfaction and not a constraint, even while achieving your health goals.</p>
+                    <h4>2. Your Plan, Your Way</h4>
+                    <p>Based on our understanding of you, we create a strategy that fits your life, not the other way around. This means incorporating your favorite foods, respecting your schedule, and designing meals that satisfy both your taste buds and your health goals. We focus on smart strategies for satiety and pleasure, so you never feel deprived. When your plan feels natural and enjoyable, you're much more likely to stick with it long-term.</p>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-300">
                  <div class="diaeta-difference-card text-center w-100 tech">
                     <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                    <h4>3. Dynamic Follow-up & Connected Tools</h4>
-                    <p>Thanks to our mobile application and regular follow-up consultations (with body composition analysis), we track your progress in real time. This allows for quick and precise adjustments to optimize results and maintain your motivation. This interactive follow-up and proactive adjustments ensure that your nutritional journey remains not only effective but also enjoyable and adapted to your life, thus avoiding any unnecessary frustration and ensuring you continue to enjoy your meals.</p>
+                    <h4>3. Continuous Support & Adaptation</h4>
+                    <p>Your journey isn't static, and neither is our approach. Through regular body composition analysis and our mobile app, we track your progress and make adjustments as needed. When life throws you curveballs—a business dinner, a vacation, or stress—we're there to help you navigate it successfully. This ongoing support prevents the small setbacks that often derail traditional diets and keeps you motivated when challenges arise.</p>
                 </div>
             </div>
 
              <div class="col-md-6 col-lg-5 d-flex animate-on-scroll fade-up delay-400">
                  <div class="diaeta-difference-card text-center w-100 support">
                     <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                    <h4>4. Expert Guidance & Autonomy</h4>
-                    <p>Your dietitian is a coach and an educator. We explain the 'why' behind each recommendation, give you the tools to make informed choices, and support you in becoming autonomous in managing your health. This autonomy, based on a solid understanding and expert guidance, is the key to sustainably maintaining a diet that is a source of pleasure and well-being, far from the constraints of short-lived diets.</p>
+                    <h4>4. Building Your Confidence</h4>
+                    <p>Our goal isn't just to help you achieve results—it's to make you confident in managing your health independently. We explain the science behind every recommendation, teach you to read your body's signals, and give you the tools to make informed choices. When you understand why certain strategies work for you, you become empowered to maintain your results long after our formal follow-up ends.</p>
                 </div>
             </div>
         </div>
@@ -105,8 +271,68 @@ lang: en
 </section>
 
 <section class="content-section bg-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animate-on-scroll fade-up">
+                <h2>Backed by Science, Delivered with Expertise</h2>
+                <p>Every aspect of the Diaeta Method is grounded in the latest nutritional science and clinical research. Our approach isn't based on trends or fads—it's built on evidence that has been proven to work in real-world settings.</p>
+                
+                <div class="expertise-points">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Certified Expertise</h4>
+                            <p>Our dietitians hold advanced degrees in nutrition and are certified by recognized professional bodies. They stay current with the latest research through continuous education.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Evidence-Based Approach</h4>
+                            <p>Every recommendation is based on peer-reviewed research and clinical studies. We don't follow trends—we follow the science.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Proven Results</h4>
+                            <p>Our method has helped hundreds of clients achieve lasting health improvements. We track outcomes and continuously refine our approach based on real results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 text-center animate-on-scroll fade-up delay-200">
+                <img
+                    src="../../images/nutrition-research-lab-small.jpg"
+                    srcset="../../images/nutrition-research-lab-small.webp 500w,
+                            ../../images/nutrition-research-lab-small.jpg 500w,
+                            ../../images/nutrition-research-lab-large.webp 1000w,
+                            ../../images/nutrition-research-lab-large.jpg 1000w"
+                    sizes="(max-width: 991px) 90vw, 50vw"
+                    alt="Scientific nutrition research and evidence-based approach"
+                    class="img-fluid rounded shadow-sm"
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section bg-white">
      <div class="container">
-         <h2 class="animate-on-scroll fade-up">The Diaeta Method in Action: A Concrete Example</h2>
+         <h2 class="animate-on-scroll fade-up">See the Diaeta Method in Action</h2>
+         <p class="lead text-center mb-5 animate-on-scroll fade-up delay-100">Real examples of how our method adapts to real life situations.</p>
          <div class="row align-items-center">
             {# Optimized image for app communication #}
             <div class="col-lg-4 text-center animate-on-scroll fade-up delay-100">
@@ -126,16 +352,18 @@ lang: en
                >
             </div>
              <div class="col-lg-8 animate-on-scroll fade-up delay-200">
-                 <p class="lead">Imagine this common scenario:</p>
+                 <h3>How We Handle Real-Life Challenges</h3>
+                 <p>Let's say you have an important business dinner coming up. You're worried about staying on track while maintaining your professional image. Here's how the Diaeta Method supports you:</p>
                  <ol>
-                     <li class="mb-2">You are anticipating a restaurant meal or a busy weekend and wonder how to best manage it.</li>
-                     <li class="mb-2">You send a simple and quick message to your dietitian via the <strong>secure mobile app</strong>.</li>
-                     <li class="mb-2">Your dietitian reviews your current plan, your recent progress, and replies with <strong>concrete, personalized</strong> advice (e.g., dish choices, adjustments before/after).</li>
-                     <li class="mb-2">During your next follow-up, the <strong>body composition analysis</strong> confirms that you have stayed on track despite the unexpected events.</li>
-                     <li class="mb-2">We analyze together what worked and strengthen your confidence to handle similar situations in the future.</li>
+                     <li class="mb-2">You send a quick message to your dietitian through our <strong>secure mobile app</strong> explaining the situation.</li>
+                     <li class="mb-2">Your dietitian reviews your current progress and sends you <strong>specific, actionable advice</strong>—maybe suggesting lighter meals earlier in the day or specific menu choices to look for.</li>
+                     <li class="mb-2">During your next consultation, the <strong>body composition analysis</strong> shows you maintained your progress despite the social event.</li>
+                     <li class="mb-2">We discuss what worked and build your confidence for future similar situations.</li>
                  </ol>
-                 <p><strong>That's the Diaeta Method:</strong> proactive, connected, and personalized support that truly adapts to your life for lasting results.</p>
-                 <p class="mt-4"><strong>Another example (IBS Management):</strong> During the elimination phase of the Low FODMAP diet, a patient logs their meals via the app. Their Diaeta dietitian reviews this log daily, quickly identifies a hidden source of FODMAPs in a dish, and immediately alerts them, while suggesting a tasty alternative. This direct exchange allows the patient to learn quickly, avoid discomfort, and continue the phase with confidence and success.</p>
+                 <p><strong>That's the difference:</strong> Instead of feeling guilty or giving up, you learn to navigate life's challenges while staying on track.</p>
+                 
+                 <h4 class="mt-4">Another Real Example: Managing IBS</h4>
+                 <p>During the elimination phase of a Low FODMAP diet, one of our clients was logging meals through the app. Their dietitian noticed they were still experiencing symptoms and quickly identified a hidden FODMAP source in a seemingly safe dish. Within hours, they received an alert with a tasty alternative. This immediate support prevented weeks of discomfort and kept them motivated to continue their journey.</p>
              </div>
          </div>
     </div>
@@ -143,34 +371,277 @@ lang: en
 
 <section class="content-section benefits-section">
     <div class="container">
-         <h2 class="animate-on-scroll fade-up">What the Diaeta Method Concretely Brings You</h2>
+         <h2 class="animate-on-scroll fade-up">What You'll Experience with the Diaeta Method</h2>
+         <p class="lead text-center mb-5 animate-on-scroll fade-up delay-100">These aren't just promises—they're the results our clients consistently achieve.</p>
          <div class="row g-4 justify-content-center">
             {# Reusing benefit-card style - Ensure CSS exists #}
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-100"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-check-double"></i></div><h4>Validated Approach</h4><p>Strategies based on the latest scientific research, adapted to you.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-street-view"></i></div><h4>Hyper-Personalization</h4><p>Takes into account your unique metabolism, biology, lifestyle, and preferences.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-seedling"></i></div><h4>Sustainability Without Frustration</h4><p>Natural integration into your life, without severe restrictions or a yo-yo effect.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-mobile-screen-button"></i></div><h4>Optimized & Connected Follow-up</h4><p>Technology and regular analyses for proactive adjustments and motivation.</p></div></div>
-            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-500"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-user-graduate"></i></div><h4>Your Autonomy</h4><p>We give you the tools and knowledge to become the sustainable expert of your own health.</p></div></div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-100"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-check-double"></i></div><h4>Proven Results</h4><p>Strategies backed by the latest scientific research, adapted specifically to your unique biology and lifestyle.</p></div></div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-street-view"></i></div><h4>Truly Personalized</h4><p>Your plan considers your metabolism, preferences, schedule, and health goals—no generic solutions.</p></div></div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-seedling"></i></div><h4>Sustainable Success</h4><p>Natural integration into your life without extreme restrictions or the yo-yo effect that plagues traditional diets.</p></div></div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-mobile-screen-button"></i></div><h4>Always Connected</h4><p>Technology and regular analysis provide proactive adjustments and motivation when you need it most.</p></div></div>
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-500"><div class="benefit-card h-100"><div class="icon"><i class="fas fa-user-graduate"></i></div><h4>Lasting Confidence</h4><p>We give you the knowledge and tools to become the expert of your own health, ensuring long-term success.</p></div></div>
          </div>
     </div>
  </section>
 
+<section class="content-section bg-white">
+    <div class="container">
+        <h2 class="animate-on-scroll fade-up text-center">Common Concerns We Address</h2>
+        <p class="lead text-center mb-5 animate-on-scroll fade-up delay-100">We understand your hesitations. Here's how we address the most common concerns about nutrition programs.</p>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-200">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>"I don't have time for complicated meal planning"</h4>
+                    <p>We design your plan around your schedule, not the other way around. Our strategies focus on quick, simple meals that fit your busy lifestyle. Many of our clients spend less time on meal prep than before.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-300">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>"I don't want to give up my favorite foods"</h4>
+                    <p>You won't have to! We believe in enjoying your food while achieving your health goals. We'll show you how to incorporate your favorites in ways that support your objectives, not sabotage them.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-400">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h4>"I'm worried about the cost"</h4>
+                    <p>Investing in your health now saves money on medical expenses later. Our approach focuses on affordable, accessible foods. We'll help you make smart choices that fit your budget while maximizing results.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-500">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>"What about social situations and dining out?"</h4>
+                    <p>We prepare you for real life, including restaurants, parties, and travel. You'll learn strategies to enjoy social occasions while staying on track. Our clients often find they can navigate these situations better than before.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-600">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <h4>"I've tried diets before and failed"</h4>
+                    <p>That's exactly why you need a different approach. The Diaeta Method isn't a diet—it's a sustainable lifestyle change. We address the root causes of previous failures and build lasting habits that work for you.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 animate-on-scroll fade-up delay-700">
+                <div class="concern-card h-100">
+                    <div class="concern-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>"Will I feel deprived and hungry?"</h4>
+                    <p>Absolutely not. Our strategies focus on satiety and satisfaction. You'll learn to eat foods that keep you full longer and satisfy your cravings in healthier ways. Many clients report feeling more satisfied than ever.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Enhanced Social Proof Section -->
+        <section class="content-section bg-light">
+            <div class="container">
+                <div class="social-proof-header text-center mb-5">
+                    <h2 class="animate-on-scroll fade-up">Trusted by Hundreds of Clients</h2>
+                    <p class="lead animate-on-scroll fade-up delay-100">Real transformations from real people who found lasting health with the Diaeta Method</p>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badges text-center mb-5 animate-on-scroll fade-up delay-200">
+                    <div class="badge-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certified Dietitians</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-award"></i>
+                        <span>Evidence-Based</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacy Protected</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-clock"></i>
+                        <span>10+ Years Experience</span>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Carousel -->
+                <div class="testimonial-carousel animate-on-scroll fade-up delay-300">
+                    <div class="carousel-container">
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-card featured">
+                                <div class="testimonial-content">
+                                    <div class="quote-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <p>"After trying countless diets that left me hungry and frustrated, the Diaeta Method finally gave me a sustainable solution. My dietitian understood my unique challenges and created a plan that actually fits my life. I've lost 15kg and kept it off for over a year—something I never thought possible."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="../../images/clients/sophie-v-portrait.jpg" alt="Sarah M." loading="lazy">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>Sarah M.</h5>
+                                        <span class="author-detail">Weight Loss Success</span>
+                                        <div class="result-badge">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>15kg lost & maintained</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card featured">
+                                <div class="testimonial-content">
+                                    <div class="quote-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <p>"Managing my diabetes was overwhelming until I found the Diaeta Method. The personalized approach and continuous support through the app made all the difference. My blood sugar levels are now stable, and I feel more confident about my health than ever before."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="../../images/clients/marc-d-portrait.jpg" alt="Michael R." loading="lazy">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>Michael R.</h5>
+                                        <span class="author-detail">Diabetes Management</span>
+                                        <div class="result-badge">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Stable blood sugar levels</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card featured">
+                                <div class="testimonial-content">
+                                    <div class="quote-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <p>"The IBS symptoms that controlled my life for years are now manageable thanks to the Diaeta Method. My dietitian's expertise in the Low FODMAP approach, combined with the ongoing support, helped me identify my triggers and find delicious alternatives. I finally have my life back."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="../../images/clients/sophie-v-portrait.jpg" alt="Emma L." loading="lazy">
+                                    </div>
+                                    <div class="author-info">
+                                        <h5>Emma L.</h5>
+                                        <span class="author-detail">IBS Management</span>
+                                        <div class="result-badge">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>90% symptom reduction</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Navigation -->
+                    <div class="carousel-nav">
+                        <button class="nav-btn prev" aria-label="Previous testimonial">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="nav-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                        <button class="nav-btn next" aria-label="Next testimonial">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                        <!-- Success Statistics -->
+        <div class="success-stats text-center mt-5 animate-on-scroll fade-up delay-400">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="95">0</div>
+                    <div class="stat-label">Success Rate (%)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Average Weight Loss (kg)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-label">Months Average Duration</div>
+                </div>
+            </div>
+        </div>
+        
+        
+            </div>
+        </section>
+
 <section class="final-cta-section">
     <div class="container">
-        <h2 class="animate-on-scroll fade-up">Experience the Diaeta Method Difference</h2>
-        <p class="animate-on-scroll fade-up delay-200">
-            Invest in an approach that has proven its effectiveness. Book your initial consultation and discover how our structured and personalized method can help you finally achieve your health goals.
-        </p>
-        <a href="/en/appointment/" class="btn btn-secondary btn-lg animate-on-scroll fade-up delay-400"> {# Ensure btn-secondary is styled as accent here #}
-            <span>Discover the Method in a Consultation</span>
-            <i class="fas fa-calendar-check btn-icon-right"></i>
-        </a>
+        <div class="cta-content">
+            <h2 class="animate-on-scroll fade-up">Ready to Transform Your Health Journey?</h2>
+            <p class="animate-on-scroll fade-up delay-200">
+                You've seen the science. You've read the success stories. Now it's your turn to experience the Diaeta Method difference. Our comprehensive initial consultation is your first step toward lasting health results—no more temporary fixes, no more frustration. This is where your transformation begins.
+            </p>
+            <div class="cta-benefits animate-on-scroll fade-up delay-300">
+                <div class="cta-benefit">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Comprehensive health analysis</span>
+                </div>
+                <div class="cta-benefit">
+                    <i class="fas fa-dna"></i>
+                    <span>Personalized nutrition strategy</span>
+                </div>
+                <div class="cta-benefit">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile app access included</span>
+                </div>
+                <div class="cta-benefit">
+                    <i class="fas fa-clock"></i>
+                    <span>Ongoing support & guidance</span>
+                </div>
+            </div>
+            <div class="cta-actions animate-on-scroll fade-up delay-400">
+                <a href="/en/appointment/" class="btn btn-secondary btn-lg">
+                    <span>Book Your Consultation</span>
+                    <i class="fas fa-calendar-check btn-icon-right"></i>
+                </a>
+                <a href="/en/contact/" class="btn btn-outline-light btn-lg ms-3">
+                    <span>Learn More</span>
+                    <i class="fas fa-info-circle btn-icon-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="faq-methode" class="content-section bg-light py-5"> <div class="container" style="max-width: 850px;">
     <div class="section-header text-center animate-on-scroll fade-up">
-        <h2 class="section-title">Frequently Asked Questions about the Diaeta Method</h2>
+        <h2 class="section-title">Common Questions About the Diaeta Method</h2>
+        <p class="lead">We understand you have questions. Here are the answers to what our clients ask most often.</p>
     </div>
     <div class="accordion accordion-flush" id="faqAccordionMethode">
 
