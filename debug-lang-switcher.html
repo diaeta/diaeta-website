@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher Debug</title>
+    <style>
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            color: #495057;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+        
+        .lang-toggle:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            min-width: 160px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+            
+            /* Initially hidden */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease;
+        }
+        
+        /* When parent has 'open' class, show dropdown */
+        .lang-selector.open .lang-dropdown {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: block !important;
+        }
+        
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            color: #495057;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+        
+        .lang-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .lang-option.active {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .debug-info {
+            margin: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Language Switcher Debug Test</h1>
+    
+    <div class="debug-info">
+        <h3>Debug Info:</h3>
+        <div id="debug-output">Click the language switcher and watch the console...</div>
+    </div>
+    
+    <div class="lang-selector" id="test-selector">
+        <button class="lang-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+            <span>FR</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="lang-dropdown">
+            <a href="#fr" class="lang-option active" aria-current="true">Français</a>
+            <a href="#en" class="lang-option">English</a>
+            <a href="#de" class="lang-option">Deutsch</a>
+            <a href="#nl" class="lang-option">Nederlands</a>
+        </div>
+    </div>
+
+    <script>
+        function debugLog(message, data = '') {
+            console.log(message, data);
+            const debugDiv = document.getElementById('debug-output');
+            debugDiv.innerHTML += '<br>' + message + (data ? ': ' + JSON.stringify(data) : '');
+        }
+
+        // Simple test implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog('=== SIMPLE TEST LOADED ===');
+            
+            const langSelector = document.getElementById('test-selector');
+            const langToggle = langSelector.querySelector('.lang-toggle');
+            
+            debugLog('Found elements', {
+                selector: !!langSelector,
+                toggle: !!langToggle
+            });
+
+            langToggle.addEventListener('click', function(e) {
+                debugLog('=== CLICK EVENT FIRED ===');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const currentlyOpen = langSelector.classList.contains('open');
+                debugLog('Currently open?', currentlyOpen);
+                debugLog('Classes before:', langSelector.className);
+                
+                if (currentlyOpen) {
+                    debugLog('ATTEMPTING TO CLOSE');
+                    langSelector.classList.remove('open');
+                    this.setAttribute('aria-expanded', 'false');
+                    debugLog('Classes after close:', langSelector.className);
+                } else {
+                    debugLog('ATTEMPTING TO OPEN');
+                    langSelector.classList.add('open');
+                    this.setAttribute('aria-expanded', 'true');
+                    debugLog('Classes after open:', langSelector.className);
+                }
+                
+                // Check again after a delay
+                setTimeout(() => {
+                    debugLog('Classes 100ms later:', langSelector.className);
+                }, 100);
+            });
+
+            // Click outside to close
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.lang-selector')) {
+                    debugLog('Clicked outside - closing');
+                    langSelector.classList.remove('open');
+                    langToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

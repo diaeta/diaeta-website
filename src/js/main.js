@@ -362,38 +362,73 @@ function initializeHeader() {
     });
   }
 
+  // Debug: Check if language toggle elements exist
+  const langToggles = document.querySelectorAll('.lang-toggle');
+  const langSelectors = document.querySelectorAll('.lang-selector');
+  const langOptions = document.querySelectorAll('.lang-option');
+  
+  console.log('Diaeta Debug - Language elements found:', {
+    langToggles: langToggles.length,
+    langSelectors: langSelectors.length,
+    langOptions: langOptions.length
+  });
+  
+  // Debug each element
+  langToggles.forEach((toggle, index) => {
+    console.log(`Toggle ${index}:`, toggle);
+    console.log(`Toggle parent:`, toggle.closest('.lang-selector'));
+  });
+
   document.querySelectorAll('.lang-toggle').forEach(toggle => {
+    console.log('Setting up language toggle:', toggle);
+    
+    // Add click event listener with simple toggle logic
     toggle.addEventListener('click', function(e) {
-      console.log('Language toggle clicked:', this); // Log the clicked element
+      console.log('=== LANGUAGE TOGGLE CLICKED ===');
+      
       e.preventDefault();
       e.stopPropagation();
+      
       const langSelector = this.closest('.lang-selector');
-      console.log('Found langSelector:', langSelector); // Log the found parent
+      console.log('Found lang selector:', langSelector);
+      
       if (!langSelector) {
         console.error('Diaeta: .lang-selector not found for this toggle.');
         return;
       }
-      const currentlyOpen = langSelector.classList.contains('open');
-      console.log('Is currently open?', currentlyOpen);
-
-      // Close other potentially open language selectors
-      document.querySelectorAll('.lang-selector.open').forEach(sel => {
-        if (sel !== langSelector) {
-          console.log('Closing other langSelector:', sel);
+      
+      // Simple toggle: if open, close it; if closed, open it
+      const isOpen = langSelector.classList.contains('open');
+      console.log('Is currently open?', isOpen);
+      
+      if (isOpen) {
+        // Close this one
+        console.log('CLOSING dropdown');
+        langSelector.classList.remove('open');
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        // Close all others first, then open this one
+        console.log('OPENING dropdown');
+        document.querySelectorAll('.lang-selector').forEach(sel => {
           sel.classList.remove('open');
-          sel.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      langSelector.classList.toggle('open', !currentlyOpen);
-      this.setAttribute('aria-expanded', String(!currentlyOpen));
-      console.log('Toggled "open" class. Now open?', langSelector.classList.contains('open'), 'Aria-expanded set to:', this.getAttribute('aria-expanded'));
+          const otherToggle = sel.querySelector('.lang-toggle');
+          if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+        });
+        
+        langSelector.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+      
+      console.log('Final classes:', langSelector.className);
     });
   });
 
   document.querySelectorAll('.lang-option').forEach(option => {
     option.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
+      
+      console.log('Language option clicked:', this.textContent);
       const targetLangDisplay = (this.textContent || "FR").substring(0,2).toUpperCase();
       document.querySelectorAll('.lang-toggle span').forEach(span => span.textContent = targetLangDisplay);
       document.querySelectorAll('.lang-option.active').forEach(opt => {
@@ -412,7 +447,8 @@ function initializeHeader() {
     if (!event.target.closest('.lang-selector')) {
       document.querySelectorAll('.lang-selector.open').forEach(selector => {
         selector.classList.remove('open');
-        selector.querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
+        const toggle = selector.querySelector('.lang-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
       });
     }
   });
