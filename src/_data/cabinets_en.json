@@ -255,6 +255,7 @@
     "hours_details_note": "Consultations on Thursdays, every other week (check for availability).",
     "coordinates": [50.854990, 4.440910]
   },
+
   {
     "id": "video",
     "name": "Video Consultation",

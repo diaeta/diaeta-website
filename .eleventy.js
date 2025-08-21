@@ -284,6 +284,12 @@ module.exports = function(eleventyConfig) {
         return Array.isArray(arr) && arr.length > 0 ? arr[0] : undefined;
     });
 
+    // Custom filter to count physical clinics (excluding video consultation)
+    eleventyConfig.addFilter("physicalClinicsCount", function(clinics) {
+        if (!Array.isArray(clinics)) return 0;
+        return clinics.filter(clinic => clinic.id !== 'video').length;
+    });
+
     // Truncate Filter
     eleventyConfig.addFilter("truncate", function(str, len) {
         if (!str) return "";

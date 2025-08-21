@@ -63,9 +63,9 @@ lang: en
         </div>
         <div class="container hero-content">
             <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>Cutting-Edge Dietetics</span></div>
-            <h1 class="hero-headline animate-on-scroll fade-up">Scientific Nutrition, Sustainable Results. Your Health, <span class="text-accent">Reinvented.</span></h1>
-            <p class="hero-tagline animate-on-scroll fade-up delay-200">The expertise of a dietitian-innovator for advanced solutions in weight loss, IBS, and metabolic health.</p>
-            <div class="hero-description animate-on-scroll fade-up delay-300"><p>At Diaeta, we merge <span class="text-highlight">cutting-edge research</span> and <span class="text-highlight">technology</span> with a human-centric approach for results you can see and feel.</p></div>
+            <h1 class="hero-headline animate-on-scroll fade-up">Your Health Journey Begins Here: Scientific Nutrition That Works For You</h1>
+            <p class="hero-tagline animate-on-scroll fade-up delay-200">Discover how our personalized approach helps you achieve your health goals with proven methods tailored specifically to your needs.</p>
+            <div class="hero-description animate-on-scroll fade-up delay-300"><p>At Diaeta, we listen to your unique concerns and combine <span class="text-highlight">evidence-based science</span> with <span class="text-highlight">genuine care</span> to create solutions that work specifically for you.</p></div>
             <div class="feature-badges animate-on-scroll fade-up delay-400">
                 <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>Scientific Approach</span></div>
                 <div class="feature-badge"><i class="fa-solid fa-chart-line"></i><span>Sustainable Results</span></div>
@@ -83,8 +83,8 @@ lang: en
           <div class="science-grid">
               <div class="science-content animate-on-scroll fade-up">
                   <span class="science-badge">Our philosophy</span>
-                  <h2 class="science-title">Where Nutritional Science Meets Technological Innovation</h2>
-                  <p class="science-description">At Diaeta, we don't just follow science; we integrate it. With dual expertise in dietetics and technology, we apply cutting-edge research and innovative tools to create a health journey that is uniquely yours.</p>
+                  <h2 class="science-title">We Care About Your Success: Science That Understands You</h2>
+                  <p class="science-description">At Diaeta, we understand your health challenges are personal. That's why we combine scientific expertise with genuine interest in your story, creating a nutrition plan that respects your preferences while delivering measurable results.</p>
                   <div class="science-fact animate-on-scroll fade-in">
                       <div class="fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
                       <p class="fact-text">Nutrigenomics research reveals that our genetics significantly influence our response to food. This is why a personalized approach is often more effective than a standardized plan.</p>
@@ -169,14 +169,16 @@ lang: en
               </div>
           </div>
       </div>
-  </section>
+      </section>
 
-  <section class="specialties-section" id="services">
+    <div class="section-divider-thick"></div>
+
+    <section class="specialties-section" id="services">
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
             <span class="section-badge">Targeted Solutions</span>
-            <h2 class="section-title">A Tailored Approach for Every Challenge</h2>
-            <p class="section-subtitle">We apply our scientific and innovative methodology to deliver concrete results for your specific health needs.</p>
+            <h2 class="section-title">Solutions That Address Your Specific Concerns</h2>
+            <p class="section-subtitle">We listen carefully to understand your unique situation and develop solutions that make sense for your life and health goals.</p>
         </div>
         <div class="specialties-grid">
 
@@ -394,14 +396,16 @@ lang: en
             </div>
         </div>
     </div>
-</section>
+    </section>
+
+    <div class="section-divider-thick"></div>
 
         <section class="success-stories-section new-testimonial-showcase" id="testimonials">
           <div class="container">
               <div class="section-header animate-on-scroll fade-up">
                   <span class="section-badge">Our Patients Testify</span>
-                  <h2 class="section-title">Their Transformation Journeys with Diaeta</h2>
-                  <p class="section-subtitle">Discover how a scientific and personalized nutritional approach has changed their lives.</p>
+                  <h2 class="section-title">Real People, Real Results: Stories That Could Be Yours</h2>
+                  <p class="section-subtitle">These success stories show how our personalized approach helps people just like you achieve their health goals.</p>
               </div>
 
               <div class="row g-4 justify-content-center">
@@ -487,22 +491,24 @@ lang: en
                   </a>
               </div>
           </div>
-      </section>
+          </section>
 
-      <section class="cabinet-teaser-section section" id="our-locations-teaser">
+    <div class="section-divider"></div>
+
+       <section class="cabinet-teaser-section section" id="our-locations-teaser">
         <div class="container text-center">
             <div class="section-header animate-on-scroll fade-up">
                 <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Your Health, Our Proximity</span>
-                <h2 class="section-title" style="color: var(--primary-700);">An Expert Dietitian, Always Near You in Brussels</h2>
+                <h2 class="section-title" style="color: var(--primary-700);">We're Here For You: Convenient Locations Across Brussels</h2>
                 <p class="section-subtitle" style="color: var(--text-secondary); max-width: 750px;">
-                    At Diaeta, we believe that excellent care should be accessible. That's why we welcome you to 8 clinics, strategically located across the municipalities of Brussels.
+                    Your convenience matters to us. That's why we've established {{ cabinets_en | physicalClinicsCount }} welcoming clinics throughout Brussels, making it easy for you to access the care you deserve.
                 </p>
             </div>
     
             <div class="teaser-highlights animate-on-scroll fade-up delay-200" style="margin: 2.5rem auto; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; max-width: 800px;">
                 <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
                     <i class="fas fa-map-marked-alt fa-2x" style="color: var(--accent-500);"></i>
-                    <span style="font-size: 1.1rem; font-weight: 500;">8 Brussels Clinics</span>
+                    <span style="font-size: 1.1rem; font-weight: 500;">{{ cabinets_en | physicalClinicsCount }} Brussels Clinics</span>
                 </div>
                 <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
                     <i class="fas fa-users fa-2x" style="color: var(--accent-500);"></i>
@@ -521,20 +527,22 @@ lang: en
                 <span>Explore Our Consultation Locations</span> <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
-    </section>
+        </section>
 
-    <section id="nutrigenetic-testing" class="genetic-section section" style="background-color: var(--primary-50);">
+    <div class="section-divider"></div>
+
+     <section id="nutrigenetic-testing" class="genetic-section section" style="background-color: var(--primary-50);">
       <div class="container">
           <div class="row align-items-center g-lg-5">
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
                   <div class="section-header text-start mb-4">
                       <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">The Future of Nutrition</span>
-                      <h2 class="section-title mb-3" style="font-size: 2.2rem;">Decode Your DNA for Precision Nutrition</h2>
+                      <h2 class="section-title mb-3" style="font-size: 2.2rem;">Your Unique Genetic Profile: The Key to Your Optimal Nutrition</h2>
                       <p class="section-subtitle" style="max-width: none;">
-                          What if your diet was perfectly aligned with your genetic code? <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a> tests analyze over 70 genetic markers to reveal key scientific insights, allowing for unparalleled personalization of your diet.
+                          Imagine nutrition advice that's truly designed for you. <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a> tests analyze your unique genetic profile across 70+ markers, helping us create recommendations that work with your body's natural tendencies.
                       </p>
                   </div>
-                  <p class="mb-3">As a dietitian passionate about innovation, I use this cutting-edge technology to design a plan with you that goes beyond standard recommendations. A plan that is effective, enjoyable, and perfectly integrated into your life. These tests can help you to:</p>
+                  <p class="mb-3">I'm genuinely interested in finding the best approach for your specific needs. Together, we'll use these insights to create a nutrition plan that feels natural, enjoyable, and effective for your unique body. These personalized tests help you:</p>
                   <ul class="list-styled-check small mb-4">
                       <li>Optimize your <strong class="text-primary">weight management</strong> by understanding your unique response to proteins, fats, and carbohydrates.</li>
                       <li>Adjust your vitamin and mineral intake (e.g., Vit. D, B12, Folate) according to <strong class="text-accent">your actual genetic needs</strong>.</li>
@@ -570,15 +578,17 @@ lang: en
               </div>
           </div>
       </div>
-  </section>
+      </section>
 
-  <section id="news-teaser" class="section actualites-teaser-section bg-light">
+    <div class="section-divider"></div>
+
+   <section id="news-teaser" class="section actualites-teaser-section bg-light">
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
             <span class="section-badge" style="background-color: rgba(var(--secondary-rgb), 0.1); color: var(--secondary-700);">Our Expertise</span>
-            <h2 class="section-title">Our Blog: Articles & Practical Tips</h2>
+            <h2 class="section-title">Knowledge You Can Use: Practical Health Insights</h2>
             <p class="section-subtitle">
-                Discover our latest articles, scientific advice, and practical tips to guide you towards sustainable health and optimal well-being.
+                We share information that matters to you - straightforward advice and science-backed tips you can apply to improve your health today.
             </p>
         </div>
 
@@ -647,145 +657,338 @@ lang: en
     </div>
 </section>
 
-<section id="tariffs" class="tarifs-section gradient-section py-5">
+<section id="tariffs" class="pricing-section py-5" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 100%); padding: var(--space-10) 0;">
   <div class="container">
-      <div class="section-header text-center mb-5 animate-on-scroll fade-up">
-          <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">An Investment In Your Health</span>
-          <h2 class="section-title">Clear and Comprehensive Care Journeys</h2>
-          <p class="section-subtitle">
-              We offer structured support to ensure lasting results, with transparent pricing for each step of your transformation.
+      <!-- Header -->
+      <div class="text-center mb-5 animate-on-scroll fade-up">
+          <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3" style="font-size: 0.9rem;">
+              <i class="fas fa-heart me-2"></i>Investment in Your Health
+          </span>
+          <h2 class="display-5 fw-bold mb-3" style="color: var(--primary-800);">Clear, Transparent Pricing</h2>
+          <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">
+              We believe in complete transparency. Know exactly what to expect as we work together toward your health goals.
           </p>
       </div>
 
-      <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-100">
-          <h3 class="text-center mb-1" style="color: var(--primary-600); font-family: var(--font-display);">Journey: Weight Loss, Type 2 Diabetes, Cholesterol & Other Needs</h3>
-          <p class="text-center text-muted mb-4 small">
-              (The pricing structure below applies to these journeys. The content of each session is fully personalized.)
-          </p>
-          <div class="row justify-content-center g-4">
-              <div class="col-md-6 col-lg-4">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">First Consultation</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 60 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Full assessment: health, history, habits.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Body composition analysis.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Goal setting & personalized initial strategy.</li>
+      <!-- Main Pricing Cards -->
+      <div class="row g-4 justify-content-center mb-5">
+          <!-- First Consultation -->
+          <div class="col-lg-4 col-md-6 animate-on-scroll fade-up delay-100">
+              <div class="pricing-card" style="background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 2px solid var(--primary-100); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                  <div class="pricing-header text-center p-4" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: white;">
+                      <div class="pricing-icon mb-3">
+                          <i class="fas fa-user-plus fa-2x"></i>
+                      </div>
+                      <h3 class="h4 mb-2">First Consultation</h3>
+                      <div class="pricing-price">
+                          <span class="display-6 fw-bold">€80</span>
+                          <span class="text-white-50">/session</span>
+                      </div>
+                      <p class="mb-0 text-white-75">Approx. 60 minutes</p>
+                  </div>
+                  <div class="pricing-body p-4">
+                      <ul class="list-unstyled mb-4">
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Complete health assessment & history</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Body composition analysis</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Personalized goal setting</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Initial nutrition strategy</span>
+                          </li>
                       </ul>
+                      <div class="text-center">
+                          <a href="/en/appointment/" class="btn btn-primary w-100">
+                              <i class="fas fa-calendar-plus me-2"></i>Book Now
+                          </a>
+                      </div>
                   </div>
               </div>
-              <div class="col-md-6 col-lg-4">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">First Follow-up</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 40 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Food diary analysis (via mobile app).</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Discussion of progress & challenges.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Adjustment of your nutritional strategy.</li>
+          </div>
+
+          <!-- First Follow-up -->
+          <div class="col-lg-4 col-md-6 animate-on-scroll fade-up delay-200">
+              <div class="pricing-card pricing-card-featured" style="background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 2px solid var(--accent-100); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                  <div class="pricing-header text-center p-4" style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); color: white;">
+                      <div class="pricing-icon mb-3">
+                          <i class="fas fa-chart-line fa-2x"></i>
+                      </div>
+                      <h3 class="h4 mb-2">First Follow-up</h3>
+                      <div class="pricing-price">
+                          <span class="display-6 fw-bold">€80</span>
+                          <span class="text-white-50">/session</span>
+                      </div>
+                      <p class="mb-0 text-white-75">Approx. 40 minutes</p>
+                  </div>
+                  <div class="pricing-body p-4">
+                      <ul class="list-unstyled mb-4">
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Food diary analysis (mobile app)</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Progress review & challenges</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Strategy adjustments</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Ongoing support planning</span>
+                          </li>
                       </ul>
+                      <div class="text-center">
+                          <a href="/en/appointment/" class="btn btn-accent w-100">
+                              <i class="fas fa-calendar-plus me-2"></i>Book Now
+                          </a>
+                      </div>
                   </div>
               </div>
-              <div class="col-md-6 col-lg-4">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Regular Follow-ups</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 30 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Monitoring of progress (weight, composition, symptoms).</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Continuous adaptation of the plan.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Motivation & practical advice. Support via mobile app.</li>
+          </div>
+
+          <!-- Regular Follow-ups -->
+          <div class="col-lg-4 col-md-6 animate-on-scroll fade-up delay-300">
+              <div class="pricing-card" style="background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 2px solid var(--secondary-100); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                  <div class="pricing-header text-center p-4" style="background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); color: white;">
+                      <div class="pricing-icon mb-3">
+                          <i class="fas fa-sync-alt fa-2x"></i>
+                      </div>
+                      <h3 class="h4 mb-2">Regular Follow-ups</h3>
+                      <div class="pricing-price">
+                          <span class="display-6 fw-bold">€50</span>
+                          <span class="text-white-50">/session</span>
+                      </div>
+                      <p class="mb-0 text-white-75">Approx. 30 minutes</p>
+                  </div>
+                  <div class="pricing-body p-4">
+                      <ul class="list-unstyled mb-4">
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Progress monitoring</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Plan adaptations</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Motivation & support</span>
+                          </li>
+                          <li class="mb-3 d-flex align-items-start">
+                              <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                              <span>Mobile app support</span>
+                          </li>
                       </ul>
+                      <div class="text-center">
+                          <a href="/en/appointment/" class="btn btn-secondary w-100">
+                              <i class="fas fa-calendar-plus me-2"></i>Book Now
+                          </a>
+                      </div>
                   </div>
               </div>
           </div>
       </div>
 
-      <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-200">
-          <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Specific Journey: Irritable Bowel Syndrome (IBS) - Low FODMAP Protocol</h3>
-          <div class="row justify-content-center g-4">
-              <div class="col-md-6 col-lg-3">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">1. Initial Consultation (IBS)</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 60 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Evaluation of symptoms and habits.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Explanation of IBS & Low FODMAP approach.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Preparation for the food diary.</li>
-                      </ul>
+      <!-- IBS Specialized Program -->
+      <div class="row mb-5">
+          <div class="col-12 animate-on-scroll fade-up delay-400">
+              <div class="specialized-program-card" style="background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); overflow: hidden; border: 2px solid var(--primary-200);">
+                  <div class="program-header p-4" style="background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); color: white;">
+                      <div class="row align-items-center">
+                          <div class="col-md-8">
+                              <h3 class="h3 mb-2">
+                                  <i class="fas fa-microscope me-3"></i>
+                                  IBS Specialized Program
+                              </h3>
+                              <p class="mb-0 text-white-75">Complete Low FODMAP Protocol with Personalized Guidance</p>
+                          </div>
+                                                     <div class="col-md-4 text-md-end">
+                               <p class="mb-0 text-white-75">4 structured sessions</p>
+                           </div>
+                      </div>
                   </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">2. Assessment & FODMAP Elimination Plan</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€80.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 40 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Food diary analysis.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Plan for elimination phase (4 weeks).</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Lists of foods & alternatives.</li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">3. Starting Reintroductions</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 30 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Explanation of the reintroduction protocol.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Planning tests by FODMAP family.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Advice for symptom tracking.</li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                  <div class="tarif-item p-4 h-100" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm); display: flex; flex-direction: column;">
-                      <h4 class="tarif-title-item" style="font-size: 1.15rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">4. Final Personalized Plan</h4>
-                      <p class="tarif-price-item" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€50.00 <span class="tarif-duration-item" style="font-size: 0.8em; color: var(--text-secondary); font-weight: normal;">(Approx. 30 min)</span></p>
-                      <ul class="feature-list mt-3 text-start small flex-grow-1">
-                          <li><i class="fa-solid fa-check text-accent"></i> Full review of reintroduction tests.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Development of your long-term personalized diet.</li>
-                          <li><i class="fa-solid fa-check text-accent"></i> Strategies for sustainably managing IBS.</li>
-                      </ul>
+                  <div class="program-body p-4">
+                      <div class="row g-4">
+                          <div class="col-lg-3 col-md-6">
+                              <div class="step-card text-center p-3" style="background: var(--primary-50); border-radius: 15px;">
+                                  <div class="step-number mb-3" style="width: 40px; height: 40px; background: var(--primary-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: bold;">1</div>
+                                  <h5 class="h6 mb-2">Initial Consultation</h5>
+                                  <p class="small text-muted mb-2">€80 • 60 min</p>
+                                  <p class="small">Symptom evaluation & FODMAP explanation</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                              <div class="step-card text-center p-3" style="background: var(--accent-50); border-radius: 15px;">
+                                  <div class="step-number mb-3" style="width: 40px; height: 40px; background: var(--accent-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: bold;">2</div>
+                                  <h5 class="h6 mb-2">Elimination Plan</h5>
+                                  <p class="small text-muted mb-2">€80 • 40 min</p>
+                                  <p class="small">Food diary analysis & elimination strategy</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                              <div class="step-card text-center p-3" style="background: var(--secondary-50); border-radius: 15px;">
+                                  <div class="step-number mb-3" style="width: 40px; height: 40px; background: var(--secondary-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: bold;">3</div>
+                                  <h5 class="h6 mb-2">Reintroduction</h5>
+                                  <p class="small text-muted mb-2">€50 • 30 min</p>
+                                  <p class="small">Protocol explanation & testing planning</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                              <div class="step-card text-center p-3" style="background: var(--primary-50); border-radius: 15px;">
+                                  <div class="step-number mb-3" style="width: 40px; height: 40px; background: var(--primary-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: bold;">4</div>
+                                  <h5 class="h6 mb-2">Final Plan</h5>
+                                  <p class="small text-muted mb-2">€50 • 30 min</p>
+                                  <p class="small">Long-term personalized diet strategy</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="text-center mt-4">
+                          <a href="/en/appointment/" class="btn btn-primary btn-lg">
+                              <i class="fas fa-play me-2"></i>Start IBS Program
+                          </a>
+                      </div>
                   </div>
               </div>
           </div>
       </div>
 
-      <div class="service-tarif-category mb-5 animate-on-scroll fade-up delay-300">
-          <h3 class="text-center mb-4" style="color: var(--primary-600); font-family: var(--font-display);">Advanced Option: Nutrigenetic Testing</h3>
-          <div class="row justify-content-center">
-              <div class="col-lg-8 col-xl-6">
-                  <div class="tarif-item p-4 text-center" style="background-color: #fff; border-radius: var(--border-radius-md); box-shadow: var(--box-shadow-sm);">
-                      <h4 class="tarif-title-item" style="font-size: 1.25rem; color: var(--primary-700); font-weight: 600; margin-bottom: 0.5rem;">Nutrigenetic Test (<a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a>)</h4>
-                      <p class="tarif-price-item" style="font-size: 1.6rem; font-weight: 700; color: var(--accent-500); margin-bottom: 0.25rem;">€275 <span style="font-size: 0.7em; color: var(--text-secondary); font-weight: normal;">(for kit and DNA analysis of 70+ markers)</span></p>
-                      <p class="small mt-2 mb-3">Discover how your genetics influence your nutritional needs for cutting-edge personalization.</p>
-                      <a href="/en/nutrigenetic-tests/" class="btn btn-outline-primary btn-sm mb-2">Learn more about the tests</a>
-                      <p class="text-muted small mb-0">The consultation for interpreting the results is billed at the rate of a follow-up (€50).</p>
+      <!-- Advanced Option -->
+      <div class="row mb-5">
+          <div class="col-12 animate-on-scroll fade-up delay-500">
+              <div class="advanced-option-card" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 2px solid var(--accent-200); overflow: hidden;">
+                  <div class="row align-items-center">
+                      <div class="col-lg-8 p-4">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="me-3" style="width: 60px; height: 60px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                  <i class="fas fa-dna fa-2x text-white"></i>
+                              </div>
+                              <div>
+                                  <h3 class="h4 mb-1">Nutrigenetic Testing</h3>
+                                  <p class="text-muted mb-0">Cutting-edge personalized nutrition</p>
+                              </div>
+                          </div>
+                          <p class="mb-3">Discover how your unique genetic profile influences your nutritional needs with <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold">Nutrigenomix®</a> testing.</p>
+                          <div class="row g-3 mb-3">
+                              <div class="col-md-6">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-check-circle text-success me-2"></i>
+                                      <span class="small">70+ genetic markers analyzed</span>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-check-circle text-success me-2"></i>
+                                      <span class="small">Personalized recommendations</span>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-check-circle text-success me-2"></i>
+                                      <span class="small">Weight management optimization</span>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-check-circle text-success me-2"></i>
+                                      <span class="small">Vitamin & mineral needs</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="d-flex flex-wrap gap-2">
+                              <a href="/en/nutrigenetic-tests/" class="btn btn-outline-primary">
+                                  <i class="fas fa-info-circle me-2"></i>Learn More
+                              </a>
+                              <a href="/en/appointment/" class="btn btn-accent">
+                                  <i class="fas fa-comments me-2"></i>Discuss in Consultation
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 p-4 text-center" style="background: rgba(255,255,255,0.8);">
+                          <div class="pricing-highlight">
+                              <div class="price-display mb-3">
+                                  <span class="display-4 fw-bold text-accent">€275</span>
+                                  <p class="text-muted mb-2">Complete DNA analysis kit</p>
+                              </div>
+                              <div class="consultation-note p-3" style="background: var(--accent-100); border-radius: 10px;">
+                                  <p class="small mb-0">
+                                      <i class="fas fa-info-circle me-1"></i>
+                                      Results consultation: €50
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
                   </div>
               </div>
           </div>
       </div>
 
-      <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
-          <div class="offre-duo-box p-3 mb-4" style="background-color: var(--primary-50); border-radius: var(--border-radius-md); display: inline-block; border: 1px solid var(--primary-200); max-width: 500px;">
-              <h4 class="h5" style="color: var(--primary-600); margin-bottom: 0.5rem;">✨ Special Duo Offer ✨</h4>
-              <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">
-                  First consultation for a couple: <strong>€130</strong> (instead of €160).
-              </p>
+      <!-- Special Offers & Info -->
+      <div class="row g-4">
+          <!-- Special Offer -->
+          <div class="col-lg-6 animate-on-scroll fade-up delay-600">
+              <div class="special-offer-card" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+                  <div class="offer-icon mb-3">
+                      <i class="fas fa-heart fa-3x"></i>
+                  </div>
+                  <h4 class="h3 mb-3">✨ Special Couple Offer ✨</h4>
+                  <div class="price-comparison mb-3">
+                      <span class="h2 fw-bold">€130</span>
+                      <span class="text-white-75 ms-2">instead of €160</span>
+                  </div>
+                  <p class="mb-3">First consultation for couples - start your health journey together!</p>
+                  <a href="/en/appointment/" class="btn btn-light btn-lg">
+                      <i class="fas fa-users me-2"></i>Book Couple Session
+                  </a>
+              </div>
           </div>
-      </div>
-      
-      <div class="text-center mt-4 animate-on-scroll fade-up delay-450">
-          <p class="mb-3">
-              <i class="fa-solid fa-shield-heart"></i> Our services may be partially reimbursed by certain Belgian mutual health insurance funds. Please check with your provider.
-          </p>
-          <p class="text-muted small mb-3">
-              Payment methods accepted: Cash, Bancontact via QR code.
-          </p>
-          <p class="text-muted small mb-4">
-              In case of cancellation, please notify us at least 24 hours in advance. A late cancellation may be subject to a fee (more info on the <a href="/en/appointment/" class="text-decoration-underline">Appointment</a> page).
-          </p>
-          <a href="/en/tariffs/" class="btn btn-primary btn-lg">
-              <span>View Detailed Tariffs</span><i class="fa-solid fa-arrow-right btn-icon-right"></i>
-          </a>
+
+          <!-- Important Information -->
+          <div class="col-lg-6 animate-on-scroll fade-up delay-700">
+              <div class="info-card" style="background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 2px solid var(--secondary-100);">
+                  <h4 class="h4 mb-4 text-center">
+                      <i class="fas fa-info-circle text-primary me-2"></i>
+                      Important Information
+                  </h4>
+                  <div class="info-items">
+                      <div class="info-item d-flex align-items-start mb-3">
+                          <i class="fas fa-shield-heart text-success me-3 mt-1"></i>
+                          <div>
+                              <strong>Insurance Coverage</strong>
+                              <p class="small text-muted mb-0">May be partially reimbursed by Belgian mutual health insurance funds</p>
+                          </div>
+                      </div>
+                      <div class="info-item d-flex align-items-start mb-3">
+                          <i class="fas fa-credit-card text-primary me-3 mt-1"></i>
+                          <div>
+                              <strong>Payment Methods</strong>
+                              <p class="small text-muted mb-0">Cash, Bancontact via QR code</p>
+                          </div>
+                      </div>
+                      <div class="info-item d-flex align-items-start mb-3">
+                          <i class="fas fa-clock text-warning me-3 mt-1"></i>
+                          <div>
+                              <strong>Cancellation Policy</strong>
+                              <p class="small text-muted mb-0">24-hour notice required. Late cancellations may incur fees</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="text-center mt-4">
+                      <a href="/en/tariffs/" class="btn btn-outline-primary">
+                          <i class="fas fa-file-alt me-2"></i>View Detailed Tariffs
+                      </a>
+                  </div>
+              </div>
+          </div>
       </div>
   </div>
 </section>
