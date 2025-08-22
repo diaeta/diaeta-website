@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   initializeAnimatedStats();
+  initializePhilosophyCounters();
+  initializeEvidenceBars();
+  initializeAtlasTabs();
 
   // Consider removing if .clinic-card is no longer used or fixMobileCardPositioning is empty
   if (document.querySelector('.clinic-card')) { 
@@ -322,10 +325,10 @@ function initializeScrollToTopButton() {
 function initializeHeader() {
   console.log('Diaeta: Initializing header...');
   
-  // Add dropdown arrows to mobile menu
-  addDropdownArrows();
-  
   try {
+    // Add dropdown arrows to mobile menu
+    addDropdownArrows();
+    
     const header = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('main-nav');
@@ -387,7 +390,7 @@ function initializeHeader() {
       console.log('=== LANGUAGE TOGGLE CLICKED ===');
       
       e.preventDefault();
-      e.stopPropagation();
+      e.stopImmediatePropagation();
       
       const langSelector = this.closest('.lang-selector');
       console.log('Found lang selector:', langSelector);
@@ -885,6 +888,77 @@ function initializeAnimatedStats() {
         observer.observe(counter);
     };
     counters.forEach(animateCounter);
+}
+
+function initializePhilosophyCounters() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const chips = document.querySelectorAll('.evidence-chip');
+  if (!('IntersectionObserver' in window) || chips.length === 0) return;
+  const animateText = (el) => {
+    const text = el.textContent.trim();
+    const match = text.match(/([-+~]?)\s?(\d+(?:\.\d+)?)/);
+    if (!match) return; 
+    const sign = match[1] || '';
+    const target = parseFloat(match[2]);
+    const isPercent = text.includes('%');
+    let current = 0; const duration = 800; const start = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / duration);
+      const value = Math.round(target * p * 10) / 10;
+      el.childNodes.forEach(n => { if(n.nodeType===3){ n.nodeValue = `${sign}${value}${isPercent?'%':''}`; }});
+      if (p < 1) requestAnimationFrame(step);
+    };
+    // Replace the first numeric text node only
+    el.childNodes.forEach(n => { if(n.nodeType===3){ n.nodeValue = `${sign}0${isPercent?'%':''}`; return; }});
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateText(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  chips.forEach(ch => io.observe(ch));
+}
+
+function initializeEvidenceBars() {
+  const bars = document.querySelectorAll('.evidence-mini .bar span[data-width]');
+  if (!('IntersectionObserver' in window) || bars.length === 0) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const w = parseInt(el.getAttribute('data-width'), 10);
+        el.style.width = '0%';
+        el.style.transition = 'width 900ms cubic-bezier(0.22, 1, 0.36, 1)';
+        requestAnimationFrame(() => { el.style.width = w + '%'; });
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+  bars.forEach(b => io.observe(b));
+}
+
+function initializeAtlasTabs() {
+  const tabs = document.querySelectorAll('.atlas-tab');
+  const panels = document.querySelectorAll('.atlas-panel');
+  if (tabs.length === 0 || panels.length === 0) return;
+  const activate = (id) => {
+    tabs.forEach(t => t.classList.toggle('is-active', t.id === 'tab-' + id));
+    panels.forEach(p => p.classList.toggle('is-active', p.id === 'panel-' + id));
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const id = tab.id.replace('tab-','');
+      tabs.forEach(t => t.setAttribute('aria-selected', String(t === tab)));
+      activate(id);
+    });
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
+    });
+  });
 }
 
 function fixMobileCardPositioning() { /* Placeholder */ }
@@ -1560,49 +1634,37 @@ function initializeScrollToLinks() { /* ... as before ... */
 function addDropdownArrows() {
   console.log('Diaeta: Adding dropdown arrows...');
   
-  // Find all dropdown toggle links
   const dropdownToggles = document.querySelectorAll('.nav-item.dropdown .nav-link.dropdown-toggle');
   console.log('Diaeta: Found', dropdownToggles.length, 'dropdown toggles');
   
-  dropdownToggles.forEach((toggle, index) => {
-    console.log('Diaeta: Processing dropdown toggle', index + 1, ':', toggle.textContent.trim());
-    
-    // Check if arrow already exists
+  dropdownToggles.forEach((toggle) => {
     if (!toggle.querySelector('.dropdown-arrow')) {
-      // Create arrow element
       const arrow = document.createElement('span');
       arrow.className = 'dropdown-arrow';
-      arrow.innerHTML = ' ▼';
-      arrow.style.cssText = `
-        color: var(--primary-500) !important;
-        font-size: 0.8em !important;
-        position: absolute !important;
-        left: 1rem !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        z-index: 100 !important;
-        pointer-events: none !important;
-      `;
+      arrow.textContent = ' ▼';
+      Object.assign(arrow.style, {
+        color: 'var(--primary-500)',
+        fontSize: '0.8em',
+        position: 'absolute',
+        left: '1rem',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: '100',
+        pointerEvents: 'none',
+      });
       
-      // Add arrow to the toggle
       toggle.style.position = 'relative';
       toggle.style.paddingLeft = '2rem';
       toggle.appendChild(arrow);
-      
-      console.log('Diaeta: Added dropdown arrow to:', toggle.textContent.trim());
-    } else {
-      console.log('Diaeta: Arrow already exists for:', toggle.textContent.trim());
     }
   });
-  
-  // Re-run when menu opens (for mobile)
+
   const menuToggle = document.querySelector('.menu-toggle');
-  if (menuToggle) {
+  if (menuToggle && !menuToggle.dataset.arrowListenerAttached) {
     menuToggle.addEventListener('click', function() {
-      console.log('Diaeta: Menu toggle clicked, adding arrows...');
-      // Small delay to ensure menu is rendered
       setTimeout(addDropdownArrows, 100);
     });
+    menuToggle.dataset.arrowListenerAttached = 'true';
   }
 }
 

@@ -65,6 +65,7 @@ lang: en
     <main id="main-content">
 
       <section class="hero-section">
+        <!-- Mobile-First Hero Background -->
         <div class="hero-background">
             <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
                 <source src="../videos/Background video.mp4" type="video/mp4">
@@ -72,111 +73,224 @@ lang: en
             </video>
             <div class="hero-overlay"></div>
         </div>
-        <div class="container hero-content">
-            <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial hero-badge-icon"></i><span>Cutting-Edge Dietetics</span></div>
-            <h1 class="hero-headline animate-on-scroll fade-up">Your Health Journey Begins Here: Scientific Nutrition That Works For You</h1>
-            <p class="hero-tagline animate-on-scroll fade-up delay-200">Discover how our personalized approach helps you achieve your health goals with proven methods tailored specifically to your needs.</p>
-            <div class="hero-description animate-on-scroll fade-up delay-300"><p>At Diaeta, we listen to your unique concerns and combine <span class="text-highlight">evidence-based science</span> with <span class="text-highlight">genuine care</span> to create solutions that work specifically for you.</p></div>
-            <div class="feature-badges animate-on-scroll fade-up delay-400">
-                <div class="feature-badge"><i class="fa-solid fa-microscope"></i><span>Scientific Approach</span></div>
-                <div class="feature-badge"><i class="fa-solid fa-chart-line"></i><span>Sustainable Results</span></div>
-                <div class="feature-badge"><i class="fa-solid fa-fingerprint"></i><span>100% Personalized</span></div>
+        
+        <!-- Mobile-First Hero Layout -->
+        <div class="hero-mobile-container">
+            <!-- Top Visual Section -->
+            <div class="hero-visual-section">
+                <div class="hero-dna-mobile" aria-hidden="true">
+                    <svg class="hero-dna-svg-mobile" viewBox="0 0 120 200" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <linearGradient id="dnaMobileA" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00a3ad"/>
+                                <stop offset="100%" stop-color="#8cc63f"/>
+                            </linearGradient>
+                            <linearGradient id="dnaMobileB" x1="100%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#006d77"/>
+                                <stop offset="100%" stop-color="#e29578"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M25,0 C 65,30 65,70 25,100 C -15,130 -15,170 25,200" fill="none" stroke="url(#dnaMobileA)" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M95,0 C 55,30 55,70 95,100 C 135,130 135,170 95,200" fill="none" stroke="url(#dnaMobileB)" stroke-width="2.5" stroke-linecap="round"/>
+                        <g stroke="rgba(255,255,255,0.4)" stroke-width="1.5">
+                            <line x1="35" y1="25" x2="85" y2="45"/>
+                            <line x1="30" y1="75" x2="90" y2="95"/>
+                            <line x1="35" y1="125" x2="85" y2="145"/>
+                            <line x1="30" y1="175" x2="90" y2="195"/>
+                        </g>
+                    </svg>
             </div>
-            <div class="hero-cta animate-on-scroll fade-up delay-500">
-                <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book an Appointment</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
-                <a href="#approach" class="btn btn-outline scroll-to"><span>Discover our approach</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
+                <div class="hero-badge-mobile">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <span>Scientific Nutrition</span>
             </div>
         </div>
+            
+            <!-- Content Section -->
+            <div class="hero-content-mobile">
+                <h1 class="hero-headline-mobile">Your Health Journey<br>Begins Here</h1>
+                <p class="hero-tagline-mobile">Scientific nutrition that works specifically for you</p>
+                
+                <div class="hero-features-mobile">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-microscope"></i>
+                        <span>Evidence-Based</span>
+                  </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Proven Results</span>
+                          </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-fingerprint"></i>
+                        <span>Personalized</span>
+                                  </div>
+                              </div>
+                
+                <div class="hero-cta-mobile">
+                    <a href="/en/appointment/" class="btn btn-primary-mobile">
+                        <span>Book Appointment</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#approach" class="btn btn-secondary-mobile scroll-to">
+                        <span>Learn More</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                                  </div>
+                              </div>
+                          </div>
+        
+        <!-- Desktop Hero (Hidden on Mobile) -->
+        <div class="hero-desktop">
+            <div class="hero-blueprint" aria-hidden="true">
+                <div class="bp-line bp-line-1"></div>
+                <div class="bp-line bp-line-2"></div>
+                <div class="bp-line bp-line-3"></div>
+                <div class="bp-curve bp-curve-1"></div>
+                <div class="bp-curve bp-curve-2"></div>
+                      </div>
+            <div class="hero-dna" aria-hidden="true">
+                <svg class="hero-dna-svg" viewBox="0 0 140 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="dnaStrokeA" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00a3ad"/>
+                            <stop offset="100%" stop-color="#8cc63f"/>
+                        </linearGradient>
+                        <linearGradient id="dnaStrokeB" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#006d77"/>
+                            <stop offset="100%" stop-color="#e29578"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M30,0 C 70,30 70,70 30,100 C -10,130 -10,170 30,200 C 70,230 70,270 30,300 C -10,330 -10,370 30,400" fill="none" stroke="url(#dnaStrokeA)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M110,0 C 70,30 70,70 110,100 C 150,130 150,170 110,200 C 70,230 70,270 110,300 C 150,330 150,370 110,400" fill="none" stroke="url(#dnaStrokeB)" stroke-width="3" stroke-linecap="round"/>
+                    <g stroke="rgba(0,0,0,0.22)" stroke-width="2" stroke-linecap="round">
+                        <line x1="42" y1="18" x2="98" y2="36"/>
+                        <circle cx="42" cy="18" r="2.5" fill="#00a3ad"/>
+                        <circle cx="98" cy="36" r="2.5" fill="#e29578"/>
+                        <line x1="36" y1="54" x2="104" y2="72"/>
+                        <circle cx="36" cy="54" r="2.5" fill="#00a3ad"/>
+                        <circle cx="104" cy="72" r="2.5" fill="#e29578"/>
+                        <line x1="30" y1="90" x2="110" y2="108"/>
+                        <circle cx="30" cy="90" r="2.5" fill="#00a3ad"/>
+                        <circle cx="110" cy="108" r="2.5" fill="#e29578"/>
+                        <line x1="28" y1="126" x2="112" y2="144"/>
+                        <circle cx="28" cy="126" r="2.5" fill="#00a3ad"/>
+                        <circle cx="112" cy="144" r="2.5" fill="#e29578"/>
+                        <line x1="30" y1="162" x2="110" y2="180"/>
+                        <circle cx="30" cy="162" r="2.5" fill="#00a3ad"/>
+                        <circle cx="110" cy="180" r="2.5" fill="#e29578"/>
+                        <line x1="36" y1="198" x2="104" y2="216"/>
+                        <circle cx="36" cy="198" r="2.5" fill="#00a3ad"/>
+                        <circle cx="104" cy="216" r="2.5" fill="#e29578"/>
+                        <line x1="42" y1="234" x2="98" y2="252"/>
+                        <circle cx="42" cy="234" r="2.5" fill="#00a3ad"/>
+                        <circle cx="98" cy="252" r="2.5" fill="#e29578"/>
+                        <line x1="48" y1="270" x2="92" y2="288"/>
+                        <circle cx="48" cy="270" r="2.5" fill="#00a3ad"/>
+                        <circle cx="92" cy="288" r="2.5" fill="#e29578"/>
+                    </g>
+                </svg>
+                          </div>
+            <div class="container hero-content">
+                <div class="hero-badge badge badge--pill badge--lg badge--glass badge--accent badge--interactive animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial"></i><span>Cutting-Edge Dietetics</span></div>
+                <h1 class="hero-headline animate-on-scroll fade-up">Your Health Journey Begins Here: Scientific Nutrition That Works For You</h1>
+                <p class="hero-tagline animate-on-scroll fade-up delay-200">Discover how our personalized approach helps you achieve your health goals with proven methods tailored specifically to your needs.</p>
+                <div class="hero-description animate-on-scroll fade-up delay-300"><p>At Diaeta, we listen to your unique concerns and combine <span class="text-highlight">evidence-based science</span> with <span class="text-highlight">genuine care</span> to create solutions that work specifically for you.</p></div>
+                <div class="feature-badges animate-on-scroll fade-up delay-400">
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-microscope"></i><span>Scientific Approach</span></span>
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-chart-line"></i><span>Sustainable Results</span></span>
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-fingerprint"></i><span>100% Personalized</span></span>
+                                  </div>
+                <div class="hero-cta animate-on-scroll fade-up delay-500">
+                    <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book an Appointment</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+                    <a href="#approach" class="btn btn-outline scroll-to"><span>Discover our approach</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
+                              </div>
+                                  </div>
+            <div class="hero-metrics-marquee" role="region" aria-label="Clinical outcomes">
+                <div class="marquee-track">
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-droplet"></i> HbA1c −1 to −2%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-heart-pulse"></i> LDL −20% (Portfolio)</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-bacteria"></i> IBS relief ~75%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-scale-balanced"></i> Success rate 92%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-tape"></i> Waist −10 cm*</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-seedling"></i> Sustainable change</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-droplet"></i> HbA1c −1 to −2%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-heart-pulse"></i> LDL −20% (Portfolio)</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-bacteria"></i> IBS relief ~75%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-scale-balanced"></i> Success rate 92%</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-tape"></i> Waist −10 cm*</span>
+                    <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-seedling"></i> Sustainable change</span>
+                </div>
+            </div>
+                              </div>
     </section>
 
-    <section class="science-approach-section" id="approach">
+    <section class="clinical-canvas-section" id="approach">
       <div class="container">
-          <div class="science-grid">
-              <div class="science-content animate-on-scroll fade-up">
-                  <span class="science-badge">Our philosophy</span>
-                  <h2 class="science-title">We Care About Your Success: Science That Understands You</h2>
-                  <p class="science-description">At Diaeta, we understand your health challenges are personal. That's why we combine scientific expertise with genuine interest in your story, creating a nutrition plan that respects your preferences while delivering measurable results.</p>
-                  <div class="science-fact animate-on-scroll fade-in">
-                      <div class="fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                      <p class="fact-text">Nutrigenomics research reveals that our genetics significantly influence our response to food. This is why a personalized approach is often more effective than a standardized plan.</p>
-                  </div>
-                  <div class="science-pillar-groups">
-                      <div class="pillar-group animate-on-scroll fade-in">
-                          <div class="pillar-group-title">
-                              <div class="pillar-group-icon"><i class="fa-solid fa-flask-vial"></i></div>
-                              <h3>Scientific Foundation</h3>
+          <div class="canvas-header animate-on-scroll fade-up">
+              <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-heart-pulse"></i><span>Our Philosophy</span></span>
+              <h2 class="canvas-title">Clinical Nutrition, Designed Around <em>You</em></h2>
+              <p class="canvas-subtitle">A medically grounded, evidence-based, and human approach to dietetics—crafted like a clinical canvas that brings your data, goals, and daily life together.</p>
                           </div>
-                          <div class="pillars-container">
-                              <div class="science-pillar">
-                                  <div class="pillar-icon"><i class="fa-solid fa-book-medical"></i></div>
-                                  <div class="pillar-content">
-                                      <h4 class="pillar-title">Evidence-Based</h4>
-                                      <p class="pillar-description">Recommendations based on the latest validated scientific research. We rely on clinical studies, metabolic science, and human physiology.</p>
-                                  </div>
-                              </div>
-                              <div class="science-pillar">
-                                  <div class="pillar-icon"><i class="fa-solid fa-fingerprint"></i></div>
-                                  <div class="pillar-content">
-                                      <h4 class="pillar-title">Personalization</h4>
-                                      <p class="pillar-description">A unique nutritional plan, adapted to your specific metabolism and lifestyle.</p>
-                                  </div>
-                              </div>
-                          </div>
+
+          <div class="canvas-surface philosophy-orbit">
+              <div class="orbit-backdrop" aria-hidden="true"></div>
+              <div class="nucleus">
+                  <div class="nucleus-ring"></div>
+                  <div class="nucleus-core">
+                      <i class="fa-solid fa-user-doctor"></i>
+                      <span>Patient‑First</span>
                       </div>
-                      <div class="pillar-group animate-on-scroll fade-in">
-                          <div class="pillar-group-title">
-                              <div class="pillar-group-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                              <h3>Implementation Strategy</h3>
-                          </div>
-                          <div class="pillars-container">
-                              <div class="science-pillar">
-                                  <div class="pillar-icon"><i class="fa-solid fa-route"></i></div>
-                                  <div class="pillar-content">
-                                      <h4 class="pillar-title">Unique Journey</h4>
-                                      <p class="pillar-description">A unique nutritional strategy, based on science and adapted to your body and lifestyle, for concrete results.</p>
-                                  </div>
-                              </div>
-                              <div class="science-pillar">
-                                  <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
-                                  <div class="pillar-content">
-                                      <h4 class="pillar-title">Sustainable Well-being</h4>
-                                      <p class="pillar-description">Achieve your goals with healthy, practical, and tasty habits, without frustration or restrictive dieting.</p>
-                                  </div>
-                              </div>
-                              <div class="science-pillar">
-                                  <div class="pillar-icon"><i class="fa-solid fa-mobile-alt"></i></div>
-                                  <div class="pillar-content">
-                                      <h4 class="pillar-title">Technology & Follow-up</h4>
-                                      <p class="pillar-description">We leverage cutting-edge tools to track your progress, refine your strategy, and provide you with continuous, responsive support.</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                  <ul class="nucleus-orbit" aria-hidden="true">
+                      <li class="pill-icon"><i class="fa-solid fa-heart-pulse"></i></li>
+                      <li class="pill-icon"><i class="fa-solid fa-dna"></i></li>
+                      <li class="pill-icon"><i class="fa-solid fa-apple-whole"></i></li>
+                      <li class="pill-icon"><i class="fa-solid fa-vial"></i></li>
+                  </ul>
                   </div>
-                  <div class="science-cta">
-                      <a href="/en/appointment/" class="btn btn-primary"><span>Initial consultation</span><i class="fa-solid fa-arrow-right btn-icon btn-icon-right"></i></a>
-                      <a href="/en/diaeta-method/" class="btn btn-outline"><span>Discover The Diaeta Method</span></a>
+
+              <div class="pillar-grid">
+                  <article class="pillar animate-on-scroll fade-up">
+                      <i class="fa-solid fa-stethoscope"></i>
+                      <h3>Clinical Anamnesis</h3>
+                      <p>Structured medical‑nutritional interview capturing history, symptoms, labs, meds, context.</p>
+                  </article>
+                  <article class="pillar animate-on-scroll fade-up delay-100">
+                      <i class="fa-solid fa-weight-scale"></i>
+                      <h3>Body Composition</h3>
+                      <p>DXA/BIA‑guided targets to protect lean mass and improve metabolic health.</p>
+                  </article>
+                  <article class="pillar animate-on-scroll fade-up delay-200">
+                      <i class="fa-solid fa-vials"></i>
+                      <h3>Biomarkers</h3>
+                      <p>Glycemia, HbA1c, lipids, inflammation, micronutrients informing precise prescriptions.</p>
+                  </article>
+                  <article class="pillar animate-on-scroll fade-up delay-300">
+                      <i class="fa-solid fa-clipboard-list"></i>
+                      <h3>Personalized Plan</h3>
+                      <p>Patterns, macros, FODMAPs/DASH/Portfolio aligned to physiology and lifestyle.</p>
+                  </article>
+                  <article class="pillar animate-on-scroll fade-up delay-400">
+                      <i class="fa-solid fa-comments-medical"></i>
+                      <h3>Adherence & Behavior</h3>
+                      <p>Motivational support, relapse prevention, practical food skills—science into habit.</p>
+                  </article>
+                  <article class="pillar animate-on-scroll fade-up delay-500">
+                      <i class="fa-solid fa-chart-line"></i>
+                      <h3>Monitoring</h3>
+                      <p>App diaries and check‑ins drive timely adjustments and measurable outcomes.</p>
+                  </article>
                   </div>
+
+              <div class="evidence-row" role="region" aria-label="Clinical evidence">
+                  <div class="evidence-chip"><i class="fa-solid fa-droplet"></i> HbA1c −1 to −2%</div>
+                  <div class="evidence-chip"><i class="fa-solid fa-heart-pulse"></i> LDL −20% (Portfolio)</div>
+                  <div class="evidence-chip"><i class="fa-solid fa-bacteria"></i> IBS relief ~75%</div>
+                  <div class="evidence-chip"><i class="fa-solid fa-seedling"></i> Sustainable change</div>
               </div>
-              <div class="science-image-container animate-on-scroll fade-up">
-                  <img src="../images/scientific-nutrition-analysis-large.jpg"
-                       srcset="../images/scientific-nutrition-analysis-small.webp 400w, ../images/scientific-nutrition-analysis-small.jpg 400w,
-                               ../images/scientific-nutrition-analysis-large.webp 550w, ../images/scientific-nutrition-analysis-large.jpg 550w"
-                       sizes="(max-width: 767px) 90vw, (max-width: 1023px) 80vw, 435px"
-                       alt="Charts and analyses of scientific nutritional data"
-                       class="science-main-image" loading="lazy" width="550" height="412">
-                  <img src="../images/personalized-nutrition-plan-large.jpg"
-                       srcset="../images/personalized-nutrition-plan-small.webp 200w, ../images/personalized-nutrition-plan-small.jpg 200w,
-                               ../images/personalized-nutrition-plan-large.webp 350w, ../images/personalized-nutrition-plan-large.jpg 350w"
-                       sizes="(max-width: 767px) 45vw, (max-width: 1023px) 48vw, 256px"
-                       alt="Person using a tablet displaying a personalized Diaeta nutritional plan"
-                       class="science-accent-image science-accent-1" loading="lazy" width="350" height="263">
-                  <img src="../images/nutrition-research-lab-large.jpg"
-                       srcset="../images/nutrition-research-lab-small.webp 180w, ../images/nutrition-research-lab-small.jpg 180w,
-                               ../images/nutrition-research-lab-large.webp 250w, ../images/nutrition-research-lab-large.jpg 250w"
-                       sizes="(max-width: 767px) 30vw, (max-width: 1023px) 33vw, 179px"
-                       alt="Scientists working in a nutrition research laboratory"
-                       class="science-accent-image science-accent-2" loading="lazy" width="250" height="188">
+
+              <div class="philosophy-cta">
+                  <a href="/en/appointment/" class="btn btn-primary" aria-label="Book an initial clinical consultation"><span>Start with a clinical consultation</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+                  <a href="/en/diaeta-method/" class="btn btn-outline" aria-label="Discover the Diaeta clinical method"><span>See how our method helps you</span></a>
               </div>
           </div>
       </div>
@@ -187,225 +301,99 @@ lang: en
     <section class="specialties-section" id="services">
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
-            <span class="section-badge">Targeted Solutions</span>
-            <h2 class="section-title">Solutions That Address Your Specific Concerns</h2>
-            <p class="section-subtitle">We listen carefully to understand your unique situation and develop solutions that make sense for your life and health goals.</p>
+            <span class="section-badge badge badge--pill badge--md badge--soft badge--primary">Targeted Solutions</span>
+          <h2 class="section-title">Precise, Evidence‑Led Clinical Nutrition</h2>
+          <p class="section-subtitle">Choose the path that fits your situation today. We begin with your story, focus on what matters to you, and design a plan you can follow with confidence.</p>
         </div>
-        <div class="specialties-grid">
 
-            <div class="specialty-card animate-on-scroll fade-up delay-100">
-                <div class="specialty-media">
-                    <img src="../images/perte-de-poids-diaeta-medium.jpg"
-                         srcset="../images/perte-de-poids-diaeta-small.webp 480w, ../images/perte-de-poids-diaeta-small.jpg 480w,
-                                 ../images/perte-de-poids-diaeta-medium.webp 640w, ../images/perte-de-poids-diaeta-medium.jpg 640w,
-                                 ../images/perte-de-poids-diaeta-large.webp 800w, ../images/perte-de-poids-diaeta-large.jpg 800w"
-                         sizes="(max-width: 767px) 90vw, 48vw"
-                         alt="Concept of sustainable and healthy weight loss with Diaeta"
-                         class="specialty-image" loading="lazy" width="640" height="360">
-                    <div class="specialty-overlay"></div>
-                    <div class="specialty-category">Popular</div>
-                </div>
-                <div class="specialty-content">
-                    <div class="specialty-icon"><i class="fa-solid fa-weight-scale"></i></div>
-                    <h3 class="specialty-title">Sustainable Weight Loss</h3>
-                    <p class="specialty-description">
-                        <em>Does losing weight for good seem complicated?</em><br>
-                        Sustainable weight loss requires <strong>true expertise</strong> in dietetics. Our dietitian designs your <span class="text-highlight-primary">personalized strategy</span>, based on <strong class="text-highlight-accent">science</strong> and your <strong>unique metabolism</strong>. Forget <em class="text-highlight-secondary">frustrating diets</em>; we favor an <strong>effective approach</strong> that fits into your life, <strong>without constraints</strong>. Finally, reach your weight loss goals with <strong>professional and caring support</strong>.
-                    </p>
-                    <p class="specialty-description" style="margin-bottom: 1rem;">
-                       Our method goes beyond simple calorie restriction. It aims to rebalance your body and mind for results you will maintain long-term. Here's how:
-                    </p>
-                    <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
-                        <li><strong>In-depth Analysis:</strong> Evaluation of your body composition (fat mass, muscle mass), your habits, and your health assessment to understand your specific needs.</li>
-                        <li><strong>Intelligent Nutrition:</strong> Meal plans focused on satiety, nutritional density, and the pleasure of eating, while preserving your muscle mass.</li>
-                        <li><strong>Metabolic Management:</strong> Strategies to avoid plateaus and counter the metabolic adaptation often responsible for the yo-yo effect.</li>
-                        <li><strong>Behavioral Coaching:</strong> Tools and support to develop a healthy relationship with food, manage cravings, and integrate new sustainable habits.</li>
-                    </ul>
-                    <p class="specialty-description">
-                        Finally, achieve your weight loss goals with <strong>professional and caring support</strong>, to regain energy and confidence.
-                    </p>
-                    <div class="specialty-stats">
-                        <div class="stat-item">
-                            <span class="stat-value" data-target="92">92%</span>
-                            <span class="stat-label">Success rate</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value" data-target="-8">-8%</span>
-                            <span class="stat-label">Fat Mass*</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value" data-target="-10">-10cm</span>
-                            <span class="stat-label">Waist Circumference*</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-muted mt-2 fst-italic">*Average observed in our patients who completed the program.</p>
-                    <div class="specialty-footer">
-                        <a href="/en/weight-loss/" class="learn-more-btn">
-                            Learn more<i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="atlas" aria-label="Clinical Atlas">
+          <div class="atlas-tabs" role="tablist" aria-label="Choose a solution">
+            <button class="atlas-tab is-active" role="tab" id="tab-wl" aria-controls="panel-wl" aria-selected="true"><i class="fa-solid fa-weight-scale"></i><span>Weight Loss</span></button>
+            <button class="atlas-tab" role="tab" id="tab-ibs" aria-controls="panel-ibs" aria-selected="false"><i class="fa-solid fa-bacteria"></i><span>IBS</span></button>
+            <button class="atlas-tab" role="tab" id="tab-t2d" aria-controls="panel-t2d" aria-selected="false"><i class="fa-solid fa-prescription-bottle-medical"></i><span>Type 2 Diabetes</span></button>
+            <button class="atlas-tab" role="tab" id="tab-cv" aria-controls="panel-cv" aria-selected="false"><i class="fa-solid fa-heart-pulse"></i><span>Cardio</span></button>
+          </div>
 
-            <div class="specialty-card animate-on-scroll fade-up delay-200">
-                <div class="specialty-media">
-                    <img src="../images/syndrome-colon-irritable-diaeta-medium.jpg"
-                         srcset="../images/syndrome-colon-irritable-diaeta-small.webp 480w, ../images/syndrome-colon-irritable-diaeta-small.jpg 480w,
-                                 ../images/syndrome-colon-irritable-diaeta-medium.webp 640w, ../images/syndrome-colon-irritable-diaeta-medium.jpg 640w,
-                                 ../images/syndrome-colon-irritable-diaeta-large.webp 800w, ../images/syndrome-colon-irritable-diaeta-large.jpg 800w"
-                         sizes="(max-width: 767px) 90vw, 48vw"
-                         alt="Healthy and balanced food for digestive comfort and IBS management"
-                         class="specialty-image" loading="lazy" width="640" height="360">
-                    <div class="specialty-overlay"></div>
-                    <div class="specialty-category">Specialty</div>
+          <div class="atlas-panels">
+            <section class="atlas-panel is-active" role="tabpanel" id="panel-wl" aria-labelledby="tab-wl" itemscope itemtype="https://schema.org/MedicalTherapy">
+              <div class="panel-visual"><img decoding="async" src="../images/perte-de-poids-diaeta-medium.jpg" alt="Clinical weight loss approach" loading="lazy" width="640" height="360"></div>
+              <div class="panel-body">
+                <h3 class="panel-title" itemprop="name">Sustainable Weight Loss</h3>
+                <p class="panel-summary" itemprop="description">Protect lean mass, improve satiety and metabolic health, and regain steady energy—without yo‑yo cycles.</p>
+                <ol class="panel-steps">
+                  <li>In‑depth evaluation (BIA, diet, context)</li>
+                  <li>High‑satiety plan tailored to your routine</li>
+                  <li>Behavior skills + smart adjustments</li>
+                </ol>
+                <div class="panel-metrics">
+                  <span class="badge badge--pill badge--sm badge--neutral">92% Success</span>
+                  <span class="badge badge--pill badge--sm badge--neutral">−8% Fat Mass*</span>
+                  <span class="badge badge--pill badge--sm badge--neutral">−10 cm Waist*</span>
                 </div>
-                <div class="specialty-content">
-                    <div class="specialty-icon"><i class="fa-solid fa-bacteria"></i></div>
-                    <h3 class="specialty-title">Expert Management of Irritable Bowel Syndrome (IBS) in Brussels</h3>
-                    <p class="specialty-description">
-                        Do you suffer from abdominal pain, bloating, diarrhea, or constipation related to Irritable Bowel Syndrome (IBS)? This functional digestive disorder, although benign, can severely impact your daily life. Finally, find digestive comfort thanks to a scientifically validated and globally recognized approach: the low FODMAP diet from Monash University. At Diaeta, your expert dietitian-nutritionist personally guides you through the 3 essential phases of this protocol:
-                    </p>
-                    <ol class="text-sm mt-1 mb-3" style="padding-left: 1.2em; text-align: left; list-style-position: inside; line-height: 1.6;">
-                        <li><strong>Phase 1 - Elimination (4 weeks):</strong> Temporary and targeted reduction of high-FODMAP foods (Fermentable Oligo-, Di-, Mono-saccharides And Polyols) to quickly calm your symptoms and establish a baseline.</li>
-                        <li><strong>Phase 2 - Reintroduction (11 weeks):</strong> Structured and methodical identification of YOUR personal triggers (fructans, lactose, fructose, polyols, etc.) and your individual tolerance thresholds for each FODMAP family.</li>
-                        <li><strong>Phase 3 - Sustainable Personalization:</strong> Reintegration of as many tolerated foods as possible for a varied, balanced, and tasty long-term diet. The goal is to broaden your diet as much as possible without causing symptoms, avoiding unnecessary restrictions and ensuring complete nutritional intake.</li>
-                    </ol>
-                    <p class="specialty-description" style="margin-bottom: 1.5rem;">
-                        Our goal at Diaeta is to give you back control, sustainably improve your quality of life, and allow you to eat with pleasure and serenity, even with IBS.
-                    </p>
-                    <div class="specialty-stats">
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Rate of improvement in digestive symptoms observed in patients following a guided Low FODMAP diet.">
-                            <span class="stat-value">~75%</span>
-                            <span class="stat-label">Symptom Improvement*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Indicative duration of the structured FODMAP reintroduction testing phase.">
-                            <span class="stat-value">4-6</span>
-                            <span class="stat-label">Weeks Phase 2*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Aims to reintroduce the largest number of tolerated foods for a diverse and enjoyable diet.">
-                            <span class="stat-value" style="font-size: 1.5rem;"><i class="fas fa-utensils"></i></span>
-                            <span class="stat-label">Goal: Max. Variety</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-muted mt-2 fst-italic">*Average observed in our patients who completed the program.</p>
-                    <div class="specialty-footer">
-                        <a href="/en/irritable-bowel-syndrome-fodmap/" class="learn-more-btn">
-                            Learn more about IBS & FODMAP<i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <p class="atlas-note">*Results observed among our patients who completed the program; individual outcomes vary.</p>
+                <a href="/en/weight-loss/" class="btn btn-outline-primary" itemprop="url">See how we guide you</a>
+              </div>
+            </section>
 
-            <div class="specialty-card animate-on-scroll fade-up delay-300">
-                <div class="specialty-media">
-                    <img src="../images/gestion-diabete-diaeta-medium.jpg"
-                         srcset="../images/gestion-diabete-diaeta-small.webp 480w, ../images/gestion-diabete-diaeta-small.jpg 480w,
-                                 ../images/gestion-diabete-diaeta-medium.webp 640w, ../images/gestion-diabete-diaeta-medium.jpg 640w,
-                                 ../images/gestion-diabete-diaeta-large.webp 800w, ../images/gestion-diabete-diaeta-large.jpg 800w"
-                         sizes="(max-width: 767px) 90vw, 48vw"
-                         alt="Nutritional management of type 2 diabetes with Diaeta, including healthy foods and a glucose meter"
-                         class="specialty-image" loading="lazy" width="640" height="360">
-                    <div class="specialty-overlay"></div>
-                    <div class="specialty-category">Metabolic Management</div>
+            <section class="atlas-panel" role="tabpanel" id="panel-ibs" aria-labelledby="tab-ibs" itemscope itemtype="https://schema.org/MedicalTherapy">
+              <div class="panel-visual"><img decoding="async" src="../images/syndrome-colon-irritable-diaeta-medium.jpg" alt="IBS Low FODMAP protocol" loading="lazy" width="640" height="360"></div>
+              <div class="panel-body">
+                <h3 class="panel-title" itemprop="name">Irritable Bowel Syndrome (IBS)</h3>
+                <p class="panel-summary" itemprop="description">Pinpoint triggers, map thresholds, and rebuild variety using the Monash‑guided Low FODMAP protocol.</p>
+                <ol class="panel-steps">
+                  <li>Targeted elimination</li>
+                  <li>Structured reintroduction</li>
+                  <li>Personalized long‑term diet</li>
+                </ol>
+                <div class="panel-metrics">
+                  <span class="badge badge--pill badge--sm badge--neutral">~75% Relief*</span>
+                  <span class="badge badge--pill badge--sm badge--neutral">4–6 Weeks Phase 2</span>
                 </div>
-                <div class="specialty-content">
-                    <div class="specialty-icon"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
-                    <h3 class="specialty-title">Type 2 Diabetes: Optimized Nutrition</h3>
-                    <p class="specialty-description">
-                        Type 2 diabetes is a chronic disease characterized by hyperglycemia (high blood sugar), often due to insulin resistance and/or insufficient insulin production. A <span class="text-highlight-primary">suitable diet</span> is a fundamental pillar of its management, allowing for better blood sugar control, prevention of complications, and improved quality of life.
-                    </p>
-                    <p class="specialty-description" style="margin-bottom: 1rem;">
-                        Our approach at Diaeta is <strong class="text-highlight-accent">scientific and highly personalized</strong>. We go beyond general recommendations to offer you a plan that takes into account:
-                    </p>
-                    <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
-                        <li><strong>Your metabolic profile:</strong> Insulin sensitivity, fasting and postprandial glucose, HbA1c.</li>
-                        <li><strong>Your goals:</strong> Glycemic control, weight loss if necessary, reduction of cardiovascular risk factors.</li>
-                        <li><strong>Your lifestyle:</strong> Food preferences, habits, level of physical activity.</li>
-                        <li><strong>Your medical treatment:</strong> For optimal synergy with your overall care.</li>
-                    </ul>
-                    <p class="specialty-description">
-                        We focus on proven nutritional strategies, such as managing carbohydrate intake (quality and quantity), increasing fiber, choosing healthy fats, and promoting a low-glycemic-index diet. The goal is to improve your insulin sensitivity, stabilize your blood sugar, and potentially <span class="text-highlight-secondary">reduce your need for medication</span>, always in close collaboration with your attending physician.
-                    </p>
-                    <div class="specialty-stats">
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Average reduction in glycated hemoglobin (HbA1c) observed with a personalized nutritional intervention.">
-                            <span class="stat-value" data-target="-1.5">-1 to -2%</span>
-                            <span class="stat-label">HbA1c Drop*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Improved insulin sensitivity and potential medication adjustment under medical supervision.">
-                            <span class="stat-value">✓</span>
-                            <span class="stat-label">Improved Insulin Sensitivity*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Structured program for visible and lasting results.">
-                            <span class="stat-value">12-16</span>
-                            <span class="stat-label">Week Prog.</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-muted mt-2 fst-italic">*Results vary depending on the individual, adherence to the plan, and overall medical follow-up.</p>
-                    <div class="specialty-footer">
-                        <a href="/en/type-2-diabetes/" class="learn-more-btn">
-                            Better manage my diabetes<i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <ul class="atlas-legend"><li>*Symptom improvement rate observed with guided Low FODMAP.</li></ul>
+                <a href="/en/irritable-bowel-syndrome-fodmap/" class="btn btn-outline-primary" itemprop="url">Relieve symptoms—start here</a>
+              </div>
+            </section>
 
-            <div class="specialty-card animate-on-scroll fade-up delay-400">
-                <div class="specialty-media">
-                    <img src="../images/gestion-hypertension-diaeta-medium.jpg"
-                         srcset="../images/gestion-hypertension-diaeta-small.webp 480w, ../images/gestion-hypertension-diaeta-small.jpg 480w,
-                                 ../images/gestion-hypertension-diaeta-medium.webp 640w, ../images/gestion-hypertension-diaeta-medium.jpg 640w,
-                                 ../images/gestion-hypertension-diaeta-large.webp 800w, ../images/gestion-hypertension-diaeta-large.jpg 800w"
-                         sizes="(max-width: 767px) 90vw, 48vw"
-                         alt="Heart-healthy foods and a blood pressure monitor for hypertension and cholesterol management with Diaeta"
-                         class="specialty-image" loading="lazy" width="640" height="360">
-                    <div class="specialty-overlay"></div>
-                    <div class="specialty-category">Cardiovascular Health</div>
+            <section class="atlas-panel" role="tabpanel" id="panel-t2d" aria-labelledby="tab-t2d" itemscope itemtype="https://schema.org/MedicalTherapy">
+              <div class="panel-visual"><img decoding="async" src="../images/gestion-diabete-diaeta-medium.jpg" alt="Type 2 diabetes clinical nutrition" loading="lazy" width="640" height="360"></div>
+              <div class="panel-body">
+                <h3 class="panel-title" itemprop="name">Optimized Glycemic Control</h3>
+                <p class="panel-summary" itemprop="description">Carb quality/quantity, fiber and fats, and timing—aligned with your medical treatment.</p>
+                <ol class="panel-steps">
+                  <li>Glycemia & HbA1c review</li>
+                  <li>Low‑GI strategy with fiber focus</li>
+                  <li>Care synergy + monitoring</li>
+                </ol>
+                <div class="panel-metrics">
+                  <span class="badge badge--pill badge--sm badge--neutral">−1 to −2% HbA1c*</span>
+                  <span class="badge badge--pill badge--sm badge--neutral">12–16 Week Prog.</span>
                 </div>
-                <div class="specialty-content">
-                    <div class="specialty-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h3 class="specialty-title">Mastery of Hypertension & Cholesterol</h3>
-                    <p class="specialty-description">
-                        High blood pressure and high cholesterol are major risk factors for cardiovascular diseases, the leading causes of death worldwide. A <span class="text-highlight-primary">targeted nutritional approach</span> is one of the most effective interventions to prevent and manage them.
-                    </p>
-                    <p class="specialty-description" style="margin-bottom: 1rem;">
-                        At Diaeta, we don't just offer generic advice. We integrate scientifically validated strategies such as:
-                    </p>
-                    <ul class="text-sm mb-3" style="padding-left: 1.2em; text-align: left; list-style-type: disc; line-height: 1.6;">
-                        <li><strong>The DASH (Dietary Approaches to Stop Hypertension) approach:</strong> Rich in fruits, vegetables, whole grains, and low-fat dairy, while limiting sodium, saturated fats, and sugar.</li>
-                        <li><strong>The Portfolio diet:</strong> Focuses on a portfolio of foods known for their cholesterol-lowering effects, such as soluble fibers (oats, psyllium), plant sterols, soy proteins, and almonds.</li>
-                    </ul>
-                    <p class="specialty-description">
-                        Our strength lies in the <strong class="text-highlight-accent">personalization</strong> of these protocols. Based on your health profile, blood tests, lifestyle, and preferences, we develop a <span class="text-highlight-secondary">realistic and enjoyable</span> food plan aimed at:
-                    </p>
-                    <ul class="text-sm mb-3 list-styled-check">
-                        <li>Significantly reducing your blood pressure.</li>
-                        <li>Lowering your LDL ("bad") cholesterol level.</li>
-                        <li>Improving your overall lipid profile.</li>
-                        <li>Educating you for informed and sustainable food choices.</li>
-                    </ul>
-                    <div class="specialty-stats">
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Average reduction in systolic blood pressure observed with a DASH-type diet.">
-                            <span class="stat-value">-11 mmHg</span>
-                            <span class="stat-label">Systolic BP Drop*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Average reduction in LDL cholesterol with the Portfolio diet.">
-                            <span class="stat-value">-20%</span>
-                            <span class="stat-label">LDL Drop*</span>
-                        </div>
-                        <div class="stat-item" data-bs-toggle="tooltip" title="Indicative duration to observe significant improvements.">
-                            <span class="stat-value">8-12</span>
-                            <span class="stat-label">Weeks</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-muted mt-2 fst-italic">*Average results observed in clinical studies and vary depending on the individual and adherence to the plan.</p>
-                    <div class="specialty-footer">
-                        <a href="/en/hypertension-cholesterol/" class="learn-more-btn">
-                            Protect my heart<i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <ul class="atlas-legend"><li>*Average HbA1c reduction range from personalized nutrition programs; depends on baseline and adherence.</li></ul>
+                <a href="/en/type-2-diabetes/" class="btn btn-outline-primary" itemprop="url">Stabilize your glucose—see how</a>
+              </div>
+            </section>
+
+            <section class="atlas-panel" role="tabpanel" id="panel-cv" aria-labelledby="tab-cv" itemscope itemtype="https://schema.org/MedicalTherapy">
+              <div class="panel-visual"><img decoding="async" src="../images/gestion-hypertension-diaeta-medium.jpg" alt="Hypertension and cholesterol management" loading="lazy" width="640" height="360"></div>
+              <div class="panel-body">
+                <h3 class="panel-title" itemprop="name">Cardiometabolic Protection</h3>
+                <p class="panel-summary" itemprop="description">DASH and Portfolio strategies adapted to your labs, preferences, and daily life.</p>
+                <ol class="panel-steps">
+                  <li>BP & lipids profile</li>
+                  <li>Sodium control + soluble fiber</li>
+                  <li>Plant sterols & adherence tactics</li>
+                </ol>
+                <div class="panel-metrics">
+                  <span class="badge badge--pill badge--sm badge--neutral">−11 mmHg SBP*</span>
+                  <span class="badge badge--pill badge--sm badge--neutral">−20% LDL*</span>
                 </div>
-            </div>
+                <ul class="atlas-legend"><li>*Typical study averages; your improvements depend on your profile and consistency.</li></ul>
+                <a href="/en/hypertension-cholesterol/" class="btn btn-outline-primary" itemprop="url">Protect your heart—first step</a>
+              </div>
+            </section>
+          </div>
         </div>
+        
     </div>
     </section>
 
@@ -414,86 +402,119 @@ lang: en
         <section class="success-stories-section new-testimonial-showcase" id="testimonials">
           <div class="container">
               <div class="section-header animate-on-scroll fade-up">
-                  <span class="section-badge">Our Patients Testify</span>
+                  <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-user-doctor"></i><span>Our Patients Testify</span></span>
                   <h2 class="section-title">Real People, Real Results: Stories That Could Be Yours</h2>
                   <p class="section-subtitle">These success stories show how our personalized approach helps people just like you achieve their health goals.</p>
               </div>
 
-              <div class="row g-4 justify-content-center">
-                  <div class="col-lg-4 col-md-6 d-flex animate-on-scroll fade-up delay-100">
-                      <div class="testimonial-story-card">
-                          <div class="story-card-header">
-                              <img src="../images/clients/sophie-v-portrait.jpg" alt="Portrait of Sophie V., Diaeta client" class="client-portrait">
-                              <div>
-                                  <h3 class="client-name">Sophie V. <span class="client-location">Brussels</span></h3>
-                                  <p class="client-goal">Goal: Sustainable Weight Loss & More Energy</p>
-                              </div>
-                          </div>
-                          <div class="story-card-body">
-                              <div class="story-segment">
-                                  <h4><i class="fas fa-lightbulb text-secondary me-2"></i>Before Diaeta</h4>
-                                  <p>"I had tried everything; the yo-yo diets left me tired and frustrated, with no lasting results."</p>
-                              </div>
-                              <div class="story-segment">
-                                  <h4><i class="fas fa-cogs text-primary me-2"></i>The Diaeta Turning Point</h4>
-                                  <p>"Diaeta's scientific and personalized approach immediately convinced me. Finally, someone was interested in ME!"</p>
-                              </div>
-                              <div class="story-segment results-highlight">
-                                  <h4><i class="fas fa-chart-line text-accent me-2"></i>Concrete Results</h4>
-                                  <ul>
-                                      <li><strong>-10 kg</strong> in 6 months, without hunger</li>
-                                      <li>Weight has remained stable for over <strong>2 years</strong></li>
-                                      <li>Regained daily energy</li>
-                                      <li>Significantly improved self-confidence</li>
-                                  </ul>
-                              </div>
-                              <div class="story-segment client-quote">
-                                  <h4><i class="fas fa-quote-left text-primary me-2"></i>A Word from Sophie</h4>
-                                  <blockquote>
-                                      "Diaeta transformed my view of food. I learned to eat for my body, with pleasure and without guilt. The follow-up with the app and my dietitian's advice were crucial. I finally feel good in my own skin!"
-                                  </blockquote>
-                              </div>
-                          </div>
-                      </div>
+              <div class="storyboard-grid">
+                <article class="story-card animate-on-scroll fade-up delay-100" itemscope itemtype="https://schema.org/Review">
+                  <header class="story-head">
+                    <img src="../images/clients/sophie-v-portrait.jpg" alt="Portrait of Sophie V., Diaeta client" class="story-portrait" itemprop="author">
+                    <div>
+                      <h3 class="story-title">Sophie V. <span class="story-location">Brussels</span></h3>
+                      <p class="story-goal">Goal: Sustainable Weight Loss & More Energy</p>
+                    </div>
+                  </header>
+                  <div class="story-body">
+                    <p class="story-intro">“Before Diaeta I had tried everything; the yo‑yo diets left me tired and frustrated.”</p>
+                    <p class="story-turn">“The scientific and personalized plan finally fit my life.”</p>
+                    <div class="story-badges">
+                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-weight-scale"></i><span class="value">-10 kg</span></span>
+                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-arrows-rotate"></i> 2 years stable</span>
+                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-bolt"></i> More energy</span>
+                    </div>
+                    <blockquote class="story-quote" itemprop="reviewBody">“I learned to eat for my body, with pleasure and without guilt. The follow‑up and advice were crucial. I finally feel good in my own skin.”</blockquote>
                   </div>
+                </article>
 
-                  <div class="col-lg-4 col-md-6 d-flex animate-on-scroll fade-up delay-200">
-                      <div class="testimonial-story-card">
-                          <div class="story-card-header">
-                              <img src="../images/clients/marc-d-portrait.jpg" alt="Portrait of Marc D., Diaeta client" class="client-portrait">
-                              <div>
-                                  <h3 class="client-name">Marc D. <span class="client-location">Woluwe</span></h3>
-                                  <p class="client-goal">Goal: Management of Irritable Bowel Syndrome</p>
-                              </div>
-                          </div>
-                          <div class="story-card-body">
-                              <div class="story-segment">
-                                  <h4><i class="fas fa-lightbulb text-secondary me-2"></i>Before Diaeta</h4>
-                                  <p>"Abdominal pain and bloating dictated my life. I was afraid to eat many foods."</p>
-                              </div>
-                              <div class="story-segment">
-                                  <h4><i class="fas fa-cogs text-primary me-2"></i>The Diaeta Turning Point</h4>
-                                  <p>"The methodical Low FODMAP approach, clearly explained by my Diaeta dietitian, gave me hope again."</p>
-                              </div>
-                               <div class="story-segment results-highlight">
-                                  <h4><i class="fas fa-chart-line text-accent me-2"></i>Concrete Results</h4>
-                                  <ul>
-                                      <li><strong>80% reduction</strong> in painful symptoms</li>
-                                      <li>Precise identification of my triggers</li>
-                                      <li>Reintroduction of many foods with pleasure</li>
-                                      <li>Better overall quality of life</li>
-                                  </ul>
-                              </div>
-                              <div class="story-segment client-quote">
-                                   <h4><i class="fas fa-quote-left text-primary me-2"></i>A Word from Marc</h4>
-                                  <blockquote>
-                                      "I didn't think I could find such digestive comfort again. The personalized follow-up and Diaeta's explanations of the low FODMAP diet were a revelation. I eat with serenity again."
-                                  </blockquote>
-                              </div>
-                          </div>
-                      </div>
+                <article class="story-card animate-on-scroll fade-up delay-200" itemscope itemtype="https://schema.org/Review">
+                  <header class="story-head">
+                    <img src="../images/clients/marc-d-portrait.jpg" alt="Portrait of Marc D., Diaeta client" class="story-portrait" itemprop="author">
+                    <div>
+                      <h3 class="story-title">Marc D. <span class="story-location">Woluwe</span></h3>
+                      <p class="story-goal">Goal: IBS Symptom Control</p>
+                    </div>
+                  </header>
+                  <div class="story-body">
+                    <p class="story-intro">“Abdominal pain and bloating dictated my life.”</p>
+                    <p class="story-turn">“The methodical Low FODMAP pathway gave me hope again.”</p>
+                    <div class="story-badges">
+                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-chart-line"></i><span class="value">~80%</span> less pain</span>
+                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-list-check"></i> Triggers identified</span>
+                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-utensils"></i> Variety restored</span>
+                    </div>
+                    <blockquote class="story-quote" itemprop="reviewBody">“I didn’t think I could find such digestive comfort again. The personalized follow‑up and clear explanations were a revelation.”</blockquote>
                   </div>
+                </article>
+                
+                <article class="story-card animate-on-scroll fade-up delay-300" itemscope itemtype="https://schema.org/Review">
+                  <header class="story-head">
+                    <img src="../images/diabetes-management-factors.webp" alt="Portrait-style silhouette for client with Type 2 Diabetes" class="story-portrait" itemprop="author">
+                    <div>
+                      <h3 class="story-title">Clara M. <span class="story-location">Ixelles</span></h3>
+                      <p class="story-goal">Goal: Type 2 Diabetes Management</p>
+                    </div>
+                  </header>
+                  <div class="story-body">
+                    <p class="story-intro">“My glucose swings exhausted me and meals felt complicated.”</p>
+                    <p class="story-turn">“A practical plan synchronized with my routine made it simple.”</p>
+                    <div class="story-badges">
+                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-droplet"></i> HbA1c −1.2%</span>
+                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-pills"></i> Fewer meds*</span>
+                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-face-smile"></i> Confidence back</span>
+                    </div>
+                    <blockquote class="story-quote" itemprop="reviewBody">“I feel in control for the first time in years. The guidance was clear, realistic, and respectful of my preferences.”</blockquote>
                   </div>
+                </article>
+              </div>
+
+              <div class="cta-group justify-content-center mt-3">
+                <a href="./appointment.html" class="btn btn-primary btn-lg">Start Your Program</a>
+                <a href="#" class="btn btn-outline-primary btn-lg">More Success Stories</a>
+              </div>
+
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                      "@type": "Review",
+                      "itemReviewed": { "@type": "Organization", "name": "Diaeta" },
+                      "author": { "@type": "Person", "name": "Sophie V." },
+                      "reviewBody": "I learned to eat for my body, with pleasure and without guilt. The follow‑up and advice were crucial. I finally feel good in my own skin.",
+                      "name": "Sustainable weight loss & more energy"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                      "@type": "Review",
+                      "itemReviewed": { "@type": "Organization", "name": "Diaeta" },
+                      "author": { "@type": "Person", "name": "Marc D." },
+                      "reviewBody": "I didn’t think I could find such digestive comfort again. The personalized follow‑up and clear explanations were a revelation.",
+                      "name": "IBS symptom control with Low FODMAP"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                      "@type": "Review",
+                      "itemReviewed": { "@type": "Organization", "name": "Diaeta" },
+                      "author": { "@type": "Person", "name": "Clara M." },
+                      "reviewBody": "I feel in control for the first time in years. The guidance was clear, realistic, and respectful of my preferences.",
+                      "name": "Type 2 diabetes management & stability"
+                    }
+                  }
+                ]
+              }
+              </script>
 
               <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
                   <a href="/en/appointment/" class="btn btn-primary btn-lg">
@@ -507,49 +528,73 @@ lang: en
     <div class="section-divider"></div>
 
        <section class="cabinet-teaser-section section" id="our-locations-teaser">
-        <div class="container text-center">
-            <div class="section-header animate-on-scroll fade-up">
-                <span class="section-badge" style="background-color: rgba(var(--primary-rgb), 0.1); color: var(--primary-600);">Your Health, Our Proximity</span>
-                <h2 class="section-title" style="color: var(--primary-700);">We're Here For You: Convenient Locations Across Brussels</h2>
-                <p class="section-subtitle" style="color: var(--text-secondary); max-width: 750px;">
-                    Your convenience matters to us. That's why we've established {{ cabinets_en | physicalClinicsCount }} welcoming clinics throughout Brussels, making it easy for you to access the care you deserve.
-                </p>
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-up text-center">
+                <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-location-dot"></i><span>Your Health, Our Proximity</span></span>
+                <h2 class="section-title">We're Here For You: Convenient Locations Across Brussels</h2>
+                <p class="section-subtitle">Your convenience matters to us. That's why we've established {{ cabinets_en | physicalClinicsCount }} welcoming clinics throughout Brussels, making it easy for you to access the care you deserve.</p>
             </div>
-    
-            <div class="teaser-highlights animate-on-scroll fade-up delay-200" style="margin: 2.5rem auto; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; max-width: 800px;">
-                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
-                    <i class="fas fa-map-marked-alt fa-2x" style="color: var(--accent-500);"></i>
-                    <span style="font-size: 1.1rem; font-weight: 500;">{{ cabinets_en | physicalClinicsCount }} Brussels Clinics</span>
+
+            <div class="proximity-board animate-on-scroll fade-up delay-200">
+              <div class="proximity-map" aria-hidden="true">
+                <svg class="proximity-map-svg" viewBox="0 0 400 300" role="img" aria-label="Schematic proximity network">
+                  <defs>
+                    <linearGradient id="proxLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="var(--primary-300)"/>
+                      <stop offset="100%" stop-color="var(--accent-400)"/>
+                    </linearGradient>
+                  </defs>
+                  <g stroke="url(#proxLine)" stroke-width="3" fill="none" opacity="0.9">
+                    <path d="M40 220 C120 180, 160 140, 240 160 S330 210, 360 120" />
+                    <path d="M60 80 C140 120, 220 80, 300 110" opacity="0.6"/>
+                  </g>
+                  <g fill="var(--primary-600)">
+                    <circle cx="60" cy="220" r="5"/>
+                    <circle cx="140" cy="180" r="5"/>
+                    <circle cx="220" cy="155" r="5"/>
+                    <circle cx="300" cy="190" r="5"/>
+                    <circle cx="360" cy="120" r="6"/>
+                    <circle cx="80" cy="80" r="4"/>
+                    <circle cx="220" cy="95" r="4"/>
+                    <circle cx="300" cy="110" r="4"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="proximity-content">
+                <div class="proximity-metrics">
+                  <span class="badge badge--pill badge--md badge--neutral"><i class="fa-solid fa-hospital"></i> {{ cabinets_en | physicalClinicsCount }} Clinics</span>
+                  <span class="badge badge--pill badge--md badge--primary"><i class="fa-solid fa-user-nurse"></i> Professional Care</span>
+                  <span class="badge badge--pill badge--md badge--accent"><i class="fa-solid fa-calendar-check"></i> Easy Booking</span>
                 </div>
-                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
-                    <i class="fas fa-users fa-2x" style="color: var(--accent-500);"></i>
-                    <span style="font-size: 1.1rem; font-weight: 500;">Professional & Comfortable Setting</span>
+                <div class="proximity-chips" role="list" aria-label="Diaeta clinic locations in Brussels">
+                  {% for clinic in cabinets_en %}
+                    {% if clinic.id != 'video' %}
+                      <a class="badge badge--pill badge--sm badge--soft" href="{{ clinic.Maps_link }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ clinic.name }} on Google Maps">
+                        <i class="fa-solid fa-location-dot"></i> {{ clinic.city }} — {{ clinic.name }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
                 </div>
-                <div class="highlight-item" style="display: flex; align-items: center; gap: 0.75rem; color: var(--primary-600);">
-                    <i class="fas fa-route fa-2x" style="color: var(--accent-500);"></i>
-                    <span style="font-size: 1.1rem; font-weight: 500;">Easily Accessible</span>
+                <p class="proximity-note">Find the clinic nearest to you and start care that fits your life.</p>
+                <div class="cta-group cta-equal-width-group">
+                  <a href="/en/locations/" class="btn btn-primary btn-lg"><span>Explore Our Locations</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+                  <a href="/en/appointment/" class="btn btn-outline-primary btn-lg"><span>Book an Appointment</span></a>
                 </div>
+              </div>
             </div>
-    
-            <p class="lead animate-on-scroll fade-up delay-300" style="max-width: 700px; margin: 0 auto 2.5rem; color: var(--text-secondary);">
-                Find the Diaeta clinic nearest to you and take the first step towards nutritional care that makes a difference.
-            </p>
-            <a href="/en/locations/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400">
-                <span>Explore Our Consultation Locations</span> <i class="fas fa-arrow-right ms-2"></i>
-            </a>
         </div>
         </section>
 
     <div class="section-divider"></div>
 
-     <section id="nutrigenetic-testing" class="genetic-section section" style="background-color: var(--primary-50);">
+     <section id="nutrigenetic-testing" class="genetic-section section">
       <div class="container">
           <div class="row align-items-center g-lg-5">
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
                   <div class="section-header text-start mb-4">
-                      <span class="section-tagline" style="background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-700);">The Future of Nutrition</span>
-                      <h2 class="section-title mb-3" style="font-size: 2.2rem;">Your Unique Genetic Profile: The Key to Your Optimal Nutrition</h2>
-                      <p class="section-subtitle" style="max-width: none;">
+                      <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-dna"></i><span>Nutrigenetic Testing</span></span>
+                      <h2 class="section-title mb-3">Your Unique Genetic Profile: The Key to Your Optimal Nutrition</h2>
+                      <p class="section-subtitle">
                           Imagine nutrition advice that's truly designed for you. <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a> tests analyze your unique genetic profile across 70+ markers, helping us create recommendations that work with your body's natural tendencies.
                       </p>
                   </div>
@@ -572,7 +617,7 @@ lang: en
                   </div>
               </div>
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-2 text-center">
-                  <div class="intro-visual d-inline-block" style="margin-top: 1rem; max-width: 320px;">
+                  <div class="intro-visual d-inline-block">
                       <div class="position-relative">
                           <picture>
                               <source srcset="/images/dna-helix-abstract-640.webp 2x, /images/dna-helix-abstract-320.webp 1x" type="image/webp">
@@ -580,8 +625,7 @@ lang: en
                               <img src="/images/dna-helix-abstract-320.jpg"
                                    alt="Stylized DNA helix symbolizing nutrigenetics and personalized nutrition at Diaeta"
                                    class="img-fluid dna-image shadow-sm rounded"
-                                   width="320" height="320" loading="lazy"
-                                   style="border: 3px solid var(--primary-100); display: block; margin-left: auto; margin-right:auto;">
+                                   width="320" height="320" loading="lazy" decoding="async">
                           </picture>
                       </div>
                       <p class="text-muted fst-italic text-sm mt-3">Decode the secrets of your DNA for optimized nutrition.</p>
