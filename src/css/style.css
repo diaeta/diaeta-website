@@ -634,7 +634,8 @@ p {
 
 .section-title {
   font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
-  margin-bottom: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
   color: var(--primary-600);
   position: relative;
   font-family: "Playfair Display", serif;
@@ -2729,12 +2730,12 @@ footer.footer .footer-legal-link:hover::after {
 @media (max-width: 1023px) { .storyboard-grid { grid-template-columns: 1fr; } }
 
 /* Testimonials: breathing room for badges */
-.new-testimonial-showcase .section-header > .badge { margin-bottom: 0.75rem; }
+.new-testimonial-showcase .section-header > .badge { margin-bottom: 1.25rem; }
 .new-testimonial-showcase .story-badges { gap: 0.75rem 0.75rem; margin: 0.5rem 0 0.75rem; }
 .new-testimonial-showcase .story-card { padding: 1.1rem; }
 
 /* Proximity board */
-#our-locations-teaser .section-header > .badge { margin-bottom: 0.75rem; }
+#our-locations-teaser .section-header > .badge { margin-bottom: 1.25rem; }
 .proximity-board { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; align-items: center; }
 .proximity-map { position: relative; background: radial-gradient(1200px 400px at 20% 60%, rgba(13,110,253,0.08), transparent); border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); padding: 1rem; }
 .proximity-map-svg { width: 100%; height: auto; display: block; }
@@ -2750,9 +2751,12 @@ footer.footer .footer-legal-link:hover::after {
 
 /* Genetic section cleanup */
 #nutrigenetic-testing { background-color: var(--primary-50); }
-#nutrigenetic-testing .section-header > .badge { margin-bottom: 0.75rem; }
+#nutrigenetic-testing .section-header > .badge { margin-bottom: 1.25rem; }
 #nutrigenetic-testing .intro-visual { margin-top: 1rem; max-width: 320px; }
 #nutrigenetic-testing .dna-image { border: 3px solid var(--primary-100); display: block; margin-left: auto; margin-right: auto; }
+
+/* Knowledge Hub: more room for header badge */
+#news-teaser .section-header > .badge { margin-bottom: 1.25rem; }
 
    .testimonial-quote-section {
     padding-top: var(--space-6);    /* Example: 2rem or var(--space-6) - Adjust as needed */
@@ -9380,6 +9384,8 @@ section {
   flex-direction: column;
   height: 100%; /* Ensure cards in a row have same height */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 400px;
 }
 
 .article-teaser-card:hover {
@@ -9488,6 +9494,13 @@ section {
   .article-teaser-card {
     margin-bottom: 1.5rem; /* Add space when stacked */
   }
+  /* Knowledge Hub mobile optimizations */
+  #news-teaser .teaser-card-image-link { aspect-ratio: 4 / 3; }
+  #news-teaser .teaser-card-body { padding: 1rem; }
+  #news-teaser .teaser-card-title { font-size: 1.1rem; }
+  #news-teaser .teaser-card-excerpt { -webkit-line-clamp: 4; line-clamp: 4; }
+  #news-teaser .teaser-card-meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  #news-teaser .teaser-card-readmore { width: 100%; text-align: center; }
 }
 
 /* ============================================= */
@@ -12484,7 +12497,7 @@ main { position: relative; z-index: 1; }
 
 .canvas-header {
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
 }
 
 .canvas-badge {
@@ -12503,8 +12516,8 @@ main { position: relative; z-index: 1; }
 
 .canvas-title {
   font-size: var(--text-4xl);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-4);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-5);
   color: var(--primary-700);
 }
 
@@ -12652,7 +12665,10 @@ section:not(.hero-section) {
 }
 
 /* Section header spacing */
-.section-header { margin: 0 auto clamp(1.25rem, 0.75rem + 1vw, 2.25rem); }
+.section-header { margin: 0 auto clamp(1.5rem, 0.75rem + 2vw, 2.5rem); }
+@media (max-width: 767px) {
+  .section-header { margin: 0 auto clamp(1.1rem, 0.6rem + 1.5vw, 1.75rem); }
+}
 
 /* Divider spacing */
 .section-divider, .section-divider-thick { margin-block: clamp(2rem, 1.25rem + 2vw, 4rem); }

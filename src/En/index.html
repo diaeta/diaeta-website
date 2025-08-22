@@ -640,7 +640,7 @@ lang: en
    <section id="news-teaser" class="section actualites-teaser-section bg-light">
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
-            <span class="section-badge" style="background-color: rgba(var(--secondary-rgb), 0.1); color: var(--secondary-700);">Our Expertise</span>
+            <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-book-medical"></i><span>Our Expertise</span></span>
             <h2 class="section-title">Knowledge You Can Use: Practical Health Insights</h2>
             <p class="section-subtitle">
                 We share information that matters to you - straightforward advice and science-backed tips you can apply to improve your health today.
@@ -656,7 +656,7 @@ lang: en
                 <div class="article-teaser-card">
                     {% if post.data.image %}
                     <a href="{{ post.url | url }}" class="teaser-card-image-link">
-                        <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-image" loading="lazy">
+                        <img src="{{ post.data.image | url }}" alt="{{ post.data.imageAlt | default(post.data.title) }}" class="teaser-card-image" loading="lazy" decoding="async">
                     </a>
                     {% endif %}
                     <div class="teaser-card-body">
