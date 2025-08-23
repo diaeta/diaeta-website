@@ -1,12 +1,38 @@
 // main.js - Diaeta Website Functionality
 
+// Global initialization flags to prevent multiple initializations
+let headerInitialized = false;
+let heroInitialized = false;
+let specialtiesInitialized = false;
+let contactFormInitialized = false;
+let scrollAnimationsInitialized = false;
+let lazyLoadingInitialized = false;
+
 document.addEventListener('DOMContentLoaded', function() {
-  initializeHeader();
-  initializeHero();
-  initializeSpecialties();
-  initializeContactForm();
-  initializeScrollAnimations();
-  initializeLazyLoading();
+  if (!headerInitialized) {
+    initializeHeader();
+    headerInitialized = true;
+  }
+  if (!heroInitialized) {
+    initializeHero();
+    heroInitialized = true;
+  }
+  if (!specialtiesInitialized) {
+    initializeSpecialties();
+    specialtiesInitialized = true;
+  }
+  if (!contactFormInitialized) {
+    initializeContactForm();
+    contactFormInitialized = true;
+  }
+  if (!scrollAnimationsInitialized) {
+    initializeScrollAnimations();
+    scrollAnimationsInitialized = true;
+  }
+  if (!lazyLoadingInitialized) {
+    initializeLazyLoading();
+    lazyLoadingInitialized = true;
+  }
   
   setTimeout(fixMobileImages, 1000);
   window.addEventListener('resize', fixMobileImages);
@@ -166,6 +192,12 @@ function initializeAdvancedCookieConsent() {
           });
           s.setAttribute('data-loaded-category', category);
           s.text = node.text || '';
+          
+          // Handle script loading errors gracefully
+          s.onerror = () => {
+              console.warn(`Failed to load script for category: ${category}`);
+          };
+          
           node.parentNode.replaceChild(s, node);
       });
   };
@@ -350,20 +382,24 @@ function initializeHeader() {
   scrollHandler(); // Initial call 
 
     console.log('Diaeta: Setting up menu toggle listener...');
-  if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-      console.log('Diaeta: Menu toggle clicked.'); // Added log
-      const isOpen = header.classList.toggle('menu-open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('mobile-menu-is-open', isOpen); 
+    if (menuToggle) {
+      // Remove existing event listeners to prevent duplicates
+      const newMenuToggle = menuToggle.cloneNode(true);
+      menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+      
+      newMenuToggle.addEventListener('click', function() {
+        console.log('Diaeta: Menu toggle clicked.');
+        const isOpen = header.classList.toggle('menu-open');
+        this.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('mobile-menu-is-open', isOpen); 
 
-      const icon = menuToggle.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars', !isOpen);
-        icon.classList.toggle('fa-times', isOpen);
-      }
-    });
-  }
+        const icon = this.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-bars', !isOpen);
+          icon.classList.toggle('fa-times', isOpen);
+        }
+      });
+    }
 
   // Debug: Check if language toggle elements exist
   const langToggles = document.querySelectorAll('.lang-toggle');
@@ -382,69 +418,79 @@ function initializeHeader() {
     console.log(`Toggle parent:`, toggle.closest('.lang-selector'));
   });
 
-  document.querySelectorAll('.lang-toggle').forEach(toggle => {
-    console.log('Setting up language toggle:', toggle);
-    
-    // Add click event listener with simple toggle logic
-    toggle.addEventListener('click', function(e) {
-      console.log('=== LANGUAGE TOGGLE CLICKED ===');
+    // Remove existing event listeners and re-add them
+    document.querySelectorAll('.lang-toggle').forEach(toggle => {
+      console.log('Setting up language toggle:', toggle);
       
-      e.preventDefault();
-      e.stopImmediatePropagation();
+      // Clone the toggle to remove existing event listeners
+      const newToggle = toggle.cloneNode(true);
+      toggle.parentNode.replaceChild(newToggle, toggle);
       
-      const langSelector = this.closest('.lang-selector');
-      console.log('Found lang selector:', langSelector);
-      
-      if (!langSelector) {
-        console.error('Diaeta: .lang-selector not found for this toggle.');
-        return;
-      }
-      
-      // Simple toggle: if open, close it; if closed, open it
-      const isOpen = langSelector.classList.contains('open');
-      console.log('Is currently open?', isOpen);
-      
-      if (isOpen) {
-        // Close this one
-        console.log('CLOSING dropdown');
-        langSelector.classList.remove('open');
-        this.setAttribute('aria-expanded', 'false');
-      } else {
-        // Close all others first, then open this one
-        console.log('OPENING dropdown');
-        document.querySelectorAll('.lang-selector').forEach(sel => {
-          sel.classList.remove('open');
-          const otherToggle = sel.querySelector('.lang-toggle');
-          if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
-        });
+      // Add click event listener with simple toggle logic
+      newToggle.addEventListener('click', function(e) {
+        console.log('=== LANGUAGE TOGGLE CLICKED ===');
         
-        langSelector.classList.add('open');
-        this.setAttribute('aria-expanded', 'true');
-      }
-      
-      console.log('Final classes:', langSelector.className);
-    });
-  });
-
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      console.log('Language option clicked:', this.textContent);
-      const targetLangDisplay = (this.textContent || "FR").substring(0,2).toUpperCase();
-      document.querySelectorAll('.lang-toggle span').forEach(span => span.textContent = targetLangDisplay);
-      document.querySelectorAll('.lang-option.active').forEach(opt => {
-          opt.classList.remove('active');
-          opt.removeAttribute('aria-current');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const langSelector = this.closest('.lang-selector');
+        console.log('Found lang selector:', langSelector);
+        
+        if (!langSelector) {
+          console.error('Diaeta: .lang-selector not found for this toggle.');
+          return;
+        }
+        
+        // Simple toggle: if open, close it; if closed, open it
+        const isOpen = langSelector.classList.contains('open');
+        console.log('Is currently open?', isOpen);
+        
+        if (isOpen) {
+          // Close this one
+          console.log('CLOSING dropdown');
+          langSelector.classList.remove('open');
+          this.setAttribute('aria-expanded', 'false');
+        } else {
+          // Close all others first, then open this one
+          console.log('OPENING dropdown');
+          document.querySelectorAll('.lang-selector').forEach(sel => {
+            sel.classList.remove('open');
+            const otherToggle = sel.querySelector('.lang-toggle');
+            if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+          });
+          
+          langSelector.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+        
+        console.log('Final classes:', langSelector.className);
       });
-      this.classList.add('active');
-      this.setAttribute('aria-current', 'true');
-      this.closest('.lang-selector').classList.remove('open');
-      this.closest('.lang-selector').querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
-      window.location.href = this.href;
     });
-  });
+
+    // Remove existing event listeners for language options and re-add them
+    document.querySelectorAll('.lang-option').forEach(option => {
+      // Clone the option to remove existing event listeners
+      const newOption = option.cloneNode(true);
+      option.parentNode.replaceChild(newOption, option);
+      
+      newOption.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('Language option clicked:', this.textContent);
+        const targetLangDisplay = (this.textContent || "FR").substring(0,2).toUpperCase();
+        document.querySelectorAll('.lang-toggle span').forEach(span => span.textContent = targetLangDisplay);
+        document.querySelectorAll('.lang-option.active').forEach(opt => {
+            opt.classList.remove('active');
+            opt.removeAttribute('aria-current');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-current', 'true');
+        this.closest('.lang-selector').classList.remove('open');
+        this.closest('.lang-selector').querySelector('.lang-toggle').setAttribute('aria-expanded', 'false');
+        window.location.href = this.href;
+      });
+    });
 
   document.addEventListener('click', function(event) {
     if (!event.target.closest('.lang-selector')) {
@@ -1659,13 +1705,7 @@ function addDropdownArrows() {
     }
   });
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  if (menuToggle && !menuToggle.dataset.arrowListenerAttached) {
-    menuToggle.addEventListener('click', function() {
-      setTimeout(addDropdownArrows, 100);
-    });
-    menuToggle.dataset.arrowListenerAttached = 'true';
-  }
+  // Note: Removed menu toggle listener to prevent duplicate arrows
 }
 
 // Progress indicator functionality
@@ -2082,37 +2122,4 @@ function initSmoothScroll() {
 
 
 
-// Initialize all world-class features
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize existing functionality
-    initializeHeader();
-    initializeHero();
-    initializeSpecialties();
-    initializeContactForm();
-    initializeScrollAnimations();
-    initializeLazyLoading();
-    
-    // Initialize world-class enhancements
-    initStickyNavigation();
-    initFloatingActions();
-    initMethodJourney();
-    initTestimonialCarousel();
-    initAnimatedStats();
-    initEnhancedScrollAnimations();
-    initParallaxEffects();
-    initSmoothScroll();
-    
-    // Existing functionality
-    setTimeout(fixMobileImages, 1000);
-    window.addEventListener('resize', fixMobileImages);
-    
-    initScienceSection();
-    improveScienceSectionMobile();
-    
-    if (window.innerWidth < 768) {
-        addTouchInteractions();
-        improveMobileAnimations();
-    }
-    
-    // ... rest of existing initialization code
-});
+// Note: All initialization is now handled in the main DOMContentLoaded event listener above
