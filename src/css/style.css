@@ -799,7 +799,6 @@ p {
   position: relative;
   overflow: hidden;
 }
-
 .clinic-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -1598,7 +1597,6 @@ p {
   line-height: 1.7;
   margin-bottom: var(--space-6);
 }
-
 .contact-list {
   list-style: none;
   padding: 0;
@@ -2395,12 +2393,10 @@ footer.footer .footer-legal-link:hover::after {
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
 }
-
 .test-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
-
 .card-badge {
   position: absolute;
   top: 1.5rem;
@@ -3199,7 +3195,6 @@ with a more specific selector.
   position: relative !important;
   padding-left: 2em !important;
 }
-
 /* Simple Sticky Header */
 .site-header {
   position: fixed !important;
@@ -3993,7 +3988,6 @@ img {
 .fade-up {
   transform: translateY(30px);
 }
-
 .fade-up.animated {
   transform: translateY(0);
 }
@@ -4001,7 +3995,6 @@ img {
 .fade-in {
   opacity: 0;
 }
-
 .fade-in.animated {
   opacity: 1;
 }
@@ -4783,7 +4776,6 @@ section {
 .row .col-md-6 .pricing-card {
   height: 500px; /* Fixed height for exact uniformity */
 }
-
 /* Responsive adjustments for pricing cards */
 @media (max-width: 991.98px) {
   .pricing-card {
@@ -4800,7 +4792,6 @@ section {
     transform: translateY(-6px);
   }
 }
-
 @media (max-width: 767.98px) {
   .pricing-card {
     height: 400px;
@@ -5570,7 +5561,6 @@ section {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
-
 /* New Solutions Matrix */
 .solutions-matrix { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
 .solution-card { display: grid; grid-template-columns: 1fr; background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -5595,7 +5585,6 @@ section {
 @media (max-width: 1023px) {
   .solutions-matrix { grid-template-columns: 1fr; }
 }
-
 /* Clinical Caseboard pathways */
 .clinical-board { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
 .pathway-card { background: linear-gradient(180deg,#fff,#fff) padding-box, linear-gradient(135deg, rgba(var(--primary-rgb),0.12), rgba(var(--accent-rgb),0.12)) border-box; border: 1px solid transparent; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.08); display: grid; gap: 0.75rem; padding: 1rem 1rem 0.75rem; position: relative; }
@@ -6367,7 +6356,6 @@ section {
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
-
 .client-details {
   display: flex;
   gap: 1.5rem;
@@ -6396,7 +6384,6 @@ section {
   position: relative;
   padding-left: 1.5rem;
 }
-
 .success-quote::before {
   content: "";
   position: absolute;
@@ -7183,7 +7170,6 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);
 }
-
 /* Responsive Adjustments */
 @media (max-width: 991px) {
   .service-hero h1 {
@@ -7961,7 +7947,6 @@ section {
 .fodmap-timeline-section .col-md-6 > .timeline-item {
   flex: 1;
 }
-
 /* Food Examples Section - Equal Height Cards */
 #aliments-fodmaps .row {
   display: flex;
@@ -7983,7 +7968,6 @@ section {
 #aliments-fodmaps .benefit-card .icon {
   flex-shrink: 0;
 }
-
 #aliments-fodmaps .benefit-card h4 {
   flex-shrink: 0;
 }
@@ -8758,7 +8742,6 @@ section {
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   display: none; /* Controlled by JS for initial show/hide */
 }
-
 .cookie-consent-banner.active { /* JS will add this to show */
   display: block; /* Or flex if needed for content alignment */
   transform: translateY(0);
@@ -8781,7 +8764,6 @@ section {
 .cookie-consent-text p {
   margin-bottom: 0; /* Remove default p margin if text is directly in a p */
 }
-
 .cookie-consent-text .cookie-consent-link {
   color: var(--accent-300, #bfe095);
   text-decoration: underline;
@@ -9337,9 +9319,7 @@ section {
 
 /* In style.css */
 
-.cta-equal-width-group {
-  /* This class is on the parent div with d-flex */
-}
+.cta-equal-width-group { /* parent flex container for equal-width CTAs */ }
 
 .cta-equal-width-group .cta-genetic-test {
   flex-grow: 1; /* This makes flex items grow to fill available space */
@@ -9558,7 +9538,6 @@ section {
   line-height: 1.8; /* Enhanced readability */
   font-size: 1.05rem; /* Slightly larger body text */
 }
-
 .entry-content ul, .entry-content ol {
   margin-bottom: 1.5rem;
   padding-left: 1.8rem; /* Indent lists */
@@ -9579,7 +9558,6 @@ section {
 .entry-content blockquote p:last-child {
     margin-bottom: 0;
 }
-
 .entry-content a {
     color: var(--accent-600);
     text-decoration: underline;
@@ -9698,8 +9676,8 @@ section {
     line-height: normal;
 }
 
-/* "The Healthy Path" Line - using ::after for ALL nav-links */
-.nav-link::after {
+/* "The Healthy Path" Line - underline for non-dropdown links only */
+.nav-link:not(.dropdown-toggle)::after {
     content: '';
     position: absolute;
     bottom: 5px;
@@ -9714,8 +9692,8 @@ section {
     border: none !important;
 }
 
-.nav-item:hover > .nav-link::after,
-.nav-link.active::after {
+.nav-item:hover > .nav-link:not(.dropdown-toggle)::after,
+.nav-link:not(.dropdown-toggle).active::after {
     transform: translateX(-50%) scaleX(1); /* Animate to full width */
 }
 
@@ -9746,33 +9724,34 @@ section {
     color: var(--primary-500);
 }
 
-/* --- Desktop-Specific Styles for Dropdown Toggles & Caret --- */
+/* --- Desktop/Tablet dropdown caret (single, thin chevron) --- */
 @media (min-width: 1024px) {
-    /* 1. Hide Bootstrap's default ::after caret on desktop dropdown toggles */
+    /* Remove any Bootstrap default caret and legacy before-icon */
+    .nav-item.dropdown > .nav-link.dropdown-toggle::before { display: none !important; }
+
     .nav-item.dropdown > .nav-link.dropdown-toggle::after {
-        display: none !important; /* Completely hide Bootstrap's caret */
+        /* Thin chevron built with borders (no fonts) */
+        content: "";
+        display: inline-block !important; /* beat earlier generic ::after hides */
+        width: 0.5rem; /* visual length of chevron arms */
+        height: 0.5rem;
+        margin-left: 0.5em;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        border-top: 0; border-left: 0; /* neutralize Bootstrap triangle */
+        color: var(--neutral-500);
+        vertical-align: middle;
+        transform: rotate(45deg); /* points down */
+        transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    /* 2. Add our own custom caret using ::before for desktop dropdown toggles */
-    .nav-item.dropdown > .nav-link.dropdown-toggle::before {
-        content: "\f054"; /* Font Awesome chevron-right icon */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900; /* Solid icon style for FA6 */
-        font-size: 0.7em;   /* Slightly larger for better visibility */
-        margin-right: 0.5em; /* Space before the text */
-        color: var(--neutral-500); /* More visible initial color */
-        transition: color 0.3s ease, transform 0.3s ease;
-        display: inline-block; /* Allow margin and proper alignment */
-        vertical-align: middle; /* Align with text */
+    /* Rotate caret when menu is revealed either by hover or .show */
+    .nav-item.dropdown:hover > .nav-link.dropdown-toggle::after {
+        transform: rotate(-135deg);
+        color: var(--primary-500);
     }
-
-    .nav-item:hover > .nav-link.dropdown-toggle::before {
-        color: var(--primary-500); /* Change arrow color on hover */
-    }
-
-    /* Rotate arrow when dropdown is open */
-    .nav-item.dropdown.show > .nav-link.dropdown-toggle::before {
-        transform: rotate(90deg);
+    .nav-item.dropdown.show > .nav-link.dropdown-toggle::after {
+        transform: rotate(-135deg);
         color: var(--primary-600);
     }
 }
@@ -9974,29 +9953,6 @@ section {
     display: none !important;
   }
 
-  /* Use simple arrow character for mobile dropdown arrows for better compatibility */
-  /* This rule must override the conflicting rule that hides dropdown arrows */
-  .nav-item.dropdown .nav-link.dropdown-toggle::after {
-    display: inline-block !important;
-    content: "▶" !important; /* Simple right arrow character */
-    font-size: 0.8em !important; /* Slightly smaller for better proportion */
-    color: var(--primary-500) !important; /* Primary color for consistency */
-    transition: transform 0.3s ease, color 0.3s ease !important;
-    position: absolute !important;
-    left: 1.5rem !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 10 !important;
-    font-weight: normal !important; /* Normal weight for cleaner look */
-    font-family: Arial, "Segoe UI Symbol", "Noto Sans Symbols", sans-serif !important; /* Force font that supports arrows */
-    /* Override any conflicting rules */
-    visibility: visible !important;
-    height: auto !important;
-    width: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
   /* Hide all CSS-based dropdown arrows since we're using JavaScript injection */
   .nav-link.dropdown-toggle::after {
     display: none !important;
@@ -10357,7 +10313,6 @@ section {
   color: white;
   transform: scale(1.1);
 }
-
 .resource-content {
   flex: 1;
 }
@@ -10376,7 +10331,6 @@ section {
   line-height: 1.5;
   margin: 0;
 }
-
 /* Quick Action Box */
 .quick-action-box {
   background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 100%);
@@ -11149,7 +11103,6 @@ section {
     transform: translateY(-2px) scale(1.03);
   }
 }
-
 /* Enhanced pulse animation for decorative elements */
 @keyframes enhancedPulse {
   0% {
@@ -11174,7 +11127,6 @@ section {
 #aliments-fodmaps * {
   transition: all 0.3s ease;
 }
-
 /* Enhanced focus states for accessibility */
 #aliments-fodmaps .benefit-card:focus-within {
   outline: 3px solid var(--primary-500);
@@ -11950,7 +11902,6 @@ section {
   transition: all 0.3s ease;
   font-size: 1.2rem;
 }
-
 .nav-btn:hover {
   background: var(--primary-600);
   transform: scale(1.1);
@@ -11975,7 +11926,6 @@ section {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .dot.active {
   background: var(--primary-500);
   transform: scale(1.2);
@@ -12751,7 +12701,6 @@ section:not(.hero-section) {
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
 }
-
 .panel-fact {
   display: flex;
   gap: var(--space-4);
@@ -12775,7 +12724,6 @@ section:not(.hero-section) {
   font-weight: 600;
 }
 .chip i { color: var(--primary-500); }
-
 .panel-cta { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
 /* Responsive */

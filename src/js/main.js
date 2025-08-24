@@ -97,6 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
   initEnhancedScrollAnimations();
   initParallaxEffects();
   initSmoothScroll();
+
+  // Re-evaluate dropdown arrows on resize to keep single-arrow policy
+  let __arrowResizeTO;
+  window.addEventListener('resize', () => {
+    clearTimeout(__arrowResizeTO);
+    __arrowResizeTO = setTimeout(() => { try { addDropdownArrows(); } catch(e) { /* noop */ } }, 150);
+  });
 });
 
 function initializeAdvancedCookieConsent() {
@@ -1678,34 +1685,61 @@ function initializeScrollToLinks() { /* ... as before ... */
 
 // Add dropdown arrows to mobile menu using JavaScript
 function addDropdownArrows() {
-  console.log('Diaeta: Adding dropdown arrows...');
-  
+  const isMobileMenuWidth = window.innerWidth <= 1686; // keep in sync with CSS/mobile breakpoint
   const dropdownToggles = document.querySelectorAll('.nav-item.dropdown .nav-link.dropdown-toggle');
-  console.log('Diaeta: Found', dropdownToggles.length, 'dropdown toggles');
-  
+
   dropdownToggles.forEach((toggle) => {
-    if (!toggle.querySelector('.dropdown-arrow')) {
-      const arrow = document.createElement('span');
+    const existingArrow = toggle.querySelector('.dropdown-arrow');
+
+    if (!isMobileMenuWidth) {
+      // Desktop: remove any JS arrows and reset styles to avoid duplicates with CSS chevron
+      if (existingArrow) existingArrow.remove();
+      // Only clear the styles we set
+      if (toggle.style.position === 'relative') toggle.style.position = '';
+      if (toggle.style.paddingLeft === '2rem') toggle.style.paddingLeft = '';
+      return;
+    }
+
+    // Mobile: ensure one arrow exists and animate it on open/close
+    let arrow = existingArrow;
+    if (!arrow) {
+      arrow = document.createElement('span');
       arrow.className = 'dropdown-arrow';
-      arrow.textContent = ' ▼';
+      arrow.textContent = '';
       Object.assign(arrow.style, {
-        color: 'var(--primary-500)',
-        fontSize: '0.8em',
         position: 'absolute',
         left: '1rem',
         top: '50%',
-        transform: 'translateY(-50%)',
+        width: '8px',
+        height: '8px',
+        borderRight: '2px solid var(--primary-500)',
+        borderBottom: '2px solid var(--primary-500)',
+        borderTop: '0',
+        borderLeft: '0',
+        transform: 'translateY(-50%) rotate(45deg)',
+        transition: 'transform 0.25s ease',
         zIndex: '100',
-        pointerEvents: 'none',
+        pointerEvents: 'none'
       });
-      
-      toggle.style.position = 'relative';
-      toggle.style.paddingLeft = '2rem';
       toggle.appendChild(arrow);
     }
-  });
 
-  // Note: Removed menu toggle listener to prevent duplicate arrows
+    // Ensure wrapper has positioning and padding for the arrow
+    toggle.style.position = 'relative';
+    toggle.style.paddingLeft = '2rem';
+
+    // Hook Bootstrap dropdown events to rotate the arrow
+    const rotateOpen = () => { arrow.style.transform = 'translateY(-50%) rotate(-135deg)'; };
+    const rotateClose = () => { arrow.style.transform = 'translateY(-50%) rotate(45deg)'; };
+
+    // Remove previously attached listeners by cloning if needed to prevent duplicates
+    if (!toggle.__diaetaArrowListenersApplied) {
+      toggle.addEventListener('shown.bs.dropdown', rotateOpen);
+      toggle.addEventListener('hidden.bs.dropdown', rotateClose);
+      // Mark as wired
+      toggle.__diaetaArrowListenersApplied = true;
+    }
+  });
 }
 
 // Progress indicator functionality
