@@ -188,9 +188,8 @@
     <script src="/js/main.js"></script>
     {# --- End scripts --- #}
 
-    <button id="scrollToTopBtn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    {# Shared floating action buttons #}
+    {% include "partials/floating-actions.njk" %}
 
     <div id="cookieConsentContainer" style="display: none;">
         {% if lang == 'en' %}

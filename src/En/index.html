@@ -52,16 +52,6 @@ lang: en
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Floating Action Button -->
-    <div class="floating-actions" id="floatingActions">
-        <button class="fab fab-primary" id="scrollToTop" aria-label="Scroll to top">
-            <i class="fas fa-chevron-up"></i>
-        </button>
-        <button class="fab fab-secondary" id="quickContact" aria-label="Quick contact">
-            <i class="fas fa-envelope"></i>
-        </button>
-    </div>
-    
     <main id="main-content">
 
       <section class="hero-section">
@@ -407,72 +397,83 @@ lang: en
                   <p class="section-subtitle">These success stories show how our personalized approach helps people just like you achieve their health goals.</p>
               </div>
 
-              <div class="storyboard-grid">
-                <article class="story-card animate-on-scroll fade-up delay-100" itemscope itemtype="https://schema.org/Review">
-                  <header class="story-head">
-                    <img src="../images/clients/sophie-v-portrait.jpg" alt="Portrait of Sophie V., Diaeta client" class="story-portrait" itemprop="author">
-                    <div>
-                      <h3 class="story-title">Sophie V. <span class="story-location">Brussels</span></h3>
-                      <p class="story-goal">Goal: Sustainable Weight Loss & More Energy</p>
+              <!-- Refined editorial carousel -->
+              <div class="testimonial-carousel animate-on-scroll fade-up">
+                <div class="carousel-container">
+                  <!-- Slide 1 -->
+                  <div class="testimonial-slide active">
+                    <div class="testimonial-card featured">
+                      <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"I learned to eat for my body, with pleasure and without guilt. The follow‑up and advice were crucial. I finally feel good in my own skin."</p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div class="author-avatar">
+                          <img src="../images/clients/sophie-v-portrait.jpg" alt="Sophie V. portrait" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                          <h5>Sophie V.</h5>
+                          <span class="author-detail">Brussels · Sustainable weight loss</span>
+                          <div class="result-badge"><i class="fa-solid fa-weight-scale"></i><span>-10 kg maintained</span></div>
+                        </div>
+                      </div>
                     </div>
-                  </header>
-                  <div class="story-body">
-                    <p class="story-intro">“Before Diaeta I had tried everything; the yo‑yo diets left me tired and frustrated.”</p>
-                    <p class="story-turn">“The scientific and personalized plan finally fit my life.”</p>
-                    <div class="story-badges">
-                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-weight-scale"></i><span class="value">-10 kg</span></span>
-                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-arrows-rotate"></i> 2 years stable</span>
-                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-bolt"></i> More energy</span>
-                    </div>
-                    <blockquote class="story-quote" itemprop="reviewBody">“I learned to eat for my body, with pleasure and without guilt. The follow‑up and advice were crucial. I finally feel good in my own skin.”</blockquote>
                   </div>
-                </article>
 
-                <article class="story-card animate-on-scroll fade-up delay-200" itemscope itemtype="https://schema.org/Review">
-                  <header class="story-head">
-                    <img src="../images/clients/marc-d-portrait.jpg" alt="Portrait of Marc D., Diaeta client" class="story-portrait" itemprop="author">
-                    <div>
-                      <h3 class="story-title">Marc D. <span class="story-location">Woluwe</span></h3>
-                      <p class="story-goal">Goal: IBS Symptom Control</p>
+                  <!-- Slide 2 -->
+                  <div class="testimonial-slide">
+                    <div class="testimonial-card featured">
+                      <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"I didn't think I could find such digestive comfort again. The personalized follow‑up and clear explanations were a revelation."</p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div class="author-avatar">
+                          <img src="../images/clients/marc-d-portrait.jpg" alt="Marc D. portrait" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                          <h5>Marc D.</h5>
+                          <span class="author-detail">Woluwe · IBS symptom control</span>
+                          <div class="result-badge"><i class="fa-solid fa-chart-line"></i><span>~80% less pain</span></div>
+                        </div>
+                      </div>
                     </div>
-                  </header>
-                  <div class="story-body">
-                    <p class="story-intro">“Abdominal pain and bloating dictated my life.”</p>
-                    <p class="story-turn">“The methodical Low FODMAP pathway gave me hope again.”</p>
-                    <div class="story-badges">
-                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-chart-line"></i><span class="value">~80%</span> less pain</span>
-                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-list-check"></i> Triggers identified</span>
-                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-utensils"></i> Variety restored</span>
-                    </div>
-                    <blockquote class="story-quote" itemprop="reviewBody">“I didn’t think I could find such digestive comfort again. The personalized follow‑up and clear explanations were a revelation.”</blockquote>
                   </div>
-                </article>
-                
-                <article class="story-card animate-on-scroll fade-up delay-300" itemscope itemtype="https://schema.org/Review">
-                  <header class="story-head">
-                    <img src="../images/diabetes-management-factors.webp" alt="Portrait-style silhouette for client with Type 2 Diabetes" class="story-portrait" itemprop="author">
-                    <div>
-                      <h3 class="story-title">Clara M. <span class="story-location">Ixelles</span></h3>
-                      <p class="story-goal">Goal: Type 2 Diabetes Management</p>
+
+                  <!-- Slide 3 -->
+                  <div class="testimonial-slide">
+                    <div class="testimonial-card featured">
+                      <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"I feel in control for the first time in years. The guidance was clear, realistic, and respectful of my preferences."</p>
+                      </div>
+                      <div class="testimonial-author">
+                        <div class="author-avatar">
+                          <img src="../images/diabetes-management-factors.webp" alt="Clara M. portrait-style" loading="lazy">
+                        </div>
+                        <div class="author-info">
+                          <h5>Clara M.</h5>
+                          <span class="author-detail">Ixelles · Type 2 diabetes management</span>
+                          <div class="result-badge"><i class="fa-solid fa-droplet"></i><span>HbA1c −1.2%</span></div>
+                        </div>
+                      </div>
                     </div>
-                  </header>
-                  <div class="story-body">
-                    <p class="story-intro">“My glucose swings exhausted me and meals felt complicated.”</p>
-                    <p class="story-turn">“A practical plan synchronized with my routine made it simple.”</p>
-                    <div class="story-badges">
-                      <span class="badge badge--pill badge--sm badge--success"><i class="fa-solid fa-droplet"></i> HbA1c −1.2%</span>
-                      <span class="badge badge--pill badge--sm badge--neutral"><i class="fa-solid fa-pills"></i> Fewer meds*</span>
-                      <span class="badge badge--pill badge--sm badge--accent"><i class="fa-solid fa-face-smile"></i> Confidence back</span>
-                    </div>
-                    <blockquote class="story-quote" itemprop="reviewBody">“I feel in control for the first time in years. The guidance was clear, realistic, and respectful of my preferences.”</blockquote>
                   </div>
-                </article>
+                </div>
+
+                <!-- Navigation -->
+                <div class="carousel-nav">
+                  <button class="nav-btn prev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+                  <div class="nav-dots">
+                    <span class="dot active" aria-label="Slide 1"></span>
+                    <span class="dot" aria-label="Slide 2"></span>
+                    <span class="dot" aria-label="Slide 3"></span>
+                  </div>
+                  <button class="nav-btn next" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+                </div>
               </div>
 
-              <div class="cta-group justify-content-center mt-3">
-                <a href="./appointment.html" class="btn btn-primary btn-lg">Start Your Program</a>
-                <a href="#" class="btn btn-outline-primary btn-lg">More Success Stories</a>
-              </div>
+
 
               <script type="application/ld+json">
               {
@@ -920,63 +921,63 @@ lang: en
       <!-- Advanced Option -->
       <div class="row mb-5">
           <div class="col-12 animate-on-scroll fade-up delay-500">
-              <div class="advanced-option-card" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 2px solid var(--accent-200); overflow: hidden;">
+              <div class="advanced-option-card" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border-radius: 24px; box-shadow: 0 15px 50px rgba(0,0,0,0.08); border: 2px solid var(--accent-200); overflow: hidden;">
                   <div class="row align-items-center">
-                      <div class="col-lg-8 p-4">
-                          <div class="d-flex align-items-center mb-3">
-                              <div class="me-3" style="width: 60px; height: 60px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                      <div class="col-lg-8 p-5">
+                          <div class="d-flex align-items-center mb-4">
+                              <div class="me-4" style="width: 70px; height: 70px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                                   <i class="fas fa-dna fa-2x text-white"></i>
                               </div>
                               <div>
-                                  <h3 class="h4 mb-1">Nutrigenetic Testing</h3>
-                                  <p class="text-muted mb-0">Cutting-edge personalized nutrition</p>
+                                  <h3 class="h3 mb-2">Nutrigenetic Testing</h3>
+                                  <p class="text-muted mb-0 fs-5">Cutting-edge personalized nutrition</p>
                               </div>
                           </div>
-                          <p class="mb-3">Discover how your unique genetic profile influences your nutritional needs with <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold">Nutrigenomix®</a> testing.</p>
-                          <div class="row g-3 mb-3">
+                          <p class="mb-4 fs-6">Discover how your unique genetic profile influences your nutritional needs with <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold">Nutrigenomix®</a> testing.</p>
+                          <div class="row g-4 mb-4">
                               <div class="col-md-6">
-                                  <div class="d-flex align-items-center">
-                                      <i class="fas fa-check-circle text-success me-2"></i>
-                                      <span class="small">70+ genetic markers analyzed</span>
+                                  <div class="d-flex align-items-center p-3" style="background: rgba(255,255,255,0.6); border-radius: 12px;">
+                                      <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                      <span class="small fw-medium">70+ genetic markers analyzed</span>
                                   </div>
                               </div>
                               <div class="col-md-6">
-                                  <div class="d-flex align-items-center">
-                                      <i class="fas fa-check-circle text-success me-2"></i>
-                                      <span class="small">Personalized recommendations</span>
+                                  <div class="d-flex align-items-center p-3" style="background: rgba(255,255,255,0.6); border-radius: 12px;">
+                                      <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                      <span class="small fw-medium">Personalized recommendations</span>
                                   </div>
                               </div>
                               <div class="col-md-6">
-                                  <div class="d-flex align-items-center">
-                                      <i class="fas fa-check-circle text-success me-2"></i>
-                                      <span class="small">Weight management optimization</span>
+                                  <div class="d-flex align-items-center p-3" style="background: rgba(255,255,255,0.6); border-radius: 12px;">
+                                      <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                      <span class="small fw-medium">Weight management optimization</span>
                                   </div>
                               </div>
                               <div class="col-md-6">
-                                  <div class="d-flex align-items-center">
-                                      <i class="fas fa-check-circle text-success me-2"></i>
-                                      <span class="small">Vitamin & mineral needs</span>
+                                  <div class="d-flex align-items-center p-3" style="background: rgba(255,255,255,0.6); border-radius: 12px;">
+                                      <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                      <span class="small fw-medium">Vitamin & mineral needs</span>
                                   </div>
                               </div>
                           </div>
-                          <div class="d-flex flex-wrap gap-2">
-                              <a href="/en/nutrigenetic-tests/" class="btn btn-outline-primary">
+                          <div class="d-flex flex-wrap gap-3">
+                              <a href="/en/nutrigenetic-tests/" class="btn btn-outline-primary btn-lg">
                                   <i class="fas fa-info-circle me-2"></i>Learn More
                               </a>
-                              <a href="/en/appointment/" class="btn btn-accent">
+                              <a href="/en/appointment/" class="btn btn-accent btn-lg">
                                   <i class="fas fa-comments me-2"></i>Discuss in Consultation
                               </a>
                           </div>
                       </div>
-                      <div class="col-lg-4 p-4 text-center" style="background: rgba(255,255,255,0.8);">
+                      <div class="col-lg-4 p-5 text-center" style="background: rgba(255,255,255,0.9); border-left: 1px solid rgba(0,0,0,0.1);">
                           <div class="pricing-highlight">
-                              <div class="price-display mb-3">
-                                  <span class="display-4 fw-bold text-accent">€275</span>
-                                  <p class="text-muted mb-2">Complete DNA analysis kit</p>
+                              <div class="price-display mb-4">
+                                  <span class="display-3 fw-bold text-accent">€275</span>
+                                  <p class="text-muted mb-3 fs-6">Complete DNA analysis kit</p>
                               </div>
-                              <div class="consultation-note p-3" style="background: var(--accent-100); border-radius: 10px;">
-                                  <p class="small mb-0">
-                                      <i class="fas fa-info-circle me-1"></i>
+                              <div class="consultation-note p-4" style="background: var(--accent-100); border-radius: 16px; border: 1px solid var(--accent-200);">
+                                  <p class="mb-0 fs-6">
+                                      <i class="fas fa-info-circle me-2"></i>
                                       Results consultation: €50
                                   </p>
                               </div>
