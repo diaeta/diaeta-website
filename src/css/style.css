@@ -1883,6 +1883,26 @@ p {
 }
 /* footer.css - Enhanced Footer - REFACTORED */
 footer.footer {
+  --footer-links-indent: calc(1ch + var(--space-2));
+  --footer-contacts-icon: 1.1rem;
+  --footer-contacts-indent: calc(var(--footer-contacts-icon) + var(--space-2));
+}
+
+/* Footer column variants for precise heading alignment */
+footer.footer .footer-col--links .footer-heading {
+  --footer-heading-indent: var(--footer-links-indent);
+}
+footer.footer .footer-col--contacts .footer-heading {
+  --footer-heading-indent: var(--footer-contacts-indent);
+}
+
+/* Make link bullets reserve consistent width so link text aligns predictably */
+footer.footer .footer-links > li::before {
+  display: inline-block;
+  width: 1ch; /* reserve space equal to one character */
+}
+
+footer.footer {
   background-color: var(--primary-900);
   color: rgba(255, 255, 255, 0.7);
   padding-top: var(--space-8);
@@ -1925,15 +1945,26 @@ footer.footer .footer-grid {
   gap: var(--space-5); /* Adjusted */
   padding-bottom: var(--space-6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: start; /* Ensure all columns align to the top */
 }
 
 footer.footer .footer-col {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Ensure content aligns to the left */
 }
 
 footer.footer .footer-col .btn-accent { /* Specific to RDV button in footer col */
-  align-self: flex-start;
+  align-self: center; /* Center the button */
+  margin-top: var(--space-3); /* Add some space above the button */
+}
+
+/* Specific styling for the footer book button */
+footer.footer .footer-book-btn {
+  align-self: center !important; /* Force center alignment */
+  margin-top: var(--space-3) !important; /* Force margin */
+  max-width: 200px !important; /* Maintain max width */
+  display: block !important; /* Force block display */
 }
 
 footer.footer .footer-logo {
@@ -1980,18 +2011,21 @@ footer.footer .footer-social-link:hover {
 }
 
 footer.footer .footer-heading {
-  color: white;
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-4);
-  font-weight: var(--font-semibold);
-  position: relative;
-  padding-bottom: var(--space-2);
+  color: white !important;
+  font-size: var(--text-lg) !important;
+  margin-bottom: var(--space-4) !important;
+  font-weight: var(--font-semibold) !important;
+  position: relative !important;
+  padding-bottom: var(--space-3) !important; /* Increased padding to account for underline */
+  line-height: 1.2 !important; /* Ensure consistent line height */
+  margin-top: 0 !important; /* Remove any top margin */
+  padding-left: var(--footer-heading-indent) !important; /* Move headings to the right to align with content */
 }
 footer.footer .footer-heading::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: var(--footer-heading-indent);
   width: 40px;
   height: 2px;
   background-color: var(--accent-500);
@@ -2005,12 +2039,17 @@ footer.footer .footer-links {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  align-items: flex-start; /* Ensure links align with heading */
 }
 
 footer.footer .footer-links > li {
   display: flex;
-  align-items: baseline; /* Key for aligning bullet with first line of text */
+  align-items: flex-start; /* Align to top for consistent alignment across all columns */
   /* transition: transform 0.3s ease; /* Optional: re-add if desired, but test */
+}
+
+footer.footer .footer-links > li:first-child {
+  margin-top: 0; /* Remove top margin from first list item */
 }
 
 /* footer.footer .footer-links > li:hover {
@@ -2037,7 +2076,8 @@ footer.footer .footer-links > li > a.footer-link {
   text-decoration: none;
   transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   display: inline-block; /* Allows text to wrap naturally within the flex item */
-  padding: var(--space-1) 0;
+  padding: 0; /* Remove padding to align with contact items */
+  line-height: 1.4; /* Ensure consistent line height */
 }
 
 footer.footer .footer-links > li > a.footer-link:hover {
@@ -2046,10 +2086,11 @@ footer.footer .footer-links > li > a.footer-link:hover {
 
 footer.footer .footer-contact-item {
   display: flex;
-  align-items: center; /* Vertically centers icon with text */
+  align-items: flex-start; /* Align to top for better text flow */
   gap: var(--space-2); /* Reduced gap */
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2); /* Match the gap of regular footer links */
   transition: transform 0.3s ease;
+  min-height: 1.4em; /* Ensure consistent height with regular links */
 }
 footer.footer .footer-contact-item:hover {
   transform: translateX(5px);
@@ -2059,6 +2100,14 @@ footer.footer .footer-contact-icon {
   color: var(--accent-400);
   font-size: 1.1rem;
   flex-shrink: 0;
+  margin-top: 0.1em; /* Fine-tune icon alignment with text */
+}
+
+footer.footer .footer-contact-text {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4; /* Match the line height of footer links */
+  flex: 1; /* Allow text to take remaining space */
+  padding: 0; /* Ensure no extra padding */
 }
 
 footer.footer .footer-contact-text a {
@@ -2364,7 +2413,6 @@ footer.footer .footer-legal-link:hover::after {
 .stat-highlight {
   text-align: center;
 }
-
 .stat-number {
   display: block;
   font-size: 2.5rem;
@@ -3164,7 +3212,6 @@ with a more specific selector.
   cursor: pointer;
   z-index: 5;
 }
-
 .gene-marker:hover {
   transform: scale(1);
   box-shadow: 0 5px 15px rgba(0, 109, 119, 0.3);
@@ -3962,7 +4009,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
 /* Section styles */
 .section {
   padding: var(--space-8) 0;
@@ -4759,13 +4805,11 @@ section {
   box-shadow: 0 12px 40px rgba(0,0,0,0.15) !important;
   border-width: 3px !important;
 }
-
 /* Hover effects for all pricing cards */
 .pricing-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 50px rgba(0,0,0,0.2) !important;
 }
-
 .pricing-card-featured:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 50px rgba(0,0,0,0.2) !important;
@@ -6363,7 +6407,6 @@ section {
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
-
 .detail-item {
   display: flex;
   align-items: center;
@@ -7952,7 +7995,6 @@ section {
   display: flex;
   flex-wrap: wrap;
 }
-
 #aliments-fodmaps .col-md-6,
 #aliments-fodmaps .col-lg-4 {
   display: flex;
@@ -7964,7 +8006,6 @@ section {
   display: flex;
   flex-direction: column;
 }
-
 #aliments-fodmaps .benefit-card .icon {
   flex-shrink: 0;
 }
@@ -8747,7 +8788,6 @@ section {
   transform: translateY(0);
   opacity: 1;
 }
-
 .cookie-consent-content { /* Shared by banner and modal */
   display: flex;
   align-items: center;
@@ -9546,7 +9586,6 @@ section {
   margin-bottom: 0.75rem;
   line-height: 1.7;
 }
-
 .entry-content blockquote {
   border-left: 4px solid var(--primary-200);
   padding: 1rem 1.5rem;
@@ -10346,7 +10385,6 @@ section {
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
-
 .quick-action-box p {
   color: var(--text-secondary);
   font-size: 1.1rem;
@@ -10359,7 +10397,6 @@ section {
   padding: 0.75rem 2rem;
   font-weight: 600;
 }
-
 /* Responsive Design */
 @media (max-width: 991px) {
   .featured-resource-card .card-header {
@@ -11138,7 +11175,6 @@ section {
   position: relative;
   overflow: hidden;
 }
-
 #aliments-fodmaps .section-badge::before {
   content: '';
   position: absolute;
@@ -11153,7 +11189,6 @@ section {
 #aliments-fodmaps .section-badge:hover::before {
   left: 100%;
 }
-
 /* Enhanced floating animation for background elements */
 @keyframes enhancedFloat {
   0%, 100% { 
@@ -11935,7 +11970,6 @@ section {
 .success-stats {
   margin-top: 3rem;
 }
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -11952,12 +11986,10 @@ section {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-
 .stat-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
-
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
@@ -12736,7 +12768,6 @@ section:not(.hero-section) {
   .canvas-node { grid-column: span 12; }
   .canvas-title { font-size: var(--text-3xl); }
 }
-
 /* Mobile-First Hero Redesign */
 /* Override main hero section for mobile */
 @media (max-width: 767px) {
@@ -13068,4 +13099,17 @@ section:not(.hero-section) {
     .feature-item span {
         font-size: 0.9rem;
     }
+}
+
+/* Footer column variants for precise heading alignment */
+footer.footer .footer-col--links .footer-heading {
+  --footer-heading-indent: var(--footer-links-indent);
+}
+footer.footer .footer-col--contacts .footer-heading {
+  --footer-heading-indent: var(--footer-contacts-indent);
+}
+
+/* Ensure the book button is centered specifically in the contacts column */
+footer.footer .footer-col--contacts .footer-book-btn {
+  align-self: center !important;
 }

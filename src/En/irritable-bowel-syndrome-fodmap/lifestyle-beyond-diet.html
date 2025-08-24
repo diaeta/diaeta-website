@@ -1,304 +1,818 @@
 ---
 layout: layouts/base.njk
-title: "Lifestyle Factors for IBS Management (Stress, Sleep, Exercise) | Diaeta"
+title: "Lifestyle Factors for IBS Management: Stress, Sleep, and Exercise | Diaeta"
 description: "IBS management goes beyond diet. Discover how stress, sleep, and exercise impact your symptoms and learn practical lifestyle tips for better digestive health."
 lang: en
 ---
 
+{# === Hero Section === #}
 <section class="service-hero-wp">
     <div class="container">
-        <span class="section-badge animate-on-scroll fade-in">IBS Knowledge Hub</span>
+        <span class="section-badge animate-on-scroll fade-in">Your IBS Journey Continues</span>
         <h1 class="animate-on-scroll fade-up">Lifestyle Factors for IBS: The Role of Stress, Sleep, and Exercise</h1>
         <p class="lead animate-on-scroll fade-up delay-200">
-            While diet is a cornerstone, a holistic approach that includes lifestyle modifications offers the most sustainable path to managing IBS.
+            While diet is a cornerstone, a holistic approach that includes lifestyle modifications offers the most sustainable path to managing IBS. Discover how stress, sleep, and exercise work together to create a comprehensive management strategy.
         </p>
+        <a href="/en/appointment/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400"><span>Get Personalized Lifestyle Guidance</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
     </div>
 </section>
 
-<section class="content-section bg-white">
-    <div class="container" style="max-width: 850px;">
-        <div class="breadcrumb mb-4">
-            <a href="/en/irritable-bowel-syndrome-fodmap/">IBS & FODMAP Diet</a> &raquo; Lifestyle Factors
-        </div>
+{# === Breadcrumb Navigation === #}
+<nav aria-label="breadcrumb" class="container mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/en/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/en/irritable-bowel-syndrome-fodmap/">IBS & FODMAP</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Lifestyle Factors</li>
+    </ol>
+</nav>
 
-        {# === Floating Back to Knowledge Hub Button === #}
-        <div class="floating-back-btn" style="position: fixed; bottom: 100px; right: 30px; z-index: 1000; display: none;" id="floatingBackBtn">
-            <a href="/en/irritable-bowel-syndrome-fodmap/#ibs-knowledge-hub" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border: none; border-radius: 50px; padding: 1rem 1.5rem; font-weight: 600; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease; text-decoration: none; color: white;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(var(--primary-rgb), 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(var(--primary-rgb), 0.3)'">
-                <i class="fas fa-search me-2"></i>Back to Knowledge Hub
-            </a>
-        </div>
-        
-        <h2 class="h3">The Brain-Gut Axis: How Stress Impacts IBS</h2>
-        <p>The relationship between psychological state and gut function is not a one-way street; it is a dynamic, bidirectional feedback loop. While it is crucial to state that stress does not cause IBS, it is undeniably one of the most potent triggers for symptom exacerbation. This is why our approach at Diaeta integrates dietary changes, such as the <a href="/en/irritable-bowel-syndrome-fodmap/">Low FODMAP diet</a>, with a broader view of well-being.</p>
-        
-        <h3 class="h4 mt-4">Understanding the Stress-Gut Connection</h3>
-        <p>The colon is richly innervated and directly connected to the brain via the autonomic nervous system, making it highly responsive to emotional states like tension, anger, and anxiety. During periods of stress, the brain sends signals that can directly stimulate painful colon spasms, alter motility, and increase gut sensitivity.</p>
+{# === Floating Back to Main Page Button === #}
+<div class="floating-back-btn" style="position: fixed; bottom: 100px; right: 30px; z-index: 1000; display: none;" id="floatingBackBtn">
+    <a href="/en/irritable-bowel-syndrome-fodmap/#ibs-knowledge-hub" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border: none; border-radius: 50px; padding: 1rem 1.5rem; font-weight: 600; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease; text-decoration: none; color: white;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(var(--primary-rgb), 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(var(--primary-rgb), 0.3)'">
+        <i class="fas fa-search me-2"></i>Back to Knowledge Hub
+    </a>
+</div>
 
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-brain"></i></div>
-                    <h4>Central Nervous System</h4>
-                    <p>The brain and spinal cord process signals from the gut and send commands back down, creating a constant dialogue between mind and body.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-network-wired"></i></div>
-                    <h4>Enteric Nervous System</h4>
-                    <p>Often called the "second brain," this network of neurons embedded in the GI tract can operate independently but also communicates extensively with the CNS.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                    <h4>Autonomic Nervous System</h4>
-                    <p>The sympathetic ("fight or flight") and parasympathetic ("rest and digest") branches modulate gut function in response to stress signals.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-flask"></i></div>
-                    <h4>Neuroendocrine System</h4>
-                    <p>Hormones and immune signaling molecules (cytokines) communicate between the gut and brain, including the stress hormone cortisol.</p>
-                </div>
-            </div>
-        </div>
+{# === Understanding the Brain-Gut Connection Section === #}
+<section id="brain-gut-connection" class="content-section bg-white">
+    <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2>Understanding the Brain-Gut Connection: How Stress Impacts IBS</h2>
+                <p>The relationship between your psychological state and gut function is not a one-way street—it's a dynamic, bidirectional feedback loop that's constantly communicating. Think of it like having a sophisticated messaging system between your brain and your gut, where they're always talking to each other.</p>
+                
+                <p>Here's something important to remember: <strong>stress doesn't cause IBS</strong>, but it is undeniably one of the most potent triggers for symptom exacerbation. This is why our approach at Diaeta integrates dietary changes, such as the <a href="/en/irritable-bowel-syndrome-fodmap/">Low FODMAP diet</a>, with a broader view of your overall well-being.</p>
+                
+                <p>And here's the good news: once you understand how stress affects your gut, you can develop targeted strategies to manage this connection effectively. It's like learning to speak the language of your body—at first it seems complex, but with practice, it becomes second nature.</p>
 
-        <h3 class="h4 mt-4">The Vicious Cycle of Stress and IBS</h3>
-        <p>There is a high rate of comorbidity between IBS and psychiatric conditions, particularly anxiety and depression. This relationship is complex and cyclical:</p>
-        <ul class="list-styled">
-            <li><strong>Pre-existing anxiety:</strong> May lower the threshold for developing IBS symptoms</li>
-            <li><strong>IBS-induced stress:</strong> The chronic, unpredictable nature of IBS itself becomes a significant life stressor</li>
-            <li><strong>Symptom-specific anxiety:</strong> Fear of symptom recurrence creates hypervigilance and anticipatory anxiety</li>
-            <li><strong>Reinforcement cycle:</strong> Stress triggers symptoms, which confirm fears, strengthening the anxiety cycle</li>
-        </ul>
-
-        <h3 class="h4 mt-4">Practical Stress Management Strategies</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-spa"></i></div>
-                    <h4>Mindfulness and Meditation</h4>
-                    <p>Practices that focus on present-moment awareness can reduce stress reactivity and have been shown to improve IBS symptoms.</p>
+                <h3 class="h4 mt-4">The Three Main Communication Pathways</h3>
+                <p>Your brain and gut communicate through three main pathways, each playing a crucial role in IBS:</p>
+                
+                <!-- Related Topics Navigation -->
+                <div class="related-topics" style="background: linear-gradient(135deg, var(--neutral-50), white); border: 2px solid var(--primary-200); border-radius: 15px; padding: 1.5rem; margin-top: 2rem;">
+                    <h5 style="color: var(--primary-600); font-weight: 600; margin-bottom: 1rem;">
+                        <i class="fas fa-link me-2"></i>Explore More About Your IBS Management
+                    </h5>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <a href="/en/irritable-bowel-syndrome-fodmap/managing-symptoms" class="related-link" style="display: block; padding: 0.75rem; background: white; border-radius: 8px; text-decoration: none; color: var(--neutral-700); border-left: 3px solid var(--accent-500); transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.transform='translateX(3px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <i class="fas fa-tools text-accent me-1"></i>
+                                <strong style="color: var(--accent-600);">Symptom Management</strong>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/en/irritable-bowel-syndrome-fodmap/nutrition-diet-therapy-ibs" class="related-link" style="display: block; padding: 0.75rem; background: white; border-radius: 8px; text-decoration: none; color: var(--neutral-700); border-left: 3px solid var(--secondary-500); transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.transform='translateX(3px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <i class="fas fa-utensils text-secondary me-1"></i>
+                                <strong style="color: var(--secondary-600);">Nutrition Therapy</strong>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-lungs"></i></div>
-                    <h4>Deep Breathing Exercises</h4>
-                    <p>Techniques like diaphragmatic (belly) breathing can activate the parasympathetic nervous system, promoting calm and counteracting the "fight or flight" response.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-comments"></i></div>
-                    <h4>Cognitive-Behavioral Therapy</h4>
-                    <p>CBT helps identify and change negative thought patterns and behaviors that contribute to the stress-symptom cycle.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-yoga"></i></div>
-                    <h4>Yoga and Tai Chi</h4>
-                    <p>These mind-body practices combine gentle movement, stretching, and breathing, making them excellent for both physical symptom relief and stress reduction.</p>
-                </div>
+            <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
+                <picture>
+                    <source srcset="/images/brain-gut-connection-large.webp 800w,
+                                    /images/brain-gut-connection-medium.webp 600w,
+                                    /images/brain-gut-connection-small.webp 400w"
+                            sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                            type="image/webp">
+                    <img src="/images/brain-gut-connection-small.jpg"
+                         srcset="/images/brain-gut-connection-large.jpg 800w,
+                                 /images/brain-gut-connection-medium.jpg 600w,
+                                 /images/brain-gut-connection-small.jpg 400w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                         alt="Illustration showing the brain-gut connection and stress impact on IBS"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-width: 400px; margin-top: 2rem;"
+                         loading="lazy"
+                         width="400" 
+                         height="350">
+                </picture>
             </div>
         </div>
+    </div>
+</section>
 
-        <hr class="my-5">
-
-        <h2 class="h3">The Importance of Sleep for Digestive Health</h2>
-        <p>The link between sleep and gut health is strong and bidirectional. Poor sleep quality is a known predictor of worse IBS symptoms the following day. Establishing good sleep hygiene is therefore a critical part of management.</p>
-
-        <h3 class="h4 mt-4">How Sleep Affects IBS</h3>
-        <p>Sleep disturbances can impact IBS through several mechanisms:</p>
-        <ul class="list-styled">
-            <li><strong>Increased gut sensitivity:</strong> Poor sleep can heighten visceral hypersensitivity</li>
-            <li><strong>Altered gut motility:</strong> Sleep deprivation affects the natural rhythm of digestive contractions</li>
-            <li><strong>Stress hormone elevation:</strong> Lack of sleep increases cortisol levels, which can trigger symptoms</li>
-            <li><strong>Immune system changes:</strong> Poor sleep can lead to low-grade inflammation</li>
-            <li><strong>Microbiome disruption:</strong> Sleep quality affects the composition of gut bacteria</li>
-        </ul>
-
-        <h3 class="h4 mt-4">Sleep Hygiene Strategies</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-clock"></i></div>
-                    <h4>Consistent Schedule</h4>
-                    <p>Maintain a regular sleep-wake schedule, even on weekends. Go to bed and wake up at the same time each day.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-bed"></i></div>
-                    <h4>Sleep Environment</h4>
-                    <p>Create a cool, dark, and quiet sleep environment. Use blackout curtains and white noise machines if needed.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-coffee"></i></div>
-                    <h4>Avoid Stimulants</h4>
-                    <p>Avoid caffeine after 2 PM and large meals close to bedtime. Both can interfere with sleep quality.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-book"></i></div>
-                    <h4>Relaxing Routine</h4>
-                    <p>Develop a relaxing pre-sleep routine: reading, gentle stretching, or meditation to signal your body it's time to sleep.</p>
-                </div>
+{# === The Stress Management Challenge: Understanding Your Body's Response === #}
+<section id="stress-management" class="content-section" style="background: linear-gradient(135deg, var(--primary-50), var(--accent-50)); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--accent-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The Stress Management Challenge: Understanding Your Body's Response</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    Stress and IBS create a complex relationship that can feel overwhelming. Understanding this connection is the first step toward breaking the cycle and finding relief.
+                </p>
             </div>
         </div>
 
-        <h3 class="h4 mt-4">Managing Sleep with IBS</h3>
-        <p>For those with IBS, additional considerations include:</p>
-        <ul class="list-styled">
-            <li><strong>Evening meal timing:</strong> Eat dinner 3-4 hours before bedtime to allow for digestion</li>
-            <li><strong>Bathroom access:</strong> Ensure easy access to the bathroom if needed during the night</li>
-            <li><strong>Comfortable sleepwear:</strong> Choose loose, comfortable clothing that doesn't constrict the abdomen</li>
-            <li><strong>Sleep position:</strong> Some find sleeping on the left side helps with digestion</li>
-        </ul>
-
-        <hr class="my-5">
-
-        <h2 class="h3">Finding the Right Balance with Exercise</h2>
-        <p>Regular physical activity is highly beneficial for IBS management. Moderate-intensity exercise has been shown to improve overall symptoms by stimulating normal intestinal contractions, reducing stress and anxiety, improving sleep quality, and aiding in the passage of gas to relieve bloating.</p>
-
-        <h3 class="h4 mt-4">Exercise Benefits for IBS</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-walking"></i></div>
-                    <h4>Gut Motility</h4>
-                    <p>Exercise stimulates normal intestinal contractions, which is particularly helpful for constipation-predominant IBS.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-brain"></i></div>
-                    <h4>Stress Reduction</h4>
-                    <p>Physical activity releases endorphins and reduces stress hormones, helping to break the stress-symptom cycle.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-moon"></i></div>
-                    <h4>Sleep Quality</h4>
-                    <p>Regular exercise improves sleep quality, which in turn helps manage IBS symptoms.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-wind"></i></div>
-                    <h4>Gas Relief</h4>
-                    <p>Movement helps move gas through the digestive system, reducing bloating and discomfort.</p>
+        <!-- Communication Pathways Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">How Your Brain and Gut Communicate</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Your brain and gut are in constant communication through sophisticated pathways. Understanding these connections helps you see why stress affects your digestive system.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🧠</div>
+                                    <h5 style="color: var(--accent-700); margin-bottom: 0.5rem;">Central Nervous System</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Your brain and spinal cord process signals from the gut and send commands back down, creating a constant dialogue.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🕸️</div>
+                                    <h5 style="color: var(--warning-700); margin-bottom: 0.5rem;">Enteric Nervous System</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Often called the "second brain," this network of neurons in your GI tract operates independently but communicates with your brain.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">💓</div>
+                                    <h5 style="color: var(--primary-700); margin-bottom: 0.5rem;">Autonomic Nervous System</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">The "fight or flight" and "rest and digest" branches modulate gut function in response to stress signals.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🧪</div>
+                                    <h5 style="color: var(--success-700); margin-bottom: 0.5rem;">Neuroendocrine System</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Hormones and immune signaling molecules communicate between your gut and brain, including stress hormones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h3 class="h4 mt-4">Recommended Exercise Types</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-walking"></i></div>
-                    <h4>Low-Impact Cardio</h4>
-                    <p>Brisk walking, leisurely cycling, or swimming are excellent choices. Aim for 30 minutes most days of the week.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-yoga"></i></div>
-                    <h4>Gentle Yoga</h4>
-                    <p>Yoga combines movement, stretching, and breathing, making it ideal for IBS management. Focus on gentle poses that don't compress the abdomen.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-dumbbell"></i></div>
-                    <h4>Light Strength Training</h4>
-                    <p>Gentle resistance training can improve overall fitness without stressing the digestive system.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-spa"></i></div>
-                    <h4>Tai Chi or Qigong</h4>
-                    <p>These gentle movement practices combine physical activity with stress reduction and mindfulness.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Stress Management Strategies -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">The Vicious Cycle of Stress and IBS</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        There's a high rate of comorbidity between IBS and psychiatric conditions, particularly anxiety and depression. This relationship is complex and cyclical, but understanding it helps you break the pattern.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div>
+                            <h5>Pre-existing Anxiety</h5>
+                            <p>May lower the threshold for developing IBS symptoms, making you more sensitive to digestive changes.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">Exercise Guidelines for IBS</h3>
-        <ul class="list-styled">
-            <li><strong>Start slowly:</strong> Begin with 10-15 minutes and gradually increase duration and intensity</li>
-            <li><strong>Listen to your body:</strong> Stop if you experience pain or severe symptoms</li>
-            <li><strong>Timing matters:</strong> Avoid intense exercise immediately after meals</li>
-            <li><strong>Stay hydrated:</strong> Drink water before, during, and after exercise</li>
-            <li><strong>Know your triggers:</strong> Some may find high-intensity exercise triggers symptoms</li>
-        </ul>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-arrows-alt"></i></div>
+                        <div>
+                            <h5>IBS-Induced Stress</h5>
+                            <p>The chronic, unpredictable nature of IBS itself becomes a significant life stressor, creating a feedback loop.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">When to Modify Exercise</h3>
-        <p>During IBS flare-ups, consider:</p>
-        <ul class="list-styled">
-            <li><strong>Reducing intensity:</strong> Switch to gentle walking or stretching</li>
-            <li><strong>Shorter sessions:</strong> 10-15 minutes instead of longer workouts</li>
-            <li><strong>Home-based activities:</strong> Avoid gym settings if you're concerned about bathroom access</li>
-            <li><strong>Stress-reducing activities:</strong> Focus on relaxation techniques rather than intense exercise</li>
-        </ul>
-
-        <hr class="my-5">
-
-        <h2 class="h3">Integrating Lifestyle Changes</h2>
-        <p>The most effective approach combines all these lifestyle factors with dietary management. Here's how to create a comprehensive plan:</p>
-
-        <h3 class="h4 mt-4">Creating Your Holistic Management Plan</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-calendar-check"></i></div>
-                    <h4>Start Small</h4>
-                    <p>Don't try to change everything at once. Pick one area to focus on first, such as improving sleep hygiene or adding gentle exercise.</p>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-eye"></i></div>
+                        <div>
+                            <h5>Symptom-Specific Anxiety</h5>
+                            <p>Fear of symptom recurrence creates hypervigilance and anticipatory anxiety, which can trigger more symptoms.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>Track Progress</h4>
-                    <p>Keep a journal of your lifestyle changes and how they affect your symptoms. This helps identify what works best for you.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <h4>Seek Support</h4>
-                    <p>Consider working with a therapist for stress management or joining an IBS support group for motivation and shared experiences.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-user-md"></i></div>
-                    <h4>Professional Guidance</h4>
-                    <p>Work with your healthcare team to develop a personalized plan that addresses all aspects of your IBS management.</p>
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500);">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Practical Stress Management Strategies</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Breaking the stress-IBS cycle requires practical strategies that work with your body's natural processes. Here are evidence-based approaches that can help:
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-spa"></i></div>
+                        <div>
+                            <h5>Mindfulness and Meditation</h5>
+                            <p>Practices that focus on present-moment awareness can reduce stress reactivity and have been shown to improve IBS symptoms.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-lungs"></i></div>
+                        <div>
+                            <h5>Deep Breathing Exercises</h5>
+                            <p>Techniques like diaphragmatic breathing can activate the parasympathetic nervous system, promoting calm and counteracting stress responses.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-comments"></i></div>
+                        <div>
+                            <h5>Cognitive-Behavioral Therapy</h5>
+                            <p>CBT helps identify and change negative thought patterns and behaviors that contribute to the stress-symptom cycle.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h3 class="h4 mt-4">The Role of Professional Support</h3>
-        <p>Managing IBS through lifestyle changes often requires professional guidance:</p>
-        <ul class="list-styled">
-            <li><strong>Dietitian:</strong> Helps integrate dietary and lifestyle changes</li>
-            <li><strong>Mental health professional:</strong> Provides support for stress management and coping strategies</li>
-            <li><strong>Physical therapist:</strong> Can design appropriate exercise programs</li>
-            <li><strong>Sleep specialist:</strong> Helps address persistent sleep issues</li>
-        </ul>
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--primary-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding the stress-IBS connection helps you see that <strong>you're not imagining things</strong>—your stress and symptoms are connected through real physiological pathways. This knowledge empowers you to develop targeted strategies that work with your body's natural processes.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Your stress and your symptoms are connected, but you have the power to break this cycle with the right strategies."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <h3 class="h4 mt-4">Long-Term Success</h3>
-        <p>Remember that lifestyle changes take time to show benefits. Be patient and consistent with your approach. The goal is to create sustainable habits that support your digestive health and overall well-being for the long term.</p>
+{# === The Sleep Connection: Understanding Your Body's Restorative Power === #}
+<section id="sleep-connection" class="content-section" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--accent-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--accent-600), var(--primary-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The Sleep Connection: Understanding Your Body's Restorative Power</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    The link between sleep and gut health is strong and bidirectional. Poor sleep quality is a known predictor of worse IBS symptoms the following day. Understanding this connection is key to better management.
+                </p>
+            </div>
+        </div>
 
-        <hr class="my-5">
+        <!-- How Sleep Affects IBS Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">How Sleep Affects Your IBS</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Think of sleep as your body's nightly maintenance session—it's when your digestive system gets a chance to reset and repair. When sleep is disrupted, this maintenance doesn't happen properly.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div>
+                            <h5>Increased Gut Sensitivity</h5>
+                            <p>Poor sleep can heighten visceral hypersensitivity, making normal digestive sensations feel more uncomfortable.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-arrows-alt"></i></div>
+                        <div>
+                            <h5>Altered Gut Motility</h5>
+                            <p>Sleep deprivation affects the natural rhythm of digestive contractions, disrupting your body's internal clock.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-flask"></i></div>
+                        <div>
+                            <h5>Stress Hormone Elevation</h5>
+                            <p>Lack of sleep increases cortisol levels, which can trigger IBS symptoms and create a vicious cycle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500);">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Sleep Hygiene Strategies</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Good sleep hygiene is like creating the perfect environment for your body's nightly repair session. These strategies help your body get the restorative sleep it needs.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h5>Consistent Schedule</h5>
+                            <p>Maintain a regular sleep-wake schedule, even on weekends. Go to bed and wake up at the same time each day.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-bed"></i></div>
+                        <div>
+                            <h5>Sleep Environment</h5>
+                            <p>Create a cool, dark, and quiet sleep environment. Use blackout curtains and white noise machines if needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-coffee"></i></div>
+                        <div>
+                            <h5>Avoid Stimulants</h5>
+                            <p>Avoid caffeine after 2 PM and large meals close to bedtime. Both can interfere with sleep quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sleep Management with IBS Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">Managing Sleep with IBS: Special Considerations</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        For those with IBS, sleep management requires additional considerations to ensure both quality sleep and symptom management.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">⏰</div>
+                                    <h6 style="color: var(--accent-700); margin-bottom: 0.5rem;">Evening Meal Timing</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Eat dinner 3-4 hours before bedtime to allow for proper digestion.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🚪</div>
+                                    <h6 style="color: var(--warning-700); margin-bottom: 0.5rem;">Bathroom Access</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Ensure easy access to the bathroom if needed during the night.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">👕</div>
+                                    <h6 style="color: var(--primary-700); margin-bottom: 0.5rem;">Comfortable Sleepwear</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Choose loose, comfortable clothing that doesn't constrict the abdomen.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🛏️</div>
+                                    <h6 style="color: var(--success-700); margin-bottom: 0.5rem;">Sleep Position</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Some find sleeping on the left side helps with digestion and reduces symptoms.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--accent-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding the sleep-IBS connection helps you see that <strong>quality sleep is not a luxury</strong>—it's a fundamental part of your body's healing process. This knowledge empowers you to prioritize sleep as a key component of your IBS management strategy.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Your body does its best healing work while you sleep. Give it the time and environment it needs to restore itself."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# === The Exercise Balance: Finding Your Body's Natural Movement === #}
+<section id="exercise-balance" class="content-section" style="background: linear-gradient(135deg, var(--neutral-50), white); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--neutral-600), var(--primary-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The Exercise Balance: Finding Your Body's Natural Movement</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    Regular physical activity is highly beneficial for IBS management. Finding the right balance of movement can improve your symptoms while respecting your body's needs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Exercise Benefits Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">How Exercise Benefits Your IBS</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Moderate-intensity exercise has been shown to improve overall symptoms by working with your body's natural processes rather than against them.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🚶</div>
+                                    <h5 style="color: var(--accent-700); margin-bottom: 0.5rem;">Gut Motility</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Exercise stimulates normal intestinal contractions, which is particularly helpful for constipation-predominant IBS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🧠</div>
+                                    <h5 style="color: var(--warning-700); margin-bottom: 0.5rem;">Stress Reduction</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Physical activity releases endorphins and reduces stress hormones, helping to break the stress-symptom cycle.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🌙</div>
+                                    <h5 style="color: var(--primary-700); margin-bottom: 0.5rem;">Sleep Quality</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Regular exercise improves sleep quality, which in turn helps manage IBS symptoms.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">💨</div>
+                                    <h5 style="color: var(--success-700); margin-bottom: 0.5rem;">Gas Relief</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Movement helps move gas through the digestive system, reducing bloating and discomfort.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise Types and Guidelines -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">Recommended Exercise Types</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        The key is finding activities that work with your body, not against it. These gentle, low-impact options are particularly beneficial for IBS management.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-walking"></i></div>
+                        <div>
+                            <h5>Low-Impact Cardio</h5>
+                            <p>Brisk walking, leisurely cycling, or swimming are excellent choices. Aim for 30 minutes most days of the week.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-yoga"></i></div>
+                        <div>
+                            <h5>Gentle Yoga</h5>
+                            <p>Yoga combines movement, stretching, and breathing, making it ideal for IBS management. Focus on gentle poses that don't compress the abdomen.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-dumbbell"></i></div>
+                        <div>
+                            <h5>Light Strength Training</h5>
+                            <p>Gentle resistance training can improve overall fitness without stressing the digestive system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500);">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Exercise Guidelines for IBS</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Success with exercise and IBS comes from listening to your body and respecting its signals. These guidelines help you find the right balance.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-turtle"></i></div>
+                        <div>
+                            <h5>Start Slowly</h5>
+                            <p>Begin with 10-15 minutes and gradually increase duration and intensity. Your body needs time to adapt.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-ear"></i></div>
+                        <div>
+                            <h5>Listen to Your Body</h5>
+                            <p>Stop if you experience pain or severe symptoms. Your body knows best when it needs to rest.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h5>Timing Matters</h5>
+                            <p>Avoid intense exercise immediately after meals. Give your digestive system time to process food.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise Modification Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">When to Modify Your Exercise Routine</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        During IBS flare-ups, it's important to adapt your exercise routine to support your body rather than stress it further.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🐌</div>
+                                    <h6 style="color: var(--accent-700); margin-bottom: 0.5rem;">Reduce Intensity</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Switch to gentle walking or stretching during flare-ups.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">⏱️</div>
+                                    <h6 style="color: var(--warning-700); margin-bottom: 0.5rem;">Shorter Sessions</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">10-15 minutes instead of longer workouts during difficult periods.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🏠</div>
+                                    <h6 style="color: var(--primary-700); margin-bottom: 0.5rem;">Home-Based Activities</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Avoid gym settings if you're concerned about bathroom access.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🧘</div>
+                                    <h6 style="color: var(--success-700); margin-bottom: 0.5rem;">Stress-Reducing Activities</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Focus on relaxation techniques rather than intense exercise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--neutral-500), var(--neutral-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--primary-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding exercise and IBS helps you see that <strong>movement is medicine</strong>—but the right kind of movement. This knowledge empowers you to find activities that support your digestive health while respecting your body's unique needs.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Exercise should feel like a gift to your body, not a punishment. Find what makes you feel good and stick with it."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# === Integrating Lifestyle Changes: Your Path to Holistic Wellness === #}
+<section id="lifestyle-integration" class="content-section" style="background: linear-gradient(135deg, var(--accent-50), white); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; background: radial-gradient(circle, var(--accent-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: radial-gradient(circle, var(--success-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--accent-600), var(--success-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Integrating Lifestyle Changes: Your Path to Holistic Wellness</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    The most effective approach combines all these lifestyle factors with dietary management. Here's how to create a comprehensive plan that works for your unique needs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Holistic Management Plan Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--accent-100);">
+                    <h3 class="text-center mb-4" style="color: var(--accent-700); font-weight: 600;">Creating Your Holistic Management Plan</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Success with IBS management comes from integrating multiple approaches in a way that feels sustainable and empowering for you.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🐌</div>
+                                    <h5 style="color: var(--primary-700); margin-bottom: 0.5rem;">Start Small</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Don't try to change everything at once. Pick one area to focus on first, such as improving sleep hygiene or adding gentle exercise.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📊</div>
+                                    <h5 style="color: var(--warning-700); margin-bottom: 0.5rem;">Track Progress</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Keep a journal of your lifestyle changes and how they affect your symptoms. This helps identify what works best for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--info-100), var(--info-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--info-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--info-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🤝</div>
+                                    <h5 style="color: var(--info-700); margin-bottom: 0.5rem;">Seek Support</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Consider working with a therapist for stress management or joining an IBS support group for motivation and shared experiences.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👨‍⚕️</div>
+                                    <h5 style="color: var(--success-700); margin-bottom: 0.5rem;">Professional Guidance</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Work with your healthcare team to develop a personalized plan that addresses all aspects of your IBS management.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Support Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">The Role of Professional Support</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 2rem;">
+                        Managing IBS through lifestyle changes often requires professional guidance. You don't have to navigate this journey alone—there are experts who can help you create a comprehensive, personalized approach.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="diaeta-difference-item">
+                                <div class="icon"><i class="fas fa-utensils"></i></div>
+                                <div>
+                                    <h5>Dietitian</h5>
+                                    <p>Helps integrate dietary and lifestyle changes, creating a personalized nutrition plan that works with your body.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="diaeta-difference-item">
+                                <div class="icon"><i class="fas fa-brain"></i></div>
+                                <div>
+                                    <h5>Mental Health Professional</h5>
+                                    <p>Provides support for stress management and coping strategies, helping you build resilience.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="diaeta-difference-item">
+                                <div class="icon"><i class="fas fa-dumbbell"></i></div>
+                                <div>
+                                    <h5>Physical Therapist</h5>
+                                    <p>Can design appropriate exercise programs that respect your body's limitations and needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="diaeta-difference-item">
+                                <div class="icon"><i class="fas fa-moon"></i></div>
+                                <div>
+                                    <h5>Sleep Specialist</h5>
+                                    <p>Helps address persistent sleep issues that may be affecting your digestive health.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Long-Term Success Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-md); border: 2px solid var(--success-100);">
+                    <h3 class="text-center mb-4" style="color: var(--success-700); font-weight: 600;">Long-Term Success: Building Sustainable Habits</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Remember that lifestyle changes take time to show benefits. Be patient and consistent with your approach.
+                    </p>
+                    
+                    <div style="background: linear-gradient(135deg, var(--success-50), var(--accent-50)); padding: 2rem; border-radius: var(--border-radius-md); border-left: 5px solid var(--success-500);">
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary); margin: 0; text-align: center;">
+                            The goal is to create <strong>sustainable habits</strong> that support your digestive health and overall well-being for the long term. 
+                            This isn't about quick fixes—it's about building a lifestyle that works with your body, not against it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--accent-500), var(--success-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--warning-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding how to integrate lifestyle changes helps you see that <strong>holistic wellness is achievable</strong>—but it requires a thoughtful, personalized approach. This knowledge empowers you to build a comprehensive management plan that addresses all aspects of your health.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "The journey to better health is not a sprint—it's a marathon. Every small step you take today builds the foundation for lasting wellness tomorrow."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <h2 class="h3 text-center">References</h2>
         <div class="references text-center">

@@ -1,182 +1,619 @@
 ---
 layout: layouts/base.njk
-title: "Managing Common IBS Symptoms | Diaeta Brussels"
-description: "Learn practical, dietitian-approved strategies for managing common IBS symptoms like bloating, abdominal pain, and cramping. Take control of your digestive comfort."
+title: "Managing IBS Symptoms: Practical Strategies for Daily Relief | Diaeta"
+description: "Discover evidence-based strategies for managing IBS symptoms including bloating, abdominal pain, and bowel habit changes. Learn practical techniques for daily symptom relief and improved quality of life."
 lang: en
 ---
 
+{# === Hero Section === #}
 <section class="service-hero-wp">
     <div class="container">
-        <span class="section-badge animate-on-scroll fade-in">IBS Knowledge Hub</span>
-        <h1 class="animate-on-scroll fade-up">A Practical Guide to Managing Common IBS Symptoms</h1>
+        <span class="section-badge animate-on-scroll fade-in">Your IBS Journey Starts Here</span>
+        <h1 class="animate-on-scroll fade-up">Managing Your IBS Symptoms: Practical Strategies for Daily Relief</h1>
         <p class="lead animate-on-scroll fade-up delay-200">
-            Beyond the broader Low FODMAP diet, managing day-to-day IBS symptoms requires specific strategies. This guide provides actionable advice for bloating, cramping, and more.
+            When IBS symptoms flare up, it can feel like your body is speaking a language you don't understand. But what if you could learn to interpret these signals and respond with strategies that actually work? Let's explore practical, evidence-based approaches to managing your specific symptoms.
         </p>
+        <a href="/en/appointment/" class="btn btn-primary btn-lg animate-on-scroll fade-up delay-400"><span>Get Personalized Symptom Management</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
     </div>
 </section>
 
-<section class="content-section bg-white">
-    <div class="container" style="max-width: 850px;">
-        <div class="breadcrumb mb-4">
-            <a href="/en/irritable-bowel-syndrome-fodmap/">IBS & FODMAP Diet</a> &raquo; Managing Symptoms
-        </div>
+{# === Breadcrumb Navigation === #}
+<nav aria-label="breadcrumb" class="container mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/en/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/en/irritable-bowel-syndrome-fodmap/">IBS & FODMAP</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Managing Symptoms</li>
+    </ol>
+</nav>
 
-        {# === Floating Back to Knowledge Hub Button === #}
+{# === Floating Back to Main Page Button === #}
         <div class="floating-back-btn" style="position: fixed; bottom: 100px; right: 30px; z-index: 1000; display: none;" id="floatingBackBtn">
             <a href="/en/irritable-bowel-syndrome-fodmap/#ibs-knowledge-hub" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border: none; border-radius: 50px; padding: 1rem 1.5rem; font-weight: 600; box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3); transition: all 0.3s ease; text-decoration: none; color: white;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(var(--primary-rgb), 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(var(--primary-rgb), 0.3)'">
                 <i class="fas fa-search me-2"></i>Back to Knowledge Hub
             </a>
         </div>
         
-        <h2 class="h3">Tackling Bloating and Distension</h2>
-        <p>Bloating is one of the most common and distressing symptoms of IBS, reported by as many as 96% of individuals with the condition. It occurs when gas builds up in your digestive system, causing your abdomen to feel full and distended. While the foundational approach to this is the <a href="/en/irritable-bowel-syndrome-fodmap/">Low FODMAP diet</a>, which reduces fermentable carbohydrates, there are additional strategies that can help.</p>
-        
-        <h3 class="h4 mt-4">Understanding the Causes of Bloating</h3>
-        <p>Bloating in IBS can result from several factors:</p>
-        <ul class="list-styled">
-            <li><strong>Gas production:</strong> When FODMAPs reach the large intestine, they're fermented by bacteria, producing gas</li>
-            <li><strong>Slow gut motility:</strong> Food moves more slowly through your digestive system, allowing more time for gas to build up</li>
-            <li><strong>Visceral hypersensitivity:</strong> Your gut may be more sensitive to normal amounts of gas</li>
-            <li><strong>Swallowing air:</strong> Eating too quickly, chewing gum, or drinking carbonated beverages</li>
-            <li><strong>Small Intestinal Bacterial Overgrowth (SIBO):</strong> An excessive number of bacteria in the small intestine can cause premature fermentation</li>
-        </ul>
+{# === Understanding Your Body's Language Section === #}
+<section id="understanding-symptoms" class="content-section bg-white">
+    <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-7 animate-on-scroll fade-up">
+                <h2>Understanding Your Body's Language: What Your Symptoms Are Telling You</h2>
+                <p>Your IBS symptoms aren't random—they're your body's way of communicating that something needs attention. Think of them as warning lights on your car's dashboard. When you understand what each light means, you can respond appropriately instead of feeling overwhelmed.</p>
+                
+                <p>Here's something important to remember: <strong>you're not alone</strong> in this experience. Up to 96% of people with IBS report bloating, and abdominal pain affects nearly everyone with the condition. These aren't signs of weakness or imagination—they're real physiological responses happening in your body.</p>
+                
+                <p>And here's the good news: once you understand what's causing your symptoms, you can develop targeted strategies to manage them. It's like learning to read a new language—at first it seems impossible, but with practice, it becomes second nature.</p>
 
-        <h3 class="h4 mt-4">Practical Strategies for Reducing Bloating</h3>
-        <div class="row g-4 mt-3">
+                <h3 class="h4 mt-4">The Three Main Categories of IBS Symptoms</h3>
+                <p>IBS symptoms typically fall into three main categories, each requiring different management approaches:</p>
+                
+                <!-- Related Topics Navigation -->
+                <div class="related-topics" style="background: linear-gradient(135deg, var(--neutral-50), white); border: 2px solid var(--primary-200); border-radius: 15px; padding: 1.5rem; margin-top: 2rem;">
+                    <h5 style="color: var(--primary-600); font-weight: 600; margin-bottom: 1rem;">
+                        <i class="fas fa-link me-2"></i>Explore More About Your IBS Management
+                    </h5>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <a href="/en/irritable-bowel-syndrome-fodmap/nutrition-diet-therapy-ibs" class="related-link" style="display: block; padding: 0.75rem; background: white; border-radius: 8px; text-decoration: none; color: var(--neutral-700); border-left: 3px solid var(--accent-500); transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.transform='translateX(3px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <i class="fas fa-utensils text-accent me-1"></i>
+                                <strong style="color: var(--accent-600);">Nutrition Therapy</strong>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/en/irritable-bowel-syndrome-fodmap/evidence-based-ibs-management" class="related-link" style="display: block; padding: 0.75rem; background: white; border-radius: 8px; text-decoration: none; color: var(--neutral-700); border-left: 3px solid var(--secondary-500); transition: all 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.transform='translateX(3px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <i class="fas fa-chart-line text-secondary me-1"></i>
+                                <strong style="color: var(--secondary-600);">Evidence-Based Management</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center animate-on-scroll fade-up delay-200">
+                <picture>
+                    <source srcset="/images/digestive-system-illustration-large.webp 800w,
+                                    /images/digestive-system-illustration-medium.webp 600w,
+                                    /images/digestive-system-illustration-small.webp 400w"
+                            sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                            type="image/webp">
+                    <img src="/images/digestive-system-illustration-small.jpg"
+                         srcset="/images/digestive-system-illustration-large.jpg 800w,
+                                 /images/digestive-system-illustration-medium.jpg 600w,
+                                 /images/digestive-system-illustration-small.jpg 400w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                         alt="Illustration showing the digestive system and common IBS symptoms"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-width: 400px; margin-top: 2rem;"
+                         loading="lazy"
+                         width="400" 
+                         height="350">
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# === The Bloating Challenge: Understanding Your Body's Gas Management === #}
+<section id="bloating-management" class="content-section" style="background: linear-gradient(135deg, var(--primary-50), var(--accent-50)); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--accent-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The Bloating Challenge: Understanding Your Body's Gas Management</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    Bloating affects up to 96% of people with IBS—it's like having a balloon inside your abdomen that won't deflate. But understanding why this happens is the first step toward managing it effectively.
+                </p>
+            </div>
+        </div>
+
+        <!-- Interactive Bloating Causes Visualization -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">Why Does Bloating Happen?</h3>
+                    
+                    <!-- Bloating Causes Cards -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">💨</div>
+                                    <h5 style="color: var(--accent-700); margin-bottom: 0.5rem;">Gas Production</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">When FODMAPs reach your large intestine, bacteria ferment them, creating gas that builds up.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🐌</div>
+                                    <h5 style="color: var(--warning-700); margin-bottom: 0.5rem;">Slow Motility</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Food moves slowly through your digestive system, giving more time for gas to accumulate.</p>
+                                </div>
+                            </div>
+                        </div>
             <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-clock"></i></div>
-                    <h4>Meal Timing</h4>
-                    <p>Eat smaller, more frequent meals rather than large ones. Allow 3-4 hours between meals to give your digestive system time to process food.</p>
+                            <div style="background: linear-gradient(135deg, var(--primary-100), var(--primary-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--primary-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎯</div>
+                                    <h5 style="color: var(--primary-700); margin-bottom: 0.5rem;">Visceral Hypersensitivity</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Your gut becomes more sensitive to normal amounts of gas, making it feel more uncomfortable.</p>
+                                </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="benefit-card h-100">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🌪️</div>
+                                    <h5 style="color: var(--success-700); margin-bottom: 0.5rem;">SIBO</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Small Intestinal Bacterial Overgrowth causes premature fermentation and excess gas production.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Strategies Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">Your Daily Bloating Management Toolkit</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Think of managing bloating like maintaining a car—you need regular maintenance and the right tools. Here are practical strategies that work:
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h5>Meal Timing Strategy</h5>
+                            <p>Eat smaller, more frequent meals rather than large ones. Allow 3-4 hours between meals to give your digestive system time to process food properly.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
                     <div class="icon"><i class="fas fa-utensils"></i></div>
-                    <h4>Eating Habits</h4>
+                        <div>
+                            <h5>Mindful Eating Habits</h5>
                     <p>Chew your food thoroughly and eat slowly. Avoid talking while eating to reduce air swallowing. Stop eating when you feel comfortably full.</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
+
+                    <div class="diaeta-difference-item">
                     <div class="icon"><i class="fas fa-leaf"></i></div>
-                    <h4>Fiber Management</h4>
+                        <div>
+                            <h5>Smart Fiber Management</h5>
                     <p>Gradually increase soluble fiber (like oats, psyllium) while being cautious with insoluble fiber. Too much fiber too quickly can worsen bloating.</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500);">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Natural Relief Strategies</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Sometimes your body needs a little help to find its natural rhythm. These strategies work with your body's natural processes:
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
                     <div class="icon"><i class="fas fa-wind"></i></div>
-                    <h4>Gas-Reducing Foods</h4>
-                    <p>Consider incorporating ginger, peppermint tea, or fennel seeds, which may help reduce gas production and bloating.</p>
+                        <div>
+                            <h5>Gas-Reducing Foods</h5>
+                            <p>Consider incorporating ginger, peppermint tea, or fennel seeds, which may help reduce gas production and bloating naturally.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-running"></i></div>
+                        <div>
+                            <h5>Gentle Movement</h5>
+                            <p>Light walking after meals can help stimulate normal intestinal contractions and move gas through your system more efficiently.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h5>Stress Management</h5>
+                            <p>Stress can slow down your digestive system. Practice deep breathing or gentle yoga to help your body relax and function better.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h3 class="h4 mt-4">Understanding the Brain-Gut Connection</h3>
-        <p>Your gut and brain communicate through:</p>
-        <ul class="list-styled">
-            <li><strong>Nervous system:</strong> The vagus nerve connects your brain to your digestive system</li>
-            <li><strong>Hormones:</strong> Stress hormones like cortisol can affect gut motility and sensitivity</li>
-            <li><strong>Neurotransmitters:</strong> Serotonin, produced primarily in the gut, regulates intestinal motility and sensation</li>
-            <li><strong>Immune system:</strong> Low-grade inflammation can sensitize gut nerves</li>
-        </ul>
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--primary-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding why bloating happens helps you see that <strong>it's not your fault</strong>—it's your body's natural response to certain triggers. This knowledge empowers you to work <em>with</em> your body, not against it.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Your body is always trying to communicate with you. Learning to listen to these signals is the first step toward better symptom management."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <hr class="my-5">
+{# === The Pain Puzzle: Understanding and Managing Abdominal Discomfort === #}
+<section id="pain-management" class="content-section" style="background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--accent-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--accent-600), var(--primary-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The Pain Puzzle: Understanding and Managing Abdominal Discomfort</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    Abdominal pain and cramping are like your body's alarm system—they're telling you something needs attention. Understanding what triggers these signals helps you respond with the right strategies.
+                </p>
+            </div>
+        </div>
 
-        <h2 class="h3">Alleviating Abdominal Pain and Cramping</h2>
-        <p>Abdominal pain and cramping are hallmark symptoms of IBS, often occurring in the lower abdomen and varying in intensity. The pain is typically related to bowel movements and may be relieved after passing stool or gas.</p>
+        <!-- Understanding Pain Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500);">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">Understanding Your IBS Pain</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        IBS pain is your body's way of communicating that something isn't quite right. Think of it like a sensitive smoke detector—it might go off even when there's no real fire, but it's still trying to protect you.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div>
+                            <h5>Pain Characteristics</h5>
+                            <p>IBS pain is often described as cramping or spasmodic, sharp or dull, and can be localized or diffuse. It's typically worse after eating and may be relieved by bowel movements.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">Understanding IBS Pain</h3>
-        <p>IBS pain is often described as:</p>
-        <ul class="list-styled">
-            <li>Cramping or spasmodic</li>
-            <li>Sharp or dull</li>
-            <li>Localized or diffuse</li>
-            <li>Worse after eating</li>
-            <li>Relieved by bowel movements</li>
-        </ul>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h5>The Brain-Gut Connection</h5>
+                            <p>Your gut and brain communicate through the nervous system, hormones, and neurotransmitters. Stress can amplify pain signals, making normal sensations feel more intense.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">Pain Management Strategies</h3>
-        <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h5>Visceral Hypersensitivity</h5>
+                            <p>Your gut may be more sensitive to normal amounts of gas and movement, like having a microphone turned up too loud. This isn't your imagination—it's a real physiological response.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500);">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Your Pain Management Toolkit</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        Managing IBS pain is like having a toolbox with different tools for different situations. Here are strategies that work with your body's natural processes:
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
                     <div class="icon"><i class="fas fa-fire"></i></div>
-                    <h4>Heat Therapy</h4>
-                    <p>Apply a heating pad or warm compress to your abdomen. The warmth can help relax muscles and reduce cramping.</p>
+                        <div>
+                            <h5>Heat Therapy</h5>
+                            <p>Apply a heating pad or warm compress to your abdomen. The warmth helps relax muscles and reduce cramping, like a gentle massage for your insides.</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
+
+                    <div class="diaeta-difference-item">
                     <div class="icon"><i class="fas fa-leaf"></i></div>
-                    <h4>Peppermint Oil</h4>
-                    <p>Enteric-coated peppermint oil capsules may help reduce abdominal pain by relaxing the smooth muscles of the gut.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-brain"></i></div>
-                    <h4>Stress Reduction</h4>
-                    <p>Practice deep breathing, meditation, or progressive muscle relaxation to reduce stress-related gut sensitivity.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="benefit-card h-100">
-                    <div class="icon"><i class="fas fa-running"></i></div>
-                    <h4>Gentle Exercise</h4>
-                    <p>Light walking or yoga can help stimulate normal intestinal contractions and reduce pain perception.</p>
+                        <div>
+                            <h5>Peppermint Oil</h5>
+                            <p>Enteric-coated peppermint oil capsules may help reduce abdominal pain by relaxing the smooth muscles of your gut, like a natural muscle relaxant.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-running"></i></div>
+                        <div>
+                            <h5>Gentle Movement</h5>
+                            <p>Light walking or yoga can help stimulate normal intestinal contractions and reduce pain perception by releasing natural pain-relieving chemicals.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h3 class="h4 mt-4">When to Consider Medical Intervention</h3>
-        <p>If pain is severe or persistent, consult your healthcare provider about:</p>
-        <ul class="list-styled">
-            <li><strong>Antispasmodics:</strong> Medications that relax intestinal muscles</li>
-            <li><strong>Neuromodulators:</strong> Low-dose antidepressants that can reduce pain perception</li>
-            <li><strong>Peppermint oil:</strong> Enteric-coated capsules for natural relief</li>
-        </ul>
+        <!-- Interactive Pain Management Strategies -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">When to Consider Medical Support</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Sometimes your body needs additional support to manage pain effectively. Here's when to consider medical intervention:
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">💊</div>
+                                    <h6 style="color: var(--accent-700); margin-bottom: 0.5rem;">Antispasmodics</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Medications that relax intestinal muscles and reduce cramping.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🧠</div>
+                                    <h6 style="color: var(--warning-700); margin-bottom: 0.5rem;">Neuromodulators</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Low-dose antidepressants that can reduce pain perception.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🌿</div>
+                                    <h6 style="color: var(--success-700); margin-bottom: 0.5rem;">Natural Options</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Enteric-coated peppermint oil capsules for natural relief.</p>
+                </div>
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--accent-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding your pain helps you see that <strong>it's not a sign of weakness</strong>—it's your body's sophisticated communication system. This knowledge empowers you to respond with compassion and effective strategies.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Pain is your body's way of asking for attention. Learning to listen and respond appropriately is the key to better management."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <hr class="my-5">
 
-        <h2 class="h3">Normalizing Bowel Habits (Diarrhea and Constipation)</h2>
-        <p>Understanding these nuances is a key part of the personalization phase of the <a href="/en/irritable-bowel-syndrome-fodmap/#low-fodmap-diet">3-phase protocol</a>.</p>
+{# === Bowel Habits: Finding Your Body's Natural Rhythm === #}
+<section id="bowel-habits" class="content-section" style="background: linear-gradient(135deg, var(--neutral-50), white); padding: 5rem 0; position: relative;">
+    <!-- Decorative Elements -->
+    <div style="position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; background: radial-gradient(circle, var(--neutral-200) 0%, transparent 70%); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%); opacity: 0.2; border-radius: 50%;"></div>
+    
+    <div class="container position-relative">
+        <!-- Empathetic Hero -->
+        <div class="text-center mb-5">
+            <div style="background: linear-gradient(135deg, var(--neutral-600), var(--primary-600)); padding: 3rem 2rem; border-radius: var(--border-radius-xl); box-shadow: var(--box-shadow-xl); position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <!-- Decorative circles -->
+                <div style="position: absolute; top: 20px; right: 30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20px; left: 30px; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 50%; left: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.06); border-radius: 50%;"></div>
+                
+                <h2 class="mb-3 animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; color: #f8fafc; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Bowel Habits: Finding Your Body's Natural Rhythm</h2>
+                <p class="lead mb-0 animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: #e2e8f0; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    Your bowel habits are like your body's internal clock—they have their own rhythm and timing. Understanding how to work with this rhythm rather than against it is key to managing IBS effectively.
+                </p>
+            </div>
+        </div>
 
-        <h3 class="h4 mt-4">Managing Diarrhea-Predominant IBS (IBS-D)</h3>
-        <p>For those with frequent loose stools and urgency:</p>
-        <ul class="list-styled">
-            <li><strong>Soluble fiber:</strong> Add psyllium husk or oats to help bulk up stools</li>
-            <li><strong>Hydration:</strong> Drink plenty of water to prevent dehydration</li>
-            <li><strong>Electrolytes:</strong> Consider oral rehydration solutions if diarrhea is severe</li>
-            <li><strong>Trigger identification:</strong> Keep a food diary to identify specific triggers</li>
-        </ul>
+        <!-- IBS Subtypes Management -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-4">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--accent-500); height: 100%;">
+                    <h3 style="color: var(--accent-700); margin-bottom: 1.5rem;">Managing IBS-D (Diarrhea-Predominant)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        For those with frequent loose stools and urgency, think of your digestive system like a river that's flowing too fast. You need to slow it down and add some structure.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h5>Soluble Fiber</h5>
+                            <p>Add psyllium husk or oats to help bulk up stools and slow down transit time.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">Managing Constipation-Predominant IBS (IBS-C)</h3>
-        <p>For those with infrequent, hard stools:</p>
-        <ul class="list-styled">
-            <li><strong>Gradual fiber increase:</strong> Add soluble fiber slowly to avoid worsening bloating</li>
-            <li><strong>Hydration:</strong> Aim for 8-10 glasses of water daily</li>
-            <li><strong>Physical activity:</strong> Regular exercise stimulates intestinal motility</li>
-            <li><strong>Bowel training:</strong> Try to have a bowel movement at the same time each day</li>
-        </ul>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-tint"></i></div>
+                        <div>
+                            <h5>Hydration</h5>
+                            <p>Drink plenty of water to prevent dehydration and maintain electrolyte balance.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">Managing Mixed IBS (IBS-M)</h3>
-        <p>For those alternating between constipation and diarrhea:</p>
-        <ul class="list-styled">
-            <li><strong>Adaptive strategies:</strong> Adjust fiber intake based on current symptoms</li>
-            <li><strong>Consistent routine:</strong> Maintain regular meal times and sleep patterns</li>
-            <li><strong>Stress management:</strong> Emotional stress can trigger symptom shifts</li>
-            <li><strong>Professional guidance:</strong> Work with a dietitian to develop flexible strategies</li>
-        </ul>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div>
+                            <h5>Trigger Identification</h5>
+                            <p>Keep a food diary to identify specific triggers that cause flare-ups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--primary-500); height: 100%;">
+                    <h3 style="color: var(--primary-700); margin-bottom: 1.5rem;">Managing IBS-C (Constipation-Predominant)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        For those with infrequent, hard stools, your digestive system is like a slow-moving river that needs gentle encouragement to flow more freely.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-seedling"></i></div>
+                        <div>
+                            <h5>Gradual Fiber Increase</h5>
+                            <p>Add soluble fiber slowly to avoid worsening bloating while promoting regularity.</p>
+                        </div>
+                    </div>
 
-        <h3 class="h4 mt-4">The Role of Probiotics</h3>
-        <p>While research is ongoing, some probiotic strains may help:</p>
-        <ul class="list-styled">
-            <li><strong>Bifidobacterium infantis:</strong> May reduce bloating and pain</li>
-            <li><strong>Lactobacillus plantarum:</strong> May help with overall symptom management</li>
-            <li><strong>Multi-strain probiotics:</strong> May improve gut microbiota diversity</li>
-        </ul>
-        <p><em>Note: Always consult with your healthcare provider before starting any probiotic supplement.</em></p>
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-tint"></i></div>
+                        <div>
+                            <h5>Hydration</h5>
+                            <p>Aim for 8-10 glasses of water daily to help soften stools and promote movement.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-running"></i></div>
+                        <div>
+                            <h5>Physical Activity</h5>
+                            <p>Regular exercise stimulates intestinal motility and helps maintain regularity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 2.5rem; box-shadow: var(--box-shadow-md); border-left: 5px solid var(--success-500); height: 100%;">
+                    <h3 style="color: var(--success-700); margin-bottom: 1.5rem;">Managing IBS-M (Mixed)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-primary);">
+                        For those alternating between constipation and diarrhea, your digestive system is like a weather system that can change unexpectedly. You need flexible strategies.
+                    </p>
+                    
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div>
+                            <h5>Adaptive Strategies</h5>
+                            <p>Adjust fiber intake based on current symptoms—more for constipation, less for diarrhea.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h5>Consistent Routine</h5>
+                            <p>Maintain regular meal times and sleep patterns to help stabilize your system.</p>
+                        </div>
+                    </div>
+
+                    <div class="diaeta-difference-item">
+                        <div class="icon"><i class="fas fa-user-md"></i></div>
+                        <div>
+                            <h5>Professional Guidance</h5>
+                            <p>Work with a dietitian to develop flexible strategies that adapt to your changing symptoms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Probiotics Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: 3rem; box-shadow: var(--box-shadow-lg); border: 2px solid var(--primary-100);">
+                    <h3 class="text-center mb-4" style="color: var(--primary-700); font-weight: 600;">The Role of Probiotics in IBS Management</h3>
+                    <p class="text-center lead mb-4" style="color: var(--text-secondary);">
+                        Think of probiotics as friendly reinforcements for your gut's microbial community. While research is ongoing, some strains may help restore balance to your digestive system.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--accent-100), var(--accent-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--accent-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--accent-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🦠</div>
+                                    <h6 style="color: var(--accent-700); margin-bottom: 0.5rem;">Bifidobacterium infantis</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">May reduce bloating and pain in some individuals with IBS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--warning-100), var(--warning-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--warning-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--warning-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🦠</div>
+                                    <h6 style="color: var(--warning-700); margin-bottom: 0.5rem;">Lactobacillus plantarum</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">May help with overall symptom management and gut health.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: linear-gradient(135deg, var(--success-100), var(--success-50)); padding: 1.5rem; border-radius: var(--border-radius-md); text-align: center; border: 2px solid var(--success-200); transition: transform 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div>
+                                    <div style="width: 50px; height: 50px; background: var(--success-500); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">🦠</div>
+                                    <h6 style="color: var(--success-700); margin-bottom: 0.5rem;">Multi-Strain Probiotics</h6>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">May improve gut microbiota diversity and overall digestive health.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--warning-50); padding: 1.5rem; border-radius: var(--border-radius-md); margin-top: 2rem; border-left: 4px solid var(--warning-500);">
+                        <p style="margin: 0; font-size: 1rem; color: var(--warning-700);">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Important:</strong> Always consult with your healthcare provider before starting any probiotic supplement, as individual responses can vary significantly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight - Made Personal and Actionable -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div style="background: linear-gradient(135deg, var(--neutral-500), var(--neutral-600)); padding: 3rem; border-radius: var(--border-radius-xl); color: white; text-align: center; box-shadow: var(--box-shadow-lg); position: relative; overflow: hidden;">
+                    <!-- Background decorative elements -->
+                    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+                    
+                    <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.6rem; position: relative; z-index: 2;">
+                        <i class="fas fa-lightbulb me-3" style="color: var(--primary-100);"></i>What This Means for You
+                    </h4>
+                    <p style="font-size: 1.2rem; margin: 0; line-height: 1.7; font-weight: 500; position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
+                        Understanding your bowel habits helps you see that <strong>there's no "normal" that applies to everyone</strong>—your body has its own unique rhythm. This knowledge empowers you to work <em>with</em> your natural patterns, not against them.
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius-lg); margin-top: 2rem; backdrop-filter: blur(10px); position: relative; z-index: 2;">
+                        <p style="margin: 0; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.95);">
+                            "Your body's rhythm is unique to you. Learning to work with it rather than against it is the key to better digestive health."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <hr class="my-5">
 
