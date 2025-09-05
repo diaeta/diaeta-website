@@ -1,4 +1,5 @@
 <header class="site-header" lang="en" id="site-header" itemscope itemtype="https://schema.org/WPHeader" style="position: relative;">
+  {% set currentUrl = page.url | lower %}
   <div class="container header-container">
     <div class="logo">
       <a href="/en/" aria-label="Diaeta - Home">
@@ -45,11 +46,11 @@
         <div class="lang-selector">
             <button class="lang-toggle" aria-expanded="false" aria-controls="lang-dropdown-mobile"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>EN</span></button>
             <div class="lang-dropdown" id="lang-dropdown-mobile">
-                <a href="/fr/" class="lang-option">Français</a>
-                <a href="/en/" class="lang-option active" aria-current="true">English</a>
-                <a href="/nl/" class="lang-option">Nederlands</a>
-                <a href="/de/" class="lang-option">Deutsch</a>
-                <a href="/ar/" class="lang-option">العربية</a>
+                <a href="{{ currentUrl | replace('/en/', '/fr/') }}" class="lang-option">Français</a>
+                <a href="{{ currentUrl }}" class="lang-option active" aria-current="true">English</a>
+                <a href="{{ currentUrl | replace('/en/', '/nl/') }}" class="lang-option">Nederlands</a>
+                <a href="{{ currentUrl | replace('/en/', '/de/') }}" class="lang-option">Deutsch</a>
+                <a href="{{ currentUrl | replace('/en/', '/ar/') }}" class="lang-option">العربية</a>
             </div>
         </div>
         <a href="tel:+32479355551" class="phone-link"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+32 479 35 55 51</span></a>
@@ -61,11 +62,11 @@
         <div class="lang-selector">
             <button class="lang-toggle" aria-expanded="false" aria-controls="lang-dropdown-desktop"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>EN</span></button>
             <div class="lang-dropdown" id="lang-dropdown-desktop">
-                <a href="/fr/" class="lang-option">Français</a>
-                <a href="/en/" class="lang-option active" aria-current="true">English</a>
-                <a href="/nl/" class="lang-option">Nederlands</a>
-                <a href="/de/" class="lang-option">Deutsch</a>
-                <a href="/ar/" class="lang-option">العربية</a>
+                <a href="{{ currentUrl | replace('/en/', '/fr/') }}" class="lang-option">Français</a>
+                <a href="{{ currentUrl }}" class="lang-option active" aria-current="true">English</a>
+                <a href="{{ currentUrl | replace('/en/', '/nl/') }}" class="lang-option">Nederlands</a>
+                <a href="{{ currentUrl | replace('/en/', '/de/') }}" class="lang-option">Deutsch</a>
+                <a href="{{ currentUrl | replace('/en/', '/ar/') }}" class="lang-option">العربية</a>
             </div>
         </div>
         <a href="/en/appointment/" class="btn btn-secondary header-cta">Book Appointment</a>
