@@ -702,8 +702,24 @@ function initializeHeader() {
 
 function initializeHero() {
   const heroVideo = document.getElementById('hero-video');
-  if (heroVideo && window.innerWidth < 768) {
-      heroVideo.pause();
+  if (heroVideo) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+          const poster = heroVideo.getAttribute('poster');
+          heroVideo.pause();
+          heroVideo.removeAttribute('autoplay');
+          heroVideo.removeAttribute('loop');
+          heroVideo.style.display = 'none';
+          const heroBg = heroVideo.parentElement;
+          if (heroBg && poster) {
+              heroBg.style.backgroundImage = `url('${poster}')`;
+              heroBg.style.backgroundSize = 'cover';
+              heroBg.style.backgroundPosition = 'center';
+              heroBg.style.backgroundRepeat = 'no-repeat';
+          }
+      } else if (window.innerWidth < 768) {
+          heroVideo.pause();
+      }
   }
   const highlights = document.querySelectorAll('.hero-description .text-highlight');
   if (!highlights.length) return;
