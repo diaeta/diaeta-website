@@ -8,6 +8,13 @@
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
 
+    {% set pageUrl = page.url | lower %}
+    {% set currentLang = lang | default('fr') %}
+    {% for code in ['fr','en','nl','de','ar'] %}
+      <link rel="alternate" hreflang="{{ code }}" href="{{ pageUrl | replace('/' ~ currentLang ~ '/', '/' ~ code ~ '/') }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ pageUrl | replace('/' ~ currentLang ~ '/', '/en/') }}">
+
     <link rel="preload" href="/images/logo.svg" as="image">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
