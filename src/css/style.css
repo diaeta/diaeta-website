@@ -18,12 +18,12 @@
   --secondary-200: #f9d5c4;
   --secondary-300: #f6c0a6;
   --secondary-400: #ecab8c;
-  --secondary-500: #e29578; /* brand secondary */
+  --secondary-500: #bd5934; /* brand secondary */
   --secondary-600: #d67953;
   --secondary-700: #c65f39;
   --secondary-800: #a44a28;
   --secondary-900: #83391d;
-  --secondary-rgb: 226, 149, 120;
+  --secondary-rgb: 189, 89, 52;
 
   /* Accent Colors - Green */
   --accent-50: #f5faed;
