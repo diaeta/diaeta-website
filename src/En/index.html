@@ -3,64 +3,80 @@ layout: layouts/base.njk
 title: "English-Speaking Dietitian Brussels | Diaeta | Weight Loss, IBS, Diabetes"
 description: "Find an English-speaking dietitian in Brussels. Diaeta offers accredited nutrition consultations for weight loss, IBS (FODMAP diet), diabetes, and cholesterol management at our clinics in Ixelles, Uccle, and across the city. Book your appointment."
 lang: en
----
-<!DOCTYPE html>
-<html lang="{{ lang }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description }}">
-    <link rel="canonical" href="https://diaeta.be/en/">
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-
-    <script type="application/ld+json">
+og_image: /images/weightloss-hero-large-optimized.jpg
+head_extra: |
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
       {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Diaeta Home",
-            "item": "https://diaeta.be/en/index.html"
-          }
-        ]
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Diaeta Home",
+        "item": "https://diaeta.be/en/"
       }
-      </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://diaeta.be/en/",
-      "name": "Diaeta",
-      "publisher": {
-        "@type": "Organization",
-        "@id": "https://diaeta.be#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://diaeta.be/en/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-}
-</script>
-
-</head>
-<body>
-    {{ layoutContent | safe }}
-
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <main id="main-content">
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Do I need a doctor’s referral to see a dietitian?","acceptedAnswer":{"@type":"Answer","text":"No referral is required in Belgium to book a dietitian appointment. If helpful, we coordinate with your GP or specialist and can work with a medical prescription when provided."}},
+      {"@type":"Question","name":"Are consultations reimbursed?","acceptedAnswer":{"@type":"Answer","text":"Many Belgian mutual health funds offer partial reimbursement for dietitian consultations. Amounts and conditions vary by insurer. We provide compliant receipts/attestations; please check your mutual fund for details."}},
+      {"@type":"Question","name":"How long does a session last and what’s included?","acceptedAnswer":{"@type":"Answer","text":"The first consultation is about 60 minutes; follow‑ups are typically 40 or 30 minutes. Sessions include a health and lifestyle assessment, body composition analysis when applicable, goal setting, and a personalized, evidence‑based plan."}},
+      {"@type":"Question","name":"Do you offer video consultations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Secure video consultations provide the same quality of care and follow‑up, with flexible daytime and evening availability. Book via /en/appointment/."}},
+      {"@type":"Question","name":"Which conditions do you treat?","acceptedAnswer":{"@type":"Answer","text":"We specialize in sustainable weight loss, IBS (Low FODMAP), Type 2 diabetes, and cholesterol/hypertension. Plans are personalized and evidence‑based."}},
+      {"@type":"Question","name":"Where are the clinics located?","acceptedAnswer":{"@type":"Answer","text":"Across Brussels (e.g., Ixelles, Uccle, Woluwe, Koekelberg, Berchem‑Sainte‑Agathe). See /en/locations/ for the full list and map."}},
+      {"@type":"Question","name":"What should I bring to my first appointment?","acceptedAnswer":{"@type":"Answer","text":"If available: recent labs, a list of medications/supplements, medical reports, and a 3‑day food diary. Otherwise, just come as you are."}},
+      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Please notify at least 24 hours in advance to cancel or reschedule. Late cancellations may incur a fee; see /en/tariffs/ for details."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Are consultations reimbursed?","acceptedAnswer":{"@type":"Answer","text":"Depending on your Belgian mutual insurance, part of the consultations may be reimbursed. We provide all necessary documents."}},
+      {"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Book online 24/7 via the Appointment page, or contact us via the form. Availability is updated in real time."}},
+      {"@type":"Question","name":"What happens during the first consultation?","acceptedAnswer":{"@type":"Answer","text":"Full assessment (health, habits), body composition analysis, goal setting, and a personalized, science‑based strategy tailored to your lifestyle."}},
+      {"@type":"Question","name":"Do you offer video consultations?","acceptedAnswer":{"@type":"Answer","text":"Yes, video consultations are available for flexibility with the same level of care and outcomes."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://diaeta.be/en/",
+    "name": "Diaeta",
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://diaeta.be#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://diaeta.be/en/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+---
 
       <section class="hero-section">
         <!-- Mobile-First Hero Background -->
         <div class="hero-background">
-            <video autoplay muted loop playsinline poster="../images/hero-background-medium.jpg" id="hero-video">
-                <source src="../videos/Background video.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" poster="/images/hero-background-medium-optimized.jpg" id="hero-video">
+                <source src="/videos/Background video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <picture class="hero-fallback-image" aria-hidden="true">
+              <source type="image/webp" srcset="/images/hero-background-small.webp 480w, /images/hero-background-medium-optimized.webp 1024w, /images/hero-background-large-optimized.webp 1440w" sizes="100vw">
+              <img src="/images/hero-background-medium-optimized.jpg" srcset="/images/hero-background-small.jpg 480w, /images/hero-background-medium-optimized.jpg 1024w, /images/hero-background-large-optimized.jpg 1440w" sizes="100vw" alt="" decoding="async" fetchpriority="high" width="1440" height="810">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         
@@ -91,7 +107,7 @@ lang: en
                     </svg>
             </div>
                 <div class="hero-badge-mobile">
-                    <i class="fa-solid fa-flask-vial"></i>
+                    <i class="fa-solid fa-flask-vial" aria-hidden="true"></i>
                     <span>Scientific Nutrition</span>
             </div>
         </div>
@@ -103,15 +119,15 @@ lang: en
                 
                 <div class="hero-features-mobile">
                     <div class="feature-item">
-                        <i class="fa-solid fa-microscope"></i>
+                        <i class="fa-solid fa-microscope" aria-hidden="true"></i>
                         <span>Evidence-Based</span>
                   </div>
                     <div class="feature-item">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
                         <span>Proven Results</span>
                           </div>
                     <div class="feature-item">
-                        <i class="fa-solid fa-fingerprint"></i>
+                        <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
                         <span>Personalized</span>
                                   </div>
                               </div>
@@ -119,11 +135,11 @@ lang: en
                 <div class="hero-cta-mobile">
                     <a href="/en/appointment/" class="btn btn-primary-mobile">
                         <span>Book Appointment</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>
                     <a href="#approach" class="btn btn-secondary-mobile scroll-to">
                         <span>Learn More</span>
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </a>
                                   </div>
                               </div>
@@ -181,18 +197,18 @@ lang: en
                 </svg>
                           </div>
             <div class="container hero-content">
-                <div class="hero-badge badge badge--pill badge--lg badge--glass badge--accent badge--interactive animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial"></i><span>Cutting-Edge Dietetics</span></div>
+                <div class="hero-badge badge badge--pill badge--lg badge--glass badge--accent badge--interactive animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i><span>Cutting-Edge Dietetics</span></div>
                 <h1 class="hero-headline animate-on-scroll fade-up">Your English-Speaking Dietitian in Brussels: A Scientific Approach to Your Health</h1>
                 <p class="hero-tagline animate-on-scroll fade-up delay-200">Discover how our personalized approach from a registered dietitian helps you achieve your health goals with proven methods tailored to your needs.</p>
                 <div class="hero-description animate-on-scroll fade-up delay-300"><p>At Diaeta, we offer expert nutritional advice in English, combining <span class="text-highlight">evidence-based science</span> with <span class="text-highlight">genuine care</span> to create solutions that work specifically for you.</p></div>
                 <div class="feature-badges animate-on-scroll fade-up delay-400">
-                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-microscope"></i><span>Scientific Approach</span></span>
-                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-chart-line"></i><span>Sustainable Results</span></span>
-                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-fingerprint"></i><span>100% Personalized</span></span>
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-microscope" aria-hidden="true"></i><span>Scientific Approach</span></span>
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Sustainable Results</span></span>
+                    <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i><span>100% Personalized</span></span>
                                   </div>
                 <div class="hero-cta animate-on-scroll fade-up delay-500">
-                    <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book a Dietitian Appointment</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
-                    <a href="#approach" class="btn btn-outline scroll-to"><span>Discover our approach</span><i class="fa-solid fa-chevron-right btn-icon-right"></i></a>
+                    <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book a Dietitian Appointment</span><i class="fa-solid fa-arrow-right btn-icon-right" aria-hidden="true"></i></a>
+                    <a href="#approach" class="btn btn-outline scroll-to"><span>Discover our approach</span><i class="fa-solid fa-chevron-right btn-icon-right" aria-hidden="true"></i></a>
                               </div>
                                   </div>
             <div class="hero-metrics-marquee" role="region" aria-label="Clinical outcomes">
@@ -212,7 +228,9 @@ lang: en
                 </div>
             </div>
                               </div>
-    </section>
+  </section>
+
+  
 
     <section class="clinical-canvas-section" id="approach">
       <div class="container">
@@ -713,6 +731,58 @@ lang: en
     </div>
 </section>
 
+<!-- Homepage FAQ: placed after pricing to address common questions before final decision -->
+<section id="faq" class="content-section bg-white py-5">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <span class="section-badge">Frequently Asked Questions</span>
+      <h2 class="section-title">Dietitian FAQs for Brussels Patients</h2>
+      <p class="section-subtitle">Everything you need to know before booking</p>
+    </div>
+    <div class="faq-list" role="list">
+      <details class="mb-3">
+        <summary>Do I need a doctor’s referral to see a dietitian?</summary>
+        <div class="mt-2">No referral is required in Belgium to book a dietitian appointment. If helpful, we coordinate with your GP or specialist and can work with a medical prescription when provided.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>Are consultations reimbursed?</summary>
+        <div class="mt-2">Many Belgian mutual health funds offer partial reimbursement for dietitian consultations. Amounts and conditions vary by insurer. We provide compliant receipts/attestations; please check your mutual fund for details.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>How long does a session last and what’s included?</summary>
+        <div class="mt-2">The first consultation is about 60 minutes; follow‑ups are typically 40 or 30 minutes. Sessions include a health and lifestyle assessment, body composition analysis when applicable, goal setting, and a personalized, evidence‑based plan you can apply immediately.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>Do you offer video consultations?</summary>
+        <div class="mt-2">Yes. Secure video consultations provide the same quality of care and follow‑up, with flexible daytime and evening availability. You can book them directly via <a href="/en/appointment/">/en/appointment/</a>.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>Which conditions do you treat?</summary>
+        <div class="mt-2">We specialize in sustainable <a href="#panel-wl">weight loss</a>, <a href="#panel-ibs">IBS (Low FODMAP)</a>, <a href="#panel-t2d">Type 2 diabetes</a>, and <a href="#panel-cv">cholesterol/hypertension</a>. Your plan is personalized and evidence‑based.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>Where are the clinics located?</summary>
+        <div class="mt-2">We consult across Brussels (e.g., Ixelles, Uccle, Woluwe, Koekelberg, Berchem‑Sainte‑Agathe). See the full list and map on <a href="/en/locations/">Locations</a>.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>What should I bring to my first appointment?</summary>
+        <div class="mt-2">If available: recent labs, a list of medications/supplements, medical reports, and a 3‑day food diary. Otherwise, just come as you are—we’ll guide you step by step.</div>
+      </details>
+
+      <details class="mb-3">
+        <summary>What is your cancellation policy?</summary>
+        <div class="mt-2">Please notify us at least 24 hours in advance to cancel or reschedule. Late cancellations may incur a fee; see details in <a href="/en/tariffs/">Tariffs</a> or during booking.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section id="tariffs" class="pricing-section py-5" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 100%); padding: var(--space-10) 0;">
   <div class="container">
       <!-- Header -->
@@ -1048,7 +1118,3 @@ lang: en
       </div>
   </div>
 </section>
-      </main>
-
-    </body>
-</html>

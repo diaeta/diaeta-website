@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang | default('fr') }}"> {# Sets language from page data, defaults to 'fr' #}
+<html lang="{{ lang | default('fr') }}" dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}"> {# Sets language from page data and direction #}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,26 @@
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
 
+    {# Optional robots control (e.g., "noindex, nofollow") #}
+    {% if robots %}
+    <meta name="robots" content="{{ robots }}">
+    {% endif %}
+
+    {# Canonical URL #}
+    {% set siteBase = 'https://diaeta.be' %}
+    {% if page and page.url %}
+    <link rel="canonical" href="{{ siteBase }}{{ (page.url | lower) | replace('index.html', '') }}">
+    {% endif %}
+
+    {# Preconnect for performance #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="preload" href="/images/logo.svg" as="image">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
@@ -38,6 +54,43 @@
     </style>
     {% endif %}
 
+    {# Open Graph and Twitter Cards #}
+    {% set ogImage = og_image or '/images/weightloss-hero-large-optimized.jpg' %}
+    <meta property="og:type" content="website">
+    {% if page and page.url %}
+    <meta property="og:url" content="{{ siteBase }}{{ (page.url | lower) | replace('index.html', '') }}">
+    {% endif %}
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ ogImage }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ ogImage }}">
+
+    {# Hreflang alternates for homepages only #}
+    {% set urlLower = page.url | lower %}
+    {% set isHome = urlLower == '/en/' or urlLower == '/en/index.html' or urlLower == '/fr/' or urlLower == '/fr/index.html' or urlLower == '/nl/' or urlLower == '/nl/index.html' or urlLower == '/de/' or urlLower == '/de/index.html' or urlLower == '/ar/' or urlLower == '/ar/index.html' %}
+    {% if isHome %}
+      <link rel="alternate" hreflang="en" href="{{ siteBase }}/en/">
+      <link rel="alternate" hreflang="fr-be" href="{{ siteBase }}/fr/">
+      <link rel="alternate" hreflang="nl-be" href="{{ siteBase }}/nl/">
+      <link rel="alternate" hreflang="de-be" href="{{ siteBase }}/de/">
+      <link rel="alternate" hreflang="ar" href="{{ siteBase }}/ar/">
+      <link rel="alternate" hreflang="x-default" href="{{ siteBase }}/en/">
+    {% endif %}
+
+    {# LCP: Preload English homepage hero image with srcset #}
+    {% set isEnHome = urlLower == '/en/' or urlLower == '/en/index.html' %}
+    {% if isEnHome %}
+      <link rel="preload" as="image" href="/images/hero-background-medium-optimized.jpg"
+            imagesrcset="/images/hero-background-small.webp 480w, /images/hero-background-medium-optimized.webp 1024w, /images/hero-background-large-optimized.webp 1440w"
+            imagesizes="100vw" fetchpriority="high">
+    {% endif %}
+
+    {# Allow pages to inject extra <head> content via frontmatter 'head_extra' #}
+    {{ head_extra | safe }}
+
     {# Favicons - IMPORTANT: Paths are root-relative #}
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -46,7 +99,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-  "@type": "DietNutrition",
+  "@type": ["Organization", "MedicalBusiness"],
   "@id": "https://diaeta.be#organization",
   "name": "Diaeta",
   "url": "https://diaeta.be/{% if lang == 'en' %}en/{% elif lang == 'nl' %}nl/{% else %}fr/{% endif %}",
@@ -73,7 +126,7 @@
   "medicalSpecialty": "DietNutrition",
   "founder": {
     "@type": "Person",
-    "@id": "https://diaeta.be/{% if lang == 'en' %}en/our-expertise/{% elif lang == 'nl' %}nl/onze-expertise/{% else %}fr/notre-expertise/{% endif %}#person"
+    "@id": "https://diaeta.be/{% if lang == 'en' %}en/our-expertise/{% elif lang == 'nl' %}nl/onze-expertise/{% elif lang == 'de' %}de/unsere-expertise/{% elif lang == 'ar' %}ar/خبرتنا/{% else %}fr/notre-expertise/{% endif %}#person"
   },
   "makesOffer": [
     {% if lang == 'en' %}
@@ -95,9 +148,34 @@
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maîtrise de l'Hypertension & du Cholestérol", "url": "https://diaeta.be/fr/hypertension-cholesterol/"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tests Nutrigénétiques", "url": "https://diaeta.be/fr/tests-nutrigenetiques/"}}
     {% endif %}
-  ]
-}
-</script>
+    ]
+    }
+    </script>
+
+    {# Optional: Person entity for E‑E‑A‑T if author data is available #}
+    {% set author_en = authors_en and authors_en['pierre-abou-zeid'] %}
+    {% set author_nl = authors_nl and authors_nl['pierre-abou-zeid'] %}
+    {% set author_fr = authors and authors['pierre-abou-zeid'] %}
+    {% set author_de = authors_de and authors_de['pierre-abou-zeid'] %}
+    {% set author_ar = authors_ar and authors_ar['pierre-abou-zeid'] %}
+    {% set author = (lang == 'en' and author_en) or (lang == 'nl' and author_nl) or (lang == 'de' and author_de) or (lang == 'ar' and author_ar) or author_fr %}
+    {% if author %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://diaeta.be/{% if lang == 'en' %}en/our-expertise/{% elif lang == 'nl' %}nl/onze-expertise/{% elif lang == 'de' %}de/unsere-expertise/{% elif lang == 'ar' %}ar/خبرتنا/{% else %}fr/notre-expertise/{% endif %}#person",
+      "name": "{{ author.name }}",
+      "jobTitle": "{{ author.jobTitle }}",
+      "url": "https://diaeta.be{{ author.url }}",
+      "image": "https://diaeta.be{{ author.image }}",
+      "worksFor": { "@id": "https://diaeta.be#organization" },
+      "sameAs": {{ (author.sameAs or []) | dump | safe }},
+      "knowsAbout": ["Weight loss nutrition", "IBS FODMAP", "Type 2 diabetes", "Cholesterol management"],
+      "medicalSpecialty": "DietNutrition"
+    }
+    </script>
+    {% endif %}
 
 <script type="application/ld+json">
 {
@@ -119,6 +197,7 @@
 
 </head>
 <body>
+    <a href="#main-content" class="skip-link">{% if lang == 'en' %}Skip to main content{% elif lang == 'nl' %}Ga naar hoofdinhoud{% elif lang == 'de' %}Zum Hauptinhalt springen{% elif lang == 'ar' %}الانتقال إلى المحتوى الرئيسي{% else %}Aller au contenu principal{% endif %}</a>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     {# Include the header partial based on language #}
@@ -190,6 +269,15 @@
 
     {# Shared floating action buttons #}
     {% include "partials/floating-actions.njk" %}
+
+    {# Respect reduced motion: show a static image element instead of autoplay video #}
+    <style>
+      .hero-fallback-image { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      @media (prefers-reduced-motion: reduce) {
+        #hero-video { display: none !important; }
+        .hero-fallback-image { display: block !important; }
+      }
+    </style>
 
     <div id="cookieConsentContainer" style="display: none;">
         {% if lang == 'en' %}
