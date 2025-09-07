@@ -196,7 +196,7 @@
 </script>
 
 </head>
-<body>
+<body{% if page and ((page.url | lower) == '/en/' or (page.url | lower) == '/en/index.html' or (page.url | lower) == '/fr/' or (page.url | lower) == '/fr/index.html' or (page.url | lower) == '/nl/' or (page.url | lower) == '/nl/index.html' or (page.url | lower) == '/de/' or (page.url | lower) == '/de/index.html' or (page.url | lower) == '/ar/' or (page.url | lower) == '/ar/index.html') %} class="home home-{{ lang }}"{% endif %}>
     <a href="#main-content" class="skip-link">{% if lang == 'en' %}Skip to main content{% elif lang == 'nl' %}Ga naar hoofdinhoud{% elif lang == 'de' %}Zum Hauptinhalt springen{% elif lang == 'ar' %}الانتقال إلى المحتوى الرئيسي{% else %}Aller au contenu principal{% endif %}</a>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 

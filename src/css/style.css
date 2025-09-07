@@ -186,6 +186,273 @@ body {
   padding-top: 80px; /* Account for fixed header */
 }
 
+/* --- English Home Visual Polish (scoped to .home-en) --- */
+/* Goal: elevate first impression with refined, premium feel
+   without impacting other languages/pages. */
+
+/* Hero glass card + deeper overlay for legibility */
+.home-en .hero-overlay {
+  background: radial-gradient(1200px 600px at 30% 10%, rgba(0, 17, 20, 0.35), rgba(0, 17, 20, 0.75)),
+              linear-gradient(180deg, rgba(0, 17, 20, 0.15), rgba(0, 17, 20, 0.6));
+}
+
+/* Apply hero glass card primarily on mobile/tablet to avoid desktop layout shifts */
+@media (max-width: 991px) {
+  .home-en .hero-content {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(10px) saturate(110%);
+  }
+}
+
+  background: rgba(var(--primary-rgb), 0.08);
+  border: 1px solid rgba(var(--primary-rgb), 0.18);
+  color: var(--primary-700);
+}
+
+.home-en .hero-headline {
+  color: #0c4248;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  letter-spacing: var(--tracking-tight);
+}
+
+@media (min-width: 992px) {
+  .home-en .hero-headline { font-size: clamp(2.25rem, 1.6rem + 2vw, 3.25rem); }
+  .home-en .hero-tagline { font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.35rem); }
+}
+
+/* CTA: premium gradient + subtle lift */
+.home-en .hero-cta .btn-primary {
+  background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.28);
+}
+
+.home-en .hero-cta .btn-primary:hover,
+.home-en .hero-cta .btn-primary:focus {
+  background: linear-gradient(135deg, var(--primary-600), var(--accent-600));
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(var(--primary-rgb), 0.35);
+}
+
+.home-en .hero-cta .btn.btn-outline {
+  border-color: rgba(var(--primary-rgb), 0.25);
+  color: var(--primary-700);
+  background: rgba(255,255,255,0.7);
+}
+
+/* Feature badges: softer, more cohesive */
+.home-en .feature-badges .badge {
+  background: #ffffff;
+  color: var(--primary-800);
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Ensure hero badges render above decorative overlays */
+.home-en .feature-badges { position: relative; z-index: 4; }
+.home-en .feature-badges .badge::before,
+.home-en .feature-badges .badge::after { display: none; }
+.home-en .feature-badges .badge i { color: var(--primary-600); }
+
+/* Section headers: refined pill and underline */
+.home-en .section-header .section-badge {
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--primary-700);
+  border: 1px solid rgba(var(--primary-rgb), 0.16);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+}
+
+.home-en .section-header .section-title { color: var(--primary-700); }
+.home-en .section-header .section-title::after { background-color: var(--accent-500); }
+
+/* Marquee badges: more minimal */
+.home-en .hero-metrics-marquee .badge {
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: var(--primary-800);
+}
+
+/* Testimonials: editorial card treatment */
+.home-en .testimonial-carousel .carousel-container {
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+  box-shadow: 0 16px 44px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.home-en .testimonial-card.featured {
+  background: radial-gradient(600px 300px at 20% -10%, rgba(var(--primary-rgb), 0.06), transparent),
+              linear-gradient(180deg, var(--neutral-50), white);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.home-en .testimonial-card .quote-icon { color: var(--primary-600); opacity: 0.85; }
+.home-en .testimonial-card .author-avatar { border-color: var(--primary-200); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.home-en .testimonial-card .result-badge { background: rgba(var(--accent-rgb), 0.1); border: 1px solid rgba(var(--accent-rgb), 0.25); }
+
+.home-en .carousel-nav .nav-btn {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Pricing cards: unify and de-inline look where possible */
+.home-en .pricing-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.10);
+}
+
+.home-en .pricing-card .pricing-header {
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+}
+
+.home-en .pricing-card .badge,
+.home-en .pricing-card .feature-item {
+  background: rgba(var(--primary-rgb), 0.06);
+  border: 1px solid rgba(var(--primary-rgb), 0.14);
+}
+
+/* Dividers: lighter and longer fade */
+.home-en .section-divider { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent); }
+.home-en .section-divider-thick { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.12), transparent); }
+
+/* Fine-tuned typography rhythm: keep defaults to avoid contrast issues */
+
+/* Ensure sufficient contrast on hero over video */
+@media (max-width: 767px) {
+  .home-en .hero-content { background: rgba(255,255,255,0.92); }
+}
+
+/* Transparent header on hero, solid on scroll (English home only) */
+.home-en .site-header {
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-en .site-header.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.home-en .site-header:not(.scrolled) .nav-link,
+.home-en .site-header:not(.scrolled) .phone-link,
+.home-en .site-header:not(.scrolled) .phone-link i,
+.home-en .site-header:not(.scrolled) .lang-toggle,
+.home-en .site-header:not(.scrolled) .menu-toggle,
+.home-en .site-header:not(.scrolled) .search-form button {
+  color: #f6fbfc;
+}
+
+.home-en .site-header:not(.scrolled) .nav-link:hover,
+.home-en .site-header:not(.scrolled) .nav-link:focus,
+.home-en .site-header:not(.scrolled) .nav-link.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.home-en .site-header:not(.scrolled) .search-form input {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.35);
+  color: #ffffff;
+}
+.home-en .site-header:not(.scrolled) .search-form input::placeholder { color: rgba(255,255,255,0.8); }
+
+.home-en .site-header:not(.scrolled) .header-cta,
+.home-en .site-header:not(.scrolled) .btn-secondary.header-cta {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.36) !important;
+  box-shadow: none;
+}
+
+/* --- Hotfix: restore header/menu visibility and hero layout on EN home --- */
+/* Force solid header and default menu contrast regardless of scroll state */
+.home-en .site-header {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+.home-en .site-header .nav-link,
+.home-en .site-header .phone-link,
+.home-en .site-header .phone-link i,
+.home-en .site-header .lang-toggle,
+.home-en .site-header .menu-toggle,
+.home-en .site-header .search-form button {
+  color: var(--text-primary) !important;
+}
+.home-en .site-header .search-form input {
+  background: #ffffff !important;
+  border-color: #ccc !important;
+  color: var(--text-primary) !important;
+}
+.home-en .site-header .header-cta,
+.home-en .site-header .btn-secondary.header-cta {
+  background-color: var(--primary-500) !important;
+  border-color: var(--primary-500) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3) !important;
+}
+
+/* Remove glass card/overlay to restore original hero layout/colors */
+.home-en .hero-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.home-en .hero-overlay { background: none !important; }
+
+/* Pricing section cleanup */
+.home-en .pricing-section.pricing-bg {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 100%);
+  padding: var(--space-10) 0;
+}
+
+.home-en .pricing-card {
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.home-en .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 14px 44px rgba(0,0,0,0.14); }
+
+.home-en .pricing-card .pricing-header { color: #ffffff; }
+.home-en .pricing-card .pricing-header { background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); }
+.home-en .pricing-card .pricing-header.is-secondary { background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600)); }
+.home-en .pricing-card .pricing-header.is-accent { background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); }
+
+/* Specialized program and info cards */
+.home-en .specialized-program-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+  border: 1px solid var(--primary-200);
+  overflow: hidden;
+}
+.home-en .program-header { background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); color: #ffffff; }
+.home-en .step-card { background: var(--primary-50); border-radius: 15px; }
+.home-en .step-number { width: 40px; height: 40px; background: var(--primary-500); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: bold; }
+.home-en .step-number.step-number--accent { background: var(--accent-500); }
+.home-en .step-number.step-number--secondary { background: var(--secondary-500); }
+.home-en .program-aside { background: rgba(255,255,255,0.9); border-left: 1px solid rgba(0,0,0,0.1); }
+.home-en .consultation-note { background: var(--accent-100); border-radius: 16px; border: 1px solid var(--accent-200); }
+
+.home-en .special-offer-card { background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: #ffffff; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.home-en .info-card { background: #ffffff; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid var(--secondary-100); }
+
+/* Pricing header subtitle width */
+.home-en .pricing-section .section-subtitle { max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Featured pricing card emphasis */
+.home-en .pricing-card.pricing-card-featured { border: 2px solid var(--accent-100); }
+
+/* Advanced option block */
+.home-en .advanced-option-card { background: linear-gradient(135deg, var(--accent-50), var(--primary-50)); border-radius: 24px; box-shadow: 0 15px 50px rgba(0,0,0,0.08); border: 2px solid var(--accent-200); overflow: hidden; }
+.home-en .option-icon { width: 70px; height: 70px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.home-en .option-chip { background: rgba(255,255,255,0.6); border-radius: 12px; }
+
 h1,
 h2,
 h3,
