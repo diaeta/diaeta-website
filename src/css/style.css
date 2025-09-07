@@ -675,6 +675,7 @@ p {
   background-color: rgba(var(--primary-rgb), 0.08);
   color: var(--primary-700);
   border: 1px solid rgba(var(--primary-rgb), 0.16);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .section-header .section-badge { display: inline-flex; margin: 0 auto 1rem; }
@@ -13154,4 +13155,5 @@ footer.footer .footer-col--contacts .footer-book-btn {
   background-color: rgba(255,255,255,0.18);
   border-color: rgba(255,255,255,0.32);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
