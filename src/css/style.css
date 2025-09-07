@@ -659,21 +659,25 @@ p {
   z-index: 2;
 }
 
-.section-badge {
-  display: block; /* Make it a block element */
-  width: fit-content; /* Or max-width: max-content; ensure it doesn't stretch full width */
-  margin-left: auto; /* Center the block element */
-  margin-right: auto; /* Center the block element */
-  margin-bottom: 1rem; /* Keep the bottom margin */
-  /* ... keep other existing styles like padding, background-color, color, border-radius etc. ... */
+/* Unified badge look for headers/hero labels */
+.section-badge,
+.hero-badge,
+.rd-hero-badge,
+.hero-badge-mobile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1.25rem;
-  background-color: rgba(var(--accent-rgb), 0.1);
-  color: var(--accent-700);
-  border-radius: 50px;
-  font-weight: 500;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
+  background-color: rgba(var(--primary-rgb), 0.08);
+  color: var(--primary-700);
+  border: 1px solid rgba(var(--primary-rgb), 0.16);
 }
+
+.section-header .section-badge { display: inline-flex; margin: 0 auto 1rem; }
 
 .section-title {
   font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
@@ -4357,18 +4361,7 @@ section {
 }
 
 /* Hero Badge */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  background-color: rgba(140, 198, 63, 0.15);
-  border: 1px solid rgba(140, 198, 63, 0.3);
-  border-radius: 50px;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #8cc63f;
-}
+.hero-badge { margin-bottom: 1.25rem; }
 
 .hero-badge-icon {
   margin-right: 0.5rem;
@@ -13155,4 +13148,10 @@ footer.footer .footer-col--contacts .footer-heading {
 /* Ensure the book button is centered specifically in the contacts column */
 footer.footer .footer-col--contacts .footer-book-btn {
   align-self: center !important;
+}
+.hero-section .hero-badge,
+.knowledge-hub-hero .hero-badge {
+  background-color: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.32);
+  color: #fff;
 }
