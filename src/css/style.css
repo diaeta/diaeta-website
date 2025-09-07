@@ -229,6 +229,21 @@ p {
   margin-bottom: var(--space-4);
 }
 
+/* Section title: unified look across pages */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  color: var(--primary-700);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-3xl);
+}
+
+@media (min-width: 768px) {
+  .section-title { font-size: var(--text-4xl); }
+}
+
 /* Section header consistency */
 .section-header {
   display: flex;
