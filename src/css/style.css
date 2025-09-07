@@ -237,6 +237,7 @@ p {
   text-align: center;
 }
 .section-header .badge { order: 1; margin-bottom: var(--space-3); }
+.section-header .section-badge { order: 1; margin-bottom: var(--space-3); }
 .section-header .section-title { order: 2; }
 .section-header .section-subtitle, .section-header .canvas-subtitle { order: 3; max-width: 60ch; color: var(--text-secondary); }
 
