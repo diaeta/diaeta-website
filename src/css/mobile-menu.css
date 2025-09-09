@@ -1,0 +1,108 @@
+/* Floating Orb Menu - Innovative Mobile Experience */
+@media (max-width: 991.98px) {
+  .menu-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-500);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu-toggle i {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .site-header.menu-open .menu-toggle {
+    background-color: var(--primary-700);
+  }
+
+  .site-header.menu-open .menu-toggle i {
+    transform: rotate(45deg);
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1040;
+    padding-top: 60px; 
+    overflow-y: auto;
+  }
+
+  .site-header.menu-open .main-nav {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease;
+  }
+
+  .main-nav .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .main-nav .nav-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    margin: 15px 0;
+  }
+
+  .site-header.menu-open .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Staggered animation for nav items */
+  .site-header.menu-open .nav-item:nth-child(1) { transition-delay: 0.2s; }
+  .site-header.menu-open .nav-item:nth-child(2) { transition-delay: 0.25s; }
+  .site-header.menu-open .nav-item:nth-child(3) { transition-delay: 0.3s; }
+  .site-header.menu-open .nav-item:nth-child(4) { transition-delay: 0.35s; }
+  .site-header.menu-open .nav-item:nth-child(5) { transition-delay: 0.4s; }
+  .site-header.menu-open .nav-item:nth-child(6) { transition-delay: 0.45s; }
+  .site-header.menu-open .nav-item:nth-child(7) { transition-delay: 0.5s; }
+  .site-header.menu-open .nav-item:nth-child(8) { transition-delay: 0.55s; }
+
+  .main-nav .nav-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-800);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  /* Hide dropdown menus by default */
+  .main-nav .dropdown-menu {
+    display: none !important;
+  }
+
+  /* Override existing mobile styles */
+  .site-header.menu-open .main-nav {
+    transform: none;
+  }
+}
