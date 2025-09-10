@@ -104,6 +104,24 @@ document.addEventListener('DOMContentLoaded', function() {
     clearTimeout(__arrowResizeTO);
     __arrowResizeTO = setTimeout(() => { try { addDropdownArrows(); } catch(e) { /* noop */ } }, 150);
   });
+
+  // New Expertise Accordion Logic
+  const expertiseCards = document.querySelectorAll('.expertise-card');
+  if (expertiseCards.length > 0) {
+      expertiseCards.forEach(card => {
+          const header = card.querySelector('.expertise-card-header');
+          header.addEventListener('click', () => {
+              // Close other open cards
+              expertiseCards.forEach(otherCard => {
+                  if (otherCard !== card && otherCard.classList.contains('active')) {
+                      otherCard.classList.remove('active');
+                  }
+              });
+              // Toggle current card
+              card.classList.toggle('active');
+          });
+      });
+  }
 });
 
 function initializeAdvancedCookieConsent() {

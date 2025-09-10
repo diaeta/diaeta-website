@@ -6391,7 +6391,6 @@ section {
   box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
   text-decoration: none;
 }
-
 .learn-more-btn:hover {
   background-color: var(--primary-600);
   transform: translateY(-3px);
@@ -12641,6 +12640,46 @@ section {
   
 
 }
+
+/* Spacing overrides for Expertise Page for better breathing room */
+.expertise-layout {
+  gap: var(--space-8) !important;
+}
+
+.expertise-sidebar .sidebar-sticky-content,
+.sidebar-credentials {
+  gap: var(--space-6) !important;
+}
+.sidebar-profile,
+.expertise-section {
+  padding: var(--space-7) !important;
+}
+
+.sidebar-credentials {
+    padding: var(--space-6) !important;
+}
+
+.expertise-content {
+  gap: var(--space-8) !important;
+}
+
+.expertise-title {
+  margin-bottom: var(--space-5) !important;
+  padding-bottom: var(--space-5) !important;
+}
+
+.commitment-grid {
+  gap: var(--space-6) !important;
+}
+
+.commitment-card {
+  gap: var(--space-4) !important;
+}
+
+.expertise-list {
+  gap: var(--space-5) !important;
+}
+
 @media (max-width: 480px) {
   .journey-step .step-icon {
     width: 80px;
