@@ -207,10 +207,7 @@ body {
   }
 }
 
-  background: rgba(var(--primary-rgb), 0.08);
-  border: 1px solid rgba(var(--primary-rgb), 0.18);
-  color: var(--primary-700);
-}
+
 
 .home-en .hero-headline {
   color: #0c4248;
@@ -364,10 +361,10 @@ body {
 
 .home-en .site-header:not(.scrolled) .header-cta,
 .home-en .site-header:not(.scrolled) .btn-secondary.header-cta {
-  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: var(--primary-500) !important;
+  border-color: var(--primary-500) !important;
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.36) !important;
-  box-shadow: none;
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3) !important;
 }
 
 /* --- Hotfix: restore header/menu visibility and hero layout on EN home --- */
@@ -395,6 +392,15 @@ body {
   border-color: var(--primary-500) !important;
   color: #ffffff !important;
   box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3) !important;
+}
+
+/* Ensure hover state stays green on EN home nav CTA */
+.home-en .site-header .header-cta:hover,
+.home-en .site-header .btn-secondary.header-cta:hover {
+  background-color: var(--primary-600) !important;
+  border-color: var(--primary-600) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.35) !important;
 }
 
 /* Remove glass card/overlay to restore original hero layout/colors */
@@ -9662,8 +9668,6 @@ section {
 }
 
 /* In style.css */
-
-.cta-equal-width-group { /* parent flex container for equal-width CTAs */ }
 
 .cta-equal-width-group .cta-genetic-test {
   flex-grow: 1; /* This makes flex items grow to fill available space */
