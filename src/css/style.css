@@ -795,7 +795,6 @@ p {
   color: white;
   box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
 }
-
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: var(--primary-600);
@@ -1584,7 +1583,6 @@ p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
-
 .clinic-cta .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -1598,7 +1596,6 @@ p {
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   box-shadow: 0 4px 15px rgba(0, 109, 119, 0.3);
 }
-
 .clinic-cta .btn-primary:hover {
   background-color: #005a63;
   transform: translateY(-3px);
@@ -2384,7 +2381,6 @@ footer.footer .footer-links > li {
 footer.footer .footer-links > li:first-child {
   margin-top: 0; /* Remove top margin from first list item */
 }
-
 /* footer.footer .footer-links > li:hover {
   transform: translateX(5px);
 } */
@@ -2399,7 +2395,6 @@ footer.footer .footer-links > li::before {
   flex-shrink: 0; /* Important for consistent spacing */
   /* No transform needed here if hover is on li */
 }
-
 footer.footer .footer-links > li:hover::before {
   opacity: 1;
 }
@@ -3126,6 +3121,114 @@ footer.footer .footer-legal-link:hover::after {
   .proximity-board { grid-template-columns: 1fr; }
 }
 
+/* Blueprint Comparison Section */
+.blueprint-section {
+  padding: var(--space-8) 0;
+  background-color: var(--neutral-50);
+}
+
+.blueprint-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-7);
+}
+
+.blueprint-column {
+  background-color: var(--neutral-0);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.blueprint-column:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.blueprint-column--diaeta {
+  border-top: 4px solid var(--primary-500);
+  background: linear-gradient(to bottom, white, var(--primary-50));
+}
+
+.blueprint-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.blueprint-header h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin: 0;
+  color: var(--neutral-700);
+}
+
+.blueprint-column--diaeta .blueprint-header h3 {
+  color: var(--primary-700);
+}
+
+.blueprint-header .icon-old {
+  font-size: 2rem;
+  color: var(--neutral-400);
+}
+
+.blueprint-header .icon-diaeta {
+  font-size: 2rem;
+  color: var(--primary-500);
+}
+
+.blueprint-card {
+  background-color: transparent;
+  padding: var(--space-4) 0;
+  border-bottom: 1px dashed var(--neutral-200);
+}
+
+.blueprint-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.blueprint-card h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: var(--space-2);
+}
+
+.blueprint-card p {
+  font-size: var(--text-md);
+  color: var(--neutral-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.blueprint-column--diaeta .blueprint-card h4 {
+  color: var(--primary-800);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .blueprint-comparison {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .blueprint-column {
+    padding: var(--space-5);
+  }
+  .blueprint-header h3 {
+    font-size: var(--text-lg);
+  }
+  .blueprint-card h4 {
+    font-size: 1.05rem;
+  }
+}
 /* Genetic section cleanup */
 #nutrigenetic-testing { background-color: var(--primary-50); }
 #nutrigenetic-testing .section-header > .badge { margin-bottom: 1.25rem; }
@@ -3890,7 +3993,6 @@ with a more specific selector.
   background-color: var(--neutral-200);
   flex-shrink: 0;
 }
-
 .lang-option:hover,
 .lang-option:focus {
   background-color: rgba(var(--primary-rgb), 0.05);
@@ -3906,7 +4008,6 @@ with a more specific selector.
 .lang-option.active::before {
   background-color: var(--primary-500);
 }
-
 /* Mobile Navigation */
 .menu-toggle {
   display: none !important;
@@ -4690,7 +4791,6 @@ section {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
 }
-
 .text-highlight {
   color: #e29578;
   font-weight: 500;
@@ -4708,7 +4808,6 @@ section {
   background-color: rgba(226, 149, 120, 0.3);
   transition: height 0.3s ease;
 }
-
 .text-highlight:hover {
   color: #e29578;
 }
@@ -5491,7 +5590,6 @@ section {
   background-color: #8cc63f;
   color: white;
 }
-
 .pillar-content {
   flex-grow: 1;
 }
@@ -5508,7 +5606,6 @@ section {
   color: #616161;
   line-height: 1.5;
 }
-
 /* CTA styles */
 .science-cta {
   display: flex;
@@ -6309,7 +6406,6 @@ section {
 .learn-more-btn:hover i {
   transform: translateX(4px);
 }
-
 .list-styled-check li {
   list-style-type: none;
   position: relative;
@@ -7083,7 +7179,6 @@ section {
     min-height: 700px; /* Increase min-height for stacked layout */
   }
 }
-
 @media (max-width: 767px) {
   .success-title {
     font-size: 2rem;
@@ -7838,7 +7933,6 @@ section {
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
-
 /* Responsive Adjustments for Success Stories (Images Above Text Layout) */
 
 @media (max-width: 767px) {
@@ -8624,7 +8718,6 @@ section {
   background-color: rgba(var(--accent-rgb), 0.1);
   color: var(--accent-500);
 }
-
 /* Responsive for location cards */
 @media (max-width: 767px) {
   .rd-step-section .section-title {
@@ -9416,7 +9509,6 @@ section {
     /* overflow-y: auto; */
     /* padding-right: 10px; /* Space for scrollbar if it appears */
 }
-
 /* Styles for the new card design are in style.css under .cabinet-explorer-card */
 /* Ensure they are comprehensive. */
 
@@ -10957,7 +11049,6 @@ section {
   color: var(--primary-600);
   font-weight: 600;
 }
-
 /* Enhanced Final CTA Section */
 .final-cta-section {
   padding: 5rem 0;
@@ -11759,7 +11850,6 @@ section {
   transition: all 0.3s ease;
   position: relative;
 }
-
 .network-node:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
@@ -12551,7 +12641,6 @@ section {
   
 
 }
-
 @media (max-width: 480px) {
   .journey-step .step-icon {
     width: 80px;
@@ -13309,7 +13398,6 @@ section:not(.hero-section) {
 .hero-desktop {
     display: none !important;
 }
-
 /* Mobile-First Responsive Design */
 @media (min-width: 768px) {
     .hero-mobile-container {
@@ -13354,7 +13442,6 @@ section:not(.hero-section) {
         z-index: 1;
     }
 }
-
 /* Force mobile layout on small screens */
 @media (max-width: 767px) {
     .hero-desktop {
@@ -13444,4 +13531,75 @@ footer.footer .footer-col--contacts .footer-book-btn {
   border-color: rgba(255,255,255,0.32);
   color: #fff;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Action Section & Scenario Cards */
+.action-section {
+  padding: var(--space-8) 0;
+}
+
+.scenario-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.scenario-card {
+  background-color: var(--neutral-0);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-300);
+}
+
+.scenario-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  cursor: pointer;
+  background-color: var(--neutral-100);
+}
+
+.scenario-header .scenario-icon {
+  font-size: 1.75rem;
+  color: var(--primary-500);
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+}
+
+.scenario-header h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--primary-800);
+  margin: 0;
+}
+
+.scenario-header p {
+  font-size: var(--text-md);
+  color: var(--neutral-600);
+  margin: 0;
+  margin-top: var(--space-1);
+}
+
+.scenario-body {
+  padding: var(--space-5);
+  padding-top: var(--space-2);
+  line-height: 1.7;
+}
+
+.scenario-body p {
+  margin-bottom: var(--space-3);
+}
+
+.scenario-body p:last-child {
+  margin-bottom: 0;
 }
