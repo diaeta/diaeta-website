@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "byterover": {
+      "command": "byterover-mcp",
+      "args": [
+        "--port", "5174",
+        "--byterover-public-api-key", "YOUR_API_KEY",
+        "--user-id", "YOUR_USER_ID"
+      ]
+    }
+  }
+}

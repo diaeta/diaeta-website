@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "byterover": {
+      "command": "byterover-mcp",
+      "args": [
+        "--port", "5174",
+        "--user-id", "codex-local"
+      ]
+    }
+  }
+}
