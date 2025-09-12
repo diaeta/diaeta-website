@@ -1,0 +1,93 @@
+---
+layout: layouts/base.njk
+title: Hydration and Beverages for Weight Management | Diaeta
+description: Learn about the importance of hydration for weight loss, daily water targets, and how to make smart choices between caloric and non-caloric beverages.
+lang: en
+permalink: /en/weight-loss/hydration-and-beverages.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <!-- Link to global and hub-specific stylesheets -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/weight-loss-hub.css' | url }}">
+</head>
+<body>
+    <!-- Assuming a global header is included via the build process -->
+    {% include "partials/header.njk" %}
+
+    <main>
+        <header class="wl-topic-page-header">
+            <div class="container">
+                <h1>Hydration & Beverages</h1>
+                <p class="wl-topic-updated-date">Updated: 2025-09-12</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <nav class="wl-topic-toc">
+                        <!-- TOC will be dynamically generated here -->
+                        <h5>On this page</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="#hydration-targets">Daily Hydration Targets</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#beverage-choices">Caloric vs. Non-Caloric Beverages</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#alcohol">Alcohol and Weight Management</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <div class="wl-topic-content">
+                        <section class="wl-topic-key-takeaways">
+                            <h3>Key Takeaways</h3>
+                            <ul>
+                                <li>Adequate hydration is crucial for metabolism, performance, and appetite control.</li>
+                                <li>Prioritize non-caloric beverages like water, herbal tea, and black coffee.</li>
+                                <li>Be mindful of liquid calories from sugary drinks, juices, and alcohol, as they contribute to calorie intake without providing much satiety.</li>
+                                <li>If you choose to drink alcohol, do so in moderation and account for the calories.</li>
+                            </ul>
+                        </section>
+
+                        <section id="hydration-targets">
+                            <h2>Daily Hydration Targets</h2>
+                            <p><strong>Why it matters:</strong> Proper hydration is essential for optimal health and can support weight management. Water is involved in nearly every bodily process, including metabolism. Dehydration can sometimes be mistaken for hunger, leading to unnecessary snacking. Staying hydrated can also improve exercise performance, allowing you to burn more calories.</p>
+                            <p><strong>How to apply:</strong> Aim for a general target of around 2-3 liters (about 8-12 glasses) of fluid per day, adjusting for activity level, climate, and body size. A more personalized target is approximately 30 mL of water per kg of body weight. Listen to your body's thirst signals and check your urine color—pale yellow is a good indicator of proper hydration. Spreading your fluid intake throughout the day is more effective than drinking large amounts at once.</p>
+                        </section>
+
+                        <section id="beverage-choices">
+                            <h2>Caloric vs. Non-Caloric Beverages</h2>
+                            <p><strong>Why it matters:</strong> Liquid calories can easily sabotage weight loss efforts because they don't provide the same level of satiety as solid food. Sugary drinks, fruit juices, specialty coffees, and sodas can add hundreds of "empty" calories to your daily intake without you feeling full. Choosing non-caloric beverages is one of the simplest and most effective ways to reduce your overall calorie consumption.</p>
+                            <p><strong>How to apply:</strong> Make water your primary beverage. Unsweetened tea (herbal, green, black) and black coffee are also excellent zero-calorie options. If you dislike plain water, try infusing it with fruit slices, cucumber, or mint. Opt for diet sodas or sparkling water to satisfy cravings for carbonation. Be a detective with beverage labels to uncover hidden sugars and calories.</p>
+                        </section>
+
+                        <section id="alcohol">
+                            <h2>Alcohol and Weight Management</h2>
+                            <p><strong>Why it matters:</strong> Alcohol contributes calories (7 kcal per gram) without offering significant nutritional value. It can also stimulate appetite, lower inhibitions, and lead to poor food choices. The body prioritizes metabolizing alcohol, temporarily pausing fat burning. Frequent or excessive alcohol consumption can therefore significantly hinder weight loss progress.</p>
+                            <p><strong>How to apply:</strong> If you drink alcohol, do so in moderation and be sure to account for the calories. A standard drink (a small beer, a glass of wine, or a shot of spirits) contains roughly 100-150 calories. Opt for lighter choices like a spirit with a zero-calorie mixer, a light beer, or a dry wine. Avoid sugary cocktails. Plan ahead and factor alcoholic drinks into your daily or weekly calorie budget.</p>
+                        </section>
+
+                        <section id="references">
+                            <h3>References</h3>
+                            <p><small>Content derived from the <em>Comprehensive Evidence-Based Weight Management Guide (Brussels, 2025)</em> and <em>Weight Management: A Comprehensive Guide</em>. Full citations available in source documents.</small></p>
+                        </section>
+                    </div>
+                    
+                    <nav class="wl-topic-nav">
+                        <a href="{{ '/en/weight-loss/dietary-patterns.html' | url }}" class="btn btn-outline-primary">&larr; Prev: Dietary Patterns</a>
+                        <a href="{{ '/en/weight-loss/physical-activity-and-movement.html' | url }}" class="btn btn-primary">Next: Physical Activity &rarr;</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assuming a global footer is included via the build process -->
+    {% include "partials/footer.njk" %}
+
+</body>
+</html>

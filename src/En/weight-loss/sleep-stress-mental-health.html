@@ -1,0 +1,93 @@
+---
+layout: layouts/base.njk
+title: Sleep, Stress, and Mental Health in Weight Management | Diaeta
+description: Explore the critical connection between sleep, stress, and mental health, and learn practical strategies to support your weight management journey.
+lang: en
+permalink: /en/weight-loss/sleep-stress-mental-health.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <!-- Link to global and hub-specific stylesheets -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/weight-loss-hub.css' | url }}">
+</head>
+<body>
+    <!-- Assuming a global header is included via the build process -->
+    {% include "partials/header.njk" %}
+
+    <main>
+        <header class="wl-topic-page-header">
+            <div class="container">
+                <h1>Sleep, Stress, and Mental Health</h1>
+                <p class="wl-topic-updated-date">Updated: 2025-09-12</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <nav class="wl-topic-toc">
+                        <!-- TOC will be dynamically generated here -->
+                        <h5>On this page</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="#sleep">The Role of Sleep</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#stress-eating">Stress and Emotional Eating</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#support-environment">Supportive Environment</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <div class="wl-topic-content">
+                        <section class="wl-topic-key-takeaways">
+                            <h3>Key Takeaways</h3>
+                            <ul>
+                                <li>Chronic poor sleep disrupts appetite hormones, increases cravings, and hinders weight loss.</li>
+                                <li>Stress can drive emotional eating and increase fat storage, particularly in the abdominal area.</li>
+                                <li>Developing non-food coping mechanisms for stress is essential for long-term success.</li>
+                                <li>A supportive environment and positive mental state are foundational to navigating the challenges of weight management.</li>
+                            </ul>
+                        </section>
+
+                        <section id="sleep">
+                            <h2>The Role of Sleep</h2>
+                            <p><strong>Why it matters:</strong> Lack of quality sleep is a major, often overlooked, barrier to weight loss. Chronic sleep deprivation disrupts the hormones that regulate appetite: it increases ghrelin (the "hunger" hormone) and decreases leptin (the "fullness" hormone). This hormonal shift makes you feel hungrier and less satisfied by the food you eat. Furthermore, fatigue reduces willpower and increases cravings for high-calorie, high-sugar comfort foods.</p>
+                            <p><strong>How to apply:</strong> Prioritize getting 7-9 hours of quality sleep per night. Establish a consistent sleep schedule, even on weekends. Create a relaxing bedtime routine to wind down, such as reading a book, taking a warm bath, or practicing light stretching. Make your bedroom a sanctuary for sleep: keep it dark, quiet, and cool. Avoid caffeine and heavy meals late in the evening, and limit screen time before bed, as the blue light can interfere with melatonin production.</p>
+                        </section>
+
+                        <section id="stress-eating">
+                            <h2>Stress Physiology and Emotional Eating</h2>
+                            <p><strong>Why it matters:</strong> Chronic stress elevates the hormone cortisol, which can increase appetite, drive cravings for "hyper-palatable" (salty, sugary, fatty) foods, and promote the storage of visceral fat in the abdomen. Many people use food as a coping mechanism for stress, boredom, or sadness—a pattern known as emotional eating. This can lead to a cycle of feeling stressed, overeating, feeling guilty, and then feeling more stressed.</p>
+                            <p><strong>How to apply:</strong> Develop a toolkit of non-food coping strategies for stress. This could include activities like going for a walk, listening to music, practicing deep breathing or meditation, journaling, or talking to a friend. It's also important to identify your emotional eating triggers. When you feel the urge to eat but aren't physically hungry, pause and ask yourself what you're truly feeling. Addressing the underlying emotion is more effective than temporarily soothing it with food.</p>
+                        </section>
+
+                        <section id="support-environment">
+                            <h2>Supportive Environment and Mental Health</h2>
+                            <p><strong>Why it matters:</strong> Your environment and mindset play a huge role in your success. A supportive social network can provide encouragement and accountability. Conversely, a negative or unsupportive environment can sabotage your efforts. Your mental state is also key; a weight loss journey filled with self-criticism and guilt is unlikely to be sustainable. Cultivating self-compassion is crucial.</p>
+                            <p><strong>How to apply:</strong> Surround yourself with supportive people. Let your friends and family know about your goals and how they can help. Structure your physical environment for success by keeping healthy foods visible and accessible, while making less healthy options less convenient. Practice self-compassion: treat yourself with the same kindness and understanding you would offer a friend. Acknowledge that setbacks are a normal part of the process and use them as learning opportunities rather than reasons to give up.</p>
+                        </section>
+
+                        <section id="references">
+                            <h3>References</h3>
+                            <p><small>Content derived from the <em>Comprehensive Evidence-Based Weight Management Guide (Brussels, 2025)</em> and <em>Weight Management: A Comprehensive Guide</em>. Full citations available in source documents.</small></p>
+                        </section>
+                    </div>
+                    
+                    <nav class="wl-topic-nav">
+                        <a href="{{ '/en/weight-loss/physical-activity-and-movement.html' | url }}" class="btn btn-outline-primary">&larr; Prev: Physical Activity</a>
+                        <a href="{{ '/en/weight-loss/behavior-change-and-adherence.html' | url }}" class="btn btn-primary">Next: Behavior Change &rarr;</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assuming a global footer is included via the build process -->
+    {% include "partials/footer.njk" %}
+
+</body>
+</html>

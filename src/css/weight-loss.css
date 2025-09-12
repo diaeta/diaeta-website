@@ -1,0 +1,369 @@
+/* 
+  Dedicated stylesheet for the Weight-Loss Knowledge Hub.
+  Filename: /src/css/weight-loss.css
+*/
+
+:root[data-page="weight-loss"] {
+  /* Primary Palette: Professional, Calming Slate Blue */
+  --wl-primary-50: #f8fafc;
+  --wl-primary-100: #f1f5f9;
+  --wl-primary-200: #e2e8f0;
+  --wl-primary-300: #cbd5e1;
+  --wl-primary-400: #94a3b8;
+  --wl-primary-500: #64748b;
+  --wl-primary-600: #475569; /* Primary Base */
+  --wl-primary-700: #334155;
+  --wl-primary-800: #1e293b;
+  --wl-primary-900: #0f172a;
+  --wl-primary-rgb: 71, 85, 105;
+
+  /* Accent Palette: Energetic, Motivating Amber */
+  --wl-accent-50: #fffbeb;
+  --wl-accent-100: #fef3c7;
+  --wl-accent-200: #fde68a;
+  --wl-accent-300: #fcd34d;
+  --wl-accent-400: #fbbf24;
+  --wl-accent-500: #f59e0b; /* Accent Base */
+  --wl-accent-600: #d97706;
+  --wl-accent-700: #b45309;
+  --wl-accent-800: #92400e;
+  --wl-accent-900: #78350f;
+  --wl-accent-rgb: 245, 158, 11;
+
+  /* Semantic Colors */
+  --wl-bg: #f8fafc; /* Page background */
+  --wl-surface: #ffffff; /* Card and panel backgrounds */
+  --wl-text: #1e293b; /* Main text color */
+  --wl-muted: #64748b; /* Muted/secondary text color */
+  --wl-border: #e2e8f0; /* Border color */
+
+  --wl-success: #16a34a; /* Green for success states */
+  --wl-warning: #facc15; /* Yellow for warnings */
+  --wl-error:   #dc2626; /* Red for errors */
+
+  /* Typography & Layout */
+  --wl-font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wl-font-serif: 'Playfair Display', serif;
+  --wl-line-height: 1.6;
+  --wl-border-radius: 0.75rem; /* 12px */
+  --wl-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --wl-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --wl-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body[data-page="weight-loss"] {
+    background-color: var(--wl-bg);
+    color: var(--wl-text);
+    font-family: var(--wl-font-sans);
+    line-height: var(--wl-line-height);
+}
+
+/* Main Layout */
+.wl-hub-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.wl-toc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.wl-main-content {
+    flex-grow: 1;
+    min-width: 0; /* Prevents overflow issues */
+}
+
+/* Typography */
+.wl-main-title {
+    font-family: var(--wl-font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--wl-primary-800);
+    margin-bottom: 0.5rem;
+}
+
+.wl-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    color: var(--wl-muted);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: var(--wl-font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--wl-primary-700);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Sections */
+.wl-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--wl-border);
+}
+
+.wl-section:last-child {
+    border-bottom: none;
+}
+
+/* Anchor Links */
+.wl-anchor-link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.wl-anchor-link::after {
+    content: '#';
+    opacity: 0;
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+    color: var(--wl-accent-500);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.wl-anchor-link:hover::after {
+    opacity: 1;
+}
+
+/* Table of Contents */
+.wl-toc {
+    position: sticky;
+    top: 2rem;
+}
+
+.wl-toc h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wl-muted);
+    margin-bottom: 1rem;
+}
+
+.wl-toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    border-left: 2px solid var(--wl-border);
+}
+
+.wl-toc li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--wl-muted);
+    transition: all 0.2s ease-in-out;
+}
+
+.wl-toc li a:hover {
+    color: var(--wl-primary-700);
+    background-color: var(--wl-primary-50);
+}
+
+.wl-toc li a.active {
+    color: var(--wl-accent-600);
+    font-weight: 600;
+    border-left: 2px solid var(--wl-accent-500);
+    transform: translateX(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .wl-hub-container {
+        flex-direction: column;
+    }
+
+    .wl-toc-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    
+    .wl-toc {
+      /* Will be converted to a dropdown/drawer on mobile */
+      position: relative; 
+      top: 0;
+    }
+}
+
+/* === INTERACTIVE COMPONENTS === */
+
+/* Search and Filters */
+.wl-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--wl-border);
+}
+
+.wl-search-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--wl-border);
+    border-radius: var(--wl-border-radius);
+    font-size: 1rem;
+}
+
+.wl-tag-filters {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.wl-tag {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--wl-border);
+    background-color: var(--wl-surface);
+    color: var(--wl-muted);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+
+.wl-tag:hover {
+    background-color: var(--wl-primary-50);
+    color: var(--wl-primary-700);
+}
+
+.wl-tag.active {
+    background-color: var(--wl-primary-600);
+    color: white;
+    border-color: var(--wl-primary-600);
+}
+
+/* Cards */
+.wl-card {
+    background-color: var(--wl-surface);
+    border: 1px solid var(--wl-border);
+    border-radius: var(--wl-border-radius);
+    box-shadow: var(--wl-shadow-sm);
+    margin-bottom: 1.5rem;
+}
+
+.wl-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+.wl-card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--wl-primary-800);
+}
+
+/* Accordion */
+.wl-accordion-toggle {
+    background: none;
+    border: none;
+    color: var(--wl-accent-500);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.wl-accordion-content {
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--wl-border);
+}
+
+/* CTA */
+.wl-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.wl-btn-primary {
+    background-color: var(--wl-primary-600);
+    color: white;
+}
+
+.wl-btn-primary:hover {
+    background-color: var(--wl-primary-700);
+}
+
+.wl-cta-box {
+    background-color: var(--wl-primary-50);
+    padding: 2rem;
+    border-radius: var(--wl-border-radius);
+    text-align: center;
+}
+
+.wl-trust-note {
+    font-size: 0.9rem;
+    color: var(--wl-muted);
+    margin-top: 1rem;
+}
+
+.wl-last-updated {
+    font-size: 0.9rem;
+    color: var(--wl-muted);
+    margin-bottom: 1rem;
+}
+
+.wl-resources-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.wl-resource-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--wl-primary-50);
+    color: var(--wl-primary-700);
+    border-radius: var(--wl-border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.wl-resource-link:hover {
+    background-color: var(--wl-primary-100);
+}
+
+/* === CALCULATORS === */
+.wl-calculator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: end;
+}
+
+.wl-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.wl-form-group label {
+    font-size: 0.9rem;
+    color: var(--wl-muted);
+    margin-bottom: 0.25rem;
+}
+
+.wl-form-group input,
+.wl-form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--wl-border);
+    border-radius: var(--wl-border-radius);
+}
+
+.wl-result {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--wl-primary-50);
+    border-radius: var(--wl-border-radius);
+}

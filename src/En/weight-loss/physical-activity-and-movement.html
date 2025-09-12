@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+title: Physical Activity and Movement for Weight Loss | Diaeta
+description: Learn about the four pillars of physical activity for weight loss, including aerobic exercise, resistance training, NEAT, and setting weekly targets.
+lang: en
+permalink: /en/weight-loss/physical-activity-and-movement.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <!-- Link to global and hub-specific stylesheets -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/weight-loss-hub.css' | url }}">
+</head>
+<body>
+    <!-- Assuming a global header is included via the build process -->
+    {% include "partials/header.njk" %}
+
+    <main>
+        <header class="wl-topic-page-header">
+            <div class="container">
+                <h1>Physical Activity & Movement</h1>
+                <p class="wl-topic-updated-date">Updated: 2025-09-12</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <nav class="wl-topic-toc">
+                        <!-- TOC will be dynamically generated here -->
+                        <h5>On this page</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="#four-pillars">Four Pillars of Movement</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#weekly-targets">Weekly Activity Targets</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#form-safety">Form and Safety</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <div class="wl-topic-content">
+                        <section class="wl-topic-key-takeaways">
+                            <h3>Key Takeaways</h3>
+                            <ul>
+                                <li>Physical activity is a crucial partner to nutrition for sustainable weight loss and overall health.</li>
+                                <li>A balanced routine includes aerobic exercise, resistance training, and increasing daily non-exercise activity (NEAT).</li>
+                                <li>Aim for at least 150 minutes of moderate-intensity aerobic activity and 2 strength training sessions per week.</li>
+                                <li>Focus on proper form and listen to your body to prevent injury and ensure long-term consistency.</li>
+                            </ul>
+                        </section>
+
+                        <section id="four-pillars">
+                            <h2>The Four Pillars of Movement</h2>
+                            <p><strong>Why it matters:</strong> A well-rounded approach to physical activity incorporates different types of movement for maximum benefit. Diet is the primary driver of weight loss, but exercise is critical for maintaining muscle mass, improving metabolic health, and long-term weight maintenance.</p>
+                            <ul>
+                                <li><strong>Aerobic Exercise (Cardio):</strong> Activities like brisk walking, running, cycling, and swimming directly burn calories and are excellent for heart health.</li>
+                                <li><strong>Resistance Training (Strength):</strong> Lifting weights, using bands, or doing bodyweight exercises is essential for building and preserving muscle. More muscle increases your resting metabolic rate.</li>
+                                <li><strong>NEAT (Non-Exercise Activity Thermogenesis):</strong> This is all the movement you do that isn't formal exercise, like fidgeting, walking to the printer, or taking the stairs. Increasing NEAT can significantly boost your daily calorie burn.</li>
+                                <li><strong>Flexibility and Mobility:</strong> Stretching and mobility work help prevent injury and improve range of motion, allowing you to perform other exercises safely and effectively.</li>
+                            </ul>
+                        </section>
+
+                        <section id="weekly-targets">
+                            <h2>Weekly Activity Targets</h2>
+                            <p><strong>Why it matters:</strong> Having clear, evidence-based targets helps you structure your week and ensure you're doing enough to reap the benefits without overdoing it. Consistency is more important than intensity.</p>
+                            <p><strong>How to apply:</strong> Aim to meet the general physical activity guidelines. This typically includes:</p>
+                            <ul>
+                                <li><strong>At least 150 minutes of moderate-intensity aerobic activity</strong> (like a brisk walk where you can talk but not sing) OR <strong>75 minutes of vigorous-intensity activity</strong> (like running) per week. Spread this out over several days.</li>
+                                <li><strong>At least two total-body resistance training sessions</strong> per week on non-consecutive days.</li>
+                                <li><strong>Increase your daily NEAT.</strong> A simple goal is to increase your daily step count. If you currently average 4,000 steps, aim for 6,000, and gradually work your way up towards 8,000-10,000. Use a fitness tracker or your phone to monitor your steps.</li>
+                            </ul>
+                        </section>
+
+                        <section id="form-safety">
+                            <h2>Form, Safety, and Adherence</h2>
+                            <p><strong>Why it matters:</strong> Proper form is crucial to prevent injury, which could derail your progress for weeks or months. Starting slowly and listening to your body ensures that exercise remains a positive and sustainable part of your life.</p>
+                            <p><strong>How to apply:</strong> If you're new to exercise, start with lighter weights and fewer reps. Consider working with a qualified trainer for a few sessions to learn correct form for key exercises. Always warm up before and cool down after your workouts. Most importantly, choose activities you genuinely enjoy. Adherence is the most critical factor for long-term success, so find a form of movement that you look forward to doing.</p>
+                        </section>
+
+                        <section id="references">
+                            <h3>References</h3>
+                            <p><small>Content derived from the <em>Comprehensive Evidence-Based Weight Management Guide (Brussels, 2025)</em> and <em>Weight Management: A Comprehensive Guide</em>. Full citations available in source documents.</small></p>
+                        </section>
+                    </div>
+                    
+                    <nav class="wl-topic-nav">
+                        <a href="{{ '/en/weight-loss/hydration-and-beverages.html' | url }}" class="btn btn-outline-primary">&larr; Prev: Hydration</a>
+                        <a href="{{ '/en/weight-loss/sleep-stress-mental-health.html' | url }}" class="btn btn-primary">Next: Sleep & Stress &rarr;</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assuming a global footer is included via the build process -->
+    {% include "partials/footer.njk" %}
+
+</body>
+</html>

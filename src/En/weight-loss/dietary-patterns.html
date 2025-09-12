@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+title: Dietary Patterns for Weight Loss | Diaeta
+description: Discover various evidence-based dietary patterns for sustainable weight loss, including the Mediterranean diet, higher-protein, lower-carb, and plant-based approaches.
+lang: en
+permalink: /en/weight-loss/dietary-patterns.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <!-- Link to global and hub-specific stylesheets -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/weight-loss-hub.css' | url }}">
+</head>
+<body>
+    <!-- Assuming a global header is included via the build process -->
+    {% include "partials/header.njk" %}
+
+    <main>
+        <header class="wl-topic-page-header">
+            <div class="container">
+                <h1>Dietary Patterns for Weight Loss</h1>
+                <p class="wl-topic-updated-date">Updated: 2025-09-12</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <nav class="wl-topic-toc">
+                        <!-- TOC will be dynamically generated here -->
+                        <h5>On this page</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="#mediterranean-diet">Mediterranean Diet</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#higher-protein">Higher-Protein Diets</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#lower-carb">Lower-Carbohydrate Diets</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#plant-forward">Plant-Forward Diets</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#other-patterns">Other Notable Patterns</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <div class="wl-topic-content">
+                        <section class="wl-topic-key-takeaways">
+                            <h3>Key Takeaways</h3>
+                            <ul>
+                                <li>The Mediterranean diet, rich in vegetables, healthy fats, and lean protein, is a heart-healthy and sustainable pattern for weight loss.</li>
+                                <li>Higher-protein diets are particularly effective for preserving muscle mass and managing hunger during a calorie deficit.</li>
+                                <li>Lower-carbohydrate and lower-fat diets can both be effective; success depends on adherence and overall calorie intake.</li>
+                                <li>Plant-forward diets, rich in fiber and volume, can be very effective for weight management and offer numerous health benefits.</li>
+                                <li>The 'best' diet is the one that you can stick to, provides balanced nutrition, and fits your cultural and personal preferences.</li>
+                            </ul>
+                        </section>
+
+                        <section id="mediterranean-diet">
+                            <h2>The Mediterranean Diet</h2>
+                            <p><strong>Why it matters:</strong> This pattern emphasizes vegetables, fruits, whole grains, legumes, fish, and heart-healthy fats like olive oil. It has a strong evidence base for cardiovascular health and is effective for weight management. It works by encouraging high-fiber, high-volume foods and healthy fats that increase satiety. Its flexibility and palatability make it highly sustainable.</p>
+                            <p><strong>How to apply:</strong> Make vegetables the star of most meals, use olive oil as your primary fat, eat legumes and fish regularly, and choose whole grains. A typical meal plate would be 50% vegetables, 25% lean protein, and 25% whole-grain starch. This pattern is not about strict exclusion but about prioritizing nutrient-dense, flavorful foods in moderate portions.</p>
+                        </section>
+
+                        <section id="higher-protein">
+                            <h2>Higher-Protein Diet</h2>
+                            <p><strong>Why it matters:</strong> A higher-protein diet (25-30% of calories, or 1.6-2.2 g/kg body weight) is particularly effective for preserving muscle and managing hunger during weight loss. Studies consistently show it leads to greater fat loss and less muscle loss compared to lower-protein diets. People also tend to feel more satisfied and naturally eat fewer calories.</p>
+                            <p><strong>How to apply:</strong> This approach builds on the fundamentals by ensuring every meal is centered around a significant protein source (20-40g). It doesn't mean eliminating carbs or fats, but rather ensuring protein needs are met first to support metabolism and control appetite effectively.</p>
+                        </section>
+
+                        <section id="lower-carb">
+                            <h2>Lower-Carbohydrate Diets</h2>
+                            <p><strong>Why it matters:</strong> Lower-carb diets can be an effective tool for some individuals, particularly those with insulin resistance. By reducing carbohydrates, the body shifts to using fat for fuel, which can help with appetite control and may lead to rapid initial water weight loss, which can be motivating. However, long-term success compared to other diets is similar and depends on adherence.</p>
+                            <p><strong>How to apply:</strong> A lower-carb approach typically involves replacing starches and sugars with more protein, healthy fats, and non-starchy vegetables. It's important to focus on the quality of fats and proteins and ensure adequate fiber from vegetables. This is not a 'no-carb' diet but a 'controlled-carb' one.</p>
+                        </section>
+                        
+                        <section id="plant-forward">
+                            <h2>Plant-Forward/Vegetarian/Vegan Diets</h2>
+                            <p><strong>Why it matters:</strong> Plant-based diets are naturally rich in fiber, water, and nutrients, and tend to be lower in calorie density. This makes them very effective for weight management, as you can eat large, satisfying volumes of food. They are also linked to numerous health benefits, including lower risks of heart disease and certain cancers.</p>
+                            <p><strong>How to apply:</strong> Focus on whole plant foods: vegetables, fruits, legumes, whole grains, nuts, and seeds. Ensure adequate protein from sources like beans, lentils, tofu, and tempeh. A well-planned plant-based diet can easily meet all nutritional needs while creating a natural calorie deficit due to the high satiety of fiber-rich foods.</p>
+                        </section>
+
+                        <section id="other-patterns">
+                            <h2>Other Notable Dietary Patterns</h2>
+                            <p><strong>Why it matters:</strong> Many other patterns can be effective, such as Intermittent Fasting (which helps control calories by limiting the eating window), Low Energy Density diets (an application of volume eating), or the DASH diet (designed for hypertension but great for overall health). The underlying principle for all successful diets is the creation of a consistent calorie deficit.</p>
+                            <p><strong>How to apply:</strong> The key is to find a pattern that aligns with your lifestyle, preferences, and health needs. Whether it's the structure of time-restricted eating or the food choices of a Mediterranean plate, adherence is paramount. Transitioning gradually and focusing on the principles (protein, fiber, whole foods) rather than rigid rules is the best path to long-term success.</p>
+                        </section>
+
+                        <section id="references">
+                            <h3>References</h3>
+                            <p><small>Content derived from the <em>Comprehensive Evidence-Based Weight Management Guide (Brussels, 2025)</em> and <em>Weight Management: A Comprehensive Guide</em>. Full citations available in source documents.</small></p>
+                        </section>
+                    </div>
+                    
+                    <nav class="wl-topic-nav">
+                        <a href="{{ '/en/weight-loss/advanced-nutrition-concepts.html' | url }}" class="btn btn-outline-primary">&larr; Prev: Advanced Nutrition</a>
+                        <a href="{{ '/en/weight-loss/hydration-and-beverages.html' | url }}" class="btn btn-primary">Next: Hydration &rarr;</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assuming a global footer is included via the build process -->
+    {% include "partials/footer.njk" %}
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+title: Health Conditions and Medications Affecting Weight | Diaeta
+description: Understand how common health conditions like hypothyroidism and PCOS, as well as certain medications, can influence weight management and how to adapt your strategy.
+lang: en
+permalink: /en/weight-loss/health-conditions-and-medications.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <!-- Link to global and hub-specific stylesheets -->
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/weight-loss-hub.css' | url }}">
+</head>
+<body>
+    <!-- Assuming a global header is included via the build process -->
+    {% include "partials/header.njk" %}
+
+    <main>
+        <header class="wl-topic-page-header">
+            <div class="container">
+                <h1>Health Conditions & Medications</h1>
+                <p class="wl-topic-updated-date">Updated: 2025-09-12</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <nav class="wl-topic-toc">
+                        <!-- TOC will be dynamically generated here -->
+                        <h5>On this page</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="#health-conditions">Common Health Conditions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#medications">Medications Influencing Weight</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#adjuncts">Medical Adjuncts to Lifestyle</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-9">
+                    <div class="wl-topic-content">
+                        <section class="wl-topic-key-takeaways">
+                            <h3>Key Takeaways</h3>
+                            <ul>
+                                <li>Certain health conditions like hypothyroidism and PCOS can make weight management more challenging, but not impossible.</li>
+                                <li>Proper medical treatment for underlying conditions is the first and most crucial step.</li>
+                                <li>Some medications can cause weight gain as a side effect; discuss concerns and alternatives with your doctor.</li>
+                                <li>Weight management strategies can be successfully adapted to account for these medical factors.</li>
+                            </ul>
+                        </section>
+
+                        <section id="health-conditions">
+                            <h2>Common Health Conditions and Weight</h2>
+                            <p><strong>Why it matters:</strong> Unmanaged health conditions can significantly impact metabolism and appetite, making weight loss more difficult. It's important to recognize these factors and address them with your healthcare provider. Losing weight is not simply a matter of willpower when underlying biology is a factor.</p>
+                            <ul>
+                                <li><strong>Hypothyroidism:</strong> An underactive thyroid slows down metabolism, which can lead to weight gain and make weight loss harder.</li>
+                                <li><strong>PCOS (Polycystic Ovary Syndrome):</strong> This condition is often associated with insulin resistance, which can promote fat storage and increase hunger and cravings.</li>
+                                <li><strong>Menopause:</strong> Hormonal shifts during peri/menopause can lead to a decrease in muscle mass, a slower metabolism, and increased fat storage around the abdomen.</li>
+                            </ul>
+                            <p><strong>How to apply:</strong> The most important step is to work with your doctor to ensure your condition is properly managed with medication or other treatments. Once the underlying condition is medically controlled, the standard principles of weight management (calorie deficit, protein, exercise) are still effective, though you may need to be more diligent with your plan.</p>
+                        </section>
+
+                        <section id="medications">
+                            <h2>Medications Influencing Weight</h2>
+                            <p><strong>Why it matters:</strong> A number of common medications can have weight gain as a side effect. This can happen through various mechanisms, including increased appetite, fluid retention, or changes in metabolism. Being aware of this possibility is important so you don't mistakenly blame yourself for a lack of progress.</p>
+                            <p><strong>How to apply:</strong> If you suspect a medication is contributing to weight gain, do not stop taking it. Instead, have an open conversation with your prescribing doctor. Discuss your concerns and ask if there are alternative medications that might not have the same side effect. Sometimes, the benefits of a medication outweigh the side effect, in which case a more focused effort on diet and exercise may be needed to counteract the medication's effects.</p>
+                        </section>
+
+                        <section id="adjuncts">
+                            <h2>Anti-Obesity Medications & Bariatric Surgery</h2>
+                            <p><strong>Why it matters:</strong> For individuals with significant obesity or obesity-related health problems, lifestyle changes alone may not be enough. In these cases, medical treatments like anti-obesity medications or bariatric surgery can be powerful and life-saving tools when used in conjunction with diet and exercise.</p>
+                            <p><strong>How to apply:</strong> These are medical decisions that must be made in close consultation with a doctor or a specialized medical team. They are typically considered for individuals with a high BMI or those with serious health conditions related to their weight. These treatments are not a substitute for lifestyle changes but rather tools to make those changes more effective.</p>
+                        </section>
+                        
+                        <section id="references">
+                            <h3>References</h3>
+                            <p><small>Content derived from the <em>Comprehensive Evidence-Based Weight Management Guide (Brussels, 2025)</em> and <em>Weight Management: A Comprehensive Guide</em>. Full citations available in source documents.</small></p>
+                        </section>
+                    </div>
+                    
+                    <nav class="wl-topic-nav">
+                        <a href="{{ '/en/weight-loss/plateaus-and-problem-solving.html' | url }}" class="btn btn-outline-primary">&larr; Prev: Plateaus</a>
+                        <a href="{{ '/en/weight-loss/eating-disorders-and-risk-screening.html' | url }}" class="btn btn-primary">Next: Risk Screening &rarr;</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Assuming a global footer is included via the build process -->
+    {% include "partials/footer.njk" %}
+
+</body>
+</html>

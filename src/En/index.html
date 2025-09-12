@@ -9,6 +9,7 @@ head_extra: |
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "inLanguage": "en",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -19,19 +20,37 @@ head_extra: |
     ]
   }
   </script>
-  <script type="application/ld+json">
+  <script type="application/json" data-disabled="migrated-faq">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "inLanguage": "en",
     "mainEntity": [
       {"@type":"Question","name":"Do I need a doctor’s referral to see a dietitian?","acceptedAnswer":{"@type":"Answer","text":"No referral is required in Belgium to book a dietitian appointment. If helpful, we coordinate with your GP or specialist and can work with a medical prescription when provided."}},
       {"@type":"Question","name":"Are consultations reimbursed?","acceptedAnswer":{"@type":"Answer","text":"Many Belgian mutual health funds offer partial reimbursement for dietitian consultations. Amounts and conditions vary by insurer. We provide compliant receipts/attestations; please check your mutual fund for details."}},
       {"@type":"Question","name":"How long does a session last and what’s included?","acceptedAnswer":{"@type":"Answer","text":"The first consultation is about 60 minutes; follow‑ups are typically 40 or 30 minutes. Sessions include a health and lifestyle assessment, body composition analysis when applicable, goal setting, and a personalized, evidence‑based plan."}},
-      {"@type":"Question","name":"Do you offer video consultations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Secure video consultations provide the same quality of care and follow‑up, with flexible daytime and evening availability. Book via /en/appointment/."}},
+      {"@type":"Question","name":"Do you offer video consultations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Secure video consultations provide the same quality of care and follow‑up, with flexible daytime and evening availability. Book via https://diaeta.be/en/appointment/."}},
       {"@type":"Question","name":"Which conditions do you treat?","acceptedAnswer":{"@type":"Answer","text":"We specialize in sustainable weight loss, IBS (Low FODMAP), Type 2 diabetes, and cholesterol/hypertension. Plans are personalized and evidence‑based."}},
-      {"@type":"Question","name":"Where are the clinics located?","acceptedAnswer":{"@type":"Answer","text":"Across Brussels (e.g., Ixelles, Uccle, Woluwe, Koekelberg, Berchem‑Sainte‑Agathe). See /en/locations/ for the full list and map."}},
+      {"@type":"Question","name":"Where are the clinics located?","acceptedAnswer":{"@type":"Answer","text":"Across Brussels (e.g., Ixelles, Uccle, Woluwe, Koekelberg, Berchem‑Sainte‑Agathe). See https://diaeta.be/en/locations/ for the full list and map."}},
       {"@type":"Question","name":"What should I bring to my first appointment?","acceptedAnswer":{"@type":"Answer","text":"If available: recent labs, a list of medications/supplements, medical reports, and a 3‑day food diary. Otherwise, just come as you are."}},
-      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Please notify at least 24 hours in advance to cancel or reschedule. Late cancellations may incur a fee; see /en/tariffs/ for details."}}
+      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Please notify at least 24 hours in advance to cancel or reschedule. Late cancellations may incur a fee; see https://diaeta.be/en/tariffs/ for details."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "en",
+    "mainEntity": [
+      {"@type":"Question","name":"Do I need a doctor’s referral to see a dietitian?","acceptedAnswer":{"@type":"Answer","text":"No referral is required in Belgium to book a dietitian appointment. If helpful, we coordinate with your GP or specialist and can work with a medical prescription when provided."}},
+      {"@type":"Question","name":"Are consultations reimbursed?","acceptedAnswer":{"@type":"Answer","text":"Many Belgian mutual health funds offer partial reimbursement for dietitian consultations. Amounts and conditions vary by insurer. We provide compliant receipts/attestations; please check your mutual fund for details."}},
+      {"@type":"Question","name":"How long does a session last and what’s included?","acceptedAnswer":{"@type":"Answer","text":"The first consultation is about 60 minutes; follow-ups are typically 40 or 30 minutes. Sessions include a health and lifestyle assessment, body composition analysis when applicable, goal setting, and a personalized, evidence-based plan."}},
+      {"@type":"Question","name":"Do you offer video consultations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Secure video consultations provide the same quality of care and follow-up, with flexible daytime and evening availability. Book via https://diaeta.be/en/appointment/."}},
+      {"@type":"Question","name":"Which conditions do you treat?","acceptedAnswer":{"@type":"Answer","text":"We specialize in sustainable weight loss, IBS (Low FODMAP), Type 2 diabetes, and cholesterol/hypertension. Plans are personalized and evidence-based."}},
+      {"@type":"Question","name":"Where are the clinics located?","acceptedAnswer":{"@type":"Answer","text":"Across Brussels (e.g., Ixelles, Uccle, Woluwe, Koekelberg, Berchem-Sainte-Agathe). See https://diaeta.be/en/locations/ for the full list and map."}},
+      {"@type":"Question","name":"What should I bring to my first appointment?","acceptedAnswer":{"@type":"Answer","text":"If available: recent labs, a list of medications/supplements, medical reports, and a 3-day food diary. Otherwise, just come as you are."}},
+      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Please notify at least 24 hours in advance to cancel or reschedule. Late cancellations may incur a fee; see https://diaeta.be/en/tariffs/ for details."}}
     ]
   }
   </script>
@@ -41,6 +60,7 @@ head_extra: |
     "@type": "WebSite",
     "url": "https://diaeta.be/en/",
     "name": "Diaeta",
+    "inLanguage": "en",
     "publisher": {
       "@type": "Organization",
       "@id": "https://diaeta.be#organization"
@@ -57,7 +77,7 @@ head_extra: |
       <section class="hero-section">
         <!-- Mobile-First Hero Background -->
         <div class="hero-background">
-            <video autoplay muted loop playsinline preload="none" poster="/images/hero-background-medium-optimized.jpg" id="hero-video">
+            <video autoplay muted loop playsinline preload="none" poster="/images/hero-background-medium-optimized.jpg" id="hero-video" aria-hidden="true" tabindex="-1">
                 <source src="/videos/Background video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -102,8 +122,8 @@ head_extra: |
             
             <!-- Content Section -->
             <div class="hero-content-mobile">
-                <h1 class="hero-headline-mobile">Personalized Nutrition,<br>Backed by Science</h1>
-                <p class="hero-tagline-mobile">Empowering you to achieve lasting health results through compassionate, evidence-based dietetic care.</p>
+                <h1 class="hero-headline-mobile" aria-hidden="true">Personalized Nutrition,<br>Backed by Medical Science</h1>
+                <p class="hero-tagline-mobile">We help you build sustainable habits for IBS, Weight Management, Type 2 Diabetes, and Cholesterol - clear guidance, compassion, and no fad promises.</p>
                 
                 <div class="hero-features-mobile">
                     <div class="feature-item">
@@ -122,11 +142,11 @@ head_extra: |
                 
                 <div class="hero-cta-mobile">
                     <a href="/en/appointment/" class="btn btn-primary-mobile">
-                        <span>Book Your Consultation</span>
+                        <span>Book a Consultation</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>
                     <a href="#approach" class="btn btn-secondary-mobile scroll-to">
-                        <span>Learn More</span>
+                        <span>Explore Our Services</span>
                         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </a>
                                   </div>
@@ -186,8 +206,8 @@ head_extra: |
                           </div>
             <div class="container hero-content">
                 <div class="hero-badge animate-on-scroll fade-in"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i><span>Evidence-Based Care</span></div>
-                <h1 class="hero-headline animate-on-scroll fade-up">Personalized Nutrition, Backed by Science—For Your Health Journey</h1>
-                <p class="hero-tagline animate-on-scroll fade-up delay-200">Empowering you to achieve lasting results through compassionate, evidence-based dietetic care. We specialize in IBS, Weight Management, Diabetes, and Cholesterol – blending modern technology with a human touch to guide you every step of the way. No fad diets, no false promises – just a sustainable approach that fits your life.</p>
+                <h1 class="hero-headline animate-on-scroll fade-up">Personalized Nutrition, Backed by Medical Science</h1>
+                <p class="hero-tagline animate-on-scroll fade-up delay-200">We help you build sustainable habits for IBS, Weight Management, Type 2 Diabetes, and Cholesterol - clear guidance, compassion, and no fad promises.</p>
                 <div class="hero-description animate-on-scroll fade-up delay-300"><p>Looking for an English-speaking dietitian in Brussels? At Diaeta, we combine <span class="text-highlight">evidence-based science</span> with <span class="text-highlight">genuine care</span> to create solutions that work for you.</p></div>
                 <div class="feature-badges animate-on-scroll fade-up delay-400">
                     <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-microscope" aria-hidden="true"></i><span>Scientific Approach</span></span>
@@ -195,8 +215,8 @@ head_extra: |
                     <span class="badge badge--pill badge--md badge--soft badge--primary"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i><span>Fully Personalized</span></span>
                                   </div>
                 <div class="hero-cta animate-on-scroll fade-up delay-500">
-                    <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book Your Consultation</span><i class="fa-solid fa-arrow-right btn-icon-right" aria-hidden="true"></i></a>
-                    <a href="#approach" class="btn btn-outline scroll-to"><span>Discover our approach</span><i class="fa-solid fa-chevron-right btn-icon-right" aria-hidden="true"></i></a>
+                    <a href="/en/appointment/" class="btn btn-primary pulse-animation"><span>Book a Consultation</span><i class="fa-solid fa-arrow-right btn-icon-right" aria-hidden="true"></i></a>
+                    <a href="#approach" class="btn btn-outline scroll-to"><span>Explore Our Services</span><i class="fa-solid fa-chevron-right btn-icon-right" aria-hidden="true"></i></a>
                               </div>
                                   </div>
             <div class="hero-metrics-marquee" role="region" aria-label="Health outcomes">
@@ -225,8 +245,8 @@ head_extra: |
       <div class="container">
           <div class="section-header animate-on-scroll fade-up">
               <span class="section-badge"><i class="fa-solid fa-user-shield" aria-hidden="true"></i>Our Philosophy</span>
-              <h2 class="section-title">Why Trust Diaeta with Your Nutrition?</h2>
-              <p class="section-subtitle">Our practice is led by a registered dietitian (INAMI-accredited) with a passion for helping others. We combine years of professional experience with cutting-edge knowledge—including Monash University Low-FODMAP certification for IBS. We believe in expertise and empathy: translating complex science into clear guidance while listening without judgment. Your privacy is sacred, and you’ll always receive honest, evidence-backed recommendations, free from sponsored fads.</p>
+              <h2 class="section-title">Why choose Diaeta? What makes our approach different?</h2>
+              <p class="section-subtitle">Diaeta offers medically-supported, personalized nutrition programs for IBS, Weight Loss, and Metabolic Health - combining diagnostic insights and AI-assisted support with a compassionate, non-restrictive approach. Led by a Registered Dietitian (INAMI/RIZIV) and Monash-trained in Low-FODMAP for IBS; your privacy and cultural respect are central to our care.</p>
           </div>
 
           <div class="canvas-surface philosophy-orbit">
@@ -286,7 +306,7 @@ head_extra: |
               </div>
 
               <div class="philosophy-cta">
-                  <a href="/en/appointment/" class="btn btn-primary" aria-label="Book an initial consultation"><span>Book Your Consultation</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
+                  <a href="/en/appointment/" class="btn btn-primary" aria-label="Book an initial consultation"><span>Book a Consultation</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
                   <a href="/en/diaeta-method/" class="btn btn-outline" aria-label="Discover the Diaeta method"><span>See how our method helps you</span></a>
               </div>
           </div>
@@ -299,8 +319,8 @@ head_extra: |
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
             <span class="section-badge"><i class="fa-solid fa-bullseye" aria-hidden="true"></i>Targeted Solutions</span>
-          <h2 class="section-title">Specialized Nutritional Guidance in Brussels</h2>
-          <p class="section-subtitle">Struggling with weight loss, IBS, or diabetes? You're not alone. As specialized dietitians in Brussels, we design supportive, evidence-based eating plans that you can follow with confidence and without judgment.</p>
+          <h2 class="section-title">Which nutrition services do we offer in Brussels?</h2>
+          <p class="section-subtitle">Looking for help with weight loss, IBS, or diabetes? We design supportive, evidence-based plans you can follow with confidence and without judgment.</p>
         </div>
 
         <div class="atlas" aria-label="Our Specialties">
@@ -316,7 +336,7 @@ head_extra: |
               <div class="panel-visual"><img decoding="async" src="../images/perte-de-poids-diaeta-medium.jpg" alt="A positive and sustainable weight loss approach" loading="lazy" width="640" height="360"></div>
               <div class="panel-body">
                 <h3 class="panel-title" itemprop="name">Sustainable Weight Management</h3>
-                <p class="panel-summary" itemprop="description">Tried every diet and still struggling? You’re not failing—the diets are. Our program helps you lose weight sustainably by building healthy habits that last, without guilt-trips or starvation. We focus on a positive relationship with food.</p>
+                <p class="panel-summary" itemprop="description">We focus on building habits that fit your life - not strict rules. Together, we align portions, meal rhythm, and food quality so progress feels steady and sustainable.</p>
                 <ol class="panel-steps">
                   <li>Understanding your metabolism & lifestyle</li>
                   <li>A satisfying, personalized nutrition plan</li>
@@ -336,7 +356,7 @@ head_extra: |
               <div class="panel-visual"><img decoding="async" src="../images/syndrome-colon-irritable-diaeta-medium.jpg" alt="A dietitian guiding a patient through the Low FODMAP protocol for IBS relief" loading="lazy" width="640" height="360"></div>
               <div class="panel-body">
                 <h3 class="panel-title" itemprop="name">IBS & Digestive Health Relief</h3>
-                <p class="panel-summary" itemprop="description">Frequent bloating, unpredictable digestion, worrying about every meal—living with IBS can be overwhelming. As Monash-trained FODMAP dietitians, we help you find relief and food freedom by identifying your digestive triggers.</p>
+                <p class="panel-summary" itemprop="description">Living with IBS can feel unpredictable. We follow the Monash Low-FODMAP protocol (elimination, reintroduction, personalization) to identify your triggers and help you find more comfortable meals. You get practical steps and follow-up support.</p>
                 <ol class="panel-steps">
                   <li>Gentle elimination phase to calm symptoms</li>
                   <li>Guided reintroduction to identify triggers</li>
@@ -355,7 +375,7 @@ head_extra: |
               <div class="panel-visual"><img decoding="async" src="../images/gestion-diabete-diaeta-medium.jpg" alt="A dietitian explaining a balanced meal plan for Type 2 Diabetes management" loading="lazy" width="640" height="360"></div>
               <div class="panel-body">
                 <h3 class="panel-title" itemprop="name">Managing Type 2 Diabetes with Confidence</h3>
-                <p class="panel-summary" itemprop="description">It can feel daunting when you’re first diagnosed or when blood sugars swing. With our guidance, you can take control. We help you stabilize your blood sugar with a plan that fits your life and medical treatment, focusing on balanced meals and sustainable habits.</p>
+                <p class="panel-summary" itemprop="description">We adapt your plan to your labs, medications, and routine. Balanced meals, fiber, protein timing, and movement can help improve glycemic control - aligned with EU guidance.</p>
                 <ol class="panel-steps">
                   <li>Reviewing your blood sugar patterns</li>
                   <li>A low-GI eating strategy focused on fiber</li>
@@ -374,7 +394,7 @@ head_extra: |
               <div class="panel-visual"><img decoding="async" src="../images/gestion-hypertension-diaeta-medium.jpg" alt="Heart-healthy foods for cholesterol and hypertension management" loading="lazy" width="640" height="360"></div>
               <div class="panel-body">
                 <h3 class="panel-title" itemprop="name">Heart Health (Cholesterol & Hypertension)</h3>
-                <p class="panel-summary" itemprop="description">Has your doctor told you your cholesterol or blood pressure is high? The good news is that targeted nutrition changes can make a big difference. We use proven strategies (like DASH and Portfolio diets) adapted to your labs and food preferences.</p>
+                <p class="panel-summary" itemprop="description">We personalize proven patterns (e.g., DASH, Portfolio) to your preferences. Small, consistent changes can support LDL, blood pressure, and long-term heart health.</p>
                 <ol class="panel-steps">
                   <li>Analyzing your lab results & lifestyle</li>
                   <li>Focus on sodium control & soluble fiber</li>
@@ -400,7 +420,7 @@ head_extra: |
           <div class="container">
               <div class="section-header animate-on-scroll fade-up">
                   <span class="section-badge"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Our Patients Testify</span>
-                                  <h2 class="section-title">Real People, Real Results: What Our Patients Say About Their Experience</h2>
+                                  <h2 class="section-title">What do patients say about their experience?</h2>
                 <p class="section-subtitle">These success stories show how our personalized approach helps people just like you achieve their health goals.</p>
               </div>
 
@@ -539,7 +559,7 @@ head_extra: |
         <div class="container">
             <div class="section-header animate-on-scroll fade-up text-center">
                 <span class="section-badge"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Your Health, Our Proximity</span>
-                <h2 class="section-title">Find a Dietitian Near You: Convenient Locations Across Brussels</h2>
+                <h2 class="section-title">Where can you find us in Brussels?</h2>
                 <p class="section-subtitle">Looking for a "dietitian near me"? Your convenience matters. We have 8 welcoming practices across Brussels, making it easy to access the best care in communes like Ixelles, Uccle, and Woluwe-Saint-Pierre.</p>
             </div>
 
@@ -586,7 +606,7 @@ head_extra: |
                 <p class="proximity-note">Find the dietitian office nearest to you and start care that fits your life.</p>
                 <div class="cta-group cta-equal-width-group">
                   <a href="/en/locations/" class="btn btn-primary btn-lg"><span>Explore Our Locations</span><i class="fa-solid fa-arrow-right btn-icon-right"></i></a>
-                  <a href="/en/appointment/" class="btn btn-outline-primary btn-lg"><span>Book Your Consultation</span></a>
+                  <a href="/en/appointment/" class="btn btn-outline-primary btn-lg"><span>Book a Consultation</span></a>
                 </div>
               </div>
             </div>
@@ -601,7 +621,7 @@ head_extra: |
               <div class="col-lg-6 animate-on-scroll fade-up order-lg-1">
                   <div class="section-header text-start mb-4">
                       <span class="section-badge"><i class="fa-solid fa-dna"></i><span>Nutrigenetic Testing</span></span>
-                      <h2 class="section-title mb-3">Your Unique Genetic Profile: The Key to Your Optimal Nutrition</h2>
+                      <h2 class="section-title mb-3">Could DNA insights inform your choices?</h2>
                       <p class="section-subtitle">
                           Imagine nutrition advice that's truly designed for you. <a href="https://nutrigenomix.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline">Nutrigenomix®</a> tests analyze your unique genetic profile across 70+ markers, helping us create recommendations that work with your body's natural tendencies.
                       </p>
@@ -649,9 +669,9 @@ head_extra: |
     <div class="container">
         <div class="section-header animate-on-scroll fade-up">
             <span class="section-badge"><i class="fa-solid fa-book-medical"></i><span>Our Expertise</span></span>
-            <h2 class="section-title">Knowledge You Can Use: Practical Health Insights from Your Dietitian</h2>
+            <h2 class="section-title">What practical health insights can you use today?</h2>
             <p class="section-subtitle">
-                We share information that matters to you—straightforward nutritional advice and science-backed tips you can apply to improve your health today.
+                We share information that matters to you�straightforward nutritional advice and science-backed tips you can apply to improve your health today.
             </p>
         </div>
 
@@ -779,7 +799,7 @@ head_extra: |
       <!-- Header -->
       <div class="section-header text-center mb-5 animate-on-scroll fade-up">
           <span class="section-badge"><i class="fas fa-heart me-2" aria-hidden="true"></i>Investment in Your Health</span>
-          <h2 class="section-title">Clear, Transparent Dietitian Pricing</h2>
+          <h2 class="section-title">How much do consultations cost?</h2>
           <p class="section-subtitle">
               We believe in complete transparency for every nutrition consultation. Know exactly what to expect as we work together toward your health goals.
           </p>
