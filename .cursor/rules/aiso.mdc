@@ -1,0 +1,70 @@
+---
+
+description: |-
+Diaeta Website Rules (from attached docs; website-only)
+
+# Architecture & Pages
+
+* Keep a simple, scannable sitemap with clear primary nav: **Home**, **About Pierre**, **Services** (IBS & Low-FODMAP, Weight Management, Diabetes & Cholesterol, Nutrigenomics), **Locations** (each office on its own page), **Resources/Blog**, **Contact**, and a persistent primary CTA **“Book a Consultation”** in the header. Include an obvious **language switcher**.
+* Build page templates that front-load answers (inverted-pyramid style) and add skim-friendly sections: **Problem → Approach → What you get → Next step**. Use headings (H1/H2/H3), short paragraphs, bullets, and clear CTAs on every page.
+* Homepage must state a focused UVP (personalized, medically backed nutrition; non-restrictive, tech-enabled care) and signpost the core services and booking.
+
+# Multilingual website
+
+* Provide full EN/FR/NL/DE versions. Use **formal address** in FR/NL/DE and keep tone warm and professional.
+* Implement **hreflang** (with `x-default`) and keep URLs / metadata consistent per language. Localize units (metric), dates, decimals, and examples.
+* Ensure the language switcher and all microcopy (CTAs, errors, forms) are correctly localized and polite.
+
+# Content patterns for AI & users
+
+* Write **summary-ready** copy that directly answers patient questions (Q\&A blocks, short definitions, checklists). Add **FAQ sections** where relevant.
+* Demonstrate **E-E-A-T** on site: show credentials, INAMI/RIZIV number, experience, memberships, and brief, plain-language mentions of recognized guidelines when helpful.
+* Keep readability around **CEFR B2**; define any jargon immediately (e.g., “Low-FODMAP = short-term elimination + reintroduction”); use person-first, stigma-free language.
+* Use **original photography** (practitioner, offices) vs. generic stock.
+
+# UX writing & microcopy
+
+* CTAs are action-oriented and consistent: EN “Book Your Consultation”, FR “Prenez rendez-vous”, NL “Maak een afspraak”, DE “Termin buchen”.
+* Errors are neutral and solution-focused (no blame), confirmations are friendly and specific (“Thanks—your request was sent. We’ll reply within 24 hours.”).
+* Forms: clear labels, concise help text, example formats; never rely on placeholder as the only label.
+
+# Technical SEO & accessibility
+
+* Mobile-first, responsive layout; fast pages that meet **Core Web Vitals** expectations; **HTTPS**, clean markup, and robust internal linking.
+* Ensure crawlability and indexability with sensible **robots.txt**, **XML sitemap**, canonical tags, and descriptive, human-readable URLs.
+* Add **structured data** where appropriate: `Organization/MedicalBusiness` (practice), `Person` (dietitian), `Service` (IBS, Weight, Diabetes, Cholesterol), `Article/BlogPosting`, `BreadcrumbList`, and `FAQPage` for FAQs.
+* Meet **WCAG** (keyboard navigation, focus states, sufficient contrast, proper headings, ARIA where needed). Every image has meaningful **alt text**.
+
+# Booking & programs (on-site)
+
+* Integrate a **modern scheduling** solution directly on the website with multilingual UI, online payments/deposits, automated reminders, video-visit support, and GDPR-compliant processing.
+* Offer **program-based** booking options (e.g., IBS Relief Program; Metabolic Reset) as well as single sessions; keep pricing and inclusions transparent.
+
+# Social proof on the site
+
+* Embed a **reviews/testimonials** widget that auto-syncs fresh reviews and displays stars, dates, and snippets. Use initials or first names if anonymity is preferred and add a brief “Results may vary” note.
+
+# Resources & lead capture
+
+* Create high-value **lead magnets** (e.g., IBS supermarket guide, short quiz) behind accessible, GDPR-compliant forms with double opt-in; follow with concise, value-first email sequences.
+* Build a **Resources/Blog** hub with evergreen articles (answers first, sources briefly named), internal links to relevant services, and clear next-step CTAs.
+
+# Locations pages (hyperlocal)
+
+* Each location page includes address, map/embed, hours, access info, parking/transport tips, a local CTA, and `LocalBusiness`/`MedicalBusiness` details via structured data.
+
+# Compliance & trust
+
+* Display credentials (title localized per language), **privacy policy**, **cookie consent & preferences**, and a brief **medical/claims disclaimer** on relevant pages.
+* Avoid unsubstantiated promises; use compliant phrasing (e.g., “may help”, “can support”, “aim to…”).
+
+# Measurement
+
+* Track on-site conversions (bookings, form submissions, lead magnet downloads), FAQ interactions, and engagement with Q\&A sections. Use UTM-tagged CTAs where appropriate to inform content optimization.
+
+globs:
+
+* "\*\*/\*"
+  alwaysApply: true
+
+---

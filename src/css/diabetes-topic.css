@@ -1,0 +1,88 @@
+/* Styles for Weight Loss Hub Topic Pages */
+
+.wl-topic-page-header {
+    background-color: var(--primary-50);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.wl-topic-page-header .breadcrumb {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.wl-topic-page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.wl-topic-updated-date {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.wl-topic-toc {
+    position: sticky;
+    top: 2rem; /* Keeps menu visible when scrolling */
+    border-left: 2px solid var(--primary-200);
+    padding-left: 1rem;
+    margin-top: 0.5rem; /* Aligns menu with takeaways box */
+}
+
+.wl-topic-toc .nav-link {
+    padding: 0.3rem 0.5rem 0.3rem 0; /* Added right padding for wrapped text */
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: normal; /* Crucial for allowing text to wrap */
+    word-break: break-word; /* Handles very long words without overflow */
+    line-height: 1.4; /* Improves spacing for multi-line items */
+}
+
+.wl-topic-toc .nav-link:hover,
+.wl-topic-toc .nav-link.active {
+    color: var(--primary-700);
+    text-decoration: underline;
+}
+
+.wl-topic-content section {
+    margin-bottom: 2.5rem;
+}
+
+.wl-topic-content h2 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.wl-topic-key-takeaways {
+    background-color: var(--primary-50);
+    border-left: 4px solid var(--primary-500);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.wl-topic-key-takeaways h3 {
+    margin-top: 0;
+    color: var(--primary-800);
+}
+
+.wl-topic-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color-light);
+}
+
+.glossary-letter {
+    font-size: 2rem;
+    color: var(--primary-500);
+    margin-top: 2rem;
+}
+
+dl dt {
+    font-weight: 600;
+    margin-top: 1rem;
+}

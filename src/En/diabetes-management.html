@@ -8,6 +8,110 @@ permalink: "/en/diabetes-management/index.html"
 canonicalUrl: "https://diaeta.be/en/diabetes-management/"
 datePublished: "2025-01-15"
 dateModified: "2025-01-15"
+head_extra: |
+  <style>
+    /* Inlined styles for the diabetes knowledge hub to override conflicts and caching */
+    #diabetes-knowledge-hub {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-10);
+    }
+    #diabetes-knowledge-hub .hub-main-header {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto var(--space-6);
+    }
+    #diabetes-knowledge-hub .section-badge {
+        display: inline-block;
+        margin-bottom: var(--space-3);
+        background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+        color: var(--primary-700);
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        font-weight: var(--font-medium);
+        font-size: 0.85rem;
+        border: 1px solid var(--primary-200);
+    }
+    #diabetes-knowledge-hub .section-title {
+        font-size: 2.4rem;
+        margin-bottom: var(--space-2);
+    }
+    #diabetes-knowledge-hub .hub-search {
+        position: relative;
+        max-width: 640px;
+        margin: 0 auto var(--space-6);
+    }
+    #diabetes-knowledge-hub .hub-search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        opacity: .6;
+    }
+    #diabetes-knowledge-hub .hub-search input {
+        padding-left: 2.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-color-light);
+        background: #ffffff;
+        box-shadow: var(--shadow-sm);
+    }
+    #diabetes-knowledge-hub .hub-search input::placeholder {
+        color: var(--text-secondary);
+        opacity: .7;
+        font-size: .9rem;
+    }
+    #diabetes-knowledge-hub .accordion-item {
+        border: 1px solid var(--border-color-light);
+        border-radius: var(--border-radius-xl) !important; 
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: var(--space-3);
+    }
+    #diabetes-knowledge-hub .accordion-button {
+        font-weight: var(--font-semibold);
+        color: var(--text-primary);
+    }
+    #diabetes-knowledge-hub .accordion-button:not(.collapsed) {
+        background: var(--primary-50);
+        color: var(--primary-800);
+        box-shadow: inset 0 -1px 0 var(--border-color-light);
+    }
+    #diabetes-knowledge-hub .accordion-body {
+        padding: var(--space-4);
+    }
+    #diabetes-knowledge-hub .hub-links li {
+        margin-bottom: var(--space-2);
+    }
+    #diabetes-knowledge-hub .hub-links a {
+        text-decoration: none;
+        color: var(--primary-700);
+        transition: color 0.2s;
+        font-weight: var(--font-semibold);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--font-size-base);
+    }
+    #diabetes-knowledge-hub .hub-links a:hover {
+        color: var(--primary-600);
+        text-decoration: underline;
+    }
+    #diabetes-knowledge-hub .hub-link-description {
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+        padding-left: 0.1rem;
+        font-size: var(--font-size-base);
+        font-weight: var(--font-normal);
+    }
+    #diabetes-knowledge-hub .hub-link-icon {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        transition: transform 0.2s;
+    }
+    #diabetes-knowledge-hub .hub-links a:hover .hub-link-icon {
+        transform: translateX(2px);
+    }
+  </style>
 ---
 
 {# === Hero Section === #}
@@ -242,136 +346,186 @@ dateModified: "2025-01-15"
 </section>
 
 {# === Diabetes Knowledge Hub Section === #}
-<section id="diabetes-knowledge-hub" class="content-section bg-white">
+<!-- BEGIN: Diabetes Knowledge Hub -->
+<section id="diabetes-knowledge-hub" class="knowledge-hub practical-hub">
     <div class="container">
-        <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in">Resource Center</span>
-            <h2 class="animate-on-scroll fade-up">Your Diabetes Knowledge Hub</h2>
-            <p class="lead animate-on-scroll fade-up delay-100">
-                Explore our comprehensive collection of evidence-based resources to better understand and manage your diabetes journey.
-            </p>
+        <div class="text-center">
+            <div class="section-badge"><i class="fas fa-compass me-1" aria-hidden="true"></i><span>Knowledge Hub</span></div>
+        </div>
+        <div class="hub-main-header text-center">
+            <h2 class="section-title">Explore Your Diabetes Knowledge Map</h2>
+            <p class="section-subtitle">Browse by category or use the quick filter to jump straight to the article you need.</p>
         </div>
         
-        <div class="row g-5">
-            <!-- Understanding & Diagnosis -->
-            <div class="col-lg-3 animate-on-scroll fade-up delay-500">
-                <div class="category-section">
-                    <h3 class="h5 mb-3"><i class="fas fa-microscope"></i> Understanding & Diagnosis</h3>
-                    <div class="resource-list">
-                        <a href="/en/diabetes-management/understanding-diabetes-types-causes" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-microscope"></i></div>
-                            <div class="resource-content">
-                                <h5>Understanding Diabetes: Types & Causes</h5>
-                                <p>Comprehensive guide to Type 1, Type 2, and gestational diabetes</p>
+        <div class="hub-search mb-4" role="search" aria-label="Filter knowledge hub topics">
+            <label for="hubFilter" class="visually-hidden">Filter articles</label>
+            <i class="fas fa-search hub-search-icon" aria-hidden="true"></i>
+            <input type="search" id="hubFilter" class="form-control" placeholder="Filter topics (e.g., insulin, carbs, CGM)">
                             </div>
-                        </a>
-                        <a href="/en/diabetes-management/diabetes-diagnosis-testing" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-search"></i></div>
-                            <div class="resource-content">
-                                <h5>Diabetes Diagnosis & Testing</h5>
-                                <p>Understanding blood tests, screening guidelines, and diagnostic criteria</p>
-                            </div>
-                        </a>
 
+        <div class="accordion" id="diabetesHub">
+            <!-- Category 1: Foundations -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingFoundations">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseFoundations" aria-expanded="true" aria-controls="hubCollapseFoundations">
+                        <i class="fas fa-landmark me-2" aria-hidden="true"></i> Foundations
+                    </button>
+                </h3>
+                <div id="hubCollapseFoundations" class="accordion-collapse collapse show" aria-labelledby="hubHeadingFoundations" data-bs-parent="#diabetesHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="/en/diabetes/types-of-diabetes.html">
+                                    <span>Types of Diabetes</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Explore the distinctions between Type 1, Type 2, gestational, and other forms of diabetes.</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/glycemic-basics.html">
+                                    <span>Glycemic Basics & Monitoring</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Understand glucose monitoring (SMBG vs. CGM) and the importance of Time-in-Range.</p>
+                            </li>
+                             <li>
+                                <a href="/en/diabetes/glossary.html">
+                                    <span>Glossary of Terms</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">A helpful reference for common terms related to diabetes to help you understand your care plan.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Treatment & Management -->
-            <div class="col-lg-3 animate-on-scroll fade-up delay-600">
-                <div class="category-section">
-                    <h3 class="h5 mb-3"><i class="fas fa-stethoscope"></i> Treatment & Management</h3>
-                    <div class="resource-list">
-                        <a href="/en/diabetes-management/medical-nutrition-therapy-diabetes" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-apple-alt"></i></div>
-                            <div class="resource-content">
-                                <h5>Medical Nutrition Therapy for Diabetes</h5>
-                                <p>Evidence-based nutritional strategies and meal planning</p>
-                            </div>
-                        </a>
-                        <a href="/en/diabetes-management/diabetes-medications-treatment" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-pills"></i></div>
-                            <div class="resource-content">
-                                <h5>Diabetes Medications & Treatment</h5>
-                                <p>Comprehensive guide to pharmacological and non-pharmacological treatments</p>
-                            </div>
-                        </a>
-                        <a href="/en/diabetes-management/blood-sugar-monitoring" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-chart-line"></i></div>
-                            <div class="resource-content">
-                                <h5>Blood Sugar Monitoring</h5>
-                                <p>Understanding glucose monitoring, target ranges, and interpretation</p>
-                            </div>
-                        </a>
-
+            <!-- Category 2: Nutrition -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingNutrition">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseNutrition" aria-expanded="false" aria-controls="hubCollapseNutrition">
+                        <i class="fas fa-utensils me-2" aria-hidden="true"></i> Nutrition
+                    </button>
+                </h3>
+                <div id="hubCollapseNutrition" class="accordion-collapse collapse" aria-labelledby="hubHeadingNutrition" data-bs-parent="#diabetesHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                           <li>
+                                <a href="/en/diabetes/carbohydrates-glycemic-impact.html">
+                                    <span>Food & Glucose Essentials</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn how carbs, fiber, protein, and fats affect blood sugar and how to use the Glycemic Index (GI).</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/meal-structure-balanced-plates.html">
+                                    <span>Finding an Eating Pattern That Fits</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Explore sustainable eating styles like Mediterranean, plant-forward, or lower-carb.</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/reading-labels-eating-out.html">
+                                    <span>Reading Labels & Eating Out</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Gain practical skills for navigating grocery aisles and restaurant menus with confidence.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Lifestyle & Daily Life -->
-            <div class="col-lg-3 animate-on-scroll fade-up delay-700">
-                <div class="category-section">
-                    <h3 class="h5 mb-3"><i class="fas fa-home"></i> Lifestyle & Daily Life</h3>
-                    <div class="resource-list">
-                        <a href="/en/diabetes-management/lifestyle-prevention-diabetes" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-shield-alt"></i></div>
-                            <div class="resource-content">
-                                <h5>Diabetes Prevention & Lifestyle</h5>
-                                <p>Evidence-based strategies for preventing diabetes and healthy lifestyle choices</p>
-                            </div>
-                        </a>
-                        <a href="/en/diabetes-management/daily-life-management-diabetes" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-calendar-day"></i></div>
-                            <div class="resource-content">
-                                <h5>Daily Life with Diabetes</h5>
-                                <p>Practical management tips and quality of life improvement strategies</p>
-                            </div>
-                        </a>
-                        <a href="/en/type-2-diabetes/" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-balance-scale"></i></div>
-                            <div class="resource-content">
-                                <h5>Type 2 Diabetes Management</h5>
-                                <p>Specialized focus on Type 2 diabetes management and treatment</p>
-                            </div>
-                        </a>
+            <!-- Category 3: Management & Lifestyle -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingLifestyle">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseLifestyle" aria-expanded="false" aria-controls="hubCollapseLifestyle">
+                        <i class="fas fa-person-running me-2" aria-hidden="true"></i> Management & Lifestyle
+                    </button>
+                </h3>
+                <div id="hubCollapseLifestyle" class="accordion-collapse collapse" aria-labelledby="hubHeadingLifestyle" data-bs-parent="#diabetesHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                             <li>
+                                <a href="/en/diabetes/hypo-hyperglycemia-basics.html">
+                                    <span>Hypo- & Hyperglycemia Awareness</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn to recognize and respond to the signs of low and high blood sugar to stay safe.</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/physical-activity-glycemia.html">
+                                    <span>Exercise & Glucose</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Discover how physical activity impacts blood sugar and learn how to exercise with confidence and safety.</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/daily-routines.html">
+                                    <span>Daily Routines</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Establish consistent habits for meals, monitoring, and hydration to help stabilize blood sugar levels.</p>
+                            </li>
+                             <li>
+                                <a href="/en/diabetes/troubleshooting-challenges-myths.html">
+                                    <span>Troubleshooting & Myths</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Address common challenges and debunk myths about diabetes to stay motivated and informed.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Research & Future Treatments -->
-            <div class="col-lg-3 animate-on-scroll fade-up delay-800">
-                <div class="category-section">
-                    <h3 class="h5 mb-3"><i class="fas fa-flask"></i> Research & Future</h3>
-                    <div class="resource-list">
-                        <a href="/en/diabetes-management/research-future-treatments-diabetes" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-microscope"></i></div>
-                            <div class="resource-content">
-                                <h5>Research & Future Treatments</h5>
-                                <p>Latest developments in stem cell therapy, immunomodulation, and cure research</p>
-                            </div>
-                        </a>
-                        <a href="/en/contact/" class="resource-item">
-                            <div class="resource-icon"><i class="fas fa-phone"></i></div>
-                            <div class="resource-content">
-                                <h5>Contact Our Diabetes Specialists</h5>
-                                <p>Get personalized guidance from certified diabetes care professionals</p>
-                            </div>
-                        </a>
+            <!-- Category 4: Special Considerations -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingSpecial">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseSpecial" aria-expanded="false" aria-controls="hubCollapseSpecial">
+                        <i class="fas fa-stethoscope me-2" aria-hidden="true"></i> Special Considerations
+                    </button>
+                </h3>
+                <div id="hubCollapseSpecial" class="accordion-collapse collapse" aria-labelledby="hubHeadingSpecial" data-bs-parent="#diabetesHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="/en/diabetes/working-with-healthcare.html">
+                                    <span>Working with Your Healthcare Team</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn how we partner with you and your doctor for coordinated, effective, and patient-centered care.</p>
+                            </li>
+                            <li>
+                                <a href="/en/diabetes/special-contexts.html">
+                                    <span>Special Contexts</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Tailored guidance for pregnancy, children, older adults, and co-existing health conditions.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Quick Action CTA -->
-        <div class="text-center mt-5 animate-on-scroll fade-up delay-800">
-            <div class="quick-action-box">
-                <h4>Need Personalized Diabetes Guidance?</h4>
-                <p>Our comprehensive guides are just the beginning. Get expert, personalized support from certified diabetes care specialists.</p>
-                <a href="/en/contact" class="btn btn-primary">Book Your Consultation</a>
-            </div>
-        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var input = document.getElementById('hubFilter');
+            if(!input) return;
+            var listItems = Array.from(document.querySelectorAll('#diabetes-knowledge-hub .hub-links li'));
+            input.addEventListener('input', function(){
+                var q = input.value.trim().toLowerCase();
+                listItems.forEach(function(li){
+                    var t = li.textContent.toLowerCase();
+                    li.style.display = (q === '' || t.indexOf(q) !== -1) ? '' : 'none';
+                });
+            });
+        });
+        </script>
     </div>
 </section>
+<!-- END: Diabetes Knowledge Hub -->
 
 <section class="content-section bg-white py-4">
     <div class="container">

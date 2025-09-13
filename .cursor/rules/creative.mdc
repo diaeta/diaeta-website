@@ -1,0 +1,74 @@
+---
+
+description: |-
+Diaeta Website Creativity Rules (from “The Science and Art of Creative Thinking” — website-only)
+
+# Purpose
+
+Turn creativity research into concrete, repeatable rules for planning, writing, designing, and iterating Diaeta’s website.
+
+# Design thinking for pages & features
+
+* Apply **Empathize → Define → Ideate → Prototype → Test** to every new page, component, or content block.
+* **Empathize:** speak with 3–5 patients per language; capture exact phrases, contexts, and obstacles in a research log.
+* **Define:** reframe needs as one-sentence problem statements and user stories per page.
+* **Prototype:** start low-fidelity (wireframes, copy drafts); produce a clickable mock before code.
+* **Test:** run 5-user hallway tests; track task success, time, confusion points; iterate.
+
+# Divergent ↔ Convergent cycles (keep them separate)
+
+* Timebox **divergent** ideation (20–30 min silent brainstorming) before any critique.
+* Use **SCAMPER** and **analogical reasoning** to generate alternatives; encourage “wild” but relevant options.
+* Converge with explicit criteria (value to patient, clarity, effort to implement); ship the **simplest testable** version.
+
+# Four-stage creative workflow for web copy
+
+* **Preparation:** gather sources, constraints, patient quotes, examples.
+* **Incubation:** step away briefly (walk/coffee) before drafting hero lines.
+* **Illumination:** capture headline/subheadline variants immediately (note the spark).
+* **Verification:** peer critique + style-guide check + plain-language test.
+
+# Page content patterns
+
+* Structure each page as **Question → Insight → Solution → Proof → Action**.
+* Write at **CEFR B2**, active voice, short paragraphs; favor Q\&A, checklists, and mini-summaries.
+* Use clear analogies to explain complex ideas, without sacrificing medical accuracy.
+
+# Visual & media creation for the site
+
+* Prefer **original photos/video** (practitioner, offices); constrain palette, lighting, and aspect ratios for cohesion.
+* Use short **looping clips** for hero/section breaks (8–12s, silent by default; captions when speech appears).
+* Keep **non-destructive editing** and asset versioning; export optimized sizes for web.
+
+# Interaction & micro-design
+
+* Add lightweight **micro-interactions** that reinforce meaning (focus/hover states, subtle reveals); avoid motion that impedes reading.
+* Prototype interactions first; verify **keyboard access** and **reduced-motion** preferences.
+
+# Collaboration & critique
+
+* Run structured critiques: **What’s clear? What’s confusing? What’s compelling?** No blame; end with one concrete change.
+* Rotate “creative roles” per sprint (storyteller, experimenter, cross-pollinator, director) to diversify input.
+* Maintain a **changelog** with before/after screenshots and the hypothesis behind each change.
+
+# Open feedback loops (site + audience)
+
+* Mine **site search logs**, contact forms, and social comments for content gaps; triage monthly into quick wins vs. experiments.
+* Publish **small bets**; iterate based on evidence, not opinion.
+
+# Measurement & experiments
+
+* **A/B test** headlines, CTAs, and hero visuals; track scroll depth, task completion, and click-throughs.
+* Treat prototypes as **learning tools**; expect multiple iterations before “final.”
+
+# Guardrails
+
+* Respect **accessibility** (contrast, captions, focus order, prefers-reduced-motion).
+* Keep pages **lean** (optimized media, deferred non-critical scripts) to preserve speed and comprehension.
+
+globs:
+
+* "\*\*/\*"
+  alwaysApply: true
+
+---

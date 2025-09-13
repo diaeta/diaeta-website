@@ -1,0 +1,102 @@
+---
+
+description: |-
+Multilingual Dietitian Website Voice & Style Guide
+
+1. Brand Persona (Values-Driven Traits)
+
+* Evidence-Based & Professional: Science-led, medically aligned, accurate, and trustworthy.
+* Clear & Transparent: Plain language, explain jargon, set realistic expectations.
+* Empathetic & Supportive: Warm, non-judgmental, patient-centred.
+* Culturally Sensitive & Inclusive: EN/FR/NL/DE; respectful of Belgian cultural/linguistic norms; formal address in FR/NL/DE.
+* Trustworthy & Confidential: Ethics-first; GDPR-aware; protect patient data.
+
+2. Tone of Voice & Section Adaptations
+
+* Default: Warm, reassuring, professional; authoritative yet approachable.
+* Homepage: Inspiring + empathetic; concise UVP; evidence-based confidence.
+* Services (IBS, Weight, T2D, Cholesterol): Educational, motivating, accessible; acknowledge concerns, offer hopeful, practical paths.
+* Blog: Conversational, engaging, CEFR B2 readability; cite credible bodies when helpful.
+* Booking: Extra-reassuring and action-oriented; low-pressure CTAs across EN/FR/NL/DE.
+* Errors/Notifications: Neutral, polite, solution-focused; never blame user; polite forms in FR/DE/NL.
+
+3. Phrasing Guidelines — Do/Don’t
+
+* Do: People-first language (“people with diabetes”); normalize challenges; collaborative “we”; positive, empowering outcomes.
+* Don’t: Stigmatize, shame, or blame; fear-based or absolutist claims; overpromise/guarantee results; accusatory error copy.
+* Always frame benefits around reader needs; use social proof responsibly with privacy respected and “results may vary.”
+
+4. Writing Style Rules
+
+* Readability: CEFR B2 (Grade \~8–10); \~15–20 words/sentence; active voice; short paragraphs; lists for scanning.
+* Jargon: Use sparingly + define immediately (e.g., “IBS (Irritable Bowel Syndrome)”).
+* Inclusive/Stigma-Free: Neutral terms; avoid moralizing food language.
+* Evidence Mentions: Briefly attribute to recognized orgs (Monash, ESC/EAS, ESPEN, EFSA, WHO, etc.) in informative sections.
+* Microcopy/UX: Clear CTAs (“Book Now”/“Prenez rendez-vous”/“Maak een afspraak”/“Termin buchen”); helpful labels; neutral errors; friendly confirmations.
+* Formatting: Strong headings (H1/H2/H3), bullets, bold sparingly; preserve formatting across languages.
+
+5. Dale Carnegie Principles Applied
+
+* Lead with the reader’s interests; show genuine empathy.
+* Translate features into benefits that matter to patients.
+* Use sincere, specific appreciation and encouraging tone.
+* Make next steps feel safe/easy; offer low-pressure “yes.”
+* Admit errors promptly; build trust with transparency.
+* Foster belonging/community (“we’re in this together”).
+
+6. Evidence & Regulatory Compliance (EU/Belgium)
+
+* IBS: Follow Monash Low-FODMAP 3-phase model; short-term elimination; guided reintroductions; dietitian supervision.
+* Weight: Sustainable loss; emphasize 5–10% initial goal; lifestyle first; avoid extreme diets.
+* T2D: Align with ADA/EASD/ESC; fibre-rich carbs, balanced plates, low added sugars; coordinate with medical care.
+* Cholesterol/Heart: ESC/EAS emphasis—reduce saturated/trans fats; prefer unsaturated fats; add soluble fibre; lifestyle support.
+* Claims: Respect EU Reg. 1924/2006; no cures/guarantees; use compliant phrasing (“may help support…”).
+* Scope & Privacy: No medical diagnoses; cautious supplement language; GDPR-compliant notices; display Belgian credentials (INAMI/RIZIV), titles localized per language.
+
+7. Multilingual Voice Adaptation
+
+* Consistent persona across EN/FR/NL/DE; formal address in FR (“vous”), NL (“u”), DE (“Sie”).
+* Avoid idioms; adapt examples to local foods/culture.
+* Units/notation localized (metric; decimal comma in FR/DE, period in EN/NL; date formats per locale).
+* Maintain warmth without stiffness; break long sentences, especially in DE/FR.
+
+8. Page-by-Page Copy Examples (Patterns to Follow)
+
+* Homepage Hero: “Personalized, Medically-Backed Nutrition for Lasting Health” + warm subheadline + clear CTA.
+* About/E-E-A-T Block: Credentials (e.g., INAMI/RIZIV), Monash certification, memberships, privacy commitment.
+* Services (IBS/Weight/T2D/Cholesterol): Empathy → approach → benefits; explain methods plainly; avoid overpromises.
+* Booking “What to Expect”: Demystify first visit; no judgment; next steps within 24h; ongoing support.
+* Footer: Disclaimer; privacy link; professional registration; localized titles; clear contact.
+
+9. SEO & UX Copy Tips
+
+* Natural keyword integration per language/locale; geo-terms where helpful; no stuffing.
+* Headings for scanning; descriptive link text; internal links to relevant services/posts.
+* Meta descriptions \~150–160 chars; mobile-friendly paragraphs; FAQs/accordions ok.
+* Alt text descriptive; accessible link text; avoid color-only meaning.
+* Hreflang + consistent terminology/glossary for key concepts (e.g., Low-FODMAP; registered titles).
+
+Quick Reference Checklist
+
+* Persona: Evidence-based, clear, empathetic, inclusive, privacy-first.
+* Voice: Warm professional; collaborative “we”; people-first language.
+* Do: Encourage, normalize, offer practical next steps, cite credible bodies briefly.
+* Don’t: Shame, blame, scare, or guarantee outcomes; avoid heavy jargon.
+* Compliance: EU 1924/2006 claims; Monash/ESC/EASD/ESPEN/EFSA alignment; GDPR.
+* Multilingual: Formal address in FR/NL/DE; culturally adapted examples; consistent translations.
+* UX: Clear CTAs, neutral errors, accessible structures, alt text, scannability.
+
+EN/FR/NL/DE Core Strings (for consistency)
+
+* Primary CTA:
+  • EN “Book Your Consultation” • FR “Prenez rendez-vous” • NL “Maak een afspraak” • DE “Termin buchen”
+* Reassurance line:
+  • EN “No fad diets, no judgment — just evidence-based guidance tailored to you.”
+  • FR “Aucun régime miracle, aucun jugement — uniquement des conseils scientifiques adaptés pour vous.”
+  • NL “Geen crashdiëten, geen veroordeling — alleen wetenschappelijk onderbouwde begeleiding op uw maat.”
+  • DE “Keine Wunderdiäten, keine Vorwürfe — nur evidenzbasierte Beratung, individuell für Sie.”
+  globs:
+* "\*\*/\*"
+  alwaysApply: true
+
+---
