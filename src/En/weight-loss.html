@@ -1,36 +1,115 @@
 ---
 layout: layouts/base.njk
-title: "Sustainable Weight Loss Without Hunger in Brussels | Diaeta - Certified Dietitian"
-description: "Lose weight sustainably in Brussels with Diaeta. Pierre Abou-Zeid, a certified dietitian, offers a scientific and personalized method to lose weight without frustration or hunger. Body composition analysis."
+title: Medically Supervised Weight Loss Program in Brussels | Diaeta
+description: "Achieve sustainable weight loss with our evidence-based dietitian program in Brussels. Personalized nutrition, behavior coaching, and body composition analysis. No fad diets."
 lang: en
-og_image: /images/weightloss-hero-large-optimized.jpg
+permalink: /en/weight-loss/
+head_extra: |
+  <style>
+    /* Inlined styles for the practical knowledge hub to override conflicts and caching */
+    #weight-loss-knowledge-hub {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-10);
+    }
+    #weight-loss-knowledge-hub .hub-main-header {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto var(--space-6);
+    }
+    #weight-loss-knowledge-hub .section-badge {
+        display: inline-block;
+        margin-bottom: var(--space-3);
+        background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+        color: var(--primary-700);
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        font-weight: var(--font-medium);
+        font-size: 0.85rem;
+        border: 1px solid var(--primary-200);
+    }
+    #weight-loss-knowledge-hub .section-title {
+        font-size: 2.4rem;
+        margin-bottom: var(--space-2);
+    }
+    #weight-loss-knowledge-hub .hub-search {
+        position: relative;
+        max-width: 640px;
+        margin: 0 auto var(--space-6);
+    }
+    #weight-loss-knowledge-hub .hub-search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        opacity: .6;
+    }
+    #weight-loss-knowledge-hub .hub-search input {
+        padding-left: 2.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-color-light);
+        background: #ffffff;
+        box-shadow: var(--shadow-sm);
+    }
+    #weight-loss-knowledge-hub .hub-search input::placeholder {
+        color: var(--text-secondary);
+        opacity: .7;
+        font-size: .9rem;
+    }
+    #weight-loss-knowledge-hub .accordion-item {
+        border: 1px solid var(--border-color-light);
+        border-radius: var(--border-radius-xl) !important; 
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: var(--space-3);
+    }
+    #weight-loss-knowledge-hub .accordion-button {
+        font-weight: var(--font-semibold);
+        color: var(--text-primary);
+    }
+    #weight-loss-knowledge-hub .accordion-button:not(.collapsed) {
+        background: var(--primary-50);
+        color: var(--primary-800);
+        box-shadow: inset 0 -1px 0 var(--border-color-light);
+    }
+    #weight-loss-knowledge-hub .accordion-body {
+        padding: var(--space-4);
+    }
+    #weight-loss-knowledge-hub .hub-links li {
+        margin-bottom: var(--space-2);
+    }
+    #weight-loss-knowledge-hub .hub-links a {
+        text-decoration: none;
+        color: var(--primary-700);
+        transition: color 0.2s;
+        font-weight: var(--font-semibold);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--font-size-base);
+    }
+    #weight-loss-knowledge-hub .hub-links a:hover {
+        color: var(--primary-600);
+        text-decoration: underline;
+    }
+    #weight-loss-knowledge-hub .hub-link-description {
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+        padding-left: 0.1rem;
+        font-size: var(--font-size-base);
+        font-weight: var(--font-normal);
+    }
+    #weight-loss-knowledge-hub .hub-link-icon {
+        font-size: 0.8em;
+        opacity: 0.6;
+        transition: all 0.2s ease-in-out;
+    }
+    #weight-loss-knowledge-hub .hub-links a:hover .hub-link-icon {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+  </style>
 ---
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weight Loss Dietitian in Brussels, Belgium | Diaeta</title>
-    <meta name="description" content="Lose weight sustainably in Brussels with Diaeta. Pierre Abou-Zeid, a certified dietitian, offers a scientific and personalized method to lose weight without frustration or hunger. Body composition analysis.">
-    <meta name="keywords" content="weight loss, lose weight brussels, dietitian, personalized nutrition, metabolism, body composition, diaeta">
-    <meta name="author" content="Pierre Abou-Zeid">
-    <meta property="og:title" content="Sustainable Weight Loss Without Hunger in Brussels | Diaeta - Certified Dietitian">
-    <meta property="og:description" content="Lose weight sustainably in Brussels with Diaeta. Pierre Abou-Zeid, a certified dietitian, offers a scientific and personalized method to lose weight without frustration or hunger. Body composition analysis.">
-    <meta property="og:image" content="/images/weightloss-hero-large-optimized.jpg">
-    <meta property="og:url" content="https://diaeta.be/en/weight-loss.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Diaeta">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sustainable Weight Loss Without Hunger in Brussels | Diaeta - Certified Dietitian">
-    <meta name="twitter:description" content="Lose weight sustainably in Brussels with Diaeta. Pierre Abou-Zeid, a certified dietitian, offers a scientific and personalized method to lose weight without frustration or hunger. Body composition analysis.">
-    <meta name="twitter:image" content="/images/weightloss-hero-large-optimized.jpg">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/weight-loss-hub.css">
-    <link rel="canonical" href="https://diaeta.be/en/weight-loss.html">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#ffffff">
-</head>
 
 {# === Breadcrumb Navigation === #}
 <nav aria-label="breadcrumb" class="container mt-4">
@@ -115,7 +194,7 @@ og_image: /images/weightloss-hero-large-optimized.jpg
                      <h4><i class="fas fa-puzzle-piece"></i> Complex Factors</h4>
                      <p>Stress (cortisol), hormones (thyroid, menopause), lack of sleep, and even certain medications can significantly impact weight. We consider these factors in our initial assessment to provide holistic and effective advice, collaborating with your doctor when needed.</p>
                 </div>
-            </div>
+      </div>
         </div>
         <p class="text-center mt-4 animate-on-scroll fade-up delay-500"><em>These obstacles are real, but they can be overcome with the right strategy.</em></p>
     </div>
@@ -170,10 +249,10 @@ og_image: /images/weightloss-hero-large-optimized.jpg
                         <p>Our approach aims to preserve your muscle mass and prevent metabolic slowdowns, which is the key to sustainable weight loss and successful long-term maintenance. A healthy metabolism allows for greater flexibility in your food choices.</p>
                     </div>
                  </div>
-            </div>
+      </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
 <section class="content-section process-section">
     <div class="container">
@@ -200,8 +279,8 @@ og_image: /images/weightloss-hero-large-optimized.jpg
         <div class="text-center mt-5 animate-on-scroll fade-up delay-400">
             <a href="/en/tariffs/" class="btn btn-accent btn-lg animate-on-scroll fade-up delay-400">See Pricing and Consultation Details <i class="fas fa-euro-sign ms-1"></i></a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
 <section class="content-section benefits-section">
     <div class="container">
@@ -241,9 +320,9 @@ og_image: /images/weightloss-hero-large-optimized.jpg
                     <h4>Confidence and Well-being</h4>
                     <p>Regain control of your body and improve your overall quality of life.</p>
                 </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 </section>
 
 <section class="testimonial-quote-section">
@@ -251,9 +330,9 @@ og_image: /images/weightloss-hero-large-optimized.jpg
         <div class="testimonial-quote text-center animate-on-scroll fade-up" style="max-width: 750px; margin: 0 auto;">
              <blockquote>The Diaeta approach changed my view of 'dieting.' I lost the weight I wanted for good, but most importantly, I learned to eat for my body, without deprivation, and while keeping my energy up. The app-based follow-up was a real plus!</blockquote>
              <cite>— Sophie V., Brussels (Weight Loss)</cite>
-        </div>
-    </div>
-</section>
+                </div>
+            </div>
+        </section>
 
 <section class="content-section bg-white py-4">
     <div class="container">
@@ -270,7 +349,7 @@ og_image: /images/weightloss-hero-large-optimized.jpg
                 <a href="/en/our-expertise/" class="expert-showcase-link">
                     <span>Discover my expertise</span> <i class="fas fa-arrow-right fa-xs"></i>
                 </a>
-            </div>
+                </div>
         </div>
     </div>
 </section>
@@ -304,8 +383,8 @@ og_image: /images/weightloss-hero-large-optimized.jpg
                 <div class="accordion-body">
                     Absolutely not. One of the pillars of the Diaeta Method is to ensure <span class="text-highlight-accent">effective weight loss without ever feeling hungry</span>. We create nutrient-dense meal plans focused on satiety, so you feel satisfied and energized throughout your journey.
                 </div>
-            </div>
-        </div>
+    </div>
+</div>
 
         <div class="accordion-item animate-on-scroll fade-up delay-200">
             <h3 class="accordion-header" id="faqWeightLossHeading2">
@@ -362,203 +441,197 @@ og_image: /images/weightloss-hero-large-optimized.jpg
     </div>
 </div>
 </section>
-    <!-- BEGIN: Weight-Loss Knowledge Hub -->
-    <section id="weight-loss-knowledge-hub" class="wl-hub">
-        <div class="container wl-hub-container">
-            <div class="text-center">
-                <h2 class="wl-hub-title">Weight-Loss Knowledge Hub</h2>
-                <p class="wl-hub-intro">
-                    Your journey to sustainable weight management is built on knowledge and understanding. Explore our evidence-based guides to learn the science behind effective fat loss, develop healthy habits, and find the strategies that work best for you.
-                </p>
-</div>
 
-            <section class="pathway" aria-label="The Personalized Pathway">
-                <div class="path-canvas" aria-hidden="true">
-                    <svg class="path" viewBox="0 0 1200 800" preserveAspectRatio="none" role="presentation" aria-hidden="true">
-                        <defs>
-                            <filter id="wl-glow">
-                                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                            <linearGradient id="wl-grad" x1="0" x2="1" y1="0" y2="1">
-                                <stop offset="0%" stop-color="#cfe0ff"/>
-                                <stop offset="45%" stop-color="#6fa3ff"/>
-                                <stop offset="100%" stop-color="#68c79c"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M80,80 C 300,120 240,240 460,270 C 700,310 720,140 980,190 C 1160,230 1110,420 920,470 C 660,540 540,440 360,540 C 200,640 280,720 520,740" fill="none" stroke="url(#wl-grad)" stroke-width="14" stroke-linecap="round" filter="url(#wl-glow)"/>
-                        <path d="M80,80 C 300,120 240,240 460,270 C 700,310 720,140 980,190 C 1160,230 1110,420 920,470 C 660,540 540,440 360,540 C 200,640 280,720 520,740" fill="none" stroke="rgba(111,163,255,.35)" stroke-width="2" stroke-dasharray="4 10" stroke-linecap="round"/>
-                    </svg>
+<!-- BEGIN: Weight Loss Knowledge Hub (Practical) -->
+<section id="weight-loss-knowledge-hub" class="knowledge-hub practical-hub">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-badge"><i class="fas fa-compass me-1" aria-hidden="true"></i><span>Knowledge Hub</span></div>
+        </div>
+        <div class="hub-main-header">
+            <h2 class="section-title">Explore Your Weight-Loss Knowledge Map</h2>
+            <p class="section-subtitle">Browse by category or use the quick filter to jump straight to the article you need.</p>
+        </div>
+
+        <div class="hub-search mb-4" role="search" aria-label="Filter knowledge hub topics">
+            <label for="hubFilter" class="visually-hidden">Filter articles</label>
+            <i class="fas fa-search hub-search-icon" aria-hidden="true"></i>
+            <input type="search" id="hubFilter" class="form-control" placeholder="Filter topics (e.g., protein, sleep, plateaus)">
+        </div>
+
+        <div class="accordion" id="weightLossHub">
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingFoundations">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseFoundations" aria-expanded="true" aria-controls="hubCollapseFoundations">
+                        <i class="fas fa-landmark me-2" aria-hidden="true"></i> Foundations
+                    </button>
+                </h3>
+                <div id="hubCollapseFoundations" class="accordion-collapse collapse show" aria-labelledby="hubHeadingFoundations" data-bs-parent="#weightLossHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="{{ '/en/weight-loss/foundations-of-weight-management.html' | url }}">
+                                    <span>Foundations of Weight Management</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Understand the core principles of weight management, including energy balance, adaptive thermogenesis, and the importance of a holistic approach.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/understanding-body-composition.html' | url }}">
+                                    <span>Understanding Body Composition</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn why body composition (fat vs. muscle) is more important than scale weight and discover practical ways to track your progress beyond the scale.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <ol class="milestones" role="list">
-                    <li class="m1">
-                        <button class="node" data-type="recipes" aria-haspopup="dialog" aria-controls="dlg-recipes" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#2fbf71" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 2v8M10 2v8M8 2v8M6 10h4M6 10v10M10 10v10" />
-                                    <path d="M16 2v6a2 2 0 0 0 2 2h0v10" />
-                                </svg>
-                            </span>
-                            <span class="label">15-Minute Healthy Lunch</span>
-                        </button>
-                    </li>
-                    <li class="m2">
-                        <button class="node" data-type="science" aria-haspopup="dialog" aria-controls="dlg-science" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 3a3 3 0 0 0-3 3v.5A3.5 3.5 0 0 0 3.5 10a3.5 3.5 0 0 0 2.5 3.35V14a3 3 0 0 0 3 3h1" />
-                                    <path d="M15 3a3 3 0 0 1 3 3v.5A3.5 3.5 0 0 1 20.5 10a3.5 3.5 0 0 1-2.5 3.35V14a3 3 0 0 1-3 3h-1" />
-                                </svg>
-                            </span>
-                            <span class="label">How Metabolism Really Works</span>
-                        </button>
-                    </li>
-                    <li class="m3">
-                        <button class="node" data-type="mindful" aria-haspopup="dialog" aria-controls="dlg-mindful" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#27a7a7" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 21s-7-4.35-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.65-7 9-7 9z" />
-                                </svg>
-                            </span>
-                            <span class="label">A 5-Minute Mindful Eating Exercise</span>
-                        </button>
-                    </li>
-                    <li class="m4">
-                        <button class="node" data-type="myths" aria-haspopup="dialog" aria-controls="dlg-myths" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#ffb703" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18h6" />
-                                    <path d="M10 22h4" />
-                                    <path d="M8 14a6 6 0 1 1 8 0l-.5.5a3 3 0 0 0-.8 2.1V18h-5.4v-1.4c0-.8-.3-1.5-.8-2.1L8 14z" />
-                                </svg>
-                            </span>
-                            <span class="label">Fact or Fiction: Do Carbs Cause Weight Gain?</span>
-                        </button>
-                    </li>
-                    <li class="m5">
-                        <button class="node" data-type="stories" aria-haspopup="dialog" aria-controls="dlg-stories" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#ec5f5f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 3l2.7 5.5L21 9.3l-4.5 4.3L17.4 20 12 17.3 6.6 20l.9-6.4L3 9.3l6.3-.8L12 3z" />
-                                </svg>
-                            </span>
-                            <span class="label">Maria's Journey with Diaeta</span>
-                        </button>
-                    </li>
-                    <li class="m6">
-                        <button class="node" data-type="recipes" aria-haspopup="dialog" aria-controls="dlg-recipes-2" aria-expanded="false">
-                            <span class="pulse" aria-hidden="true"></span>
-                            <span class="icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#2fbf71" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 2v10M10 2v10M8 2v10M6 12h4M6 12v8M10 12v8" />
-                                    <path d="M16 2v6a2 2 0 0 0 2 2h0v10" />
-                                </svg>
-                            </span>
-                            <span class="label">Protein-Rich Breakfast Ideas</span>
-                        </button>
-                    </li>
-                </ol>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingNutrition">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseNutrition" aria-expanded="false" aria-controls="hubCollapseNutrition">
+                        <i class="fas fa-utensils me-2" aria-hidden="true"></i> Nutrition
+                    </button>
+                </h3>
+                <div id="hubCollapseNutrition" class="accordion-collapse collapse" aria-labelledby="hubHeadingNutrition" data-bs-parent="#weightLossHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="{{ '/en/weight-loss/nutrition-fundamentals.html' | url }}">
+                                    <span>Nutrition Fundamentals</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Explore the core principles of nutrition for fat loss, including calorie deficits, the roles of protein and fiber, and the importance of carbohydrate quality.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/advanced-nutrition-concepts.html' | url }}">
+                                    <span>Advanced Nutrition Concepts</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Dive deeper into nutrition with topics on healthy fats, energy density, satiety strategies, meal timing, and portion control for effective weight management.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/dietary-patterns.html' | url }}">
+                                    <span>Dietary Patterns</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Discover various evidence-based dietary patterns for sustainable weight loss, including the Mediterranean diet, higher-protein, lower-carb, and plant-based approaches.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/hydration-and-beverages.html' | url }}">
+                                    <span>Hydration & Beverages</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn about the importance of hydration for weight loss, daily water targets, and how to make smart choices between caloric and non-caloric beverages.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                <nav id="legend" class="legend" aria-label="Legend">
-                    <span class="chip recipes"><span class="dot" aria-hidden="true"></span> Recipes</span>
-                    <span class="chip science"><span class="dot" aria-hidden="true"></span> Scientific Insights</span>
-                    <span class="chip mindful"><span class="dot" aria-hidden="true"></span> Mindful Eating</span>
-                    <span class="chip myths"><span class="dot" aria-hidden="true"></span> Myth Busting</span>
-                    <span class="chip stories"><span class="dot" aria-hidden="true"></span> Success Stories</span>
-                    <span role="note" aria-label="Keyboard tip">Tip: Use Tab / Shift+Tab and Enter to explore each stop.</span>
-                </nav>
-            </section>
-            <!-- Dialogs for pathway nodes -->
-            <div class="dialog" id="dlg-recipes" role="dialog" aria-modal="true" aria-labelledby="dlg-recipes-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-recipes-title">15-Minute Healthy Lunch</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>Build an energizing lunch you can repeat: a lean protein (chicken, lentils, tofu), 2 cups of colorful veg, a fist-sized portion of whole grains, and a simple olive-oil–lemon dressing. Balanced, filling, and delicious—no deprivation.</p>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingLifestyle">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseLifestyle" aria-expanded="false" aria-controls="hubCollapseLifestyle">
+                        <i class="fas fa-person-running me-2" aria-hidden="true"></i> Lifestyle
+                    </button>
+                </h3>
+                <div id="hubCollapseLifestyle" class="accordion-collapse collapse" aria-labelledby="hubHeadingLifestyle" data-bs-parent="#weightLossHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="{{ '/en/weight-loss/physical-activity-and-movement.html' | url }}">
+                                    <span>Physical Activity & Movement</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn about the four pillars of physical activity for weight loss, including aerobic exercise, resistance training, NEAT, and setting weekly targets.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/sleep-stress-mental-health.html' | url }}">
+                                    <span>Sleep, Stress & Mental Health</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Explore the critical connection between sleep, stress, and mental health, and learn practical strategies to support your weight management journey.</p>
+                            </li>
+                        </ul>
                     </div>
-                </article>
+                </div>
             </div>
-            <div class="dialog" id="dlg-science" role="dialog" aria-modal="true" aria-labelledby="dlg-science-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-science-title">How Metabolism Really Works</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>Your metabolism adapts—gently adjusting with your intake, sleep, stress, and activity. Diaeta helps you work with your biology, not against it, blending diagnostics with compassionate, personalized strategies that last.</p>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingJourney">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseJourney" aria-expanded="false" aria-controls="hubCollapseJourney">
+                        <i class="fas fa-route me-2" aria-hidden="true"></i> Journey & Challenges
+                    </button>
+                </h3>
+                <div id="hubCollapseJourney" class="accordion-collapse collapse" aria-labelledby="hubHeadingJourney" data-bs-parent="#weightLossHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="{{ '/en/weight-loss/behavior-change-and-adherence.html' | url }}">
+                                    <span>Behavior Change & Adherence</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn effective strategies for behavior change, habit formation, and long-term adherence to your weight management plan.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/plateaus-and-problem-solving.html' | url }}">
+                                    <span>Plateaus & Problem-Solving</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn why weight loss plateaus happen and discover effective strategies for breaking through them, including diet breaks and adjusting your plan.</p>
+                            </li>
+                        </ul>
                     </div>
-                </article>
+                </div>
             </div>
-            <div class="dialog" id="dlg-mindful" role="dialog" aria-modal="true" aria-labelledby="dlg-mindful-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-mindful-title">A 5-Minute Mindful Eating Exercise</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>Breathe. Notice color, aroma, texture. Slow down your first three bites. Check in: am I hungry, comfortably full, or satisfied? Small practices build lifelong, healthy relationships with food.</p>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="hubHeadingSpecial">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hubCollapseSpecial" aria-expanded="false" aria-controls="hubCollapseSpecial">
+                        <i class="fas fa-stethoscope me-2" aria-hidden="true"></i> Special Considerations
+                    </button>
+                </h3>
+                <div id="hubCollapseSpecial" class="accordion-collapse collapse" aria-labelledby="hubHeadingSpecial" data-bs-parent="#weightLossHub">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled hub-links">
+                            <li>
+                                <a href="{{ '/en/weight-loss/health-conditions-and-medications.html' | url }}">
+                                    <span>Health Conditions & Medications</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Understand how common health conditions like hypothyroidism and PCOS, as well as certain medications, can influence weight management and how to adapt your strategy.</p>
+                            </li>
+                            <li>
+                                <a href="{{ '/en/weight-loss/eating-disorders-and-risk-screening.html' | url }}">
+                                    <span>Eating Disorder Risk Screening</span>
+                                    <i class="fas fa-chevron-right hub-link-icon" aria-hidden="true"></i>
+                                </a>
+                                <p class="hub-link-description">Learn about the important distinction between healthy eating and disordered eating, including warning signs and when to seek professional help.</p>
+                            </li>
+                        </ul>
                     </div>
-                </article>
-            </div>
-            <div class="dialog" id="dlg-myths" role="dialog" aria-modal="true" aria-labelledby="dlg-myths-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-myths-title">Fact or Fiction: Do Carbs Cause Weight Gain?</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>Carbs aren’t the enemy—context matters. Quality, portion, and balance with protein/fiber shape appetite and results. We replace confusion with clarity and practical choices that fit your culture and routine.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="dialog" id="dlg-stories" role="dialog" aria-modal="true" aria-labelledby="dlg-stories-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-stories-title">Maria’s Journey with Diaeta</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>“I felt truly seen. We adapted recipes I love, honored family meals, and built routines I can keep. I lost weight without losing myself.” Diaeta champions progress over perfection, with privacy and respect.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="dialog" id="dlg-recipes-2" role="dialog" aria-modal="true" aria-labelledby="dlg-recipes-2-title" aria-hidden="true">
-                <article class="dialog__panel" tabindex="-1">
-                    <header class="dialog__header">
-                        <h3 class="dialog__title" id="dlg-recipes-2-title">Protein-Rich Breakfast Ideas</h3>
-                        <button class="dialog__close" data-close aria-label="Close dialog">
-                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                        </button>
-                    </header>
-                    <div class="dialog__body">
-                        <p>Greek yogurt + berries + seeds; veggie omelette + wholegrain toast; cottage cheese bowl + cucumber + avocado. Each option supports satiety, energy, and lean mass—simple, flexible, and fast.</p>
-                    </div>
-                </article>
+                </div>
             </div>
         </div>
-    </section>
-    <!-- END: Weight-Loss Knowledge Hub -->
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var input = document.getElementById('hubFilter');
+            if(!input) return;
+            var listItems = Array.from(document.querySelectorAll('#weight-loss-knowledge-hub .hub-links li'));
+            input.addEventListener('input', function(){
+                var q = input.value.trim().toLowerCase();
+                listItems.forEach(function(li){
+                    var t = li.textContent.toLowerCase();
+                    li.style.display = (q === '' || t.indexOf(q) !== -1) ? '' : 'none';
+                });
+            });
+        });
+        </script>
+    </div>
+</section>
+<!-- END: Weight Loss Knowledge Hub (Practical) -->
 
 <script type="application/ld+json">
     {
@@ -709,6 +782,5 @@ og_image: /images/weightloss-hero-large-optimized.jpg
               ]
             }
             </script>
-    <script src="../js/weight-loss-hub.js"></script>
-</body>
-</html>
+<script src="{{ '/js/weight-loss-hub.js' | url }}"></script>
+<script src="{{ '/js/weight-loss-pathway.js' | url }}"></script>

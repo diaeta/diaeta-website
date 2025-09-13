@@ -2175,3 +2175,45 @@ function initSmoothScroll() {
 
 
 // Note: All initialization is now handled in the main DOMContentLoaded event listener above
+
+/* === Interactive Learning Blueprint Logic === */
+document.addEventListener('DOMContentLoaded', () => {
+  const blueprintTimeline = document.querySelector('.blueprint-timeline');
+  if (!blueprintTimeline) return;
+
+  const headers = blueprintTimeline.querySelectorAll('.blueprint-card-header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = document.getElementById(header.getAttribute('aria-controls'));
+      const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+      // Close all other open items
+      headers.forEach(h => {
+        if (h !== header) {
+          const c = document.getElementById(h.getAttribute('aria-controls'));
+          h.setAttribute('aria-expanded', 'false');
+          c.setAttribute('hidden', '');
+          c.style.maxHeight = '0';
+          c.style.paddingTop = '0';
+          c.style.paddingBottom = '0';
+        }
+      });
+
+      // Toggle the clicked item
+      if (isExpanded) {
+        header.setAttribute('aria-expanded', 'false');
+        content.setAttribute('hidden', '');
+        content.style.maxHeight = '0';
+        content.style.paddingTop = '0';
+        content.style.paddingBottom = '0';
+      } else {
+        header.setAttribute('aria-expanded', 'true');
+        content.removeAttribute('hidden');
+        content.style.paddingTop = null; // Revert to CSS values
+        content.style.paddingBottom = null; // Revert to CSS values
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+});

@@ -749,5 +749,180 @@ class AnalyticsTracker {
 
 // Initialize Knowledge Hub when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new KnowledgeHub();
+    console.log("Knowledge Hub JS loaded!");
+
+    // --- Mock Data ---
+    const recommendations = [
+        {
+            title: "The Role of Fiber in Weight Management",
+            category: "Nutrition Science",
+            icon: "fas fa-seedling",
+            url: "#",
+            color: "primary"
+        },
+        {
+            title: "Mindful Eating: A Beginner's Guide",
+            category: "Behavioral Tips",
+            icon: "fas fa-brain",
+            url: "#",
+            color: "accent"
+        },
+        {
+            title: "High-Protein Breakfast Ideas",
+            category: "Recipes",
+            icon: "fas fa-utensils",
+            url: "#",
+            color: "success"
+        }
+    ];
+
+    const achievements = [
+        { name: "First Article Read", icon: "fas fa-book-reader", unlocked: true },
+        { name: "5-Day Streak", icon: "fas fa-fire", unlocked: true },
+        { name: "Completed First Path", icon: "fas fa-flag-checkered", unlocked: false },
+        { name: "Bookmarked 10 Articles", icon: "fas fa-bookmark", unlocked: true },
+        { name: "Early Bird", icon: "fas fa-sun", unlocked: true, description: "Learned before 9 AM" },
+        { name: "Night Owl", icon: "fas fa-moon", unlocked: false, description: "Learned after 9 PM" },
+        { name: "Weekend Warrior", icon: "fas fa-calendar-alt", unlocked: false, description: "Learned on a weekend" },
+        { name: "Perfect Week", icon: "fas fa-star", unlocked: false, description: "Learned every day for a week" }
+    ];
+
+    // --- DOM Elements ---
+    const recommendationsGrid = document.querySelector('.recommendations-grid');
+    const achievementsGrid = document.querySelector('.achievements-grid');
+
+    // --- Functions ---
+    function renderRecommendations() {
+        if (!recommendationsGrid) return;
+        recommendationsGrid.innerHTML = recommendations.map(rec => `
+            <a href="${rec.url}" class="recommendation-card card-hover-effect">
+                <div class="rec-icon rec-icon--${rec.color}">
+                    <i class="${rec.icon}"></i>
+                </div>
+                <div class="rec-content">
+                    <span class="rec-category">${rec.category}</span>
+                    <h4 class="rec-title">${rec.title}</h4>
+                </div>
+                <div class="rec-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    function renderAchievements() {
+        if (!achievementsGrid) return;
+        achievementsGrid.innerHTML = achievements.map(ach => `
+            <div class="achievement-card ${ach.unlocked ? 'unlocked' : ''}" title="${ach.description || ach.name}">
+                <div class="achievement-icon">
+                    <i class="${ach.icon}"></i>
+                </div>
+                <p class="achievement-name">${ach.name}</p>
+            </div>
+        `).join('');
+    }
+
+    // --- Initial Render ---
+    renderRecommendations();
+    renderAchievements();
+
+    // --- Add some styles for the dynamic content ---
+    const style = document.createElement('style');
+    style.textContent = `
+        .recommendation-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            border: 2px solid transparent;
+        }
+        .rec-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .rec-icon--primary { background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); }
+        .rec-icon--accent { background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); }
+        .rec-icon--success { background: linear-gradient(135deg, var(--success-500), var(--warning-500)); }
+
+        .rec-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neutral-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rec-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-700);
+            margin: 0.25rem 0 0;
+        }
+        .rec-arrow {
+            margin-left: auto;
+            color: var(--neutral-400);
+            transition: all 0.3s ease;
+        }
+        .recommendation-card:hover .rec-arrow {
+            color: var(--primary-500);
+            transform: translateX(5px);
+        }
+
+        .achievement-card {
+            background: var(--neutral-100);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0.5;
+            filter: grayscale(80%);
+            transition: all 0.3s ease;
+        }
+        .achievement-card.unlocked {
+            opacity: 1;
+            filter: grayscale(0%);
+            background: white;
+            border: 2px solid var(--accent-200);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+        .achievement-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: var(--neutral-300);
+            color: var(--neutral-500);
+            font-size: 2rem;
+        }
+        .achievement-card.unlocked .achievement-icon {
+            background: linear-gradient(135deg, var(--warning-500), var(--accent-500));
+            color: white;
+        }
+        .achievement-name {
+            font-weight: 600;
+            color: var(--neutral-700);
+            margin: 0;
+        }
+        .card-hover-effect {
+            transition: all 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+    `;
+    document.head.appendChild(style);
 }); 

@@ -4,30 +4,28 @@ title: "Knowledge Hub | Diaeta"
 description: "Your personalized learning center for nutrition, health, and wellness. Track your progress, discover new content, and achieve your health goals."
 lang: en
 og_image: /images/nutrition-research-lab-large.jpg
+head_extra: |
+  <link rel="stylesheet" href="{{ '/css/knowledge-hub.css' | url }}">
 ---
 
 {# === Knowledge Hub Hero Section === #}
-<section class="knowledge-hub-hero" style="background: linear-gradient(135deg, var(--primary-600) 0%, var(--accent-600) 100%); position: relative; overflow: hidden; padding: 4rem 0;">
-    <!-- Decorative Background Elements -->
-    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); border-radius: 50%;"></div>
-    
+<section class="knowledge-hub-hero">
     <div class="container position-relative">
         <div class="section-header text-center text-white animate-on-scroll fade-up">
-            <span class="hero-badge" style="background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+            <span class="hero-badge">
                 <i class="fas fa-graduation-cap me-2"></i>Your Learning Center
             </span>
-            <h1 class="hero-headline" style="font-size: 3rem; font-weight: 700; margin: 1.5rem 0; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+            <h1 class="hero-headline">
                 Knowledge Hub
             </h1>
-            <p class="section-subtitle" style="font-size: 1.3rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+            <p class="section-subtitle">
                 Your personalized journey to better health through evidence-based nutrition education
             </p>
-            <div class="hero-actions animate-on-scroll fade-up delay-200" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#learning-paths" class="btn btn-lg" style="background: white; color: var(--primary-600); border: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+            <div class="hero-actions animate-on-scroll fade-up delay-200">
+                <a href="#learning-paths" class="btn btn-lg">
                     <i class="fas fa-road me-2"></i>Start Learning
                 </a>
-                <a href="#progress" class="btn btn-lg btn-outline-light" style="border: 2px solid white; background: transparent; color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none;">
+                <a href="#progress" class="btn btn-lg btn-outline-light">
                     <i class="fas fa-chart-line me-2"></i>View Progress
                 </a>
             </div>
@@ -39,61 +37,61 @@ og_image: /images/nutrition-research-lab-large.jpg
 
 
 {# === User Dashboard Section === #}
-<section id="user-dashboard" class="user-dashboard-section" style="background: var(--neutral-50); padding: 4rem 0;">
+<section id="user-dashboard" class="user-dashboard-section">
     <div class="container">
         <div class="row g-4">
             <!-- Welcome & Progress Overview -->
             <div class="col-lg-8">
-                <div class="dashboard-welcome-card" style="background: white; border-radius: 25px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 2px solid var(--primary-100);">
-                    <div class="welcome-header" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
-                        <div class="user-avatar" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700;">
+                <div class="dashboard-welcome-card">
+                    <div class="welcome-header">
+                        <div class="user-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="welcome-text">
-                            <h2 style="color: var(--primary-600); font-weight: 700; margin-bottom: 0.5rem;">Welcome back!</h2>
-                            <p style="color: var(--neutral-600); margin: 0; font-size: 1.1rem;">Continue your health education journey</p>
+                            <h2>Welcome back!</h2>
+                            <p>Continue your health education journey</p>
                         </div>
                     </div>
                     
-                    <div class="progress-overview" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                        <div class="progress-card" style="background: var(--primary-50); padding: 1.5rem; border-radius: 15px; text-align: center; border: 2px solid var(--primary-200);">
-                            <div class="progress-icon" style="width: 50px; height: 50px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.2rem;">
+                    <div class="progress-overview">
+                        <div class="progress-card progress-card--primary">
+                            <div class="progress-icon">
                                 <i class="fas fa-book-open"></i>
                             </div>
-                            <h3 class="progress-number" style="color: var(--primary-600); font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">12</h3>
-                            <p style="color: var(--neutral-700); margin: 0; font-weight: 600;">Articles Completed</p>
+                            <h3 class="progress-number">12</h3>
+                            <p>Articles Completed</p>
                         </div>
                         
-                        <div class="progress-card" style="background: var(--accent-50); padding: 1.5rem; border-radius: 15px; text-align: center; border: 2px solid var(--accent-200);">
-                            <div class="progress-icon" style="width: 50px; height: 50px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.2rem;">
+                        <div class="progress-card progress-card--accent">
+                            <div class="progress-icon">
                                 <i class="fas fa-trophy"></i>
                             </div>
-                            <h3 class="progress-number" style="color: var(--accent-600); font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">8</h3>
-                            <p style="color: var(--neutral-700); margin: 0; font-weight: 600;">Achievements Unlocked</p>
+                            <h3 class="progress-number">8</h3>
+                            <p>Achievements Unlocked</p>
                         </div>
                         
-                        <div class="progress-card" style="background: var(--success-50); padding: 1.5rem; border-radius: 15px; text-align: center; border: 2px solid var(--success-200);">
-                            <div class="progress-icon" style="width: 50px; height: 50px; background: var(--success-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.2rem;">
+                        <div class="progress-card progress-card--success">
+                            <div class="progress-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
-                            <h3 class="progress-number" style="color: var(--success-600); font-weight: 700; font-size: 2rem; margin-bottom: 0.5rem;">45</h3>
-                            <p style="color: var(--neutral-700); margin: 0; font-weight: 600;">Hours Learning</p>
+                            <h3 class="progress-number">45</h3>
+                            <p>Hours Learning</p>
                         </div>
                     </div>
                     
-                    <div class="current-learning" style="background: var(--neutral-100); padding: 1.5rem; border-radius: 15px;">
-                        <h4 style="color: var(--primary-600); font-weight: 600; margin-bottom: 1rem;">
+                    <div class="current-learning">
+                        <h4>
                             <i class="fas fa-play-circle me-2"></i>Continue Learning
                         </h4>
-                        <div class="current-article" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 10px; border-left: 4px solid var(--primary-500);">
-                            <div class="article-icon" style="width: 40px; height: 40px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <div class="current-article">
+                            <div class="article-icon">
                                 <i class="fas fa-stomach"></i>
                             </div>
-                            <div class="article-info" style="flex: 1;">
-                                <h5 style="color: var(--primary-600); font-weight: 600; margin-bottom: 0.25rem;">Understanding IBS: Symptoms & Causes</h5>
-                                <p style="color: var(--neutral-600); margin: 0; font-size: 0.9rem;">Progress: 65% complete</p>
+                            <div class="article-info">
+                                <h5>Understanding IBS: Symptoms & Causes</h5>
+                                <p>Progress: 65% complete</p>
                             </div>
-                            <a href="/en/irritable-bowel-syndrome-fodmap.html" class="btn btn-primary" style="background: var(--primary-500); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">
+                            <a href="{{ '/en/irritable-bowel-syndrome-fodmap/' | url }}" class="btn btn-primary">
                                 Continue
                             </a>
                         </div>
@@ -103,35 +101,35 @@ og_image: /images/nutrition-research-lab-large.jpg
             
             <!-- Quick Actions Sidebar -->
             <div class="col-lg-4">
-                <div class="quick-actions-sidebar" style="background: white; border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 2px solid var(--accent-100);">
-                    <h3 style="color: var(--accent-600); font-weight: 700; margin-bottom: 1.5rem;">
+                <div class="quick-actions-sidebar">
+                    <h3>
                         <i class="fas fa-bolt me-2"></i>Quick Actions
                     </h3>
                     
-                    <div class="action-buttons" style="display: flex; flex-direction: column; gap: 1rem;">
-                        <a href="/en/search.html" class="action-btn" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--primary-50); border: 2px solid var(--primary-200); border-radius: 15px; text-decoration: none; color: var(--primary-700); font-weight: 600; transition: all 0.3s ease;">
-                            <div class="action-icon" style="width: 40px; height: 40px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                    <div class="action-buttons">
+                        <a href="{{ '/en/search/' | url }}" class="action-btn action-btn--primary">
+                            <div class="action-icon">
                                 <i class="fas fa-search"></i>
                             </div>
                             <span>Search Knowledge Base</span>
                         </a>
                         
-                        <a href="#bookmarks" class="action-btn" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--accent-50); border: 2px solid var(--accent-200); border-radius: 15px; text-decoration: none; color: var(--accent-700); font-weight: 600; transition: all 0.3s ease;">
-                            <div class="action-icon" style="width: 40px; height: 40px; background: var(--accent-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <a href="#bookmarks" class="action-btn action-btn--accent">
+                            <div class="action-icon">
                                 <i class="fas fa-bookmark"></i>
                             </div>
                             <span>My Bookmarks</span>
                         </a>
                         
-                        <a href="#notes" class="action-btn" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--success-50); border: 2px solid var(--success-200); border-radius: 15px; text-decoration: none; color: var(--success-700); font-weight: 600; transition: all 0.3s ease;">
-                            <div class="action-icon" style="width: 40px; height: 40px; background: var(--success-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <a href="#notes" class="action-btn action-btn--success">
+                            <div class="action-icon">
                                 <i class="fas fa-sticky-note"></i>
                             </div>
                             <span>My Notes</span>
                         </a>
                         
-                        <a href="/en/appointment.html" class="action-btn" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--warning-50); border: 2px solid var(--warning-200); border-radius: 15px; text-decoration: none; color: var(--warning-700); font-weight: 600; transition: all 0.3s ease;">
-                            <div class="action-icon" style="width: 40px; height: 40px; background: var(--warning-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <a href="{{ '/en/appointment/' | url }}" class="action-btn action-btn--warning">
+                            <div class="action-icon">
                                 <i class="fas fa-calendar-check"></i>
                             </div>
                             <span>Book Consultation</span>
@@ -144,158 +142,158 @@ og_image: /images/nutrition-research-lab-large.jpg
 </section>
 
 {# === Learning Paths Section === #}
-<section id="learning-paths" class="learning-paths-section" style="background: white; padding: 4rem 0;">
+<section id="learning-paths" class="learning-paths-section">
     <div class="container">
         <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--accent-500), var(--primary-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <span class="section-badge animate-on-scroll fade-in">
                 <i class="fas fa-road me-2"></i>Structured Learning
             </span>
-            <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 1rem 0;">
+            <h2 class="animate-on-scroll fade-up">
                 Choose Your Learning Path
             </h2>
-            <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: var(--neutral-700); max-width: 600px; margin: 0 auto;">
+            <p class="lead animate-on-scroll fade-up delay-100">
                 Follow structured learning paths designed to guide you from basics to advanced topics
             </p>
         </div>
         
-        <div class="learning-paths-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        <div class="learning-paths-grid">
             <!-- IBS Learning Path -->
-            <div class="learning-path-card animate-on-scroll fade-up delay-200" style="background: white; border: 3px solid var(--primary-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                <div class="path-header" style="text-align: center; margin-bottom: 2rem;">
-                    <div class="path-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem;">
+            <div class="learning-path-card learning-path-card--primary animate-on-scroll fade-up delay-200">
+                <div class="path-header">
+                    <div class="path-icon path-icon--primary">
                         <i class="fas fa-stomach"></i>
                     </div>
-                    <h3 style="color: var(--primary-600); font-weight: 700; margin-bottom: 0.5rem;">IBS & Digestive Health</h3>
-                    <p style="color: var(--neutral-600); margin: 0;">Master the low FODMAP approach and digestive wellness</p>
+                    <h3 class="text--primary">IBS & Digestive Health</h3>
+                    <p>Master the low FODMAP approach and digestive wellness</p>
                 </div>
                 
-                <div class="path-progress" style="margin-bottom: 1.5rem;">
-                    <div class="progress-info" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: var(--neutral-700); font-weight: 600;">Progress</span>
-                        <span style="color: var(--primary-600); font-weight: 600;">75%</span>
+                <div class="path-progress">
+                    <div class="progress-info">
+                        <span class="progress-label">Progress</span>
+                        <span class="progress-percentage--primary">75%</span>
                     </div>
-                    <div class="progress-bar" style="width: 100%; height: 8px; background: var(--neutral-200); border-radius: 10px; overflow: hidden;">
-                        <div class="progress-fill" style="width: 75%; height: 100%; background: linear-gradient(90deg, var(--primary-500), var(--accent-500)); border-radius: 10px;"></div>
-                    </div>
-                </div>
-                
-                <div class="path-steps" style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--primary-600); font-weight: 600; margin-bottom: 1rem;">Learning Steps</h4>
-                    <div class="step-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div class="step-item completed" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--success-50); border-radius: 10px; border-left: 4px solid var(--success-500);">
-                            <i class="fas fa-check-circle" style="color: var(--success-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">Understanding IBS Basics</span>
-                        </div>
-                        <div class="step-item completed" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--success-50); border-radius: 10px; border-left: 4px solid var(--success-500);">
-                            <i class="fas fa-check-circle" style="color: var(--success-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">FODMAP Introduction</span>
-                        </div>
-                        <div class="step-item current" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--primary-50); border-radius: 10px; border-left: 4px solid var(--primary-500);">
-                            <i class="fas fa-play-circle" style="color: var(--primary-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">Food Elimination Phase</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Reintroduction Strategy</span>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-fill--primary" style="width: 75%;"></div>
                     </div>
                 </div>
                 
-                <a href="/en/irritable-bowel-syndrome-fodmap.html" class="btn btn-primary w-100" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border: none; padding: 1rem; border-radius: 25px; color: white; text-decoration: none; font-weight: 600; text-align: center;">
+                <div class="path-steps">
+                    <h4 class="text--primary">Learning Steps</h4>
+                    <div class="step-list">
+                        <div class="step-item completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Understanding IBS Basics</span>
+                        </div>
+                        <div class="step-item completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>FODMAP Introduction</span>
+                        </div>
+                        <div class="step-item current--primary">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Food Elimination Phase</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Reintroduction Strategy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="{{ '/en/irritable-bowel-syndrome-fodmap/' | url }}" class="btn btn--primary w-100">
                     Continue Learning
                 </a>
             </div>
             
             <!-- Diabetes Learning Path -->
-            <div class="learning-path-card animate-on-scroll fade-up delay-300" style="background: white; border: 3px solid var(--accent-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                <div class="path-header" style="text-align: center; margin-bottom: 2rem;">
-                    <div class="path-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-500), var(--secondary-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem;">
+            <div class="learning-path-card learning-path-card--accent animate-on-scroll fade-up delay-300">
+                <div class="path-header">
+                    <div class="path-icon path-icon--accent">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3 style="color: var(--accent-600); font-weight: 700; margin-bottom: 0.5rem;">Diabetes Management</h3>
-                    <p style="color: var(--neutral-600); margin: 0;">Learn effective strategies for blood sugar control</p>
+                    <h3 class="text--accent">Diabetes Management</h3>
+                    <p>Learn effective strategies for blood sugar control</p>
                 </div>
                 
-                <div class="path-progress" style="margin-bottom: 1.5rem;">
-                    <div class="progress-info" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: var(--neutral-700); font-weight: 600;">Progress</span>
-                        <span style="color: var(--accent-600); font-weight: 600;">40%</span>
+                <div class="path-progress">
+                    <div class="progress-info">
+                        <span class="progress-label">Progress</span>
+                        <span class="progress-percentage--accent">40%</span>
                     </div>
-                    <div class="progress-bar" style="width: 100%; height: 8px; background: var(--neutral-200); border-radius: 10px; overflow: hidden;">
-                        <div class="progress-fill" style="width: 40%; height: 100%; background: linear-gradient(90deg, var(--accent-500), var(--secondary-500)); border-radius: 10px;"></div>
-                    </div>
-                </div>
-                
-                <div class="path-steps" style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--accent-600); font-weight: 600; margin-bottom: 1rem;">Learning Steps</h4>
-                    <div class="step-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div class="step-item completed" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--success-50); border-radius: 10px; border-left: 4px solid var(--success-500);">
-                            <i class="fas fa-check-circle" style="color: var(--success-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">Diabetes Types & Causes</span>
-                        </div>
-                        <div class="step-item current" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--accent-50); border-radius: 10px; border-left: 4px solid var(--accent-500);">
-                            <i class="fas fa-play-circle" style="color: var(--accent-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">Blood Sugar Monitoring</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Meal Planning Strategies</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Lifestyle Management</span>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-fill--accent" style="width: 40%;"></div>
                     </div>
                 </div>
                 
-                <a href="/en/diabetes-management.html" class="btn btn-primary w-100" style="background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); border: none; padding: 1rem; border-radius: 25px; color: white; text-decoration: none; font-weight: 600; text-align: center;">
+                <div class="path-steps">
+                    <h4 class="text--accent">Learning Steps</h4>
+                    <div class="step-list">
+                        <div class="step-item completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diabetes Types & Causes</span>
+                        </div>
+                        <div class="step-item current--accent">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Blood Sugar Monitoring</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Meal Planning Strategies</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Lifestyle Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="{{ '/en/diabetes-management/' | url }}" class="btn btn--accent w-100">
                     Continue Learning
                 </a>
             </div>
             
             <!-- Weight Loss Learning Path -->
-            <div class="learning-path-card animate-on-scroll fade-up delay-400" style="background: white; border: 3px solid var(--success-200); border-radius: 25px; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                <div class="path-header" style="text-align: center; margin-bottom: 2rem;">
-                    <div class="path-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success-500), var(--warning-500)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem;">
+            <div class="learning-path-card learning-path-card--success animate-on-scroll fade-up delay-400">
+                <div class="path-header">
+                    <div class="path-icon path-icon--success">
                         <i class="fas fa-weight-scale"></i>
                     </div>
-                    <h3 style="color: var(--success-600); font-weight: 700; margin-bottom: 0.5rem;">Sustainable Weight Loss</h3>
-                    <p style="color: var(--neutral-600); margin: 0;">Science-based approaches to healthy weight management</p>
+                    <h3 class="text--success">Sustainable Weight Loss</h3>
+                    <p>Science-based approaches to healthy weight management</p>
                 </div>
                 
-                <div class="path-progress" style="margin-bottom: 1.5rem;">
-                    <div class="progress-info" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: var(--neutral-700); font-weight: 600;">Progress</span>
-                        <span style="color: var(--success-600); font-weight: 600;">20%</span>
+                <div class="path-progress">
+                    <div class="progress-info">
+                        <span class="progress-label">Progress</span>
+                        <span class="progress-percentage--success">20%</span>
                     </div>
-                    <div class="progress-bar" style="width: 100%; height: 8px; background: var(--neutral-200); border-radius: 10px; overflow: hidden;">
-                        <div class="progress-fill" style="width: 20%; height: 100%; background: linear-gradient(90deg, var(--success-500), var(--warning-500)); border-radius: 10px;"></div>
-                    </div>
-                </div>
-                
-                <div class="path-steps" style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--success-600); font-weight: 600; margin-bottom: 1rem;">Learning Steps</h4>
-                    <div class="step-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div class="step-item current" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--success-50); border-radius: 10px; border-left: 4px solid var(--success-500);">
-                            <i class="fas fa-play-circle" style="color: var(--success-500);"></i>
-                            <span style="color: var(--neutral-700); font-weight: 500;">Weight Loss Fundamentals</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Nutrition Strategies</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Exercise Integration</span>
-                        </div>
-                        <div class="step-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--neutral-50); border-radius: 10px; border-left: 4px solid var(--neutral-300);">
-                            <i class="fas fa-circle" style="color: var(--neutral-400);"></i>
-                            <span style="color: var(--neutral-500); font-weight: 500;">Long-term Maintenance</span>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-fill--success" style="width: 20%;"></div>
                     </div>
                 </div>
                 
-                <a href="/en/weight-loss.html" class="btn btn-primary w-100" style="background: linear-gradient(135deg, var(--success-500), var(--success-600)); border: none; padding: 1rem; border-radius: 25px; color: white; text-decoration: none; font-weight: 600; text-align: center;">
+                <div class="path-steps">
+                    <h4 class="text--success">Learning Steps</h4>
+                    <div class="step-list">
+                        <div class="step-item current--success">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Weight Loss Fundamentals</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Nutrition Strategies</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Exercise Integration</span>
+                        </div>
+                        <div class="step-item pending">
+                            <i class="fas fa-circle"></i>
+                            <span>Long-term Maintenance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="{{ '/en/weight-loss/' | url }}" class="btn btn--success w-100">
                     Start Learning
                 </a>
             </div>
@@ -304,45 +302,45 @@ og_image: /images/nutrition-research-lab-large.jpg
 </section>
 
 {# === Personalized Recommendations Section === #}
-<section class="recommendations-section" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--accent-50) 100%); padding: 4rem 0;">
+<section class="recommendations-section">
     <div class="container">
         <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--primary-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <span class="section-badge animate-on-scroll fade-in">
                 <i class="fas fa-lightbulb me-2"></i>Recommended for You
             </span>
-            <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 1rem 0;">
+            <h2 class="animate-on-scroll fade-up">
                 Discover Your Next Steps
             </h2>
-            <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: var(--neutral-700); max-width: 600px; margin: 0 auto;">
+            <p class="lead animate-on-scroll fade-up delay-100">
                 Based on your learning progress and interests, here are articles we think you'll find valuable
             </p>
         </div>
         
-        <div class="recommendations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="recommendations-grid">
             <!-- Recommendation cards will be dynamically populated by JavaScript -->
         </div>
     </div>
 </section>
 
 {# === Achievements Section === #}
-<section class="achievements-section" style="background: white; padding: 4rem 0;">
+<section class="achievements-section">
     <div class="container">
         <div class="text-center mb-5">
-            <span class="section-badge animate-on-scroll fade-in" style="background: linear-gradient(135deg, var(--warning-500), var(--accent-500)); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <span class="section-badge animate-on-scroll fade-in">
                 <i class="fas fa-trophy me-2"></i>Your Achievements
             </span>
-            <h2 class="animate-on-scroll fade-up" style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--warning-600), var(--accent-600)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 1rem 0;">
+            <h2 class="animate-on-scroll fade-up">
                 Celebrate Your Progress
             </h2>
-            <p class="lead animate-on-scroll fade-up delay-100" style="font-size: 1.2rem; color: var(--neutral-700); max-width: 600px; margin: 0 auto;">
+            <p class="lead animate-on-scroll fade-up delay-100">
                 Track your learning milestones and unlock new achievements as you progress
             </p>
         </div>
         
-        <div class="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div class="achievements-grid">
             <!-- Achievement cards will be dynamically populated by JavaScript -->
         </div>
     </div>
 </section>
 
-<script src="/js/knowledge-hub.js"></script> 
+<script src="{{ '/js/knowledge-hub.js' | url }}"></script> 
